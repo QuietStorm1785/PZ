@@ -324,11 +324,12 @@ CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.cpp.o: \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/erase_if.h \
- /workspaces/PZ/PZ-Switch/include/InputManager.h /usr/include/glm/glm.hpp \
- /usr/include/glm/detail/_fixes.hpp /usr/include/glm/detail/setup.hpp \
- /usr/include/c++/13/cassert /usr/include/assert.h \
- /usr/include/glm/simd/platform.h /usr/include/c++/13/cstdint \
- /usr/include/c++/13/climits \
+ /workspaces/PZ/PZ-Switch/include/InputManager.h \
+ /workspaces/PZ/PZ-Switch/include/AnimationController.h \
+ /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
+ /usr/include/glm/detail/setup.hpp /usr/include/c++/13/cassert \
+ /usr/include/assert.h /usr/include/glm/simd/platform.h \
+ /usr/include/c++/13/cstdint /usr/include/c++/13/climits \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \

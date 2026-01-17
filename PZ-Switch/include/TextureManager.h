@@ -3,8 +3,17 @@
 #include <string>
 #include <unordered_map>
 #include <memory>
+#include <vector>
 
 namespace zombie {
+
+// Forward declarations
+namespace graphics { 
+    class AnimatedSprite; 
+    class Animation;
+    struct AnimationFrame;
+}
+
 namespace assets {
 
 /**
@@ -36,6 +45,14 @@ public:
     
     // Clear cache
     void clearCache();
+    
+    // Load animated sprite from PZ texture pack format
+    // Loads both .png and .txt files (e.g., "ShirtGrey_Walk" -> ShirtGrey_Walk.png + .txt)
+    zombie::graphics::AnimatedSprite* loadAnimatedSprite(const std::string& baseName);
+    
+    // Parse PZ animation format (.txt file)
+    bool parseAnimationFile(const std::string& txtPath, 
+                           std::unordered_map<std::string, zombie::graphics::Animation>& animations);
     
 private:
     static TextureManager* instance;

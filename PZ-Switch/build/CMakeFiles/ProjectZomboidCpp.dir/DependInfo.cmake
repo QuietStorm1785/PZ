@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/PZ/PZ-Switch/src/AIBehaviors.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/Animation.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/Animation.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/Animation.cpp.o.d"
+  "/workspaces/PZ/PZ-Switch/src/AnimationController.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/Audio.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/Audio.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/Audio.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.cpp.o.d"

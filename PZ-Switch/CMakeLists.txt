@@ -101,6 +101,7 @@ set(SOURCES
     src/AIBehaviors.cpp
     src/SaveLoad.cpp
     src/Animation.cpp
+    src/AnimationController.cpp
     src/Audio.cpp
     src/UI.cpp
     src/Tasks.cpp

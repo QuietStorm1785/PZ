@@ -182,6 +182,28 @@ void IsoPlayer::update(float deltaTime) {
     }
 
     updatePlayerStats(deltaTime);
+    
+    // Update animation controller
+    if (animController) {
+        // Update animation state based on movement
+        if (!isAlive()) {
+            animController->setState(zombie::characters::AnimationController::State::DEATH);
+        } else if (isMoving()) {
+            if (isRunning()) {
+                animController->setState(zombie::characters::AnimationController::State::RUN);
+            } else {
+                animController->setState(zombie::characters::AnimationController::State::WALK);
+            }
+            
+            // Update direction based on velocity
+            auto dir = zombie::characters::AnimationHelpers::velocityToDirection(velocityX, velocityY);
+            animController->setDirection(dir);
+        } else {
+            animController->setState(zombie::characters::AnimationController::State::IDLE);
+        }
+        
+        animController->update(deltaTime);
+    }
 }
 
 void IsoPlayer::render(SDL_Renderer* renderer) {

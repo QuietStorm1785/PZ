@@ -3,6 +3,7 @@
 #include "InputManager.h"
 #include "Sprite.h"
 #include "SpriteAnimation.h"
+#include "AnimationController.h"
 #include <SDL2/SDL.h>
 #include <memory>
 #include <string>
@@ -142,7 +143,15 @@ public:
     
     // Sprite access
     zombie::graphics::AnimatedSprite* getSprite() { return sprite.get(); }
-    void setSprite(std::shared_ptr<zombie::graphics::AnimatedSprite> spr) { sprite = spr; }
+    void setSprite(std::shared_ptr<zombie::graphics::AnimatedSprite> spr) { 
+        sprite = spr;
+        if (sprite && !animController) {
+            animController = std::make_unique<zombie::characters::AnimationController>(sprite.get());
+        }
+    }
+    
+    // Animation controller access
+    zombie::characters::AnimationController* getAnimationController() { return animController.get(); }
     
     std::string getType() const override { return "IsoPlayer"; }
     
@@ -174,6 +183,9 @@ private:
     
     // Sprite for rendering
     std::shared_ptr<zombie::graphics::AnimatedSprite> sprite;
+    
+    // Animation controller
+    std::unique_ptr<zombie::characters::AnimationController> animController;
     
     // Helper methods
     void processMovementInput(input::InputManager* inputMgr);

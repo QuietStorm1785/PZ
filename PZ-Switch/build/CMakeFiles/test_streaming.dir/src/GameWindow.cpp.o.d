@@ -466,6 +466,7 @@ CMakeFiles/test_streaming.dir/src/GameWindow.cpp.o: \
  /workspaces/PZ/PZ-Switch/include/Player.h \
  /workspaces/PZ/PZ-Switch/include/IsoPlayer.h \
  /workspaces/PZ/PZ-Switch/include/InputManager.h \
+ /workspaces/PZ/PZ-Switch/include/AnimationController.h \
  /workspaces/PZ/PZ-Switch/include/IsoZombie.h \
  /workspaces/PZ/PZ-Switch/include/Pathfinding.h \
  /usr/include/c++/13/unordered_set \

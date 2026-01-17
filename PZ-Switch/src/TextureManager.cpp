@@ -1,6 +1,9 @@
 #include "TextureManager.h"
+#include "SpriteAnimation.h"
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 namespace zombie {
 namespace assets {
@@ -121,6 +124,104 @@ SDL_Texture* TextureManager::loadFromFile(const std::string& fullPath) {
     }
     
     return texture;
+}
+
+zombie::graphics::AnimatedSprite* TextureManager::loadAnimatedSprite(const std::string& baseName) {
+    if (!renderer) {
+        std::cerr << "TextureManager: No renderer set" << std::endl;
+        return nullptr;
+    }
+    
+    // Load texture
+    std::string pngPath = baseName + ".png";
+    SDL_Texture* texture = loadTexture(pngPath);
+    if (!texture) {
+        std::cerr << "Failed to load texture: " << pngPath << std::endl;
+        return nullptr;
+    }
+    
+    // Create animated sprite
+    auto* sprite = new zombie::graphics::AnimatedSprite(texture);
+    
+    // Parse animation definitions from .txt file
+    std::string txtPath = mediaPath + baseName + ".txt";
+    std::unordered_map<std::string, zombie::graphics::Animation> animations;
+    
+    if (parseAnimationFile(txtPath, animations)) {
+        // Add all animations to sprite
+        for (const auto& pair : animations) {
+            sprite->addAnimation(pair.first, pair.second);
+        }
+        std::cout << "Loaded animated sprite: " << baseName << " (" 
+                  << animations.size() << " animations)" << std::endl;
+    } else {
+        std::cerr << "Warning: No animation file found for " << baseName << std::endl;
+    }
+    
+    return sprite;
+}
+
+bool TextureManager::parseAnimationFile(const std::string& txtPath,
+                                        std::unordered_map<std::string, zombie::graphics::Animation>& animations) {
+    std::ifstream file(txtPath);
+    if (!file.is_open()) {
+        return false;
+    }
+    
+    std::string line;
+    while (std::getline(file, line)) {
+        // Skip empty lines
+        if (line.empty()) continue;
+        
+        // Parse line format: "AnimName_Frame = x y w h offsetX offsetY origW origH"
+        size_t equalsPos = line.find('=');
+        if (equalsPos == std::string::npos) continue;
+        
+        std::string frameName = line.substr(0, equalsPos);
+        std::string frameData = line.substr(equalsPos + 1);
+        
+        // Trim whitespace
+        frameName.erase(0, frameName.find_first_not_of(" \t"));
+        frameName.erase(frameName.find_last_not_of(" \t") + 1);
+        frameData.erase(0, frameData.find_first_not_of(" \t"));
+        
+        // Extract animation name (everything before last underscore + number)
+        size_t lastUnderscorePos = frameName.find_last_of('_');
+        if (lastUnderscorePos == std::string::npos) continue;
+        
+        std::string animName = frameName.substr(0, lastUnderscorePos);
+        
+        // Parse frame data: x y width height offsetX offsetY originalWidth originalHeight
+        std::istringstream iss(frameData);
+        int x, y, w, h, offsetX, offsetY, origW, origH;
+        if (!(iss >> x >> y >> w >> h >> offsetX >> offsetY >> origW >> origH)) {
+            continue; // Invalid format
+        }
+        
+        // Create or get animation
+        if (animations.find(animName) == animations.end()) {
+            animations[animName] = zombie::graphics::Animation(animName);
+            animations[animName].setLoop(true);
+            animations[animName].setFrameDuration(0.1f); // 10 FPS default
+        }
+        
+        // Add frame to animation
+        zombie::graphics::AnimationFrame frame;
+        frame.x = x;
+        frame.y = y;
+        frame.width = w;
+        frame.height = h;
+        frame.offsetX = offsetX;
+        frame.offsetY = offsetY;
+        frame.originalWidth = origW;
+        frame.originalHeight = origH;
+        frame.duration = 0.1f; // 10 FPS
+        
+        animations[animName].addFrame(frame);
+    }
+    
+    file.close();
+    return !animations.empty();
 }
 
 } // namespace assets

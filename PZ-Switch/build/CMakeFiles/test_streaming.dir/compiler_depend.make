@@ -3177,12 +3177,16 @@ CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o: /workspaces/PZ/PZ-Switch/
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h \
   /workspaces/PZ/PZ-Switch/include/ChunkRenderer.h \
+  /workspaces/PZ/PZ-Switch/include/Entity.h \
+  /workspaces/PZ/PZ-Switch/include/InputManager.h \
   /workspaces/PZ/PZ-Switch/include/IsoCell.h \
   /workspaces/PZ/PZ-Switch/include/IsoChunk.h \
   /workspaces/PZ/PZ-Switch/include/IsoGridSquare.h \
   /workspaces/PZ/PZ-Switch/include/IsoObject.h \
+  /workspaces/PZ/PZ-Switch/include/IsoPlayer.h \
   /workspaces/PZ/PZ-Switch/include/SpatialGrid.h \
   /workspaces/PZ/PZ-Switch/include/Sprite.h \
+  /workspaces/PZ/PZ-Switch/include/SpriteAnimation.h \
   /workspaces/PZ/PZ-Switch/include/SpriteBatch.h \
   /workspaces/PZ/PZ-Switch/include/Terrain.h
 
@@ -19418,8 +19422,6 @@ CMakeFiles/test_streaming.dir/test_streaming.cpp.o: /workspaces/PZ/PZ-Switch/tes
 
 /workspaces/PZ/PZ-Switch/include/NetworkManager.h:
 
-/workspaces/PZ/PZ-Switch/include/IsoPlayer.h:
-
 /workspaces/PZ/PZ-Switch/include/GameWindow.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h:
@@ -19454,17 +19456,19 @@ CMakeFiles/test_streaming.dir/test_streaming.cpp.o: /workspaces/PZ/PZ-Switch/tes
 
 /workspaces/PZ/PZ-Switch/include/TileMap.h:
 
-/workspaces/PZ/PZ-Switch/src/WorldLoader.cpp:
-
-/workspaces/PZ/PZ-Switch/include/SpriteAnimation.h:
-
-/workspaces/PZ/PZ-Switch/include/Entity.h:
-
 /workspaces/PZ/PZ-Switch/src/Collision.cpp:
 
 /workspaces/PZ/PZ-Switch/include/SpriteBatch.h:
 
+/workspaces/PZ/PZ-Switch/src/WorldLoader.cpp:
+
+/workspaces/PZ/PZ-Switch/include/SpriteAnimation.h:
+
 /workspaces/PZ/PZ-Switch/include/Sprite.h:
+
+/workspaces/PZ/PZ-Switch/include/IsoPlayer.h:
+
+/workspaces/PZ/PZ-Switch/include/Entity.h:
 
 /workspaces/PZ/PZ-Switch/src/ChunkRenderer.cpp:
 

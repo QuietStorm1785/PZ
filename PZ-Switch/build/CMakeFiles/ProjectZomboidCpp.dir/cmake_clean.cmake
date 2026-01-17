@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.cpp.o.d"
   "CMakeFiles/ProjectZomboidCpp.dir/src/Animation.cpp.o"
   "CMakeFiles/ProjectZomboidCpp.dir/src/Animation.cpp.o.d"
+  "CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.cpp.o"
+  "CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.cpp.o.d"
   "CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.cpp.o"
   "CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.cpp.o.d"
   "CMakeFiles/ProjectZomboidCpp.dir/src/Audio.cpp.o"

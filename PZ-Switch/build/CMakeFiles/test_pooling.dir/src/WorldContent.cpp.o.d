@@ -449,6 +449,7 @@ CMakeFiles/test_pooling.dir/src/WorldContent.cpp.o: \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/erase_if.h \
  /workspaces/PZ/PZ-Switch/include/InputManager.h \
+ /workspaces/PZ/PZ-Switch/include/AnimationController.h \
  /workspaces/PZ/PZ-Switch/include/AudioInteractionSystem.h \
  /workspaces/PZ/PZ-Switch/include/InventoryManager.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \

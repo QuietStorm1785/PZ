@@ -260,6 +260,36 @@ src/Animation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/Animation.cpp.s
 .PHONY : src/Animation.cpp.s
 
+src/AnimationController.o: src/AnimationController.cpp.o
+.PHONY : src/AnimationController.o
+
+# target to build an object file
+src/AnimationController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/AnimationController.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o
+.PHONY : src/AnimationController.cpp.o
+
+src/AnimationController.i: src/AnimationController.cpp.i
+.PHONY : src/AnimationController.i
+
+# target to preprocess a source file
+src/AnimationController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/AnimationController.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/AnimationController.cpp.i
+.PHONY : src/AnimationController.cpp.i
+
+src/AnimationController.s: src/AnimationController.cpp.s
+.PHONY : src/AnimationController.s
+
+# target to generate assembly for a file
+src/AnimationController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/AnimationController.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/AnimationController.cpp.s
+.PHONY : src/AnimationController.cpp.s
+
 src/AssetStreaming.o: src/AssetStreaming.cpp.o
 .PHONY : src/AssetStreaming.o
 
@@ -1673,6 +1703,9 @@ help:
 	@echo "... src/Animation.o"
 	@echo "... src/Animation.i"
 	@echo "... src/Animation.s"
+	@echo "... src/AnimationController.o"
+	@echo "... src/AnimationController.i"
+	@echo "... src/AnimationController.s"
 	@echo "... src/AssetStreaming.o"
 	@echo "... src/AssetStreaming.i"
 	@echo "... src/AssetStreaming.s"

@@ -448,6 +448,7 @@ CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o: \
  /usr/include/SDL2/SDL_misc.h \
  /workspaces/PZ/PZ-Switch/include/SpriteAnimation.h \
  /workspaces/PZ/PZ-Switch/include/InputManager.h \
+ /workspaces/PZ/PZ-Switch/include/AnimationController.h \
  /workspaces/PZ/PZ-Switch/include/IsoCell.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/array /usr/include/c++/13/compare \

@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_pooling.dir/src/AIBehaviors.cpp.o.d"
   "CMakeFiles/test_pooling.dir/src/Animation.cpp.o"
   "CMakeFiles/test_pooling.dir/src/Animation.cpp.o.d"
+  "CMakeFiles/test_pooling.dir/src/AnimationController.cpp.o"
+  "CMakeFiles/test_pooling.dir/src/AnimationController.cpp.o.d"
   "CMakeFiles/test_pooling.dir/src/AssetStreaming.cpp.o"
   "CMakeFiles/test_pooling.dir/src/AssetStreaming.cpp.o.d"
   "CMakeFiles/test_pooling.dir/src/Audio.cpp.o"

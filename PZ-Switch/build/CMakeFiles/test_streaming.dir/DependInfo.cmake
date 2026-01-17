@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/PZ/PZ-Switch/src/AIBehaviors.cpp" "CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/Animation.cpp" "CMakeFiles/test_streaming.dir/src/Animation.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/Animation.cpp.o.d"
+  "/workspaces/PZ/PZ-Switch/src/AnimationController.cpp" "CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp" "CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/Audio.cpp" "CMakeFiles/test_streaming.dir/src/Audio.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/Audio.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp" "CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o.d"
