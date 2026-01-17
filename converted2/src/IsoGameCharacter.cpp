@@ -1,0 +1,2 @@
+#include "IsoGameCharacter.h"
+

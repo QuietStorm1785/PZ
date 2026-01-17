@@ -1,0 +1,10 @@
+# Demo lot file for C++ port
+# Format: type x y z solid
+# Trees near origin
+Tree 40 40 0 0
+Tree 42 40 0 0
+Tree 44 41 0 0
+# A blocking piece of furniture
+Furniture 60 60 0 1
+# A container the player can interact with
+Container 65 62 0 1
