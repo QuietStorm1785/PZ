@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include "Pathfinding.h"
+#include <glm/glm.hpp>
 
 // Forward declarations
 namespace zombie {

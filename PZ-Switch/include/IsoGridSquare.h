@@ -3,6 +3,7 @@
 #include <memory>
 #include "IsoObject.h"
 #include "Terrain.h"
+#include <glm/glm.hpp>
 
 class IsoCell;
 class IsoObject;

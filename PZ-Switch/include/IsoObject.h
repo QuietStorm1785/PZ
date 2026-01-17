@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <glm/glm.hpp>
 
 namespace zombie { namespace characters { class IsoPlayer; } }
 

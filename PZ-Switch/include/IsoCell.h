@@ -4,6 +4,7 @@
 #include <memory>
 #include <functional>
 #include "SpatialGrid.h"
+#include <glm/glm.hpp>
 
 class IsoGridSquare;
 class IsoChunk;

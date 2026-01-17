@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <memory>
 #include <vector>
+#include <glm/glm.hpp>
 
 namespace zombie {
 

@@ -3,6 +3,7 @@
 #include "NetworkManager.h"
 #include <SDL2/SDL.h>
 #include <memory>
+#include <glm/glm.hpp>
 
 namespace zombie {
 
