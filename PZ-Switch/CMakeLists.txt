@@ -103,6 +103,7 @@ set(SOURCES
     src/Animation.cpp
     src/AnimationController.cpp
     src/TextureAtlas.cpp
+        src/SpriteLoader.cpp
     src/Audio.cpp
     src/UI.cpp
     src/Tasks.cpp

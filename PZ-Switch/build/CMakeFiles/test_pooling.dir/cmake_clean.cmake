@@ -77,6 +77,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_pooling.dir/src/SpriteAnimation.cpp.o.d"
   "CMakeFiles/test_pooling.dir/src/SpriteBatch.cpp.o"
   "CMakeFiles/test_pooling.dir/src/SpriteBatch.cpp.o.d"
+  "CMakeFiles/test_pooling.dir/src/SpriteLoader.cpp.o"
+  "CMakeFiles/test_pooling.dir/src/SpriteLoader.cpp.o.d"
   "CMakeFiles/test_pooling.dir/src/Tasks.cpp.o"
   "CMakeFiles/test_pooling.dir/src/Tasks.cpp.o.d"
   "CMakeFiles/test_pooling.dir/src/TextureAtlas.cpp.o"

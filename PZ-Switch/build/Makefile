@@ -1370,6 +1370,36 @@ src/SpriteBatch.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.s
 .PHONY : src/SpriteBatch.cpp.s
 
+src/SpriteLoader.o: src/SpriteLoader.cpp.o
+.PHONY : src/SpriteLoader.o
+
+# target to build an object file
+src/SpriteLoader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/SpriteLoader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o
+.PHONY : src/SpriteLoader.cpp.o
+
+src/SpriteLoader.i: src/SpriteLoader.cpp.i
+.PHONY : src/SpriteLoader.i
+
+# target to preprocess a source file
+src/SpriteLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/SpriteLoader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.i
+.PHONY : src/SpriteLoader.cpp.i
+
+src/SpriteLoader.s: src/SpriteLoader.cpp.s
+.PHONY : src/SpriteLoader.s
+
+# target to generate assembly for a file
+src/SpriteLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/SpriteLoader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.s
+.PHONY : src/SpriteLoader.cpp.s
+
 src/Tasks.o: src/Tasks.cpp.o
 .PHONY : src/Tasks.o
 
@@ -1844,6 +1874,9 @@ help:
 	@echo "... src/SpriteBatch.o"
 	@echo "... src/SpriteBatch.i"
 	@echo "... src/SpriteBatch.s"
+	@echo "... src/SpriteLoader.o"
+	@echo "... src/SpriteLoader.i"
+	@echo "... src/SpriteLoader.s"
 	@echo "... src/Tasks.o"
 	@echo "... src/Tasks.i"
 	@echo "... src/Tasks.s"

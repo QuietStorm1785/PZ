@@ -66,6 +66,29 @@ public:
     // Get cached atlas
     zombie::assets::TextureAtlas* getAtlas(const std::string& name);
     
+        // Load character sprite sheet (8-direction animations)
+        zombie::graphics::AnimatedSprite* loadCharacterSpriteSheet(
+            const std::string& characterName,
+            const std::string& outfit = "Bob"
+        );
+    
+        // Load tile texture by name (e.g., "grass_01", "dirt_floor")
+        SDL_Texture* loadTileTexture(const std::string& tileName);
+    
+        // Load object texture (furniture, containers, etc.)
+        SDL_Texture* loadObjectTexture(const std::string& objectName);
+    
+        // Create character atlas from all animations
+        zombie::assets::TextureAtlas* createCharacterAtlas(
+            const std::string& characterName,
+            const std::string& outfit = "Bob"
+        );
+    
+        // Create tile atlas from common tiles
+        zombie::assets::TextureAtlas* createTileAtlas(
+            const std::vector<std::string>& tileNames
+        );
+    
 private:
     static TextureManager* instance;
     
