@@ -9,6 +9,11 @@ class IsoGridSquare;
 class IsoCell;
 class SpriteBatch;
 
+namespace zombie {
+    namespace graphics { class Sprite; class AnimatedSprite; }
+    namespace characters { class IsoGameCharacter; }
+}
+
 /**
  * Layer types for isometric rendering
  * Objects are rendered in this order for proper depth
@@ -98,6 +103,15 @@ private:
     // Render objects on tile
     void renderObjects(IsoGridSquare* square, RenderLayer layer,
                       float cameraX, float cameraY, SpriteBatch* batch);
+    
+    // Render sprite at isometric position
+    void renderSprite(zombie::graphics::Sprite* sprite, 
+                     float gridX, float gridY, float z,
+                     float cameraX, float cameraY);
+    
+    // Render animated character sprite
+    void renderCharacter(zombie::characters::IsoGameCharacter* character,
+                        float cameraX, float cameraY);
 };
 
 /**

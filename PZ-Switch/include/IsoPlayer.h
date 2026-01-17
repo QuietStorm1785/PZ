@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "InputManager.h"
 #include "Sprite.h"
+#include "SpriteAnimation.h"
 #include <SDL2/SDL.h>
 #include <memory>
 #include <string>
@@ -139,6 +140,10 @@ public:
     InventoryManager* getInventory() { return inventory; }
     const InventoryManager* getInventory() const { return inventory; }
     
+    // Sprite access
+    zombie::graphics::AnimatedSprite* getSprite() { return sprite.get(); }
+    void setSprite(std::shared_ptr<zombie::graphics::AnimatedSprite> spr) { sprite = spr; }
+    
     std::string getType() const override { return "IsoPlayer"; }
     
 private:
@@ -166,6 +171,9 @@ private:
     
     // Inventory system
     InventoryManager* inventory;
+    
+    // Sprite for rendering
+    std::shared_ptr<zombie::graphics::AnimatedSprite> sprite;
     
     // Helper methods
     void processMovementInput(input::InputManager* inputMgr);

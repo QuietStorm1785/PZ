@@ -3,7 +3,10 @@
 #include "IsoCell.h"
 #include "IsoGridSquare.h"
 #include "IsoObject.h"
+#include "IsoPlayer.h"
 #include "SpriteBatch.h"
+#include "Sprite.h"
+#include "SpriteAnimation.h"
 #include <cmath>
 #include <algorithm>
 
@@ -115,18 +118,25 @@ void ChunkRenderer::renderObjects(IsoGridSquare* square, RenderLayer layer,
     for (IsoObject* obj : square->getObjects()) {
         if (!obj) continue;
         
-        float x = obj->getX();
-        float y = obj->getY();
-        float screenX, screenY;
-        gridToScreen((int)x, (int)y, obj->getZ(), screenX, screenY);
-        
-        screenX -= cameraX;
-        screenY -= cameraY;
-        
-        // Draw simple rect for now (would use actual sprite/texture later)
-        SDL_SetRenderDrawColor(renderer, 200, 100, 50, 255);
-        SDL_Rect rect = {(int)screenX - 8, (int)screenY - 16, 16, 24};
-        SDL_RenderFillRect(renderer, &rect);
+        // Check if object has a sprite - if so, use it
+        if (obj->getSprite()) {
+            renderSprite(obj->getSprite(), obj->getX(), obj->getY(), obj->getZ(), 
+                        cameraX, cameraY);
+            lastStats.objectsRendered++;
+        } else {
+            // Fallback: Draw simple rect for objects without sprites
+            float x = obj->getX();
+            float y = obj->getY();
+            float screenX, screenY;
+            gridToScreen((int)x, (int)y, obj->getZ(), screenX, screenY);
+            
+            screenX -= cameraX;
+            screenY -= cameraY;
+            
+            SDL_SetRenderDrawColor(renderer, 200, 100, 50, 255);
+            SDL_Rect rect = {(int)screenX - 8, (int)screenY - 16, 16, 24};
+            SDL_RenderFillRect(renderer, &rect);
+        }
     }
 }
 
@@ -216,4 +226,54 @@ void CameraController::updateToFollowEntity(float entityX, float entityY) {
     // Smooth lerp towards target
     cameraX += (targetX - cameraX) * lerpSpeed;
     cameraY += (targetY - cameraY) * lerpSpeed;
+}
+
+// ===== Sprite Rendering Methods =====
+
+void ChunkRenderer::renderSprite(zombie::graphics::Sprite* sprite,
+                                float gridX, float gridY, float z,
+                                float cameraX, float cameraY) {
+    if (!sprite) return;
+    
+    // Convert grid position to screen position
+    float screenX, screenY;
+    gridToScreen((int)gridX, (int)gridY, (int)z, screenX, screenY);
+    
+    // Apply camera offset
+    screenX -= cameraX;
+    screenY -= cameraY;
+    
+    // Position sprite at screen coordinates
+    sprite->setPosition(screenX, screenY);
+    
+    // Render using sprite's built-in render method
+    sprite->render(renderer);
+}
+
+void ChunkRenderer::renderCharacter(zombie::characters::IsoGameCharacter* character,
+                                   float cameraX, float cameraY) {
+    if (!character) return;
+    
+    // Try to get sprite from character (if it's a player with AnimatedSprite)
+    zombie::graphics::AnimatedSprite* sprite = nullptr;
+    
+    // Check if this is an IsoPlayer (has getSprite method)
+    if (zombie::characters::IsoPlayer* player = dynamic_cast<zombie::characters::IsoPlayer*>(character)) {
+        sprite = player->getSprite();
+    }
+    
+    if (sprite) {
+        renderSprite(sprite, character->getX(), character->getY(), 0, cameraX, cameraY);
+    } else {
+        // Fallback: Draw simple colored rect for characters without sprites
+        float screenX, screenY;
+        gridToScreen((int)character->getX(), (int)character->getY(), 0, screenX, screenY);
+        
+        screenX -= cameraX;
+        screenY -= cameraY;
+        
+        SDL_SetRenderDrawColor(renderer, 50, 150, 255, 255);
+        SDL_Rect rect = {(int)screenX - 12, (int)screenY - 24, 24, 32};
+        SDL_RenderFillRect(renderer, &rect);
+    }
 }

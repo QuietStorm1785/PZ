@@ -453,6 +453,11 @@ CMakeFiles/test_pooling.dir/src/ChunkRenderer.cpp.o: \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
  /workspaces/PZ/PZ-Switch/include/Terrain.h \
+ /workspaces/PZ/PZ-Switch/include/IsoPlayer.h \
+ /workspaces/PZ/PZ-Switch/include/Entity.h \
+ /workspaces/PZ/PZ-Switch/include/Sprite.h \
+ /workspaces/PZ/PZ-Switch/include/SpriteAnimation.h \
+ /workspaces/PZ/PZ-Switch/include/InputManager.h \
  /workspaces/PZ/PZ-Switch/include/SpriteBatch.h \
- /workspaces/PZ/PZ-Switch/include/Sprite.h /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/algorithm \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h

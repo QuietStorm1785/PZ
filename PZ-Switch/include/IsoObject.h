@@ -1,8 +1,12 @@
 #pragma once
 #include <string>
+#include <memory>
 #include <glm/glm.hpp>
 
-namespace zombie { namespace characters { class IsoPlayer; } }
+namespace zombie { 
+    namespace characters { class IsoPlayer; }
+    namespace graphics { class Sprite; }
+}
 
 class IsoGridSquare;
 
@@ -38,6 +42,10 @@ public:
 
     const std::string& getType() const { return type; }
     void setType(const std::string& t) { type = t; }
+    
+    // Sprite access
+    zombie::graphics::Sprite* getSprite() { return sprite.get(); }
+    void setSprite(std::shared_ptr<zombie::graphics::Sprite> spr) { sprite = spr; }
 
     // Update
     virtual void update();
@@ -47,4 +55,5 @@ protected:
     IsoGridSquare* square;
     bool solid;
     std::string type;  // Object type for audio/interaction
+    std::shared_ptr<zombie::graphics::Sprite> sprite; // Rendering sprite
 };
