@@ -125,7 +125,180 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/backward/auto_ptr.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_memory_defs.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/execution_defs.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/functional \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/std_function.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/array \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/compare \
+ /workspaces/PZ/PZ-Switch/include/SpatialGrid.h \
+ /opt/devkitpro/portlibs/switch/include/glm/glm.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/_fixes.hpp \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cmath \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/math.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/std_abs.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/stdlib.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/machine/stdlib.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/specfun.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/limits \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/gamma.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/special_function_util.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/bessel_function.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/beta_function.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/ell_integral.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/exp_integral.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/hypergeometric.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/legendre_function.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/poly_hermite.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/poly_laguerre.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/riemann_zeta.tcc \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/setup.hpp \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cassert \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/assert.h \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/../simd/platform.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cstdint \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/climits \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/limits.h \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/syslimits.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/limits.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/syslimits.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cfloat \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/float.h \
+ /opt/devkitpro/portlibs/switch/include/glm/fwd.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/qualifier.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/setup.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/vec2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_bool2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_vec2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_vec2.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/./compute_vector_relational.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/./setup.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_bool2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_float2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_float2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_double2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_double2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_int2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_int2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_uint2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_uint2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/vec3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_bool3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_vec3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_vec3.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_bool3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_float3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_float3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_double3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_double3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_int3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_int3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_uint3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_uint3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/vec4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_bool4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_vec4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_vec4.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_bool4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_float4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_float4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_double4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_double4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/setup.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_int4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_int4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_uint4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/vector_uint4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/mat2x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/matrix_double2x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_mat2x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/type_mat2x2.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../matrix.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/setup.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat2x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double2x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat2x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat2x3.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double2x3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float2x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float2x3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat2x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double2x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat2x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat2x4.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double2x4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float2x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float2x4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat3x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double3x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat3x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat3x2.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double3x2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float3x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float3x2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat3x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double3x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat3x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat3x3.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double3x3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float3x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float3x3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat3x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double3x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat3x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat3x4.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double3x4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float3x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float3x4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat4x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double4x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat4x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat4x2.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double4x2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float4x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float4x2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat4x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double4x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat4x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat4x3.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double4x3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float4x3.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float4x3_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../mat4x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double4x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat4x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/../detail/type_mat4x4.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_double4x4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float4x4.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/.././ext/matrix_float4x4_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/func_matrix.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../geometric.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/func_geometric.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../exponential.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/type_vec1.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/type_vec1.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/func_exponential.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/../vector_relational.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/../detail/setup.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/../detail/func_vector_relational.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/_vectorize.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../common.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/_fixes.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/func_common.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/compute_common.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/../detail/../detail/../detail/../detail/setup.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/matrix_double2x2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/matrix_float2x2.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/./ext/matrix_float2x2_precision.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/trigonometric.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/func_trigonometric.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/packing.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/func_packing.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/type_half.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/type_half.inl \
+ /opt/devkitpro/portlibs/switch/include/glm/integer.hpp \
+ /opt/devkitpro/portlibs/switch/include/glm/detail/func_integer.inl \
  /workspaces/PZ/PZ-Switch/include/IsoChunk.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ctime \
  /workspaces/PZ/PZ-Switch/include/IsoGridSquare.h \
  /workspaces/PZ/PZ-Switch/include/IsoObject.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string \
@@ -143,9 +316,6 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/string_view.tcc \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ext/string_conversions.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cstdlib \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/stdlib.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/machine/stdlib.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/std_abs.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cstdio \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/stdio.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/stdio.h \
@@ -154,6 +324,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/errno.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/charconv.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.tcc \
+ /workspaces/PZ/PZ-Switch/include/Terrain.h \
  /workspaces/PZ/PZ-Switch/include/IsoPlayer.h \
  /workspaces/PZ/PZ-Switch/include/Entity.h \
  /workspaces/PZ/PZ-Switch/include/Sprite.h \
@@ -170,23 +341,6 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/strings.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/inttypes.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/math.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cmath \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/math.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/specfun.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/limits \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/gamma.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/special_function_util.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/bessel_function.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/beta_function.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/ell_integral.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/exp_integral.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/hypergeometric.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/legendre_function.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/poly_hermite.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/poly_laguerre.tcc \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tr1/riemann_zeta.tcc \
- /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/float.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/alloca.h \
  /opt/devkitpro/portlibs/switch/include/SDL2/SDL_assert.h \
  /opt/devkitpro/portlibs/switch/include/SDL2/SDL_atomic.h \
@@ -238,10 +392,27 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: \
  /opt/devkitpro/portlibs/switch/include/SDL2/SDL_misc.h \
  /workspaces/PZ/PZ-Switch/include/SpriteAnimation.h \
  /workspaces/PZ/PZ-Switch/include/InputManager.h \
- /workspaces/PZ/PZ-Switch/include/IsoZombie.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/algorithm \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_algo.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/algorithmfwd.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_heap.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/uniform_int_dist.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_algorithm_defs.h
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+ /workspaces/PZ/PZ-Switch/include/AnimationController.h \
+ /workspaces/PZ/PZ-Switch/include/IsoZombie.h \
+ /workspaces/PZ/PZ-Switch/include/Pathfinding.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/queue \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/deque \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_deque.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/deque.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_queue.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_set \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/set \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_tree.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_set.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_multiset.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/list \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_list.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/list.tcc \
+ /workspaces/PZ/PZ-Switch/include/WorldContent.h

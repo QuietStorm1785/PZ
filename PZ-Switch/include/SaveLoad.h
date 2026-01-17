@@ -4,6 +4,8 @@
 #include <memory>
 #include <cstdint>
 
+namespace zombie { namespace world { class TileMap; } }
+
 namespace zombie {
 namespace saveload {
 
@@ -33,9 +35,29 @@ public:
     SaveFileWriter(const std::string& filename);
     ~SaveFileWriter();
     
+    // Legacy flat writes (deprecated)
     bool writeGameData(const GameSaveData& data);
     bool writeWorldData(const WorldSaveData& data);
     bool flush();
+
+    // SVI archive packing (header .svh + payload .dat)
+    struct SVHeaderMeta {
+        std::string title;
+        std::string saveName;
+        std::string profileId;
+        uint32_t gameVersion;
+        uint64_t timestamp;
+    };
+
+    static std::vector<uint8_t> makeSVHText(const SVHeaderMeta& meta);
+    struct SVIArchiveEntry {
+        std::string name;            // e.g., "map_1_1.bin" or "server/server.ini"
+        std::vector<uint8_t> bytes;  // file content
+    };
+
+    static bool writeSVIArchive(const std::string& outFile,
+                                const SVHeaderMeta& meta,
+                                const std::vector<SVIArchiveEntry>& entries);
     
 private:
     std::string filename;
@@ -64,18 +86,28 @@ public:
     }
     
     bool saveGame(const std::string& saveName, const GameSaveData& gameData, const WorldSaveData& worldData);
+    bool saveGameSVI(const std::string& saveName, const GameSaveData& gameData, const WorldSaveData& worldData);
     bool loadGame(const std::string& saveName, GameSaveData& outGameData, WorldSaveData& outWorldData);
+    bool loadGameSVI(const std::string& saveName, GameSaveData& outGameData, WorldSaveData& outWorldData);
+    bool loadLatestGameSVI(GameSaveData& outGameData, WorldSaveData& outWorldData);
+    std::string getLatestSVIPath() const;
     
     std::vector<std::string> listSaves() const;
     bool deleteSave(const std::string& saveName);
     
     std::string getSavePath() const;
     
+    // TileMap serialization helpers
+    static std::vector<uint8_t> serializeTileMap(const zombie::world::TileMap& map);
+    static bool deserializeTileMap(const std::vector<uint8_t>& data, zombie::world::TileMap& map);
+    
 private:
     SaveGameManager() = default;
     ~SaveGameManager() = default;
     
-    const std::string saveDirPath = "./saves/";
+    const std::string saveDirPath = "./saves/"; // dev default; platform can override
+    std::string getPlatformSaveRoot() const;
+    std::string getActiveProfileId() const;
 };
 
 } // namespace saveload

@@ -449,6 +449,11 @@ CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.cpp.o: \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/erase_if.h \
  /workspaces/PZ/PZ-Switch/include/InputManager.h \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
  /workspaces/PZ/PZ-Switch/include/AnimationController.h \
  /workspaces/PZ/PZ-Switch/include/AudioInteractionSystem.h \
  /workspaces/PZ/PZ-Switch/include/InventoryManager.h \
@@ -469,9 +474,4 @@ CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/algorithm \
- /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h
+ /usr/include/c++/13/bits/istream.tcc

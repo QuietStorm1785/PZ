@@ -111,10 +111,24 @@ CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.s"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/GameWindow.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.s
 
+CMakeFiles/ProjectZomboidCpp.dir/src/Config.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/Config.o: /workspaces/PZ/PZ-Switch/src/Config.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/Config.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Config.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Config.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Config.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Config.o -c /workspaces/PZ/PZ-Switch/src/Config.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/Config.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/Config.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/Config.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/Config.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/Config.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/Config.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/Config.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/Config.s
+
 CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o: /workspaces/PZ/PZ-Switch/src/GameStateMachine.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o -c /workspaces/PZ/PZ-Switch/src/GameStateMachine.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o: /workspaces/PZ/PZ-Switch/src/GameTime.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o -c /workspaces/PZ/PZ-Switch/src/GameTime.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o: /workspaces/PZ/PZ-Switch/src/TextureManager.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o -c /workspaces/PZ/PZ-Switch/src/TextureManager.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o: /workspaces/PZ/PZ-Switch/src/Sprite.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o -c /workspaces/PZ/PZ-Switch/src/Sprite.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o: /workspaces/PZ/PZ-Switch/src/SpriteBatch.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o -c /workspaces/PZ/PZ-Switch/src/SpriteBatch.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o: /workspaces/PZ/PZ-Switch/src/SpriteAnimation.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o -c /workspaces/PZ/PZ-Switch/src/SpriteAnimation.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o: /workspaces/PZ/PZ-Switch/src/BitmapFont.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o -c /workspaces/PZ/PZ-Switch/src/BitmapFont.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o: /workspaces/PZ/PZ-Switch/src/TileMap.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o -c /workspaces/PZ/PZ-Switch/src/TileMap.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o: /workspaces/PZ/PZ-Switch/src/Entity.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o -c /workspaces/PZ/PZ-Switch/src/Entity.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Entity.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Entity.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Player.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Player.o: /workspaces/PZ/PZ-Switch/src/Player.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Player.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Player.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Player.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Player.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Player.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Player.o -c /workspaces/PZ/PZ-Switch/src/Player.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Player.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Player.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o: /workspaces/PZ/PZ-Switch/src/Collision.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o -c /workspaces/PZ/PZ-Switch/src/Collision.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Collision.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Collision.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o: /workspaces/PZ/PZ-Switch/src/InputManager.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o -c /workspaces/PZ/PZ-Switch/src/InputManager.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o: /workspaces/PZ/PZ-Switch/src/SoundManager.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o -c /workspaces/PZ/PZ-Switch/src/SoundManager.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o: /workspaces/PZ/PZ-Switch/src/IsoPlayer.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o -c /workspaces/PZ/PZ-Switch/src/IsoPlayer.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o: /workspaces/PZ/PZ-Switch/src/IsoObject.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o -c /workspaces/PZ/PZ-Switch/src/IsoObject.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o: /workspaces/PZ/PZ-Switch/src/IsoGridSquare.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o -c /workspaces/PZ/PZ-Switch/src/IsoGridSquare.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o: /workspaces/PZ/PZ-Switch/src/IsoChunk.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o -c /workspaces/PZ/PZ-Switch/src/IsoChunk.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.i: cmake_force
@@ -352,7 +366,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: /workspaces/PZ/PZ-Switch/src/IsoCell.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o -c /workspaces/PZ/PZ-Switch/src/IsoCell.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.i: cmake_force
@@ -366,7 +380,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o: /workspaces/PZ/PZ-Switch/src/IsoZombie.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o -c /workspaces/PZ/PZ-Switch/src/IsoZombie.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.i: cmake_force
@@ -380,7 +394,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o: /workspaces/PZ/PZ-Switch/src/NetworkManager.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o -c /workspaces/PZ/PZ-Switch/src/NetworkManager.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.i: cmake_force
@@ -394,7 +408,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o: /workspaces/PZ/PZ-Switch/src/Pathfinding.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o -c /workspaces/PZ/PZ-Switch/src/Pathfinding.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.i: cmake_force
@@ -408,7 +422,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o: /workspaces/PZ/PZ-Switch/src/Inventory.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o -c /workspaces/PZ/PZ-Switch/src/Inventory.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.i: cmake_force
@@ -422,7 +436,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Building.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Building.o: /workspaces/PZ/PZ-Switch/src/Building.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Building.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Building.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Building.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Building.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Building.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Building.o -c /workspaces/PZ/PZ-Switch/src/Building.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Building.i: cmake_force
@@ -436,7 +450,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Building.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o: /workspaces/PZ/PZ-Switch/src/AIBehaviors.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o -c /workspaces/PZ/PZ-Switch/src/AIBehaviors.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.i: cmake_force
@@ -450,7 +464,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o: /workspaces/PZ/PZ-Switch/src/SaveLoad.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o -c /workspaces/PZ/PZ-Switch/src/SaveLoad.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.i: cmake_force
@@ -464,7 +478,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o: /workspaces/PZ/PZ-Switch/src/Animation.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o -c /workspaces/PZ/PZ-Switch/src/Animation.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Animation.i: cmake_force
@@ -475,10 +489,52 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Animation.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/Animation.s"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/Animation.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/Animation.s
 
+CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o: /workspaces/PZ/PZ-Switch/src/AnimationController.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o -c /workspaces/PZ/PZ-Switch/src/AnimationController.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/AnimationController.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/AnimationController.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o: /workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o -c /workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o: /workspaces/PZ/PZ-Switch/src/SpriteLoader.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o -c /workspaces/PZ/PZ-Switch/src/SpriteLoader.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/SpriteLoader.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/SpriteLoader.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.s
+
 CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o: /workspaces/PZ/PZ-Switch/src/Audio.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o -c /workspaces/PZ/PZ-Switch/src/Audio.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Audio.i: cmake_force
@@ -492,7 +548,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Audio.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/UI.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/UI.o: /workspaces/PZ/PZ-Switch/src/UI.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/UI.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/UI.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/UI.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/UI.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/UI.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/UI.o -c /workspaces/PZ/PZ-Switch/src/UI.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/UI.i: cmake_force
@@ -506,7 +562,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/UI.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o: /workspaces/PZ/PZ-Switch/src/Tasks.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o -c /workspaces/PZ/PZ-Switch/src/Tasks.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.i: cmake_force
@@ -520,7 +576,7 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.s: cmake_force
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o: /workspaces/PZ/PZ-Switch/src/NetworkingEnhanced.cpp
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o -c /workspaces/PZ/PZ-Switch/src/NetworkingEnhanced.cpp
 
 CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.i: cmake_force
@@ -531,11 +587,264 @@ CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.s"
 	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/NetworkingEnhanced.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.s
 
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o: /workspaces/PZ/PZ-Switch/src/WorldContent.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o -c /workspaces/PZ/PZ-Switch/src/WorldContent.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/WorldContent.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/WorldContent.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o: /workspaces/PZ/PZ-Switch/src/WorldLoader.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o -c /workspaces/PZ/PZ-Switch/src/WorldLoader.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/WorldLoader.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/WorldLoader.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o: /workspaces/PZ/PZ-Switch/src/SpatialGrid.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o -c /workspaces/PZ/PZ-Switch/src/SpatialGrid.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/SpatialGrid.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/SpatialGrid.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o: /workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o -c /workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o: /workspaces/PZ/PZ-Switch/src/VisibilitySystem.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o -c /workspaces/PZ/PZ-Switch/src/VisibilitySystem.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/VisibilitySystem.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/VisibilitySystem.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o: /workspaces/PZ/PZ-Switch/src/InventoryManager.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o -c /workspaces/PZ/PZ-Switch/src/InventoryManager.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/InventoryManager.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/InventoryManager.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o: /workspaces/PZ/PZ-Switch/src/PathfindingThreadPool.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o -c /workspaces/PZ/PZ-Switch/src/PathfindingThreadPool.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/PathfindingThreadPool.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/PathfindingThreadPool.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o: /workspaces/PZ/PZ-Switch/src/ObjectPool.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o -c /workspaces/PZ/PZ-Switch/src/ObjectPool.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/ObjectPool.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/ObjectPool.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o: /workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o -c /workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o: /workspaces/PZ/PZ-Switch/src/ChunkManager.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o -c /workspaces/PZ/PZ-Switch/src/ChunkManager.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/ChunkManager.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/ChunkManager.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o: /workspaces/PZ/PZ-Switch/src/ChunkRenderer.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o -c /workspaces/PZ/PZ-Switch/src/ChunkRenderer.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/ChunkRenderer.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/ChunkRenderer.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o: /workspaces/PZ/PZ-Switch/src/PlayerChunkSync.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o -c /workspaces/PZ/PZ-Switch/src/PlayerChunkSync.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/PlayerChunkSync.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/PlayerChunkSync.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o: /workspaces/PZ/PZ-Switch/src/IsometricRenderer.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o -c /workspaces/PZ/PZ-Switch/src/IsometricRenderer.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/IsometricRenderer.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/IsometricRenderer.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o: /workspaces/PZ/PZ-Switch/src/WorldCollisionSystem.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o -c /workspaces/PZ/PZ-Switch/src/WorldCollisionSystem.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/WorldCollisionSystem.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/WorldCollisionSystem.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o: /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o -c /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o: /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o -c /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o: /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o -c /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.s
+
+CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o: CMakeFiles/ProjectZomboidCpp.dir/flags.make
+CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o: /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp
+CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o: CMakeFiles/ProjectZomboidCpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o -MF CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o.d -o CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o -c /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp
+
+CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.i"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp > CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.i
+
+CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.s"
+	/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp -o CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.s
+
 # Object files for target ProjectZomboidCpp
 ProjectZomboidCpp_OBJECTS = \
 "CMakeFiles/ProjectZomboidCpp.dir/src/main.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/Core.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/Config.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o" \
@@ -562,10 +871,31 @@ ProjectZomboidCpp_OBJECTS = \
 "CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/UI.o" \
 "CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o" \
-"CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o"
+"CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o" \
+"CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o"
 
 # External object files for target ProjectZomboidCpp
 ProjectZomboidCpp_EXTERNAL_OBJECTS =
@@ -573,6 +903,7 @@ ProjectZomboidCpp_EXTERNAL_OBJECTS =
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/main.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/Core.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/Config.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o
@@ -599,14 +930,35 @@ ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/Building.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/UI.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o
+ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/build.make
 ProjectZomboidCpp.elf: /opt/devkitpro/portlibs/switch/lib/libSDL2.a
 ProjectZomboidCpp.elf: CMakeFiles/ProjectZomboidCpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX executable ProjectZomboidCpp.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Linking CXX executable ProjectZomboidCpp.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProjectZomboidCpp.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Creating .nro file for Switch..."
 	/opt/devkitpro/tools/bin/nacptool --create "Project Zomboid" "C++ Port" 0.2.0 ProjectZomboidCpp.nacp

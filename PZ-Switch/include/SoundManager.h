@@ -55,6 +55,8 @@ private:
     
     std::string mediaPath;
     float masterVolume;
+    float musicVolume;
+    float soundVolume;
     
     // Music
     std::unordered_map<std::string, Mix_Music*> musicCache;
@@ -65,6 +67,8 @@ private:
     std::unordered_map<std::string, Mix_Chunk*> soundCache;
     
     bool initialized;
+
+    void applyVolumes();
 };
 
 } // namespace audio

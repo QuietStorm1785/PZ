@@ -3,6 +3,7 @@
 #include "NetworkManager.h"
 #include <SDL2/SDL.h>
 #include <memory>
+#include <string>
 #include <glm/glm.hpp>
 
 namespace zombie {
@@ -20,7 +21,7 @@ public:
     ~GameWindow();
     
     // Initialize the game
-    bool init(int width, int height, bool fullscreen);
+    bool init(int width, int height, bool fullscreen, const std::string& mediaPath = "media/");
     
     // Main game loop
     void run();

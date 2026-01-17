@@ -194,6 +194,20 @@ CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/errno.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/charconv.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/algorithm \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_algo.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/algorithmfwd.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_heap.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/uniform_int_dist.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_tempbuf.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/execution_defs.h \
+ /workspaces/PZ/PZ-Switch/include/Config.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/vector \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_uninitialized.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_bvector.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/vector.tcc \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cstring \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/iostream \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ostream \

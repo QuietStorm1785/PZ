@@ -255,6 +255,7 @@ void ChunkRenderer::gridToScreen(int gridX, int gridY, int z,
    - Parse Project Zomboid texture packs
    - Load sprite definitions from .txt files
    - Multi-frame animation support
+    - Configurable pack paths, controller bindings, and Switch graphics live in [PZ-Switch/config/switch_config.cfg](PZ-Switch/config/switch_config.cfg)
 
 ---
 

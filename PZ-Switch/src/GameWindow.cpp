@@ -21,6 +21,13 @@
 #include "VisibilitySystem.h"
 #include "AudioInteractionSystem.h"
 #include "PathfindingThreadPool.h"
+#include "MainMenuScreen.h"
+#include "OptionsScreen.h"
+#include "RadialMenu.h"
+#include "UI.h"
+#include "Config.h"
+#include "SaveLoad.h"
+#include <ctime>
 #include <iostream>
 #include <algorithm>
 #include <random>
@@ -130,11 +137,41 @@ public:
         , zombieTex(nullptr)
         , visibilityChecker(nullptr)
         , fogSystem(nullptr)
+        , pauseMenu(nullptr)
+        , pauseMenuVisible(false)
+        , quickActionMenu(nullptr)
+        , quickMenuVisible(false)
+        , autosaveTimer(0.0f)
+        , hasPendingLoad(false)
     {}
 
     void setNetworking(network::NetworkServer* srv, network::NetworkClient* cli) {
         server = srv;
         client = cli;
+    }
+
+    void setPendingLoad(const saveload::GameSaveData& gameData,
+                        const saveload::WorldSaveData& worldData) {
+        pendingGameData = gameData;
+        pendingWorldData = worldData;
+        hasPendingLoad = true;
+    }
+
+    void applyPendingLoad() {
+        if (!hasPendingLoad) return;
+        if (tileMap && !pendingWorldData.cellData.empty()) {
+            saveload::SaveGameManager::deserializeTileMap(pendingWorldData.cellData, *tileMap);
+        }
+        if (isoPlayer) {
+            isoPlayer->setPosition(pendingGameData.playerPosition.x,
+                                   pendingGameData.playerPosition.y);
+            isoPlayer->setHealth(pendingGameData.playerHealth);
+        }
+        if (player) {
+            player->setPosition(pendingGameData.playerPosition.x,
+                                pendingGameData.playerPosition.y);
+        }
+        hasPendingLoad = false;
     }
 
     void onRemotePlayerPosition(const network::Packet& packet) {
@@ -154,6 +191,34 @@ public:
         (void)z; // currently unused
         remoteZombies[zid] = {x, y};
     }
+
+    void togglePauseMenu() {
+        if (!pauseMenu) return;
+        auto* coreInstance = core::Core::getInstance();
+        if (pauseMenuVisible) {
+            pauseMenu->hide();
+            pauseMenuVisible = false;
+        } else {
+            float cx = coreInstance ? coreInstance->getScreenWidth() / 2.0f : 0.0f;
+            float cy = coreInstance ? coreInstance->getScreenHeight() / 2.0f : 0.0f;
+            pauseMenu->showAt(cx, cy);
+            pauseMenuVisible = true;
+        }
+    }
+
+    void toggleQuickActionMenu() {
+        if (!quickActionMenu) return;
+        auto* coreInstance = core::Core::getInstance();
+        if (quickMenuVisible) {
+            quickActionMenu->hide();
+            quickMenuVisible = false;
+        } else {
+            float cx = coreInstance ? coreInstance->getScreenWidth() / 2.0f : 0.0f;
+            float cy = coreInstance ? coreInstance->getScreenHeight() / 2.0f : 0.0f;
+            quickActionMenu->showAt(cx, cy);
+            quickMenuVisible = true;
+        }
+    }
     
     void enter() override {
         std::cout << "Entering Ingame State" << std::endl;
@@ -162,12 +227,11 @@ public:
         remoteZombies.clear();
         
         auto* texMgr = assets::TextureManager::getInstance();
-        auto* inputMgr = input::InputManager::getInstance();
         auto* soundMgr = audio::SoundManager::getInstance();
         
         // Initialize sound system
         soundMgr->init();
-        soundMgr->setMediaPath("media/");
+        soundMgr->setMediaPath(texMgr->getMediaPath());
         
         // Create mouse cursor sprite
         SDL_Texture* mouseTex = texMgr->getTexture("ui/mouse.png");
@@ -275,6 +339,9 @@ public:
         int optimalThreads = PathfindingThreadPool::getOptimalThreadCount();
         pathfindingPool->initialize(optimalThreads);  // 0 = auto-detect
         std::cout << "Pathfinding thread pool initialized with " << optimalThreads << " workers" << std::endl;
+
+        // Apply pending save data (player position, health, tile map) if Continue was selected
+        applyPendingLoad();
  
         // Spawn IsoZombies around the player with smart pointers
         // Reuse existing random generator from above
@@ -325,6 +392,58 @@ public:
                 std::cerr << "  - " << a << "\n";
             }
         }
+
+        // Build pause radial menu (hidden by default)
+        auto& uiMgr = ui::UIManager::getInstance();
+        pauseMenu = std::make_shared<ui::RadialMenu>("pause_menu");
+        std::vector<ui::RadialOption> opts = {
+            {"resume", "Resume", "Resume", [this](const std::string&) {
+                if (pauseMenu) {
+                    pauseMenu->hide();
+                    pauseMenuVisible = false;
+                }
+            }},
+            {"save", "Save", "Save Now", [this](const std::string&) {
+                saveload::GameSaveData g{};
+                g.gameVersion = 1;
+                g.timestamp = static_cast<uint64_t>(std::time(nullptr));
+                g.playerName = "Player";
+                if (isoPlayer) {
+                    g.playerPosition = {isoPlayer->getX(), isoPlayer->getY(), 0.0f};
+                    g.playerHealth = isoPlayer->getHealth();
+                }
+                g.playedMinutes = 0;
+                saveload::WorldSaveData w{};
+                if (tileMap) {
+                    w.cellData = saveload::SaveGameManager::serializeTileMap(*tileMap);
+                }
+                auto& mgr = saveload::SaveGameManager::getInstance();
+                bool ok = mgr.saveGameSVI("pause_save", g, w);
+                std::cout << (ok ? "Saved game" : "Save failed") << " to " << mgr.getSavePath() << std::endl;
+            }},
+            {"quit", "Quit", "Quit", [](const std::string&) {
+                SDL_Event quitEvt{};
+                quitEvt.type = SDL_QUIT;
+                SDL_PushEvent(&quitEvt);
+            }}
+        };
+        pauseMenu->setOptions(opts);
+        pauseMenu->hide();
+        uiMgr.addElement(pauseMenu);
+
+        // Quick radial for actions (shout, vehicle) opened with L3
+        quickActionMenu = std::make_shared<ui::RadialMenu>("quick_action_menu");
+        std::vector<ui::RadialOption> quickOpts = {
+            {"shout", "Shout", "Shout", [] (const std::string&) {
+                std::cout << "Player shouts!" << std::endl;
+            }},
+            {"vehicle", "Vehicle", "Vehicle", [] (const std::string&) {
+                std::cout << "Vehicle menu requested" << std::endl;
+            }}
+        };
+        quickActionMenu->setOptions(quickOpts);
+        quickActionMenu->hide();
+        uiMgr.addElement(quickActionMenu);
     }
     
     void exit() override {
@@ -342,6 +461,18 @@ public:
         isoPlayer.reset();
         
         player = nullptr; // Non-owning pointer
+
+        // Remove pause menu UI element
+        if (pauseMenu) {
+            ui::UIManager::getInstance().removeElement(pauseMenu->getId());
+            pauseMenu.reset();
+            pauseMenuVisible = false;
+        }
+        if (quickActionMenu) {
+            ui::UIManager::getInstance().removeElement(quickActionMenu->getId());
+            quickActionMenu.reset();
+            quickMenuVisible = false;
+        }
     }
     
     gameStates::StateAction update() override {
@@ -351,10 +482,16 @@ public:
         
         // Update input system
         inputMgr->update();
-        
-        // Update game logic
-        GameTime::getInstance()->update(false);
-        
+
+        // Pause/menu toggle via controller Start/+ button
+        if (inputMgr->isActionPressed("pause")) {
+            togglePauseMenu();
+        }
+
+        // Quick action radial (shout/vehicle) via L3
+        if (inputMgr->isActionPressed("radial")) {
+            toggleQuickActionMenu();
+        }
         // Update mouse sprite position
         if (mouseSprite) {
             mouseSprite->setPosition(
@@ -511,6 +648,37 @@ public:
                 
                 cleanupTimer = 0.0f;
             }
+        }
+
+        // Autosave every 5 minutes if enabled
+        autosaveTimer += deltaTime;
+        if (autosaveTimer >= 300.0f) {
+            if (zombie::config::gOptionsConfig.autosaveEnabled) {
+                saveload::GameSaveData g{};
+                g.gameVersion = 1;
+                g.timestamp = static_cast<uint64_t>(std::time(nullptr));
+                g.playerName = "Player";
+                if (isoPlayer) {
+                    g.playerPosition = {isoPlayer->getX(), isoPlayer->getY(), 0.0f};
+                    g.playerHealth = isoPlayer->getHealth();
+                }
+                g.playedMinutes = 0;
+
+                saveload::WorldSaveData w{};
+                // Serialize current TileMap into world payload if available
+                if (tileMap) {
+                    w.cellData = saveload::SaveGameManager::serializeTileMap(*tileMap);
+                } else {
+                    w.cellData = std::vector<uint8_t>{'C','E','L','L'};
+                }
+
+                auto& mgr = saveload::SaveGameManager::getInstance();
+                // Use profile-aware root and SVI format
+                bool ok = mgr.saveGameSVI("autosave", g, w);
+                std::cout << (ok ? "Autosave completed" : "Autosave failed")
+                          << " at " << mgr.getSavePath() << std::endl;
+            }
+            autosaveTimer = 0.0f;
         }
         
         // Camera control with arrow keys
@@ -920,6 +1088,16 @@ public:
                 idx++;
             }
         }
+
+        // Brightness overlay (darken screen if brightness < 1.0)
+        float bright = std::clamp(zombie::config::gOptionsConfig.brightness, 0.0f, 1.0f);
+        if (bright < 1.0f) {
+            Uint8 alpha = static_cast<Uint8>((1.0f - bright) * 150.0f);
+            core->drawFilledRect(0, 0,
+                static_cast<float>(core->getScreenWidth()),
+                static_cast<float>(core->getScreenHeight()),
+                0, 0, 0, alpha);
+        }
     }
     
 private:
@@ -947,6 +1125,14 @@ private:
     // Visibility and fog of war systems
     std::unique_ptr<::VisibilityChecker> visibilityChecker;
     std::unique_ptr<::FogOfWarSystem> fogSystem;
+    std::shared_ptr<ui::RadialMenu> pauseMenu;
+    bool pauseMenuVisible;
+    std::shared_ptr<ui::RadialMenu> quickActionMenu;
+    bool quickMenuVisible;
+    float autosaveTimer;
+    bool hasPendingLoad;
+    saveload::GameSaveData pendingGameData;
+    saveload::WorldSaveData pendingWorldData;
 };
 
 GameWindow::GameWindow()
@@ -972,7 +1158,8 @@ GameWindow::~GameWindow() {
     // Cleanup handled by shutdown
 }
 
-bool GameWindow::init(int width, int height, bool fullscreen) {
+bool GameWindow::init(int width, int height, bool fullscreen, const std::string& mediaPath) {
+    (void)fullscreen;
     std::cout << "Project Zomboid C++ Port v" << VERSION << std::endl;
     
     // Initialize core graphics
@@ -986,9 +1173,12 @@ bool GameWindow::init(int width, int height, bool fullscreen) {
         std::cerr << "Failed to initialize TextureManager" << std::endl;
         return false;
     }
+
+    // Initialize UI manager
+    ui::UIManager::getInstance().initialize();
     
     // Set media path (relative to build directory)
-    assets::TextureManager::getInstance()->setMediaPath("media/");
+    assets::TextureManager::getInstance()->setMediaPath(mediaPath);
     
     // Initialize timing
     lastFrame = SDL_GetTicks64();
@@ -1011,16 +1201,53 @@ bool GameWindow::init(int width, int height, bool fullscreen) {
 }
 
 void GameWindow::initStates() {
-    // Add game states
-    auto mainMenu = std::make_unique<MainMenuState>();
+    // Add game states: Main Menu -> Options -> Ingame
+    auto mainMenu = std::make_unique<ui::MainMenuScreen>(
+        []() {
+            // Start callback currently no-op; state transition handled by StateAction::Continue
+        },
+        [this]() -> bool {
+            saveload::GameSaveData g{};
+            saveload::WorldSaveData w{};
+            auto& mgr = saveload::SaveGameManager::getInstance();
+            bool ok = mgr.loadLatestGameSVI(g, w);
+            if (ok && ingameState) {
+                ingameState->setPendingLoad(g, w);
+                std::cout << "Loaded latest save for Continue from: " << mgr.getLatestSVIPath() << std::endl;
+            } else if (!ok) {
+                std::cout << "No SVI save found for Continue" << std::endl;
+            }
+            return ok;
+        },
+        []() {
+            // Options callback; actual transition handled by state machine
+            std::cout << "Options requested from main menu" << std::endl;
+        },
+        [this]() {
+            closeRequested = true;
+        });
+    
+    auto options = std::make_unique<ui::OptionsScreen>(
+        []() {
+            // Back to menu callback; handled by state machine
+            std::cout << "Returning to main menu from options" << std::endl;
+        });
+    
     auto ingame = std::make_unique<IngameState>();
     ingameState = ingame.get();
-    stateMachine.addState(std::move(mainMenu));
-    stateMachine.addState(std::move(ingame));
+
+    // Wire cross references for redirects
+    mainMenu->setOptionsState(options.get());
+    mainMenu->setIngameState(ingame.get());
+    options->setBackTarget(mainMenu.get());
+    
+    stateMachine.addState(std::move(mainMenu));    // State 0
+    stateMachine.addState(std::move(options));     // State 1
+    stateMachine.addState(std::move(ingame));      // State 2
     
     // Loop back to main menu if we exit all states
     stateMachine.setLooping(true);
-    stateMachine.setLoopToState(1); // Loop to ingame (skip menu after first time)
+    stateMachine.setLoopToState(2); // Loop to ingame (skip menu after first time)
 }
 
 bool GameWindow::initNetworking() {
@@ -1127,6 +1354,10 @@ void GameWindow::run() {
         while (SDL_PollEvent(&event)) {
             // Pass event to input manager
             inputMgr->processEvent(event);
+            if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
+                bool pressed = (event.type == SDL_MOUSEBUTTONDOWN);
+                ui::UIManager::getInstance().handleInput(event.button.x, event.button.y, pressed);
+            }
             
             if (event.type == SDL_QUIT) {
                 closeRequested = true;
@@ -1169,8 +1400,12 @@ void GameWindow::logic() {
     // Update state machine
     stateMachine.update();
 
-    // Network tick using latest delta time
+    // Update UI
     float deltaTime = GameTime::getInstance()->getDeltaTime();
+    ui::UIManager::getInstance().update(deltaTime);
+
+    // Network tick using latest delta time
+    assets::TextureManager::getInstance()->updateStreaming(deltaTime);
     if (networkReady && networkServer) {
         networkServer->update(deltaTime);
     }
@@ -1192,8 +1427,7 @@ void GameWindow::render() {
     
     // Render UI
     core->startFrameUI();
-    
-    // TODO: Render UI elements here
+    ui::UIManager::getInstance().render();
     
     core->endFrameUI();
 }

@@ -272,6 +272,7 @@ void WorldCollisionSystem::registerEntity(float x, float y, int z, float width, 
 }
 
 void WorldCollisionSystem::unregisterEntity(void* entityPtr) {
+    (void)entityPtr;
     // Would need entity tracking to unregister properly
     // For now, relies on buildCollisionGrid being called to refresh
 }

@@ -172,7 +172,7 @@ public:
     /**
      * Called when item is used
      */
-    virtual void use(zombie::characters::IsoPlayer* player) {}
+    virtual void use(zombie::characters::IsoPlayer* /*player*/) {}
 
     /**
      * Called when item is dropped

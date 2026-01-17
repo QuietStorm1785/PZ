@@ -123,6 +123,7 @@ void IsometricRenderer::renderEntities(const std::vector<RenderEntity>& entities
 }
 
 void IsometricRenderer::updateAnimation(zombie::animation::SpriteAnimation* anim, float deltaTime) {
+    (void)deltaTime;
     if (!anim) return;
     // SpriteAnimation doesn't have an update method in current implementation
 }
@@ -176,6 +177,7 @@ std::shared_ptr<zombie::graphics::Sprite> SpriteManager::createSprite(SDL_Textur
 std::shared_ptr<zombie::animation::SpriteAnimation> SpriteManager::createAnimation(
     const std::string& name, SDL_Texture* texture,
     int frameWidth, int frameHeight, int frameCount, float frameDuration) {
+    (void)frameDuration;
     
     auto anim = std::make_shared<zombie::animation::SpriteAnimation>(name, frameWidth, frameHeight);
     anim->setGridSize((texture != nullptr) ? frameCount : 1, 1);

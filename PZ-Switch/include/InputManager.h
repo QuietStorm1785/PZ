@@ -2,6 +2,9 @@
 #include <SDL2/SDL.h>
 #include <unordered_map>
 #include <string>
+#include <algorithm>
+
+namespace zombie { namespace config { struct SwitchConfig; } }
 
 namespace zombie {
 namespace input {
@@ -46,6 +49,21 @@ public:
     float getAxisValue(int axis) const;
     bool isGamepadButtonDown(int button) const;
     bool isGamepadButtonPressed(int button) const;
+
+    // Controller config
+    void configureFromSwitchConfig(const zombie::config::SwitchConfig& cfg);
+    float getControllerDeadzone() const { return controllerDeadzone; }
+    float getTriggerThreshold() const { return triggerThreshold; }
+    float getLookSensitivity() const { return lookSensitivity; }
+
+    // Setters for live configuration
+    void setControllerDeadzone(float deadzone) { controllerDeadzone = std::clamp(deadzone, 0.0f, 0.8f); }
+    void setLookSensitivity(float sensitivity) { lookSensitivity = std::clamp(sensitivity, 0.1f, 2.0f); }
+    void rebindAction(const std::string& action, const std::string& buttonName);
+
+    // Action bindings (controller)
+    bool isActionDown(const std::string& action) const;
+    bool isActionPressed(const std::string& action) const;
     
     // Text input
     void startTextInput();
@@ -76,6 +94,12 @@ private:
     std::unordered_map<int, bool> currentButtonState;
     std::unordered_map<int, bool> previousButtonState;
     std::unordered_map<int, float> axisValues;
+
+    // Controller tuning and bindings
+    float controllerDeadzone = 0.15f;
+    float triggerThreshold = 0.15f;
+    float lookSensitivity = 1.0f;
+    std::unordered_map<std::string, SDL_GameControllerButton> actionBindings; // action -> button
     
     // Text input
     bool textInputActive;

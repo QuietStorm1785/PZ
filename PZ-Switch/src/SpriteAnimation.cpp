@@ -265,6 +265,12 @@ void AnimationLoader::parseAnimationLine(const std::string& line,
               >> frame.originalWidth >> frame.originalHeight)) {
         return;
     }
+    // Optional duration value (seconds)
+    float duration = frame.duration;
+    if (!(iss >> duration)) {
+        duration = 0.1f; // default 10 FPS
+    }
+    frame.duration = duration;
     
     // Create animation if it doesn't exist
     if (animations.find(animName) == animations.end()) {

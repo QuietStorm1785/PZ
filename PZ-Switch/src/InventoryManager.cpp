@@ -4,7 +4,7 @@
 
 // Item Implementation
 Item::Item(const std::string& name, int weight)
-    : name(name), weight(weight), type("misc") {}
+    : name(name), type("misc"), weight(weight) {}
 
 std::string Item::getDescription() const {
     return name + " (weight: " + std::to_string(weight) + "g)";

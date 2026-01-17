@@ -53,6 +53,7 @@ bool VisibilityChecker::canSee(float x1, float y1, float x2, float y2, int z) {
 }
 
 bool VisibilityChecker::canSeeObject(zombie::characters::IsoPlayer* observer, IsoObject* object, float maxDistance) {
+    (void)observer; // observer position not wired yet
     if (!observer || !object) return false;
     
     // TODO: Get observer position - requires complete IsoPlayer definition
@@ -63,12 +64,17 @@ bool VisibilityChecker::canSeeObject(zombie::characters::IsoPlayer* observer, Is
     if (distance > maxDistance) return false;
     
     int observerZ = 0; // observer->getZ();
-    int objectZ = object->getZ();
-    
-    return canSee(0.0f, 0.0f, object->getX(), object->getY(), observerZ);
+        // objectZ reserved for future vertical visibility checks
+        return canSee(0.0f, 0.0f, object->getX(), object->getY(), observerZ);
 }
 
 std::vector<IsoObject*> VisibilityChecker::getVisibleObjects(float x, float y, int z, float radius, int maxObjects) {
+    (void)x;
+    (void)y;
+    (void)z;
+    (void)radius;
+    (void)maxObjects;
+
     std::vector<IsoObject*> visible;
     
     // TODO: Query spatial grid for objects within radius

@@ -34,10 +34,9 @@ AssetHandle<SDL_Texture> AssetStreamingSystem::requestTexture(const std::string&
     auto it = cachedTextures.find(path);
     if (it != cachedTextures.end()) {
         cacheHits++;
-        it->second.refCount++;
         it->second.lastAccessTime = globalTime;
         it->second.unloadTimer = 0.0f;
-        return AssetHandle<SDL_Texture>(it->second.texture);
+        return AssetHandle<SDL_Texture>(it->second.texture, &it->second.refCount, false);
     }
     
     cacheMisses++;
@@ -54,7 +53,7 @@ AssetHandle<SDL_Texture> AssetStreamingSystem::requestTexture(const std::string&
     cached.texture = texture;
     cached.path = path;
     cached.memorySize = estimateTextureMemory(texture);
-    cached.refCount = 1;
+    cached.refCount = 0;
     cached.lastAccessTime = globalTime;
     cached.unloadTimer = 0.0f;
     
@@ -66,7 +65,8 @@ AssetHandle<SDL_Texture> AssetStreamingSystem::requestTexture(const std::string&
         evictLRU();
     }
     
-    return AssetHandle<SDL_Texture>(texture);
+    auto& stored = cachedTextures[path];
+    return AssetHandle<SDL_Texture>(stored.texture, &stored.refCount, false);
 }
 
 void AssetStreamingSystem::preloadTexture(const std::string& path) {

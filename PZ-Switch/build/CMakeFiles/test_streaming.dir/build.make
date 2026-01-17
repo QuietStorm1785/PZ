@@ -111,10 +111,24 @@ CMakeFiles/test_streaming.dir/src/GameWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_streaming.dir/src/GameWindow.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/GameWindow.cpp -o CMakeFiles/test_streaming.dir/src/GameWindow.cpp.s
 
+CMakeFiles/test_streaming.dir/src/Config.cpp.o: CMakeFiles/test_streaming.dir/flags.make
+CMakeFiles/test_streaming.dir/src/Config.cpp.o: /workspaces/PZ/PZ-Switch/src/Config.cpp
+CMakeFiles/test_streaming.dir/src/Config.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test_streaming.dir/src/Config.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Config.cpp.o -MF CMakeFiles/test_streaming.dir/src/Config.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Config.cpp.o -c /workspaces/PZ/PZ-Switch/src/Config.cpp
+
+CMakeFiles/test_streaming.dir/src/Config.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_streaming.dir/src/Config.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/Config.cpp > CMakeFiles/test_streaming.dir/src/Config.cpp.i
+
+CMakeFiles/test_streaming.dir/src/Config.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_streaming.dir/src/Config.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/Config.cpp -o CMakeFiles/test_streaming.dir/src/Config.cpp.s
+
 CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o: /workspaces/PZ/PZ-Switch/src/GameStateMachine.cpp
 CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o -MF CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o.d -o CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o -c /workspaces/PZ/PZ-Switch/src/GameStateMachine.cpp
 
 CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/GameTime.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/GameTime.cpp.o: /workspaces/PZ/PZ-Switch/src/GameTime.cpp
 CMakeFiles/test_streaming.dir/src/GameTime.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test_streaming.dir/src/GameTime.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/test_streaming.dir/src/GameTime.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/GameTime.cpp.o -MF CMakeFiles/test_streaming.dir/src/GameTime.cpp.o.d -o CMakeFiles/test_streaming.dir/src/GameTime.cpp.o -c /workspaces/PZ/PZ-Switch/src/GameTime.cpp
 
 CMakeFiles/test_streaming.dir/src/GameTime.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/test_streaming.dir/src/GameTime.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o: /workspaces/PZ/PZ-Switch/src/TextureManager.cpp
 CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o -MF CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o.d -o CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o -c /workspaces/PZ/PZ-Switch/src/TextureManager.cpp
 
 CMakeFiles/test_streaming.dir/src/TextureManager.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/test_streaming.dir/src/TextureManager.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Sprite.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Sprite.cpp.o: /workspaces/PZ/PZ-Switch/src/Sprite.cpp
 CMakeFiles/test_streaming.dir/src/Sprite.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/test_streaming.dir/src/Sprite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/test_streaming.dir/src/Sprite.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Sprite.cpp.o -MF CMakeFiles/test_streaming.dir/src/Sprite.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Sprite.cpp.o -c /workspaces/PZ/PZ-Switch/src/Sprite.cpp
 
 CMakeFiles/test_streaming.dir/src/Sprite.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/test_streaming.dir/src/Sprite.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o: /workspaces/PZ/PZ-Switch/src/SpriteBatch.cpp
 CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o -MF CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o.d -o CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o -c /workspaces/PZ/PZ-Switch/src/SpriteBatch.cpp
 
 CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o: /workspaces/PZ/PZ-Switch/src/SpriteAnimation.cpp
 CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o -MF CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o.d -o CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o -c /workspaces/PZ/PZ-Switch/src/SpriteAnimation.cpp
 
 CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o: /workspaces/PZ/PZ-Switch/src/BitmapFont.cpp
 CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o -MF CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o.d -o CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.o -c /workspaces/PZ/PZ-Switch/src/BitmapFont.cpp
 
 CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/test_streaming.dir/src/BitmapFont.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/TileMap.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/TileMap.cpp.o: /workspaces/PZ/PZ-Switch/src/TileMap.cpp
 CMakeFiles/test_streaming.dir/src/TileMap.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/test_streaming.dir/src/TileMap.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/test_streaming.dir/src/TileMap.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/TileMap.cpp.o -MF CMakeFiles/test_streaming.dir/src/TileMap.cpp.o.d -o CMakeFiles/test_streaming.dir/src/TileMap.cpp.o -c /workspaces/PZ/PZ-Switch/src/TileMap.cpp
 
 CMakeFiles/test_streaming.dir/src/TileMap.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/test_streaming.dir/src/TileMap.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Entity.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Entity.cpp.o: /workspaces/PZ/PZ-Switch/src/Entity.cpp
 CMakeFiles/test_streaming.dir/src/Entity.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/test_streaming.dir/src/Entity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/test_streaming.dir/src/Entity.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Entity.cpp.o -MF CMakeFiles/test_streaming.dir/src/Entity.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Entity.cpp.o -c /workspaces/PZ/PZ-Switch/src/Entity.cpp
 
 CMakeFiles/test_streaming.dir/src/Entity.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/test_streaming.dir/src/Entity.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Player.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Player.cpp.o: /workspaces/PZ/PZ-Switch/src/Player.cpp
 CMakeFiles/test_streaming.dir/src/Player.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/test_streaming.dir/src/Player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/test_streaming.dir/src/Player.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Player.cpp.o -MF CMakeFiles/test_streaming.dir/src/Player.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Player.cpp.o -c /workspaces/PZ/PZ-Switch/src/Player.cpp
 
 CMakeFiles/test_streaming.dir/src/Player.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/test_streaming.dir/src/Player.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Collision.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Collision.cpp.o: /workspaces/PZ/PZ-Switch/src/Collision.cpp
 CMakeFiles/test_streaming.dir/src/Collision.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/test_streaming.dir/src/Collision.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/test_streaming.dir/src/Collision.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Collision.cpp.o -MF CMakeFiles/test_streaming.dir/src/Collision.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Collision.cpp.o -c /workspaces/PZ/PZ-Switch/src/Collision.cpp
 
 CMakeFiles/test_streaming.dir/src/Collision.cpp.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/test_streaming.dir/src/Collision.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/InputManager.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/InputManager.cpp.o: /workspaces/PZ/PZ-Switch/src/InputManager.cpp
 CMakeFiles/test_streaming.dir/src/InputManager.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/test_streaming.dir/src/InputManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/test_streaming.dir/src/InputManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/InputManager.cpp.o -MF CMakeFiles/test_streaming.dir/src/InputManager.cpp.o.d -o CMakeFiles/test_streaming.dir/src/InputManager.cpp.o -c /workspaces/PZ/PZ-Switch/src/InputManager.cpp
 
 CMakeFiles/test_streaming.dir/src/InputManager.cpp.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/test_streaming.dir/src/InputManager.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o: /workspaces/PZ/PZ-Switch/src/SoundManager.cpp
 CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o -MF CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o.d -o CMakeFiles/test_streaming.dir/src/SoundManager.cpp.o -c /workspaces/PZ/PZ-Switch/src/SoundManager.cpp
 
 CMakeFiles/test_streaming.dir/src/SoundManager.cpp.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/test_streaming.dir/src/SoundManager.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o: /workspaces/PZ/PZ-Switch/src/IsoPlayer.cpp
 CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o -MF CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o.d -o CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.o -c /workspaces/PZ/PZ-Switch/src/IsoPlayer.cpp
 
 CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/test_streaming.dir/src/IsoPlayer.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o: /workspaces/PZ/PZ-Switch/src/IsoObject.cpp
 CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o -MF CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o.d -o CMakeFiles/test_streaming.dir/src/IsoObject.cpp.o -c /workspaces/PZ/PZ-Switch/src/IsoObject.cpp
 
 CMakeFiles/test_streaming.dir/src/IsoObject.cpp.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/test_streaming.dir/src/IsoObject.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o: /workspaces/PZ/PZ-Switch/src/IsoGridSquare.cpp
 CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o -MF CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o.d -o CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.o -c /workspaces/PZ/PZ-Switch/src/IsoGridSquare.cpp
 
 CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/test_streaming.dir/src/IsoGridSquare.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o: /workspaces/PZ/PZ-Switch/src/IsoChunk.cpp
 CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o -MF CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o.d -o CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.o -c /workspaces/PZ/PZ-Switch/src/IsoChunk.cpp
 
 CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.i: cmake_force
@@ -352,7 +366,7 @@ CMakeFiles/test_streaming.dir/src/IsoChunk.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o: /workspaces/PZ/PZ-Switch/src/IsoCell.cpp
 CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o -MF CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o.d -o CMakeFiles/test_streaming.dir/src/IsoCell.cpp.o -c /workspaces/PZ/PZ-Switch/src/IsoCell.cpp
 
 CMakeFiles/test_streaming.dir/src/IsoCell.cpp.i: cmake_force
@@ -366,7 +380,7 @@ CMakeFiles/test_streaming.dir/src/IsoCell.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o: /workspaces/PZ/PZ-Switch/src/IsoZombie.cpp
 CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o -MF CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o.d -o CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.o -c /workspaces/PZ/PZ-Switch/src/IsoZombie.cpp
 
 CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.i: cmake_force
@@ -380,7 +394,7 @@ CMakeFiles/test_streaming.dir/src/IsoZombie.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o: /workspaces/PZ/PZ-Switch/src/NetworkManager.cpp
 CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o -MF CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o.d -o CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.o -c /workspaces/PZ/PZ-Switch/src/NetworkManager.cpp
 
 CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.i: cmake_force
@@ -394,7 +408,7 @@ CMakeFiles/test_streaming.dir/src/NetworkManager.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o: /workspaces/PZ/PZ-Switch/src/Pathfinding.cpp
 CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o -MF CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.o -c /workspaces/PZ/PZ-Switch/src/Pathfinding.cpp
 
 CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.i: cmake_force
@@ -408,7 +422,7 @@ CMakeFiles/test_streaming.dir/src/Pathfinding.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Inventory.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Inventory.cpp.o: /workspaces/PZ/PZ-Switch/src/Inventory.cpp
 CMakeFiles/test_streaming.dir/src/Inventory.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/test_streaming.dir/src/Inventory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/test_streaming.dir/src/Inventory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Inventory.cpp.o -MF CMakeFiles/test_streaming.dir/src/Inventory.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Inventory.cpp.o -c /workspaces/PZ/PZ-Switch/src/Inventory.cpp
 
 CMakeFiles/test_streaming.dir/src/Inventory.cpp.i: cmake_force
@@ -422,7 +436,7 @@ CMakeFiles/test_streaming.dir/src/Inventory.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Building.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Building.cpp.o: /workspaces/PZ/PZ-Switch/src/Building.cpp
 CMakeFiles/test_streaming.dir/src/Building.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/test_streaming.dir/src/Building.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/test_streaming.dir/src/Building.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Building.cpp.o -MF CMakeFiles/test_streaming.dir/src/Building.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Building.cpp.o -c /workspaces/PZ/PZ-Switch/src/Building.cpp
 
 CMakeFiles/test_streaming.dir/src/Building.cpp.i: cmake_force
@@ -436,7 +450,7 @@ CMakeFiles/test_streaming.dir/src/Building.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o: /workspaces/PZ/PZ-Switch/src/AIBehaviors.cpp
 CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o -MF CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o.d -o CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.o -c /workspaces/PZ/PZ-Switch/src/AIBehaviors.cpp
 
 CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.i: cmake_force
@@ -450,7 +464,7 @@ CMakeFiles/test_streaming.dir/src/AIBehaviors.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o: /workspaces/PZ/PZ-Switch/src/SaveLoad.cpp
 CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o -MF CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o.d -o CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.o -c /workspaces/PZ/PZ-Switch/src/SaveLoad.cpp
 
 CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.i: cmake_force
@@ -464,7 +478,7 @@ CMakeFiles/test_streaming.dir/src/SaveLoad.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Animation.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Animation.cpp.o: /workspaces/PZ/PZ-Switch/src/Animation.cpp
 CMakeFiles/test_streaming.dir/src/Animation.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/test_streaming.dir/src/Animation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/test_streaming.dir/src/Animation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Animation.cpp.o -MF CMakeFiles/test_streaming.dir/src/Animation.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Animation.cpp.o -c /workspaces/PZ/PZ-Switch/src/Animation.cpp
 
 CMakeFiles/test_streaming.dir/src/Animation.cpp.i: cmake_force
@@ -478,7 +492,7 @@ CMakeFiles/test_streaming.dir/src/Animation.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o: /workspaces/PZ/PZ-Switch/src/AnimationController.cpp
 CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o -MF CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o.d -o CMakeFiles/test_streaming.dir/src/AnimationController.cpp.o -c /workspaces/PZ/PZ-Switch/src/AnimationController.cpp
 
 CMakeFiles/test_streaming.dir/src/AnimationController.cpp.i: cmake_force
@@ -492,7 +506,7 @@ CMakeFiles/test_streaming.dir/src/AnimationController.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o: /workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp
 CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o -MF CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o.d -o CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o -c /workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp
 
 CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.i: cmake_force
@@ -506,7 +520,7 @@ CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o: /workspaces/PZ/PZ-Switch/src/SpriteLoader.cpp
 CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o -MF CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o.d -o CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.o -c /workspaces/PZ/PZ-Switch/src/SpriteLoader.cpp
 
 CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.i: cmake_force
@@ -520,7 +534,7 @@ CMakeFiles/test_streaming.dir/src/SpriteLoader.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Audio.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Audio.cpp.o: /workspaces/PZ/PZ-Switch/src/Audio.cpp
 CMakeFiles/test_streaming.dir/src/Audio.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/test_streaming.dir/src/Audio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/test_streaming.dir/src/Audio.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Audio.cpp.o -MF CMakeFiles/test_streaming.dir/src/Audio.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Audio.cpp.o -c /workspaces/PZ/PZ-Switch/src/Audio.cpp
 
 CMakeFiles/test_streaming.dir/src/Audio.cpp.i: cmake_force
@@ -534,7 +548,7 @@ CMakeFiles/test_streaming.dir/src/Audio.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/UI.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/UI.cpp.o: /workspaces/PZ/PZ-Switch/src/UI.cpp
 CMakeFiles/test_streaming.dir/src/UI.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/test_streaming.dir/src/UI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/test_streaming.dir/src/UI.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/UI.cpp.o -MF CMakeFiles/test_streaming.dir/src/UI.cpp.o.d -o CMakeFiles/test_streaming.dir/src/UI.cpp.o -c /workspaces/PZ/PZ-Switch/src/UI.cpp
 
 CMakeFiles/test_streaming.dir/src/UI.cpp.i: cmake_force
@@ -548,7 +562,7 @@ CMakeFiles/test_streaming.dir/src/UI.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/Tasks.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/Tasks.cpp.o: /workspaces/PZ/PZ-Switch/src/Tasks.cpp
 CMakeFiles/test_streaming.dir/src/Tasks.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/test_streaming.dir/src/Tasks.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/test_streaming.dir/src/Tasks.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/Tasks.cpp.o -MF CMakeFiles/test_streaming.dir/src/Tasks.cpp.o.d -o CMakeFiles/test_streaming.dir/src/Tasks.cpp.o -c /workspaces/PZ/PZ-Switch/src/Tasks.cpp
 
 CMakeFiles/test_streaming.dir/src/Tasks.cpp.i: cmake_force
@@ -562,7 +576,7 @@ CMakeFiles/test_streaming.dir/src/Tasks.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o: /workspaces/PZ/PZ-Switch/src/NetworkingEnhanced.cpp
 CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o -MF CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o.d -o CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.o -c /workspaces/PZ/PZ-Switch/src/NetworkingEnhanced.cpp
 
 CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.i: cmake_force
@@ -576,7 +590,7 @@ CMakeFiles/test_streaming.dir/src/NetworkingEnhanced.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o: /workspaces/PZ/PZ-Switch/src/WorldContent.cpp
 CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o -MF CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o.d -o CMakeFiles/test_streaming.dir/src/WorldContent.cpp.o -c /workspaces/PZ/PZ-Switch/src/WorldContent.cpp
 
 CMakeFiles/test_streaming.dir/src/WorldContent.cpp.i: cmake_force
@@ -590,7 +604,7 @@ CMakeFiles/test_streaming.dir/src/WorldContent.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o: /workspaces/PZ/PZ-Switch/src/WorldLoader.cpp
 CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o -MF CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o.d -o CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.o -c /workspaces/PZ/PZ-Switch/src/WorldLoader.cpp
 
 CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.i: cmake_force
@@ -604,7 +618,7 @@ CMakeFiles/test_streaming.dir/src/WorldLoader.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o: /workspaces/PZ/PZ-Switch/src/SpatialGrid.cpp
 CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o -MF CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o.d -o CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.o -c /workspaces/PZ/PZ-Switch/src/SpatialGrid.cpp
 
 CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.i: cmake_force
@@ -618,7 +632,7 @@ CMakeFiles/test_streaming.dir/src/SpatialGrid.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o: /workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp
 CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o -MF CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o.d -o CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.o -c /workspaces/PZ/PZ-Switch/src/AudioInteractionSystem.cpp
 
 CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.i: cmake_force
@@ -632,7 +646,7 @@ CMakeFiles/test_streaming.dir/src/AudioInteractionSystem.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o: /workspaces/PZ/PZ-Switch/src/VisibilitySystem.cpp
 CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o -MF CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o.d -o CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.o -c /workspaces/PZ/PZ-Switch/src/VisibilitySystem.cpp
 
 CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.i: cmake_force
@@ -646,7 +660,7 @@ CMakeFiles/test_streaming.dir/src/VisibilitySystem.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o: /workspaces/PZ/PZ-Switch/src/InventoryManager.cpp
 CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o -MF CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o.d -o CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.o -c /workspaces/PZ/PZ-Switch/src/InventoryManager.cpp
 
 CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.i: cmake_force
@@ -660,7 +674,7 @@ CMakeFiles/test_streaming.dir/src/InventoryManager.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o: /workspaces/PZ/PZ-Switch/src/PathfindingThreadPool.cpp
 CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o -MF CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o.d -o CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.o -c /workspaces/PZ/PZ-Switch/src/PathfindingThreadPool.cpp
 
 CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.i: cmake_force
@@ -674,7 +688,7 @@ CMakeFiles/test_streaming.dir/src/PathfindingThreadPool.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o: /workspaces/PZ/PZ-Switch/src/ObjectPool.cpp
 CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o -MF CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o.d -o CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.o -c /workspaces/PZ/PZ-Switch/src/ObjectPool.cpp
 
 CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.i: cmake_force
@@ -688,7 +702,7 @@ CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o: /workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp
 CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o -MF CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o.d -o CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.o -c /workspaces/PZ/PZ-Switch/src/AssetStreaming.cpp
 
 CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.i: cmake_force
@@ -702,7 +716,7 @@ CMakeFiles/test_streaming.dir/src/AssetStreaming.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o: /workspaces/PZ/PZ-Switch/src/ChunkManager.cpp
 CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o -MF CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o.d -o CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.o -c /workspaces/PZ/PZ-Switch/src/ChunkManager.cpp
 
 CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.i: cmake_force
@@ -716,7 +730,7 @@ CMakeFiles/test_streaming.dir/src/ChunkManager.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o: /workspaces/PZ/PZ-Switch/src/ChunkRenderer.cpp
 CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o -MF CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o.d -o CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o -c /workspaces/PZ/PZ-Switch/src/ChunkRenderer.cpp
 
 CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.i: cmake_force
@@ -730,7 +744,7 @@ CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o: /workspaces/PZ/PZ-Switch/src/PlayerChunkSync.cpp
 CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o -MF CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o.d -o CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o -c /workspaces/PZ/PZ-Switch/src/PlayerChunkSync.cpp
 
 CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.i: cmake_force
@@ -744,7 +758,7 @@ CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o: /workspaces/PZ/PZ-Switch/src/IsometricRenderer.cpp
 CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o -MF CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o.d -o CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o -c /workspaces/PZ/PZ-Switch/src/IsometricRenderer.cpp
 
 CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.i: cmake_force
@@ -758,7 +772,7 @@ CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.s: cmake_force
 CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o: CMakeFiles/test_streaming.dir/flags.make
 CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o: /workspaces/PZ/PZ-Switch/src/WorldCollisionSystem.cpp
 CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o -MF CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o.d -o CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o -c /workspaces/PZ/PZ-Switch/src/WorldCollisionSystem.cpp
 
 CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.i: cmake_force
@@ -769,11 +783,68 @@ CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/WorldCollisionSystem.cpp -o CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.s
 
+CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o: CMakeFiles/test_streaming.dir/flags.make
+CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o: /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp
+CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o -MF CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o.d -o CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o -c /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp
+
+CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp > CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.i
+
+CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/MainMenuScreen.cpp -o CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.s
+
+CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o: CMakeFiles/test_streaming.dir/flags.make
+CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o: /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp
+CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o -MF CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o.d -o CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o -c /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp
+
+CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp > CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.i
+
+CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/OptionsScreen.cpp -o CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.s
+
+CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o: CMakeFiles/test_streaming.dir/flags.make
+CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o: /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp
+CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o -MF CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o.d -o CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o -c /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp
+
+CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp > CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.i
+
+CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/ControllerRebindUI.cpp -o CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.s
+
+CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o: CMakeFiles/test_streaming.dir/flags.make
+CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o: /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp
+CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o: CMakeFiles/test_streaming.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o -MF CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o.d -o CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o -c /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp
+
+CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp > CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.i
+
+CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/PZ/PZ-Switch/src/RadialMenu.cpp -o CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.s
+
 # Object files for target test_streaming
 test_streaming_OBJECTS = \
 "CMakeFiles/test_streaming.dir/test_streaming.cpp.o" \
 "CMakeFiles/test_streaming.dir/src/Core.cpp.o" \
 "CMakeFiles/test_streaming.dir/src/GameWindow.cpp.o" \
+"CMakeFiles/test_streaming.dir/src/Config.cpp.o" \
 "CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o" \
 "CMakeFiles/test_streaming.dir/src/GameTime.cpp.o" \
 "CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o" \
@@ -820,7 +891,11 @@ test_streaming_OBJECTS = \
 "CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o" \
 "CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o" \
 "CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o" \
-"CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o"
+"CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o" \
+"CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o" \
+"CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o" \
+"CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o" \
+"CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o"
 
 # External object files for target test_streaming
 test_streaming_EXTERNAL_OBJECTS =
@@ -828,6 +903,7 @@ test_streaming_EXTERNAL_OBJECTS =
 test_streaming: CMakeFiles/test_streaming.dir/test_streaming.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/Core.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/GameWindow.cpp.o
+test_streaming: CMakeFiles/test_streaming.dir/src/Config.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/GameStateMachine.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/GameTime.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o
@@ -875,10 +951,14 @@ test_streaming: CMakeFiles/test_streaming.dir/src/ChunkRenderer.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/src/WorldCollisionSystem.cpp.o
+test_streaming: CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o
+test_streaming: CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o
+test_streaming: CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o
+test_streaming: CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o
 test_streaming: CMakeFiles/test_streaming.dir/build.make
 test_streaming: /usr/lib/x86_64-linux-gnu/libSDL2.so
 test_streaming: CMakeFiles/test_streaming.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Linking CXX executable test_streaming"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/PZ/PZ-Switch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Linking CXX executable test_streaming"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_streaming.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

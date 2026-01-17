@@ -193,4 +193,13 @@ CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/sstream.tcc \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/codecvt \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fs_dir.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fs_ops.h
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fs_ops.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/algorithm \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_algo.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/algorithmfwd.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_heap.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/uniform_int_dist.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cstring \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/string.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/string.h

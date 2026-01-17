@@ -57,6 +57,8 @@ public:
     // Graphics settings
     void setGraphicLevel(int level) { graphicLevel = level; }
     int getGraphicLevel() const { return graphicLevel; }
+    bool setVSyncEnabled(bool enabled);
+    bool isVSyncEnabled() const { return vsyncEnabled; }
     
     // Debug
     static bool bDebug;
@@ -74,6 +76,7 @@ private:
     
     int graphicLevel;
     bool useShaders;
+    bool vsyncEnabled;
 };
 
 } // namespace core

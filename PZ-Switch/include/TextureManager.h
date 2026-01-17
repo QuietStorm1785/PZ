@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <memory>
 #include <vector>
+#include "AssetStreaming.h"
 
 namespace zombie {
 
@@ -46,6 +47,15 @@ public:
     // Set media directory base path
     void setMediaPath(const std::string& path) { mediaPath = path; }
     std::string getMediaPath() const { return mediaPath; }
+
+    // Atlas knobs
+    void setAtlasTextureFormat(SDL_PixelFormatEnum format) { preferredAtlasFormat = format; }
+    void enableAtlasMipmaps(bool enable, int maxLevels = 4);
+
+    // Streaming controls
+    void setStreamingEnabled(bool enabled);
+    bool isStreamingEnabled() const { return streamingEnabled; }
+    void updateStreaming(float deltaTime);
     
     // Clear cache
     void clearCache();
@@ -65,6 +75,14 @@ public:
     
     // Get cached atlas
     zombie::assets::TextureAtlas* getAtlas(const std::string& name);
+
+    // Load a Project Zomboid texture pack (directory with .png + .txt definitions)
+    // Returns map of base sprite name -> AnimatedSprite*
+    bool loadTexturePack(const std::string& packName,
+                         std::unordered_map<std::string, zombie::graphics::AnimatedSprite*>& outSprites,
+                         bool buildAtlas = false,
+                         int atlasMaxWidth = 2048,
+                         int atlasMaxHeight = 2048);
     
         // Load character sprite sheet (8-direction animations)
         zombie::graphics::AnimatedSprite* loadCharacterSpriteSheet(
@@ -88,21 +106,53 @@ public:
         zombie::assets::TextureAtlas* createTileAtlas(
             const std::vector<std::string>& tileNames
         );
+
+        // Build atlas from hottest requested textures
+        zombie::assets::TextureAtlas* buildUsageAtlas(
+            const std::string& atlasName,
+            int minUsage = 3,
+            int maxSprites = 256,
+            int maxWidth = 2048,
+            int maxHeight = 2048
+        );
+
+        // Dynamically add a sprite to an existing atlas and rebuild
+        bool addSpriteToAtlas(const std::string& atlasName, const std::string& spritePath);
     
 private:
     static TextureManager* instance;
     
     SDL_Renderer* renderer;
     std::string mediaPath;
+
+    SDL_PixelFormatEnum preferredAtlasFormat;
+    bool atlasGenerateMipmaps;
+    int atlasMaxMipLevels;
     
+    struct CachedTextureEntry {
+        SDL_Texture* texture{nullptr};
+        AssetHandle<SDL_Texture> streamingHandle;
+    };
+
     // Texture cache
-    std::unordered_map<std::string, SDL_Texture*> textureCache;
+    std::unordered_map<std::string, CachedTextureEntry> textureCache;
     
     // Atlas cache
     std::unordered_map<std::string, zombie::assets::TextureAtlas*> atlasCache;
+
+    // Owned animated sprites loaded via texture packs
+    std::vector<std::unique_ptr<zombie::graphics::AnimatedSprite>> packSpriteStore;
+    
+    // Optional streaming
+    std::unique_ptr<AssetStreamingSystem> streamingSystem;
+    bool streamingEnabled;
+
+    // Usage tracking for auto-atlas generation
+    std::unordered_map<std::string, int> usageCounts;
     
     // Load from file
     SDL_Texture* loadFromFile(const std::string& fullPath);
+    void registerUsage(const std::string& path);
 };
 
 } // namespace assets

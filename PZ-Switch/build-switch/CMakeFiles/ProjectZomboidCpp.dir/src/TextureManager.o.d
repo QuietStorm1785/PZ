@@ -226,6 +226,37 @@ CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/backward/auto_ptr.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_memory_defs.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/execution_defs.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/vector \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_bvector.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/vector.tcc \
+ /workspaces/PZ/PZ-Switch/include/AssetStreaming.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/functional \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/std_function.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/array \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/compare \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/queue \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/deque \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_deque.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/deque.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_heap.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_queue.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/mutex \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/chrono.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ratio \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cstdint \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ctime \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/parse_numbers.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/std_mutex.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_lock.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/error_constants.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/condition_variable \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/thread \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/std_thread.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/this_thread_sleep.h \
+ /workspaces/PZ/PZ-Switch/include/SpriteAnimation.h \
+ /workspaces/PZ/PZ-Switch/include/Sprite.h \
+ /workspaces/PZ/PZ-Switch/include/TextureAtlas.h \
  /opt/devkitpro/portlibs/switch/include/SDL2/SDL_image.h \
  /opt/devkitpro/portlibs/switch/include/SDL2/SDL.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/iostream \
@@ -236,7 +267,6 @@ CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/locale_classes.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/locale_classes.tcc \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/system_error \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/error_constants.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/stdexcept \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/streambuf \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/streambuf.tcc \
@@ -251,4 +281,30 @@ CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_ios.tcc \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/ostream.tcc \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/istream \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/istream.tcc
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/istream.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/fstream \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/codecvt.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/basic_file.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/c++io.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fstream.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/sstream \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/sstream.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/filesystem \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fs_fwd.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fs_path.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/locale \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/locale_facets_nonio.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/time_members.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/messages_members.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/locale_conv.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/iomanip \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/quoted_string.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/codecvt \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fs_dir.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/fs_ops.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/algorithm \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_algo.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/algorithmfwd.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/uniform_int_dist.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_algorithm_defs.h

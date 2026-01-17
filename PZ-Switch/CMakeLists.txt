@@ -75,6 +75,7 @@ set(SOURCES
     src/main.cpp
     src/Core.cpp
     src/GameWindow.cpp
+    src/Config.cpp
     src/GameStateMachine.cpp
     src/GameTime.cpp
     src/TextureManager.cpp
@@ -122,6 +123,10 @@ set(SOURCES
     src/PlayerChunkSync.cpp
     src/IsometricRenderer.cpp
     src/WorldCollisionSystem.cpp
+    src/MainMenuScreen.cpp
+    src/OptionsScreen.cpp
+    src/ControllerRebindUI.cpp
+    src/RadialMenu.cpp
 )
 
 # Headers
@@ -174,6 +179,10 @@ set(HEADERS
     include/PlayerChunkSync.h
     include/IsometricRenderer.h
     include/WorldCollisionSystem.h
+    include/MainMenuScreen.h
+    include/OptionsScreen.h
+    include/ControllerRebindUI.h
+    include/RadialMenu.h
 )
 
 # Create executable

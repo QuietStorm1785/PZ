@@ -185,4 +185,49 @@ CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o: \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/cstddef \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/uses_allocator.h \
  /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/uses_allocator_args.h \
- /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple \
+ /workspaces/PZ/PZ-Switch/include/TextureAtlas.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_map \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/hashtable.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/hashtable_policy.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ext/aligned_buffer.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/enable_special_members.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/node_handle.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/erase_if.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/vector \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_uninitialized.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_bvector.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/vector.tcc \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_tempbuf.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/align.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/typeinfo \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocated_ptr.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ext/atomicity.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/gthr.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/gthr-default.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/pthread.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/unistd.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/unistd.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/time.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/machine/time.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/timespec.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sched.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/atomic_word.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/ext/concurrence.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/exception \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/exception_ptr.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/cxxabi_init_exception.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/nested_exception.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_atomic.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/atomic_base.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/backward/auto_ptr.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/glue_memory_defs.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/pstl/execution_defs.h

@@ -64,6 +64,7 @@ void Player::interact() {
 }
 
 void Player::updateMovement(float deltaTime) {
+    (void)deltaTime;
     float vx = 0.0f;
     float vy = 0.0f;
     
@@ -130,6 +131,7 @@ void Zombie::updateAI(float deltaTime) {
 }
 
 void Zombie::moveTowardsTarget(float deltaTime) {
+    (void)deltaTime;
     float dx = targetX - x;
     float dy = targetY - y;
     float distance = std::sqrt(dx * dx + dy * dy);

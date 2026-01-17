@@ -65,6 +65,7 @@ void IsoGameCharacter::render(SDL_Renderer* renderer) {
 }
 
 void IsoGameCharacter::updateMovement(float deltaTime) {
+    (void)deltaTime;
     if (!moving) return;
     
     float dx = targetX - x;
@@ -95,6 +96,7 @@ void IsoGameCharacter::setTargetPosition(float tx, float ty) {
 }
 
 void IsoGameCharacter::hit(float damage, IsoGameCharacter* attacker) {
+    (void)attacker;
     health -= damage;
     
     if (health <= 0.0f) {
@@ -125,6 +127,7 @@ bool IsoGameCharacter::hasItem(const std::string& itemType) const {
 }
 
 void IsoGameCharacter::updateAnimation(float deltaTime) {
+    (void)deltaTime;
     // TODO: Update sprite based on movement direction and state
 }
 
@@ -232,15 +235,15 @@ void IsoPlayer::processMovementInput(input::InputManager* inputMgr) {
         float axisX = inputMgr->getAxisValue(SDL_CONTROLLER_AXIS_LEFTX);
         float axisY = inputMgr->getAxisValue(SDL_CONTROLLER_AXIS_LEFTY);
         
-        // Apply deadzone
-        const float deadzone = 0.15f;
+        // Apply configurable deadzone
+        const float deadzone = inputMgr->getControllerDeadzone();
         if (std::abs(axisX) > deadzone) moveX += axisX;
         if (std::abs(axisY) > deadzone) moveY += axisY;
     }
     
-    // Running (Shift or B button on Switch)
+    // Running (Shift or sprint binding on controller)
     running = inputMgr->isKeyDown(SDL_SCANCODE_LSHIFT) || 
-              inputMgr->isGamepadButtonDown(SDL_CONTROLLER_BUTTON_B);
+              inputMgr->isActionDown("sprint");
     
     // Normalize diagonal movement
     if (moveX != 0.0f && moveY != 0.0f) {
@@ -258,8 +261,26 @@ void IsoPlayer::processMovementInput(input::InputManager* inputMgr) {
     setVelocity(moveX * speed, moveY * speed);
     moving = (moveX != 0.0f || moveY != 0.0f);
     
-    // Update facing direction
-    if (moving) {
+    // Update facing direction from movement or right stick aiming
+    if (inputMgr->hasGamepad()) {
+        float lookX = inputMgr->getAxisValue(SDL_CONTROLLER_AXIS_RIGHTX);
+        float lookY = inputMgr->getAxisValue(SDL_CONTROLLER_AXIS_RIGHTY);
+        const float deadzone = inputMgr->getControllerDeadzone();
+        if (std::abs(lookX) > deadzone || std::abs(lookY) > deadzone) {
+            // Use right stick to aim/facing
+            if (std::abs(lookX) > std::abs(lookY)) {
+                facingDirection = lookX > 0 ? 2 : 6; // E or W
+            } else {
+                facingDirection = lookY > 0 ? 4 : 0; // S or N
+            }
+        } else if (moving) {
+            if (std::abs(moveX) > std::abs(moveY)) {
+                facingDirection = moveX > 0 ? 2 : 6; // E or W
+            } else {
+                facingDirection = moveY > 0 ? 4 : 0; // S or N
+            }
+        }
+    } else if (moving) {
         if (std::abs(moveX) > std::abs(moveY)) {
             facingDirection = moveX > 0 ? 2 : 6; // E or W
         } else {
@@ -269,22 +290,28 @@ void IsoPlayer::processMovementInput(input::InputManager* inputMgr) {
 }
 
 void IsoPlayer::processActionInput(input::InputManager* inputMgr) {
-    // Interact (E key or A button on Switch)
+    // Interact (E key or A on Switch)
     if (inputMgr->isKeyPressed(SDL_SCANCODE_E) ||
-        inputMgr->isGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A)) {
+        inputMgr->isActionPressed("interact")) {
         interact();
     }
-    
-    // Attack (Space or X button on Switch)
+
+    // Shove/aim (LT on Switch by default)
+    if (inputMgr->isActionPressed("aim") || inputMgr->isActionPressed("shove")) {
+        // Placeholder shove implementation; real logic would push nearby zombie back
+        attackNearestZombie();
+    }
+
+    // Attack (Space or configured binding -> RT on Switch)
     if (inputMgr->isKeyPressed(SDL_SCANCODE_SPACE) ||
-        inputMgr->isGamepadButtonPressed(SDL_CONTROLLER_BUTTON_X)) {
+        inputMgr->isActionPressed("fire")) {
         attackNearestZombie();
     }
     
-    // Use item (F key or Y button on Switch)
+    // Use item / inventory (F or Y on Switch)
     if (inputMgr->isKeyPressed(SDL_SCANCODE_F) ||
-        inputMgr->isGamepadButtonPressed(SDL_CONTROLLER_BUTTON_Y)) {
-        // TODO: Open quick use menu
+        inputMgr->isActionPressed("inventory")) {
+        // TODO: Open quick use menu or inventory radial
     }
 }
 

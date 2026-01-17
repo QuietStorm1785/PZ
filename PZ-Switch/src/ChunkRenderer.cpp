@@ -114,6 +114,8 @@ void ChunkRenderer::renderTile(IsoGridSquare* square, RenderLayer layer,
 
 void ChunkRenderer::renderObjects(IsoGridSquare* square, RenderLayer layer,
                                  float cameraX, float cameraY, SpriteBatch* batch) {
+    (void)layer;
+    (void)batch;
     // Render IsoObjects on this square
     for (IsoObject* obj : square->getObjects()) {
         if (!obj) continue;

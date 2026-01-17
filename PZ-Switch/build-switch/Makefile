@@ -205,6 +205,36 @@ src/Animation.s:
 .PHONY : src/Animation.s
 
 # target to build an object file
+src/AnimationController.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o
+.PHONY : src/AnimationController.o
+
+# target to preprocess a source file
+src/AnimationController.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.i
+.PHONY : src/AnimationController.i
+
+# target to generate assembly for a file
+src/AnimationController.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.s
+.PHONY : src/AnimationController.s
+
+# target to build an object file
+src/AssetStreaming.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o
+.PHONY : src/AssetStreaming.o
+
+# target to preprocess a source file
+src/AssetStreaming.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.i
+.PHONY : src/AssetStreaming.i
+
+# target to generate assembly for a file
+src/AssetStreaming.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.s
+.PHONY : src/AssetStreaming.s
+
+# target to build an object file
 src/Audio.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o
 .PHONY : src/Audio.o
@@ -218,6 +248,21 @@ src/Audio.i:
 src/Audio.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Audio.s
 .PHONY : src/Audio.s
+
+# target to build an object file
+src/AudioInteractionSystem.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o
+.PHONY : src/AudioInteractionSystem.o
+
+# target to preprocess a source file
+src/AudioInteractionSystem.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.i
+.PHONY : src/AudioInteractionSystem.i
+
+# target to generate assembly for a file
+src/AudioInteractionSystem.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.s
+.PHONY : src/AudioInteractionSystem.s
 
 # target to build an object file
 src/BitmapFont.o:
@@ -250,6 +295,36 @@ src/Building.s:
 .PHONY : src/Building.s
 
 # target to build an object file
+src/ChunkManager.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o
+.PHONY : src/ChunkManager.o
+
+# target to preprocess a source file
+src/ChunkManager.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.i
+.PHONY : src/ChunkManager.i
+
+# target to generate assembly for a file
+src/ChunkManager.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.s
+.PHONY : src/ChunkManager.s
+
+# target to build an object file
+src/ChunkRenderer.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o
+.PHONY : src/ChunkRenderer.o
+
+# target to preprocess a source file
+src/ChunkRenderer.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.i
+.PHONY : src/ChunkRenderer.i
+
+# target to generate assembly for a file
+src/ChunkRenderer.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.s
+.PHONY : src/ChunkRenderer.s
+
+# target to build an object file
 src/Collision.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o
 .PHONY : src/Collision.o
@@ -263,6 +338,36 @@ src/Collision.i:
 src/Collision.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Collision.s
 .PHONY : src/Collision.s
+
+# target to build an object file
+src/Config.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Config.o
+.PHONY : src/Config.o
+
+# target to preprocess a source file
+src/Config.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Config.i
+.PHONY : src/Config.i
+
+# target to generate assembly for a file
+src/Config.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Config.s
+.PHONY : src/Config.s
+
+# target to build an object file
+src/ControllerRebindUI.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o
+.PHONY : src/ControllerRebindUI.o
+
+# target to preprocess a source file
+src/ControllerRebindUI.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.i
+.PHONY : src/ControllerRebindUI.i
+
+# target to generate assembly for a file
+src/ControllerRebindUI.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.s
+.PHONY : src/ControllerRebindUI.s
 
 # target to build an object file
 src/Core.o:
@@ -370,6 +475,21 @@ src/Inventory.s:
 .PHONY : src/Inventory.s
 
 # target to build an object file
+src/InventoryManager.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o
+.PHONY : src/InventoryManager.o
+
+# target to preprocess a source file
+src/InventoryManager.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.i
+.PHONY : src/InventoryManager.i
+
+# target to generate assembly for a file
+src/InventoryManager.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.s
+.PHONY : src/InventoryManager.s
+
+# target to build an object file
 src/IsoCell.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o
 .PHONY : src/IsoCell.o
@@ -460,6 +580,36 @@ src/IsoZombie.s:
 .PHONY : src/IsoZombie.s
 
 # target to build an object file
+src/IsometricRenderer.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o
+.PHONY : src/IsometricRenderer.o
+
+# target to preprocess a source file
+src/IsometricRenderer.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.i
+.PHONY : src/IsometricRenderer.i
+
+# target to generate assembly for a file
+src/IsometricRenderer.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.s
+.PHONY : src/IsometricRenderer.s
+
+# target to build an object file
+src/MainMenuScreen.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o
+.PHONY : src/MainMenuScreen.o
+
+# target to preprocess a source file
+src/MainMenuScreen.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.i
+.PHONY : src/MainMenuScreen.i
+
+# target to generate assembly for a file
+src/MainMenuScreen.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.s
+.PHONY : src/MainMenuScreen.s
+
+# target to build an object file
 src/NetworkManager.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o
 .PHONY : src/NetworkManager.o
@@ -490,6 +640,36 @@ src/NetworkingEnhanced.s:
 .PHONY : src/NetworkingEnhanced.s
 
 # target to build an object file
+src/ObjectPool.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o
+.PHONY : src/ObjectPool.o
+
+# target to preprocess a source file
+src/ObjectPool.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.i
+.PHONY : src/ObjectPool.i
+
+# target to generate assembly for a file
+src/ObjectPool.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.s
+.PHONY : src/ObjectPool.s
+
+# target to build an object file
+src/OptionsScreen.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o
+.PHONY : src/OptionsScreen.o
+
+# target to preprocess a source file
+src/OptionsScreen.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.i
+.PHONY : src/OptionsScreen.i
+
+# target to generate assembly for a file
+src/OptionsScreen.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.s
+.PHONY : src/OptionsScreen.s
+
+# target to build an object file
 src/Pathfinding.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o
 .PHONY : src/Pathfinding.o
@@ -505,6 +685,21 @@ src/Pathfinding.s:
 .PHONY : src/Pathfinding.s
 
 # target to build an object file
+src/PathfindingThreadPool.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o
+.PHONY : src/PathfindingThreadPool.o
+
+# target to preprocess a source file
+src/PathfindingThreadPool.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.i
+.PHONY : src/PathfindingThreadPool.i
+
+# target to generate assembly for a file
+src/PathfindingThreadPool.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.s
+.PHONY : src/PathfindingThreadPool.s
+
+# target to build an object file
 src/Player.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Player.o
 .PHONY : src/Player.o
@@ -518,6 +713,36 @@ src/Player.i:
 src/Player.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Player.s
 .PHONY : src/Player.s
+
+# target to build an object file
+src/PlayerChunkSync.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o
+.PHONY : src/PlayerChunkSync.o
+
+# target to preprocess a source file
+src/PlayerChunkSync.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.i
+.PHONY : src/PlayerChunkSync.i
+
+# target to generate assembly for a file
+src/PlayerChunkSync.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.s
+.PHONY : src/PlayerChunkSync.s
+
+# target to build an object file
+src/RadialMenu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o
+.PHONY : src/RadialMenu.o
+
+# target to preprocess a source file
+src/RadialMenu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.i
+.PHONY : src/RadialMenu.i
+
+# target to generate assembly for a file
+src/RadialMenu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.s
+.PHONY : src/RadialMenu.s
 
 # target to build an object file
 src/SaveLoad.o:
@@ -548,6 +773,21 @@ src/SoundManager.i:
 src/SoundManager.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.s
 .PHONY : src/SoundManager.s
+
+# target to build an object file
+src/SpatialGrid.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o
+.PHONY : src/SpatialGrid.o
+
+# target to preprocess a source file
+src/SpatialGrid.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.i
+.PHONY : src/SpatialGrid.i
+
+# target to generate assembly for a file
+src/SpatialGrid.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.s
+.PHONY : src/SpatialGrid.s
 
 # target to build an object file
 src/Sprite.o:
@@ -595,6 +835,21 @@ src/SpriteBatch.s:
 .PHONY : src/SpriteBatch.s
 
 # target to build an object file
+src/SpriteLoader.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o
+.PHONY : src/SpriteLoader.o
+
+# target to preprocess a source file
+src/SpriteLoader.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.i
+.PHONY : src/SpriteLoader.i
+
+# target to generate assembly for a file
+src/SpriteLoader.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.s
+.PHONY : src/SpriteLoader.s
+
+# target to build an object file
 src/Tasks.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o
 .PHONY : src/Tasks.o
@@ -608,6 +863,21 @@ src/Tasks.i:
 src/Tasks.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.s
 .PHONY : src/Tasks.s
+
+# target to build an object file
+src/TextureAtlas.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o
+.PHONY : src/TextureAtlas.o
+
+# target to preprocess a source file
+src/TextureAtlas.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.i
+.PHONY : src/TextureAtlas.i
+
+# target to generate assembly for a file
+src/TextureAtlas.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.s
+.PHONY : src/TextureAtlas.s
 
 # target to build an object file
 src/TextureManager.o:
@@ -655,6 +925,66 @@ src/UI.s:
 .PHONY : src/UI.s
 
 # target to build an object file
+src/VisibilitySystem.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o
+.PHONY : src/VisibilitySystem.o
+
+# target to preprocess a source file
+src/VisibilitySystem.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.i
+.PHONY : src/VisibilitySystem.i
+
+# target to generate assembly for a file
+src/VisibilitySystem.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.s
+.PHONY : src/VisibilitySystem.s
+
+# target to build an object file
+src/WorldCollisionSystem.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o
+.PHONY : src/WorldCollisionSystem.o
+
+# target to preprocess a source file
+src/WorldCollisionSystem.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.i
+.PHONY : src/WorldCollisionSystem.i
+
+# target to generate assembly for a file
+src/WorldCollisionSystem.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.s
+.PHONY : src/WorldCollisionSystem.s
+
+# target to build an object file
+src/WorldContent.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o
+.PHONY : src/WorldContent.o
+
+# target to preprocess a source file
+src/WorldContent.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.i
+.PHONY : src/WorldContent.i
+
+# target to generate assembly for a file
+src/WorldContent.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.s
+.PHONY : src/WorldContent.s
+
+# target to build an object file
+src/WorldLoader.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o
+.PHONY : src/WorldLoader.o
+
+# target to preprocess a source file
+src/WorldLoader.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.i
+.PHONY : src/WorldLoader.i
+
+# target to generate assembly for a file
+src/WorldLoader.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.s
+.PHONY : src/WorldLoader.s
+
+# target to build an object file
 src/main.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/main.o
 .PHONY : src/main.o
@@ -688,18 +1018,39 @@ help:
 	@echo "... src/Animation.o"
 	@echo "... src/Animation.i"
 	@echo "... src/Animation.s"
+	@echo "... src/AnimationController.o"
+	@echo "... src/AnimationController.i"
+	@echo "... src/AnimationController.s"
+	@echo "... src/AssetStreaming.o"
+	@echo "... src/AssetStreaming.i"
+	@echo "... src/AssetStreaming.s"
 	@echo "... src/Audio.o"
 	@echo "... src/Audio.i"
 	@echo "... src/Audio.s"
+	@echo "... src/AudioInteractionSystem.o"
+	@echo "... src/AudioInteractionSystem.i"
+	@echo "... src/AudioInteractionSystem.s"
 	@echo "... src/BitmapFont.o"
 	@echo "... src/BitmapFont.i"
 	@echo "... src/BitmapFont.s"
 	@echo "... src/Building.o"
 	@echo "... src/Building.i"
 	@echo "... src/Building.s"
+	@echo "... src/ChunkManager.o"
+	@echo "... src/ChunkManager.i"
+	@echo "... src/ChunkManager.s"
+	@echo "... src/ChunkRenderer.o"
+	@echo "... src/ChunkRenderer.i"
+	@echo "... src/ChunkRenderer.s"
 	@echo "... src/Collision.o"
 	@echo "... src/Collision.i"
 	@echo "... src/Collision.s"
+	@echo "... src/Config.o"
+	@echo "... src/Config.i"
+	@echo "... src/Config.s"
+	@echo "... src/ControllerRebindUI.o"
+	@echo "... src/ControllerRebindUI.i"
+	@echo "... src/ControllerRebindUI.s"
 	@echo "... src/Core.o"
 	@echo "... src/Core.i"
 	@echo "... src/Core.s"
@@ -721,6 +1072,9 @@ help:
 	@echo "... src/Inventory.o"
 	@echo "... src/Inventory.i"
 	@echo "... src/Inventory.s"
+	@echo "... src/InventoryManager.o"
+	@echo "... src/InventoryManager.i"
+	@echo "... src/InventoryManager.s"
 	@echo "... src/IsoCell.o"
 	@echo "... src/IsoCell.i"
 	@echo "... src/IsoCell.s"
@@ -739,24 +1093,48 @@ help:
 	@echo "... src/IsoZombie.o"
 	@echo "... src/IsoZombie.i"
 	@echo "... src/IsoZombie.s"
+	@echo "... src/IsometricRenderer.o"
+	@echo "... src/IsometricRenderer.i"
+	@echo "... src/IsometricRenderer.s"
+	@echo "... src/MainMenuScreen.o"
+	@echo "... src/MainMenuScreen.i"
+	@echo "... src/MainMenuScreen.s"
 	@echo "... src/NetworkManager.o"
 	@echo "... src/NetworkManager.i"
 	@echo "... src/NetworkManager.s"
 	@echo "... src/NetworkingEnhanced.o"
 	@echo "... src/NetworkingEnhanced.i"
 	@echo "... src/NetworkingEnhanced.s"
+	@echo "... src/ObjectPool.o"
+	@echo "... src/ObjectPool.i"
+	@echo "... src/ObjectPool.s"
+	@echo "... src/OptionsScreen.o"
+	@echo "... src/OptionsScreen.i"
+	@echo "... src/OptionsScreen.s"
 	@echo "... src/Pathfinding.o"
 	@echo "... src/Pathfinding.i"
 	@echo "... src/Pathfinding.s"
+	@echo "... src/PathfindingThreadPool.o"
+	@echo "... src/PathfindingThreadPool.i"
+	@echo "... src/PathfindingThreadPool.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
+	@echo "... src/PlayerChunkSync.o"
+	@echo "... src/PlayerChunkSync.i"
+	@echo "... src/PlayerChunkSync.s"
+	@echo "... src/RadialMenu.o"
+	@echo "... src/RadialMenu.i"
+	@echo "... src/RadialMenu.s"
 	@echo "... src/SaveLoad.o"
 	@echo "... src/SaveLoad.i"
 	@echo "... src/SaveLoad.s"
 	@echo "... src/SoundManager.o"
 	@echo "... src/SoundManager.i"
 	@echo "... src/SoundManager.s"
+	@echo "... src/SpatialGrid.o"
+	@echo "... src/SpatialGrid.i"
+	@echo "... src/SpatialGrid.s"
 	@echo "... src/Sprite.o"
 	@echo "... src/Sprite.i"
 	@echo "... src/Sprite.s"
@@ -766,9 +1144,15 @@ help:
 	@echo "... src/SpriteBatch.o"
 	@echo "... src/SpriteBatch.i"
 	@echo "... src/SpriteBatch.s"
+	@echo "... src/SpriteLoader.o"
+	@echo "... src/SpriteLoader.i"
+	@echo "... src/SpriteLoader.s"
 	@echo "... src/Tasks.o"
 	@echo "... src/Tasks.i"
 	@echo "... src/Tasks.s"
+	@echo "... src/TextureAtlas.o"
+	@echo "... src/TextureAtlas.i"
+	@echo "... src/TextureAtlas.s"
 	@echo "... src/TextureManager.o"
 	@echo "... src/TextureManager.i"
 	@echo "... src/TextureManager.s"
@@ -778,6 +1162,18 @@ help:
 	@echo "... src/UI.o"
 	@echo "... src/UI.i"
 	@echo "... src/UI.s"
+	@echo "... src/VisibilitySystem.o"
+	@echo "... src/VisibilitySystem.i"
+	@echo "... src/VisibilitySystem.s"
+	@echo "... src/WorldCollisionSystem.o"
+	@echo "... src/WorldCollisionSystem.i"
+	@echo "... src/WorldCollisionSystem.s"
+	@echo "... src/WorldContent.o"
+	@echo "... src/WorldContent.i"
+	@echo "... src/WorldContent.s"
+	@echo "... src/WorldLoader.o"
+	@echo "... src/WorldLoader.i"
+	@echo "... src/WorldLoader.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

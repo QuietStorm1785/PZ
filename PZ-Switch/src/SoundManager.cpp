@@ -1,4 +1,5 @@
 #include "SoundManager.h"
+#include <algorithm>
 #include <iostream>
 
 namespace zombie {
@@ -16,6 +17,8 @@ SoundManager* SoundManager::getInstance() {
 SoundManager::SoundManager()
     : mediaPath("../media/")
     , masterVolume(1.0f)
+    , musicVolume(1.0f)
+    , soundVolume(1.0f)
     , currentMusic(nullptr)
     , initialized(false)
 {
@@ -41,6 +44,9 @@ bool SoundManager::init(int frequency, int channels) {
     
     initialized = true;
     std::cout << "SoundManager initialized: " << frequency << "Hz, " << channels << " channels" << std::endl;
+
+    // Apply any preconfigured volumes after initialization
+    applyVolumes();
     
     return true;
 }
@@ -125,10 +131,8 @@ void SoundManager::stopMusic() {
 }
 
 void SoundManager::setMusicVolume(float volume) {
-    if (!initialized) return;
-    
-    volume = std::max(0.0f, std::min(1.0f, volume));
-    Mix_VolumeMusic(static_cast<int>(volume * MIX_MAX_VOLUME));
+    musicVolume = std::clamp(volume, 0.0f, 1.0f);
+    applyVolumes();
 }
 
 bool SoundManager::isMusicPlaying() const {
@@ -177,16 +181,13 @@ void SoundManager::playSound(const std::string& name, int loops) {
 }
 
 void SoundManager::setSoundVolume(float volume) {
-    if (!initialized) return;
-    
-    volume = std::max(0.0f, std::min(1.0f, volume));
-    Mix_Volume(-1, static_cast<int>(volume * MIX_MAX_VOLUME));
+    soundVolume = std::clamp(volume, 0.0f, 1.0f);
+    applyVolumes();
 }
 
 void SoundManager::setMasterVolume(float volume) {
-    masterVolume = std::max(0.0f, std::min(1.0f, volume));
-    setMusicVolume(masterVolume);
-    setSoundVolume(masterVolume);
+    masterVolume = std::clamp(volume, 0.0f, 1.0f);
+    applyVolumes();
 }
 
 void SoundManager::unloadMusic(const std::string& name) {
@@ -206,6 +207,18 @@ void SoundManager::unloadSound(const std::string& name) {
         Mix_FreeChunk(it->second);
         soundCache.erase(it);
     }
+}
+
+void SoundManager::applyVolumes() {
+    if (!initialized) {
+        return;
+    }
+
+    const int musicMix = static_cast<int>(masterVolume * musicVolume * MIX_MAX_VOLUME);
+    const int soundMix = static_cast<int>(masterVolume * soundVolume * MIX_MAX_VOLUME);
+
+    Mix_VolumeMusic(musicMix);
+    Mix_Volume(-1, soundMix);
 }
 
 void SoundManager::unloadAll() {

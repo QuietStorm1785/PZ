@@ -51,6 +51,8 @@ public:
     void handleInput(int x, int y, bool pressed) override;
     
     void setOnClick(std::function<void()> callback) { onClickCallback = callback; }
+    void setLabel(const std::string& text) { label = text; }
+    const std::string& getLabel() const { return label; }
     
 private:
     std::string label;

@@ -25,6 +25,7 @@ Core::Core()
     , offscreenHeight(600)
     , graphicLevel(5)
     , useShaders(true)
+    , vsyncEnabled(true)
 {
 }
 
@@ -74,6 +75,9 @@ bool Core::init(int w, int h, const char* title) {
     
     // Set blend mode for transparency
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+
+    // Apply initial vsync state (may disable if configured off)
+    setVSyncEnabled(vsyncEnabled);
     
     std::cout << "Core initialized: " << width << "x" << height << std::endl;
     return true;
@@ -193,6 +197,20 @@ void Core::drawLine(float x1, float y1, float x2, float y2, Uint8 r, Uint8 g, Ui
     SDL_RenderDrawLine(renderer, 
         static_cast<int>(x1), static_cast<int>(y1),
         static_cast<int>(x2), static_cast<int>(y2));
+}
+
+bool Core::setVSyncEnabled(bool enabled) {
+    vsyncEnabled = enabled;
+
+#if SDL_VERSION_ATLEAST(2,0,18)
+    if (renderer) {
+        if (SDL_RenderSetVSync(renderer, enabled ? 1 : 0) != 0) {
+            std::cerr << "SDL_RenderSetVSync failed: " << SDL_GetError() << std::endl;
+            return false;
+        }
+    }
+#endif
+    return true;
 }
 
 } // namespace core

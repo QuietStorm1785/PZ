@@ -18,20 +18,30 @@ namespace assets {
 template<typename T>
 class AssetHandle {
 public:
-    AssetHandle() : asset(nullptr), refCount(nullptr) {}
+    AssetHandle() : asset(nullptr), refCount(nullptr), ownsRef(true) {}
     
-    explicit AssetHandle(T* ptr) : asset(ptr) {
-        if (asset) {
-            refCount = new int(1);
+    explicit AssetHandle(T* ptr, int* sharedRef = nullptr, bool ownsSharedRef = true)
+        : asset(ptr)
+        , refCount(sharedRef ? sharedRef : (ptr ? new int(0) : nullptr))
+        , ownsRef(sharedRef ? ownsSharedRef : true) {
+        if (refCount) {
+            (*refCount)++;
         }
     }
     
     AssetHandle(const AssetHandle& other)
-        : asset(other.asset), refCount(other.refCount)
+        : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef)
     {
         if (refCount) {
             (*refCount)++;
         }
+    }
+
+    AssetHandle(AssetHandle&& other) noexcept
+        : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef) {
+        other.asset = nullptr;
+        other.refCount = nullptr;
+        other.ownsRef = true;
     }
     
     ~AssetHandle() {
@@ -43,9 +53,23 @@ public:
             release();
             asset = other.asset;
             refCount = other.refCount;
+            ownsRef = other.ownsRef;
             if (refCount) {
                 (*refCount)++;
             }
+        }
+        return *this;
+    }
+
+    AssetHandle& operator=(AssetHandle&& other) noexcept {
+        if (this != &other) {
+            release();
+            asset = other.asset;
+            refCount = other.refCount;
+            ownsRef = other.ownsRef;
+            other.asset = nullptr;
+            other.refCount = nullptr;
+            other.ownsRef = true;
         }
         return *this;
     }
@@ -60,12 +84,18 @@ public:
 private:
     T* asset;
     int* refCount;
+    bool ownsRef;
     
     void release() {
         if (refCount && --(*refCount) == 0) {
-            delete refCount;
+            if (ownsRef) {
+                delete refCount;
+            }
             // Asset deletion handled by streaming system
         }
+        asset = nullptr;
+        refCount = nullptr;
+        ownsRef = true;
     }
 };
 

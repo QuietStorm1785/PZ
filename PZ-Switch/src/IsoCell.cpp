@@ -180,11 +180,11 @@ void IsoCell::addZombie(IsoZombiePtr zombie) {
     }
     
     // Register with entity spatial grid - but need to handle IsoZombie vs IsoPlayer type mismatch
-    if (zombie) {
-        int z = static_cast<int>(zombie->getZ());
-        EntitySpatialGrid* grid = getOrCreateEntityGrid(z);
-        // Note: Zombies and players are different types; this is a limitation of the current EntitySpatialGrid
-        // For now, we treat zombies as a separate tracking system
+        if (zombie) {
+            int z = static_cast<int>(zombie->getZ());
+            getOrCreateEntityGrid(z);
+            // Note: Zombies and players are different types; this is a limitation of the current EntitySpatialGrid
+            // For now, we treat zombies as a separate tracking system
     }
 }
 void IsoCell::removeZombie(IsoZombiePtr zombie) {

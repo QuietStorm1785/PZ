@@ -530,6 +530,66 @@ src/Collision.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/Collision.cpp.s
 .PHONY : src/Collision.cpp.s
 
+src/Config.o: src/Config.cpp.o
+.PHONY : src/Config.o
+
+# target to build an object file
+src/Config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Config.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/Config.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/Config.cpp.o
+.PHONY : src/Config.cpp.o
+
+src/Config.i: src/Config.cpp.i
+.PHONY : src/Config.i
+
+# target to preprocess a source file
+src/Config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Config.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/Config.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/Config.cpp.i
+.PHONY : src/Config.cpp.i
+
+src/Config.s: src/Config.cpp.s
+.PHONY : src/Config.s
+
+# target to generate assembly for a file
+src/Config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/Config.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/Config.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/Config.cpp.s
+.PHONY : src/Config.cpp.s
+
+src/ControllerRebindUI.o: src/ControllerRebindUI.cpp.o
+.PHONY : src/ControllerRebindUI.o
+
+# target to build an object file
+src/ControllerRebindUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/ControllerRebindUI.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.o
+.PHONY : src/ControllerRebindUI.cpp.o
+
+src/ControllerRebindUI.i: src/ControllerRebindUI.cpp.i
+.PHONY : src/ControllerRebindUI.i
+
+# target to preprocess a source file
+src/ControllerRebindUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/ControllerRebindUI.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.i
+.PHONY : src/ControllerRebindUI.cpp.i
+
+src/ControllerRebindUI.s: src/ControllerRebindUI.cpp.s
+.PHONY : src/ControllerRebindUI.s
+
+# target to generate assembly for a file
+src/ControllerRebindUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/ControllerRebindUI.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/ControllerRebindUI.cpp.s
+.PHONY : src/ControllerRebindUI.cpp.s
+
 src/Core.o: src/Core.cpp.o
 .PHONY : src/Core.o
 
@@ -980,6 +1040,36 @@ src/IsometricRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/IsometricRenderer.cpp.s
 .PHONY : src/IsometricRenderer.cpp.s
 
+src/MainMenuScreen.o: src/MainMenuScreen.cpp.o
+.PHONY : src/MainMenuScreen.o
+
+# target to build an object file
+src/MainMenuScreen.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/MainMenuScreen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.o
+.PHONY : src/MainMenuScreen.cpp.o
+
+src/MainMenuScreen.i: src/MainMenuScreen.cpp.i
+.PHONY : src/MainMenuScreen.i
+
+# target to preprocess a source file
+src/MainMenuScreen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/MainMenuScreen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.i
+.PHONY : src/MainMenuScreen.cpp.i
+
+src/MainMenuScreen.s: src/MainMenuScreen.cpp.s
+.PHONY : src/MainMenuScreen.s
+
+# target to generate assembly for a file
+src/MainMenuScreen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/MainMenuScreen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/MainMenuScreen.cpp.s
+.PHONY : src/MainMenuScreen.cpp.s
+
 src/NetworkManager.o: src/NetworkManager.cpp.o
 .PHONY : src/NetworkManager.o
 
@@ -1069,6 +1159,36 @@ src/ObjectPool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/ObjectPool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/ObjectPool.cpp.s
 .PHONY : src/ObjectPool.cpp.s
+
+src/OptionsScreen.o: src/OptionsScreen.cpp.o
+.PHONY : src/OptionsScreen.o
+
+# target to build an object file
+src/OptionsScreen.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/OptionsScreen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.o
+.PHONY : src/OptionsScreen.cpp.o
+
+src/OptionsScreen.i: src/OptionsScreen.cpp.i
+.PHONY : src/OptionsScreen.i
+
+# target to preprocess a source file
+src/OptionsScreen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/OptionsScreen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.i
+.PHONY : src/OptionsScreen.cpp.i
+
+src/OptionsScreen.s: src/OptionsScreen.cpp.s
+.PHONY : src/OptionsScreen.s
+
+# target to generate assembly for a file
+src/OptionsScreen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/OptionsScreen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/OptionsScreen.cpp.s
+.PHONY : src/OptionsScreen.cpp.s
 
 src/Pathfinding.o: src/Pathfinding.cpp.o
 .PHONY : src/Pathfinding.o
@@ -1189,6 +1309,36 @@ src/PlayerChunkSync.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/PlayerChunkSync.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/PlayerChunkSync.cpp.s
 .PHONY : src/PlayerChunkSync.cpp.s
+
+src/RadialMenu.o: src/RadialMenu.cpp.o
+.PHONY : src/RadialMenu.o
+
+# target to build an object file
+src/RadialMenu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/RadialMenu.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.o
+.PHONY : src/RadialMenu.cpp.o
+
+src/RadialMenu.i: src/RadialMenu.cpp.i
+.PHONY : src/RadialMenu.i
+
+# target to preprocess a source file
+src/RadialMenu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/RadialMenu.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.i
+.PHONY : src/RadialMenu.cpp.i
+
+src/RadialMenu.s: src/RadialMenu.cpp.s
+.PHONY : src/RadialMenu.s
+
+# target to generate assembly for a file
+src/RadialMenu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/RadialMenu.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/RadialMenu.cpp.s
+.PHONY : src/RadialMenu.cpp.s
 
 src/SaveLoad.o: src/SaveLoad.cpp.o
 .PHONY : src/SaveLoad.o
@@ -1790,6 +1940,12 @@ help:
 	@echo "... src/Collision.o"
 	@echo "... src/Collision.i"
 	@echo "... src/Collision.s"
+	@echo "... src/Config.o"
+	@echo "... src/Config.i"
+	@echo "... src/Config.s"
+	@echo "... src/ControllerRebindUI.o"
+	@echo "... src/ControllerRebindUI.i"
+	@echo "... src/ControllerRebindUI.s"
 	@echo "... src/Core.o"
 	@echo "... src/Core.i"
 	@echo "... src/Core.s"
@@ -1835,6 +1991,9 @@ help:
 	@echo "... src/IsometricRenderer.o"
 	@echo "... src/IsometricRenderer.i"
 	@echo "... src/IsometricRenderer.s"
+	@echo "... src/MainMenuScreen.o"
+	@echo "... src/MainMenuScreen.i"
+	@echo "... src/MainMenuScreen.s"
 	@echo "... src/NetworkManager.o"
 	@echo "... src/NetworkManager.i"
 	@echo "... src/NetworkManager.s"
@@ -1844,6 +2003,9 @@ help:
 	@echo "... src/ObjectPool.o"
 	@echo "... src/ObjectPool.i"
 	@echo "... src/ObjectPool.s"
+	@echo "... src/OptionsScreen.o"
+	@echo "... src/OptionsScreen.i"
+	@echo "... src/OptionsScreen.s"
 	@echo "... src/Pathfinding.o"
 	@echo "... src/Pathfinding.i"
 	@echo "... src/Pathfinding.s"
@@ -1856,6 +2018,9 @@ help:
 	@echo "... src/PlayerChunkSync.o"
 	@echo "... src/PlayerChunkSync.i"
 	@echo "... src/PlayerChunkSync.s"
+	@echo "... src/RadialMenu.o"
+	@echo "... src/RadialMenu.i"
+	@echo "... src/RadialMenu.s"
 	@echo "... src/SaveLoad.o"
 	@echo "... src/SaveLoad.i"
 	@echo "... src/SaveLoad.s"

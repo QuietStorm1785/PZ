@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <filesystem>
+#include <algorithm>
 
 namespace zombie {
 namespace assets {
@@ -21,6 +23,10 @@ TextureManager* TextureManager::getInstance() {
 TextureManager::TextureManager()
     : renderer(nullptr)
     , mediaPath("../media/") // Default relative to build directory
+    , preferredAtlasFormat(SDL_PIXELFORMAT_RGBA4444)
+    , atlasGenerateMipmaps(false)
+    , atlasMaxMipLevels(4)
+    , streamingEnabled(false)
 {
 }
 
@@ -35,6 +41,12 @@ bool TextureManager::init(SDL_Renderer* r) {
     }
     
     renderer = r;
+
+    // Bring up streaming system with default budget; can be toggled via setStreamingEnabled
+    if (!streamingSystem) {
+        streamingSystem = std::make_unique<AssetStreamingSystem>();
+    }
+    streamingEnabled = true;
     
     // Initialize SDL_image for PNG loading
     int imgFlags = IMG_INIT_PNG;
@@ -53,21 +65,55 @@ void TextureManager::shutdown() {
     renderer = nullptr;
 }
 
+void TextureManager::enableAtlasMipmaps(bool enable, int maxLevels) {
+    atlasGenerateMipmaps = enable;
+    atlasMaxMipLevels = std::max(1, maxLevels);
+}
+
+void TextureManager::setStreamingEnabled(bool enabled) {
+    streamingEnabled = enabled;
+}
+
+void TextureManager::updateStreaming(float deltaTime) {
+    if (streamingEnabled && streamingSystem) {
+        streamingSystem->update(deltaTime);
+    }
+}
+
 SDL_Texture* TextureManager::loadTexture(const std::string& path) {
     // Check cache first
     auto it = textureCache.find(path);
     if (it != textureCache.end()) {
-        return it->second;
+        registerUsage(path);
+        return it->second.texture;
     }
     
     // Build full path
     std::string fullPath = mediaPath + path;
-    
+
+    CachedTextureEntry entry;
+
+    // Try streaming path first
+    if (streamingEnabled && streamingSystem) {
+        auto handle = streamingSystem->requestTexture(fullPath);
+        SDL_Texture* streamed = handle.get();
+        if (streamed) {
+            entry.texture = streamed;
+            entry.streamingHandle = handle;
+            textureCache[path] = entry;
+            registerUsage(path);
+            std::cout << "Streamed texture: " << path << std::endl;
+            return streamed;
+        }
+    }
+
     // Load from file
     SDL_Texture* texture = loadFromFile(fullPath);
     
     if (texture) {
-        textureCache[path] = texture;
+        entry.texture = texture;
+        textureCache[path] = entry;
+        registerUsage(path);
         std::cout << "Loaded texture: " << path << std::endl;
     }
     
@@ -77,7 +123,8 @@ SDL_Texture* TextureManager::loadTexture(const std::string& path) {
 SDL_Texture* TextureManager::getTexture(const std::string& path) {
     auto it = textureCache.find(path);
     if (it != textureCache.end()) {
-        return it->second;
+        registerUsage(path);
+        return it->second.texture;
     }
     
     // Try to load if not cached
@@ -95,17 +142,25 @@ bool TextureManager::getTextureSize(const std::string& path, int* w, int* h) {
 
 void TextureManager::clearCache() {
     for (auto& pair : textureCache) {
-        if (pair.second) {
-            SDL_DestroyTexture(pair.second);
+        if (streamingEnabled && streamingSystem) {
+            streamingSystem->unload(mediaPath + pair.first);
+        } else if (pair.second.texture) {
+            SDL_DestroyTexture(pair.second.texture);
         }
     }
     textureCache.clear();
+
+    if (streamingSystem) {
+        streamingSystem->clear();
+    }
     
     // Clean up atlases
     for (auto& pair : atlasCache) {
         delete pair.second;
     }
     atlasCache.clear();
+
+    packSpriteStore.clear();
 }
 
 SDL_Texture* TextureManager::loadFromFile(const std::string& fullPath) {
@@ -131,6 +186,10 @@ SDL_Texture* TextureManager::loadFromFile(const std::string& fullPath) {
     }
     
     return texture;
+}
+
+void TextureManager::registerUsage(const std::string& path) {
+    usageCounts[path] += 1;
 }
 
 zombie::graphics::AnimatedSprite* TextureManager::loadAnimatedSprite(const std::string& baseName) {
@@ -201,8 +260,13 @@ bool TextureManager::parseAnimationFile(const std::string& txtPath,
         // Parse frame data: x y width height offsetX offsetY originalWidth originalHeight
         std::istringstream iss(frameData);
         int x, y, w, h, offsetX, offsetY, origW, origH;
+        float duration = 0.1f; // default 10 FPS
         if (!(iss >> x >> y >> w >> h >> offsetX >> offsetY >> origW >> origH)) {
             continue; // Invalid format
+        }
+        // Optional frame duration (seconds)
+        if (!(iss >> duration)) {
+            duration = 0.1f; // fallback
         }
         
         // Create or get animation
@@ -222,7 +286,7 @@ bool TextureManager::parseAnimationFile(const std::string& txtPath,
         frame.offsetY = offsetY;
         frame.originalWidth = origW;
         frame.originalHeight = origH;
-        frame.duration = 0.1f; // 10 FPS
+        frame.duration = duration;
         
         animations[animName].addFrame(frame);
     }
@@ -237,6 +301,22 @@ TextureAtlas* TextureManager::createAtlas(const std::string& name,
     // Check if already cached
     auto it = atlasCache.find(name);
     if (it != atlasCache.end()) {
+        TextureAtlas* existing = it->second;
+        bool addedNew = false;
+        for (const auto& path : spritePaths) {
+            if (!existing->getRegion(path)) {
+                std::string fullPath = mediaPath + path;
+                SDL_Surface* surface = IMG_Load(fullPath.c_str());
+                if (surface) {
+                    existing->addSprite(path, surface);
+                    SDL_FreeSurface(surface);
+                    addedNew = true;
+                }
+            }
+        }
+        if (addedNew) {
+            existing->rebuild();
+        }
         return it->second;
     }
     
@@ -251,6 +331,12 @@ TextureAtlas* TextureManager::createAtlas(const std::string& name,
     config.maxHeight = maxHeight;
     config.padding = 2;  // 2 pixel padding to prevent bleeding
     config.powerOfTwo = true;
+    config.method = TextureAtlas::Config::PackingMethod::MaxRects;
+    config.allowRotation = true;
+    config.keepSpriteSurfaces = true; // allow dynamic rebuilds if new sprites are added
+    config.textureFormat = preferredAtlasFormat; // lighter atlas footprint or compressed target
+    config.generateMipmaps = atlasGenerateMipmaps;
+    config.maxMipLevels = atlasMaxMipLevels;
     
     TextureAtlas* atlas = new TextureAtlas(renderer, config);
     
@@ -291,6 +377,8 @@ TextureAtlas* TextureManager::getAtlas(const std::string& name) {
 zombie::graphics::AnimatedSprite* TextureManager::loadCharacterSpriteSheet(
     const std::string& characterName,
     const std::string& outfit) {
+
+    (void)characterName; // characterName currently unused for sheet selection
     
     // Character sprite sheets follow PZ naming convention:
     // media/textures/[Outfit]_[Action]_[Direction].png
@@ -408,6 +496,8 @@ SDL_Texture* TextureManager::loadObjectTexture(const std::string& objectName) {
 TextureAtlas* TextureManager::createCharacterAtlas(
     const std::string& characterName,
     const std::string& outfit) {
+
+    (void)characterName; // characterName currently unused for atlas selection
     
     std::string atlasName = "character_" + outfit;
     
@@ -464,6 +554,113 @@ TextureAtlas* TextureManager::createTileAtlas(
     }
     
     return atlas;
+}
+
+TextureAtlas* TextureManager::buildUsageAtlas(
+    const std::string& atlasName,
+    int minUsage,
+    int maxSprites,
+    int maxWidth,
+    int maxHeight) {
+
+    std::vector<std::pair<std::string, int>> ranked;
+    ranked.reserve(usageCounts.size());
+    for (const auto& kv : usageCounts) {
+        if (kv.second >= minUsage) {
+            ranked.push_back(kv);
+        }
+    }
+
+    if (ranked.empty()) {
+        std::cerr << "Usage atlas request yielded no candidates (minUsage=" << minUsage << ")" << std::endl;
+        return nullptr;
+    }
+
+    std::sort(ranked.begin(), ranked.end(), [](const auto& a, const auto& b) {
+        return a.second > b.second;
+    });
+
+    std::vector<std::string> spritePaths;
+    spritePaths.reserve(static_cast<size_t>(std::min(maxSprites, static_cast<int>(ranked.size()))));
+    for (size_t i = 0; i < ranked.size() && static_cast<int>(spritePaths.size()) < maxSprites; ++i) {
+        spritePaths.push_back(ranked[i].first);
+    }
+
+    std::cout << "Building usage-driven atlas '" << atlasName << "' with "
+              << spritePaths.size() << " sprites (minUsage=" << minUsage << ")" << std::endl;
+
+    return createAtlas(atlasName, spritePaths, maxWidth, maxHeight);
+}
+
+bool TextureManager::addSpriteToAtlas(const std::string& atlasName, const std::string& spritePath) {
+    auto it = atlasCache.find(atlasName);
+    if (it == atlasCache.end()) {
+        std::cerr << "Atlas not found: " << atlasName << std::endl;
+        return false;
+    }
+
+    TextureAtlas* atlas = it->second;
+    if (!atlas) {
+        return false;
+    }
+
+    std::string fullPath = mediaPath + spritePath;
+    SDL_Surface* surface = IMG_Load(fullPath.c_str());
+    if (!surface) {
+        std::cerr << "Failed to load sprite for atlas update: " << spritePath << " - " << IMG_GetError() << std::endl;
+        return false;
+    }
+
+    bool result = atlas->addSpriteAndRebuild(spritePath, surface);
+    SDL_FreeSurface(surface);
+    return result;
+}
+
+bool TextureManager::loadTexturePack(
+    const std::string& packName,
+    std::unordered_map<std::string, zombie::graphics::AnimatedSprite*>& outSprites,
+    bool buildAtlas,
+    int atlasMaxWidth,
+    int atlasMaxHeight) {
+    namespace fs = std::filesystem;
+    outSprites.clear();
+    std::vector<std::string> spritePaths;
+
+    // Resolve directory relative to media path
+    fs::path packDir = fs::path(mediaPath) / packName;
+    if (!fs::exists(packDir) || !fs::is_directory(packDir)) {
+        std::cerr << "Texture pack directory not found: " << packDir << std::endl;
+        return false;
+    }
+
+    // Iterate all .png files in the pack directory
+    for (const auto& entry : fs::directory_iterator(packDir)) {
+        if (!entry.is_regular_file()) continue;
+
+        auto ext = entry.path().extension().string();
+        if (ext != ".png" && ext != ".PNG") continue;
+
+        std::string stem = entry.path().stem().string();
+        std::string relativeBase = packName + "/" + stem; // relative to mediaPath
+
+        // Load animated sprite (will parse matching .txt if present)
+        auto* sprite = loadAnimatedSprite(relativeBase);
+        if (sprite) {
+            packSpriteStore.emplace_back(sprite);
+            outSprites[stem] = sprite;
+            spritePaths.push_back(relativeBase + ".png");
+        }
+    }
+
+    // Optionally build an atlas for the pack
+    if (buildAtlas && !spritePaths.empty()) {
+        std::string atlasName = packName + "_atlas";
+        createAtlas(atlasName, spritePaths, atlasMaxWidth, atlasMaxHeight);
+    }
+
+    std::cout << "Loaded texture pack '" << packName << "' with "
+              << outSprites.size() << " sprites" << std::endl;
+    return !outSprites.empty();
 }
 
 } // namespace assets

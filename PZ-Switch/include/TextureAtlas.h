@@ -17,11 +17,13 @@ struct AtlasRegion {
     float u1, v1, u2, v2;       // Normalized UV coordinates (0-1)
     int originalWidth;          // Original sprite width before packing
     int originalHeight;         // Original sprite height before packing
+    bool rotated;               // True if packed with 90-degree rotation
     
     AtlasRegion() 
         : name(""), rect{0, 0, 0, 0}
         , u1(0), v1(0), u2(0), v2(0)
-        , originalWidth(0), originalHeight(0) {}
+        , originalWidth(0), originalHeight(0)
+        , rotated(false) {}
 };
 
 /**
@@ -40,10 +42,25 @@ public:
         int maxHeight;          // Maximum atlas height (power of 2)
         int padding;            // Pixels between sprites (prevents bleeding)
         bool powerOfTwo;        // Force power-of-2 dimensions
+        enum class PackingMethod {
+            Shelf,
+            MaxRects
+        } method;               // Packing strategy
+        bool allowRotation;     // Permit 90-degree rotation during packing
+        bool keepSpriteSurfaces;// Retain sprite surfaces for dynamic rebuilds
+        SDL_PixelFormatEnum textureFormat; // Desired atlas pixel format (compression hint)
+        bool generateMipmaps;   // Build mip levels for atlases (rendered copies)
+        int maxMipLevels;       // Maximum mip levels to generate (including base)
         
         Config() 
             : maxWidth(2048), maxHeight(2048)
-            , padding(1), powerOfTwo(true) {}
+            , padding(1), powerOfTwo(true)
+            , method(PackingMethod::Shelf)
+            , allowRotation(false)
+            , keepSpriteSurfaces(false)
+            , textureFormat(SDL_PIXELFORMAT_RGBA32)
+            , generateMipmaps(false)
+            , maxMipLevels(4) {}
     };
     
     explicit TextureAtlas(SDL_Renderer* renderer, const Config& config = Config());
@@ -61,12 +78,17 @@ public:
     
     // Build the atlas texture (call after adding all sprites)
     bool build();
+
+    // Rebuild atlas after adding new sprites (requires keepSpriteSurfaces)
+    bool rebuild();
     
     // Get region for a sprite
     const AtlasRegion* getRegion(const std::string& name) const;
     
     // Get atlas texture
     SDL_Texture* getTexture() const { return atlasTexture; }
+    SDL_Texture* getMipTexture(int level) const;
+    int getMipCount() const { return static_cast<int>(atlasMipTextures.size()); }
     
     // Get atlas dimensions
     int getWidth() const { return atlasWidth; }
@@ -83,6 +105,10 @@ public:
     
     // Clear atlas (for rebuilding)
     void clear();
+
+    // Dynamic add and rebuild helper (requires keepSpriteSurfaces)
+    bool addSpriteAndRebuild(const std::string& name, SDL_Surface* surface);
+    bool addSpriteAndRebuild(const std::string& name, const std::string& filePath);
     
 private:
     struct SpriteData {
@@ -91,7 +117,10 @@ private:
         int width;
         int height;
         bool placed;
+        bool rotated;
         int x, y;  // Position in atlas after packing
+        int packedWidth;
+        int packedHeight;
     };
     
     SDL_Renderer* renderer;
@@ -99,6 +128,7 @@ private:
     
     // Atlas texture and dimensions
     SDL_Texture* atlasTexture;
+    std::vector<SDL_Texture*> atlasMipTextures;
     int atlasWidth;
     int atlasHeight;
     
@@ -110,15 +140,22 @@ private:
     
     // Packing algorithm (simple shelf packing)
     bool packSprites();
+    bool packSpritesShelf();
+    bool packSpritesMaxRects();
     
     // Render sprites to atlas
     bool renderToAtlas();
+    bool generateMipmaps();
+    SDL_Texture* tryCreateTexture(SDL_PixelFormatEnum fmt, int w, int h);
     
     // Helper to get next power of 2
     int nextPowerOfTwo(int n) const;
     
     // Free sprite surfaces
     void freeSurfaces();
+    void destroyAtlasTexture();
+    void destroyMipmaps();
+    void resetPlacement();
 };
 
 /**

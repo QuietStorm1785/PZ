@@ -111,6 +111,8 @@ void AnimationController::updateSpriteAnimation() {
 
 namespace AnimationHelpers {
 
+constexpr float PI_F = 3.14159265358979323846f;
+
 AnimationController::Direction velocityToDirection(float vx, float vy) {
     // No movement
     if (vx == 0 && vy == 0) {
@@ -121,7 +123,7 @@ AnimationController::Direction velocityToDirection(float vx, float vy) {
     float angle = std::atan2(vy, vx);
     
     // Convert to degrees (0-360)
-    float degrees = angle * 180.0f / M_PI;
+    float degrees = angle * 180.0f / PI_F;
     if (degrees < 0) degrees += 360.0f;
     
     // Map to 8 directions (45 degree sectors)

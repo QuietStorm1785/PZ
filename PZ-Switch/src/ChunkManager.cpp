@@ -169,8 +169,6 @@ ChunkManager::Stats ChunkManager::getStatistics() const {
     // Estimate memory: ~32KB per chunk (32x32 grid with objects)
     stats.memoryEstimateMB = (stats.totalLoaded * 32) / 1024;
     
-    // Calculate average distance
-    float totalDist = 0.0f;
     // For now, just return approximation
     stats.averageDistance = config.loadDistance;
     
