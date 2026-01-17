@@ -1400,6 +1400,36 @@ src/Tasks.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/Tasks.cpp.s
 .PHONY : src/Tasks.cpp.s
 
+src/TextureAtlas.o: src/TextureAtlas.cpp.o
+.PHONY : src/TextureAtlas.o
+
+# target to build an object file
+src/TextureAtlas.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/TextureAtlas.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o
+.PHONY : src/TextureAtlas.cpp.o
+
+src/TextureAtlas.i: src/TextureAtlas.cpp.i
+.PHONY : src/TextureAtlas.i
+
+# target to preprocess a source file
+src/TextureAtlas.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/TextureAtlas.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.i
+.PHONY : src/TextureAtlas.cpp.i
+
+src/TextureAtlas.s: src/TextureAtlas.cpp.s
+.PHONY : src/TextureAtlas.s
+
+# target to generate assembly for a file
+src/TextureAtlas.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjectZomboidCpp.dir/build.make CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_pooling.dir/build.make CMakeFiles/test_pooling.dir/src/TextureAtlas.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_streaming.dir/build.make CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.s
+.PHONY : src/TextureAtlas.cpp.s
+
 src/TextureManager.o: src/TextureManager.cpp.o
 .PHONY : src/TextureManager.o
 
@@ -1817,6 +1847,9 @@ help:
 	@echo "... src/Tasks.o"
 	@echo "... src/Tasks.i"
 	@echo "... src/Tasks.s"
+	@echo "... src/TextureAtlas.o"
+	@echo "... src/TextureAtlas.i"
+	@echo "... src/TextureAtlas.s"
 	@echo "... src/TextureManager.o"
 	@echo "... src/TextureManager.i"
 	@echo "... src/TextureManager.s"

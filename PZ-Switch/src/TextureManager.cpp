@@ -1,5 +1,6 @@
 #include "TextureManager.h"
 #include "SpriteAnimation.h"
+#include "TextureAtlas.h"
 #include <SDL2/SDL_image.h>
 #include <iostream>
 #include <fstream>
@@ -99,6 +100,12 @@ void TextureManager::clearCache() {
         }
     }
     textureCache.clear();
+    
+    // Clean up atlases
+    for (auto& pair : atlasCache) {
+        delete pair.second;
+    }
+    atlasCache.clear();
 }
 
 SDL_Texture* TextureManager::loadFromFile(const std::string& fullPath) {
@@ -222,6 +229,63 @@ bool TextureManager::parseAnimationFile(const std::string& txtPath,
     
     file.close();
     return !animations.empty();
+}
+
+TextureAtlas* TextureManager::createAtlas(const std::string& name,
+                                         const std::vector<std::string>& spritePaths,
+                                         int maxWidth, int maxHeight) {
+    // Check if already cached
+    auto it = atlasCache.find(name);
+    if (it != atlasCache.end()) {
+        return it->second;
+    }
+    
+    if (!renderer) {
+        std::cerr << "TextureManager: No renderer for atlas creation" << std::endl;
+        return nullptr;
+    }
+    
+    // Create atlas builder
+    TextureAtlas::Config config;
+    config.maxWidth = maxWidth;
+    config.maxHeight = maxHeight;
+    config.padding = 2;  // 2 pixel padding to prevent bleeding
+    config.powerOfTwo = true;
+    
+    TextureAtlas* atlas = new TextureAtlas(renderer, config);
+    
+    // Add all sprites to atlas
+    for (const auto& path : spritePaths) {
+        std::string fullPath = mediaPath + path;
+        
+        // Load surface for packing
+        SDL_Surface* surface = IMG_Load(fullPath.c_str());
+        if (surface) {
+            atlas->addSprite(path, surface);
+            SDL_FreeSurface(surface);
+        } else {
+            std::cerr << "Failed to load sprite for atlas: " << path << std::endl;
+        }
+    }
+    
+    // Build atlas
+    if (atlas->build()) {
+        atlasCache[name] = atlas;
+        std::cout << "Created atlas '" << name << "' with " 
+                  << spritePaths.size() << " sprites" << std::endl;
+        return atlas;
+    }
+    
+    delete atlas;
+    return nullptr;
+}
+
+TextureAtlas* TextureManager::getAtlas(const std::string& name) {
+    auto it = atlasCache.find(name);
+    if (it != atlasCache.end()) {
+        return it->second;
+    }
+    return nullptr;
 }
 
 } // namespace assets

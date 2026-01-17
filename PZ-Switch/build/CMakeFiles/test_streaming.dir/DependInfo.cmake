@@ -48,6 +48,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/PZ/PZ-Switch/src/SpriteAnimation.cpp" "CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/SpriteAnimation.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/SpriteBatch.cpp" "CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/SpriteBatch.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/Tasks.cpp" "CMakeFiles/test_streaming.dir/src/Tasks.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/Tasks.cpp.o.d"
+  "/workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp" "CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/TextureAtlas.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/TextureManager.cpp" "CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/TextureManager.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/TileMap.cpp" "CMakeFiles/test_streaming.dir/src/TileMap.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/TileMap.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/UI.cpp" "CMakeFiles/test_streaming.dir/src/UI.cpp.o" "gcc" "CMakeFiles/test_streaming.dir/src/UI.cpp.o.d"

@@ -3,6 +3,10 @@
 #include <string>
 
 namespace zombie {
+
+// Forward declarations
+namespace assets { struct AtlasRegion; }
+
 namespace graphics {
 
 /**
@@ -45,6 +49,11 @@ public:
     bool hasSourceRect() const { return useSourceRect; }
     const SDL_Rect& getSourceRect() const { return sourceRect; }
     
+    // Atlas support
+    void setAtlasRegion(const assets::AtlasRegion* region);
+    bool isFromAtlas() const { return fromAtlas; }
+    const assets::AtlasRegion* getAtlasRegion() const { return atlasRegion; }
+    
     // Origin/pivot point (normalized 0-1, default 0,0 = top-left)
     void setOrigin(float ox, float oy);
     float getOriginX() const { return originX; }
@@ -78,6 +87,10 @@ private:
     
     // Flip flags
     bool flipH, flipV;
+    
+    // Atlas support
+    bool fromAtlas;
+    const assets::AtlasRegion* atlasRegion;
 };
 
 } // namespace graphics

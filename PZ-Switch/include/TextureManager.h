@@ -15,6 +15,10 @@ namespace graphics {
 }
 
 namespace assets {
+    class TextureAtlas;  // Forward declaration
+}
+
+namespace assets {
 
 /**
  * Texture asset manager with caching
@@ -54,6 +58,14 @@ public:
     bool parseAnimationFile(const std::string& txtPath, 
                            std::unordered_map<std::string, zombie::graphics::Animation>& animations);
     
+    // Create texture atlas from multiple sprites
+    zombie::assets::TextureAtlas* createAtlas(const std::string& name, 
+                                              const std::vector<std::string>& spritePaths,
+                                              int maxWidth = 2048, int maxHeight = 2048);
+    
+    // Get cached atlas
+    zombie::assets::TextureAtlas* getAtlas(const std::string& name);
+    
 private:
     static TextureManager* instance;
     
@@ -62,6 +74,9 @@ private:
     
     // Texture cache
     std::unordered_map<std::string, SDL_Texture*> textureCache;
+    
+    // Atlas cache
+    std::unordered_map<std::string, zombie::assets::TextureAtlas*> atlasCache;
     
     // Load from file
     SDL_Texture* loadFromFile(const std::string& fullPath);

@@ -320,10 +320,11 @@ CMakeFiles/test_pooling.dir/src/TextureManager.cpp.o: \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
  /workspaces/PZ/PZ-Switch/include/SpriteAnimation.h \
- /workspaces/PZ/PZ-Switch/include/Sprite.h /usr/include/SDL2/SDL_image.h \
- /usr/include/SDL2/SDL.h /usr/include/c++/13/iostream \
- /usr/include/c++/13/ostream /usr/include/c++/13/ios \
- /usr/include/c++/13/bits/ios_base.h \
+ /workspaces/PZ/PZ-Switch/include/Sprite.h \
+ /workspaces/PZ/PZ-Switch/include/TextureAtlas.h \
+ /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
+ /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
+ /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
  /usr/include/c++/13/bits/locale_classes.tcc \
  /usr/include/c++/13/system_error \

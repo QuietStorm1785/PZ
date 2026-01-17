@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "TextureAtlas.h"
 #include <cmath>
 
 namespace zombie {
@@ -22,6 +23,8 @@ Sprite::Sprite()
     , useSourceRect(false)
     , flipH(false)
     , flipV(false)
+    , fromAtlas(false)
+    , atlasRegion(nullptr)
 {
 }
 
@@ -104,6 +107,25 @@ void Sprite::clearSourceRect() {
         width = static_cast<float>(w);
         height = static_cast<float>(h);
     }
+}
+
+void Sprite::setAtlasRegion(const assets::AtlasRegion* region) {
+    if (!region) {
+        fromAtlas = false;
+        atlasRegion = nullptr;
+        return;
+    }
+    
+    fromAtlas = true;
+    atlasRegion = region;
+    
+    // Set source rect from atlas region
+    setSourceRect(region->rect.x, region->rect.y, 
+                 region->rect.w, region->rect.h);
+    
+    // Set sprite size from original dimensions
+    width = static_cast<float>(region->originalWidth);
+    height = static_cast<float>(region->originalHeight);
 }
 
 void Sprite::setOrigin(float ox, float oy) {

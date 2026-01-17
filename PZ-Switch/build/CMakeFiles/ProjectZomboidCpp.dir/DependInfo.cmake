@@ -48,6 +48,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/PZ/PZ-Switch/src/SpriteAnimation.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/SpriteBatch.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/Tasks.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.cpp.o.d"
+  "/workspaces/PZ/PZ-Switch/src/TextureAtlas.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/TextureManager.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/TileMap.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.cpp.o.d"
   "/workspaces/PZ/PZ-Switch/src/UI.cpp" "CMakeFiles/ProjectZomboidCpp.dir/src/UI.cpp.o" "gcc" "CMakeFiles/ProjectZomboidCpp.dir/src/UI.cpp.o.d"

@@ -79,6 +79,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.cpp.o.d"
   "CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.cpp.o"
   "CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.cpp.o.d"
+  "CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.cpp.o"
+  "CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.cpp.o.d"
   "CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.cpp.o"
   "CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.cpp.o.d"
   "CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.cpp.o"
