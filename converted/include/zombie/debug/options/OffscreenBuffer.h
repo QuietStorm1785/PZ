@@ -1,0 +1,26 @@
+#pragma once
+#include "zombie/debug/BooleanDebugOption.h"
+#include <cstdint>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+namespace zombie {
+namespace debug {
+namespace options {
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
+// using Vineflower.
+
+class OffscreenBuffer : public OptionGroup {
+public:
+  const BooleanDebugOption Render =
+      newDebugOnlyOption(this.Group, "Render", true);
+
+public
+  OffscreenBuffer() { super("OffscreenBuffer"); }
+}
+} // namespace options
+} // namespace debug
+} // namespace zombie

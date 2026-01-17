@@ -1,0 +1,8 @@
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+package zombie.core.skinnedmodel;
+
+public interface IAnimatable {
+    void Play(String var1);
+
+    void Update(float var1);
+}

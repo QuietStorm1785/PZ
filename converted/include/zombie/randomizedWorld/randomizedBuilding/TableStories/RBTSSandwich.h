@@ -1,0 +1,46 @@
+#pragma once
+#include "zombie/core/Rand.h"
+#include "zombie/iso/BuildingDef.h"
+#include <cstdint>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+namespace zombie {
+namespace randomizedWorld {
+namespace randomizedBuilding {
+namespace TableStories {
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
+// using Vineflower.
+
+class RBTSSandwich : public RBTableStoryBase {
+public:
+public
+  RBTSSandwich() {
+    this.chance = 10;
+    this.ignoreAgainstWall = true;
+    this.rooms.add("livingroom");
+    this.rooms.add("kitchen");
+  }
+
+  void randomizeBuilding(BuildingDef var1) {
+    this.addWorldItem("Base.Bread", this.table1.getSquare(), 0.804F, 0.726F,
+                      this.table1.getSurfaceOffsetNoTable() / 96.0F);
+    this.addWorldItem("Base.BreadSlices", this.table1.getSquare(), 0.546F,
+                      0.703F, this.table1.getSurfaceOffsetNoTable() / 96.0F);
+    this.addWorldItem("Base.BreadKnife", this.table1.getSquare(), 0.648F,
+                      0.414F, this.table1.getSurfaceOffsetNoTable() / 96.0F,
+                      Rand.Next(0, 30));
+    this.addWorldItem("Base.PeanutButter", this.table1.getSquare(), 0.453F,
+                      0.484F, this.table1.getSurfaceOffsetNoTable() / 96.0F);
+    this.addWorldItem(Rand.NextBool(2) ? "Base.JamFruit" : "Base.JamMarmalade",
+                      this.table1.getSquare(), 0.351F, 0.836F,
+                      this.table1.getSurfaceOffsetNoTable() / 96.0F);
+  }
+}
+} // namespace TableStories
+} // namespace randomizedBuilding
+} // namespace randomizedWorld
+} // namespace zombie

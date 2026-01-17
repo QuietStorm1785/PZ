@@ -1,0 +1,16 @@
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+package zombie.audio.parameters;
+
+import zombie.audio.FMODGlobalParameter;
+import zombie.iso.weather.ClimateManager;
+
+public final class ParameterRainIntensity extends FMODGlobalParameter {
+    public ParameterRainIntensity() {
+        super("RainIntensity");
+    }
+
+    @Override
+    public float calculateCurrentValue() {
+        return ClimateManager.getInstance().isRaining() ? ClimateManager.getInstance().getPrecipitationIntensity() : 0.0F;
+    }
+}
