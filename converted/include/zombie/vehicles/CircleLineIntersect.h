@@ -501,7 +501,7 @@ public:
  }
 
  doubles2[int5] += doubles1[int5] * (1.0 - doubles2[int5]);
- if (!pointVectors[int5] == list.get(int5)) {
+ if (!pointVectors[int5] == list.get(int5) {
  booleans[int5] = true;
  }
  }

@@ -1174,7 +1174,7 @@ public:
  }
 
  if (weapon.isRanged() && owner.getBeenMovingFor() > weapon.getAimingTime() + owner.getPerkLevel(PerkFactory.Perks.Aiming) {
- int1 = (int)(int1 - (owner.getBeenMovingFor() - (weapon.getAimingTime() + owner.getPerkLevel(PerkFactory.Perks.Aiming)));
+ int1 = (int)(int1 - (owner.getBeenMovingFor() - (weapon.getAimingTime() + owner.getPerkLevel(PerkFactory.Perks.Aiming);
  }
 
  if (hitInfo.getObject() instanceof IsoPlayer) {
@@ -1807,7 +1807,7 @@ public:
  boolean1 = true;
  } else if (Rand.NextBool(2)
  && WeaponType.getWeaponType(owner) != WeaponType.barehand
- && (!weapon.isTwoHandWeapon() || owner.getPrimaryHandItem() == weapon || owner.getSecondaryHandItem() == weapon || !Rand.NextBool(3)) {
+ && (!weapon.isTwoHandWeapon() || owner.getPrimaryHandItem() == weapon || owner.getSecondaryHandItem() == weapon || !Rand.NextBool(3) {
  owner.getXp().AddXP(PerkFactory.Perks.Maintenance, 1.0F);
  }
  }

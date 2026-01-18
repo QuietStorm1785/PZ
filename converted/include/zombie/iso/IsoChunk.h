@@ -263,7 +263,7 @@ public:
  int int3 = Rand.Next(10);
  object = this->getGridSquare(int2, int3, 0);
  int1++;
- } while (int1 < 100 && (object.empty() || !RandomizedBuildingBase.is2x2AreaClear((IsoGridSquare)object));
+ } while (int1 < 100 && (object.empty() || !RandomizedBuildingBase.is2x2AreaClear((IsoGridSquare)object);
 
  if (int1 == 100) {
  return;
@@ -1522,7 +1522,7 @@ public:
  }
 
  IsoMetaCell metaCell = IsoWorld.instance.getMetaGrid().getCellData(this->wx / 30, this->wy / 30);
- std::vector arrayList = metaCell == nullptr ? nullptr : metaCell.vehicleZones;
+ std::vector arrayList = metaCell.empty() ? nullptr : metaCell.vehicleZones;
 
  for (int int0 = 0; arrayList != nullptr && int0 < arrayList.size(); int0++) {
  IsoMetaGrid.VehicleZone vehicleZone = (IsoMetaGrid.VehicleZone)arrayList.get(int0);
@@ -3783,7 +3783,7 @@ public:
  int int0 = spriteID - newtiledefinitions(148, 0);
  return newtiledefinitions();
  } else if ((spriteID < newtiledefinitions(42, 44) || spriteID > newtiledefinitions(42, 47)
- && (spriteID < newtiledefinitions(42, 52) || spriteID > newtiledefinitions(42, 55)) {
+ && (spriteID < newtiledefinitions(42, 52) || spriteID > newtiledefinitions(42, 55) {
  if (spriteID == newtiledefinitions(43, 24) {
  return spriteID + 4;
  } else if (spriteID == newtiledefinitions(43, 26) {

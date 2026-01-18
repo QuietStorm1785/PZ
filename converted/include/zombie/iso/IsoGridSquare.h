@@ -523,12 +523,12 @@ public:
  } else {
  if (other.x != this->x && other.y != this->y) {
  if (this->isWallTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || this->isWallTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || this->isWallTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
 
  if (other.isWallTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || other.isWallTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || other.isWallTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
  }
@@ -551,12 +551,12 @@ public:
  } else {
  if (other.x != this->x && other.y != this->y) {
  if (this->isWindowTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || this->isWindowTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || this->isWindowTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
 
  if (other.isWindowTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || other.isWindowTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || other.isWindowTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
  }
@@ -641,12 +641,12 @@ public:
  } else {
  if (other.x != this->x && other.y != this->y) {
  if (this->isDoorTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || this->isDoorTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || this->isDoorTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
 
  if (other.isDoorTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || other.isDoorTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || other.isDoorTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
  }
@@ -673,12 +673,12 @@ public:
  } else {
  if (other.x != this->x && other.y != this->y) {
  if (this->isWindowBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || this->isWindowBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || this->isWindowBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
 
  if (other.isWindowBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || other.isWindowBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || other.isWindowBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
  }
@@ -712,12 +712,12 @@ public:
  } else {
  if (other.x != this->x && other.y != this->y) {
  if (this->isDoorBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || this->isDoorBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || this->isDoorBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
 
  if (other.isDoorBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(other.x, this->y, this->z)
- || other.isDoorBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z)) {
+ || other.isDoorBlockedTo(IsoWorld.instance.CurrentCell.getGridSquare(this->x, other.y, this->z) {
  return true;
  }
  }
@@ -2013,11 +2013,11 @@ public:
  }
 
  uint8_t byte0 = 0;
- if (this->SpecialObjects.contains(this->Objects.get(int1)) {
+ if (this->SpecialObjects.contains(this->Objects.get(int1) {
  byte0 = (byte)(byte0 | 2);
  }
 
- if (this->WorldObjects.contains(this->Objects.get(int1)) {
+ if (this->WorldObjects.contains(this->Objects.get(int1) {
  byte0 = (byte)(byte0 | 4);
  }
 
@@ -3139,7 +3139,7 @@ public:
  bool hasWindowOrWindowFrame() {
  for (int int0 = 0; int0 < this->Objects.size(); int0++) {
  IsoObject object = this->Objects.get(int0);
- if (!(object instanceof IsoWorldInventoryObject) && (this->isWindowOrWindowFrame(object, true) || this->isWindowOrWindowFrame(object, false)) {
+ if (!(object instanceof IsoWorldInventoryObject) && (this->isWindowOrWindowFrame(object, true) || this->isWindowOrWindowFrame(object, false) {
  return true;
  }
  }
@@ -3172,7 +3172,7 @@ public:
  }
  }
 
- if ((!boolean0 || this->Is(IsoFlagType.WindowN) && (boolean0 || this->Is(IsoFlagType.WindowW)) {
+ if ((!boolean0 || this->Is(IsoFlagType.WindowN) && (boolean0 || this->Is(IsoFlagType.WindowW) {
  IsoObject object1 = this->getWindowFrame(boolean0);
  return object1 != nullptr ? object1 : nullptr;
  } else {
@@ -3293,7 +3293,7 @@ public:
  for (square1 = nullptr; square0 != nullptr; boolean0 = false) {
  for (int int2 = 0; int2 < square0.getObjects().size(); int2++) {
  IsoObject object2 = square0.getObjects().get(int2);
- if (object2.getProperties() != nullptr && (object2.getProperties().Is(flagType0) || object2.getProperties().Is(flagType1)) {
+ if (object2.getProperties() != nullptr && (object2.getProperties().Is(flagType0) || object2.getProperties().Is(flagType1) {
  square1 = square0;
  boolean0 = true;
  square0.transmitRemoveItemFromSquare(object2);
@@ -3324,7 +3324,7 @@ public:
 
  for (int int3 = 0; int3 < square2.getObjects().size(); int3++) {
  IsoObject object3 = square2.getObjects().get(int3);
- if (object3.getProperties() != nullptr && (object3.getProperties().Is(flagType0) || object3.getProperties().Is(flagType1)) {
+ if (object3.getProperties() != nullptr && (object3.getProperties().Is(flagType0) || object3.getProperties().Is(flagType1) {
  square2.transmitRemoveItemFromSquare(object3);
  break;
  }
@@ -5003,7 +5003,7 @@ public:
  }
  } else if (item.byteData.empty()) {
  IsoZombie zombie0 = new IsoZombie(IsoWorld.instance.CurrentCell);
- zombie0.setDir(IsoDirections.fromIndex(Rand.Next(8));
+ zombie0.setDir(IsoDirections.fromIndex(Rand.Next(8);
  zombie0.getForwardDirection().set(zombie0.dir.ToVector());
  zombie0.setFakeDead(false);
  zombie0.setHealth(0.0F);
@@ -5491,20 +5491,20 @@ public:
  boolean4 = true;
  }
 
- if (!boolean4 && (gridSquare.Properties.Is(IsoFlagType.WindowW) || gridSquare.Properties.Is(IsoFlagType.WindowN)) {
+ if (!boolean4 && (gridSquare.Properties.Is(IsoFlagType.WindowW) || gridSquare.Properties.Is(IsoFlagType.WindowN) {
  boolean4 = true;
  }
 
  if (!boolean4) {
  IsoGridSquare square0 = getter.getGridSquare(gridSquare.x, gridSquare.y + 1, this->z);
- if (square0 != nullptr && (square0.Is(IsoFlagType.windowN) || square0.Is(IsoFlagType.WindowN)) {
+ if (square0 != nullptr && (square0.Is(IsoFlagType.windowN) || square0.Is(IsoFlagType.WindowN) {
  boolean4 = true;
  }
  }
 
  if (!boolean4) {
  IsoGridSquare square1 = getter.getGridSquare(gridSquare.x + 1, gridSquare.y, this->z);
- if (square1 != nullptr && (square1.Is(IsoFlagType.windowW) || square1.Is(IsoFlagType.WindowW)) {
+ if (square1 != nullptr && (square1.Is(IsoFlagType.windowW) || square1.Is(IsoFlagType.WindowW) {
  boolean4 = true;
  }
  }
@@ -6653,10 +6653,10 @@ public:
 
  IsoWaterGeometry waterGeometry = this->z == 0 ? this->getWater() : nullptr;
  bool boolean4 = waterGeometry != nullptr && waterGeometry.bShore;
- float float3 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[0];
- float float4 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[3];
- float float5 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[2];
- float float6 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[1];
+ float float3 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[0];
+ float float4 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[3];
+ float float5 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[2];
+ float float6 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[1];
  uint8_t byte0 = 0;
  int int3 = this->Objects.size();
  IsoObject[] objects = this->Objects.getElements();
@@ -6835,7 +6835,7 @@ public:
  for (int int2 = byte0; int2 <= int1; int2++) {
  IsoObject object = objects[int2];
  if (object.sprite != nullptr
- && (object.sprite.getProperties().Is(IsoFlagType.attachedN) || object.sprite.getProperties().Is(IsoFlagType.attachedW)) {
+ && (object.sprite.getProperties().Is(IsoFlagType.attachedN) || object.sprite.getProperties().Is(IsoFlagType.attachedW) {
  object.renderFxMask(this->x, this->y, this->z, false);
  }
  }
@@ -7220,7 +7220,7 @@ public:
  && square1 != nullptr
  && square1.Is(IsoFlagType.exterior) {
  ((IsoTree)object1).bRenderFlag = true;
- object1.setTargetAlpha(int1, Math.min(0.99F, object1.getTargetAlpha(int1));
+ object1.setTargetAlpha(int1, Math.min(0.99F, object1.getTargetAlpha(int1);
  } else {
  ((IsoTree)object1).bRenderFlag = false;
  }
@@ -8433,7 +8433,7 @@ public:
 
  while (boolean0) {
  boolean0 = false;
- BodyPart bodyPart = ((IsoGameCharacter)movingObject).getBodyDamage().getBodyPart(BodyPartType.FromIndex(Rand.Next(15));
+ BodyPart bodyPart = ((IsoGameCharacter)movingObject).getBodyDamage().getBodyPart(BodyPartType.FromIndex(Rand.Next(15);
  bodyPart.setBurned();
  if (Rand.Next((100 - int1) / 2) == 0) {
  boolean0 = true;
@@ -8800,12 +8800,12 @@ public:
  }
 
  IsoGridSquare square1 = this->nav[IsoDirections.E.index()];
- if (square1 != nullptr && (square1.getProperties().Is(IsoFlagType.WallW) || square1.getProperties().Is(IsoFlagType.WallNW)) {
+ if (square1 != nullptr && (square1.getProperties().Is(IsoFlagType.WallW) || square1.getProperties().Is(IsoFlagType.WallNW) {
  byte0 |= 8;
  }
 
  IsoGridSquare square2 = this->nav[IsoDirections.S.index()];
- if (square2 != nullptr && (square2.getProperties().Is(IsoFlagType.WallN) || square2.getProperties().Is(IsoFlagType.WallNW)) {
+ if (square2 != nullptr && (square2.getProperties().Is(IsoFlagType.WallN) || square2.getProperties().Is(IsoFlagType.WallNW) {
  byte0 |= 2;
  }
 

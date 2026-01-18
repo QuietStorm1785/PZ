@@ -218,7 +218,7 @@ public:
 
  if (player != nullptr
  && (this->canBeActivated() && this->isActivated() || !this->canBeActivated())
- && (player.isHandItem(this) || player.isAttachedItem(this)) {
+ && (player.isHandItem(this) || player.isAttachedItem(this) {
  this->ticks = this->ticks + GameTime.instance.getMultiplier();
 
  while (this->ticks >= this->ticksPerEquipUse) {

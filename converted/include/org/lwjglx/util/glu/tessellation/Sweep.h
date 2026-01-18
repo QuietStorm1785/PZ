@@ -468,7 +468,7 @@ public:
  CheckForRightSplice(gLUtessellatorImpl, activeRegion1);
  return false;
  } else if ((Geom.VertEq(gLUvertex2, gLUtessellatorImpl.event) || !(Geom.EdgeSign(gLUvertex2, gLUtessellatorImpl.event, gLUvertex4) >= 0.0)
- && (Geom.VertEq(gLUvertex3, gLUtessellatorImpl.event) || !(Geom.EdgeSign(gLUvertex3, gLUtessellatorImpl.event, gLUvertex4) <= 0.0)) {
+ && (Geom.VertEq(gLUvertex3, gLUtessellatorImpl.event) || !(Geom.EdgeSign(gLUvertex3, gLUtessellatorImpl.event, gLUvertex4) <= 0.0) {
  if (Mesh.__gl_meshSplitEdge(gLUhalfEdge0.Sym) == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else if (Mesh.__gl_meshSplitEdge(gLUhalfEdge1.Sym) == nullptr) {
@@ -832,7 +832,7 @@ public:
  int int0 = 0;
 
  ActiveRegion activeRegion;
- while ((activeRegion = (ActiveRegion)Dict.dictKey(Dict.dictMin(gLUtessellatorImpl.dict)) != nullptr) {
+ while ((activeRegion = (ActiveRegion)Dict.dictKey(Dict.dictMin(gLUtessellatorImpl.dict) != nullptr) {
  if (!activeRegion.sentinel) {
  assert activeRegion.fixUpperEdge;
 
@@ -966,7 +966,7 @@ public:
  }
  }
 
- gLUtessellatorImpl.event = ((ActiveRegion)Dict.dictKey(Dict.dictMin(gLUtessellatorImpl.dict)).eUp.Org;
+ gLUtessellatorImpl.event = ((ActiveRegion)Dict.dictKey(Dict.dictMin(gLUtessellatorImpl.dict).eUp.Org;
  DebugEvent(gLUtessellatorImpl);
  DoneEdgeDict(gLUtessellatorImpl);
  DonePriorityQ(gLUtessellatorImpl);

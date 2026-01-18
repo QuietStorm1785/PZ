@@ -2039,7 +2039,7 @@ public:
  double double7 = max(Math.abs(double4), Math.abs(double3);
  if (double7 >= 4.994797680505588E145) {
  int int0;
- for (int0 = 0; double7 >= 4.994797680505588E145; double7 = max(Math.abs(double5), Math.abs(double6)) {
+ for (int0 = 0; double7 >= 4.994797680505588E145; double7 = max(Math.abs(double5), Math.abs(double6) {
  int0++;
  double5 *= 2.002083095183101E-146;
  double6 *= 2.002083095183101E-146;
@@ -2058,7 +2058,7 @@ public:
  double1 = double3 / double2;
  } else {
  int int2;
- for (int2 = 0; double7 <= 2.002083095183101E-146; double7 = max(Math.abs(double5), Math.abs(double6)) {
+ for (int2 = 0; double7 <= 2.002083095183101E-146; double7 = max(Math.abs(double5), Math.abs(double6) {
  int2++;
  double5 *= 4.994797680505588E145;
  double6 *= 4.994797680505588E145;

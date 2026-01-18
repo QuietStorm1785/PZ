@@ -3954,8 +3954,8 @@ public:
  }
 
  int getContainerCount() {
- int int0 = this->container == nullptr ? 0 : 1;
- int int1 = this->secondaryContainers == nullptr ? 0 : this->secondaryContainers.size();
+ int int0 = this->container.empty() ? 0 : 1;
+ int int1 = this->secondaryContainers.empty() ? 0 : this->secondaryContainers.size();
  return int0 + int1;
  }
 

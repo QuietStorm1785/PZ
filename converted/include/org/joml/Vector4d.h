@@ -581,9 +581,9 @@ public:
  }
 
  Vector4d mulAffine(Matrix4dc arg0, Vector4d arg1) {
- double double0 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w));
- double double1 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w));
- double double2 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w));
+ double double0 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w);
+ double double1 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w);
+ double double2 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w);
  arg1.x = double0;
  arg1.y = double1;
  arg1.z = double2;
@@ -592,10 +592,10 @@ public:
  }
 
  Vector4d mulGeneric(Matrix4dc matrix4dc, Vector4d vector4d1) {
- double double0 = Math.fma(matrix4dc.m00(), this->x, Math.fma(matrix4dc.m10(), this->y, Math.fma(matrix4dc.m20(), this->z, matrix4dc.m30() * this->w));
- double double1 = Math.fma(matrix4dc.m01(), this->x, Math.fma(matrix4dc.m11(), this->y, Math.fma(matrix4dc.m21(), this->z, matrix4dc.m31() * this->w));
- double double2 = Math.fma(matrix4dc.m02(), this->x, Math.fma(matrix4dc.m12(), this->y, Math.fma(matrix4dc.m22(), this->z, matrix4dc.m32() * this->w));
- double double3 = Math.fma(matrix4dc.m03(), this->x, Math.fma(matrix4dc.m13(), this->y, Math.fma(matrix4dc.m23(), this->z, matrix4dc.m33() * this->w));
+ double double0 = Math.fma(matrix4dc.m00(), this->x, Math.fma(matrix4dc.m10(), this->y, Math.fma(matrix4dc.m20(), this->z, matrix4dc.m30() * this->w);
+ double double1 = Math.fma(matrix4dc.m01(), this->x, Math.fma(matrix4dc.m11(), this->y, Math.fma(matrix4dc.m21(), this->z, matrix4dc.m31() * this->w);
+ double double2 = Math.fma(matrix4dc.m02(), this->x, Math.fma(matrix4dc.m12(), this->y, Math.fma(matrix4dc.m22(), this->z, matrix4dc.m32() * this->w);
+ double double3 = Math.fma(matrix4dc.m03(), this->x, Math.fma(matrix4dc.m13(), this->y, Math.fma(matrix4dc.m23(), this->z, matrix4dc.m33() * this->w);
  vector4d1.x = double0;
  vector4d1.y = double1;
  vector4d1.z = double2;
@@ -620,17 +620,17 @@ public:
  double double1 = this->y;
  double double2 = this->z;
  double double3 = this->w;
- vector4d1.x = Math.fma(matrix4dc.m00(), double0, Math.fma(matrix4dc.m01(), double1, Math.fma(matrix4dc.m02(), double2, matrix4dc.m03() * double3));
- vector4d1.y = Math.fma(matrix4dc.m10(), double0, Math.fma(matrix4dc.m11(), double1, Math.fma(matrix4dc.m12(), double2, matrix4dc.m13() * double3));
- vector4d1.z = Math.fma(matrix4dc.m20(), double0, Math.fma(matrix4dc.m21(), double1, Math.fma(matrix4dc.m22(), double2, matrix4dc.m23() * double3));
- vector4d1.w = Math.fma(matrix4dc.m30(), double0, Math.fma(matrix4dc.m31(), double1, Math.fma(matrix4dc.m32(), double2, matrix4dc.m33() * double3));
+ vector4d1.x = Math.fma(matrix4dc.m00(), double0, Math.fma(matrix4dc.m01(), double1, Math.fma(matrix4dc.m02(), double2, matrix4dc.m03() * double3);
+ vector4d1.y = Math.fma(matrix4dc.m10(), double0, Math.fma(matrix4dc.m11(), double1, Math.fma(matrix4dc.m12(), double2, matrix4dc.m13() * double3);
+ vector4d1.z = Math.fma(matrix4dc.m20(), double0, Math.fma(matrix4dc.m21(), double1, Math.fma(matrix4dc.m22(), double2, matrix4dc.m23() * double3);
+ vector4d1.w = Math.fma(matrix4dc.m30(), double0, Math.fma(matrix4dc.m31(), double1, Math.fma(matrix4dc.m32(), double2, matrix4dc.m33() * double3);
  return vector4d1;
  }
 
  Vector4d mul(Matrix4x3dc arg0) {
- double double0 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w));
- double double1 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w));
- double double2 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w));
+ double double0 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w);
+ double double1 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w);
+ double double2 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w);
  this->x = double0;
  this->y = double1;
  this->z = double2;
@@ -638,9 +638,9 @@ public:
  }
 
  Vector4d mul(Matrix4x3dc arg0, Vector4d arg1) {
- double double0 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w));
- double double1 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w));
- double double2 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w));
+ double double0 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w);
+ double double1 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w);
+ double double2 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w);
  arg1.x = double0;
  arg1.y = double1;
  arg1.z = double2;
@@ -649,9 +649,9 @@ public:
  }
 
  Vector4d mul(Matrix4x3fc arg0) {
- double double0 = Math.fma((double)arg0.m00(), this->x, Math.fma((double)arg0.m10(), this->y, Math.fma((double)arg0.m20(), this->z, arg0.m30() * this->w));
- double double1 = Math.fma((double)arg0.m01(), this->x, Math.fma((double)arg0.m11(), this->y, Math.fma((double)arg0.m21(), this->z, arg0.m31() * this->w));
- double double2 = Math.fma((double)arg0.m02(), this->x, Math.fma((double)arg0.m12(), this->y, Math.fma((double)arg0.m22(), this->z, arg0.m32() * this->w));
+ double double0 = Math.fma((double)arg0.m00(), this->x, Math.fma((double)arg0.m10(), this->y, Math.fma((double)arg0.m20(), this->z, arg0.m30() * this->w);
+ double double1 = Math.fma((double)arg0.m01(), this->x, Math.fma((double)arg0.m11(), this->y, Math.fma((double)arg0.m21(), this->z, arg0.m31() * this->w);
+ double double2 = Math.fma((double)arg0.m02(), this->x, Math.fma((double)arg0.m12(), this->y, Math.fma((double)arg0.m22(), this->z, arg0.m32() * this->w);
  this->x = double0;
  this->y = double1;
  this->z = double2;
@@ -659,9 +659,9 @@ public:
  }
 
  Vector4d mul(Matrix4x3fc arg0, Vector4d arg1) {
- double double0 = Math.fma((double)arg0.m00(), this->x, Math.fma((double)arg0.m10(), this->y, Math.fma((double)arg0.m20(), this->z, arg0.m30() * this->w));
- double double1 = Math.fma((double)arg0.m01(), this->x, Math.fma((double)arg0.m11(), this->y, Math.fma((double)arg0.m21(), this->z, arg0.m31() * this->w));
- double double2 = Math.fma((double)arg0.m02(), this->x, Math.fma((double)arg0.m12(), this->y, Math.fma((double)arg0.m22(), this->z, arg0.m32() * this->w));
+ double double0 = Math.fma((double)arg0.m00(), this->x, Math.fma((double)arg0.m10(), this->y, Math.fma((double)arg0.m20(), this->z, arg0.m30() * this->w);
+ double double1 = Math.fma((double)arg0.m01(), this->x, Math.fma((double)arg0.m11(), this->y, Math.fma((double)arg0.m21(), this->z, arg0.m31() * this->w);
+ double double2 = Math.fma((double)arg0.m02(), this->x, Math.fma((double)arg0.m12(), this->y, Math.fma((double)arg0.m22(), this->z, arg0.m32() * this->w);
  arg1.x = double0;
  arg1.y = double1;
  arg1.z = double2;
@@ -715,10 +715,10 @@ public:
  }
 
  Vector4d mulProject(Matrix4dc arg0, Vector4d arg1) {
- double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * this->w));
- double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w)) * double0;
- double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w)) * double0;
- double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w)) * double0;
+ double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * this->w);
+ double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w) * double0;
+ double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w) * double0;
+ double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w) * double0;
  arg1.x = double1;
  arg1.y = double2;
  arg1.z = double3;
@@ -727,10 +727,10 @@ public:
  }
 
  Vector4d mulProject(Matrix4dc arg0) {
- double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * this->w));
- double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w)) * double0;
- double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w)) * double0;
- double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w)) * double0;
+ double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * this->w);
+ double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w) * double0;
+ double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w) * double0;
+ double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w) * double0;
  this->x = double1;
  this->y = double2;
  this->z = double3;
@@ -739,10 +739,10 @@ public:
  }
 
  Vector3d mulProject(Matrix4dc arg0, Vector3d arg1) {
- double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * this->w));
- double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w)) * double0;
- double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w)) * double0;
- double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w)) * double0;
+ double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * this->w);
+ double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * this->w) * double0;
+ double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * this->w) * double0;
+ double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * this->w) * double0;
  arg1.x = double1;
  arg1.y = double2;
  arg1.z = double3;
@@ -916,19 +916,19 @@ public:
  }
 
  double lengthSquared() {
- return Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ return Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  }
 
  static double lengthSquared(double arg0, double arg1, double arg2, double arg3) {
- return Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3));
+ return Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3);
  }
 
  double length() {
- return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w)));
+ return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  }
 
  static double length(double arg0, double arg1, double arg2, double arg3) {
- return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3)));
+ return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3);
  }
 
  Vector4d normalize() {
@@ -968,7 +968,7 @@ public:
  }
 
  Vector4d normalize3() {
- double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  this->x *= double0;
  this->y *= double0;
  this->z *= double0;
@@ -977,7 +977,7 @@ public:
  }
 
  Vector4d normalize3(Vector4d arg0) {
- double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  arg0.x = this->x * double0;
  arg0.y = this->y * double0;
  arg0.z = this->z * double0;
@@ -990,7 +990,7 @@ public:
  double double1 = this->y - arg0.y();
  double double2 = this->z - arg0.z();
  double double3 = this->w - arg0.w();
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3)));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  double distance(double arg0, double arg1, double arg2, double arg3) {
@@ -998,7 +998,7 @@ public:
  double double1 = this->y - arg1;
  double double2 = this->z - arg2;
  double double3 = this->w - arg3;
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3)));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  double distanceSquared(Vector4dc arg0) {
@@ -1006,7 +1006,7 @@ public:
  double double1 = this->y - arg0.y();
  double double2 = this->z - arg0.z();
  double double3 = this->w - arg0.w();
- return Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3));
+ return Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  double distanceSquared(double arg0, double arg1, double arg2, double arg3) {
@@ -1014,7 +1014,7 @@ public:
  double double1 = this->y - arg1;
  double double2 = this->z - arg2;
  double double3 = this->w - arg3;
- return Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3));
+ return Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  static double distance(double arg0, double arg1, double arg2, double arg3, double arg4, double arg5, double arg6, double arg7) {
@@ -1022,7 +1022,7 @@ public:
  double double1 = arg1 - arg5;
  double double2 = arg2 - arg6;
  double double3 = arg3 - arg7;
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3)));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  static double distanceSquared(double arg0, double arg1, double arg2, double arg3, double arg4, double arg5, double arg6, double arg7) {
@@ -1030,7 +1030,7 @@ public:
  double double1 = arg1 - arg5;
  double double2 = arg2 - arg6;
  double double3 = arg3 - arg7;
- return Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3));
+ return Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  double dot(Vector4dc arg0) {
@@ -1038,11 +1038,11 @@ public:
  }
 
  double dot(double arg0, double arg1, double arg2, double arg3) {
- return Math.fma(this->x, arg0, Math.fma(this->y, arg1, Math.fma(this->z, arg2, this->w * arg3));
+ return Math.fma(this->x, arg0, Math.fma(this->y, arg1, Math.fma(this->z, arg2, this->w * arg3);
  }
 
  double angleCos(Vector4dc arg0) {
- double double0 = Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ double double0 = Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  double double1 = Math.fma(arg0.x(), arg0.x(), Math.fma(arg0.y(), arg0.y(), Math.fma(arg0.z(), arg0.z(), arg0.w() * arg0.w())));
  double double2 = Math.fma(this->x, arg0.x(), Math.fma(this->y, arg0.y(), Math.fma(this->z, arg0.z(), this->w * arg0.w())));
  return double2 / Math.sqrt(double0 * double1);

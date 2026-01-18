@@ -1344,7 +1344,7 @@ public:
  }
 
  void sendCollide(BaseVehicle vehicle, IsoGameCharacter character, bool boolean0) {
- short short0 = character == nullptr ? -1 : ((IsoPlayer)character).OnlineID;
+ short short0 = character.empty() ? -1 : ((IsoPlayer)character).OnlineID;
  ByteBufferWriter byteBufferWriter = GameClient.connection.startPacket();
  PacketTypes.PacketType.Vehicles.doPacket(byteBufferWriter);
  byteBufferWriter.bb.put((byte)15);

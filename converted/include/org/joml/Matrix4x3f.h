@@ -567,18 +567,18 @@ public:
  float float18 = matrix4x3fc.m30();
  float float19 = matrix4x3fc.m31();
  float float20 = matrix4x3fc.m32();
- return matrix4x3f1._m00(Math.fma(float0, float9, Math.fma(float3, float10, float6 * float11))
- ._m01(Math.fma(float1, float9, Math.fma(float4, float10, float7 * float11))
- ._m02(Math.fma(float2, float9, Math.fma(float5, float10, float8 * float11))
- ._m10(Math.fma(float0, float12, Math.fma(float3, float13, float6 * float14))
- ._m11(Math.fma(float1, float12, Math.fma(float4, float13, float7 * float14))
- ._m12(Math.fma(float2, float12, Math.fma(float5, float13, float8 * float14))
- ._m20(Math.fma(float0, float15, Math.fma(float3, float16, float6 * float17))
- ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17))
- ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17))
- ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)))
- ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)))
- ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)))
+ return matrix4x3f1._m00(Math.fma(float0, float9, Math.fma(float3, float10, float6 * float11)
+ ._m01(Math.fma(float1, float9, Math.fma(float4, float10, float7 * float11)
+ ._m02(Math.fma(float2, float9, Math.fma(float5, float10, float8 * float11)
+ ._m10(Math.fma(float0, float12, Math.fma(float3, float13, float6 * float14)
+ ._m11(Math.fma(float1, float12, Math.fma(float4, float13, float7 * float14)
+ ._m12(Math.fma(float2, float12, Math.fma(float5, float13, float8 * float14)
+ ._m20(Math.fma(float0, float15, Math.fma(float3, float16, float6 * float17)
+ ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17)
+ ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17)
+ ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)
+ ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)
+ ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)
  ._properties(this->properties & matrix4x3fc.properties() & 16);
  }
 

@@ -4084,7 +4084,7 @@ public:
 
  static void put(Matrix4f matrix4f, long long0) {
  for (int int0 = 0; int0 < 8; int0++) {
- UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix4f, Matrix4f_m00 + (int0 << 3));
+ UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix4f, Matrix4f_m00 + (int0 << 3);
  }
  }
 
@@ -4092,7 +4092,7 @@ public:
  Unsafe unsafe = UNSAFE;
 
  for (int int0 = 0; int0 < 4; int0++) {
- unsafe.putLong(nullptr, long0 + 12 * int0, unsafe.getLong(matrix4f, Matrix4f_m00 + (int0 << 4));
+ unsafe.putLong(nullptr, long0 + 12 * int0, unsafe.getLong(matrix4f, Matrix4f_m00 + (int0 << 4);
  }
 
  unsafe.putFloat(nullptr, long0 + 8L, matrix4f.m02());
@@ -4103,13 +4103,13 @@ public:
 
  static void put3x4(Matrix4f matrix4f, long long0) {
  for (int int0 = 0; int0 < 6; int0++) {
- UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix4f, Matrix4f_m00 + (int0 << 3));
+ UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix4f, Matrix4f_m00 + (int0 << 3);
  }
  }
 
  static void put(Matrix4x3f matrix4x3f, long long0) {
  for (int int0 = 0; int0 < 6; int0++) {
- UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix4x3f, Matrix4x3f_m00 + (int0 << 3));
+ UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix4x3f, Matrix4x3f_m00 + (int0 << 3);
  }
  }
 
@@ -4454,7 +4454,7 @@ public:
 
  static void put(Matrix3f matrix3f, long long0) {
  for (int int0 = 0; int0 < 4; int0++) {
- UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix3f, Matrix3f_m00 + (int0 << 3));
+ UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix3f, Matrix3f_m00 + (int0 << 3);
  }
 
  UNSAFE.putFloat(nullptr, long0 + 32L, matrix3f.m22());
@@ -4483,7 +4483,7 @@ public:
 
  static void put(Matrix3x2f matrix3x2f, long long0) {
  for (int int0 = 0; int0 < 3; int0++) {
- UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix3x2f, Matrix3x2f_m00 + (int0 << 3));
+ UNSAFE.putLong(nullptr, long0 + (int0 << 3), UNSAFE.getLong(matrix3x2f, Matrix3x2f_m00 + (int0 << 3);
  }
  }
 
@@ -4590,7 +4590,7 @@ public:
 
  static void get(Matrix4f matrix4f, long long0) {
  for (int int0 = 0; int0 < 8; int0++) {
- UNSAFE.putLong(matrix4f, Matrix4f_m00 + (int0 << 3), UNSAFE.getLong(long0 + (int0 << 3));
+ UNSAFE.putLong(matrix4f, Matrix4f_m00 + (int0 << 3), UNSAFE.getLong(long0 + (int0 << 3);
  }
  }
 
@@ -4615,7 +4615,7 @@ public:
 
  static void get(Matrix4x3f matrix4x3f, long long0) {
  for (int int0 = 0; int0 < 6; int0++) {
- UNSAFE.putLong(matrix4x3f, Matrix4x3f_m00 + (int0 << 3), UNSAFE.getLong(long0 + (int0 << 3));
+ UNSAFE.putLong(matrix4x3f, Matrix4x3f_m00 + (int0 << 3), UNSAFE.getLong(long0 + (int0 << 3);
  }
  }
 
@@ -4693,7 +4693,7 @@ public:
 
  static void get(Matrix3f matrix3f, long long0) {
  for (int int0 = 0; int0 < 4; int0++) {
- UNSAFE.putLong(matrix3f, Matrix3f_m00 + (int0 << 3), UNSAFE.getLong(nullptr, long0 + (int0 << 3));
+ UNSAFE.putLong(matrix3f, Matrix3f_m00 + (int0 << 3), UNSAFE.getLong(nullptr, long0 + (int0 << 3);
  }
 
  matrix3f._m22(UNSAFE.getFloat(nullptr, long0 + 32L);
@@ -4714,7 +4714,7 @@ public:
 
  static void get(Matrix3x2f matrix3x2f, long long0) {
  for (int int0 = 0; int0 < 3; int0++) {
- UNSAFE.putLong(matrix3x2f, Matrix3x2f_m00 + (int0 << 3), UNSAFE.getLong(nullptr, long0 + (int0 << 3));
+ UNSAFE.putLong(matrix3x2f, Matrix3x2f_m00 + (int0 << 3), UNSAFE.getLong(nullptr, long0 + (int0 << 3);
  }
  }
 

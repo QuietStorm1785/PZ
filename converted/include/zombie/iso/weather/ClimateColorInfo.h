@@ -151,7 +151,7 @@ public:
  DebugLog.log("Attempting to save color config to: " + string2);
  File file = new File(string2);
 
- try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false)) {
+ try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false) {
  writer = bufferedWriter;
  ClimateManager climateManager = ClimateManager.getInstance();
  write("--[[");

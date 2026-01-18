@@ -188,7 +188,7 @@ public:
  string = string.trim();
  String[] strings = string.split(" ");
  strings[0] = strings[0].trim();
- if (this->Previous.empty() || !string == this->Previous.get(this->Previous.size() - 1)) {
+ if (this->Previous.empty() || !string == this->Previous.get(this->Previous.size() - 1) {
  this->Previous.add(string);
  }
 

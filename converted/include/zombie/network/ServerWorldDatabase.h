@@ -538,7 +538,7 @@ public:
  }
 
  preparedStatement2.setString(1, this->CommandLineAdminUsername);
- preparedStatement2.setString(2, PZcrypt.hash(encrypt(string0));
+ preparedStatement2.setString(2, PZcrypt.hash(encrypt(string0);
  preparedStatement2.executeUpdate();
  preparedStatement2.close();
  System.out.println("Administrator account '" + this->CommandLineAdminUsername + "' created.");

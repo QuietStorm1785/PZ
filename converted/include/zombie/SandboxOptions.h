@@ -1495,9 +1495,9 @@ public:
  }
 
  std::string getTooltip() {
- std::string string0 = Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_tooltip");
+ std::string string0 = Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_tooltip");
  std::string string1 = this->getValueTranslationByIndexOrNull(this->defaultValue);
- std::string string2 = string1 == nullptr ? nullptr : Translator.getText("Sandbox_Default", string1);
+ std::string string2 = string1.empty() ? nullptr : Translator.getText("Sandbox_Default", string1);
  if (string0.empty()) {
  return string2;
  } else {

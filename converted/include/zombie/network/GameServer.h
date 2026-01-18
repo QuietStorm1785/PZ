@@ -2043,7 +2043,7 @@ public:
  PacketValidator.doKickUser(udpConnection0, playerPacket.getClass().getSimpleName(), "Type12", nullptr);
  }
 
- if (!player.networkAI.checkPosition(udpConnection0, player, PZMath.fastfloor(playerPacket.realx), PZMath.fastfloor(playerPacket.realy)) {
+ if (!player.networkAI.checkPosition(udpConnection0, player, PZMath.fastfloor(playerPacket.realx), PZMath.fastfloor(playerPacket.realy) {
  return;
  }
 
@@ -3814,7 +3814,7 @@ public:
  UdpConnection udpConnection1 = udpEngine.connections.get(int2);
  if (udpConnection1.getConnectedGUID() != udpConnection0.getConnectedGUID() && udpConnection1.isFullyConnected()) {
  IsoPlayer player = getAnyPlayerFromConnection(udpConnection1);
- if (player != nullptr && (movingObject.empty() || udpConnection1.RelevantTo(movingObject.getX(), movingObject.getY(), int0)) {
+ if (player != nullptr && (movingObject.empty() || udpConnection1.RelevantTo(movingObject.getX(), movingObject.getY(), int0) {
  ByteBufferWriter byteBufferWriter = udpConnection1.startPacket();
  PacketTypes.PacketType.PlaySound.doPacket(byteBufferWriter);
  playSoundPacket.write(byteBufferWriter);
@@ -4200,7 +4200,7 @@ public:
 
  for (int int1 = 0; int1 < 4; int1++) {
  IsoPlayer player = udpConnection.players[int1];
- if (player != nullptr && (player.getDisplayName() == string) || player.getUsername() == string)) {
+ if (player != nullptr && (player.getDisplayName() == string) || player.getUsername() == string) {
  return player;
  }
  }
@@ -4481,8 +4481,8 @@ public:
  int3 = byteBuffer.getInt();
  BaseVehicle vehicle = VehicleManager.instance.getVehicleByID(short1);
  if (vehicle != nullptr) {
- VehiclePart part = vehicle == nullptr ? nullptr : vehicle.getPartByIndex(byte3);
- ItemContainer container2 = part == nullptr ? nullptr : part.getItemContainer();
+ VehiclePart part = vehicle.empty() ? nullptr : vehicle.getPartByIndex(byte3);
+ ItemContainer container2 = part.empty() ? nullptr : part.getItemContainer();
  if (container2 != nullptr) {
  for (int int12 = 0; int12 < int3; int12++) {
  int int13 = byteBufferReader.getInt();

@@ -836,18 +836,18 @@ public:
  float float25,
  Matrix4f matrix4f1
  ) {
- float float0 = Math.fma(this->m00, float1, Math.fma(this->m10, float2, Math.fma(this->m20, float3, this->m30 * float4));
- float float5 = Math.fma(this->m01, float1, Math.fma(this->m11, float2, Math.fma(this->m21, float3, this->m31 * float4));
- float float6 = Math.fma(this->m02, float1, Math.fma(this->m12, float2, Math.fma(this->m22, float3, this->m32 * float4));
- float float7 = Math.fma(this->m00, float8, Math.fma(this->m10, float9, Math.fma(this->m20, float10, this->m30 * float11));
- float float12 = Math.fma(this->m01, float8, Math.fma(this->m11, float9, Math.fma(this->m21, float10, this->m31 * float11));
- float float13 = Math.fma(this->m02, float8, Math.fma(this->m12, float9, Math.fma(this->m22, float10, this->m32 * float11));
- float float14 = Math.fma(this->m00, float15, Math.fma(this->m10, float16, Math.fma(this->m20, float17, this->m30 * float18));
- float float19 = Math.fma(this->m01, float15, Math.fma(this->m11, float16, Math.fma(this->m21, float17, this->m31 * float18));
- float float20 = Math.fma(this->m02, float15, Math.fma(this->m12, float16, Math.fma(this->m22, float17, this->m32 * float18));
- float float21 = Math.fma(this->m00, float22, Math.fma(this->m10, float23, Math.fma(this->m20, float24, this->m30 * float25));
- float float26 = Math.fma(this->m01, float22, Math.fma(this->m11, float23, Math.fma(this->m21, float24, this->m31 * float25));
- float float27 = Math.fma(this->m02, float22, Math.fma(this->m12, float23, Math.fma(this->m22, float24, this->m32 * float25));
+ float float0 = Math.fma(this->m00, float1, Math.fma(this->m10, float2, Math.fma(this->m20, float3, this->m30 * float4);
+ float float5 = Math.fma(this->m01, float1, Math.fma(this->m11, float2, Math.fma(this->m21, float3, this->m31 * float4);
+ float float6 = Math.fma(this->m02, float1, Math.fma(this->m12, float2, Math.fma(this->m22, float3, this->m32 * float4);
+ float float7 = Math.fma(this->m00, float8, Math.fma(this->m10, float9, Math.fma(this->m20, float10, this->m30 * float11);
+ float float12 = Math.fma(this->m01, float8, Math.fma(this->m11, float9, Math.fma(this->m21, float10, this->m31 * float11);
+ float float13 = Math.fma(this->m02, float8, Math.fma(this->m12, float9, Math.fma(this->m22, float10, this->m32 * float11);
+ float float14 = Math.fma(this->m00, float15, Math.fma(this->m10, float16, Math.fma(this->m20, float17, this->m30 * float18);
+ float float19 = Math.fma(this->m01, float15, Math.fma(this->m11, float16, Math.fma(this->m21, float17, this->m31 * float18);
+ float float20 = Math.fma(this->m02, float15, Math.fma(this->m12, float16, Math.fma(this->m22, float17, this->m32 * float18);
+ float float21 = Math.fma(this->m00, float22, Math.fma(this->m10, float23, Math.fma(this->m20, float24, this->m30 * float25);
+ float float26 = Math.fma(this->m01, float22, Math.fma(this->m11, float23, Math.fma(this->m21, float24, this->m31 * float25);
+ float float27 = Math.fma(this->m02, float22, Math.fma(this->m12, float23, Math.fma(this->m22, float24, this->m32 * float25);
  return matrix4f1._m00(float0)
  ._m01(float5)
  ._m02(float6)
@@ -886,22 +886,22 @@ public:
  float float28,
  Matrix4f matrix4f1
  ) {
- float float0 = Math.fma(this->m00, float1, Math.fma(this->m10, float2, Math.fma(this->m20, float3, this->m30 * float4));
- float float5 = Math.fma(this->m01, float1, Math.fma(this->m11, float2, Math.fma(this->m21, float3, this->m31 * float4));
- float float6 = Math.fma(this->m02, float1, Math.fma(this->m12, float2, Math.fma(this->m22, float3, this->m32 * float4));
- float float7 = Math.fma(this->m03, float1, Math.fma(this->m13, float2, Math.fma(this->m23, float3, this->m33 * float4));
- float float8 = Math.fma(this->m00, float9, Math.fma(this->m10, float10, Math.fma(this->m20, float11, this->m30 * float12));
- float float13 = Math.fma(this->m01, float9, Math.fma(this->m11, float10, Math.fma(this->m21, float11, this->m31 * float12));
- float float14 = Math.fma(this->m02, float9, Math.fma(this->m12, float10, Math.fma(this->m22, float11, this->m32 * float12));
- float float15 = Math.fma(this->m03, float9, Math.fma(this->m13, float10, Math.fma(this->m23, float11, this->m33 * float12));
- float float16 = Math.fma(this->m00, float17, Math.fma(this->m10, float18, Math.fma(this->m20, float19, this->m30 * float20));
- float float21 = Math.fma(this->m01, float17, Math.fma(this->m11, float18, Math.fma(this->m21, float19, this->m31 * float20));
- float float22 = Math.fma(this->m02, float17, Math.fma(this->m12, float18, Math.fma(this->m22, float19, this->m32 * float20));
- float float23 = Math.fma(this->m03, float17, Math.fma(this->m13, float18, Math.fma(this->m23, float19, this->m33 * float20));
- float float24 = Math.fma(this->m00, float25, Math.fma(this->m10, float26, Math.fma(this->m20, float27, this->m30 * float28));
- float float29 = Math.fma(this->m01, float25, Math.fma(this->m11, float26, Math.fma(this->m21, float27, this->m31 * float28));
- float float30 = Math.fma(this->m02, float25, Math.fma(this->m12, float26, Math.fma(this->m22, float27, this->m32 * float28));
- float float31 = Math.fma(this->m03, float25, Math.fma(this->m13, float26, Math.fma(this->m23, float27, this->m33 * float28));
+ float float0 = Math.fma(this->m00, float1, Math.fma(this->m10, float2, Math.fma(this->m20, float3, this->m30 * float4);
+ float float5 = Math.fma(this->m01, float1, Math.fma(this->m11, float2, Math.fma(this->m21, float3, this->m31 * float4);
+ float float6 = Math.fma(this->m02, float1, Math.fma(this->m12, float2, Math.fma(this->m22, float3, this->m32 * float4);
+ float float7 = Math.fma(this->m03, float1, Math.fma(this->m13, float2, Math.fma(this->m23, float3, this->m33 * float4);
+ float float8 = Math.fma(this->m00, float9, Math.fma(this->m10, float10, Math.fma(this->m20, float11, this->m30 * float12);
+ float float13 = Math.fma(this->m01, float9, Math.fma(this->m11, float10, Math.fma(this->m21, float11, this->m31 * float12);
+ float float14 = Math.fma(this->m02, float9, Math.fma(this->m12, float10, Math.fma(this->m22, float11, this->m32 * float12);
+ float float15 = Math.fma(this->m03, float9, Math.fma(this->m13, float10, Math.fma(this->m23, float11, this->m33 * float12);
+ float float16 = Math.fma(this->m00, float17, Math.fma(this->m10, float18, Math.fma(this->m20, float19, this->m30 * float20);
+ float float21 = Math.fma(this->m01, float17, Math.fma(this->m11, float18, Math.fma(this->m21, float19, this->m31 * float20);
+ float float22 = Math.fma(this->m02, float17, Math.fma(this->m12, float18, Math.fma(this->m22, float19, this->m32 * float20);
+ float float23 = Math.fma(this->m03, float17, Math.fma(this->m13, float18, Math.fma(this->m23, float19, this->m33 * float20);
+ float float24 = Math.fma(this->m00, float25, Math.fma(this->m10, float26, Math.fma(this->m20, float27, this->m30 * float28);
+ float float29 = Math.fma(this->m01, float25, Math.fma(this->m11, float26, Math.fma(this->m21, float27, this->m31 * float28);
+ float float30 = Math.fma(this->m02, float25, Math.fma(this->m12, float26, Math.fma(this->m22, float27, this->m32 * float28);
+ float float31 = Math.fma(this->m03, float25, Math.fma(this->m13, float26, Math.fma(this->m23, float27, this->m33 * float28);
  return matrix4f1._m00(float0)
  ._m01(float5)
  ._m02(float6)
@@ -980,16 +980,16 @@ public:
  }
 
  Matrix4f mulLocalGeneric(Matrix4fc matrix4fc, Matrix4f matrix4f1) {
- float float0 = Math.fma(matrix4fc.m00(), this->m00, Math.fma(matrix4fc.m10(), this->m01, Math.fma(matrix4fc.m20(), this->m02, matrix4fc.m30() * this->m03));
- float float1 = Math.fma(matrix4fc.m01(), this->m00, Math.fma(matrix4fc.m11(), this->m01, Math.fma(matrix4fc.m21(), this->m02, matrix4fc.m31() * this->m03));
- float float2 = Math.fma(matrix4fc.m02(), this->m00, Math.fma(matrix4fc.m12(), this->m01, Math.fma(matrix4fc.m22(), this->m02, matrix4fc.m32() * this->m03));
- float float3 = Math.fma(matrix4fc.m03(), this->m00, Math.fma(matrix4fc.m13(), this->m01, Math.fma(matrix4fc.m23(), this->m02, matrix4fc.m33() * this->m03));
- float float4 = Math.fma(matrix4fc.m00(), this->m10, Math.fma(matrix4fc.m10(), this->m11, Math.fma(matrix4fc.m20(), this->m12, matrix4fc.m30() * this->m13));
- float float5 = Math.fma(matrix4fc.m01(), this->m10, Math.fma(matrix4fc.m11(), this->m11, Math.fma(matrix4fc.m21(), this->m12, matrix4fc.m31() * this->m13));
- float float6 = Math.fma(matrix4fc.m02(), this->m10, Math.fma(matrix4fc.m12(), this->m11, Math.fma(matrix4fc.m22(), this->m12, matrix4fc.m32() * this->m13));
- float float7 = Math.fma(matrix4fc.m03(), this->m10, Math.fma(matrix4fc.m13(), this->m11, Math.fma(matrix4fc.m23(), this->m12, matrix4fc.m33() * this->m13));
- float float8 = Math.fma(matrix4fc.m00(), this->m20, Math.fma(matrix4fc.m10(), this->m21, Math.fma(matrix4fc.m20(), this->m22, matrix4fc.m30() * this->m23));
- float float9 = Math.fma(matrix4fc.m01(), this->m20, Math.fma(matrix4fc.m11(), this->m21, Math.fma(matrix4fc.m21(), this->m22, matrix4fc.m31() * this->m23));
+ float float0 = Math.fma(matrix4fc.m00(), this->m00, Math.fma(matrix4fc.m10(), this->m01, Math.fma(matrix4fc.m20(), this->m02, matrix4fc.m30() * this->m03);
+ float float1 = Math.fma(matrix4fc.m01(), this->m00, Math.fma(matrix4fc.m11(), this->m01, Math.fma(matrix4fc.m21(), this->m02, matrix4fc.m31() * this->m03);
+ float float2 = Math.fma(matrix4fc.m02(), this->m00, Math.fma(matrix4fc.m12(), this->m01, Math.fma(matrix4fc.m22(), this->m02, matrix4fc.m32() * this->m03);
+ float float3 = Math.fma(matrix4fc.m03(), this->m00, Math.fma(matrix4fc.m13(), this->m01, Math.fma(matrix4fc.m23(), this->m02, matrix4fc.m33() * this->m03);
+ float float4 = Math.fma(matrix4fc.m00(), this->m10, Math.fma(matrix4fc.m10(), this->m11, Math.fma(matrix4fc.m20(), this->m12, matrix4fc.m30() * this->m13);
+ float float5 = Math.fma(matrix4fc.m01(), this->m10, Math.fma(matrix4fc.m11(), this->m11, Math.fma(matrix4fc.m21(), this->m12, matrix4fc.m31() * this->m13);
+ float float6 = Math.fma(matrix4fc.m02(), this->m10, Math.fma(matrix4fc.m12(), this->m11, Math.fma(matrix4fc.m22(), this->m12, matrix4fc.m32() * this->m13);
+ float float7 = Math.fma(matrix4fc.m03(), this->m10, Math.fma(matrix4fc.m13(), this->m11, Math.fma(matrix4fc.m23(), this->m12, matrix4fc.m33() * this->m13);
+ float float8 = Math.fma(matrix4fc.m00(), this->m20, Math.fma(matrix4fc.m10(), this->m21, Math.fma(matrix4fc.m20(), this->m22, matrix4fc.m30() * this->m23);
+ float float9 = Math.fma(matrix4fc.m01(), this->m20, Math.fma(matrix4fc.m11(), this->m21, Math.fma(matrix4fc.m21(), this->m22, matrix4fc.m31() * this->m23);
  float float10 = Math.fma(
  matrix4fc.m02(), this->m20, Math.fma(matrix4fc.m12(), this->m21, Math.fma(matrix4fc.m22(), this->m22, matrix4fc.m32() * this->m23)
  );
@@ -1127,21 +1127,21 @@ public:
  float float18 = matrix4x3fc.m30();
  float float19 = matrix4x3fc.m31();
  float float20 = matrix4x3fc.m32();
- return matrix4f1._m00(Math.fma(float0, float9, Math.fma(float3, float10, float6 * float11))
- ._m01(Math.fma(float1, float9, Math.fma(float4, float10, float7 * float11))
- ._m02(Math.fma(float2, float9, Math.fma(float5, float10, float8 * float11))
+ return matrix4f1._m00(Math.fma(float0, float9, Math.fma(float3, float10, float6 * float11)
+ ._m01(Math.fma(float1, float9, Math.fma(float4, float10, float7 * float11)
+ ._m02(Math.fma(float2, float9, Math.fma(float5, float10, float8 * float11)
  ._m03(this->m03)
- ._m10(Math.fma(float0, float12, Math.fma(float3, float13, float6 * float14))
- ._m11(Math.fma(float1, float12, Math.fma(float4, float13, float7 * float14))
- ._m12(Math.fma(float2, float12, Math.fma(float5, float13, float8 * float14))
+ ._m10(Math.fma(float0, float12, Math.fma(float3, float13, float6 * float14)
+ ._m11(Math.fma(float1, float12, Math.fma(float4, float13, float7 * float14)
+ ._m12(Math.fma(float2, float12, Math.fma(float5, float13, float8 * float14)
  ._m13(this->m13)
- ._m20(Math.fma(float0, float15, Math.fma(float3, float16, float6 * float17))
- ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17))
- ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17))
+ ._m20(Math.fma(float0, float15, Math.fma(float3, float16, float6 * float17)
+ ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17)
+ ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17)
  ._m23(this->m23)
- ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)))
- ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)))
- ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)))
+ ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)
+ ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)
+ ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)
  ._m33(this->m33)
  ._properties(2 | this->properties & matrix4x3fc.properties() & 16);
  }
@@ -1159,10 +1159,10 @@ public:
  float float9 = Math.fma(this->m01, matrix4x3fc.m20(), Math.fma(this->m11, matrix4x3fc.m21(), this->m21 * matrix4x3fc.m22()));
  float float10 = Math.fma(this->m02, matrix4x3fc.m20(), Math.fma(this->m12, matrix4x3fc.m21(), this->m22 * matrix4x3fc.m22()));
  float float11 = Math.fma(this->m03, matrix4x3fc.m20(), Math.fma(this->m13, matrix4x3fc.m21(), this->m23 * matrix4x3fc.m22()));
- float float12 = Math.fma(this->m00, matrix4x3fc.m30(), Math.fma(this->m10, matrix4x3fc.m31(), Math.fma(this->m20, matrix4x3fc.m32(), this->m30));
- float float13 = Math.fma(this->m01, matrix4x3fc.m30(), Math.fma(this->m11, matrix4x3fc.m31(), Math.fma(this->m21, matrix4x3fc.m32(), this->m31));
- float float14 = Math.fma(this->m02, matrix4x3fc.m30(), Math.fma(this->m12, matrix4x3fc.m31(), Math.fma(this->m22, matrix4x3fc.m32(), this->m32));
- float float15 = Math.fma(this->m03, matrix4x3fc.m30(), Math.fma(this->m13, matrix4x3fc.m31(), Math.fma(this->m23, matrix4x3fc.m32(), this->m33));
+ float float12 = Math.fma(this->m00, matrix4x3fc.m30(), Math.fma(this->m10, matrix4x3fc.m31(), Math.fma(this->m20, matrix4x3fc.m32(), this->m30);
+ float float13 = Math.fma(this->m01, matrix4x3fc.m30(), Math.fma(this->m11, matrix4x3fc.m31(), Math.fma(this->m21, matrix4x3fc.m32(), this->m31);
+ float float14 = Math.fma(this->m02, matrix4x3fc.m30(), Math.fma(this->m12, matrix4x3fc.m31(), Math.fma(this->m22, matrix4x3fc.m32(), this->m32);
+ float float15 = Math.fma(this->m03, matrix4x3fc.m30(), Math.fma(this->m13, matrix4x3fc.m31(), Math.fma(this->m23, matrix4x3fc.m32(), this->m33);
  return matrix4f1._m00(float0)
  ._m01(float1)
  ._m02(float2)
@@ -1303,10 +1303,10 @@ public:
  float float9 = Math.fma(this->m01, arg0.m20(), Math.fma(this->m11, arg0.m21(), this->m21 * arg0.m22()));
  float float10 = Math.fma(this->m02, arg0.m20(), Math.fma(this->m12, arg0.m21(), this->m22 * arg0.m22()));
  float float11 = Math.fma(this->m03, arg0.m20(), Math.fma(this->m13, arg0.m21(), this->m23 * arg0.m22()));
- float float12 = Math.fma(this->m00, arg0.m30(), Math.fma(this->m10, arg0.m31(), Math.fma(this->m20, arg0.m32(), this->m30));
- float float13 = Math.fma(this->m01, arg0.m30(), Math.fma(this->m11, arg0.m31(), Math.fma(this->m21, arg0.m32(), this->m31));
- float float14 = Math.fma(this->m02, arg0.m30(), Math.fma(this->m12, arg0.m31(), Math.fma(this->m22, arg0.m32(), this->m32));
- float float15 = Math.fma(this->m03, arg0.m30(), Math.fma(this->m13, arg0.m31(), Math.fma(this->m23, arg0.m32(), this->m33));
+ float float12 = Math.fma(this->m00, arg0.m30(), Math.fma(this->m10, arg0.m31(), Math.fma(this->m20, arg0.m32(), this->m30);
+ float float13 = Math.fma(this->m01, arg0.m30(), Math.fma(this->m11, arg0.m31(), Math.fma(this->m21, arg0.m32(), this->m31);
+ float float14 = Math.fma(this->m02, arg0.m30(), Math.fma(this->m12, arg0.m31(), Math.fma(this->m22, arg0.m32(), this->m32);
+ float float15 = Math.fma(this->m03, arg0.m30(), Math.fma(this->m13, arg0.m31(), Math.fma(this->m23, arg0.m32(), this->m33);
  return arg1._m00(float0)
  ._m01(float1)
  ._m02(float2)
@@ -1352,21 +1352,21 @@ public:
  float float18 = arg0.m30();
  float float19 = arg0.m31();
  float float20 = arg0.m32();
- return arg1._m00(Math.fma(float0, float9, Math.fma(float3, float10, float6 * float11))
- ._m01(Math.fma(float1, float9, Math.fma(float4, float10, float7 * float11))
- ._m02(Math.fma(float2, float9, Math.fma(float5, float10, float8 * float11))
+ return arg1._m00(Math.fma(float0, float9, Math.fma(float3, float10, float6 * float11)
+ ._m01(Math.fma(float1, float9, Math.fma(float4, float10, float7 * float11)
+ ._m02(Math.fma(float2, float9, Math.fma(float5, float10, float8 * float11)
  ._m03(this->m03)
- ._m10(Math.fma(float0, float12, Math.fma(float3, float13, float6 * float14))
- ._m11(Math.fma(float1, float12, Math.fma(float4, float13, float7 * float14))
- ._m12(Math.fma(float2, float12, Math.fma(float5, float13, float8 * float14))
+ ._m10(Math.fma(float0, float12, Math.fma(float3, float13, float6 * float14)
+ ._m11(Math.fma(float1, float12, Math.fma(float4, float13, float7 * float14)
+ ._m12(Math.fma(float2, float12, Math.fma(float5, float13, float8 * float14)
  ._m13(this->m13)
- ._m20(Math.fma(float0, float15, Math.fma(float3, float16, float6 * float17))
- ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17))
- ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17))
+ ._m20(Math.fma(float0, float15, Math.fma(float3, float16, float6 * float17)
+ ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17)
+ ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17)
  ._m23(this->m23)
- ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)))
- ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)))
- ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)))
+ ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)
+ ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)
+ ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)
  ._m33(this->m33)
  ._properties(2 | this->properties & arg0.properties() & 16);
  }
@@ -3003,7 +3003,7 @@ public:
  ._m31(this->m31)
  ._m32(this->m32)
  ._m33(this->m33)
- ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16));
+ ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16);
  }
 
  Matrix4f scale(float arg0, float arg1, float arg2) {
@@ -3032,7 +3032,7 @@ public:
  ._m31(-this->m01 * arg3 - this->m11 * arg4 - this->m21 * arg5 + float1)
  ._m32(-this->m02 * arg3 - this->m12 * arg4 - this->m22 * arg5 + float2)
  ._m33(-this->m03 * arg3 - this->m13 * arg4 - this->m23 * arg5 + float3)
- ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16));
+ ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16);
  }
 
  Matrix4f scaleAround(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5) {
@@ -3081,7 +3081,7 @@ public:
  ._m31(float13)
  ._m32(float14)
  ._m33(this->m33)
- ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16));
+ ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16);
  }
 
  Matrix4f scaleLocal(float arg0, Matrix4f arg1) {
@@ -3114,7 +3114,7 @@ public:
  ._m31(arg1 * (this->m31 - arg4 * this->m33) + arg4 * this->m33)
  ._m32(arg2 * (this->m32 - arg5 * this->m33) + arg5 * this->m33)
  ._m33(this->m33)
- ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16));
+ ._properties(this->properties & ~(13 | (boolean0 ? 0 : 16);
  }
 
  Matrix4f scaleAroundLocal(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5) {
@@ -3957,10 +3957,10 @@ public:
 
  Matrix4f translateGeneric(float float0, float float1, float float2, Matrix4f matrix4f1) {
  MemUtil.INSTANCE.copy(this, matrix4f1);
- return matrix4f1._m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30)))
- ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31)))
- ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32)))
- ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33)))
+ return matrix4f1._m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30)
+ ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31)
+ ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32)
+ ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33)
  ._properties(this->properties & -6);
  }
 
@@ -3969,10 +3969,10 @@ public:
  }
 
  Matrix4f translateGeneric(float float0, float float1, float float2) {
- return this->_m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30)))
- ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31)))
- ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32)))
- ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33)))
+ return this->_m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30)
+ ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31)
+ ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32)
+ ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33)
  ._properties(this->properties & -6);
  }
 
@@ -4996,7 +4996,7 @@ public:
  ._m21(float18)
  ._m22(float19)
  ._m23(float20)
- ._properties(this->properties & ~(30 | (float9 == 0.0F && float10 == 0.0F ? 0 : 1));
+ ._properties(this->properties & ~(30 | (float9 == 0.0F && float10 == 0.0F ? 0 : 1);
  return matrix4f1;
  }
 

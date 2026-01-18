@@ -281,7 +281,7 @@ public:
  || this->isDoorFrame
  || this->isWindow()
  || this->isHoppable
- || this->getProperties() != nullptr && (this->getProperties().Is(IsoFlagType.collideN) || this->getProperties().Is(IsoFlagType.collideW)) {
+ || this->getProperties() != nullptr && (this->getProperties().Is(IsoFlagType.collideN) || this->getProperties().Is(IsoFlagType.collideW) {
  return this->north ? pos.set(this->getX() + 0.5F, this->getY()) : pos.set(this->getX(), this->getY() + 0.5F);
  } else {
  return pos.set(this->getX() + 0.5F, this->getY() + 0.5F);

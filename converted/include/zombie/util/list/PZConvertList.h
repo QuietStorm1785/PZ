@@ -77,7 +77,7 @@ public:
  int int1 = 0;
 
  for (int int2 = this->size(); int1 < int2; int1++) {
- if (objectsEqual(object, this->get(int1)) {
+ if (objectsEqual(object, this->get(int1) {
  int0 = int1;
  break;
  }
@@ -113,7 +113,7 @@ public:
  }
 
  void sort(Comparator<? super) {
- this->m_list.sort((object1, object0) -> comparator.compare(this->convertST((S)object1), this->convertST((S)object0));
+ this->m_list.sort((object1, object0) -> comparator.compare(this->convertST((S)object1), this->convertST((S)object0);
  }
 
  T convertST(S object) {

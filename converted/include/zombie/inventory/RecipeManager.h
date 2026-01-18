@@ -173,7 +173,7 @@ public:
  std::vector arrayList = recipe.Source.get(int0).getItems();
 
  for (int int1 = 0; int1 < arrayList.size(); int1++) {
- if (itemToUse == arrayList.get(int1)) {
+ if (itemToUse == arrayList.get(int1) {
  return false;
  }
  }
@@ -190,7 +190,7 @@ public:
  Recipe.Source source = recipe.getSource().get(int0);
  if (source.destroy) {
  for (int int1 = 0; int1 < source.getItems().size(); int1++) {
- if (itemToUse == source.getItems().get(int1)) {
+ if (itemToUse == source.getItems().get(int1) {
  return true;
  }
  }
@@ -394,7 +394,7 @@ public:
  ArrayList<InventoryItem> arrayList0,
  boolean boolean0
  ) {
- if (item != nullptr && (item.getContainer() == nullptr || !item.getContainer().contains(item)) {
+ if (item != nullptr && (item.getContainer() == nullptr || !item.getContainer().contains(item) {
  DebugLog.Recipe.warn("recipe: item appears to have been used already, ignoring " + item.getFullType());
  item = nullptr;
  }
@@ -499,7 +499,7 @@ public:
  InventoryItem item = sourceItems.allItems.get(int0);
 
  for (int int1 = 0; int1 < source.getItems().size(); int1++) {
- if (item.getFullType().equalsIgnoreCase(source.getItems().get(int1)) {
+ if (item.getFullType().equalsIgnoreCase(source.getItems().get(int1) {
  return item;
  }
  }
@@ -673,7 +673,7 @@ public:
  }
  }
 
- item0.setCondition(Math.round(item0.getConditionMax() * (float0 / int2));
+ item0.setCondition(Math.round(item0.getConditionMax() * (float0 / int2);
 
  for (int int17 = 0; int17 < arrayList0.size(); int17++) {
  InventoryItem item7 = (InventoryItem)arrayList0.get(int17);
@@ -789,7 +789,7 @@ public:
  EvolvedRecipe evolvedRecipe = (EvolvedRecipe)stack.get(int0);
  if ((baseItem.isCooked() && evolvedRecipe.addIngredientIfCooked || !baseItem.isCooked())
  && (baseItem.getType() == evolvedRecipe.baseItem) || baseItem.getType() == evolvedRecipe.getResultItem()))
- && (!baseItem.getType() == "WaterPot") || !(((Drainable)baseItem).getUsedDelta() < 0.75)) {
+ && (!baseItem.getType() == "WaterPot") || !(((Drainable)baseItem).getUsedDelta() < 0.75) {
  if (need1ingredient) {
  std::vector arrayList1 = evolvedRecipe.getItemsCanBeUse(chr, baseItem, containers);
  if (!arrayList1.empty()) {

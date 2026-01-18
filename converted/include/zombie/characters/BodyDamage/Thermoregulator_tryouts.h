@@ -134,7 +134,7 @@ public:
  thermalNode.primaryDelta = float3;
  thermalNode.secondaryDelta = float4;
  } else {
- DebugLog.log("Couldnt load node: " + BodyPartType.ToString(BodyPartType.FromIndex(int2));
+ DebugLog.log("Couldnt load node: " + BodyPartType.ToString(BodyPartType.FromIndex(int2);
  }
  }
  }

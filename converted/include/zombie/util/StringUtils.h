@@ -34,7 +34,7 @@ public:
  int int2 = int0 / 2;
 
  for (int int3 = int0 - 1; int1 <= int2; int3--) {
- if (!Character.isWhitespace(string.charAt(int1) || !Character.isWhitespace(string.charAt(int3)) {
+ if (!Character.isWhitespace(string.charAt(int1) || !Character.isWhitespace(string.charAt(int3) {
  return false;
  }
 

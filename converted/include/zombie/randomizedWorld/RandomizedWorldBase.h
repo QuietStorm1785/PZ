@@ -355,7 +355,7 @@ public:
  if (sq.empty()) {
  return nullptr;
  } else {
- bool boolean0 = dir == nullptr;
+ bool boolean0 = dir.empty();
  if (boolean0) {
  dir = IsoDirections.getRandom();
  }
@@ -524,7 +524,7 @@ public:
  RandomizedBuildingBase.HumanCorpse humanCorpse = new RandomizedBuildingBase.HumanCorpse(IsoWorld.instance.getCell(), x, y, z);
  humanCorpse.setDescriptor(SurvivorFactory.CreateSurvivor());
  humanCorpse.setFemale(humanCorpse.getDescriptor().isFemale());
- humanCorpse.setDir(IsoDirections.fromIndex(Rand.Next(8));
+ humanCorpse.setDir(IsoDirections.fromIndex(Rand.Next(8);
  humanCorpse.initWornItems("Human");
  humanCorpse.initAttachedItems("Human");
  Outfit outfit = humanCorpse.getRandomDefaultOutfit();
@@ -589,11 +589,11 @@ public:
  chr.setX(int0);
  chr.setY(int1 + 0.5F);
  directions = Rand.Next(2) == 0 ? IsoDirections.W : IsoDirections.E;
- } else if (is1x2AreaClear(square.getAdjacentSquare(IsoDirections.S)) {
+ } else if (is1x2AreaClear(square.getAdjacentSquare(IsoDirections.S) {
  chr.setX(int0 + 0.5F);
  chr.setY(int1 + 0.99F);
  directions = Rand.Next(2) == 0 ? IsoDirections.N : IsoDirections.S;
- } else if (is2x1AreaClear(square.getAdjacentSquare(IsoDirections.E)) {
+ } else if (is2x1AreaClear(square.getAdjacentSquare(IsoDirections.E) {
  chr.setX(int0 + 0.99F);
  chr.setY(int1 + 0.5F);
  directions = Rand.Next(2) == 0 ? IsoDirections.W : IsoDirections.E;

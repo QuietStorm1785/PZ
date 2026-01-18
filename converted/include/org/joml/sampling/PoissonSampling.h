@@ -61,7 +61,7 @@ public:
  for (int int1 = 0; int1 < int2; int1++) {
  float float2 = this->rnd.nextFloat() * (float) (java.lang.Math.PI * 2);
  float float3 = this->minDist * (this->rnd.nextFloat() + 1.0F);
- float0 = (float)(float3 * Math.sin_roquen_9(float2 + (java.lang.Math.PI / 2));
+ float0 = (float)(float3 * Math.sin_roquen_9(float2 + (java.lang.Math.PI / 2);
  float1 = (float)(float3 * Math.sin_roquen_9(float2);
  float0 += vector2f1.x;
  float1 += vector2f1.y;

@@ -440,7 +440,7 @@ public:
 
  for (int int0 = 0; int0 < 360; int0++) {
  float float0 = PZMath.wrap(int0, -180.0F, 180.0F);
- quaternion.setFromAxisAngle(new Vector4f(0.0F, 1.0F, 0.0F, float0 * (float) (Math.PI / 180.0));
+ quaternion.setFromAxisAngle(new Vector4f(0.0F, 1.0F, 0.0F, float0 * (float) (Math.PI / 180.0);
  float float1 = HelperFunctions.getRotationY(quaternion) * (180.0F / (float)Math.PI);
  bool boolean0 = PZMath.equal(float0, float1, 0.001F);
  DebugLog.UnitTests.printUnitTest("%f,%f", boolean0, float0, float1);
@@ -458,7 +458,7 @@ public:
 
  for (int int0 = 0; int0 < 360; int0++) {
  float float0 = PZMath.wrap(int0, -180.0F, 180.0F);
- quaternion.setFromAxisAngle(new Vector4f(0.0F, 0.0F, 1.0F, float0 * (float) (Math.PI / 180.0));
+ quaternion.setFromAxisAngle(new Vector4f(0.0F, 0.0F, 1.0F, float0 * (float) (Math.PI / 180.0);
  float float1 = HelperFunctions.getRotationZ(quaternion) * (180.0F / (float)Math.PI);
  bool boolean0 = PZMath.equal(float0, float1, 0.001F);
  DebugLog.UnitTests.printUnitTest("%f,%f", boolean0, float0, float1);

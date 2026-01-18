@@ -82,7 +82,7 @@ public:
 
  for (int int5 = 0; int5 < int0; int5++) {
  for (int int6 = 0; int6 < this->classDimensions[this->partitionClassList[int5]]; int6++) {
- arrayList.add(new Integer(bitInputStream.getInt(this->rangeBits));
+ arrayList.add(new Integer(bitInputStream.getInt(this->rangeBits);
  }
  }
 

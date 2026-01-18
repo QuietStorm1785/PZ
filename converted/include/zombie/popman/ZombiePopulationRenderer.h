@@ -134,7 +134,7 @@ public:
  if ((!(float0 >= Core.getInstance().getScreenWidth()) || !(float2 >= Core.getInstance().getScreenWidth()))
  && (!(float1 >= Core.getInstance().getScreenHeight()) || !(float3 >= Core.getInstance().getScreenHeight()))
  && (!(float0 < 0.0F) || !(float2 < 0.0F)
- && (!(float1 < 0.0F) || !(float3 < 0.0F)) {
+ && (!(float1 < 0.0F) || !(float3 < 0.0F) {
  SpriteRenderer.instance.renderline(nullptr, (int)float0, (int)float1, (int)float2, (int)float3, r, g, b, a);
  }
  }

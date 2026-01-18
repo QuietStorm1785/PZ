@@ -258,7 +258,7 @@ public:
  float float4 = this->getDistance(player);
  if (float4 >= 0.0F && float4 < float1) {
  float float5 = float1 * 0.6F;
- if (!boolean1 && (boolean0 || !(float4 < float5)) {
+ if (!boolean1 && (boolean0 || !(float4 < float5) {
  if (float1 - float5 != 0.0F) {
  float3 = (float4 - float5) / (float1 - float5);
  if (float3 < 0.2F) {

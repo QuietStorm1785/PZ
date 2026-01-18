@@ -124,7 +124,7 @@ public:
  }
 
  uint8_t getSquare(int x, int y, int z, bool ignoreCoordCheck) {
- if (this->squareFlags != nullptr && (ignoreCoordCheck || this->validCoords(x, y, z)) {
+ if (this->squareFlags != nullptr && (ignoreCoordCheck || this->validCoords(x, y, z) {
  return this->activeZLayers[z] ? this->squareFlags[this->getCoord1D(x, y, z)] : -1;
  } else {
  return -1;
@@ -391,7 +391,7 @@ public:
  DataSquarePos.release(dataSquarePos1);
  } else {
  if (this->squareCanConnect(int3, dataSquarePos0.z, byte1)
- && this->squareCanConnect(int4, dataSquarePos1.z, IsoRegions.GetOppositeDir(byte1)) {
+ && this->squareCanConnect(int4, dataSquarePos1.z, IsoRegions.GetOppositeDir(byte1) {
  if (this->regionIDs[int4] == -1) {
  tmpSquares.add(dataSquarePos1);
  this->setExploredPosition(int4, dataSquarePos1.z);
@@ -516,7 +516,7 @@ public:
 
  if (lastCurRegion.empty() || lastCurRegion != chunkRegion0 || chunkRegion1.empty() || lastOtherRegionFullConnect != chunkRegion1) {
  if (dataChunk0 != nullptr && chunkRegion1 != nullptr) {
- if (this->squareCanConnect(int9, int4, byte0) && dataChunk0.squareCanConnect(int10, int4, IsoRegions.GetOppositeDir(byte0)) {
+ if (this->squareCanConnect(int9, int4, byte0) && dataChunk0.squareCanConnect(int10, int4, IsoRegions.GetOppositeDir(byte0) {
  chunkRegion0.addConnectedNeighbor(chunkRegion1);
  chunkRegion1.addConnectedNeighbor(chunkRegion0);
  chunkRegion0.addNeighbor(chunkRegion1);

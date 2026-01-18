@@ -465,7 +465,7 @@ public:
  if (((IsoZombie)thumper).cognition == 1
  && !this->canClimbThrough((IsoZombie)thumper)
  && !this->isInvincible()
- && (!this->Locked || thumper.getCurrentSquare() != nullptr && !thumper.getCurrentSquare().Is(IsoFlagType.exterior)) {
+ && (!this->Locked || thumper.getCurrentSquare() != nullptr && !thumper.getCurrentSquare().Is(IsoFlagType.exterior) {
  this->ToggleWindow((IsoGameCharacter)thumper);
  if (this->canClimbThrough((IsoZombie)thumper) {
  return;
@@ -1091,7 +1091,7 @@ public:
  if (sq.getProperties().Is(IsoFlagType.solidfloor) {
  }
 
- while (sq != nullptr && (GameServer.bServer || player.getInventory().contains(itemType)) {
+ while (sq != nullptr && (GameServer.bServer || player.getInventory().contains(itemType) {
  std::string string = "crafted_01_" + byte0;
  if (int0 > 0) {
  if (boolean2) {
@@ -1220,7 +1220,7 @@ public:
 
  for (int int2 = 0; int2 < _square.getObjects().size(); int2++) {
  IsoObject object2 = _square.getObjects().get(int2);
- if (object2.getProperties() != nullptr && (object2.getProperties().Is(flagType0) || object2.getProperties().Is(flagType1)) {
+ if (object2.getProperties() != nullptr && (object2.getProperties().Is(flagType0) || object2.getProperties().Is(flagType1) {
  _square.transmitRemoveItemFromSquare(object2);
  if (GameServer.bServer) {
  if (player != nullptr) {

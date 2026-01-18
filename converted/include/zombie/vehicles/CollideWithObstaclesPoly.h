@@ -198,7 +198,7 @@ public:
  || cCEdge1.node2.x != cCEdge3.node1.x
  || cCEdge1.node2.y != cCEdge3.node1.y
  )
- && (!cCEdge1.hasNode(cCEdge3.node1) || !cCEdge1.hasNode(cCEdge3.node2)) {
+ && (!cCEdge1.hasNode(cCEdge3.node1) || !cCEdge1.hasNode(cCEdge3.node2) {
  cCEdge2 = cCEdge3;
  }
  }
@@ -323,7 +323,7 @@ public:
  }
 
  CollideWithObstaclesPoly.ChunkDataZ chunkDataZ = chunk.collision.init(chunk, int3, this);
- std::vector arrayList = vehicle == nullptr ? chunkDataZ.worldVehicleUnion : chunkDataZ.worldVehicleSeparate;
+ std::vector arrayList = vehicle.empty() ? chunkDataZ.worldVehicleUnion : chunkDataZ.worldVehicleSeparate;
 
  for (int int4 = 0; int4 < arrayList.size(); int4++) {
  CollideWithObstaclesPoly.CCObstacle cCObstacle = (CollideWithObstaclesPoly.CCObstacle)arrayList.get(int4);
@@ -347,10 +347,10 @@ public:
 
  void vehicleMoved(PolygonalMap2.VehiclePoly vehiclePoly) {
  uint8_t byte0 = 2;
- int int0 = (int)Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4));
- int int1 = (int)Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4));
- int int2 = (int)Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4));
- int int3 = (int)Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4));
+ int int0 = (int)Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4);
+ int int1 = (int)Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4);
+ int int2 = (int)Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4);
+ int int3 = (int)Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4);
  int int4 = (int)vehiclePoly.z;
  int int5 = (int0 - byte0) / 10;
  int int6 = (int1 - byte0) / 10;
@@ -1031,10 +1031,10 @@ public:
  for (int int9 = 0; int9 < collideWithObstaclesPoly.vehicles.size(); int9++) {
  BaseVehicle vehicle = collideWithObstaclesPoly.vehicles.get(int9);
  PolygonalMap2.VehiclePoly vehiclePoly = vehicle.getPolyPlusRadius();
- float float3 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4));
- float float4 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4));
- float float5 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4));
- float float6 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4));
+ float float3 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4);
+ float float4 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4);
+ float float5 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4);
+ float float6 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4);
  collideWithObstaclesPoly.vehicleBounds.init(float3, float4, float5 - float3, float6 - float4);
  if (immutableRectF.intersects(collideWithObstaclesPoly.vehicleBounds) {
  clipper.addPolygon(

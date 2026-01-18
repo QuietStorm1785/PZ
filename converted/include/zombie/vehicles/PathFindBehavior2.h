@@ -835,8 +835,8 @@ public:
  if (Math.abs(int1) <= 1 && Math.abs(int2) <= 1) {
  IsoGridSquare square2 = cell.getGridSquare((int)pathNode0.x, (int)pathNode0.y, (int)pathNode0.z);
  IsoGridSquare square3 = cell.getGridSquare((int)pathNode1.x, (int)pathNode1.y, (int)pathNode1.z);
- float float9 = square2 == nullptr ? pathNode0.z : PolygonalMap2.instance.getApparentZ(square2);
- float float10 = square3 == nullptr ? pathNode1.z : PolygonalMap2.instance.getApparentZ(square3);
+ float float9 = square2.empty() ? pathNode0.z : PolygonalMap2.instance.getApparentZ(square2);
+ float float10 = square3.empty() ? pathNode1.z : PolygonalMap2.instance.getApparentZ(square3);
  float8 = float9 + (float10 - float9) * (float)double0;
  }
 

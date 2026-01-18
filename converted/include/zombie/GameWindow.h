@@ -284,7 +284,7 @@ public:
  states.update();
  } else {
  IsoCamera.updateAll();
- if (IngameState.instance != nullptr && (states.current == IngameState.instance || states.States.contains(IngameState.instance)) {
+ if (IngameState.instance != nullptr && (states.current == IngameState.instance || states.States.contains(IngameState.instance) {
  LuaEventManager.triggerEvent("OnTickEvenPaused", 0.0);
  }
  }

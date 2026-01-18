@@ -97,7 +97,7 @@ public:
  vector3f.mul(3.0F);
  float0 = (float)(float0 + 0.125 * FuncNoise(vector3f);
  return (float)(
- float0 * Math.min(1.0, 2.0 * FuncNoise(allocVector3f(vector3f).mul(0.02F) * Math.min(1.0, 1.0 * FuncNoise(allocVector3f(vector3f).mul(0.1F)))
+ float0 * Math.min(1.0, 2.0 * FuncNoise(allocVector3f(vector3f).mul(0.02F) * Math.min(1.0, 1.0 * FuncNoise(allocVector3f(vector3f).mul(0.1F)
  );
  } else {
  return FuncNoise();
@@ -127,7 +127,7 @@ public:
  float3 = (float)(float3 + float2 * 0.3);
  float float4 = PerlinNoise(allocVector3f(vector2f.x * 1.0F, 0.0F, vector2f.y * 2.0F);
  float float5 = Math.min(0.7F, float3 * float4);
- float4 = Math.min(0.7F, PerlinNoise(allocVector3f(vector2f.x * 0.7F, 1.0F, vector2f.y * 0.7F));
+ float4 = Math.min(0.7F, PerlinNoise(allocVector3f(vector2f.x * 0.7F, 1.0F, vector2f.y * 0.7F);
  return float5 + float4;
  }
 

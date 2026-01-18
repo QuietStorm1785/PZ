@@ -2070,7 +2070,7 @@ public:
  }
 
  if (int1 + int4 < this->y + this->h) {
- arrayList.add(new IsoMetaGrid.Zone(this->name, this->type, this->x, int1 + int4, int2, this->w, this->y + this->h - (int1 + int4));
+ arrayList.add(new IsoMetaGrid.Zone(this->name, this->type, this->x, int1 + int4, int2, this->w, this->y + this->h - (int1 + int4);
  }
 
  return true;

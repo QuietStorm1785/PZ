@@ -144,13 +144,13 @@ public:
  }
 
  static void FadeIn(double seconds) {
- setFadeInTimeMax((int)(seconds * 30.0 * (PerformanceSettings.getLockFPS() / 30.0F));
+ setFadeInTimeMax((int)(seconds * 30.0 * (PerformanceSettings.getLockFPS() / 30.0F);
  setFadeInTime(getFadeInTimeMax());
  setFadingOut(false);
  }
 
  static void FadeOut(double seconds) {
- setFadeInTimeMax((int)(seconds * 30.0 * (PerformanceSettings.getLockFPS() / 30.0F));
+ setFadeInTimeMax((int)(seconds * 30.0 * (PerformanceSettings.getLockFPS() / 30.0F);
  setFadeInTime(getFadeInTimeMax());
  setFadingOut(true);
  }
@@ -1762,13 +1762,13 @@ public:
  }
 
  void FadeIn(int arg0) {
- this->setFadeTimeMax((int)(arg0 * 30 * (PerformanceSettings.getLockFPS() / 30.0F));
+ this->setFadeTimeMax((int)(arg0 * 30 * (PerformanceSettings.getLockFPS() / 30.0F);
  this->setFadeTime(this->getFadeTimeMax());
  this->setFadingOut(false);
  }
 
  void FadeOut(int arg0) {
- this->setFadeTimeMax((int)(arg0 * 30 * (PerformanceSettings.getLockFPS() / 30.0F));
+ this->setFadeTimeMax((int)(arg0 * 30 * (PerformanceSettings.getLockFPS() / 30.0F);
  this->setFadeTime(this->getFadeTimeMax());
  this->setFadingOut(true);
  }

@@ -126,17 +126,17 @@ public:
  assertEquals(nullptr, particlesArray.get(7);
  assertEquals(nullptr, particlesArray.get(8);
  assertEquals(nullptr, particlesArray.get(9);
- assertEquals(6L, particlesArray.addParticle(new Integer(31));
- assertEquals(7L, particlesArray.addParticle(new Integer(32));
- assertEquals(8L, particlesArray.addParticle(new Integer(33));
- assertEquals(9L, particlesArray.addParticle(new Integer(34));
- assertEquals(10L, particlesArray.addParticle(new Integer(35));
+ assertEquals(6L, particlesArray.addParticle(new Integer(31);
+ assertEquals(7L, particlesArray.addParticle(new Integer(32);
+ assertEquals(8L, particlesArray.addParticle(new Integer(33);
+ assertEquals(9L, particlesArray.addParticle(new Integer(34);
+ assertEquals(10L, particlesArray.addParticle(new Integer(35);
  assertEquals(11L, particlesArray.size());
  assertEquals(11L, particlesArray.getCount());
  particlesArray.deleteParticle(4);
  assertEquals(11L, particlesArray.size());
  assertEquals(10L, particlesArray.getCount());
- assertEquals(4L, particlesArray.addParticle(new Integer(36));
+ assertEquals(4L, particlesArray.addParticle(new Integer(36);
  }
 
  void test_ParticlesArray_Failure() {
@@ -207,7 +207,7 @@ public:
  long0 = System.currentTimeMillis();
 
  for (int int4 = 0; int4 < 500000; int4++) {
- if (particlesArray.deleteParticle(Rand.Next(1000000)) {
+ if (particlesArray.deleteParticle(Rand.Next(1000000) {
  int1++;
  }
  }
@@ -253,7 +253,7 @@ public:
  long0 = System.currentTimeMillis();
 
  for (int int6 = 0; int6 < 500000; int6++) {
- if (particlesArray.deleteParticle(Rand.Next(1000000)) {
+ if (particlesArray.deleteParticle(Rand.Next(1000000) {
  int1++;
  }
  }
@@ -298,7 +298,7 @@ public:
  long0 = System.currentTimeMillis();
 
  for (int int8 = 0; int8 < 500000; int8++) {
- if (particlesArray.deleteParticle(Rand.Next(1000000)) {
+ if (particlesArray.deleteParticle(Rand.Next(1000000) {
  int1++;
  }
  }
@@ -328,7 +328,7 @@ public:
  long0 = System.currentTimeMillis();
 
  for (int int10 = 0; int10 < 1000000; int10++) {
- if (particlesArray.deleteParticle(Rand.Next(1000000)) {
+ if (particlesArray.deleteParticle(Rand.Next(1000000) {
  int1++;
  }
  }

@@ -266,7 +266,7 @@ public:
 
  int searchvar(const std::string& string) {
  for (int int0 = this->nactvar - 1; int0 >= 0; int0--) {
- if (string == this->getlocvar(int0)) {
+ if (string == this->getlocvar(int0) {
  return int0;
  }
  }

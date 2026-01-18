@@ -118,7 +118,7 @@ public:
  if (!intKeyMap.containsKey(int0) {
  return false;
  }
- } else if (!object1 == intKeyMap.get(int0)) {
+ } else if (!object1 == intKeyMap.get(int0) {
  return false;
  }
  }

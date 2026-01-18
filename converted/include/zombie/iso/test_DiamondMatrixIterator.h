@@ -51,16 +51,16 @@ public:
  );
  }
 
- assertEquals(new Vector2i(0, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(0));
- assertEquals(new Vector2i(0, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(1));
- assertEquals(new Vector2i(1, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(2));
- assertEquals(new Vector2i(0, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(3));
- assertEquals(new Vector2i(1, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(4));
- assertEquals(new Vector2i(2, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(5));
- assertEquals(new Vector2i(1, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(6));
- assertEquals(new Vector2i(2, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(7));
- assertEquals(new Vector2i(2, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(8));
- assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(9));
+ assertEquals(new Vector2i(0, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(0);
+ assertEquals(new Vector2i(0, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(1);
+ assertEquals(new Vector2i(1, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(2);
+ assertEquals(new Vector2i(0, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(3);
+ assertEquals(new Vector2i(1, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(4);
+ assertEquals(new Vector2i(2, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(5);
+ assertEquals(new Vector2i(1, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(6);
+ assertEquals(new Vector2i(2, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(7);
+ assertEquals(new Vector2i(2, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(8);
+ assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(9);
  }
 
  void test3i() {
@@ -111,23 +111,23 @@ public:
  );
  }
 
- assertEquals(new Vector2i(0, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(0));
- assertEquals(new Vector2i(0, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(1));
- assertEquals(new Vector2i(1, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(2));
- assertEquals(new Vector2i(0, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(3));
- assertEquals(new Vector2i(1, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(4));
- assertEquals(new Vector2i(2, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(5));
- assertEquals(new Vector2i(0, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(6));
- assertEquals(new Vector2i(1, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(7));
- assertEquals(new Vector2i(2, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(8));
- assertEquals(new Vector2i(3, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(9));
- assertEquals(new Vector2i(1, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(10));
- assertEquals(new Vector2i(2, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(11));
- assertEquals(new Vector2i(3, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(12));
- assertEquals(new Vector2i(2, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(13));
- assertEquals(new Vector2i(3, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(14));
- assertEquals(new Vector2i(3, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(15));
- assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(16));
+ assertEquals(new Vector2i(0, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(0);
+ assertEquals(new Vector2i(0, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(1);
+ assertEquals(new Vector2i(1, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(2);
+ assertEquals(new Vector2i(0, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(3);
+ assertEquals(new Vector2i(1, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(4);
+ assertEquals(new Vector2i(2, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(5);
+ assertEquals(new Vector2i(0, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(6);
+ assertEquals(new Vector2i(1, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(7);
+ assertEquals(new Vector2i(2, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(8);
+ assertEquals(new Vector2i(3, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(9);
+ assertEquals(new Vector2i(1, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(10);
+ assertEquals(new Vector2i(2, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(11);
+ assertEquals(new Vector2i(3, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(12);
+ assertEquals(new Vector2i(2, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(13);
+ assertEquals(new Vector2i(3, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(14);
+ assertEquals(new Vector2i(3, 3), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(15);
+ assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(16);
  }
 
  void test4i() {
@@ -206,21 +206,21 @@ public:
  }
  }
 
- assertEquals(new Vector2i(0, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(0));
- assertEquals(new Vector2i(0, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(1));
- assertEquals(new Vector2i(1, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(2));
- assertEquals(new Vector2i(0, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(3));
- assertEquals(new Vector2i(1, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(4));
- assertEquals(new Vector2i(2, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(5));
- assertEquals(new Vector2i(0, 9), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(45));
- assertEquals(new Vector2i(4, 5), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(49));
- assertEquals(new Vector2i(5, 4), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(50));
- assertEquals(new Vector2i(9, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(54));
- assertEquals(new Vector2i(8, 9), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(97));
- assertEquals(new Vector2i(9, 8), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(98));
- assertEquals(new Vector2i(9, 9), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(99));
- assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(100));
- assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(34536));
+ assertEquals(new Vector2i(0, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(0);
+ assertEquals(new Vector2i(0, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(1);
+ assertEquals(new Vector2i(1, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(2);
+ assertEquals(new Vector2i(0, 2), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(3);
+ assertEquals(new Vector2i(1, 1), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(4);
+ assertEquals(new Vector2i(2, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(5);
+ assertEquals(new Vector2i(0, 9), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(45);
+ assertEquals(new Vector2i(4, 5), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(49);
+ assertEquals(new Vector2i(5, 4), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(50);
+ assertEquals(new Vector2i(9, 0), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(54);
+ assertEquals(new Vector2i(8, 9), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(97);
+ assertEquals(new Vector2i(9, 8), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(98);
+ assertEquals(new Vector2i(9, 9), diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(99);
+ assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(100);
+ assertEquals(nullptr, diamondMatrixIterator.line2coord(diamondMatrixIterator.i2line(34536);
  }
 }
 } // namespace iso

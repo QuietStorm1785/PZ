@@ -1421,7 +1421,7 @@ public:
  AnimationsMesh animationsMesh = modelScript.animationsMesh.empty()
  ? nullptr
  : ScriptManager.instance.getAnimationsMesh(modelScript.animationsMesh);
- ModelMesh modelMesh = animationsMesh == nullptr ? nullptr : animationsMesh.modelMesh;
+ ModelMesh modelMesh = animationsMesh.empty() ? nullptr : animationsMesh.modelMesh;
  model0 = modelScript.bStatic
  ? this->loadModelInternal(modelScript.getMeshName(), modelScript.getTextureName(), modelScript.getShaderName(), nullptr, true)
  : this->loadModelInternal(modelScript.getMeshName(), modelScript.getTextureName(), modelScript.getShaderName(), modelMesh, false);

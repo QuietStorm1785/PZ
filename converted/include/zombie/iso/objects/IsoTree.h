@@ -296,7 +296,7 @@ public:
  }
  } else {
  int int0 = IsoCamera.frameState.playerIndex;
- if (!this->bRenderFlag && !(this->fadeAlpha < this->getTargetAlpha(int0)) {
+ if (!this->bRenderFlag && !(this->fadeAlpha < this->getTargetAlpha(int0) {
  this->renderInner(x, y, z, col, bDoAttached, false);
  } else {
  IndieGL.enableStencilTest();

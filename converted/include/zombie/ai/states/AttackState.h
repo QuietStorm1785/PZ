@@ -88,7 +88,7 @@ public:
  }
 
  bool boolean0 = zombie0.speedType == 1;
- if (zombie0.target != nullptr && boolean0 && ("start" == string) || "success" == string)) {
+ if (zombie0.target != nullptr && boolean0 && ("start" == string) || "success" == string) {
  IsoGameCharacter character1 = (IsoGameCharacter)zombie0.target;
  float float0 = character1.getSlowFactor();
  if (character1.getSlowFactor() <= 0.0F) {

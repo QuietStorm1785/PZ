@@ -988,7 +988,7 @@ public:
  output.putInt(this->extraItems.size());
 
  for (int int0 = 0; int0 < this->extraItems.size(); int0++) {
- output.putShort(WorldDictionary.getItemRegistryID(this->extraItems.get(int0));
+ output.putShort(WorldDictionary.getItemRegistryID(this->extraItems.get(int0);
  }
  }
 

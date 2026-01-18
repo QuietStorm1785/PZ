@@ -59,11 +59,11 @@ public:
  }
 
  Language getByName(const std::string& string) {
- return PZArrayUtil.find(this->m_languages, Lambda.predicate(string, (language, stringx) -> language.name().equalsIgnoreCase(stringx));
+ return PZArrayUtil.find(this->m_languages, Lambda.predicate(string, (language, stringx) -> language.name().equalsIgnoreCase(stringx);
  }
 
  int getIndexByName(const std::string& string) {
- return PZArrayUtil.indexOf(this->m_languages, Lambda.predicate(string, (language, stringx) -> language.name().equalsIgnoreCase(stringx));
+ return PZArrayUtil.indexOf(this->m_languages, Lambda.predicate(string, (language, stringx) -> language.name().equalsIgnoreCase(stringx);
  }
 
  void loadTranslateDirectory(const std::string& string) {

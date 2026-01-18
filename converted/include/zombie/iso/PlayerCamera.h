@@ -90,7 +90,7 @@ public:
  this->panTime = long0;
  IsoPlayer player = IsoPlayer.players[this->playerIndex];
  bool boolean0 = GameWindow.ActivatedJoyPad != nullptr && player != nullptr && player.JoypadBind != -1;
- BaseVehicle vehicle = player == nullptr ? nullptr : player.getVehicle();
+ BaseVehicle vehicle = player.empty() ? nullptr : player.getVehicle();
  if (vehicle != nullptr && vehicle.getCurrentSpeedKmHour() <= 1.0F) {
  vehicle.getForwardVector(this->m_lastVehicleForwardDirection);
  }

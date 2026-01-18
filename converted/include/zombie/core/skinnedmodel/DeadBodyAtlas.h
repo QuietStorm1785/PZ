@@ -204,7 +204,7 @@ public:
  this->checksummer.reset();
  HumanVisual humanVisual = bodyParamsx.humanVisual;
  this->checksummer.update((byte)bodyParamsx.dir.index());
- this->checksummer.update((int)(PZMath.wrap(bodyParamsx.angle, 0.0F, (float) (Math.PI * 2) * (180.0F / (float)Math.PI));
+ this->checksummer.update((int)(PZMath.wrap(bodyParamsx.angle, 0.0F, (float) (Math.PI * 2) * (180.0F / (float)Math.PI);
  this->checksummer.update(humanVisual.getHairModel());
  this->checksummer.update(humanVisual.getBeardModel());
  this->checksummer.update(humanVisual.getSkinColor());

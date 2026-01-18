@@ -170,9 +170,9 @@ public:
 
  for (int int1 = 0; int1 < int0; int1++) {
  arrayList.add(newPoint(point0.x, point0.y);
- arrayList.add(newPoint(point0.x + double0 * Math.cos(double3 + double5 * int1), point0.y + double0 * Math.sin(double3 + double5 * int1));
+ arrayList.add(newPoint(point0.x + double0 * Math.cos(double3 + double5 * int1), point0.y + double0 * Math.sin(double3 + double5 * int1);
  arrayList.add(
- newPoint(point0.x + double0 * Math.cos(double3 + double5 * (1 + int1), point0.y + double0 * Math.sin(double3 + double5 * (1 + int1))
+ newPoint(point0.x + double0 * Math.cos(double3 + double5 * (1 + int1), point0.y + double0 * Math.sin(double3 + double5 * (1 + int1)
  );
  }
  }
@@ -287,7 +287,7 @@ public:
  arrayList.add(StrokeGeometry.Point.Sub(point1, point0);
  if (string == "round")) {
  createRoundCap(point1, StrokeGeometry.Point.Add(point1, point0), StrokeGeometry.Point.Add(point1, point3), point4, arrayList);
- } else if (!string == "bevel") && (!string == "miter") || !(double1 >= float1)) {
+ } else if (!string == "bevel") && (!string == "miter") || !(double1 >= float1) {
  if (string == "miter") && double1 < float1 && point5 != nullptr) {
  arrayList.add(StrokeGeometry.Point.Add(point1, point0);
  arrayList.add(point1);

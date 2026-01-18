@@ -466,7 +466,7 @@ public:
  } else {
  int int0 = 0;
 
- while (int0 < aiNodeAnim.getNumPosKeys() - 1 && !(float0 < aiNodeAnim.getPosKeyTime(int0 + 1)) {
+ while (int0 < aiNodeAnim.getNumPosKeys() - 1 && !(float0 < aiNodeAnim.getPosKeyTime(int0 + 1) {
  int0++;
  }
 
@@ -507,7 +507,7 @@ public:
  } else {
  int int0 = 0;
 
- while (int0 < aiNodeAnim.getNumRotKeys() - 1 && !(float0 < aiNodeAnim.getRotKeyTime(int0 + 1)) {
+ while (int0 < aiNodeAnim.getNumRotKeys() - 1 && !(float0 < aiNodeAnim.getRotKeyTime(int0 + 1) {
  int0++;
  }
 
@@ -573,7 +573,7 @@ public:
  } else {
  int int0 = 0;
 
- while (int0 < aiNodeAnim.getNumScaleKeys() - 1 && !(float0 < aiNodeAnim.getScaleKeyTime(int0 + 1)) {
+ while (int0 < aiNodeAnim.getNumScaleKeys() - 1 && !(float0 < aiNodeAnim.getScaleKeyTime(int0 + 1) {
  int0++;
  }
 

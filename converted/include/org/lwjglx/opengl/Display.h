@@ -285,7 +285,7 @@ public:
  DisplayMode displayMode0 = gameWindowMode;
  gameWindowMode = displayMode1;
  Core.setFullScreen(boolean1);
- if (isCreated() && (boolean0 != boolean1 || !gameWindowMode == displayMode0)) {
+ if (isCreated() && (boolean0 != boolean1 || !gameWindowMode == displayMode0) {
  GLFW.glfwHideWindow(Display.Window.handle);
  calcWindowPos(boolean1 || isBorderlessWindow());
  GLFW.glfwSetWindowMonitor(

@@ -545,7 +545,7 @@ public:
  int int1 = Math.max(string.indexOf(101), string.indexOf(69);
  double double0 = Double.valueOf(string.substring(0, int1 < 0 ? string.length() : int1);
  if (int1 >= 0) {
- double0 *= Math.pow(10.0, Double.valueOf(string.substring(int1 + 1));
+ double0 *= Math.pow(10.0, Double.valueOf(string.substring(int1 + 1);
  }
 
  return double0;

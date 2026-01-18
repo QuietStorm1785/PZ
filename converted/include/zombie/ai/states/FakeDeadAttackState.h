@@ -57,7 +57,7 @@ public:
  && owner.isAlive()
  && zombie0.isTargetInCone(1.5F, 0.9F)
  && zombie0.target instanceof IsoGameCharacter character
- && (character.getVehicle() == nullptr || character.getVehicle().couldCrawlerAttackPassenger(character)) {
+ && (character.getVehicle() == nullptr || character.getVehicle().couldCrawlerAttackPassenger(character) {
  character.getBodyDamage().AddRandomDamageFromZombie((IsoZombie)owner, nullptr);
  }
 

@@ -1327,7 +1327,7 @@ public:
  void update() {
  if (this->enabled) {
  for (int int0 = 0; int0 < this->Controls.size(); int0++) {
- if (this->toTop.contains(this->Controls.get(int0)) {
+ if (this->toTop.contains(this->Controls.get(int0) {
  UIElement uIElement1 = this->Controls.remove(int0);
  int0--;
  toAdd.add(uIElement1);

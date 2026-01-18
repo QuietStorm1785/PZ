@@ -399,7 +399,7 @@ public:
  && object4 != object1
  && (object1 != MATCH_ANY || object4 == TOMBSTONE || object4.empty())
  && (object4 != nullptr || object1 != TOMBSTONE)
- && (object1.empty() || !object1 == object4)) {
+ && (object1.empty() || !object1 == object4) {
  return object4;
  }
 

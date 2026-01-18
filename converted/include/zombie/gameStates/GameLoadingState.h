@@ -647,7 +647,7 @@ public:
  bShowedClickToSkip = true;
  }
 
- if (bDone && playerCreated && (!newGame || this->Time >= this->TotalTime || Core.isLastStand() || "Tutorial" == Core.GameMode)) {
+ if (bDone && playerCreated && (!newGame || this->Time >= this->TotalTime || Core.isLastStand() || "Tutorial" == Core.GameMode) {
  if (this->clickToSkipFadeIn) {
  this->clickToSkipAlpha = this->clickToSkipAlpha + GameTime.getInstance().getMultiplier() / 1.6F / 30.0F;
  if (this->clickToSkipAlpha > 1.0F) {

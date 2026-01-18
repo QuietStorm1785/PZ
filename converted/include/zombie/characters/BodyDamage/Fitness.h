@@ -180,7 +180,7 @@ public:
 
  uint8_t byte0 = 50;
  double double0 = Math.log(float1 / 50.0F + byte0);
- float0 = (float)(float0 * (double0 / Math.log(byte0 + 1));
+ float0 = (float)(float0 * (double0 / Math.log(byte0 + 1);
  if (this->currentExe.metabolics == Metabolics.FitnessHeavy) {
  float0 *= 1.3F;
  }

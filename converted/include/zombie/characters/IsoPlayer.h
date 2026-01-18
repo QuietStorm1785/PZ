@@ -1046,7 +1046,7 @@ public:
  output.putShort((short)this->alreadyReadBook.size());
 
  for (int int0 = 0; int0 < this->alreadyReadBook.size(); int0++) {
- output.putShort(WorldDictionary.getItemRegistryID(this->alreadyReadBook.get(int0));
+ output.putShort(WorldDictionary.getItemRegistryID(this->alreadyReadBook.get(int0);
  }
 
  this->saveKnownMediaLines(output);
@@ -3449,7 +3449,7 @@ public:
  if (weaponType.isRanged) {
  int1 = (int)(int1 + weapon.getAimingPerkCritModifier() * (this->getPerkLevel(PerkFactory.Perks.Aiming) / 2.0F);
  if (this->getBeenMovingFor() > weapon.getAimingTime() + this->getPerkLevel(PerkFactory.Perks.Aiming) * 2) {
- int1 = (int)(int1 - (this->getBeenMovingFor() - (weapon.getAimingTime() + this->getPerkLevel(PerkFactory.Perks.Aiming) * 2));
+ int1 = (int)(int1 - (this->getBeenMovingFor() - (weapon.getAimingTime() + this->getPerkLevel(PerkFactory.Perks.Aiming) * 2);
  }
 
  int1 += this->getPerkLevel(PerkFactory.Perks.Aiming) * 3;
@@ -5275,7 +5275,7 @@ public:
  int int5 = 0;
 
  for (int int6 = 0; int6 < this->spottedList.size(); int6++) {
- if (!this->LastSpotted.contains(this->spottedList.get(int6)) {
+ if (!this->LastSpotted.contains(this->spottedList.get(int6) {
  this->LastSpotted.add(this->spottedList.get(int6);
  }
 
@@ -5341,7 +5341,7 @@ public:
  remoteChr.spottedByPlayer = true;
  return true;
  } else {
- float float1 = this->current == nullptr ? 0.0F : remoteChr.getCurrentSquare().DistTo(this->getCurrentSquare());
+ float float1 = this->current.empty() ? 0.0F : remoteChr.getCurrentSquare().DistTo(this->getCurrentSquare());
  if (float1 <= 2.0F) {
  remoteChr.spottedByPlayer = true;
  return true;
@@ -6324,7 +6324,7 @@ public:
  void updateWorldAmbiance() {
  if (!GameServer.bServer) {
  if (this->isLocalPlayer()) {
- if (this->getPlayerNum() == 0 && (this->worldAmbianceInstance == 0L || !this->getEmitter().isPlaying(this->worldAmbianceInstance)) {
+ if (this->getPlayerNum() == 0 && (this->worldAmbianceInstance == 0L || !this->getEmitter().isPlaying(this->worldAmbianceInstance) {
  this->worldAmbianceInstance = this->getEmitter().playSoundImpl("WorldAmbiance", nullptr);
  this->getEmitter().setVolume(this->worldAmbianceInstance, 1.0F);
  }
@@ -7375,21 +7375,21 @@ public:
  }
 
  if (float2 > 10.0F && Rand.Next(100) <= 10 && SandboxOptions.instance.BoneFracture.getValue()) {
- bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float2 + 10.0F), Rand.Next(float2 + 20.0F, float2 + 30.0F));
+ bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float2 + 10.0F), Rand.Next(float2 + 20.0F, float2 + 30.0F);
  }
 
  if (float2 > 30.0F
  && Rand.Next(100) <= 80
  && SandboxOptions.instance.BoneFracture.getValue()
  && int2 == BodyPartType.ToIndex(BodyPartType.Head) {
- bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float2 + 10.0F), Rand.Next(float2 + 20.0F, float2 + 30.0F));
+ bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float2 + 10.0F), Rand.Next(float2 + 20.0F, float2 + 30.0F);
  }
 
  if (float2 > 10.0F
  && Rand.Next(100) <= 60
  && SandboxOptions.instance.BoneFracture.getValue()
  && int2 > BodyPartType.ToIndex(BodyPartType.Groin) {
- bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float2 + 20.0F), Rand.Next(float2 + 30.0F, float2 + 40.0F));
+ bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float2 + 20.0F), Rand.Next(float2 + 30.0F, float2 + 40.0F);
  }
  }
 

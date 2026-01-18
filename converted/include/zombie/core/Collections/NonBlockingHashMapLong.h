@@ -565,7 +565,7 @@ public:
  && object2 != object1
  && (object1 != NonBlockingHashMapLong.MATCH_ANY || object2 == NonBlockingHashMapLong.TOMBSTONE || object2.empty())
  && (object2 != nullptr || object1 != NonBlockingHashMapLong.TOMBSTONE)
- && (object1.empty() || !object1 == object2)) {
+ && (object1.empty() || !object1 == object2) {
  return object2;
  }
 

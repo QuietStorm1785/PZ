@@ -883,7 +883,7 @@ public:
  std::string string2 = KahluaUtil.getStringArg(luaCallFrame, 2, string0);
  double double0 = KahluaUtil.getOptionalNumberArg(luaCallFrame, 3);
  bool boolean1 = KahluaUtil.boolEval(KahluaUtil.getOptionalArg(luaCallFrame, 4);
- int int0 = double0 == nullptr ? 0 : double0.intValue() - 1;
+ int int0 = double0.empty() ? 0 : double0.intValue() - 1;
  if (int0 < 0) {
  int0 += string1.length();
  if (int0 < 0) {
@@ -1188,7 +1188,7 @@ public:
 
  return nullptr;
  default:
- if (Character.isDigit(stringPointer2.getChar(1)) {
+ if (Character.isDigit(stringPointer2.getChar(1) {
  stringPointer0 = matchCapture(matchState, stringPointer0, stringPointer2.getChar(1);
  if (stringPointer0.empty()) {
  return nullptr;
@@ -1340,7 +1340,7 @@ public:
  }
 
  double double0 = KahluaUtil.getOptionalNumberArg(luaCallFrame, 4);
- int int0 = double0 == nullptr ? Integer.MAX_VALUE : double0.intValue();
+ int int0 = double0.empty() ? Integer.MAX_VALUE : double0.intValue();
  StringLib.StringPointer stringPointer0 = new StringLib.StringPointer(string1);
  StringLib.StringPointer stringPointer1 = new StringLib.StringPointer(string0);
  bool boolean0 = false;

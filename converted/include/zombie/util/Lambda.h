@@ -119,7 +119,7 @@ public:
  }
 
  public static <E, T1> void forEach(Consumer<Consumer<E>> consumer, T1 object, Consumers.Params1.ICallback<E, T1> iCallback) {
- capture(consumer, object, iCallback, (genericStack, consumerx, objectx, iCallbackx) -> consumerx.accept(genericStack.consumer(objectx, iCallbackx));
+ capture(consumer, object, iCallback, (genericStack, consumerx, objectx, iCallbackx) -> consumerx.accept(genericStack.consumer(objectx, iCallbackx);
  }
 
  public static <E, T1, T2> void forEach(Consumer<Consumer<E>> consumer, T1 object0, T2 object1, Consumers.Params2.ICallback<E, T1, T2> iCallback) {
@@ -248,7 +248,7 @@ public:
  }
 
  public static <T1> void invoke(Consumer<Runnable> consumer, T1 object, Invokers.Params1.ICallback<T1> iCallback) {
- capture(consumer, object, iCallback, (genericStack, consumerx, objectx, iCallbackx) -> consumerx.accept(genericStack.invoker(objectx, iCallbackx));
+ capture(consumer, object, iCallback, (genericStack, consumerx, objectx, iCallbackx) -> consumerx.accept(genericStack.invoker(objectx, iCallbackx);
  }
 
  public static <T1, T2> void invoke(Consumer<Runnable> consumer, T1 object0, T2 object1, Invokers.Params2.ICallback<T1, T2> iCallback) {

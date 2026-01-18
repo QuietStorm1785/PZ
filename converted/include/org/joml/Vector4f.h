@@ -481,9 +481,9 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3));
- arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3));
- arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3));
+ arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3);
+ arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3);
+ arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3);
  arg1.w = float3;
  return arg1;
  }
@@ -493,10 +493,10 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- vector4f1.x = Math.fma(matrix4fc.m00(), float0, Math.fma(matrix4fc.m10(), float1, Math.fma(matrix4fc.m20(), float2, matrix4fc.m30() * float3));
- vector4f1.y = Math.fma(matrix4fc.m01(), float0, Math.fma(matrix4fc.m11(), float1, Math.fma(matrix4fc.m21(), float2, matrix4fc.m31() * float3));
- vector4f1.z = Math.fma(matrix4fc.m02(), float0, Math.fma(matrix4fc.m12(), float1, Math.fma(matrix4fc.m22(), float2, matrix4fc.m32() * float3));
- vector4f1.w = Math.fma(matrix4fc.m03(), float0, Math.fma(matrix4fc.m13(), float1, Math.fma(matrix4fc.m23(), float2, matrix4fc.m33() * float3));
+ vector4f1.x = Math.fma(matrix4fc.m00(), float0, Math.fma(matrix4fc.m10(), float1, Math.fma(matrix4fc.m20(), float2, matrix4fc.m30() * float3);
+ vector4f1.y = Math.fma(matrix4fc.m01(), float0, Math.fma(matrix4fc.m11(), float1, Math.fma(matrix4fc.m21(), float2, matrix4fc.m31() * float3);
+ vector4f1.z = Math.fma(matrix4fc.m02(), float0, Math.fma(matrix4fc.m12(), float1, Math.fma(matrix4fc.m22(), float2, matrix4fc.m32() * float3);
+ vector4f1.w = Math.fma(matrix4fc.m03(), float0, Math.fma(matrix4fc.m13(), float1, Math.fma(matrix4fc.m23(), float2, matrix4fc.m33() * float3);
  return vector4f1;
  }
 
@@ -517,10 +517,10 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- vector4f1.x = Math.fma(matrix4fc.m00(), float0, Math.fma(matrix4fc.m01(), float1, Math.fma(matrix4fc.m02(), float2, matrix4fc.m03() * float3));
- vector4f1.y = Math.fma(matrix4fc.m10(), float0, Math.fma(matrix4fc.m11(), float1, Math.fma(matrix4fc.m12(), float2, matrix4fc.m13() * float3));
- vector4f1.z = Math.fma(matrix4fc.m20(), float0, Math.fma(matrix4fc.m21(), float1, Math.fma(matrix4fc.m22(), float2, matrix4fc.m23() * float3));
- vector4f1.w = Math.fma(matrix4fc.m30(), float0, Math.fma(matrix4fc.m31(), float1, Math.fma(matrix4fc.m32(), float2, matrix4fc.m33() * float3));
+ vector4f1.x = Math.fma(matrix4fc.m00(), float0, Math.fma(matrix4fc.m01(), float1, Math.fma(matrix4fc.m02(), float2, matrix4fc.m03() * float3);
+ vector4f1.y = Math.fma(matrix4fc.m10(), float0, Math.fma(matrix4fc.m11(), float1, Math.fma(matrix4fc.m12(), float2, matrix4fc.m13() * float3);
+ vector4f1.z = Math.fma(matrix4fc.m20(), float0, Math.fma(matrix4fc.m21(), float1, Math.fma(matrix4fc.m22(), float2, matrix4fc.m23() * float3);
+ vector4f1.w = Math.fma(matrix4fc.m30(), float0, Math.fma(matrix4fc.m31(), float1, Math.fma(matrix4fc.m32(), float2, matrix4fc.m33() * float3);
  return vector4f1;
  }
 
@@ -529,9 +529,9 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- this->x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3));
- this->y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3));
- this->z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3));
+ this->x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3);
+ this->y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3);
+ this->z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3);
  this->w = float3;
  return this;
  }
@@ -541,9 +541,9 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3));
- arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3));
- arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3));
+ arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3);
+ arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3);
+ arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3);
  arg1.w = float3;
  return arg1;
  }
@@ -553,10 +553,10 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- float float4 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * float3));
- arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3)) * float4;
- arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3)) * float4;
- arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3)) * float4;
+ float float4 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * float3);
+ arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3) * float4;
+ arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3) * float4;
+ arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3) * float4;
  arg1.w = 1.0F;
  return arg1;
  }
@@ -566,10 +566,10 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- float float4 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * float3));
- this->x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3)) * float4;
- this->y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3)) * float4;
- this->z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3)) * float4;
+ float float4 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * float3);
+ this->x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3) * float4;
+ this->y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3) * float4;
+ this->z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3) * float4;
  this->w = 1.0F;
  return this;
  }
@@ -579,10 +579,10 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- float float4 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * float3));
- arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3)) * float4;
- arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3)) * float4;
- arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3)) * float4;
+ float float4 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * float3);
+ arg1.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * float3) * float4;
+ arg1.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * float3) * float4;
+ arg1.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * float3) * float4;
  return arg1;
  }
 
@@ -783,23 +783,23 @@ public:
  }
 
  float lengthSquared() {
- return Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ return Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  }
 
  static float lengthSquared(float arg0, float arg1, float arg2, float arg3) {
- return Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3));
+ return Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3);
  }
 
  static float lengthSquared(int arg0, int arg1, int arg2, int arg3) {
- return Math.fma((float)arg0, (float)arg0, Math.fma((float)arg1, (float)arg1, Math.fma((float)arg2, (float)arg2, (float)(arg3 * arg3)));
+ return Math.fma((float)arg0, (float)arg0, Math.fma((float)arg1, (float)arg1, Math.fma((float)arg2, (float)arg2, (float)(arg3 * arg3);
  }
 
  float length() {
- return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w)));
+ return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  }
 
  static float length(float arg0, float arg1, float arg2, float arg3) {
- return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3)));
+ return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3);
  }
 
  Vector4f normalize() {
@@ -839,7 +839,7 @@ public:
  }
 
  Vector4f normalize3() {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  this->x *= float0;
  this->y *= float0;
  this->z *= float0;
@@ -848,7 +848,7 @@ public:
  }
 
  Vector4f normalize3(Vector4f arg0) {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  arg0.x = this->x * float0;
  arg0.y = this->y * float0;
  arg0.z = this->z * float0;
@@ -861,7 +861,7 @@ public:
  float float1 = this->y - arg0.y();
  float float2 = this->z - arg0.z();
  float float3 = this->w - arg0.w();
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3)));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  float distance(float arg0, float arg1, float arg2, float arg3) {
@@ -869,7 +869,7 @@ public:
  float float1 = this->y - arg1;
  float float2 = this->z - arg2;
  float float3 = this->w - arg3;
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3)));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  float distanceSquared(Vector4fc arg0) {
@@ -877,7 +877,7 @@ public:
  float float1 = this->y - arg0.y();
  float float2 = this->z - arg0.z();
  float float3 = this->w - arg0.w();
- return Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
+ return Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  float distanceSquared(float arg0, float arg1, float arg2, float arg3) {
@@ -885,7 +885,7 @@ public:
  float float1 = this->y - arg1;
  float float2 = this->z - arg2;
  float float3 = this->w - arg3;
- return Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
+ return Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  static float distance(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5, float arg6, float arg7) {
@@ -893,7 +893,7 @@ public:
  float float1 = arg1 - arg5;
  float float2 = arg2 - arg6;
  float float3 = arg3 - arg7;
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3)));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  static float distanceSquared(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5, float arg6, float arg7) {
@@ -901,7 +901,7 @@ public:
  float float1 = arg1 - arg5;
  float float2 = arg2 - arg6;
  float float3 = arg3 - arg7;
- return Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
+ return Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  float dot(Vector4fc arg0) {
@@ -909,7 +909,7 @@ public:
  }
 
  float dot(float arg0, float arg1, float arg2, float arg3) {
- return Math.fma(this->x, arg0, Math.fma(this->y, arg1, Math.fma(this->z, arg2, this->w * arg3));
+ return Math.fma(this->x, arg0, Math.fma(this->y, arg1, Math.fma(this->z, arg2, this->w * arg3);
  }
 
  float angleCos(Vector4fc arg0) {
@@ -917,7 +917,7 @@ public:
  float float1 = this->y;
  float float2 = this->z;
  float float3 = this->w;
- float float4 = Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
+ float float4 = Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  float float5 = Math.fma(arg0.x(), arg0.x(), Math.fma(arg0.y(), arg0.y(), Math.fma(arg0.z(), arg0.z(), arg0.w() * arg0.w())));
  float float6 = Math.fma(float0, arg0.x(), Math.fma(float1, arg0.y(), Math.fma(float2, arg0.z(), float3 * arg0.w())));
  return float6 / Math.sqrt(float4 * float5);

@@ -210,7 +210,7 @@ public:
  int6 += 8;
 
  for (int int7 = 0; int7 < IsoFlagType.MAX.index(); int7++) {
- if (square0.Is(IsoFlagType.fromIndex(int7)) {
+ if (square0.Is(IsoFlagType.fromIndex(int7) {
  TextManager.instance.DrawString(int6, int5, IsoFlagType.fromIndex(int7).toString(), 0.6, 0.6, 0.8, 1.0);
  int5 += 18;
  }
@@ -304,7 +304,7 @@ public:
  if ((!(float0 >= Core.getInstance().getScreenWidth()) || !(float4 >= Core.getInstance().getScreenWidth()))
  && (!(float2 >= Core.getInstance().getScreenHeight()) || !(float6 >= Core.getInstance().getScreenHeight()))
  && (!(float0 < 0.0F) || !(float4 < 0.0F)
- && (!(float2 < 0.0F) || !(float6 < 0.0F)) {
+ && (!(float2 < 0.0F) || !(float6 < 0.0F) {
  SpriteRenderer.instance.renderline(nullptr, (int)float0, (int)float2, (int)float4, (int)float6, float8, float9, float10, float11);
  }
  }

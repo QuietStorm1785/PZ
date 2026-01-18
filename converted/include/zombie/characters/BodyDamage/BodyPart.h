@@ -172,7 +172,7 @@ public:
  float float0 = this->BleedDamage * this->DamageScaler * GameTime.getInstance().getMultiplier() * (this->getBleedingTime() / 10.0F);
  this->ParentChar.getBodyDamage().ReduceGeneralHealth(float0);
  LuaEventManager.triggerEvent("OnPlayerGetDamage", this->ParentChar, "BLEEDING", float0);
- if (Rand.NextBool(Rand.AdjustForFramerate(1000)) {
+ if (Rand.NextBool(Rand.AdjustForFramerate(1000) {
  this->ParentChar.addBlood(BloodBodyPartType.FromIndex(BodyPartType.ToIndex(this->getType())), false, false, true);
  }
  }

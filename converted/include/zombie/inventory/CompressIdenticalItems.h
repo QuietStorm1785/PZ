@@ -166,7 +166,7 @@ public:
  if (character.empty() || !character.isEquipped(item) {
  setCompareItem(perThreadData, item);
 
- while (int4 + 1 < arrayList2.size() && areItemsIdentical(perThreadData, item, (InventoryItem)arrayList2.get(int4 + 1)) {
+ while (int4 + 1 < arrayList2.size() && areItemsIdentical(perThreadData, item, (InventoryItem)arrayList2.get(int4 + 1) {
  perCallData.savedItems.add((InventoryItem)arrayList2.get(int4 + 1);
  int4++;
  int5++;

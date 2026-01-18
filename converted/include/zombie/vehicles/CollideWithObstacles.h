@@ -76,10 +76,10 @@ public:
  for (int int1 = 0; int1 < this->vehicles.size(); int1++) {
  BaseVehicle vehicle = this->vehicles.get(int1);
  PolygonalMap2.VehiclePoly vehiclePoly = vehicle.getPolyPlusRadius();
- float float4 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4));
- float float5 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4));
- float float6 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4));
- float float7 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4));
+ float float4 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4);
+ float float5 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4);
+ float float6 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4);
+ float float7 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4);
  this->vehicleBounds.init(float4, float5, float6 - float4, float7 - float5);
  if (this->moveBounds.intersects(this->vehicleBounds) {
  int int2 = (int)vehiclePoly.z;
@@ -554,7 +554,7 @@ public:
  if (double5 < 0.01 || double5 > 0.99) {
  CollideWithObstacles.CCNode cCNode4 = double5 < 0.01 ? cCEdge2.node1 : cCEdge2.node2;
  if (cCNode4.getNormalAndEdgeVectors(this->nodeNormal, this->edgeVec) {
- if (!(this->nodeNormal.dot(this->move) + 0.05F >= this->nodeNormal.dot(this->edgeVec)) {
+ if (!(this->nodeNormal.dot(this->move) + 0.05F >= this->nodeNormal.dot(this->edgeVec) {
  cCEdge0 = cCEdge2;
  cCNode2 = cCNode4;
  break;
@@ -597,7 +597,7 @@ public:
  || cCEdge3.node2.x != cCEdge5.node1.x
  || cCEdge3.node2.y != cCEdge5.node1.y
  )
- && (!cCEdge3.hasNode(cCEdge5.node1) || !cCEdge3.hasNode(cCEdge5.node2)) {
+ && (!cCEdge3.hasNode(cCEdge5.node1) || !cCEdge3.hasNode(cCEdge5.node2) {
  cCEdge4 = cCEdge5;
  }
  }

@@ -80,8 +80,8 @@ public:
  this->summerTilt = 2.0F;
  this->winterMod = this->tempMin < 0 ? 0.05F * -this->tempMin : 0.02F * -this->tempMin;
  this->summerMod = this->tempMax < 0 ? 0.05F * this->tempMax : 0.02F * this->tempMax;
- this->suSol = 2.0 * this->degree(Math.acos(-Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44))) / 15.0;
- this->wiSol = 2.0 * this->degree(Math.acos(Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44))) / 15.0;
+ this->suSol = 2.0 * this->degree(Math.acos(-Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44) / 15.0;
+ this->wiSol = 2.0 * this->degree(Math.acos(Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44) / 15.0;
  this->per.reset();
  this->per.addLayer(_seedA, 8.0F, 2.0F);
  this->per.addLayer(_seedB, 6.0F, 4.0F);
@@ -297,7 +297,7 @@ public:
  this->yearData[int1].winterE = this->per.layeredNoise(64.0F, 64 + int3);
  this->yearData[int1].winterStartDay = new GregorianCalendar(int3, 11, 22);
  this->yearData[int1].winterEndDay = new GregorianCalendar(int3, 11, 22);
- this->yearData[int1].winterStartDay.add(5, (int)(-Math.floor(40.0F + 40.0F * this->winterMod + 20.0F * this->yearData[int1].winterS));
+ this->yearData[int1].winterStartDay.add(5, (int)(-Math.floor(40.0F + 40.0F * this->winterMod + 20.0F * this->yearData[int1].winterS);
  this->yearData[int1].winterEndDay.add(5, (int)Math.floor(40.0F + 40.0F * this->winterMod + 20.0F * this->yearData[int1].winterE);
  this->yearData[int1].winterStartDayUnx = this->yearData[int1].winterStartDay.getTime().getTime();
  this->yearData[int1].winterEndDayUnx = this->yearData[int1].winterEndDay.getTime().getTime();
@@ -305,7 +305,7 @@ public:
  this->yearData[int1].summerE = this->per.layeredNoise(128.0F, 128 + int3);
  this->yearData[int1].summerStartDay = new GregorianCalendar(int3, 5, 22);
  this->yearData[int1].summerEndDay = new GregorianCalendar(int3, 5, 22);
- this->yearData[int1].summerStartDay.add(5, (int)(-Math.floor(40.0F + 40.0F * this->summerMod + 20.0F * this->yearData[int1].summerS));
+ this->yearData[int1].summerStartDay.add(5, (int)(-Math.floor(40.0F + 40.0F * this->summerMod + 20.0F * this->yearData[int1].summerS);
  this->yearData[int1].summerEndDay.add(5, (int)Math.floor(40.0F + 40.0F * this->summerMod + 20.0F * this->yearData[int1].summerE);
  this->yearData[int1].summerStartDayUnx = this->yearData[int1].summerStartDay.getTime().getTime();
  this->yearData[int1].summerEndDayUnx = this->yearData[int1].summerEndDay.getTime().getTime();

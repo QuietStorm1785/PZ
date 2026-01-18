@@ -1208,7 +1208,7 @@ public:
  bool shouldVisit(int int2, int int3, int int0, int int1) {
  if (this->gridX(int0) < 11 && this->gridX(int0) >= 0) {
  if (this->gridY(int1) < 11 && this->gridY(int1) >= 0) {
- if (this->visited.getValue(this->gridX(int0), this->gridY(int1)) {
+ if (this->visited.getValue(this->gridX(int0), this->gridY(int1) {
  return false;
  } else {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, this->start.getZ());

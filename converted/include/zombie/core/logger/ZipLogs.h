@@ -34,7 +34,7 @@ public:
  URI uri = URI.create("jar:" + string1);
  Path path = FileSystems.getDefault().getPath(string0).toAbsolutePath();
  std::unordered_map hashMap = new HashMap();
- hashMap.put("create", String.valueOf(Files.notExists(path));
+ hashMap.put("create", String.valueOf(Files.notExists(path);
 
  try {
  fileSystem = FileSystems.newFileSystem(uri, hashMap);

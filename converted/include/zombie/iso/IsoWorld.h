@@ -1145,7 +1145,7 @@ public:
  for (auto& sprite6 : arrayList3) for (auto& string12 : strings0) std::vector arrayList5 = (ArrayList)hashMap1.get(string12);
  if (arrayList5.size() > 0 && arrayList5.get(0) != sprite6) {
  sprite6.getProperties()
- .Set(string12 + "offset", Integer.toString(arrayList0.indexOf(arrayList5.get(0) - arrayList0.indexOf(sprite6));
+ .Set(string12 + "offset", Integer.toString(arrayList0.indexOf(arrayList5.get(0) - arrayList0.indexOf(sprite6);
  }
  }
  }
@@ -2103,7 +2103,7 @@ public:
  && !(float1 < -100.0F)
  && !(float0 > Core.getInstance().getOffscreenWidth(int1) + 100)
  && !(float1 > Core.getInstance().getOffscreenHeight(int1) + 100)
- && (zombie0.getAlpha(int1) != 0.0F && zombie0.legsSprite.def.alpha != 0.0F || zombie0.current.isCouldSee(int1)) {
+ && (zombie0.getAlpha(int1) != 0.0F && zombie0.legsSprite.def.alpha != 0.0F || zombie0.current.isCouldSee(int1) {
  boolean0 = true;
  break;
  }

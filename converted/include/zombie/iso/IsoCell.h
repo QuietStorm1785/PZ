@@ -3610,7 +3610,7 @@ public:
  }
 
  if (!PerformanceSettings.NewRoofHiding) {
- IsoGridSquare square0 = IsoCamera.CamCharacter == nullptr ? nullptr : IsoCamera.CamCharacter.getCurrentSquare();
+ IsoGridSquare square0 = IsoCamera.CamCharacter.empty() ? nullptr : IsoCamera.CamCharacter.getCurrentSquare();
  if (square0 != nullptr) {
  IsoGridSquare square1 = this->getGridSquare(
  (double)Math.round(IsoCamera.CamCharacter.getX()), (double)Math.round(IsoCamera.CamCharacter.getY()), (double)IsoCamera.CamCharacter.getZ()
@@ -4311,7 +4311,7 @@ public:
  VirtualZombieManager.instance.roomSpotted(room);
  if (!GameClient.bClient
  && !Core.bLastStand
- && ("shed" == room.def.name) || "garagestorage" == room.def.name) || "storageunit" == room.def.name)) {
+ && ("shed" == room.def.name) || "garagestorage" == room.def.name) || "storageunit" == room.def.name) {
  uint8_t byte0 = 7;
  if ("shed" == room.def.name) || "garagestorage" == room.def.name) {
  byte0 = 4;
@@ -4759,14 +4759,14 @@ public:
  uint8_t byte1 = 40;
 
  for (int int0 = 0; int0 < 4; int0++) {
- IsoCell.this->snowGridTiles_Square.add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int0));
+ IsoCell.this->snowGridTiles_Square.add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int0);
  }
 
  IsoCell.this->snowGridTiles_Enclosed = IsoCell.this->new SnowGridTiles(byte0++);
  byte1 = 0;
 
  for (int int1 = 0; int1 < 4; int1++) {
- IsoCell.this->snowGridTiles_Enclosed.add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int1));
+ IsoCell.this->snowGridTiles_Enclosed.add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int1);
  }
 
  IsoCell.this->snowGridTiles_Cove = new IsoCell.SnowGridTiles[4];
@@ -4790,7 +4790,7 @@ public:
  }
 
  for (int int3 = 0; int3 < 3; int3++) {
- IsoCell.this->snowGridTiles_Cove[int2].add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int3 * 4));
+ IsoCell.this->snowGridTiles_Cove[int2].add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int3 * 4);
  }
  }
 
@@ -4816,7 +4816,7 @@ public:
  }
 
  for (int int5 = 0; int5 < 3; int5++) {
- IsoCell.this->snowGridTiles_Edge[int4].add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int5 * 4));
+ IsoCell.this->snowGridTiles_Edge[int4].add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int5 * 4);
  }
  }
 
@@ -4841,7 +4841,7 @@ public:
  }
 
  for (int int7 = 0; int7 < 3; int7++) {
- IsoCell.this->snowGridTiles_Strip[int6].add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int7 * 4));
+ IsoCell.this->snowGridTiles_Strip[int6].add(Texture.getSharedTexture("e_newsnow_ground_1_" + (byte1 + int7 * 4);
  }
  }
 

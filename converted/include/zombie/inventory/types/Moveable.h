@@ -178,7 +178,7 @@ public:
  std::string string1 = "Item_Flatpack";
  if (string1 != nullptr) {
  texture0 = Texture.getSharedTexture(string1);
- this->setColor(new Color(Rand.Next(0.7F, 1.0F), Rand.Next(0.7F, 1.0F), Rand.Next(0.7F, 1.0F));
+ this->setColor(new Color(Rand.Next(0.7F, 1.0F), Rand.Next(0.7F, 1.0F), Rand.Next(0.7F, 1.0F);
  }
 
  if (texture0.empty()) {

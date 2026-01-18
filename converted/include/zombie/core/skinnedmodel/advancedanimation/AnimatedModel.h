@@ -225,7 +225,7 @@ public:
 
  void setModelData(HumanVisual _baseVisual, ItemVisuals _itemVisuals) {
  AnimationPlayer animationPlayer = this->animPlayer;
- Model model0 = this->animPlayer == nullptr ? nullptr : animationPlayer.getModel();
+ Model model0 = this->animPlayer.empty() ? nullptr : animationPlayer.getModel();
  if (this->baseVisual != _baseVisual) {
  if (this->baseVisual.empty()) {
  this->baseVisual = new HumanVisual(this);

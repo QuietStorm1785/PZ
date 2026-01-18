@@ -409,7 +409,7 @@ enum class BloodClothingType {
  float float1 = humanVisual.getDirt(part);
  humanVisual.setDirt(part, float1 + 0.05F);
  float float2 = humanVisual.getDirt(part);
- if (Rand.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100)) {
+ if (Rand.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100) {
  return;
  }
 
@@ -438,7 +438,7 @@ enum class BloodClothingType {
  float2 = itemVisual0.getDirt(part);
  }
 
- if (Rand.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100)) {
+ if (Rand.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100) {
  break;
  }
  }
@@ -488,7 +488,7 @@ enum class BloodClothingType {
  float float1 = humanVisual.getBlood(part);
  humanVisual.setBlood(part, float1 + 0.05F);
  float float2 = humanVisual.getBlood(part);
- if (OutfitRNG.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100)) {
+ if (OutfitRNG.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100) {
  return;
  }
 
@@ -517,7 +517,7 @@ enum class BloodClothingType {
  float2 = itemVisual0.getBlood(part);
  }
 
- if (OutfitRNG.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100)) {
+ if (OutfitRNG.NextBool(Math.abs(new Float(float2 * 100.0F).intValue() - 100) {
  break;
  }
  }

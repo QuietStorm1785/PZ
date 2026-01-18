@@ -126,7 +126,7 @@ public:
  if (categoryData.gameObj >= 0 && categoryData.gameObj < this->objs.size()) {
  ErosionObjOverlay erosionObjOverlay = this->objs.get(categoryData.gameObj);
  int int1 = categoryData.maxStage;
- int int2 = (int)Math.floor((int0 - categoryData.spawnTime) / (erosionObjOverlay.cycleTime / (int1 + 1.0F));
+ int int2 = (int)Math.floor((int0 - categoryData.spawnTime) / (erosionObjOverlay.cycleTime / (int1 + 1.0F);
  if (int2 < categoryData.stage) {
  int2 = categoryData.stage;
  }

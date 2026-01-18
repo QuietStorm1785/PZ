@@ -424,7 +424,7 @@ public:
  }
 
  public static <T1> void invokeOnRenderContext(T1 object, Invokers.Params1.ICallback<T1> iCallback) {
- Lambda.capture(object, iCallback, (genericStack, objectx, iCallbackx) -> invokeOnRenderContext(genericStack.invoker(objectx, iCallbackx));
+ Lambda.capture(object, iCallback, (genericStack, objectx, iCallbackx) -> invokeOnRenderContext(genericStack.invoker(objectx, iCallbackx);
  }
 
  public static <T1, T2> void invokeOnRenderContext(T1 object0, T2 object1, Invokers.Params2.ICallback<T1, T2> iCallback) {

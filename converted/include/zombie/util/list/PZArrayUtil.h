@@ -239,7 +239,7 @@ public:
  list0.clear();
 
  for (int int0 = 0; int0 < list1.size(); int0++) {
- list0.add(function.apply(list1.get(int0));
+ list0.add(function.apply(list1.get(int0);
  }
 
  return list0;
@@ -390,8 +390,8 @@ public:
  }
 
  public static <E> E[] concat(E[] objects0, E[] objects1) {
- bool boolean0 = objects0 == nullptr || objects0.length == 0;
- bool boolean1 = objects1 == nullptr || objects1.length == 0;
+ bool boolean0 = objects0.empty() || objects0.length == 0;
+ bool boolean1 = objects1.empty() || objects1.length == 0;
  if (boolean0 && boolean1) {
  return nullptr;
  } else if (boolean0) {

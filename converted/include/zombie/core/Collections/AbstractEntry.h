@@ -49,7 +49,7 @@ public:
  }
 
  static bool eq(void* object0, void* object1) {
- return object0 = = nullptr ? object1 == nullptr : object0.equals(object1);
+ return object0 = = nullptr ? object1.empty() : object0.equals(object1);
  }
 }
 } // namespace Collections

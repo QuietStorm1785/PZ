@@ -3370,7 +3370,7 @@ public:
  arrayList.add("Base.BerryGeneric4");
  arrayList.add("Base.BerryGeneric5");
  arrayList.add("Base.BerryPoisonIvy");
- this->setPoisonousBerry((String)arrayList.get(Rand.Next(0, arrayList.size() - 1));
+ this->setPoisonousBerry((String)arrayList.get(Rand.Next(0, arrayList.size() - 1);
  }
 
  void initPoisonousMushroom() {
@@ -3382,7 +3382,7 @@ public:
  arrayList.add("Base.MushroomGeneric5");
  arrayList.add("Base.MushroomGeneric6");
  arrayList.add("Base.MushroomGeneric7");
- this->setPoisonousMushroom((String)arrayList.get(Rand.Next(0, arrayList.size() - 1));
+ this->setPoisonousMushroom((String)arrayList.get(Rand.Next(0, arrayList.size() - 1);
  }
 
  std::string getPoisonousBerry() {
@@ -3527,12 +3527,12 @@ public:
 
  int getXAngle(int _width, float angle) {
  double double0 = Math.toRadians(225.0F + angle);
- return new Long(Math.round((Math.sqrt(2.0) * Math.cos(double0) + 1.0) * (_width / 2)).intValue();
+ return new Long(Math.round((Math.sqrt(2.0) * Math.cos(double0) + 1.0) * (_width / 2).intValue();
  }
 
  int getYAngle(int _width, float angle) {
  double double0 = Math.toRadians(225.0F + angle);
- return new Long(Math.round((Math.sqrt(2.0) * Math.sin(double0) + 1.0) * (_width / 2)).intValue();
+ return new Long(Math.round((Math.sqrt(2.0) * Math.sin(double0) + 1.0) * (_width / 2).intValue();
  }
 
  bool isCelsius() {

@@ -217,9 +217,9 @@ public:
  byte0 = Bits.addFlags(byte0, 16);
  if (this->modOverrides.size() == 1) {
  if (list1.size() > 127) {
- byteBuffer.putShort((short)list1.indexOf(this->modOverrides.get(0));
+ byteBuffer.putShort((short)list1.indexOf(this->modOverrides.get(0);
  } else {
- byteBuffer.put((byte)list1.indexOf(this->modOverrides.get(0));
+ byteBuffer.put((byte)list1.indexOf(this->modOverrides.get(0);
  }
  } else {
  byte0 = Bits.addFlags(byte0, 32);
@@ -227,9 +227,9 @@ public:
 
  for (int int1 = 0; int1 < this->modOverrides.size(); int1++) {
  if (list1.size() > 127) {
- byteBuffer.putShort((short)list1.indexOf(this->modOverrides.get(int1));
+ byteBuffer.putShort((short)list1.indexOf(this->modOverrides.get(int1);
  } else {
- byteBuffer.put((byte)list1.indexOf(this->modOverrides.get(int1));
+ byteBuffer.put((byte)list1.indexOf(this->modOverrides.get(int1);
  }
  }
  }

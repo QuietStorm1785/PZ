@@ -40,7 +40,7 @@ public:
 
  std::shared_ptr<AttachedLocation> getOrCreateLocation(const std::string& locationId) {
  AttachedLocation attachedLocation = this->getLocation(locationId);
- if (attachedLocation == nullptr) {
+ if (attachedLocation.empty()) {
  attachedLocation = new AttachedLocation(this, locationId);
  this->locations.add(attachedLocation);
  }

@@ -147,7 +147,7 @@ public:
  if (zone != nullptr
  && ("TownZone" == zone.getType()) || "TownZones" == zone.getType()) || "TrailerPark" == zone.getType()))
  && (!boolean0 || !zone.haveConstruction)
- && (int0 <= 0 || !(zone.getHoursSinceLastSeen() <= int0)) {
+ && (int0 <= 0 || !(zone.getHoursSinceLastSeen() <= int0) {
  if (square.getBuilding() != nullptr) {
  BuildingDef buildingDef = square.getBuilding().getDef();
  if (buildingDef != nullptr) {

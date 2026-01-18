@@ -1010,7 +1010,7 @@ public:
  && Modifier.isPublic(field.getModifiers())
  && Modifier.isFinal(field.getModifiers())
  && field.getType() == int.class) {
- table.rawset(field.getName(), BoxedStaticValues.toDouble(field.getInt(nullptr));
+ table.rawset(field.getName(), BoxedStaticValues.toDouble(field.getInt(nullptr);
  }
  }
  } catch (Exception exception) {
@@ -3656,7 +3656,7 @@ public:
  }
 
  for (File file1 : file0.listFiles()) {
- arrayList.add(new BufferedReader(new FileReader(file1));
+ arrayList.add(new BufferedReader(new FileReader(file1);
  }
 
  return arrayList;
@@ -4317,7 +4317,7 @@ public:
  )
  static void setPlayerJoypad(int player, int joypad, IsoPlayer playerObj, const std::string& username) {
  if (IsoPlayer.players[player] == nullptr || IsoPlayer.players[player].isDead()) {
- bool boolean0 = playerObj == nullptr;
+ bool boolean0 = playerObj.empty();
  if (playerObj.empty()) {
  IsoPlayer _player = IsoPlayer.getInstance();
  IsoWorld world = IsoWorld.instance;
@@ -4357,7 +4357,7 @@ public:
  )
  static void setPlayerMouse(IsoPlayer playerObj) {
  uint8_t byte0 = 0;
- bool boolean0 = playerObj == nullptr;
+ bool boolean0 = playerObj.empty();
  if (playerObj.empty()) {
  IsoPlayer player = IsoPlayer.getInstance();
  IsoWorld world = IsoWorld.instance;
@@ -7290,7 +7290,7 @@ public:
  global = true
  )
  public ArrayList<IsoZombie> addZombiesInBuilding(BuildingDef def, int totalZombies, String outfit, RoomDef room, Integer femaleChance) {
- bool boolean0 = room == nullptr;
+ bool boolean0 = room.empty();
  std::vector arrayList = new ArrayList();
  if (IsoWorld.getZombiesDisabled()) {
  return arrayList;
@@ -7477,7 +7477,7 @@ public:
  global = true
  )
  static void queueCharEvent(const std::string& eventChar) {
- RenderThread.queueInvokeOnRenderContext(() -> GameKeyboard.getEventQueuePolling().addCharEvent(eventChar.charAt(0));
+ RenderThread.queueInvokeOnRenderContext(() -> GameKeyboard.getEventQueuePolling().addCharEvent(eventChar.charAt(0);
  }
 
  name = "queueKeyEvent",
@@ -8036,7 +8036,7 @@ public:
 
  for (Item item : ScriptManager.instance.getAllItems()) {
  if (!StringUtils.isNullOrWhitespace(item.getClothingItem())
- && (bodyLocation == item.getBodyLocation()) || bodyLocation == item.CanBeEquipped)) {
+ && (bodyLocation == item.getBodyLocation()) || bodyLocation == item.CanBeEquipped) {
  table.rawset(int0++, item.getFullName());
  }
  }

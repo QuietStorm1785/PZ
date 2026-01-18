@@ -481,7 +481,7 @@ public:
  if (listenerOptions.empty()) {
  iCoopServerMessageListener.OnCoopServerMessage(string0, string1, string2);
  } else if ((listenerOptions.tag.empty() || listenerOptions.tag == string0)
- && (listenerOptions.cookie.empty() || listenerOptions.cookie == string1)) {
+ && (listenerOptions.cookie.empty() || listenerOptions.cookie == string1) {
  if (listenerOptions.autoRemove) {
  iterator.remove();
  }

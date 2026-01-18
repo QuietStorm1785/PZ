@@ -258,7 +258,7 @@ public:
  Vector2 vector1 = AnimationTrack.L_updateDeferredValues.crDiff.set(vector0);
  if (this->getUseDeferredRotation()) {
  float float3 = vector1.normalize();
- vector1.rotate(-(deferredMotionData.m_targetDeferredRotation + (float) (Math.PI / 2));
+ vector1.rotate(-(deferredMotionData.m_targetDeferredRotation + (float) (Math.PI / 2);
  vector1.scale(-float3);
  }
 

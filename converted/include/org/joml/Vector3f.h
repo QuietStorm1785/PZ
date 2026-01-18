@@ -403,10 +403,10 @@ public:
  float float0 = this->x;
  float float1 = this->y;
  float float2 = this->z;
- float float3 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * arg1));
- arg2.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * arg1)) * float3;
- arg2.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * arg1)) * float3;
- arg2.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * arg1)) * float3;
+ float float3 = 1.0F / Math.fma(arg0.m03(), float0, Math.fma(arg0.m13(), float1, Math.fma(arg0.m23(), float2, arg0.m33() * arg1);
+ arg2.x = Math.fma(arg0.m00(), float0, Math.fma(arg0.m10(), float1, Math.fma(arg0.m20(), float2, arg0.m30() * arg1) * float3;
+ arg2.y = Math.fma(arg0.m01(), float0, Math.fma(arg0.m11(), float1, Math.fma(arg0.m21(), float2, arg0.m31() * arg1) * float3;
+ arg2.z = Math.fma(arg0.m02(), float0, Math.fma(arg0.m12(), float1, Math.fma(arg0.m22(), float2, arg0.m32() * arg1) * float3;
  return arg2;
  }
 
@@ -865,15 +865,15 @@ public:
  }
 
  float length() {
- return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  }
 
  static float length(float arg0, float arg1, float arg2) {
- return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2));
+ return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2);
  }
 
  Vector3f normalize() {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  this->x *= float0;
  this->y *= float0;
  this->z *= float0;
@@ -881,7 +881,7 @@ public:
  }
 
  Vector3f normalize(Vector3f arg0) {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  arg0.x = this->x * float0;
  arg0.y = this->y * float0;
  arg0.z = this->z * float0;
@@ -889,7 +889,7 @@ public:
  }
 
  Vector3f normalize(float arg0) {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z)) * arg0;
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z) * arg0;
  this->x *= float0;
  this->y *= float0;
  this->z *= float0;
@@ -897,7 +897,7 @@ public:
  }
 
  Vector3f normalize(float arg0, Vector3f arg1) {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z)) * arg0;
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z) * arg0;
  arg1.x = this->x * float0;
  arg1.y = this->y * float0;
  arg1.z = this->z * float0;
@@ -948,14 +948,14 @@ public:
  float float0 = this->x - arg0.x();
  float float1 = this->y - arg0.y();
  float float2 = this->z - arg0.z();
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, float2 * float2));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, float2 * float2);
  }
 
  float distance(float arg0, float arg1, float arg2) {
  float float0 = this->x - arg0;
  float float1 = this->y - arg1;
  float float2 = this->z - arg2;
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, float2 * float2));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, float2 * float2);
  }
 
  float distanceSquared(Vector3fc arg0) {

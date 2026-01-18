@@ -123,10 +123,10 @@ public:
  float float14 = float8 - vector1.y;
  float float15 = float7 + vector1.x;
  float float16 = float8 + vector1.y;
- float float17 = PZMath.min(float9, PZMath.min(float11, PZMath.min(float13, float15));
- float float18 = PZMath.max(float9, PZMath.max(float11, PZMath.max(float13, float15));
- float float19 = PZMath.min(float10, PZMath.min(float12, PZMath.min(float14, float16));
- float float20 = PZMath.max(float10, PZMath.max(float12, PZMath.max(float14, float16));
+ float float17 = PZMath.min(float9, PZMath.min(float11, PZMath.min(float13, float15);
+ float float18 = PZMath.max(float9, PZMath.max(float11, PZMath.max(float13, float15);
+ float float19 = PZMath.min(float10, PZMath.min(float12, PZMath.min(float14, float16);
+ float float20 = PZMath.max(float10, PZMath.max(float12, PZMath.max(float14, float16);
  ints[0] = (int)PZMath.floor(float17);
  ints[1] = (int)PZMath.floor(float19);
  ints[2] = (int)PZMath.ceil(float18);

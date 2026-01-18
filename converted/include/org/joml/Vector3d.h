@@ -518,10 +518,10 @@ public:
  }
 
  Vector3d mulProject(Matrix4dc arg0, double arg1, Vector3d arg2) {
- double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * arg1));
- double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * arg1)) * double0;
- double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * arg1)) * double0;
- double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * arg1)) * double0;
+ double double0 = 1.0 / Math.fma(arg0.m03(), this->x, Math.fma(arg0.m13(), this->y, Math.fma(arg0.m23(), this->z, arg0.m33() * arg1);
+ double double1 = Math.fma(arg0.m00(), this->x, Math.fma(arg0.m10(), this->y, Math.fma(arg0.m20(), this->z, arg0.m30() * arg1) * double0;
+ double double2 = Math.fma(arg0.m01(), this->x, Math.fma(arg0.m11(), this->y, Math.fma(arg0.m21(), this->z, arg0.m31() * arg1) * double0;
+ double double3 = Math.fma(arg0.m02(), this->x, Math.fma(arg0.m12(), this->y, Math.fma(arg0.m22(), this->z, arg0.m32() * arg1) * double0;
  arg2.x = double1;
  arg2.y = double2;
  arg2.z = double3;
@@ -1184,15 +1184,15 @@ public:
  }
 
  double length() {
- return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  }
 
  static double length(double arg0, double arg1, double arg2) {
- return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2));
+ return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2);
  }
 
  Vector3d normalize() {
- double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  this->x *= double0;
  this->y *= double0;
  this->z *= double0;
@@ -1200,7 +1200,7 @@ public:
  }
 
  Vector3d normalize(Vector3d arg0) {
- double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z));
+ double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z);
  arg0.x = this->x * double0;
  arg0.y = this->y * double0;
  arg0.z = this->z * double0;
@@ -1208,7 +1208,7 @@ public:
  }
 
  Vector3d normalize(double arg0) {
- double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z)) * arg0;
+ double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z) * arg0;
  this->x *= double0;
  this->y *= double0;
  this->z *= double0;
@@ -1216,7 +1216,7 @@ public:
  }
 
  Vector3d normalize(double arg0, Vector3d arg1) {
- double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z)) * arg0;
+ double double0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, this->z * this->z) * arg0;
  arg1.x = this->x * double0;
  arg1.y = this->y * double0;
  arg1.z = this->z * double0;
@@ -1267,14 +1267,14 @@ public:
  double double0 = this->x - arg0.x();
  double double1 = this->y - arg0.y();
  double double2 = this->z - arg0.z();
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, double2 * double2));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, double2 * double2);
  }
 
  double distance(double arg0, double arg1, double arg2) {
  double double0 = this->x - arg0;
  double double1 = this->y - arg1;
  double double2 = this->z - arg2;
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, double2 * double2));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, double2 * double2);
  }
 
  double distanceSquared(Vector3dc arg0) {

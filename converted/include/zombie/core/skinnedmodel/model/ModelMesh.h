@@ -49,12 +49,12 @@ public:
 
  void onLoadedX(ProcessedAiScene processedAiScene) {
  JAssImpImporter.LoadMode loadMode = this->assetParams.bStatic ? JAssImpImporter.LoadMode.StaticMesh : JAssImpImporter.LoadMode.Normal;
- SkinningData skinningDatax = this->assetParams.animationsMesh == nullptr ? nullptr : this->assetParams.animationsMesh.skinningData;
+ SkinningData skinningDatax = this->assetParams.animationsMesh.empty() ? nullptr : this->assetParams.animationsMesh.skinningData;
  processedAiScene.applyToMesh(this, loadMode, false, skinningDatax);
  }
 
  void onLoadedTxt(ModelTxt modelTxt) {
- SkinningData skinningDatax = this->assetParams.animationsMesh == nullptr ? nullptr : this->assetParams.animationsMesh.skinningData;
+ SkinningData skinningDatax = this->assetParams.animationsMesh.empty() ? nullptr : this->assetParams.animationsMesh.skinningData;
  ModelLoader.instance.applyToMesh(modelTxt, this, skinningDatax);
  }
 

@@ -2498,7 +2498,7 @@ public:
 
  void addDaySample(float noiseval) {
  this->days++;
- if ((this->type != 1 || !(noiseval <= 0.0F) && (this->type != -1 || !(noiseval >= 0.0F)) {
+ if ((this->type != 1 || !(noiseval <= 0.0F) && (this->type != -1 || !(noiseval >= 0.0F) {
  this->tmpNoiseAbs = Math.abs(noiseval);
  if (this->tmpNoiseAbs > this->maxNoise) {
  this->maxNoise = this->tmpNoiseAbs;

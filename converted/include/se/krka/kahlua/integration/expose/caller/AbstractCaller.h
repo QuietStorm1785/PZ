@@ -40,7 +40,7 @@ public:
 
  this->needsMultipleReturnValues = boolean0;
  int int0 = boolean0 ? 1 : 0;
- int int1 = clazzs.length - (this->varargType == nullptr ? 0 : 1);
+ int int1 = clazzs.length - (this->varargType.empty() ? 0 : 1);
  int int2 = int1 - int0;
  this->parameters = new Class[int2];
  System.arraycopy(clazzs, int0, this->parameters, 0, int2);

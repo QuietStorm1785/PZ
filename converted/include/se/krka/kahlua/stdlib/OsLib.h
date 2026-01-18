@@ -250,15 +250,15 @@ public:
 
  static KahluaTable getTableFromDate(Calendar calendar, Platform platform) {
  KahluaTable table = platform.newTable();
- table.rawset("year", KahluaUtil.toDouble((long)calendar.get(1));
- table.rawset("month", KahluaUtil.toDouble((long)(calendar.get(2) + 1));
- table.rawset("day", KahluaUtil.toDouble((long)calendar.get(5));
- table.rawset("hour", KahluaUtil.toDouble((long)calendar.get(11));
- table.rawset("min", KahluaUtil.toDouble((long)calendar.get(12));
- table.rawset("sec", KahluaUtil.toDouble((long)calendar.get(13));
- table.rawset("wday", KahluaUtil.toDouble((long)calendar.get(7));
- table.rawset("yday", KahluaUtil.toDouble((long)getDayOfYear(calendar));
- table.rawset(MILLISECOND, KahluaUtil.toDouble((long)calendar.get(14));
+ table.rawset("year", KahluaUtil.toDouble((long)calendar.get(1);
+ table.rawset("month", KahluaUtil.toDouble((long)(calendar.get(2) + 1);
+ table.rawset("day", KahluaUtil.toDouble((long)calendar.get(5);
+ table.rawset("hour", KahluaUtil.toDouble((long)calendar.get(11);
+ table.rawset("min", KahluaUtil.toDouble((long)calendar.get(12);
+ table.rawset("sec", KahluaUtil.toDouble((long)calendar.get(13);
+ table.rawset("wday", KahluaUtil.toDouble((long)calendar.get(7);
+ table.rawset("yday", KahluaUtil.toDouble((long)getDayOfYear(calendar);
+ table.rawset(MILLISECOND, KahluaUtil.toDouble((long)calendar.get(14);
  return table;
  }
 

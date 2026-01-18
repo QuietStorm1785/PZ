@@ -186,7 +186,7 @@ public:
  }
 
  void addBoneReparent(const std::string& boneName, const std::string& newParentBone) {
- if (!PZArrayUtil.contains(this->m_reparentedBoneBindings, Lambda.predicate(boneName, newParentBone, AnimationBoneBindingPair::matches)) {
+ if (!PZArrayUtil.contains(this->m_reparentedBoneBindings, Lambda.predicate(boneName, newParentBone, AnimationBoneBindingPair::matches) {
  AnimationBoneBindingPair animationBoneBindingPair = new AnimationBoneBindingPair(boneName, newParentBone);
  animationBoneBindingPair.setSkinningData(this->m_skinningData);
  this->m_reparentedBoneBindings.add(animationBoneBindingPair);

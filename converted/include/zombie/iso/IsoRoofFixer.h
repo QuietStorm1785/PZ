@@ -241,7 +241,7 @@ public:
  && !square.TreatAsSolidFloor()
  && square.getRoom() == nullptr
  && hasRoomBelow(square)
- && (isRoofAt(square, true) || scanIsRoofAt(square, true)) {
+ && (isRoofAt(square, true) || scanIsRoofAt(square, true) {
  if (isRoofTileCacheGlass()) {
  square.addFloor(invisFloor);
  } else {

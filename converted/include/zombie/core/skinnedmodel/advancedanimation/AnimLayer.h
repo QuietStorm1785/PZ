@@ -206,7 +206,7 @@ public:
  return true;
  } else {
  if (DebugOptions.instance.Animation.AnimLayer.LogStateChanges.getValue()) {
- std::string string0 = this->m_parentLayer == nullptr ? "" : AnimState.getStateName(this->m_parentLayer.m_State) + " | ";
+ std::string string0 = this->m_parentLayer.empty() ? "" : AnimState.getStateName(this->m_parentLayer.m_State) + " | ";
  std::string string1 = String.format("State: %s%s => %s", string0, AnimState.getStateName(this->m_State), AnimState.getStateName(newState);
  DebugLog.General.debugln(string1);
  if (this->m_Character instanceof IsoGameCharacter) {

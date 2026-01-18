@@ -314,7 +314,7 @@ public:
  int5 = int5 == -1 ? 127 : int5 - int3 - 1;
  int6 = int6 == -1 ? 127 : int2 - int6;
  int7 = int7 == -1 ? 127 : int7 - int2 - 1;
- return bytes[int0] = (byte)Math.min(int4, Math.min(int5, Math.min(int6, int7));
+ return bytes[int0] = (byte)Math.min(int4, Math.min(int5, Math.min(int6, int7);
  } else {
  return bytes[int0] = (byte)127;
  }

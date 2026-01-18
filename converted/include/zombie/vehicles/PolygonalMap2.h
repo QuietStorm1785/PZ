@@ -1141,7 +1141,7 @@ public:
  float float0 = searchNode0.getX();
  float float1 = searchNode0.getY();
  float float2 = searchNode0.getZ();
- int int3 = searchNode0.vgNode == nullptr ? 0 : searchNode0.vgNode.flags;
+ int int3 = searchNode0.vgNode.empty() ? 0 : searchNode0.vgNode.flags;
  PolygonalMap2.Square square1 = searchNode0.square;
  bool boolean1 = false;
  if (square1 != nullptr && square0 != nullptr && square1.z == square0.z) {
@@ -1424,8 +1424,8 @@ public:
  PolygonalMap2.PathNode pathNode1 = pathFindRequest.path.nodes.get(int7 + 1);
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode0.x, (double)pathNode0.y, (double)pathNode0.z);
  IsoGridSquare square2 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode1.x, (double)pathNode1.y, (double)pathNode1.z);
- float float12 = square1 == nullptr ? pathNode0.z : this->getApparentZ(square1);
- float float13 = square2 == nullptr ? pathNode1.z : this->getApparentZ(square2);
+ float float12 = square1.empty() ? pathNode0.z : this->getApparentZ(square1);
+ float float13 = square2.empty() ? pathNode1.z : this->getApparentZ(square2);
  float float14 = 1.0F;
  float float15 = 1.0F;
  float float16 = 0.0F;
@@ -1449,8 +1449,8 @@ public:
  PolygonalMap2.PathNode pathNode3 = pathFindRequest.path.nodes.get(this->pointOnPath.pathIndex + 1);
  IsoGridSquare square3 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode2.x, (double)pathNode2.y, (double)pathNode2.z);
  IsoGridSquare square4 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode3.x, (double)pathNode3.y, (double)pathNode3.z);
- float float17 = square3 == nullptr ? pathNode2.z : this->getApparentZ(square3);
- float float18 = square4 == nullptr ? pathNode3.z : this->getApparentZ(square4);
+ float float17 = square3.empty() ? pathNode2.z : this->getApparentZ(square3);
+ float float18 = square4.empty() ? pathNode3.z : this->getApparentZ(square4);
  float float19 = float17 + (float18 - float17) * this->pointOnPath.dist;
  LineDrawer.addLine(
  this->pointOnPath.x - 0.05F,
@@ -2326,10 +2326,10 @@ public:
  for (int int12 = 0; int12 < PolygonalMap2.instance.vehicles.size(); int12++) {
  PolygonalMap2.Vehicle vehicle = PolygonalMap2.instance.vehicles.get(int12);
  PolygonalMap2.VehiclePoly vehiclePoly = vehicle.polyPlusRadius;
- float float0 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4));
- float float1 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4));
- float float2 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4));
- float float3 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4));
+ float float0 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4);
+ float float1 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4);
+ float float2 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4);
+ float float3 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4);
  immutableRectF1.init(float0, float1, float2 - float0, float3 - float1);
  if (immutableRectF0.intersects(immutableRectF1) {
  this->addEdgesForVehicle(vehicle);
@@ -2863,7 +2863,7 @@ public:
  if (int0 >= this->MINX + this->WIDTH || int0 < this->MINX) {
  return false;
  } else if (int1 < this->MINY + this->WIDTH && int1 >= this->MINY) {
- if (this->visited.getValue(this->gridX(int0), this->gridY(int1)) {
+ if (this->visited.getValue(this->gridX(int0), this->gridY(int1) {
  return false;
  } else {
  PolygonalMap2.Square square0 = PolygonalMap2.instance.getSquare(int2, int3, 0);
@@ -3759,10 +3759,10 @@ public:
  float11 = float0 + this->perp.y * float26;
  float12 = float2 + this->perp.x * float26;
  float13 = float3 + this->perp.y * float26;
- float float27 = Math.min(float6, Math.min(float8, Math.min(float10, float12));
- float float28 = Math.min(float7, Math.min(float9, Math.min(float11, float13));
- float float29 = Math.max(float6, Math.max(float8, Math.max(float10, float12));
- float float30 = Math.max(float7, Math.max(float9, Math.max(float11, float13));
+ float float27 = Math.min(float6, Math.min(float8, Math.min(float10, float12);
+ float float28 = Math.min(float7, Math.min(float9, Math.min(float11, float13);
+ float float29 = Math.max(float6, Math.max(float8, Math.max(float10, float12);
+ float float30 = Math.max(float7, Math.max(float9, Math.max(float11, float13);
  this->sweepAABB.init((int)float27, (int)float28, (int)Math.ceil(float29) - (int)float27, (int)Math.ceil(float30) - (int)float28, int1);
  this->polyVec[0].set(float6, float7);
  this->polyVec[1].set(float8, float9);
@@ -4274,10 +4274,10 @@ public:
  float11 = float0 + this->perp.y * float26;
  float12 = float3 + this->perp.x * float26;
  float13 = float2 + this->perp.y * float26;
- float float27 = Math.min(float6, Math.min(float8, Math.min(float10, float12));
- float float28 = Math.min(float7, Math.min(float9, Math.min(float11, float13));
- float float29 = Math.max(float6, Math.max(float8, Math.max(float10, float12));
- float float30 = Math.max(float7, Math.max(float9, Math.max(float11, float13));
+ float float27 = Math.min(float6, Math.min(float8, Math.min(float10, float12);
+ float float28 = Math.min(float7, Math.min(float9, Math.min(float11, float13);
+ float float29 = Math.max(float6, Math.max(float8, Math.max(float10, float12);
+ float float30 = Math.max(float7, Math.max(float9, Math.max(float11, float13);
  this->sweepAABB.init((int)float27, (int)float28, (int)Math.ceil(float29) - (int)float27, (int)Math.ceil(float30) - (int)float28, int1);
  this->polyVec[0].set(float6, float7);
  this->polyVec[1].set(float8, float9);
@@ -5876,7 +5876,7 @@ public:
  PolygonalMap2.SearchNode searchNode1 = this->astar.getSearchNode(node);
  if ((this->vgNode.square.empty() || searchNode1.square.empty() || !this->astar.isKnownBlocked(this->vgNode.square, searchNode1.square)
  && (this->astar.bCanCrawl || !node.hasFlag(2)
- && (this->astar.bCanThump || !connection.has(2)) {
+ && (this->astar.bCanThump || !connection.has(2) {
  arrayList0.add(searchNode1);
  }
  }
@@ -6903,10 +6903,10 @@ public:
  }
 
  PolygonalMap2.VehicleRect getAABB(PolygonalMap2.VehicleRect vehicleRect) {
- float float0 = Math.min(this->x1, Math.min(this->x2, Math.min(this->x3, this->x4));
- float float1 = Math.min(this->y1, Math.min(this->y2, Math.min(this->y3, this->y4));
- float float2 = Math.max(this->x1, Math.max(this->x2, Math.max(this->x3, this->x4));
- float float3 = Math.max(this->y1, Math.max(this->y2, Math.max(this->y3, this->y4));
+ float float0 = Math.min(this->x1, Math.min(this->x2, Math.min(this->x3, this->x4);
+ float float1 = Math.min(this->y1, Math.min(this->y2, Math.min(this->y3, this->y4);
+ float float2 = Math.max(this->x1, Math.max(this->x2, Math.max(this->x3, this->x4);
+ float float3 = Math.max(this->y1, Math.max(this->y2, Math.max(this->y3, this->y4);
  return vehicleRect.init(nullptr, (int)float0, (int)float1, (int)Math.ceil(float2) - (int)float0, (int)Math.ceil(float3) - (int)float1, (int)this->z);
  }
 
@@ -7914,10 +7914,10 @@ public:
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  PolygonalMap2.Node node0 = (PolygonalMap2.Node)arrayList.get(int0);
- if (!node0.ignore && (node0.square.empty() || !node0.square.has(504)) {
+ if (!node0.ignore && (node0.square.empty() || !node0.square.has(504) {
  for (int int1 = int0 + 1; int1 < arrayList.size(); int1++) {
  PolygonalMap2.Node node1 = (PolygonalMap2.Node)arrayList.get(int1);
- if (!node1.ignore && (node1.square.empty() || !node1.square.has(504) && (!node0.hasFlag(8) || !node1.hasFlag(8)) {
+ if (!node1.ignore && (node1.square.empty() || !node1.square.has(504) && (!node0.hasFlag(8) || !node1.hasFlag(8) {
  if (node0.isConnectedTo(node1) {
  assert node0.square != nullptr && (node0.square.isCanPathW() || node0.square.isCanPathN())
  || node1.square != nullptr && (node1.square.isCanPathW() || node1.square.isCanPathN());
@@ -8091,7 +8091,7 @@ public:
 
  void release() {
  for (int int0 = 0; int0 < this->nodes.size(); int0++) {
- if (!PolygonalMap2.instance.squareToNode.containsValue(this->nodes.get(int0)) {
+ if (!PolygonalMap2.instance.squareToNode.containsValue(this->nodes.get(int0) {
  this->nodes.get(int0).release();
  }
  }

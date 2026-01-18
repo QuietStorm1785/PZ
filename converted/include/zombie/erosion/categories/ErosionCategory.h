@@ -72,7 +72,7 @@ public:
  || !boolean0 && square0.Is(IsoFlagType.cutW) && !square0.Is(IsoFlagType.canPathW) {
  object = square0.getWall(boolean0);
  }
- } else if (boolean1 && (square0.isWindowBlockedTo(square1) || square0.isWindowTo(square1)) {
+ } else if (boolean1 && (square0.isWindowBlockedTo(square1) || square0.isWindowTo(square1) {
  object = square0.getWindowTo(square1);
  if (object.empty()) {
  object = square0.getWall(boolean0);

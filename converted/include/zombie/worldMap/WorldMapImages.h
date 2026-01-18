@@ -22,7 +22,7 @@ public:
 
  static WorldMapImages getOrCreate(const std::string& directory) {
  std::string string = ZomboidFileSystem.instance.getString(directory + "/pyramid.zip");
- if (!Files.exists(Paths.get(string)) {
+ if (!Files.exists(Paths.get(string) {
  return nullptr;
  } else {
  WorldMapImages worldMapImages = s_filenameToImages.get(string);

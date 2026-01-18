@@ -155,7 +155,7 @@ public:
  do {
  if (rCONClient.connect(string0, string1) {
  if (rCONClient.auth(string2) {
- if (boolean0 && !rCONClient.send(string4, String.format("Connected to server %s:%s", string0, string1)) {
+ if (boolean0 && !rCONClient.send(string4, String.format("Connected to server %s:%s", string0, string1) {
  break;
  }
 

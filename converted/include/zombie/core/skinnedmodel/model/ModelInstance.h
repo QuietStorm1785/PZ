@@ -539,8 +539,8 @@ public:
  Arrays.sort(
  this->frameLights,
  (frameLightInfo0, frameLightInfo1) -> {
- bool boolean0 = frameLightInfo0 == nullptr || frameLightInfo0.radius == -1 || !frameLightInfo0.active;
- bool boolean1 = frameLightInfo1 == nullptr || frameLightInfo1.radius == -1 || !frameLightInfo1.active;
+ bool boolean0 = frameLightInfo0.empty() || frameLightInfo0.radius == -1 || !frameLightInfo0.active;
+ bool boolean1 = frameLightInfo1.empty() || frameLightInfo1.radius == -1 || !frameLightInfo1.active;
  if (boolean0 && boolean1) {
  return 0;
  } else if (boolean0) {

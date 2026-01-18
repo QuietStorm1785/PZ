@@ -600,18 +600,18 @@ public:
  double double18 = matrix4x3dc.m30();
  double double19 = matrix4x3dc.m31();
  double double20 = matrix4x3dc.m32();
- return matrix4x3d1._m00(Math.fma(double0, double9, Math.fma(double3, double10, double6 * double11))
- ._m01(Math.fma(double1, double9, Math.fma(double4, double10, double7 * double11))
- ._m02(Math.fma(double2, double9, Math.fma(double5, double10, double8 * double11))
- ._m10(Math.fma(double0, double12, Math.fma(double3, double13, double6 * double14))
- ._m11(Math.fma(double1, double12, Math.fma(double4, double13, double7 * double14))
- ._m12(Math.fma(double2, double12, Math.fma(double5, double13, double8 * double14))
- ._m20(Math.fma(double0, double15, Math.fma(double3, double16, double6 * double17))
- ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17))
- ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17))
- ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)))
- ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)))
- ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)))
+ return matrix4x3d1._m00(Math.fma(double0, double9, Math.fma(double3, double10, double6 * double11)
+ ._m01(Math.fma(double1, double9, Math.fma(double4, double10, double7 * double11)
+ ._m02(Math.fma(double2, double9, Math.fma(double5, double10, double8 * double11)
+ ._m10(Math.fma(double0, double12, Math.fma(double3, double13, double6 * double14)
+ ._m11(Math.fma(double1, double12, Math.fma(double4, double13, double7 * double14)
+ ._m12(Math.fma(double2, double12, Math.fma(double5, double13, double8 * double14)
+ ._m20(Math.fma(double0, double15, Math.fma(double3, double16, double6 * double17)
+ ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17)
+ ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17)
+ ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)
+ ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)
+ ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)
  ._properties(this->properties & matrix4x3dc.properties() & 16);
  }
 
@@ -651,18 +651,18 @@ public:
  double double18 = matrix4x3fc.m30();
  double double19 = matrix4x3fc.m31();
  double double20 = matrix4x3fc.m32();
- return matrix4x3d1._m00(Math.fma(double0, double9, Math.fma(double3, double10, double6 * double11))
- ._m01(Math.fma(double1, double9, Math.fma(double4, double10, double7 * double11))
- ._m02(Math.fma(double2, double9, Math.fma(double5, double10, double8 * double11))
- ._m10(Math.fma(double0, double12, Math.fma(double3, double13, double6 * double14))
- ._m11(Math.fma(double1, double12, Math.fma(double4, double13, double7 * double14))
- ._m12(Math.fma(double2, double12, Math.fma(double5, double13, double8 * double14))
- ._m20(Math.fma(double0, double15, Math.fma(double3, double16, double6 * double17))
- ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17))
- ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17))
- ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)))
- ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)))
- ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)))
+ return matrix4x3d1._m00(Math.fma(double0, double9, Math.fma(double3, double10, double6 * double11)
+ ._m01(Math.fma(double1, double9, Math.fma(double4, double10, double7 * double11)
+ ._m02(Math.fma(double2, double9, Math.fma(double5, double10, double8 * double11)
+ ._m10(Math.fma(double0, double12, Math.fma(double3, double13, double6 * double14)
+ ._m11(Math.fma(double1, double12, Math.fma(double4, double13, double7 * double14)
+ ._m12(Math.fma(double2, double12, Math.fma(double5, double13, double8 * double14)
+ ._m20(Math.fma(double0, double15, Math.fma(double3, double16, double6 * double17)
+ ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17)
+ ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17)
+ ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)
+ ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)
+ ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)
  ._properties(this->properties & matrix4x3fc.properties() & 16);
  }
 

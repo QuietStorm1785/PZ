@@ -67,7 +67,7 @@ public:
  float float7 = getDistance(float5, float6, player);
  if (float7 >= 0.0F && float7 < float2) {
  float float8 = float2 * 0.6F;
- if (!boolean1 && (boolean0 || !(float7 < float8)) {
+ if (!boolean1 && (boolean0 || !(float7 < float8) {
  if (float2 - float8 != 0.0F) {
  float4 = (float7 - float8) / (float2 - float8);
  if (float4 < 0.2F) {

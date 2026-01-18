@@ -397,7 +397,7 @@ public:
  assert long2 != 0L;
  }
 
- if (nbsi0.CAS(int0 >> 6, long0, mask(63)) {
+ if (nbsi0.CAS(int0 >> 6, long0, mask(63) {
  this->_copyDone.addAndGet(1);
  }
  }

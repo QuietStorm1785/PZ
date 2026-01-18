@@ -527,8 +527,8 @@ public:
  }
 
  float getScreenPosY(int playerIndex) {
- Texture texture = this->sprite == nullptr ? nullptr : this->sprite.getTextureForCurrentFrame(this->dir);
- float float0 = texture == nullptr ? 0.0F : texture.getHeightOrig() * this->sprite.def.getScaleY() * 1.0F / 4.0F;
+ Texture texture = this->sprite.empty() ? nullptr : this->sprite.getTextureForCurrentFrame(this->dir);
+ float float0 = texture.empty() ? 0.0F : texture.getHeightOrig() * this->sprite.def.getScaleY() * 1.0F / 4.0F;
  float float1 = IsoUtils.YToScreen(this->getX() + this->xoff, this->getY() + this->yoff, this->getZ() + this->zoff, 0);
  PlayerCamera playerCamera = IsoCamera.cameras[playerIndex];
  return (float1 - playerCamera.getOffY() - float0) / Core.getInstance().getZoom(playerIndex);

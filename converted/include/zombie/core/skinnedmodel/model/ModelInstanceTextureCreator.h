@@ -257,7 +257,7 @@ public:
  }
 
  void addClothingItem(ModelInstance modelInstance, ItemVisual itemVisual, ClothingItem clothingItem, CharacterMask characterMask, const std::string& string1) {
- std::string string0 = modelInstance == nullptr ? itemVisual.getBaseTexture(clothingItem) : itemVisual.getTextureChoice(clothingItem);
+ std::string string0 = modelInstance.empty() ? itemVisual.getBaseTexture(clothingItem) : itemVisual.getTextureChoice(clothingItem);
  ImmutableColor immutableColor = itemVisual.getTint(clothingItem);
  float float0 = itemVisual.getHue(clothingItem);
  ModelInstanceTextureCreator.ItemData itemDatax = ModelInstanceTextureCreator.ItemData.pool.alloc();

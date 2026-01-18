@@ -198,7 +198,7 @@ public:
 
  void corpseAdded(int int0, int int1, int int2) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- IsoBuilding building = square == nullptr ? nullptr : square.getBuilding();
+ IsoBuilding building = square.empty() ? nullptr : square.getBuilding();
  int int3 = int0 - this->wx * 10;
  int int4 = int1 - this->wy * 10;
  this->levelData[int2].corpseAdded(int3, int4, building);
@@ -206,7 +206,7 @@ public:
 
  void corpseRemoved(int int0, int int1, int int2) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- IsoBuilding building = square == nullptr ? nullptr : square.getBuilding();
+ IsoBuilding building = square.empty() ? nullptr : square.getBuilding();
  int int3 = int0 - this->wx * 10;
  int int4 = int1 - this->wy * 10;
  this->levelData[int2].corpseRemoved(int3, int4, building);

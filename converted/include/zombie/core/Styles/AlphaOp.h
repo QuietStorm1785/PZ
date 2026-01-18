@@ -44,7 +44,7 @@ enum class AlphaOp {
  static const float PREMULT_ALPHA = 0.003921569F;
 
  void op(ReadableColor c, int alpha, FloatBuffer dest) {
- dest.put(Float.intBitsToFloat(this->calc(c, alpha));
+ dest.put(Float.intBitsToFloat(this->calc(c, alpha);
  }
 
  void op(int c, int alpha, FloatBuffer dest) {

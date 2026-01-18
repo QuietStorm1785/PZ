@@ -231,7 +231,7 @@ public:
  for (int int0 = 0; int0 < square.Objects.size(); int0++) {
  IsoObject object = square.Objects.get(int0);
  if (this->isBreakableObject(object)
- && (boolean0 && object.getProperties().Is(IsoFlagType.collideN) || !boolean0 && object.getProperties().Is(IsoFlagType.collideW)) {
+ && (boolean0 && object.getProperties().Is(IsoFlagType.collideN) || !boolean0 && object.getProperties().Is(IsoFlagType.collideW) {
  return object;
  }
  }

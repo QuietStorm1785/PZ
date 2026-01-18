@@ -76,7 +76,7 @@ public:
  }
  }
 
- if (!this->isMultipleOK(int1) && !hashSet.add(Integers.valueOf(int1)) {
+ if (!this->isMultipleOK(int1) && !hashSet.add(Integers.valueOf(int1) {
  throw PngException("Multiple " + PngConstants.getChunkName(int1) + " chunks are not allowed", !PngConstants.isAncillary(int1);
  }
 

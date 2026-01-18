@@ -164,7 +164,7 @@ public:
  ByteBufferWriter byteBufferWriter0 = GameClient.connection.startPacket();
  PacketTypes.PacketType.Login.doPacket(byteBufferWriter0);
  byteBufferWriter0.putUTF(GameClient.username);
- byteBufferWriter0.putUTF(PZcrypt.hash(ServerWorldDatabase.encrypt(GameClient.password));
+ byteBufferWriter0.putUTF(PZcrypt.hash(ServerWorldDatabase.encrypt(GameClient.password);
  byteBufferWriter0.putUTF(Core.getInstance().getVersion());
  PacketTypes.PacketType.Login.send(GameClient.connection);
  RequestDataManager.getInstance().clear();

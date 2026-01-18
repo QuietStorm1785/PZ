@@ -868,7 +868,7 @@ public:
  }
 
  for (int int1 = 0; int1 < itemVisuals.size(); int1++) {
- if (bodyLocationGroup.isExclusive(string1, (String)arrayList.get(int1)) {
+ if (bodyLocationGroup.isExclusive(string1, (String)arrayList.get(int1) {
  itemVisuals.remove(int1);
  arrayList.remove(int1);
  int1--;

@@ -314,7 +314,7 @@ public:
  if (thunderEvent.doStrike && (!boolean0 || !boolean1) {
  this->noise("thunder sound");
  GameSound gameSound0 = GameSounds.getSound("Thunder");
- GameSoundClip gameSoundClip0 = gameSound0 == nullptr ? nullptr : gameSound0.getRandomClip();
+ GameSoundClip gameSoundClip0 = gameSound0.empty() ? nullptr : gameSound0.getRandomClip();
  if (gameSoundClip0 != nullptr && gameSoundClip0.eventDescription != nullptr) {
  long long0 = gameSoundClip0.eventDescription.address;
  long long1 = javafmod.FMOD_Studio_System_CreateEventInstance(long0);
@@ -328,7 +328,7 @@ public:
  if (thunderEvent.doRumble && (!boolean0 || !boolean2) {
  this->noise("rumble sound");
  GameSound gameSound1 = GameSounds.getSound("RumbleThunder");
- GameSoundClip gameSoundClip1 = gameSound1 == nullptr ? nullptr : gameSound1.getRandomClip();
+ GameSoundClip gameSoundClip1 = gameSound1.empty() ? nullptr : gameSound1.getRandomClip();
  if (gameSoundClip1 != nullptr && gameSoundClip1.eventDescription != nullptr) {
  long long2 = gameSoundClip1.eventDescription.address;
  long long3 = javafmod.FMOD_Studio_System_CreateEventInstance(long2);
@@ -598,11 +598,11 @@ public:
  int int0 = ThunderStorm.getMapDiagonal();
  float float0 = ThunderStorm.addToAngle(_angle, 180.0F);
  int int1 = int0 + Rand.Next(1500, 7500);
- int int2 = (int)(centerX + int1 * Math.cos(Math.toRadians(float0));
- int int3 = (int)(centerY + int1 * Math.sin(Math.toRadians(float0));
+ int int2 = (int)(centerX + int1 * Math.cos(Math.toRadians(float0);
+ int int3 = (int)(centerY + int1 * Math.sin(Math.toRadians(float0);
  int1 = int0 + Rand.Next(1500, 7500);
- int int4 = (int)(centerX + int1 * Math.cos(Math.toRadians(_angle));
- int int5 = (int)(centerY + int1 * Math.sin(Math.toRadians(_angle));
+ int int4 = (int)(centerX + int1 * Math.cos(Math.toRadians(_angle);
+ int int5 = (int)(centerY + int1 * Math.sin(Math.toRadians(_angle);
  this->startX = int2;
  this->startY = int3;
  this->endX = int4;

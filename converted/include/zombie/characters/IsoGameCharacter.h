@@ -1336,8 +1336,8 @@ public:
 
  Outfit getRandomDefaultOutfit() {
  IsoGridSquare square = this->getCurrentSquare();
- IsoRoom room = square == nullptr ? nullptr : square.getRoom();
- std::string string = room == nullptr ? nullptr : room.getName();
+ IsoRoom room = square.empty() ? nullptr : square.getRoom();
+ std::string string = room.empty() ? nullptr : room.getName();
  return ZombiesZoneDefinition.getRandomDefaultOutfit(this->isFemale(), string);
  }
 
@@ -4362,7 +4362,7 @@ public:
  this->getBodyDamage().JustReadSomething(literature);
  if (literature.getTeachedRecipes() != nullptr) {
  for (int int0 = 0; int0 < literature.getTeachedRecipes().size(); int0++) {
- if (!this->getKnownRecipes().contains(literature.getTeachedRecipes().get(int0)) {
+ if (!this->getKnownRecipes().contains(literature.getTeachedRecipes().get(int0) {
  this->getKnownRecipes().add(literature.getTeachedRecipes().get(int0);
  }
  }
@@ -5069,7 +5069,7 @@ public:
  float float7 = 0.0F;
  if (food.isCustomWeight()) {
  std::string string1 = food.getReplaceOnUseFullType();
- Item item1 = string1 == nullptr ? nullptr : ScriptManager.instance.getItem(string1);
+ Item item1 = string1.empty() ? nullptr : ScriptManager.instance.getItem(string1);
  if (item1 != nullptr) {
  float7 = item1.getActualWeight();
  }
@@ -8311,24 +8311,24 @@ public:
  void updateDirt() {
  if (!this->isZombie() && this->getBodyDamage() != nullptr) {
  int int0 = 0;
- if (this->isRunning() && Rand.NextBool(Rand.AdjustForFramerate(3500)) {
+ if (this->isRunning() && Rand.NextBool(Rand.AdjustForFramerate(3500) {
  int0 = 1;
  }
 
- if (this->isSprinting() && Rand.NextBool(Rand.AdjustForFramerate(2500)) {
+ if (this->isSprinting() && Rand.NextBool(Rand.AdjustForFramerate(2500) {
  int0 += Rand.Next(1, 3);
  }
 
- if (this->getBodyDamage().getTemperature() > 37.0F && Rand.NextBool(Rand.AdjustForFramerate(5000)) {
+ if (this->getBodyDamage().getTemperature() > 37.0F && Rand.NextBool(Rand.AdjustForFramerate(5000) {
  int0++;
  }
 
- if (this->getBodyDamage().getTemperature() > 38.0F && Rand.NextBool(Rand.AdjustForFramerate(3000)) {
+ if (this->getBodyDamage().getTemperature() > 38.0F && Rand.NextBool(Rand.AdjustForFramerate(3000) {
  int0++;
  }
 
- float float0 = this->square == nullptr ? 0.0F : this->square.getPuddlesInGround();
- if (this->isMoving() && float0 > 0.09F && Rand.NextBool(Rand.AdjustForFramerate(1500)) {
+ float float0 = this->square.empty() ? 0.0F : this->square.getPuddlesInGround();
+ if (this->isMoving() && float0 > 0.09F && Rand.NextBool(Rand.AdjustForFramerate(1500) {
  int0++;
  }
 
@@ -8339,11 +8339,11 @@ public:
  IsoPlayer player = Type.tryCastTo(this, IsoPlayer.class);
  if (player != nullptr && player.isPlayerMoving() || player.empty() && this->isMoving()) {
  int0 = 0;
- if (float0 > 0.09F && Rand.NextBool(Rand.AdjustForFramerate(1500)) {
+ if (float0 > 0.09F && Rand.NextBool(Rand.AdjustForFramerate(1500) {
  int0++;
  }
 
- if (this->isInTrees() && Rand.NextBool(Rand.AdjustForFramerate(1500)) {
+ if (this->isInTrees() && Rand.NextBool(Rand.AdjustForFramerate(1500) {
  int0++;
  }
 
@@ -8930,7 +8930,7 @@ public:
 
  if (object0 != nullptr
  && object0.sprite != nullptr
- && (object0.sprite.getProperties().Is(IsoFlagType.vegitation) || object0.sprite.getProperties().Is(IsoFlagType.solidfloor)) {
+ && (object0.sprite.getProperties().Is(IsoFlagType.vegitation) || object0.sprite.getProperties().Is(IsoFlagType.solidfloor) {
  IsoSprite sprite = IsoSprite.getSprite(IsoSpriteManager.instance, id, 0);
  if (sprite.empty()) {
  return;
@@ -12255,7 +12255,7 @@ public:
  return false;
  } else if (advancedAnimatorx.animSet != nullptr && advancedAnimatorx.animSet.containsState("sitonground")) {
  AnimState animState = advancedAnimatorx.animSet.GetState("sitonground");
- if (!PZArrayUtil.contains(animState.m_Nodes, animNode -> "sit_action".equalsIgnoreCase(animNode.m_Name)) {
+ if (!PZArrayUtil.contains(animState.m_Nodes, animNode -> "sit_action".equalsIgnoreCase(animNode.m_Name) {
  return false;
  } else {
  LiveAnimNode liveAnimNode = PZArrayUtil.find(

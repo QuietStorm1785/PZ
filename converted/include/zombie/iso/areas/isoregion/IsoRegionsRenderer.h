@@ -182,7 +182,7 @@ public:
  if ((!(float0 >= Core.getInstance().getScreenWidth()) || !(float2 >= Core.getInstance().getScreenWidth()))
  && (!(float1 >= Core.getInstance().getScreenHeight()) || !(float3 >= Core.getInstance().getScreenHeight()))
  && (!(float0 < 0.0F) || !(float2 < 0.0F)
- && (!(float1 < 0.0F) || !(float3 < 0.0F)) {
+ && (!(float1 < 0.0F) || !(float3 < 0.0F) {
  SpriteRenderer.instance.renderline(nullptr, (int)float0, (int)float1, (int)float2, (int)float3, r, g, b, a);
  }
  }
@@ -459,7 +459,7 @@ public:
  if (int22 > 0 && int22 == int12) {
  chunkRegion1 = dataChunk1.getIsoChunkRegion(int19, int20, int22);
  IsoWorldRegion worldRegion2 = chunkRegion1 != nullptr ? chunkRegion1.getIsoWorldRegion() : nullptr;
- bool boolean0 = chunkRegion1 == nullptr || worldRegion2 == nullptr || !worldRegion2.isEnclosed();
+ bool boolean0 = chunkRegion1.empty() || worldRegion2.empty() || !worldRegion2.isEnclosed();
  if (boolean0 && Bits.hasFlags(byte0, 16) {
  this->renderSquare(int14 + int19, int15 + int20, 0.5F, 0.5F, 0.5F, 1.0F);
  }

@@ -251,12 +251,12 @@ public:
  IsoGridSquare square0 = this->current;
  if (square0.z > 0 && (square0.Has(IsoObjectType.stairsTN) || square0.Has(IsoObjectType.stairsTW) && this->z - (int)this->z < 0.1F) {
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare(square0.x, square0.y, square0.z - 1);
- if (square1 != nullptr && (square1.Has(IsoObjectType.stairsTN) || square1.Has(IsoObjectType.stairsTW)) {
+ if (square1 != nullptr && (square1.Has(IsoObjectType.stairsTN) || square1.Has(IsoObjectType.stairsTW) {
  square0 = square1;
  }
  }
 
- if (this instanceof IsoGameCharacter && (this->last.Has(IsoObjectType.stairsTN) || this->last.Has(IsoObjectType.stairsTW)) {
+ if (this instanceof IsoGameCharacter && (this->last.Has(IsoObjectType.stairsTN) || this->last.Has(IsoObjectType.stairsTW) {
  this->z = Math.round(this->z);
  }
 
@@ -861,7 +861,7 @@ public:
 
  bool boolean0 = true;
  bool boolean1 = false;
- if (this->last != nullptr && (this->last.Has(IsoObjectType.stairsTN) || this->last.Has(IsoObjectType.stairsTW)) {
+ if (this->last != nullptr && (this->last.Has(IsoObjectType.stairsTN) || this->last.Has(IsoObjectType.stairsTW) {
  this->current = this->getCell().getGridSquare((int)this->x, (int)this->y, (int)this->z + 1);
  boolean0 = false;
  }
@@ -977,7 +977,7 @@ public:
 
  for (int int0 = 0; int0 <= 8; int0++) {
  IsoGridSquare square = int0 == 8 ? this->current : this->current.nav[int0];
- if (square != nullptr && !square.getMovingObjects().empty() && (square == this->current || !this->current.isBlockedTo(square)) {
+ if (square != nullptr && !square.getMovingObjects().empty() && (square == this->current || !this->current.isBlockedTo(square) {
  float float0 = player0 != nullptr && player0.getPrimaryHandItem() instanceof HandWeapon
  ? ((HandWeapon)player0.getPrimaryHandItem()).getMaxRange()
  : 0.3F;

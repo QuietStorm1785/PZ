@@ -83,7 +83,7 @@ public:
  for (int int4 = 0; int4 < this->width; int4++) {
  for (int int5 = 0; int5 < this->width; int5++) {
  ServerMap.ServerCell serverCell = ServerMap.instance.getCell(int2 + int5 - int0, int3 + int4 - int1);
- bool boolean1 = serverCell == nullptr ? false : serverCell.bLoaded;
+ bool boolean1 = serverCell.empty() ? false : serverCell.bLoaded;
  boolean0 |= this->loaded[int5 + int4 * this->width] != boolean1;
  this->loaded[int5 + int4 * this->width] = boolean1;
  }

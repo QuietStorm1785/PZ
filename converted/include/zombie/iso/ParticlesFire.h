@@ -326,7 +326,7 @@ public:
  }
 
  this->r = float4;
- this->area = (float)(this->r * Math.sqrt(Math.pow(float0 - float1, 2.0) + Math.pow(float2 - float3, 2.0));
+ this->area = (float)(this->r * Math.sqrt(Math.pow(float0 - float1, 2.0) + Math.pow(float2 - float3, 2.0);
  this->vortices = this->intensity * 0.3F;
  this->vorticeSpeed = 0.5F;
  this->temperature = 2000.0F;

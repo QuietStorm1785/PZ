@@ -55,7 +55,7 @@ public:
  } else {
  object = strings[0].trim();
  if (PerkFactory.Perks.FromString((String)object) == PerkFactory.Perks.MAX) {
- std::string string3 = this->connection == nullptr ? "\n" : " LINE ";
+ std::string string3 = this->connection.empty() ? "\n" : " LINE ";
  StringBuilder stringBuilder = new StringBuilder();
 
  for (int int1 = 0; int1 < PerkFactory.PerkList.size(); int1++) {

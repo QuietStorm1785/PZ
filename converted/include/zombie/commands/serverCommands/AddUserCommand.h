@@ -38,7 +38,7 @@ public:
 
  std::string Command() {
  std::string string0 = this->getCommandArg(0);
- std::string string1 = PZcrypt.hash(ServerWorldDatabase.encrypt(this->getCommandArg(1));
+ std::string string1 = PZcrypt.hash(ServerWorldDatabase.encrypt(this->getCommandArg(1);
  if (!ServerWorldDatabase.isValidUserName(string0) {
  return "Invalid username \"" + string0 + "\"";
  } else {

@@ -223,7 +223,7 @@ public:
  if (map.get(object1) != nullptr || !map.containsKey(object1) {
  return false;
  }
- } else if (!object2 == map.get(object1)) {
+ } else if (!object2 == map.get(object1) {
  return false;
  }
  }
@@ -280,7 +280,7 @@ public:
  }
 
  static bool eq(void* object0, void* object1) {
- return object0 = = nullptr ? object1 == nullptr : object0.equals(object1);
+ return object0 = = nullptr ? object1.empty() : object0.equals(object1);
  }
 
  public static class SimpleEntry<K, V> implements Entry<K, V>, Serializable {

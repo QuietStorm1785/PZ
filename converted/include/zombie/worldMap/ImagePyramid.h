@@ -265,7 +265,7 @@ public:
  }
 
  void writeImageToZip(BufferedImage bufferedImage, ZipOutputStream zipOutputStream, int int1, int int0, int int2) {
- zipOutputStream.putNextEntry(new ZipEntry(String.format("%d/tile%dx%d.png", int2, int1, int0));
+ zipOutputStream.putNextEntry(new ZipEntry(String.format("%d/tile%dx%d.png", int2, int1, int0);
  ImageIO.write(bufferedImage, "PNG", zipOutputStream);
  zipOutputStream.closeEntry();
  }

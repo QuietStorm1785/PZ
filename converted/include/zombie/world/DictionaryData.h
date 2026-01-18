@@ -164,7 +164,7 @@ public:
  std::vector list1 = ((ItemInfo)entry.getValue()).modOverrides;
 
  for (int int0 = 0; int0 < list1.size(); int0++) {
- if (!list0.contains(list1.get(int0)) {
+ if (!list0.contains(list1.get(int0) {
  list0.add((String)list1.get(int0);
  }
  }

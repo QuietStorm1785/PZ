@@ -134,7 +134,7 @@ public:
  DebugLog.Voice.warn("FMOD_System_CreateSound result=%d", this->FMODRecordSound);
  }
 
- javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this->volumeMic));
+ javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this->volumeMic);
  if (this->initialiseRecDev) {
  int int1 = javafmod.FMOD_System_RecordStart(this->FMODVoiceRecordDriverId, this->FMODRecordSound, true);
  if (int1 != FMOD_RESULT.FMOD_OK.ordinal()) {
@@ -340,7 +340,7 @@ public:
  }
 
  if (this->initialisedRecDev) {
- this->threadSafeCode(() -> javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this->volumeMic)));
+ this->threadSafeCode(() -> javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this->volumeMic);
  }
  }
  }

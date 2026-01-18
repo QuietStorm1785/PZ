@@ -353,7 +353,7 @@ public:
  }
  }
 
- if (!square.Is(IsoFlagType.WallSE) && (square.Is(IsoFlagType.cutW) || square.Has(IsoObjectType.doorFrW)) {
+ if (!square.Is(IsoFlagType.WallSE) && (square.Is(IsoFlagType.cutW) || square.Has(IsoObjectType.doorFrW) {
  byte0 |= 2;
  if (square.Is(IsoFlagType.WindowW) || square.Is(IsoFlagType.windowW) || square.Is(IsoFlagType.DoorWallW) {
  byte0 |= 8;

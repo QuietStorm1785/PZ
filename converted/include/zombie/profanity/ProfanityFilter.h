@@ -118,7 +118,7 @@ public:
 
  while (matcher.find()) {
  if (matcher.group("word") != nullptr) {
- matcher.appendReplacement(stringBuffer, Matcher.quoteReplacement(this->locale.filterWord(matcher.group("word"), true));
+ matcher.appendReplacement(stringBuffer, Matcher.quoteReplacement(this->locale.filterWord(matcher.group("word"), true);
  } else if (matcher.group("spaced") != nullptr) {
  matcher.appendReplacement(
  stringBuffer, Matcher.quoteReplacement(" " + this->locale.filterWord(matcher.group("spaced").replaceAll("\\s+", "")))

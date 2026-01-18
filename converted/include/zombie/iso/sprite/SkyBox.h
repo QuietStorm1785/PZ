@@ -136,7 +136,7 @@ public:
  this->SkyBoxParamCloudLight = (float)(1.0 - (1.0 - 1.0 * Math.pow(1000.0, -cm.getPrecipitationIntensity() - cm.getNightStrength())));
  float float9 = (1.0F - (cm.getWindAngleIntensity() + 1.0F) * 0.5F + 0.25F) % 1.0F;
  float9 *= 360.0F;
- this->SkyBoxParamWind.set((float)Math.cos(Math.toRadians(float9), 0.0F, (float)Math.sin(Math.toRadians(float9));
+ this->SkyBoxParamWind.set((float)Math.cos(Math.toRadians(float9), 0.0F, (float)Math.sin(Math.toRadians(float9);
  this->SkyBoxParamWind.mul(cm.getWindIntensity());
  if (!this->isSetAVG) {
  this->isSetAVG = true;

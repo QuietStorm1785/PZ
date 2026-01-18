@@ -258,8 +258,8 @@ public:
  int int0 = kahluaTableImpl1.len();
 
  for (byte byte0 = 0; byte0 < int0; byte0 += 2) {
- std::string string = Type.tryCastTo(kahluaTableImpl1.delegate.get(KahluaUtil.toDouble((long)(byte0 + 1)), String.class);
- double double1 = Type.tryCastTo(kahluaTableImpl1.delegate.get(KahluaUtil.toDouble((long)(byte0 + 2)), Double.class);
+ std::string string = Type.tryCastTo(kahluaTableImpl1.delegate.get(KahluaUtil.toDouble((long)(byte0 + 1), String.class);
+ double double1 = Type.tryCastTo(kahluaTableImpl1.delegate.get(KahluaUtil.toDouble((long)(byte0 + 2), Double.class);
  if (string != nullptr && double1 != nullptr) {
  Item item = ScriptManager.instance.FindItem(string);
  if (item != nullptr && !item.OBSOLETE) {

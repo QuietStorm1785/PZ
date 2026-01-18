@@ -129,7 +129,7 @@ public:
  }
 
  ZomboidHashMap.Entry<K, V> getEntry(Object object0) {
- int int0 = object0 == nullptr ? 0 : hash(object0.hashCode());
+ int int0 = object0.empty() ? 0 : hash(object0.hashCode());
 
  for (ZomboidHashMap.Entry entry = this->table[indexFor(int0, this->table.length)]; entry != nullptr; entry = entry.next) {
  if (entry.hash == int0) {
@@ -184,7 +184,7 @@ public:
  }
 
  void putForCreate(K object0, V object2) {
- int int0 = object0 == nullptr ? 0 : hash(object0.hashCode());
+ int int0 = object0.empty() ? 0 : hash(object0.hashCode());
  int int1 = indexFor(int0, this->table.length);
 
  for (ZomboidHashMap.Entry entry = this->table[int1]; entry != nullptr; entry = entry.next) {
@@ -274,7 +274,7 @@ public:
  }
 
  ZomboidHashMap.Entry<K, V> removeEntryForKey(Object object0) {
- int int0 = object0 == nullptr ? 0 : hash(object0.hashCode());
+ int int0 = object0.empty() ? 0 : hash(object0.hashCode());
  int int1 = indexFor(int0, this->table.length);
  ZomboidHashMap.Entry entry0 = this->table[int1];
  ZomboidHashMap.Entry entry1 = entry0;
@@ -312,7 +312,7 @@ public:
  return nullptr;
  } else {
  void* object1 = entry0.getKey();
- int int0 = object1 == nullptr ? 0 : hash(object1.hashCode());
+ int int0 = object1.empty() ? 0 : hash(object1.hashCode());
  int int1 = indexFor(int0, this->table.length);
  ZomboidHashMap.Entry entry1 = this->table[int1];
  ZomboidHashMap.Entry entry2 = entry1;

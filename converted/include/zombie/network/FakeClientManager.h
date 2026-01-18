@@ -75,7 +75,7 @@ public:
  std::unordered_map hashMap = new HashMap();
 
  try {
- std::string string0 = new String(Files.readAllBytes(Paths.get(string1));
+ std::string string0 = new String(Files.readAllBytes(Paths.get(string1);
  JSONObject jSONObject0 = new JSONObject(string0);
  FakeClientManager.Movement.version = jSONObject0.getString("version");
  JSONObject jSONObject1 = jSONObject0.getJSONObject("config");
@@ -1532,7 +1532,7 @@ public:
 
  static void logUserPacket(int int0, short short0) {
  PacketTypes.PacketType packetType = PacketTypes.packetTypes.get(short0);
- std::string string = packetType == nullptr ? "unknown user packet" : packetType.name();
+ std::string string = packetType.empty() ? "unknown user packet" : packetType.name();
  FakeClientManager.trace(int0, String.format("## %s (%d)", string, short0);
  }
 
@@ -1749,7 +1749,7 @@ public:
  }
 
  void circleMovement() {
- this->angle = (this->angle + (float)(2.0 * Math.asin(this->getDistance(this->movement.speed) / 2.0F / this->movement.radius)) % 360.0F;
+ this->angle = (this->angle + (float)(2.0 * Math.asin(this->getDistance(this->movement.speed) / 2.0F / this->movement.radius) % 360.0F;
  float float0 = this->movement.spawn.x + (float)(this->movement.radius * Math.sin(this->angle);
  float float1 = this->movement.spawn.y + (float)(this->movement.radius * Math.cos(this->angle);
  this->x = float0;
@@ -2382,7 +2382,7 @@ public:
  zombie0.isMoving = false;
  }
 
- if (float0 < canSeeZombieDistanceSquared && (Rand.Next(100) < 1 || zombie0.dir == IsoDirections.fromAngle(tmpDir)) {
+ if (float0 < canSeeZombieDistanceSquared && (Rand.Next(100) < 1 || zombie0.dir == IsoDirections.fromAngle(tmpDir) {
  zombie0.isMoving = true;
  }
 
@@ -2476,7 +2476,7 @@ public:
  FakeClientManager.WriteStringUTF(byteBuffer, "");
  FakeClientManager.WriteStringUTF(byteBuffer, "");
  FakeClientManager.WriteStringUTF(byteBuffer, "");
- byteBuffer.putShort((short)((this->player.weapon_isBareHeads ? 2 : 0) + (boolean0 ? 8 : 0));
+ byteBuffer.putShort((short)((this->player.weapon_isBareHeads ? 2 : 0) + (boolean0 ? 8 : 0);
  byteBuffer.putFloat(1.0F);
  byteBuffer.putFloat(1.0F);
  byteBuffer.putFloat(1.0F);

@@ -376,7 +376,7 @@ public:
  bool boolean1 = false;
 
  for (int int2 = 0; int2 < food.getExtraItems().size(); int2++) {
- if (!arrayList.contains(int2) && food.getExtraItems().get(int2) == uniqueRecipe.getItems().get(int1)) {
+ if (!arrayList.contains(int2) && food.getExtraItems().get(int2) == uniqueRecipe.getItems().get(int1) {
  boolean1 = true;
  arrayList.add(int2);
  break;

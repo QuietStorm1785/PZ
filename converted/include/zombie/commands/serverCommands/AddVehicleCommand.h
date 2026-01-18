@@ -76,9 +76,9 @@ public:
  int1 = PZMath.fastfloor(player0.getY());
  int2 = PZMath.fastfloor(player0.getZ());
  } else if (this->argsName == "Script And Coordinate")) {
- int0 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(1));
- int1 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(2));
- int2 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(3));
+ int0 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(1);
+ int1 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(2);
+ int2 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(3);
  } else {
  if (this->connection.empty()) {
  return "Pass a username or coordinate";

@@ -419,7 +419,7 @@ public:
 
  if (!boolean0
  && object.sprite != nullptr
- && (object.sprite.Properties.Is(IsoFlagType.canBeRemoved) || object.sprite.Properties.Is(IsoFlagType.attachedFloor)) {
+ && (object.sprite.Properties.Is(IsoFlagType.canBeRemoved) || object.sprite.Properties.Is(IsoFlagType.attachedFloor) {
  byte0 |= 2;
  }
  }
@@ -582,7 +582,7 @@ public:
  object.setTargetAlpha(int2, 1.0F);
  if (IsoCamera.CamCharacter != nullptr
  && object.getProperties() != nullptr
- && (object.getProperties().Is(IsoFlagType.solid) || object.getProperties().Is(IsoFlagType.solidtrans)) {
+ && (object.getProperties().Is(IsoFlagType.solid) || object.getProperties().Is(IsoFlagType.solidtrans) {
  int int7 = square0.getX() - (int)IsoCamera.CamCharacter.getX();
  int int8 = square0.getY() - (int)IsoCamera.CamCharacter.getY();
  if (int7 > 0 && int7 < 3 && int8 >= 0 && int8 < 3 || int8 > 0 && int8 < 3 && int7 >= 0 && int7 < 3) {
@@ -632,7 +632,7 @@ public:
 
  for (int int1 = 0; int1 < int0; int1++) {
  IsoMovingObject movingObject0 = square.getStaticMovingObjects().get(int1);
- if (movingObject0.sprite != nullptr && (!boolean0 || movingObject0 instanceof IsoDeadBody) && (boolean0 || !(movingObject0 instanceof IsoDeadBody)) {
+ if (movingObject0.sprite != nullptr && (!boolean0 || movingObject0 instanceof IsoDeadBody) && (boolean0 || !(movingObject0 instanceof IsoDeadBody) {
  movingObject0.render(movingObject0.getX(), movingObject0.getY(), movingObject0.getZ(), defColorInfo, true, false, nullptr);
  movingObject0.renderObjectPicker(movingObject0.getX(), movingObject0.getY(), movingObject0.getZ(), defColorInfo);
  }

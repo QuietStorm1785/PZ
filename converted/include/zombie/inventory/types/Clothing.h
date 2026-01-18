@@ -470,7 +470,7 @@ public:
  return Clothing.WetDryState.Dryer;
  } else {
  BaseVehicle vehicle = character.getVehicle();
- if (vehicle != nullptr && vehicle.hasRoof(vehicle.getSeat(character)) {
+ if (vehicle != nullptr && vehicle.hasRoof(vehicle.getSeat(character) {
  VehiclePart part = vehicle.getPartById("Windshield");
  if (part != nullptr) {
  VehicleWindow vehicleWindow = part.getWindow();

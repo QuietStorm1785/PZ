@@ -156,7 +156,7 @@ public:
  } else {
  if (this->filterWordsRaw.size() > 0) {
  for (int int0 = 0; int0 < this->filterWordsRaw.size(); int0++) {
- if (string0.equalsIgnoreCase(this->filterWordsRaw.get(int0)) {
+ if (string0.equalsIgnoreCase(this->filterWordsRaw.get(int0) {
  return new String(new char[string0.length()]).replace('\u0000', '*');
  }
  }
@@ -186,7 +186,7 @@ public:
  } else {
  if (this->filterWordsRaw.size() > 0) {
  for (int int0 = 0; int0 < this->filterWordsRaw.size(); int0++) {
- if (string0.equalsIgnoreCase(this->filterWordsRaw.get(int0)) {
+ if (string0.equalsIgnoreCase(this->filterWordsRaw.get(int0) {
  return string0;
  }
  }

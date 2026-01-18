@@ -587,7 +587,7 @@ public:
  int int25 = getA8(int1);
  int int26 = getB9(int1);
  void* object12 = luaCallFrame0.get(int26);
- luaCallFrame0.set(int25, KahluaUtil.toBoolean(!KahluaUtil.boolEval(object12));
+ luaCallFrame0.set(int25, KahluaUtil.toBoolean(!KahluaUtil.boolEval(object12);
  boolean0 = false;
  break;
  case 20:
@@ -637,7 +637,7 @@ public:
  StringBuilder stringBuilder = new StringBuilder();
 
  for (int int63 = int60 - int61 + 1; int63 <= int60; int63++) {
- stringBuilder.append(KahluaUtil.rawTostring(luaCallFrame0.get(int63));
+ stringBuilder.append(KahluaUtil.rawTostring(luaCallFrame0.get(int63);
  }
 
  stringBuilder.append(string8);
@@ -1276,7 +1276,7 @@ public:
 
  void* call(void* object0, Object[] objects) {
  int int0 = this->currentCoroutine.getTop();
- int int1 = objects == nullptr ? 0 : objects.length;
+ int int1 = objects.empty() ? 0 : objects.length;
  this->currentCoroutine.setTop(int0 + 1 + int1);
  this->currentCoroutine.objectStack[int0] = object0;
 
@@ -1400,7 +1400,7 @@ public:
  }
 
  public Object[] pcall(Object object0, Object[] objects) {
- int int0 = objects == nullptr ? 0 : objects.length;
+ int int0 = objects.empty() ? 0 : objects.length;
  Coroutine coroutine = this->currentCoroutine;
  int int1 = coroutine.getTop();
  coroutine.setTop(int1 + 1 + int0);
@@ -1424,7 +1424,7 @@ public:
  }
 
  void pcallvoid(void* arg0, Object[] arg1) {
- int int0 = arg1 == nullptr ? 0 : arg1.length;
+ int int0 = arg1.empty() ? 0 : arg1.length;
  Coroutine coroutine = this->currentCoroutine;
  int int1 = coroutine.getTop();
  coroutine.setTop(int1 + 1 + int0);
@@ -1547,7 +1547,7 @@ public:
  }
 
  bool pcallBoolean(void* arg0, Object[] arg1) {
- int int0 = arg1 == nullptr ? 0 : arg1.length;
+ int int0 = arg1.empty() ? 0 : arg1.length;
  Coroutine coroutine = this->currentCoroutine;
  int int1 = coroutine.getTop();
  coroutine.setTop(int1 + 1 + int0);

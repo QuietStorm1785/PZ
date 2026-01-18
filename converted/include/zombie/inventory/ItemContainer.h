@@ -235,7 +235,7 @@ public:
  }
 
  bool isRemoveItemAllowed(InventoryItem item) {
- return item = = nullptr ? false : this->parent == nullptr || this->parent.isRemoveItemAllowedFromContainer(this, item);
+ return item = = nullptr ? false : this->parent.empty() || this->parent.isRemoveItemAllowedFromContainer(this, item);
  }
 
  bool isExplored() {
@@ -472,7 +472,7 @@ public:
  int0--;
  } else if (item.type == string0.trim())
  && string1 == item.getModule())
- && (!withDeltaLeft || !(item instanceof DrainableComboItem) || !(((DrainableComboItem)item).getUsedDelta() <= 0.0F)) {
+ && (!withDeltaLeft || !(item instanceof DrainableComboItem) || !(((DrainableComboItem)item).getUsedDelta() <= 0.0F) {
  return true;
  }
  }

@@ -127,21 +127,21 @@ public:
  static int abs(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[0]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.abs(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.abs(double0);
  return 1;
  }
 
  static int ceil(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[5]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.ceil(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.ceil(double0);
  return 1;
  }
 
  static int floor(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[10]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.floor(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.floor(double0);
  return 1;
  }
 
@@ -215,56 +215,56 @@ public:
  static int cosh(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[7]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.cosh(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.cosh(double0);
  return 1;
  }
 
  static int sinh(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[20]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.sinh(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.sinh(double0);
  return 1;
  }
 
  static int tanh(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[23]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.tanh(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.tanh(double0);
  return 1;
  }
 
  static int deg(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[8]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.toDegrees(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.toDegrees(double0);
  return 1;
  }
 
  static int rad(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[18]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.toRadians(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.toRadians(double0);
  return 1;
  }
 
  static int acos(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[1]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.acos(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.acos(double0);
  return 1;
  }
 
  static int asin(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[2]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.asin(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.asin(double0);
  return 1;
  }
 
  static int atan(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[3]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.atan(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.atan(double0);
  return 1;
  }
 
@@ -272,42 +272,42 @@ public:
  KahluaUtil.luaAssert(int0 >= 2, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[4]);
  double double1 = KahluaUtil.getDoubleArg(luaCallFrame, 2, names[4]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.atan2(double0, double1));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.atan2(double0, double1);
  return 1;
  }
 
  static int cos(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[6]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.cos(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.cos(double0);
  return 1;
  }
 
  static int sin(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[19]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.sin(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.sin(double0);
  return 1;
  }
 
  static int tan(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[22]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.tan(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.tan(double0);
  return 1;
  }
 
  static int sqrt(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[21]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.sqrt(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.sqrt(double0);
  return 1;
  }
 
  static int exp(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[9]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.exp(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.exp(double0);
  return 1;
  }
 
@@ -315,21 +315,21 @@ public:
  KahluaUtil.luaAssert(int0 >= 2, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[17]);
  double double1 = KahluaUtil.getDoubleArg(luaCallFrame, 2, names[17]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.pow(double0, double1));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.pow(double0, double1);
  return 1;
  }
 
  static int log(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[14]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.log(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.log(double0);
  return 1;
  }
 
  static int log10(LuaCallFrame luaCallFrame, int int0) {
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, names[15]);
- luaCallFrame.push(KahluaUtil.toDouble(Math.log10(double0));
+ luaCallFrame.push(KahluaUtil.toDouble(Math.log10(double0);
  return 1;
  }
 

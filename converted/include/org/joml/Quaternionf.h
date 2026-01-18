@@ -88,7 +88,7 @@ public:
  }
 
  Quaternionf normalize(Quaternionf arg0) {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w)));
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  arg0.x = this->x * float0;
  arg0.y = this->y * float0;
  arg0.z = this->z * float0;
@@ -158,7 +158,7 @@ public:
  float float2 = this->z;
  float float3 = this->w;
  if (float3 > 1.0F) {
- float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3)));
+ float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  float0 *= float4;
  float1 *= float4;
  float2 *= float4;
@@ -187,7 +187,7 @@ public:
  float float2 = this->z;
  float float3 = this->w;
  if (float3 > 1.0F) {
- float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3)));
+ float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  float0 *= float4;
  float1 *= float4;
  float2 *= float4;
@@ -539,10 +539,10 @@ public:
 
  Quaternionf mul(float arg0, float arg1, float arg2, float arg3, Quaternionf arg4) {
  return arg4.set(
- Math.fma(this->w, arg0, Math.fma(this->x, arg3, Math.fma(this->y, arg2, -this->z * arg1)),
- Math.fma(this->w, arg1, Math.fma(-this->x, arg2, Math.fma(this->y, arg3, this->z * arg0)),
- Math.fma(this->w, arg2, Math.fma(this->x, arg1, Math.fma(-this->y, arg0, this->z * arg3)),
- Math.fma(this->w, arg3, Math.fma(-this->x, arg0, Math.fma(-this->y, arg1, -this->z * arg2))
+ Math.fma(this->w, arg0, Math.fma(this->x, arg3, Math.fma(this->y, arg2, -this->z * arg1),
+ Math.fma(this->w, arg1, Math.fma(-this->x, arg2, Math.fma(this->y, arg3, this->z * arg0),
+ Math.fma(this->w, arg2, Math.fma(this->x, arg1, Math.fma(-this->y, arg0, this->z * arg3),
+ Math.fma(this->w, arg3, Math.fma(-this->x, arg0, Math.fma(-this->y, arg1, -this->z * arg2)
  );
  }
 
@@ -552,10 +552,10 @@ public:
 
  Quaternionf premul(Quaternionfc arg0, Quaternionf arg1) {
  return arg1.set(
- Math.fma(arg0.w(), this->x, Math.fma(arg0.x(), this->w, Math.fma(arg0.y(), this->z, -arg0.z() * this->y)),
- Math.fma(arg0.w(), this->y, Math.fma(-arg0.x(), this->z, Math.fma(arg0.y(), this->w, arg0.z() * this->x)),
- Math.fma(arg0.w(), this->z, Math.fma(arg0.x(), this->y, Math.fma(-arg0.y(), this->x, arg0.z() * this->w)),
- Math.fma(arg0.w(), this->w, Math.fma(-arg0.x(), this->x, Math.fma(-arg0.y(), this->y, -arg0.z() * this->z))
+ Math.fma(arg0.w(), this->x, Math.fma(arg0.x(), this->w, Math.fma(arg0.y(), this->z, -arg0.z() * this->y),
+ Math.fma(arg0.w(), this->y, Math.fma(-arg0.x(), this->z, Math.fma(arg0.y(), this->w, arg0.z() * this->x),
+ Math.fma(arg0.w(), this->z, Math.fma(arg0.x(), this->y, Math.fma(-arg0.y(), this->x, arg0.z() * this->w),
+ Math.fma(arg0.w(), this->w, Math.fma(-arg0.x(), this->x, Math.fma(-arg0.y(), this->y, -arg0.z() * this->z)
  );
  }
 
@@ -565,10 +565,10 @@ public:
 
  Quaternionf premul(float arg0, float arg1, float arg2, float arg3, Quaternionf arg4) {
  return arg4.set(
- Math.fma(arg3, this->x, Math.fma(arg0, this->w, Math.fma(arg1, this->z, -arg2 * this->y)),
- Math.fma(arg3, this->y, Math.fma(-arg0, this->z, Math.fma(arg1, this->w, arg2 * this->x)),
- Math.fma(arg3, this->z, Math.fma(arg0, this->y, Math.fma(-arg1, this->x, arg2 * this->w)),
- Math.fma(arg3, this->w, Math.fma(-arg0, this->x, Math.fma(-arg1, this->y, -arg2 * this->z))
+ Math.fma(arg3, this->x, Math.fma(arg0, this->w, Math.fma(arg1, this->z, -arg2 * this->y),
+ Math.fma(arg3, this->y, Math.fma(-arg0, this->z, Math.fma(arg1, this->w, arg2 * this->x),
+ Math.fma(arg3, this->z, Math.fma(arg0, this->y, Math.fma(-arg1, this->x, arg2 * this->w),
+ Math.fma(arg3, this->w, Math.fma(-arg0, this->x, Math.fma(-arg1, this->y, -arg2 * this->z)
  );
  }
 
@@ -796,7 +796,7 @@ public:
  }
 
  Vector3f transformInverse(float arg0, float arg1, float arg2, Vector3f arg3) {
- float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  float float1 = this->x * float0;
  float float2 = this->y * float0;
  float float3 = this->z * float0;
@@ -921,7 +921,7 @@ public:
  }
 
  Vector4f transformInverse(float arg0, float arg1, float arg2, Vector4f arg3) {
- float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  float float1 = this->x * float0;
  float float2 = this->y * float0;
  float float3 = this->z * float0;
@@ -1238,7 +1238,7 @@ public:
  }
 
  Vector3d transformInverse(double arg0, double arg1, double arg2, Vector3d arg3) {
- float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  float float1 = this->x * float0;
  float float2 = this->y * float0;
  float float3 = this->z * float0;
@@ -1313,7 +1313,7 @@ public:
  }
 
  Vector4d transformInverse(double arg0, double arg1, double arg2, Vector4d arg3) {
- float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  float float1 = this->x * float0;
  float float2 = this->y * float0;
  float float3 = this->z * float0;
@@ -1457,7 +1457,7 @@ public:
  }
 
  Quaternionf invert(Quaternionf arg0) {
- float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ float float0 = 1.0F / Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  arg0.x = -this->x * float0;
  arg0.y = -this->y * float0;
  arg0.z = -this->z * float0;
@@ -1476,10 +1476,10 @@ public:
  float float3 = -arg0.z() * float0;
  float float4 = arg0.w() * float0;
  return arg1.set(
- Math.fma(this->w, float1, Math.fma(this->x, float4, Math.fma(this->y, float3, -this->z * float2)),
- Math.fma(this->w, float2, Math.fma(-this->x, float3, Math.fma(this->y, float4, this->z * float1)),
- Math.fma(this->w, float3, Math.fma(this->x, float2, Math.fma(-this->y, float1, this->z * float4)),
- Math.fma(this->w, float4, Math.fma(-this->x, float1, Math.fma(-this->y, float2, -this->z * float3))
+ Math.fma(this->w, float1, Math.fma(this->x, float4, Math.fma(this->y, float3, -this->z * float2),
+ Math.fma(this->w, float2, Math.fma(-this->x, float3, Math.fma(this->y, float4, this->z * float1),
+ Math.fma(this->w, float3, Math.fma(this->x, float2, Math.fma(-this->y, float1, this->z * float4),
+ Math.fma(this->w, float4, Math.fma(-this->x, float1, Math.fma(-this->y, float2, -this->z * float3)
  );
  }
 
@@ -1527,10 +1527,10 @@ public:
  float float12 = float1 * float8 - float0 * float9;
  float float13 = float1 * float9 + float0 * float8;
  return arg3.set(
- Math.fma(this->w, float11, Math.fma(this->x, float10, Math.fma(this->y, float13, -this->z * float12)),
- Math.fma(this->w, float12, Math.fma(-this->x, float13, Math.fma(this->y, float10, this->z * float11)),
- Math.fma(this->w, float13, Math.fma(this->x, float12, Math.fma(-this->y, float11, this->z * float10)),
- Math.fma(this->w, float10, Math.fma(-this->x, float11, Math.fma(-this->y, float12, -this->z * float13))
+ Math.fma(this->w, float11, Math.fma(this->x, float10, Math.fma(this->y, float13, -this->z * float12),
+ Math.fma(this->w, float12, Math.fma(-this->x, float13, Math.fma(this->y, float10, this->z * float11),
+ Math.fma(this->w, float13, Math.fma(this->x, float12, Math.fma(-this->y, float11, this->z * float10),
+ Math.fma(this->w, float10, Math.fma(-this->x, float11, Math.fma(-this->y, float12, -this->z * float13)
  );
  }
 
@@ -1554,10 +1554,10 @@ public:
  float float12 = float1 * float8 + float0 * float9;
  float float13 = float1 * float9 - float0 * float8;
  return arg3.set(
- Math.fma(this->w, float11, Math.fma(this->x, float10, Math.fma(this->y, float13, -this->z * float12)),
- Math.fma(this->w, float12, Math.fma(-this->x, float13, Math.fma(this->y, float10, this->z * float11)),
- Math.fma(this->w, float13, Math.fma(this->x, float12, Math.fma(-this->y, float11, this->z * float10)),
- Math.fma(this->w, float10, Math.fma(-this->x, float11, Math.fma(-this->y, float12, -this->z * float13))
+ Math.fma(this->w, float11, Math.fma(this->x, float10, Math.fma(this->y, float13, -this->z * float12),
+ Math.fma(this->w, float12, Math.fma(-this->x, float13, Math.fma(this->y, float10, this->z * float11),
+ Math.fma(this->w, float13, Math.fma(this->x, float12, Math.fma(-this->y, float11, this->z * float10),
+ Math.fma(this->w, float10, Math.fma(-this->x, float11, Math.fma(-this->y, float12, -this->z * float13)
  );
  }
 
@@ -1581,10 +1581,10 @@ public:
  float float12 = float9 * float4 - float8 * float5;
  float float13 = float9 * float5 + float8 * float4;
  return arg3.set(
- Math.fma(this->w, float10, Math.fma(this->x, float13, Math.fma(this->y, float12, -this->z * float11)),
- Math.fma(this->w, float11, Math.fma(-this->x, float12, Math.fma(this->y, float13, this->z * float10)),
- Math.fma(this->w, float12, Math.fma(this->x, float11, Math.fma(-this->y, float10, this->z * float13)),
- Math.fma(this->w, float13, Math.fma(-this->x, float10, Math.fma(-this->y, float11, -this->z * float12))
+ Math.fma(this->w, float10, Math.fma(this->x, float13, Math.fma(this->y, float12, -this->z * float11),
+ Math.fma(this->w, float11, Math.fma(-this->x, float12, Math.fma(this->y, float13, this->z * float10),
+ Math.fma(this->w, float12, Math.fma(this->x, float11, Math.fma(-this->y, float10, this->z * float13),
+ Math.fma(this->w, float13, Math.fma(-this->x, float10, Math.fma(-this->y, float11, -this->z * float12)
  );
  }
 
@@ -1596,7 +1596,7 @@ public:
  }
 
  float lengthSquared() {
- return Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ return Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  }
 
  Quaternionf rotationXYZ(float arg0, float arg1, float arg2) {
@@ -1742,10 +1742,10 @@ public:
  float float9 = float1 * float4;
  float float10 = float2 * float4;
  return arg4.set(
- Math.fma(float5, this->x, Math.fma(float8, this->w, Math.fma(float9, this->z, -float10 * this->y)),
- Math.fma(float5, this->y, Math.fma(-float8, this->z, Math.fma(float9, this->w, float10 * this->x)),
- Math.fma(float5, this->z, Math.fma(float8, this->y, Math.fma(-float9, this->x, float10 * this->w)),
- Math.fma(float5, this->w, Math.fma(-float8, this->x, Math.fma(-float9, this->y, -float10 * this->z))
+ Math.fma(float5, this->x, Math.fma(float8, this->w, Math.fma(float9, this->z, -float10 * this->y),
+ Math.fma(float5, this->y, Math.fma(-float8, this->z, Math.fma(float9, this->w, float10 * this->x),
+ Math.fma(float5, this->z, Math.fma(float8, this->y, Math.fma(-float9, this->x, float10 * this->w),
+ Math.fma(float5, this->w, Math.fma(-float8, this->x, Math.fma(-float9, this->y, -float10 * this->z)
  );
  }
 
@@ -1761,7 +1761,7 @@ public:
  arg2.y = Math.fma(float1, this->y, float2 * arg0.y());
  arg2.z = Math.fma(float1, this->z, float2 * arg0.z());
  arg2.w = Math.fma(float1, this->w, float2 * arg0.w());
- float float3 = Math.invsqrt(Math.fma(arg2.x, arg2.x, Math.fma(arg2.y, arg2.y, Math.fma(arg2.z, arg2.z, arg2.w * arg2.w)));
+ float float3 = Math.invsqrt(Math.fma(arg2.x, arg2.x, Math.fma(arg2.y, arg2.y, Math.fma(arg2.z, arg2.z, arg2.w * arg2.w);
  arg2.x *= float3;
  arg2.y *= float3;
  arg2.z *= float3;
@@ -1792,7 +1792,7 @@ public:
  float float5 = arg0.y();
  float float6 = arg0.z();
  float float7 = arg0.w();
- float float8 = Math.fma(float0, float4, Math.fma(float1, float5, Math.fma(float2, float6, float3 * float7));
+ float float8 = Math.fma(float0, float4, Math.fma(float1, float5, Math.fma(float2, float6, float3 * float7);
  float float9 = Math.abs(float8);
  if (0.999999F < float9) {
  return arg3.set(this);
@@ -1806,7 +1806,7 @@ public:
  float5 = Math.fma(float11, float5, float12 * float1);
  float6 = Math.fma(float11, float6, float12 * float2);
  float7 = Math.fma(float11, float7, float12 * float3);
- float float13 = Math.invsqrt(Math.fma(float4, float4, Math.fma(float5, float5, Math.fma(float6, float6, float7 * float7)));
+ float float13 = Math.invsqrt(Math.fma(float4, float4, Math.fma(float5, float5, Math.fma(float6, float6, float7 * float7);
  float4 *= float13;
  float5 *= float13;
  float6 *= float13;
@@ -1817,7 +1817,7 @@ public:
  float1 = Math.fma(float11, float1, float12 * float5);
  float2 = Math.fma(float11, float2, float12 * float6);
  float3 = Math.fma(float11, float3, float12 * float7);
- float float14 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3)));
+ float float14 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  float0 *= float14;
  float1 *= float14;
  float2 *= float14;
@@ -1825,7 +1825,7 @@ public:
  float10 = float10 + float10 - 1.0F;
  }
 
- float8 = Math.fma(float0, float4, Math.fma(float1, float5, Math.fma(float2, float6, float3 * float7));
+ float8 = Math.fma(float0, float4, Math.fma(float1, float5, Math.fma(float2, float6, float3 * float7);
  }
 
  float float15 = 1.0F - float10;
@@ -1834,7 +1834,7 @@ public:
  float float18 = Math.fma(float15, float1, float16 * float5);
  float float19 = Math.fma(float15, float2, float16 * float6);
  float float20 = Math.fma(float15, float3, float16 * float7);
- float float21 = Math.invsqrt(Math.fma(float17, float17, Math.fma(float18, float18, Math.fma(float19, float19, float20 * float20)));
+ float float21 = Math.invsqrt(Math.fma(float17, float17, Math.fma(float18, float18, Math.fma(float19, float19, float20 * float20);
  arg3.x = float17 * float21;
  arg3.y = float18 * float21;
  arg3.z = float19 * float21;
@@ -1924,16 +1924,16 @@ public:
  }
 
  return arg6.set(
- Math.fma(this->w, float11, Math.fma(this->x, float14, Math.fma(this->y, float13, -this->z * float12)),
- Math.fma(this->w, float12, Math.fma(-this->x, float13, Math.fma(this->y, float14, this->z * float11)),
- Math.fma(this->w, float13, Math.fma(this->x, float12, Math.fma(-this->y, float11, this->z * float14)),
- Math.fma(this->w, float14, Math.fma(-this->x, float11, Math.fma(-this->y, float12, -this->z * float13))
+ Math.fma(this->w, float11, Math.fma(this->x, float14, Math.fma(this->y, float13, -this->z * float12),
+ Math.fma(this->w, float12, Math.fma(-this->x, float13, Math.fma(this->y, float14, this->z * float11),
+ Math.fma(this->w, float13, Math.fma(this->x, float12, Math.fma(-this->y, float11, this->z * float14),
+ Math.fma(this->w, float14, Math.fma(-this->x, float11, Math.fma(-this->y, float12, -this->z * float13)
  );
  }
 
  Quaternionf rotationTo(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5) {
- float float0 = Math.invsqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2));
- float float1 = Math.invsqrt(Math.fma(arg3, arg3, Math.fma(arg4, arg4, arg5 * arg5));
+ float float0 = Math.invsqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2);
+ float float1 = Math.invsqrt(Math.fma(arg3, arg3, Math.fma(arg4, arg4, arg5 * arg5);
  float float2 = arg0 * float0;
  float float3 = arg1 * float0;
  float float4 = arg2 * float0;
@@ -1967,7 +1967,7 @@ public:
  float float19 = float16 * float14;
  float float20 = float17 * float14;
  float float21 = float13 * 0.5F;
- float float22 = Math.invsqrt(Math.fma(float18, float18, Math.fma(float19, float19, Math.fma(float20, float20, float21 * float21)));
+ float float22 = Math.invsqrt(Math.fma(float18, float18, Math.fma(float19, float19, Math.fma(float20, float20, float21 * float21);
  this->x = float18 * float22;
  this->y = float19 * float22;
  this->z = float20 * float22;
@@ -1982,8 +1982,8 @@ public:
  }
 
  Quaternionf rotateTo(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5, Quaternionf arg6) {
- float float0 = Math.invsqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2));
- float float1 = Math.invsqrt(Math.fma(arg3, arg3, Math.fma(arg4, arg4, arg5 * arg5));
+ float float0 = Math.invsqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, arg2 * arg2);
+ float float1 = Math.invsqrt(Math.fma(arg3, arg3, Math.fma(arg4, arg4, arg5 * arg5);
  float float2 = arg0 * float0;
  float float3 = arg1 * float0;
  float float4 = arg2 * float0;
@@ -2016,7 +2016,7 @@ public:
  float10 = float16 * float14;
  float11 = float17 * float14;
  float12 = float13 * 0.5F;
- float float18 = Math.invsqrt(Math.fma(float9, float9, Math.fma(float10, float10, Math.fma(float11, float11, float12 * float12)));
+ float float18 = Math.invsqrt(Math.fma(float9, float9, Math.fma(float10, float10, Math.fma(float11, float11, float12 * float12);
  float9 *= float18;
  float10 *= float18;
  float11 *= float18;
@@ -2024,10 +2024,10 @@ public:
  }
 
  return arg6.set(
- Math.fma(this->w, float9, Math.fma(this->x, float12, Math.fma(this->y, float11, -this->z * float10)),
- Math.fma(this->w, float10, Math.fma(-this->x, float11, Math.fma(this->y, float12, this->z * float9)),
- Math.fma(this->w, float11, Math.fma(this->x, float10, Math.fma(-this->y, float9, this->z * float12)),
- Math.fma(this->w, float12, Math.fma(-this->x, float9, Math.fma(-this->y, float10, -this->z * float11))
+ Math.fma(this->w, float9, Math.fma(this->x, float12, Math.fma(this->y, float11, -this->z * float10),
+ Math.fma(this->w, float10, Math.fma(-this->x, float11, Math.fma(this->y, float12, this->z * float9),
+ Math.fma(this->w, float11, Math.fma(this->x, float10, Math.fma(-this->y, float9, this->z * float12),
+ Math.fma(this->w, float12, Math.fma(-this->x, float9, Math.fma(-this->y, float10, -this->z * float11)
  );
  }
 
@@ -2118,16 +2118,16 @@ public:
  Quaternionf rotateAxis(float arg0, float arg1, float arg2, float arg3, Quaternionf arg4) {
  float float0 = arg0 / 2.0F;
  float float1 = Math.sin(float0);
- float float2 = Math.invsqrt(Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3));
+ float float2 = Math.invsqrt(Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3);
  float float3 = arg1 * float2 * float1;
  float float4 = arg2 * float2 * float1;
  float float5 = arg3 * float2 * float1;
  float float6 = Math.cosFromSin(float1, float0);
  return arg4.set(
- Math.fma(this->w, float3, Math.fma(this->x, float6, Math.fma(this->y, float5, -this->z * float4)),
- Math.fma(this->w, float4, Math.fma(-this->x, float5, Math.fma(this->y, float6, this->z * float3)),
- Math.fma(this->w, float5, Math.fma(this->x, float4, Math.fma(-this->y, float3, this->z * float6)),
- Math.fma(this->w, float6, Math.fma(-this->x, float3, Math.fma(-this->y, float4, -this->z * float5))
+ Math.fma(this->w, float3, Math.fma(this->x, float6, Math.fma(this->y, float5, -this->z * float4),
+ Math.fma(this->w, float4, Math.fma(-this->x, float5, Math.fma(this->y, float6, this->z * float3),
+ Math.fma(this->w, float5, Math.fma(this->x, float4, Math.fma(-this->y, float3, this->z * float6),
+ Math.fma(this->w, float6, Math.fma(-this->x, float3, Math.fma(-this->y, float4, -this->z * float5)
  );
  }
 
@@ -2304,15 +2304,15 @@ public:
  float float2 = -arg0.y() * float0;
  float float3 = -arg0.z() * float0;
  float float4 = arg0.w() * float0;
- float float5 = Math.fma(arg0.w(), this->x, Math.fma(arg0.x(), this->w, Math.fma(arg0.y(), this->z, -arg0.z() * this->y));
- float float6 = Math.fma(arg0.w(), this->y, Math.fma(-arg0.x(), this->z, Math.fma(arg0.y(), this->w, arg0.z() * this->x));
- float float7 = Math.fma(arg0.w(), this->z, Math.fma(arg0.x(), this->y, Math.fma(-arg0.y(), this->x, arg0.z() * this->w));
- float float8 = Math.fma(arg0.w(), this->w, Math.fma(-arg0.x(), this->x, Math.fma(-arg0.y(), this->y, -arg0.z() * this->z));
+ float float5 = Math.fma(arg0.w(), this->x, Math.fma(arg0.x(), this->w, Math.fma(arg0.y(), this->z, -arg0.z() * this->y);
+ float float6 = Math.fma(arg0.w(), this->y, Math.fma(-arg0.x(), this->z, Math.fma(arg0.y(), this->w, arg0.z() * this->x);
+ float float7 = Math.fma(arg0.w(), this->z, Math.fma(arg0.x(), this->y, Math.fma(-arg0.y(), this->x, arg0.z() * this->w);
+ float float8 = Math.fma(arg0.w(), this->w, Math.fma(-arg0.x(), this->x, Math.fma(-arg0.y(), this->y, -arg0.z() * this->z);
  return arg1.set(
- Math.fma(float8, float1, Math.fma(float5, float4, Math.fma(float6, float3, -float7 * float2)),
- Math.fma(float8, float2, Math.fma(-float5, float3, Math.fma(float6, float4, float7 * float1)),
- Math.fma(float8, float3, Math.fma(float5, float2, Math.fma(-float6, float1, float7 * float4)),
- Math.fma(float8, float4, Math.fma(-float5, float1, Math.fma(-float6, float2, -float7 * float3))
+ Math.fma(float8, float1, Math.fma(float5, float4, Math.fma(float6, float3, -float7 * float2),
+ Math.fma(float8, float2, Math.fma(-float5, float3, Math.fma(float6, float4, float7 * float1),
+ Math.fma(float8, float3, Math.fma(float5, float2, Math.fma(-float6, float1, float7 * float4),
+ Math.fma(float8, float4, Math.fma(-float5, float1, Math.fma(-float6, float2, -float7 * float3)
  );
  }
 

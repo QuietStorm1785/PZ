@@ -37,10 +37,10 @@ public:
  std::string Command() {
  std::string string;
  if (this->getCommandArgsCount() == 1) {
- if ("stop" == this->getCommandArg(0)) {
+ if ("stop" == this->getCommandArg(0) {
  IsoWorld.instance.helicopter.deactivate();
  string = "Chopper deactivated";
- } else if ("start" == this->getCommandArg(0)) {
+ } else if ("start" == this->getCommandArg(0) {
  IsoWorld.instance.helicopter.pickRandomTarget();
  string = "Chopper activated";
  } else {

@@ -994,7 +994,7 @@ public:
 
  int int1 = deadBody.getHumanVisual().zombieRotStage;
  float float3 = float2 - deadBody.deathTime;
- if (!(float3 < float0 + (deadBody.isSkeleton() ? float1 : 0.0F)) {
+ if (!(float3 < float0 + (deadBody.isSkeleton() ? float1 : 0.0F) {
  if (boolean0) {
  int int2 = (int)(float3 / float1);
  DebugLog.General.debugln("%s REMOVE %d -> %d age=%.2f stages=%d", deadBody, int0, int1, float3, int2);

@@ -59,7 +59,7 @@ public:
  static void printCurrentDirectMemory(StringBuilder stringBuilder) {
  long long0 = 0L;
  long long1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
- bool boolean0 = stringBuilder == nullptr;
+ bool boolean0 = stringBuilder.empty();
  if (stringBuilder.empty()) {
  stringBuilder = std::make_unique<StringBuilder>();
  }

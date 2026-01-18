@@ -157,7 +157,7 @@ public:
  KahluaUtil.luaAssert(int0 >= 2, "Not enough arguments");
  void* object0 = luaCallFrame.get(0);
  void* object1 = luaCallFrame.get(1);
- luaCallFrame.push(KahluaUtil.toBoolean(luaEquals(object0, object1));
+ luaCallFrame.push(KahluaUtil.toBoolean(luaEquals(object0, object1);
  return 1;
  }
 
@@ -248,7 +248,7 @@ public:
  luaCallFrame.setTop(int3);
 
  for (int int4 = 0; int4 < int3; int4++) {
- luaCallFrame.set(int4, table.rawget(KahluaUtil.toDouble((long)(int1 + int4)));
+ luaCallFrame.set(int4, table.rawget(KahluaUtil.toDouble((long)(int1 + int4);
  }
 
  return int3;
@@ -305,7 +305,7 @@ public:
  KahluaUtil.luaAssert(int0 >= 1, "Not enough arguments");
  void* object = luaCallFrame.get(0);
  if (object instanceof String && ((String)object).startsWith("#")) {
- luaCallFrame.push(KahluaUtil.toDouble((long)(int0 - 1));
+ luaCallFrame.push(KahluaUtil.toDouble((long)(int0 - 1);
  return 1;
  } else {
  double double0 = KahluaUtil.rawTonumber(object);

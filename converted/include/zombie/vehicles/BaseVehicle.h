@@ -948,7 +948,7 @@ public:
  if (_part != nullptr && _part.getInventoryItem() == nullptr) {
  return true;
  } else {
- VehicleWindow vehicleWindow = _part == nullptr ? nullptr : _part.getWindow();
+ VehicleWindow vehicleWindow = _part.empty() ? nullptr : _part.getWindow();
  return vehicleWindow != nullptr && (vehicleWindow.isOpen() || vehicleWindow.isDestroyed());
  }
  }
@@ -977,7 +977,7 @@ public:
  if (_part != nullptr && _part.getInventoryItem() == nullptr) {
  return true;
  } else {
- VehicleWindow vehicleWindow = _part == nullptr ? nullptr : _part.getWindow();
+ VehicleWindow vehicleWindow = _part.empty() ? nullptr : _part.getWindow();
  return vehicleWindow != nullptr && (vehicleWindow.isOpen() || vehicleWindow.isDestroyed());
  }
  }
@@ -2390,7 +2390,7 @@ public:
  this->addKeyToGloveBox();
  } else {
  VehicleType vehicleType = VehicleType.getTypeFromName(this->getVehicleType());
- int int0 = vehicleType == nullptr ? 70 : vehicleType.getChanceToSpawnKey();
+ int int0 = vehicleType.empty() ? 70 : vehicleType.getChanceToSpawnKey();
  if (Rand.Next(100) <= int0) {
  this->addKeyToWorld();
  }
@@ -3209,19 +3209,19 @@ public:
 
  bool isInvalidChunkAround(bool moveW, bool moveE, bool moveN, bool moveS) {
  if (IsoChunkMap.ChunkGridWidth > 7) {
- if (moveE && (this->isNullChunk(this->chunk.wx + 1, this->chunk.wy) || this->isNullChunk(this->chunk.wx + 2, this->chunk.wy)) {
+ if (moveE && (this->isNullChunk(this->chunk.wx + 1, this->chunk.wy) || this->isNullChunk(this->chunk.wx + 2, this->chunk.wy) {
  return true;
  }
 
- if (moveW && (this->isNullChunk(this->chunk.wx - 1, this->chunk.wy) || this->isNullChunk(this->chunk.wx - 2, this->chunk.wy)) {
+ if (moveW && (this->isNullChunk(this->chunk.wx - 1, this->chunk.wy) || this->isNullChunk(this->chunk.wx - 2, this->chunk.wy) {
  return true;
  }
 
- if (moveS && (this->isNullChunk(this->chunk.wx, this->chunk.wy + 1) || this->isNullChunk(this->chunk.wx, this->chunk.wy + 2)) {
+ if (moveS && (this->isNullChunk(this->chunk.wx, this->chunk.wy + 1) || this->isNullChunk(this->chunk.wx, this->chunk.wy + 2) {
  return true;
  }
 
- if (moveN && (this->isNullChunk(this->chunk.wx, this->chunk.wy - 1) || this->isNullChunk(this->chunk.wx, this->chunk.wy - 2)) {
+ if (moveN && (this->isNullChunk(this->chunk.wx, this->chunk.wy - 1) || this->isNullChunk(this->chunk.wx, this->chunk.wy - 2) {
  return true;
  }
  } else {
@@ -3631,10 +3631,10 @@ public:
  vector3f1 = this->getLocalPos(vehiclePoly.x4, vehiclePoly.y4, vehiclePoly.z, vector3f0);
  float float6 = (int)(vector3f1.x * 100.0F) / 100.0F;
  float float7 = (int)(vector3f1.z * 100.0F) / 100.0F;
- this->polyPlusRadiusMinX = Math.min(float0, Math.min(float2, Math.min(float4, float6));
- this->polyPlusRadiusMaxX = Math.max(float0, Math.max(float2, Math.max(float4, float6));
- this->polyPlusRadiusMinY = Math.min(float1, Math.min(float3, Math.min(float5, float7));
- this->polyPlusRadiusMaxY = Math.max(float1, Math.max(float3, Math.max(float5, float7));
+ this->polyPlusRadiusMinX = Math.min(float0, Math.min(float2, Math.min(float4, float6);
+ this->polyPlusRadiusMaxX = Math.max(float0, Math.max(float2, Math.max(float4, float6);
+ this->polyPlusRadiusMinY = Math.min(float1, Math.min(float3, Math.min(float5, float7);
+ this->polyPlusRadiusMaxY = Math.max(float1, Math.max(float3, Math.max(float5, float7);
  TL_vector3f_pool.get().release(vector3f0);
  }
  }
@@ -6076,7 +6076,7 @@ public:
  float float6 = IsoUtils.XToScreenExact(this->x, this->y, 0.0F, 0);
  float float7 = IsoUtils.YToScreenExact(this->x, this->y, 0.0F, 0);
  IsoPlayer player = GameClient.IDToPlayerMap.get(this->netPlayerId);
- std::string string = (player == nullptr ? "@server" : player.getUsername()) + " ( " + this->netPlayerId + " )";
+ std::string string = (player.empty() ? "@server" : player.getUsername()) + " ( " + this->netPlayerId + " )";
  float float8;
  TextManager.instance
  .DrawString(
@@ -6212,10 +6212,10 @@ public:
 
  void renderIntersectedSquares() {
  PolygonalMap2.VehiclePoly vehiclePoly = this->getPoly();
- float float0 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4));
- float float1 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4));
- float float2 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4));
- float float3 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4));
+ float float0 = Math.min(vehiclePoly.x1, Math.min(vehiclePoly.x2, Math.min(vehiclePoly.x3, vehiclePoly.x4);
+ float float1 = Math.min(vehiclePoly.y1, Math.min(vehiclePoly.y2, Math.min(vehiclePoly.y3, vehiclePoly.y4);
+ float float2 = Math.max(vehiclePoly.x1, Math.max(vehiclePoly.x2, Math.max(vehiclePoly.x3, vehiclePoly.x4);
+ float float3 = Math.max(vehiclePoly.y1, Math.max(vehiclePoly.y2, Math.max(vehiclePoly.y3, vehiclePoly.y4);
 
  for (int int0 = (int)float1; int0 < (int)Math.ceil(float3); int0++) {
  for (int int1 = (int)float0; int1 < (int)Math.ceil(float2); int1++) {
@@ -6459,7 +6459,7 @@ public:
  for (int int0 = 0; int0 < this->parts.size(); int0++) {
  VehiclePart part = this->parts.get(int0);
  std::string string = part.getLuaFunction("checkEngine");
- if (string != nullptr && !Boolean.TRUE == this->callLuaBoolean(string, this, part)) {
+ if (string != nullptr && !Boolean.TRUE == this->callLuaBoolean(string, this, part) {
  return false;
  }
  }
@@ -6471,7 +6471,7 @@ public:
  for (int int0 = 0; int0 < this->parts.size(); int0++) {
  VehiclePart part = this->parts.get(int0);
  std::string string = part.getLuaFunction("checkOperate");
- if (string != nullptr && !Boolean.TRUE == this->callLuaBoolean(string, this, part)) {
+ if (string != nullptr && !Boolean.TRUE == this->callLuaBoolean(string, this, part) {
  return false;
  }
  }
@@ -8155,7 +8155,7 @@ public:
  bodyPart.generateDeepWound();
  } else if (float0 > 50.0F && Rand.Next(10) == 0 && SandboxOptions.instance.BoneFracture.getValue()) {
  if (bodyPart.getType() != BodyPartType.Neck && bodyPart.getType() != BodyPartType.Groin) {
- bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float0 + 10.0F), Rand.Next(float0 + 20.0F, float0 + 30.0F));
+ bodyPart.setFractureTime(Rand.Next(Rand.Next(10.0F, float0 + 10.0F), Rand.Next(float0 + 20.0F, float0 + 30.0F);
  } else {
  bodyPart.generateDeepWound();
  }

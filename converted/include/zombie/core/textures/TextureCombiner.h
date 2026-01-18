@@ -208,7 +208,7 @@ public:
 
  GL13.glActiveTexture(33984);
  GL11.glEnable(3553);
- Texture texture1 = textureCombinerCommand.tex == nullptr ? Texture.getErrorTexture() : textureCombinerCommand.tex;
+ Texture texture1 = textureCombinerCommand.tex.empty() ? Texture.getErrorTexture() : textureCombinerCommand.tex;
  texture1.bind();
  if (textureCombinerCommand.mask != nullptr) {
  GL13.glActiveTexture(33985);

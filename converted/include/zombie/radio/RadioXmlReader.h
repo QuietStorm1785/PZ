@@ -399,7 +399,7 @@ public:
  int int4 = Rand.Next(101);
  int int5 = this->advertQue.get(string3).size();
  if (int5 > 0 && int4 <= int2) {
- radioBroadCast.setPreSegment(this->advertQue.get(string3).get(Rand.Next(int5));
+ radioBroadCast.setPreSegment(this->advertQue.get(string3).get(Rand.Next(int5);
  }
  }
 
@@ -407,7 +407,7 @@ public:
  int int6 = Rand.Next(101);
  int int7 = this->advertQue.get(string4).size();
  if (int7 > 0 && int6 <= int3) {
- radioBroadCast.setPostSegment(this->advertQue.get(string4).get(Rand.Next(int7));
+ radioBroadCast.setPostSegment(this->advertQue.get(string4).get(Rand.Next(int7);
  }
  }
 

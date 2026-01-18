@@ -103,7 +103,7 @@ public:
  for (int int1 = 0; int1 < tempObjects.size(); int1++) {
  IsoObject object = tempObjects.get(int1);
  if (square.getObjects().contains(object) && !(object instanceof IsoWorldInventoryObject) && object != nullptr && object.sprite != nullptr) {
- std::string string = object.sprite.name == nullptr ? object.spriteName : object.sprite.name;
+ std::string string = object.sprite.name.empty() ? object.spriteName : object.sprite.name;
  if (string != nullptr && !string.empty()) {
  MapObjects.Callback callback = onNew.get(string);
  if (callback != nullptr) {
@@ -199,7 +199,7 @@ public:
  for (int int1 = 0; int1 < tempObjects.size(); int1++) {
  IsoObject object = tempObjects.get(int1);
  if (square.getObjects().contains(object) && !(object instanceof IsoWorldInventoryObject) && object != nullptr && object.sprite != nullptr) {
- std::string string = object.sprite.name == nullptr ? object.spriteName : object.sprite.name;
+ std::string string = object.sprite.name.empty() ? object.spriteName : object.sprite.name;
  if (string != nullptr && !string.empty()) {
  MapObjects.Callback callback = onLoad.get(string);
  if (callback != nullptr) {

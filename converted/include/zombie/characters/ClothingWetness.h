@@ -130,7 +130,7 @@ public:
  }
 
  bodyPart0.setWetness(bodyPart0.getWetness() + float2);
- if ((!(float2 > 0.0F) || !(bodyPart0.getWetness() < 25.0F) && (!(float2 < 0.0F) || !(bodyPart0.getWetness() > 50.0F)) {
+ if ((!(float2 > 0.0F) || !(bodyPart0.getWetness() < 25.0F) && (!(float2 < 0.0F) || !(bodyPart0.getWetness() > 50.0F) {
  if (float2 > 0.0F) {
  float float5 = this->character.getBodyDamage().getThermoregulator().getExternalAirTemperature();
  float5 += 10.0F;

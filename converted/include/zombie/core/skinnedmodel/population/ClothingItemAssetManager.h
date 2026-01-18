@@ -65,7 +65,7 @@ public:
  return nullptr;
  } else {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
- arrayList.set(int0, this->fixPath((String)arrayList.get(int0));
+ arrayList.set(int0, this->fixPath((String)arrayList.get(int0);
  }
 
  return arrayList;

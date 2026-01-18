@@ -91,13 +91,13 @@ public:
 
  public Matrix4f(Quat4f quat4f, Vector3f vector3f, float float0) {
  this->m00 = (float)(float0 * (1.0 - 2.0 * quat4f.y * quat4f.y - 2.0 * quat4f.z * quat4f.z);
- this->m10 = (float)(float0 * (2.0 * (quat4f.x * quat4f.y + quat4f.w * quat4f.z));
- this->m20 = (float)(float0 * (2.0 * (quat4f.x * quat4f.z - quat4f.w * quat4f.y));
- this->m01 = (float)(float0 * (2.0 * (quat4f.x * quat4f.y - quat4f.w * quat4f.z));
+ this->m10 = (float)(float0 * (2.0 * (quat4f.x * quat4f.y + quat4f.w * quat4f.z);
+ this->m20 = (float)(float0 * (2.0 * (quat4f.x * quat4f.z - quat4f.w * quat4f.y);
+ this->m01 = (float)(float0 * (2.0 * (quat4f.x * quat4f.y - quat4f.w * quat4f.z);
  this->m11 = (float)(float0 * (1.0 - 2.0 * quat4f.x * quat4f.x - 2.0 * quat4f.z * quat4f.z);
- this->m21 = (float)(float0 * (2.0 * (quat4f.y * quat4f.z + quat4f.w * quat4f.x));
- this->m02 = (float)(float0 * (2.0 * (quat4f.x * quat4f.z + quat4f.w * quat4f.y));
- this->m12 = (float)(float0 * (2.0 * (quat4f.y * quat4f.z - quat4f.w * quat4f.x));
+ this->m21 = (float)(float0 * (2.0 * (quat4f.y * quat4f.z + quat4f.w * quat4f.x);
+ this->m02 = (float)(float0 * (2.0 * (quat4f.x * quat4f.z + quat4f.w * quat4f.y);
+ this->m12 = (float)(float0 * (2.0 * (quat4f.y * quat4f.z - quat4f.w * quat4f.x);
  this->m22 = (float)(float0 * (1.0 - 2.0 * quat4f.x * quat4f.x - 2.0 * quat4f.y * quat4f.y);
  this->m03 = vector3f.x;
  this->m13 = vector3f.y;
@@ -1086,13 +1086,13 @@ public:
 
  void set(Quat4d quat4d, Vector3d vector3d, double double0) {
  this->m00 = (float)(double0 * (1.0 - 2.0 * quat4d.y * quat4d.y - 2.0 * quat4d.z * quat4d.z);
- this->m10 = (float)(double0 * (2.0 * (quat4d.x * quat4d.y + quat4d.w * quat4d.z));
- this->m20 = (float)(double0 * (2.0 * (quat4d.x * quat4d.z - quat4d.w * quat4d.y));
- this->m01 = (float)(double0 * (2.0 * (quat4d.x * quat4d.y - quat4d.w * quat4d.z));
+ this->m10 = (float)(double0 * (2.0 * (quat4d.x * quat4d.y + quat4d.w * quat4d.z);
+ this->m20 = (float)(double0 * (2.0 * (quat4d.x * quat4d.z - quat4d.w * quat4d.y);
+ this->m01 = (float)(double0 * (2.0 * (quat4d.x * quat4d.y - quat4d.w * quat4d.z);
  this->m11 = (float)(double0 * (1.0 - 2.0 * quat4d.x * quat4d.x - 2.0 * quat4d.z * quat4d.z);
- this->m21 = (float)(double0 * (2.0 * (quat4d.y * quat4d.z + quat4d.w * quat4d.x));
- this->m02 = (float)(double0 * (2.0 * (quat4d.x * quat4d.z + quat4d.w * quat4d.y));
- this->m12 = (float)(double0 * (2.0 * (quat4d.y * quat4d.z - quat4d.w * quat4d.x));
+ this->m21 = (float)(double0 * (2.0 * (quat4d.y * quat4d.z + quat4d.w * quat4d.x);
+ this->m02 = (float)(double0 * (2.0 * (quat4d.x * quat4d.z + quat4d.w * quat4d.y);
+ this->m12 = (float)(double0 * (2.0 * (quat4d.y * quat4d.z - quat4d.w * quat4d.x);
  this->m22 = (float)(double0 * (1.0 - 2.0 * quat4d.x * quat4d.x - 2.0 * quat4d.y * quat4d.y);
  this->m03 = (float)vector3d.x;
  this->m13 = (float)vector3d.y;

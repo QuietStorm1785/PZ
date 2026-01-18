@@ -54,7 +54,7 @@ public:
 
  Asset createAsset(AssetPath assetPath, AssetManager.AssetParams assetParams) {
  WorldMapData worldMapData = new WorldMapData(assetPath, this, assetParams);
- DebugFileWatcher.instance.add(new PredicatedFileWatcher(assetPath.getPath(), var3x -> this->reload(worldMapData, assetParams));
+ DebugFileWatcher.instance.add(new PredicatedFileWatcher(assetPath.getPath(), var3x -> this->reload(worldMapData, assetParams);
  return worldMapData;
  }
 

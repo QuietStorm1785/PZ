@@ -312,7 +312,7 @@ public:
  }
 
  void setGroup(ActionGroup group) {
- std::string string = this->m_currentState == nullptr ? nullptr : this->m_currentState.name;
+ std::string string = this->m_currentState.empty() ? nullptr : this->m_currentState.name;
  this->m_stateGroup = group;
  ActionState actionState = group.getInitialState();
  if (!StringUtils.equalsIgnoreCase(string, actionState.name) {

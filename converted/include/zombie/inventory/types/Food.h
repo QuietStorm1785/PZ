@@ -414,7 +414,7 @@ public:
 
  void updateTemperature() {
  ItemContainer container = this->getOutermostContainer();
- float float0 = container == nullptr ? 1.0F : container.getTemprature();
+ float float0 = container.empty() ? 1.0F : container.getTemprature();
  if (this->Heat > float0) {
  this->Heat = this->Heat - 0.001F * GameTime.instance.getMultiplier();
  if (this->Heat < Math.max(0.2F, float0) {

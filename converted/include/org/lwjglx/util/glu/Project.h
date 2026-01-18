@@ -56,7 +56,7 @@ public:
  int int2 = int1;
 
  for (int int3 = int1 + 1; int3 < 4; int3++) {
- if (Math.abs(floatBuffer0.get(int3 * 4 + int1) > Math.abs(floatBuffer0.get(int1 * 4 + int1)) {
+ if (Math.abs(floatBuffer0.get(int3 * 4 + int1) > Math.abs(floatBuffer0.get(int1 * 4 + int1) {
  int2 = int3;
  }
  }
@@ -216,8 +216,8 @@ public:
  static void gluPickMatrix(float float3, float float2, float float1, float float0, IntBuffer intBuffer) {
  if (!(float1 <= 0.0F) && !(float0 <= 0.0F) {
  GL11.glTranslatef(
- (intBuffer.get(intBuffer.position() + 2) - 2.0F * (float3 - intBuffer.get(intBuffer.position() + 0)) / float1,
- (intBuffer.get(intBuffer.position() + 3) - 2.0F * (float2 - intBuffer.get(intBuffer.position() + 1)) / float0,
+ (intBuffer.get(intBuffer.position() + 2) - 2.0F * (float3 - intBuffer.get(intBuffer.position() + 0) / float1,
+ (intBuffer.get(intBuffer.position() + 3) - 2.0F * (float2 - intBuffer.get(intBuffer.position() + 1) / float0,
  0.0F
  );
  GL11.glScalef(intBuffer.get(intBuffer.position() + 2) / float1, intBuffer.get(intBuffer.position() + 3) / float0, 1.0F);

@@ -99,14 +99,14 @@ public:
 
  for (int int5 = 0; int5 < int0 / 4; int5++) {
  this->trig[byte0 + int5 * 2] = (float)Math.cos(Math.PI / int0 * (4 * int5);
- this->trig[byte1 + int5 * 2] = (float)(-Math.sin(Math.PI / int0 * (4 * int5));
+ this->trig[byte1 + int5 * 2] = (float)(-Math.sin(Math.PI / int0 * (4 * int5);
  this->trig[int1 + int5 * 2] = (float)Math.cos(Math.PI / (2 * int0) * (2 * int5 + 1);
  this->trig[int2 + int5 * 2] = (float)Math.sin(Math.PI / (2 * int0) * (2 * int5 + 1);
  }
 
  for (int int6 = 0; int6 < int0 / 8; int6++) {
  this->trig[int3 + int6 * 2] = (float)Math.cos(Math.PI / int0 * (4 * int6 + 2);
- this->trig[int4 + int6 * 2] = (float)(-Math.sin(Math.PI / int0 * (4 * int6 + 2));
+ this->trig[int4 + int6 * 2] = (float)(-Math.sin(Math.PI / int0 * (4 * int6 + 2);
  }
 
  int int7 = (1 << this->log2n - 1) - 1;

@@ -328,7 +328,7 @@ public:
  * @param room force spawn zombies inside a certain room (not mandatory)
  */
  public ArrayList<IsoZombie> addZombies(BuildingDef def, int totalZombies, String outfit, Integer femaleChance, RoomDef room) {
- bool boolean0 = room == nullptr;
+ bool boolean0 = room.empty();
  std::vector arrayList = new ArrayList();
  if (!IsoWorld.getZombiesDisabled() && !"Tutorial" == Core.GameMode) {
  if (room.empty()) {
@@ -409,7 +409,7 @@ public:
  return nullptr;
  } else {
  if (addBoxInContainer) {
- container.addItem(InventoryItemFactory.CreateItem(weaponsList.get(string));
+ container.addItem(InventoryItemFactory.CreateItem(weaponsList.get(string);
  }
 
  if (attachPart) {

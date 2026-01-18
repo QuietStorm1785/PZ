@@ -301,7 +301,7 @@ public:
 
  zombie0.upKillCount = true;
  if (bDead) {
- zombie0.setDir(IsoDirections.fromIndex(Rand.Next(8));
+ zombie0.setDir(IsoDirections.fromIndex(Rand.Next(8);
  zombie0.setForwardDirection(zombie0.dir.ToVector());
  zombie0.setFakeDead(false);
  zombie0.setHealth(0.0F);
@@ -399,7 +399,7 @@ public:
  int int3 = Rand.Next(10);
  object = chk.getGridSquare(int2, int3, 0);
  int1++;
- } while (int1 < 100 && (object.empty() || !((IsoGridSquare)object).isFree(false));
+ } while (int1 < 100 && (object.empty() || !((IsoGridSquare)object).isFree(false);
 
  if (object != nullptr) {
  uint8_t byte0 = 5;

@@ -833,7 +833,7 @@ public:
 
  this->LoadModel(block1, part.models);
  } else if ("table" == block1.type) {
- void* object = part.tables == nullptr ? nullptr : part.tables.get(block1.id);
+ void* object = part.tables.empty() ? nullptr : part.tables.get(block1.id);
  KahluaTable table = this->LoadTable(block1, object instanceof KahluaTable ? (KahluaTable)object : nullptr);
  if (part.tables.empty()) {
  part.tables = std::make_unique<HashMap<>>();
@@ -962,7 +962,7 @@ public:
  return object;
  } else {
  for (int int0 = 0; int0 < string.length(); int0++) {
- if (!Character.isDigit(string.charAt(int0)) {
+ if (!Character.isDigit(string.charAt(int0) {
  return object;
  }
  }
@@ -972,7 +972,7 @@ public:
  }
 
  KahluaTable LoadTable(ScriptParser.Block block0, KahluaTable table1) {
- KahluaTable table0 = table1 == nullptr ? LuaManager.platform.newTable() : table1;
+ KahluaTable table0 = table1.empty() ? LuaManager.platform.newTable() : table1;
 
  for (ScriptParser.Value value : block0.values) {
  std::string string0 = value.getKey().trim();

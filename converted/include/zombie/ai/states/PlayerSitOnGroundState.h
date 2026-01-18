@@ -42,7 +42,7 @@ public:
  hashMap.put(PARAM_CHANGE_ANIM, 0L);
  owner.setSitOnGround(true);
  if ((owner.getPrimaryHandItem() == nullptr || !(owner.getPrimaryHandItem() instanceof HandWeapon)
- && (owner.getSecondaryHandItem() == nullptr || !(owner.getSecondaryHandItem() instanceof HandWeapon)) {
+ && (owner.getSecondaryHandItem() == nullptr || !(owner.getSecondaryHandItem() instanceof HandWeapon) {
  owner.setHideWeaponModel(true);
  }
 
