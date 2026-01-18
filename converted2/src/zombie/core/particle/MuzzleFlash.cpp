@@ -1,0 +1,17 @@
+#include "zombie/core/particle/MuzzleFlash.h"
+
+namespace zombie {
+namespace core {
+namespace particle {
+
+void MuzzleFlash::init() {
+  // TODO: Implement init
+}
+
+void MuzzleFlash::render(Matrix4f matrix4f) {
+  // TODO: Implement render
+}
+
+} // namespace particle
+} // namespace core
+} // namespace zombie

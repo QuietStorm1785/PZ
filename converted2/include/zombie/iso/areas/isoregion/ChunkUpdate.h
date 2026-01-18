@@ -1,0 +1,49 @@
+#pragma once
+#include "zombie/iso/IsoChunk.h"
+#include "zombie/iso/IsoGridSquare.h"
+#include <cstdint>
+#include <filesystem>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+namespace zombie {
+namespace iso {
+namespace areas {
+namespace isoregion {
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
+// using Vineflower.
+
+class ChunkUpdate {
+public:
+  static void writeIsoChunkIntoBuffer(IsoChunk chunk, ByteBuffer byteBuffer) {
+    if (chunk != nullptr) {
+      int int0 = byteBuffer.position();
+      byteBuffer.putInt(0);
+      byteBuffer.putInt(chunk.maxLevel);
+      int int1 = (chunk.maxLevel + 1) * 100;
+      byteBuffer.putInt(int1);
+
+      for (int int2 = 0; int2 <= chunk.maxLevel; int2++) {
+        for (int int3 = 0; int3 < chunk.squares[0].length; int3++) {
+          IsoGridSquare square = chunk.squares[int2][int3];
+          uint8_t byte0 = IsoRegions.calculateSquareFlags(square);
+          byteBuffer.put(byte0);
+        }
+      }
+
+      int int4 = byteBuffer.position();
+      byteBuffer.position(int0);
+      byteBuffer.putInt(int4 - int0);
+      byteBuffer.position(int4);
+    } else {
+      byteBuffer.putInt(-1);
+    }
+  }
+}
+} // namespace isoregion
+} // namespace areas
+} // namespace iso
+} // namespace zombie

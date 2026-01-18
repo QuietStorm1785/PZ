@@ -1,0 +1,36 @@
+#pragma once
+#include <cstdint>
+#include <fstream>
+#include <iostream>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+namespace javax {
+namespace vecmath {
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
+// using Vineflower.
+
+class TexCoord2f : public Tuple2f {
+public:
+ static const long serialVersionUID = 7998248474800032487L;
+
+public
+ TexCoord2f(float float0, float float1) { super(float0, float1); }
+
+public
+ TexCoord2f(float[] floats) { super(floats); }
+
+public
+ TexCoord2f(TexCoord2f texCoord2f1) { super(texCoord2f1); }
+
+public
+ TexCoord2f(Tuple2f tuple2f) { super(tuple2f); }
+
+public
+ TexCoord2f() {}
+}
+} // namespace vecmath
+} // namespace javax

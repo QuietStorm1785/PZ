@@ -1,0 +1,49 @@
+#pragma once
+#include "zombie/util/set/IntSet.h"
+#include <cstdint>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+namespace zombie {
+namespace util {
+namespace map {
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
+// using Vineflower.
+
+class IntKeyMap {
+public:
+  virtual ~IntKeyMap() = default;
+  void clear();
+
+  bool containsKey(int var1);
+
+  bool containsValue(void *var1);
+
+  IntKeyMapIterator<V> entries();
+
+  bool equals(void *var1);
+
+  V get(int var1);
+
+  int hashCode();
+
+  bool isEmpty();
+
+  IntSet keySet();
+
+  V put(int var1, V var2);
+
+  void putAll(IntKeyMap<V> var1);
+
+  V remove(int var1);
+
+  int size();
+
+  Collection<V> values();
+}
+} // namespace map
+} // namespace util
+} // namespace zombie

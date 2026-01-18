@@ -1,0 +1,8 @@
+#ifndef ORG_LWJGL_GLFW_GLFWWINDOWSIZECALLBACK_H
+#define ORG_LWJGL_GLFW_GLFWWINDOWSIZECALLBACK_H
+
+namespace org::lwjgl::glfw {
+class GLFWWindowSizeCallback { };
+}
+
+#endif // ORG_LWJGL_GLFW_GLFWWINDOWSIZECALLBACK_H

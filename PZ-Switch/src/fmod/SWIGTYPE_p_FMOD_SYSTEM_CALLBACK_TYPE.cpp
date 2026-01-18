@@ -1,0 +1,24 @@
+#include "fmod/SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE.h"
+
+namespace fmod {
+
+protected
+SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE::SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE(
+ long long0, bool var3) {
+ // TODO: Implement SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE
+ return nullptr;
+}
+
+protected
+SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE::SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE() {
+ // TODO: Implement SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE
+ return nullptr;
+}
+
+long SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE::getCPtr(
+ SWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE sWIGTYPE_p_FMOD_SYSTEM_CALLBACK_TYPE) {
+ // TODO: Implement getCPtr
+ return 0;
+}
+
+} // namespace fmod

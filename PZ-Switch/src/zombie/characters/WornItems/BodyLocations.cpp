@@ -1,0 +1,18 @@
+#include "zombie/characters/WornItems/BodyLocations.h"
+
+namespace zombie {
+namespace characters {
+namespace WornItems {
+
+BodyLocationGroup BodyLocations::getGroup(const std::string &id) {
+ // TODO: Implement getGroup
+ return nullptr;
+}
+
+void BodyLocations::Reset() {
+ // TODO: Implement Reset
+}
+
+} // namespace WornItems
+} // namespace characters
+} // namespace zombie

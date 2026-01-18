@@ -1,0 +1,2 @@
+#include "IsoSpriteManager.h"
+

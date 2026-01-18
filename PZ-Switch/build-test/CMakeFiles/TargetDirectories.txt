@@ -1,0 +1,8 @@
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/lua.dir
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/ProjectZomboidCpp.dir
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/edit_cache.dir
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/rebuild_cache.dir
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/list_install_components.dir
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/install.dir
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/install/local.dir
+/workspaces/PZ/PZ-Switch/build-test/CMakeFiles/install/strip.dir

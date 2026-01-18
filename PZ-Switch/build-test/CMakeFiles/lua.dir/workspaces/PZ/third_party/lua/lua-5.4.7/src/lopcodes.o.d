@@ -1,0 +1,22 @@
+CMakeFiles/lua.dir/workspaces/PZ/third_party/lua/lua-5.4.7/src/lopcodes.o: \
+ /workspaces/PZ/third_party/lua/lua-5.4.7/src/lopcodes.c \
+ /workspaces/PZ/third_party/lua/lua-5.4.7/src/lprefix.h \
+ /workspaces/PZ/third_party/lua/lua-5.4.7/src/lopcodes.h \
+ /workspaces/PZ/third_party/lua/lua-5.4.7/src/llimits.h \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/limits.h \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/syslimits.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/limits.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/newlib.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/_newlib_version.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/cdefs.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/machine/_default_types.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/features.h \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/stddef.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/syslimits.h \
+ /workspaces/PZ/third_party/lua/lua-5.4.7/src/lua.h \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/stdarg.h \
+ /workspaces/PZ/third_party/lua/lua-5.4.7/src/luaconf.h \
+ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include/stdint.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/stdint.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/_intsup.h \
+ /opt/devkitpro/devkitA64/aarch64-none-elf/include/sys/_stdint.h

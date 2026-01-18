@@ -1,0 +1,963 @@
+[  0%] Building C object CMakeFiles/lua.dir/workspaces/PZ/third_party/lua/lua-5.4.7/src/lzio.o
+[  0%] Building C object CMakeFiles/lua.dir/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.o
+In file included from /workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1158:
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h: In function 'luaV_execute':
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:28:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   28 | &&L_OP_MOVE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:29:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   29 | &&L_OP_LOADI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:30:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   30 | &&L_OP_LOADF,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:31:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   31 | &&L_OP_LOADK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:32:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   32 | &&L_OP_LOADKX,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:33:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   33 | &&L_OP_LOADFALSE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:34:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   34 | &&L_OP_LFALSESKIP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:35:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   35 | &&L_OP_LOADTRUE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:36:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   36 | &&L_OP_LOADNIL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:37:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   37 | &&L_OP_GETUPVAL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:38:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   38 | &&L_OP_SETUPVAL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:39:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   39 | &&L_OP_GETTABUP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:40:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   40 | &&L_OP_GETTABLE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:41:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   41 | &&L_OP_GETI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:42:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   42 | &&L_OP_GETFIELD,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:43:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   43 | &&L_OP_SETTABUP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:44:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   44 | &&L_OP_SETTABLE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:45:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   45 | &&L_OP_SETI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:46:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   46 | &&L_OP_SETFIELD,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:47:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   47 | &&L_OP_NEWTABLE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:48:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   48 | &&L_OP_SELF,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:49:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   49 | &&L_OP_ADDI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:50:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   50 | &&L_OP_ADDK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:51:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   51 | &&L_OP_SUBK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:52:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   52 | &&L_OP_MULK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:53:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   53 | &&L_OP_MODK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:54:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   54 | &&L_OP_POWK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:55:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   55 | &&L_OP_DIVK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:56:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   56 | &&L_OP_IDIVK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:57:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   57 | &&L_OP_BANDK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:58:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   58 | &&L_OP_BORK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:59:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   59 | &&L_OP_BXORK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:60:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   60 | &&L_OP_SHRI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:61:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   61 | &&L_OP_SHLI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:62:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   62 | &&L_OP_ADD,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:63:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   63 | &&L_OP_SUB,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:64:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   64 | &&L_OP_MUL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:65:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   65 | &&L_OP_MOD,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:66:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   66 | &&L_OP_POW,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:67:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   67 | &&L_OP_DIV,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:68:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   68 | &&L_OP_IDIV,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:69:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   69 | &&L_OP_BAND,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:70:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   70 | &&L_OP_BOR,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:71:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   71 | &&L_OP_BXOR,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:72:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   72 | &&L_OP_SHL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:73:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   73 | &&L_OP_SHR,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:74:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   74 | &&L_OP_MMBIN,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:75:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   75 | &&L_OP_MMBINI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:76:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   76 | &&L_OP_MMBINK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:77:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   77 | &&L_OP_UNM,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:78:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   78 | &&L_OP_BNOT,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:79:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   79 | &&L_OP_NOT,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:80:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   80 | &&L_OP_LEN,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:81:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   81 | &&L_OP_CONCAT,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:82:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   82 | &&L_OP_CLOSE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:83:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   83 | &&L_OP_TBC,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:84:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   84 | &&L_OP_JMP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:85:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   85 | &&L_OP_EQ,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:86:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   86 | &&L_OP_LT,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:87:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   87 | &&L_OP_LE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:88:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   88 | &&L_OP_EQK,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:89:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   89 | &&L_OP_EQI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:90:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   90 | &&L_OP_LTI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:91:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   91 | &&L_OP_LEI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:92:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   92 | &&L_OP_GTI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:93:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   93 | &&L_OP_GEI,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:94:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   94 | &&L_OP_TEST,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:95:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   95 | &&L_OP_TESTSET,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:96:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   96 | &&L_OP_CALL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:97:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   97 | &&L_OP_TAILCALL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:98:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   98 | &&L_OP_RETURN,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:99:1: warning: taking the address of a label is non-standard [-Wpedantic]
+   99 | &&L_OP_RETURN0,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:100:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  100 | &&L_OP_RETURN1,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:101:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  101 | &&L_OP_FORLOOP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:102:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  102 | &&L_OP_FORPREP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:103:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  103 | &&L_OP_TFORPREP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:104:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  104 | &&L_OP_TFORCALL,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:105:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  105 | &&L_OP_TFORLOOP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:106:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  106 | &&L_OP_SETLIST,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:107:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  107 | &&L_OP_CLOSURE,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:108:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  108 | &&L_OP_VARARG,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:109:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  109 | &&L_OP_VARARGPREP,
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:110:1: warning: taking the address of a label is non-standard [-Wpedantic]
+  110 | &&L_OP_EXTRAARG
+      | ^~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1181:5: note: in expansion of macro 'vmdispatch'
+ 1181 |     vmdispatch (GET_OPCODE(i)) {
+      |     ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1185:9: note: in expansion of macro 'vmbreak'
+ 1185 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1191:9: note: in expansion of macro 'vmbreak'
+ 1191 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1197:9: note: in expansion of macro 'vmbreak'
+ 1197 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1203:9: note: in expansion of macro 'vmbreak'
+ 1203 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1210:9: note: in expansion of macro 'vmbreak'
+ 1210 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1215:9: note: in expansion of macro 'vmbreak'
+ 1215 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1221:9: note: in expansion of macro 'vmbreak'
+ 1221 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1226:9: note: in expansion of macro 'vmbreak'
+ 1226 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1234:9: note: in expansion of macro 'vmbreak'
+ 1234 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1240:9: note: in expansion of macro 'vmbreak'
+ 1240 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1247:9: note: in expansion of macro 'vmbreak'
+ 1247 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1260:9: note: in expansion of macro 'vmbreak'
+ 1260 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1275:9: note: in expansion of macro 'vmbreak'
+ 1275 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1290:9: note: in expansion of macro 'vmbreak'
+ 1290 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1303:9: note: in expansion of macro 'vmbreak'
+ 1303 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1316:9: note: in expansion of macro 'vmbreak'
+ 1316 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1331:9: note: in expansion of macro 'vmbreak'
+ 1331 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1346:9: note: in expansion of macro 'vmbreak'
+ 1346 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1359:9: note: in expansion of macro 'vmbreak'
+ 1359 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1378:9: note: in expansion of macro 'vmbreak'
+ 1378 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1392:9: note: in expansion of macro 'vmbreak'
+ 1392 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1396:9: note: in expansion of macro 'vmbreak'
+ 1396 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1400:9: note: in expansion of macro 'vmbreak'
+ 1400 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1404:9: note: in expansion of macro 'vmbreak'
+ 1404 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1408:9: note: in expansion of macro 'vmbreak'
+ 1408 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1413:9: note: in expansion of macro 'vmbreak'
+ 1413 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1417:9: note: in expansion of macro 'vmbreak'
+ 1417 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1421:9: note: in expansion of macro 'vmbreak'
+ 1421 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1426:9: note: in expansion of macro 'vmbreak'
+ 1426 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1430:9: note: in expansion of macro 'vmbreak'
+ 1430 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1434:9: note: in expansion of macro 'vmbreak'
+ 1434 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1438:9: note: in expansion of macro 'vmbreak'
+ 1438 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1448:9: note: in expansion of macro 'vmbreak'
+ 1448 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1458:9: note: in expansion of macro 'vmbreak'
+ 1458 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1462:9: note: in expansion of macro 'vmbreak'
+ 1462 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1466:9: note: in expansion of macro 'vmbreak'
+ 1466 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1470:9: note: in expansion of macro 'vmbreak'
+ 1470 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1475:9: note: in expansion of macro 'vmbreak'
+ 1475 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1479:9: note: in expansion of macro 'vmbreak'
+ 1479 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1483:9: note: in expansion of macro 'vmbreak'
+ 1483 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1488:9: note: in expansion of macro 'vmbreak'
+ 1488 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1492:9: note: in expansion of macro 'vmbreak'
+ 1492 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1496:9: note: in expansion of macro 'vmbreak'
+ 1496 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1500:9: note: in expansion of macro 'vmbreak'
+ 1500 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1504:9: note: in expansion of macro 'vmbreak'
+ 1504 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1508:9: note: in expansion of macro 'vmbreak'
+ 1508 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1518:9: note: in expansion of macro 'vmbreak'
+ 1518 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1528:9: note: in expansion of macro 'vmbreak'
+ 1528 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1538:9: note: in expansion of macro 'vmbreak'
+ 1538 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1553:9: note: in expansion of macro 'vmbreak'
+ 1553 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1564:9: note: in expansion of macro 'vmbreak'
+ 1564 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1573:9: note: in expansion of macro 'vmbreak'
+ 1573 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1578:9: note: in expansion of macro 'vmbreak'
+ 1578 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1586:9: note: in expansion of macro 'vmbreak'
+ 1586 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1591:9: note: in expansion of macro 'vmbreak'
+ 1591 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1597:9: note: in expansion of macro 'vmbreak'
+ 1597 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1601:9: note: in expansion of macro 'vmbreak'
+ 1601 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1609:9: note: in expansion of macro 'vmbreak'
+ 1609 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1613:9: note: in expansion of macro 'vmbreak'
+ 1613 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1617:9: note: in expansion of macro 'vmbreak'
+ 1617 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1625:9: note: in expansion of macro 'vmbreak'
+ 1625 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1638:9: note: in expansion of macro 'vmbreak'
+ 1638 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1642:9: note: in expansion of macro 'vmbreak'
+ 1642 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1646:9: note: in expansion of macro 'vmbreak'
+ 1646 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1650:9: note: in expansion of macro 'vmbreak'
+ 1650 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1654:9: note: in expansion of macro 'vmbreak'
+ 1654 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1660:9: note: in expansion of macro 'vmbreak'
+ 1660 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1671:9: note: in expansion of macro 'vmbreak'
+ 1671 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1688:9: note: in expansion of macro 'vmbreak'
+ 1688 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1801:9: note: in expansion of macro 'vmbreak'
+ 1801 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1808:9: note: in expansion of macro 'vmbreak'
+ 1808 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1843:9: note: in expansion of macro 'vmbreak'
+ 1843 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1867:9: note: in expansion of macro 'vmbreak'
+ 1867 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1874:9: note: in expansion of macro 'vmbreak'
+ 1874 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1880:9: note: in expansion of macro 'vmbreak'
+ 1880 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1889:9: note: in expansion of macro 'vmbreak'
+ 1889 |         vmbreak;
+      |         ^~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:12:27: warning: ISO C forbids 'goto *expr;' [-Wpedantic]
+   12 | #define vmdispatch(x)     goto *disptab[x];
+      |                           ^~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/ljumptab.h:16:36: note: in expansion of macro 'vmdispatch'
+   16 | #define vmbreak         vmfetch(); vmdispatch(GET_OPCODE(i));
+      |                                    ^~~~~~~~~~
+/workspaces/PZ/third_party/lua/lua-5.4.7/src/lvm.c:1893:9: note: in expansion of macro 'vmbreak'
+ 1893 |         vmbreak;
+      |         ^~~~~~~
+[  1%] Linking C static library liblua.a
+[  3%] Built target lua
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Core.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/main.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Config.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o

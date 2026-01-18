@@ -1,0 +1,364 @@
+#pragma once
+#include "se/krka/kahlua/vm/JavaFunction.h"
+#include "se/krka/kahlua/vm/KahluaTable.h"
+#include "se/krka/kahlua/vm/KahluaUtil.h"
+#include "se/krka/kahlua/vm/LuaCallFrame.h"
+#include "se/krka/kahlua/vm/Platform.h"
+#include <algorithm>
+#include <cstdint>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+namespace se {
+namespace krka {
+namespace kahlua {
+namespace stdlib {
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
+// using Vineflower.
+
+class OsLib {
+public:
+  static const int DATE = 0;
+  static const int DIFFTIME = 1;
+  static const int TIME = 2;
+  static const int NUM_FUNCS = 3;
+private
+  static final String[] funcnames = new String[3];
+private
+  static final OsLib[] funcs = new OsLib[3];
+  static const std::string TABLE_FORMAT = "*t";
+  static const std::string DEFAULT_FORMAT = "%c";
+  static const std::string YEAR = "year";
+  static const std::string MONTH = "month";
+  static const std::string DAY = "day";
+  static const std::string HOUR = "hour";
+  static const std::string MIN = "min";
+  static const std::string SEC = "sec";
+  static const std::string WDAY = "wday";
+  static const std::string YDAY = "yday";
+  static const void *MILLISECOND;
+  static TimeZone tzone;
+  static const int TIME_DIVIDEND = 1000;
+  static const double TIME_DIVIDEND_INVERTED = 0.001;
+  static const int MILLIS_PER_DAY = 86400000;
+  static const int MILLIS_PER_WEEK = 604800000;
+  int methodId;
+private
+  static String[] shortDayNames;
+private
+  static String[] longDayNames;
+private
+  static String[] shortMonthNames;
+private
+  static String[] longMonthNames;
+
+  static void register(Platform platform, KahluaTable table1) {
+    KahluaTable table0 = platform.newTable();
+
+    for (int int0 = 0; int0 < 3; int0++) {
+      table0.rawset(funcnames[int0], funcs[int0]);
+    }
+
+    table1.rawset("os", table0);
+  }
+
+private
+  OsLib(int int0) { this.methodId = int0; }
+
+  int call(LuaCallFrame luaCallFrame, int int0) {
+    switch (this.methodId) {
+    case 0:
+      return this.date(luaCallFrame, int0);
+    case 1:
+      return this.difftime(luaCallFrame, int0);
+    case 2:
+      return this.time(luaCallFrame, int0);
+    default:
+      throw new RuntimeException("Undefined method called on os.");
+    }
+  }
+
+  int time(LuaCallFrame luaCallFrame, int int0) {
+    if (int0 == 0) {
+      double double0 = System.currentTimeMillis() * 0.001;
+      luaCallFrame.push(KahluaUtil.toDouble(double0));
+    } else {
+      KahluaTable table =
+          (KahluaTable)KahluaUtil.getArg(luaCallFrame, 1, "time");
+      double double1 = getDateFromTable(table).getTime() * 0.001;
+      luaCallFrame.push(KahluaUtil.toDouble(double1));
+    }
+
+    return 1;
+  }
+
+  int difftime(LuaCallFrame luaCallFrame, int var2) {
+    double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 1, "difftime");
+    double double1 = KahluaUtil.getDoubleArg(luaCallFrame, 2, "difftime");
+    luaCallFrame.push(KahluaUtil.toDouble(double0 - double1));
+    return 1;
+  }
+
+  int date(LuaCallFrame luaCallFrame, int int0) {
+    Platform platform = luaCallFrame.getPlatform();
+    if (int0 == 0) {
+      return luaCallFrame.push(getdate("%c", platform));
+    } else {
+      std::string string = KahluaUtil.getStringArg(luaCallFrame, 1, "date");
+      if (int0 == 1) {
+        return luaCallFrame.push(getdate(string, platform));
+      } else {
+        double double0 = KahluaUtil.getDoubleArg(luaCallFrame, 2, "date");
+        long long0 = (long)(double0 * 1000.0);
+        return luaCallFrame.push(getdate(string, long0, platform));
+      }
+    }
+  }
+
+  static void *getdate(const std::string &string, Platform platform) {
+    return getdate();
+  }
+
+  static void *getdate(const std::string &string, long long0,
+                       Platform platform) {
+    Calendar calendar = null;
+    int int0 = 0;
+    if (string.charAt(int0) == '!') {
+      calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+      int0++;
+    } else {
+      calendar = Calendar.getInstance(tzone);
+    }
+
+    calendar.setTime(new Date(long0));
+    if (calendar == nullptr) {
+      return null;
+    } else {
+            return string.substring(int0, 2 + int0) == "*t") ? getTableFromDate(calendar, platform) : formatTime(string.substring(int0), calendar);
+    }
+  }
+
+  static std::string formatTime(const std::string &string, Calendar calendar) {
+    StringBuilder stringBuilder = new StringBuilder();
+
+    for (int int0 = 0; int0 < string.length(); int0++) {
+      if (string.charAt(int0) == '%' && int0 + 1 != string.length()) {
+        stringBuilder.append(strftime(string.charAt(++int0), calendar));
+      } else {
+        stringBuilder.append(string.charAt(int0));
+      }
+    }
+
+    return stringBuilder.toString();
+  }
+
+  static std::string format2Digits(int int0) {
+    std::string string = Integer.toString(int0);
+    if (int0 < 10) {
+      string = "0" + string;
+    }
+
+    return string;
+  }
+
+  static std::string strftime(char char0, Calendar calendar) {
+    switch (char0) {
+    case 'A':
+      return longDayNames[calendar.get(7) - 1];
+    case 'B':
+      return longMonthNames[calendar.get(2)];
+    case 'C':
+      return Integer.toString(calendar.get(1) / 100);
+    case 'D':
+      return formatTime();
+    case 'E':
+    case 'F':
+    case 'G':
+    case 'J':
+    case 'K':
+    case 'L':
+    case 'N':
+    case 'O':
+    case 'P':
+    case 'Q':
+    case 'T':
+    case 'X':
+    case '[':
+    case '\\':
+    case ']':
+    case '^':
+    case '_':
+    case '`':
+    case 'f':
+    case 'g':
+    case 'i':
+    case 'k':
+    case 'l':
+    case 'o':
+    case 'q':
+    case 's':
+    case 't':
+    case 'u':
+    case 'v':
+    case 'x':
+    default:
+      return null;
+    case 'H':
+      return format2Digits();
+    case 'I':
+      return format2Digits();
+    case 'M':
+      return format2Digits();
+    case 'R':
+      return formatTime();
+    case 'S':
+      return format2Digits();
+    case 'U':
+      return Integer.toString(getWeekOfYear(calendar, true, false));
+    case 'V':
+      return Integer.toString(getWeekOfYear(calendar, false, true));
+    case 'W':
+      return Integer.toString(getWeekOfYear(calendar, false, false));
+    case 'Y':
+      return Integer.toString(calendar.get(1));
+    case 'Z':
+      return calendar.getTimeZone().getID();
+    case 'a':
+      return shortDayNames[calendar.get(7) - 1];
+    case 'b':
+      return shortMonthNames[calendar.get(2)];
+    case 'c':
+      return calendar.getTime().toString();
+    case 'd':
+      return format2Digits();
+    case 'e':
+      return calendar.get(5) < 10 ? " " + strftime('d', calendar)
+                                  : strftime('d', calendar);
+    case 'h':
+      return strftime();
+    case 'j':
+      return Integer.toString(getDayOfYear(calendar));
+    case 'm':
+      return format2Digits();
+    case 'n':
+      return "\n";
+    case 'p':
+      return calendar.get(9) == 0 ? "AM" : "PM";
+    case 'r':
+      return formatTime("%I:%M:%S %p");
+    case 'w':
+      return Integer.toString(calendar.get(7) - 1);
+    case 'y':
+      return Integer.toString(calendar.get(1) % 100);
+    }
+  }
+
+  static KahluaTable getTableFromDate(Calendar calendar, Platform platform) {
+    KahluaTable table = platform.newTable();
+    table.rawset("year", KahluaUtil.toDouble((long)calendar.get(1)));
+    table.rawset("month", KahluaUtil.toDouble((long)(calendar.get(2) + 1)));
+    table.rawset("day", KahluaUtil.toDouble((long)calendar.get(5)));
+    table.rawset("hour", KahluaUtil.toDouble((long)calendar.get(11)));
+    table.rawset("min", KahluaUtil.toDouble((long)calendar.get(12)));
+    table.rawset("sec", KahluaUtil.toDouble((long)calendar.get(13)));
+    table.rawset("wday", KahluaUtil.toDouble((long)calendar.get(7)));
+    table.rawset("yday", KahluaUtil.toDouble((long)getDayOfYear(calendar)));
+    table.rawset(MILLISECOND, KahluaUtil.toDouble((long)calendar.get(14)));
+    return table;
+  }
+
+  static Date getDateFromTable(KahluaTable table) {
+    Calendar calendar = Calendar.getInstance(tzone);
+    calendar.set(1, (int)KahluaUtil.fromDouble(table.rawget("year")));
+    calendar.set(2, (int)KahluaUtil.fromDouble(table.rawget("month")) - 1);
+    calendar.set(5, (int)KahluaUtil.fromDouble(table.rawget("day")));
+    void *object0 = table.rawget("hour");
+    void *object1 = table.rawget("min");
+    void *object2 = table.rawget("sec");
+    void *object3 = table.rawget(MILLISECOND);
+    if (object0 != nullptr) {
+      calendar.set(11, (int)KahluaUtil.fromDouble(object0));
+    } else {
+      calendar.set(11, 0);
+    }
+
+    if (object1 != nullptr) {
+      calendar.set(12, (int)KahluaUtil.fromDouble(object1));
+    } else {
+      calendar.set(12, 0);
+    }
+
+    if (object2 != nullptr) {
+      calendar.set(13, (int)KahluaUtil.fromDouble(object2));
+    } else {
+      calendar.set(13, 0);
+    }
+
+    if (object3 != nullptr) {
+      calendar.set(14, (int)KahluaUtil.fromDouble(object3));
+    } else {
+      calendar.set(14, 0);
+    }
+
+    return calendar.getTime();
+  }
+
+  static int getDayOfYear(Calendar calendar1) {
+    Calendar calendar0 = Calendar.getInstance(calendar1.getTimeZone());
+    calendar0.setTime(calendar1.getTime());
+    calendar0.set(2, 0);
+    calendar0.set(5, 1);
+    long long0 = calendar1.getTime().getTime() - calendar0.getTime().getTime();
+    return (int)Math.ceil(long0 / 8.64E7);
+  }
+
+  static int getWeekOfYear(Calendar calendar1, bool boolean0, bool boolean1) {
+    Calendar calendar0 = Calendar.getInstance(calendar1.getTimeZone());
+    calendar0.setTime(calendar1.getTime());
+    calendar0.set(2, 0);
+    calendar0.set(5, 1);
+    int int0 = calendar0.get(7);
+    if (boolean0 && int0 != 1) {
+      calendar0.set(5, 7 - int0 + 1);
+    } else if (int0 != 2) {
+      calendar0.set(5, 7 - int0 + 1 + 1);
+    }
+
+    long long0 = calendar1.getTime().getTime() - calendar0.getTime().getTime();
+    int int1 = (int)(long0 / 604800000L);
+    if (boolean1 && 7 - int0 >= 4) {
+      int1++;
+    }
+
+    return int1;
+  }
+
+  static {
+    funcnames[0] = "date";
+    funcnames[1] = "difftime";
+    funcnames[2] = "time";
+
+    for (int int0 = 0; int0 < 3; int0++) {
+      funcs[int0] = new OsLib(int0);
+    }
+
+    MILLISECOND = "milli";
+    tzone = TimeZone.getTimeZone("UTC");
+    shortDayNames =
+        new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+    longDayNames = new String[]{"Sunday",   "Monday", "Tuesday", "Wednesday",
+                                "Thursday", "Friday", "Saturday"};
+    shortMonthNames = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    longMonthNames = new String[]{
+        "January", "February", "March",     "April",   "May",      "June",
+        "July",    "August",   "September", "October", "November", "December"};
+  }
+}
+} // namespace stdlib
+} // namespace kahlua
+} // namespace krka
+} // namespace se

@@ -1,0 +1,3 @@
+/workspaces/PZ/converted/build/CMakeFiles/projectzomboid.dir
+/workspaces/PZ/converted/build/CMakeFiles/edit_cache.dir
+/workspaces/PZ/converted/build/CMakeFiles/rebuild_cache.dir

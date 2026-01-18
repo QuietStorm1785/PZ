@@ -1,0 +1,39 @@
+[  3%] Built target lua
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Player.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o
+/workspaces/PZ/PZ-Switch/src/Player.cpp: In member function 'void zombie::entities::Player::attack()':
+/workspaces/PZ/PZ-Switch/src/Player.cpp:61:10: error: 'cout' is not a member of 'std'
+   61 |     std::cout << "Player attacks!" << std::endl;
+      |          ^~~~
+/workspaces/PZ/PZ-Switch/src/Player.cpp:2:1: note: 'std::cout' is defined in header '<iostream>'; this is probably fixable by adding '#include <iostream>'
+    1 | #include "Player.h"
+  +++ |+#include <iostream>
+    2 | #include <cmath>
+/workspaces/PZ/PZ-Switch/src/Player.cpp:61:44: error: 'endl' is not a member of 'std'
+   61 |     std::cout << "Player attacks!" << std::endl;
+      |                                            ^~~~
+/workspaces/PZ/PZ-Switch/src/Player.cpp:2:1: note: 'std::endl' is defined in header '<ostream>'; this is probably fixable by adding '#include <ostream>'
+    1 | #include "Player.h"
+  +++ |+#include <ostream>
+    2 | #include <cmath>
+/workspaces/PZ/PZ-Switch/src/Player.cpp: In member function 'void zombie::entities::Player::interact()':
+/workspaces/PZ/PZ-Switch/src/Player.cpp:73:10: error: 'cout' is not a member of 'std'
+   73 |     std::cout << "Player interacts!" << std::endl;
+      |          ^~~~
+/workspaces/PZ/PZ-Switch/src/Player.cpp:73:10: note: 'std::cout' is defined in header '<iostream>'; this is probably fixable by adding '#include <iostream>'
+/workspaces/PZ/PZ-Switch/src/Player.cpp:73:46: error: 'endl' is not a member of 'std'
+   73 |     std::cout << "Player interacts!" << std::endl;
+      |                                              ^~~~
+/workspaces/PZ/PZ-Switch/src/Player.cpp:73:46: note: 'std::endl' is defined in header '<ostream>'; this is probably fixable by adding '#include <ostream>'
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:258: CMakeFiles/ProjectZomboidCpp.dir/src/Player.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/ProjectZomboidCpp.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

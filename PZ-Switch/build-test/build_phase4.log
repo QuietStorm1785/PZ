@@ -1,0 +1,1604 @@
+[  3%] Built target lua
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocationGroup.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocation.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o
+In file included from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItems.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItems.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:6:10: fatal error: javax/xml/bind/Unmarshaller.h: No such file or directory
+    6 | #include "javax/xml/bind/Unmarshaller.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:874: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+In file included from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItem.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItem.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:6:10: fatal error: javax/xml/bind/Unmarshaller.h: No such file or directory
+    6 | #include "javax/xml/bind/Unmarshaller.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:860: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o] Error 1
+In file included from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:18:10: error: expected ':' before 'final'
+   18 | protected
+      |          ^
+      |          :
+   19 |   final ArrayList<AttachedLocation> locations = std::make_unique<ArrayList<>>();
+      |   ~~~~~   
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:19:3: error: 'final' does not name a type
+   19 |   final ArrayList<AttachedLocation> locations = std::make_unique<ArrayList<>>();
+      |   ^~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:21:7: error: expected ':' before 'AttachedLocationGroup'
+   21 | public
+      |       ^
+      |       :
+   22 |   AttachedLocationGroup(const std::string &_id) {
+      |   ~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:32:3: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   32 |   AttachedLocation getLocation(const std::string &locationId) {
+      |   ^~~~~~~~~~~~~~~~
+      |   AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:43:3: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   43 |   AttachedLocation getOrCreateLocation(const std::string &locationId) {
+      |   ^~~~~~~~~~~~~~~~
+      |   AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:53:3: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   53 |   AttachedLocation getLocationByIndex(int index) {
+      |   ^~~~~~~~~~~~~~~~
+      |   AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:80:2: error: expected ';' after class definition
+   80 | }
+      |  ^
+      |  ;
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In constructor 'zombie::characters::AttachedItems::AttachedLocationGroup::AttachedLocationGroup(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:13: error: no match for 'operator==' (operand types are 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} and 'std::nullptr_t')
+   23 |     if (_id == nullptr) {
+      |         ~~~~^~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:13: note: there are 30 candidates
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/c++allocator.h:33,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:46,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:67,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:3:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: candidate 1: 'template<class _Up> bool std::operator==(const __new_allocator<char>&, const __new_allocator<_Tp>&)'
+  215 |         operator==(const __new_allocator&, const __new_allocator<_Up>&)
+      |         ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::__new_allocator<_Tp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: candidate 2: 'template<class _T1, class _T2> bool std::operator==(const allocator<_Tp1>&, const allocator<_T2>&)'
+  242 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::allocator<_Tp1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_tempbuf.h:62,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:68:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: candidate 3: 'template<class _T1, class _T2> constexpr bool std::operator==(const pair<_T1, _T2>&, const pair<_T1, _T2>&)'
+ 1060 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::pair<_T1, _T2>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_algobase.h:67,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_uninitialized.h:63,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:71:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: candidate 4: 'template<class _Iterator> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_Iterator>&)'
+  443 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: candidate 5: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)'
+  488 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: candidate 6: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)'
+ 1662 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: candidate 7: 'template<class _Iterator> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)'
+ 1732 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:37,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:80:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: candidate 8: 'template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const tuple<_Elements ...>&, const tuple<_Elements ...>&)'
+ 2610 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::tuple<_Elements ...>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: candidate 9: 'template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const unique_ptr<_Tp, _Dp>&, const unique_ptr<_Up, _Ep>&)'
+  846 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: candidate 10: 'template<class _Tp, class _Dp> bool std::operator==(const unique_ptr<_Tp, _Dp>&, nullptr_t)'
+  854 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: candidate 11: 'template<class _Tp, class _Dp> bool std::operator==(nullptr_t, const unique_ptr<_Tp, _Dp>&)'
+  862 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::unique_ptr<_Tp, _Dp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/iosfwd:44,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:52,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:82:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: candidate 12: 'template<class _StateT> bool std::operator==(const fpos<_StateT>&, const fpos<_StateT>&)'
+  197 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::fpos<_StateT>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:53:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: candidate 13: 'template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp1, _Lp>&, const __shared_ptr<_Tp2, _Lp>&)'
+ 1803 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: candidate 14: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp, _Lp>&, nullptr_t)'
+ 1809 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: candidate 15: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>&)'
+ 1829 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::__shared_ptr<_Tp, _Lp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: candidate 16: 'template<class _Tp, class _Up> bool std::operator==(const shared_ptr<_Tp>&, const shared_ptr<_Tp>&)'
+  554 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: candidate 17: 'template<class _Tp> bool std::operator==(const shared_ptr<_Tp>&, nullptr_t)'
+  560 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: candidate 18: 'template<class _Tp> bool std::operator==(nullptr_t, const shared_ptr<_Tp>&)'
+  581 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::shared_ptr<_Tp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:51,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string:56,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:4:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: candidate 19: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, __type_identity_t<basic_string_view<_CharT, _Traits> >)'
+  633 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: candidate 20: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, basic_string_view<_CharT, _Traits>)'
+  641 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: candidate 21: 'template<class _CharT, class _Traits> constexpr bool std::operator==(__type_identity_t<basic_string_view<_CharT, _Traits> >, basic_string_view<_CharT, _Traits>)'
+  648 |     operator==(__type_identity_t<basic_string_view<_CharT, _Traits>> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'std::basic_string_view<_CharT, _Traits>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: candidate 22: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4045 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: candidate 23: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)'
+ 4062 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const _CharT*' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: candidate 24: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4109 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const _CharT*' and 'std::__cxx11::basic_string<char>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_map:43,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:5:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: candidate 25: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2376 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: candidate 26: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2390 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_set:43,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:6:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: candidate 27: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2036 |     operator==(const unordered_set<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: candidate 28: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2050 |     operator==(const unordered_multiset<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/vector:68,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:7:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: candidate 29: 'template<class _Tp, class _Alloc> bool std::operator==(const vector<_Tp, _Alloc>&, const vector<_Tp, _Alloc>&)'
+ 2338 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::vector<_Tp, _Alloc>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:7: note: candidate 30: 'bool std::operator==(const allocator<char>&, const allocator<char>&)'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:18: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'const std::allocator<char>&'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |                  ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:24:17: error: expected type-specifier before 'NullPointerException'
+   24 |       throw new NullPointerException("id is nullptr");
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:25:20: error: 'const std::string' {aka 'const class std::__cxx11::basic_string<char>'} has no member named 'isEmpty'; did you mean 'empty'?
+   25 |     } else if (_id.isEmpty()) {
+      |                    ^~~~~~~
+      |                    empty
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:26:17: error: expected type-specifier before 'IllegalArgumentException'
+   26 |       throw new IllegalArgumentException("id is empty");
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:28:12: error: request for member 'id' in '(zombie::characters::AttachedItems::AttachedLocationGroup*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocationGroup*' (maybe you meant to use '->' ?)
+   28 |       this.id = _id;
+      |            ^~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In member function 'int zombie::characters::AttachedItems::AttachedLocationGroup::size()':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:58:28: error: request for member 'locations' in '(zombie::characters::AttachedItems::AttachedLocationGroup*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocationGroup*' (maybe you meant to use '->' ?)
+   58 |   int size() { return this.locations.size(); }
+      |                            ^~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In member function 'int zombie::characters::AttachedItems::AttachedLocationGroup::indexOf(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:61:36: error: request for member 'locations' in '(zombie::characters::AttachedItems::AttachedLocationGroup*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocationGroup*' (maybe you meant to use '->' ?)
+   61 |     for (int int0 = 0; int0 < this.locations.size(); int0++) {
+      |                                    ^~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:62:7: error: 'AttachedLocation' was not declared in this scope; did you mean 'AttachedLocationGroup'?
+   62 |       AttachedLocation attachedLocation = this.locations.get(int0);
+      |       ^~~~~~~~~~~~~~~~
+      |       AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:63:11: error: 'attachedLocation' was not declared in this scope; did you mean 'AttachedLocationGroup'?
+   63 |       if (attachedLocation.id == locationId)) {
+      |           ^~~~~~~~~~~~~~~~
+      |           AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:63:45: error: expected primary-expression before ')' token
+   63 |       if (attachedLocation.id == locationId)) {
+      |                                             ^
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In member function 'void zombie::characters::AttachedItems::AttachedLocationGroup::checkValid(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:20: error: no match for 'operator==' (operand types are 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} and 'std::nullptr_t')
+   72 |     if (locationId == nullptr) {
+      |         ~~~~~~~~~~~^~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:20: note: there are 30 candidates
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: candidate 1: 'template<class _Up> bool std::operator==(const __new_allocator<char>&, const __new_allocator<_Tp>&)'
+  215 |         operator==(const __new_allocator&, const __new_allocator<_Up>&)
+      |         ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::__new_allocator<_Tp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: candidate 2: 'template<class _T1, class _T2> bool std::operator==(const allocator<_Tp1>&, const allocator<_T2>&)'
+  242 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::allocator<_Tp1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: candidate 3: 'template<class _T1, class _T2> constexpr bool std::operator==(const pair<_T1, _T2>&, const pair<_T1, _T2>&)'
+ 1060 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::pair<_T1, _T2>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: candidate 4: 'template<class _Iterator> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_Iterator>&)'
+  443 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: candidate 5: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)'
+  488 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: candidate 6: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)'
+ 1662 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: candidate 7: 'template<class _Iterator> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)'
+ 1732 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: candidate 8: 'template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const tuple<_Elements ...>&, const tuple<_Elements ...>&)'
+ 2610 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::tuple<_Elements ...>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: candidate 9: 'template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const unique_ptr<_Tp, _Dp>&, const unique_ptr<_Up, _Ep>&)'
+  846 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: candidate 10: 'template<class _Tp, class _Dp> bool std::operator==(const unique_ptr<_Tp, _Dp>&, nullptr_t)'
+  854 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: candidate 11: 'template<class _Tp, class _Dp> bool std::operator==(nullptr_t, const unique_ptr<_Tp, _Dp>&)'
+  862 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::unique_ptr<_Tp, _Dp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: candidate 12: 'template<class _StateT> bool std::operator==(const fpos<_StateT>&, const fpos<_StateT>&)'
+  197 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::fpos<_StateT>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: candidate 13: 'template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp1, _Lp>&, const __shared_ptr<_Tp2, _Lp>&)'
+ 1803 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: candidate 14: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp, _Lp>&, nullptr_t)'
+ 1809 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: candidate 15: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>&)'
+ 1829 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::__shared_ptr<_Tp, _Lp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: candidate 16: 'template<class _Tp, class _Up> bool std::operator==(const shared_ptr<_Tp>&, const shared_ptr<_Tp>&)'
+  554 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: candidate 17: 'template<class _Tp> bool std::operator==(const shared_ptr<_Tp>&, nullptr_t)'
+  560 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: candidate 18: 'template<class _Tp> bool std::operator==(nullptr_t, const shared_ptr<_Tp>&)'
+  581 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::shared_ptr<_Tp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: candidate 19: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, __type_identity_t<basic_string_view<_CharT, _Traits> >)'
+  633 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: candidate 20: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, basic_string_view<_CharT, _Traits>)'
+  641 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: candidate 21: 'template<class _CharT, class _Traits> constexpr bool std::operator==(__type_identity_t<basic_string_view<_CharT, _Traits> >, basic_string_view<_CharT, _Traits>)'
+  648 |     operator==(__type_identity_t<basic_string_view<_CharT, _Traits>> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'std::basic_string_view<_CharT, _Traits>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: candidate 22: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4045 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: candidate 23: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)'
+ 4062 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const _CharT*' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: candidate 24: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4109 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const _CharT*' and 'std::__cxx11::basic_string<char>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: candidate 25: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2376 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: candidate 26: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2390 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: candidate 27: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2036 |     operator==(const unordered_set<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: candidate 28: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2050 |     operator==(const unordered_multiset<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: candidate 29: 'template<class _Tp, class _Alloc> bool std::operator==(const vector<_Tp, _Alloc>&, const vector<_Tp, _Alloc>&)'
+ 2338 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::vector<_Tp, _Alloc>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:7: note: candidate 30: 'bool std::operator==(const allocator<char>&, const allocator<char>&)'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:18: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'const std::allocator<char>&'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |                  ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:73:17: error: expected type-specifier before 'NullPointerException'
+   73 |       throw new NullPointerException("locationId is nullptr");
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:74:27: error: 'const std::string' {aka 'const class std::__cxx11::basic_string<char>'} has no member named 'isEmpty'; did you mean 'empty'?
+   74 |     } else if (locationId.isEmpty()) {
+      |                           ^~~~~~~
+      |                           empty
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:75:17: error: expected type-specifier before 'IllegalArgumentException'
+   75 |       throw new IllegalArgumentException("locationId is empty");
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:76:21: error: request for member 'indexOf' in '(zombie::characters::AttachedItems::AttachedLocationGroup*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocationGroup*' (maybe you meant to use '->' ?)
+   76 |     } else if (this.indexOf(locationId) == -1) {
+      |                     ^~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:77:17: error: expected type-specifier before 'RuntimeException'
+   77 |       throw new RuntimeException("no such location \"" + locationId + "\"");
+      |                 ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp: At global scope:
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:7:1: error: expected unqualified-id before 'public'
+    7 | public
+      | ^~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:13:1: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   13 | AttachedLocation
+      | ^~~~~~~~~~~~~~~~
+      | AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:19:1: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   19 | AttachedLocation
+      | ^~~~~~~~~~~~~~~~
+      | AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:25:1: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   25 | AttachedLocation AttachedLocationGroup::getLocationByIndex(int index) {
+      | ^~~~~~~~~~~~~~~~
+      | AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:30:5: error: redefinition of 'int zombie::characters::AttachedItems::AttachedLocationGroup::size()'
+   30 | int AttachedLocationGroup::size() {
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:58:7: note: 'int zombie::characters::AttachedItems::AttachedLocationGroup::size()' previously defined here
+   58 |   int size() { return this.locations.size(); }
+      |       ^~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:35:5: error: redefinition of 'int zombie::characters::AttachedItems::AttachedLocationGroup::indexOf(const std::string&)'
+   35 | int AttachedLocationGroup::indexOf(const std::string &locationId) {
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:60:7: note: 'int zombie::characters::AttachedItems::AttachedLocationGroup::indexOf(const std::string&)' previously defined here
+   60 |   int indexOf(const std::string &locationId) {
+      |       ^~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:40:6: error: redefinition of 'void zombie::characters::AttachedItems::AttachedLocationGroup::checkValid(const std::string&)'
+   40 | void AttachedLocationGroup::checkValid(const std::string &locationId) {
+      |      ^~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:71:8: note: 'void zombie::characters::AttachedItems::AttachedLocationGroup::checkValid(const std::string&)' previously defined here
+   71 |   void checkValid(const std::string &locationId) {
+      |        ^~~~~~~~~~
+In file included from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:17:9: error: 'AttachedLocationGroup' does not name a type; did you mean 'AttachedLocation'?
+   17 |   const AttachedLocationGroup group;
+      |         ^~~~~~~~~~~~~~~~~~~~~
+      |         AttachedLocation
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:21:7: error: expected ':' before 'AttachedLocation'
+   21 | public
+      |       ^
+      |       :
+   22 |   AttachedLocation(AttachedLocationGroup _group, const std::string &_id) {
+      |   ~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:22:41: error: expected ')' before '_group'
+   22 |   AttachedLocation(AttachedLocationGroup _group, const std::string &_id) {
+      |                   ~                     ^~~~~~~
+      |                                         )
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:46:2: error: expected ';' after class definition
+   46 | }
+      |  ^
+      |  ;
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h: In member function 'void zombie::characters::AttachedItems::AttachedLocation::setAttachmentName(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:14: error: request for member 'id' in '(zombie::characters::AttachedItems::AttachedLocation*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocation*' (maybe you meant to use '->' ?)
+   34 |     if (this.id == nullptr) {
+      |              ^~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:35:17: error: expected type-specifier before 'NullPointerException'
+   35 |       throw new NullPointerException("attachmentName is nullptr");
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:36:21: error: request for member 'id' in '(zombie::characters::AttachedItems::AttachedLocation*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocation*' (maybe you meant to use '->' ?)
+   36 |     } else if (this.id.isEmpty()) {
+      |                     ^~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:37:17: error: expected type-specifier before 'IllegalArgumentException'
+   37 |       throw new IllegalArgumentException("attachmentName is empty");
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:39:12: error: request for member 'attachmentName' in '(zombie::characters::AttachedItems::AttachedLocation*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocation*' (maybe you meant to use '->' ?)
+   39 |       this.attachmentName = _attachmentName;
+      |            ^~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h: In member function 'std::string zombie::characters::AttachedItems::AttachedLocation::getAttachmentName()':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:43:49: error: request for member 'attachmentName' in '(zombie::characters::AttachedItems::AttachedLocation*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocation*' (maybe you meant to use '->' ?)
+   43 |   std::string getAttachmentName() { return this.attachmentName; }
+      |                                                 ^~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h: In member function 'std::string zombie::characters::AttachedItems::AttachedLocation::getId()':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:45:37: error: request for member 'id' in '(zombie::characters::AttachedItems::AttachedLocation*)this', which is of pointer type 'zombie::characters::AttachedItems::AttachedLocation*' (maybe you meant to use '->' ?)
+   45 |   std::string getId() { return this.id; }
+      |                                     ^~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp: At global scope:
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:7:1: error: expected unqualified-id before 'public'
+    7 | public
+      | ^~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:14:6: error: redefinition of 'void zombie::characters::AttachedItems::AttachedLocation::setAttachmentName(const std::string&)'
+   14 | void AttachedLocation::setAttachmentName(const std::string &_attachmentName) {
+      |      ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:33:8: note: 'void zombie::characters::AttachedItems::AttachedLocation::setAttachmentName(const std::string&)' previously defined here
+   33 |   void setAttachmentName(const std::string &_attachmentName) {
+      |        ^~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:18:13: error: redefinition of 'std::string zombie::characters::AttachedItems::AttachedLocation::getAttachmentName()'
+   18 | std::string AttachedLocation::getAttachmentName() {
+      |             ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:43:15: note: 'std::string zombie::characters::AttachedItems::AttachedLocation::getAttachmentName()' previously defined here
+   43 |   std::string getAttachmentName() { return this.attachmentName; }
+      |               ^~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:23:13: error: redefinition of 'std::string zombie::characters::AttachedItems::AttachedLocation::getId()'
+   23 | std::string AttachedLocation::getId() {
+      |             ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:45:15: note: 'std::string zombie::characters::AttachedItems::AttachedLocation::getId()' previously defined here
+   45 |   std::string getId() { return this.id; }
+      |               ^~~~~
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:902: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocationGroup.o] Error 1
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:888: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocation.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/ProjectZomboidCpp.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
+[  3%] Built target lua
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocation.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocationGroup.o
+In file included from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItem.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItem.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:6:10: fatal error: javax/xml/bind/Unmarshaller.h: No such file or directory
+    6 | #include "javax/xml/bind/Unmarshaller.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItems.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItems.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:6:10: fatal error: javax/xml/bind/Unmarshaller.h: No such file or directory
+    6 | #include "javax/xml/bind/Unmarshaller.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+compilation terminated.
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:874: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:860: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o] Error 1
+In file included from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:18:10: error: expected ':' before 'final'
+   18 | protected
+      |          ^
+      |          :
+   19 |   final ArrayList<AttachedLocation> locations = std::make_unique<ArrayList<>>();
+      |   ~~~~~   
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:19:3: error: 'final' does not name a type
+   19 |   final ArrayList<AttachedLocation> locations = std::make_unique<ArrayList<>>();
+      |   ^~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:21:7: error: expected ':' before 'AttachedLocationGroup'
+   21 | public
+      |       ^
+      |       :
+   22 |   AttachedLocationGroup(const std::string &_id) {
+      |   ~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:32:3: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   32 |   AttachedLocation getLocation(const std::string &locationId) {
+      |   ^~~~~~~~~~~~~~~~
+      |   AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:43:3: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   43 |   AttachedLocation getOrCreateLocation(const std::string &locationId) {
+      |   ^~~~~~~~~~~~~~~~
+      |   AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:53:3: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   53 |   AttachedLocation getLocationByIndex(int index) {
+      |   ^~~~~~~~~~~~~~~~
+      |   AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:80:2: error: expected ';' after class definition
+   80 | }
+      |  ^
+      |  ;
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In constructor 'zombie::characters::AttachedItems::AttachedLocationGroup::AttachedLocationGroup(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:13: error: no match for 'operator==' (operand types are 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} and 'std::nullptr_t')
+   23 |     if (_id == nullptr) {
+      |         ~~~~^~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:13: note: there are 30 candidates
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/c++allocator.h:33,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:46,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:67,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:3:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: candidate 1: 'template<class _Up> bool std::operator==(const __new_allocator<char>&, const __new_allocator<_Tp>&)'
+  215 |         operator==(const __new_allocator&, const __new_allocator<_Up>&)
+      |         ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::__new_allocator<_Tp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: candidate 2: 'template<class _T1, class _T2> bool std::operator==(const allocator<_Tp1>&, const allocator<_T2>&)'
+  242 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::allocator<_Tp1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_tempbuf.h:62,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:68:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: candidate 3: 'template<class _T1, class _T2> constexpr bool std::operator==(const pair<_T1, _T2>&, const pair<_T1, _T2>&)'
+ 1060 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::pair<_T1, _T2>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_algobase.h:67,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_uninitialized.h:63,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:71:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: candidate 4: 'template<class _Iterator> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_Iterator>&)'
+  443 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: candidate 5: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)'
+  488 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: candidate 6: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)'
+ 1662 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: candidate 7: 'template<class _Iterator> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)'
+ 1732 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:37,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:80:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: candidate 8: 'template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const tuple<_Elements ...>&, const tuple<_Elements ...>&)'
+ 2610 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::tuple<_Elements ...>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: candidate 9: 'template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const unique_ptr<_Tp, _Dp>&, const unique_ptr<_Up, _Ep>&)'
+  846 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: candidate 10: 'template<class _Tp, class _Dp> bool std::operator==(const unique_ptr<_Tp, _Dp>&, nullptr_t)'
+  854 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: candidate 11: 'template<class _Tp, class _Dp> bool std::operator==(nullptr_t, const unique_ptr<_Tp, _Dp>&)'
+  862 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::unique_ptr<_Tp, _Dp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/iosfwd:44,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:52,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:82:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: candidate 12: 'template<class _StateT> bool std::operator==(const fpos<_StateT>&, const fpos<_StateT>&)'
+  197 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::fpos<_StateT>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:53:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: candidate 13: 'template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp1, _Lp>&, const __shared_ptr<_Tp2, _Lp>&)'
+ 1803 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: candidate 14: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp, _Lp>&, nullptr_t)'
+ 1809 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: candidate 15: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>&)'
+ 1829 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::__shared_ptr<_Tp, _Lp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: candidate 16: 'template<class _Tp, class _Up> bool std::operator==(const shared_ptr<_Tp>&, const shared_ptr<_Tp>&)'
+  554 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: candidate 17: 'template<class _Tp> bool std::operator==(const shared_ptr<_Tp>&, nullptr_t)'
+  560 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: candidate 18: 'template<class _Tp> bool std::operator==(nullptr_t, const shared_ptr<_Tp>&)'
+  581 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::shared_ptr<_Tp>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:51,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string:56,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:4:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: candidate 19: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, __type_identity_t<basic_string_view<_CharT, _Traits> >)'
+  633 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: candidate 20: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, basic_string_view<_CharT, _Traits>)'
+  641 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: candidate 21: 'template<class _CharT, class _Traits> constexpr bool std::operator==(__type_identity_t<basic_string_view<_CharT, _Traits> >, basic_string_view<_CharT, _Traits>)'
+  648 |     operator==(__type_identity_t<basic_string_view<_CharT, _Traits>> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'std::basic_string_view<_CharT, _Traits>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: candidate 22: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4045 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: candidate 23: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)'
+ 4062 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const _CharT*' and 'std::nullptr_t'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: candidate 24: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4109 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   mismatched types 'const _CharT*' and 'std::__cxx11::basic_string<char>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_map:43,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:5:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: candidate 25: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2376 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: candidate 26: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2390 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_set:43,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:6:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: candidate 27: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2036 |     operator==(const unordered_set<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: candidate 28: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2050 |     operator==(const unordered_multiset<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/vector:68,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:7:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: candidate 29: 'template<class _Tp, class _Alloc> bool std::operator==(const vector<_Tp, _Alloc>&, const vector<_Tp, _Alloc>&)'
+ 2338 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:23:16: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::vector<_Tp, _Alloc>'
+   23 |     if (_id == nullptr) {
+      |                ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:7: note: candidate 30: 'bool std::operator==(const allocator<char>&, const allocator<char>&)'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:18: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'const std::allocator<char>&'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |                  ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:24:13: error: 'NullPointerException' was not declared in this scope
+   24 |       throw NullPointerException("id is nullptr");
+      |             ^~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:26:13: error: 'IllegalArgumentException' was not declared in this scope
+   26 |       throw IllegalArgumentException("id is empty");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:28:18: error: no match for 'operator=' (operand types are 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} and 'const std::string' {aka 'const std::__cxx11::basic_string<char>'})
+   28 |       this->id = _id;
+      |                  ^~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:28:18: note: there are 6 candidates
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:904:7: note: candidate 1: 'std::__cxx11::basic_string<_CharT, _Traits, _Alloc>& std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]' (near match)
+  904 |       operator=(const basic_string& __str)
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:904:7: note: passing 'const std::string*' {aka 'const std::__cxx11::basic_string<char>*'} as 'this' argument discards qualifiers
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:945:7: note: candidate 2: 'std::__cxx11::basic_string<_CharT, _Traits, _Alloc>& std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::operator=(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]' (near match)
+  945 |       operator=(basic_string&& __str)
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:945:7: note: conversion of argument 1 would be ill-formed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:28:18: error: cannot bind rvalue reference of type 'std::__cxx11::basic_string<char>&&' to lvalue of type 'const std::string' {aka 'const std::__cxx11::basic_string<char>'}
+   28 |       this->id = _id;
+      |                  ^~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:1028:8: note: candidate 3: 'template<class _Tp> std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_If_sv<_Tp, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&> std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::operator=(const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]'
+ 1028 |        operator=(const _Tp& __svt)
+      |        ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:1028:8: note: template argument deduction/substitution failed:
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/move.h:37,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:36:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/type_traits: In substitution of 'template<bool _Cond, class _Tp> using std::enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = std::__cxx11::basic_string<char>&]':
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:160:8:   required by substitution of 'template<class _CharT, class _Traits, class _Alloc> template<class _Tp, class _Res> using std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_If_sv = std::enable_if_t<((bool)std::__and_<std::is_convertible<const _Tp&, std::basic_string_view<_CharT, _Traits> >, std::__not_<std::is_convertible<const _Tp*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>*> >, std::__not_<std::is_convertible<const _Tp&, const _CharT*> > >::value), _Res> [with _Tp = std::__cxx11::basic_string<char>; _Res = std::__cxx11::basic_string<char>&; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]'
+  160 |         using _If_sv = enable_if_t<
+      |               ^~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:1028:8:   required by substitution of 'template<class _Tp> std::__cxx11::basic_string<char>::_If_sv<_Tp, std::__cxx11::basic_string<char>&> std::__cxx11::basic_string<char>::operator=(const _Tp&) [with _Tp = std::__cxx11::basic_string<char>]'
+ 1028 |        operator=(const _Tp& __svt)
+      |        ^~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:28:18:   required from here
+   28 |       this->id = _id;
+      |                  ^~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/type_traits:2837:11: error: no type named 'type' in 'struct std::enable_if<false, std::__cxx11::basic_string<char>&>'
+ 2837 |     using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+      |           ^~~~~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:915:7: note: candidate 4: 'std::__cxx11::basic_string<_CharT, _Traits, _Alloc>& std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]'
+  915 |       operator=(const _CharT* __s)
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:915:31: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'const char*'
+  915 |       operator=(const _CharT* __s)
+      |                 ~~~~~~~~~~~~~~^~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:927:7: note: candidate 5: 'std::__cxx11::basic_string<_CharT, _Traits, _Alloc>& std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]'
+  927 |       operator=(_CharT __c)
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:927:24: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'char'
+  927 |       operator=(_CharT __c)
+      |                 ~~~~~~~^~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:1013:7: note: candidate 6: 'std::__cxx11::basic_string<_CharT, _Traits, _Alloc>& std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]'
+ 1013 |       operator=(initializer_list<_CharT> __l)
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:1013:42: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'std::initializer_list<char>'
+ 1013 |       operator=(initializer_list<_CharT> __l)
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In member function 'int zombie::characters::AttachedItems::AttachedLocationGroup::size()':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:58:29: error: 'class zombie::characters::AttachedItems::AttachedLocationGroup' has no member named 'locations'
+   58 |   int size() { return this->locations.size(); }
+      |                             ^~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In member function 'int zombie::characters::AttachedItems::AttachedLocationGroup::indexOf(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:61:37: error: 'class zombie::characters::AttachedItems::AttachedLocationGroup' has no member named 'locations'
+   61 |     for (int int0 = 0; int0 < this->locations.size(); int0++) {
+      |                                     ^~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:62:7: error: 'AttachedLocation' was not declared in this scope; did you mean 'AttachedLocationGroup'?
+   62 |       AttachedLocation attachedLocation = this->locations.get(int0);
+      |       ^~~~~~~~~~~~~~~~
+      |       AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:63:11: error: 'attachedLocation' was not declared in this scope; did you mean 'AttachedLocationGroup'?
+   63 |       if (attachedLocation.id == locationId)) {
+      |           ^~~~~~~~~~~~~~~~
+      |           AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:63:45: error: expected primary-expression before ')' token
+   63 |       if (attachedLocation.id == locationId)) {
+      |                                             ^
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h: In member function 'void zombie::characters::AttachedItems::AttachedLocationGroup::checkValid(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:20: error: no match for 'operator==' (operand types are 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} and 'std::nullptr_t')
+   72 |     if (locationId == nullptr) {
+      |         ~~~~~~~~~~~^~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:20: note: there are 30 candidates
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: candidate 1: 'template<class _Up> bool std::operator==(const __new_allocator<char>&, const __new_allocator<_Tp>&)'
+  215 |         operator==(const __new_allocator&, const __new_allocator<_Up>&)
+      |         ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::__new_allocator<_Tp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: candidate 2: 'template<class _T1, class _T2> bool std::operator==(const allocator<_Tp1>&, const allocator<_T2>&)'
+  242 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::allocator<_Tp1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: candidate 3: 'template<class _T1, class _T2> constexpr bool std::operator==(const pair<_T1, _T2>&, const pair<_T1, _T2>&)'
+ 1060 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::pair<_T1, _T2>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: candidate 4: 'template<class _Iterator> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_Iterator>&)'
+  443 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: candidate 5: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)'
+  488 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: candidate 6: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)'
+ 1662 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: candidate 7: 'template<class _Iterator> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)'
+ 1732 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: candidate 8: 'template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const tuple<_Elements ...>&, const tuple<_Elements ...>&)'
+ 2610 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::tuple<_Elements ...>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: candidate 9: 'template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const unique_ptr<_Tp, _Dp>&, const unique_ptr<_Up, _Ep>&)'
+  846 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: candidate 10: 'template<class _Tp, class _Dp> bool std::operator==(const unique_ptr<_Tp, _Dp>&, nullptr_t)'
+  854 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: candidate 11: 'template<class _Tp, class _Dp> bool std::operator==(nullptr_t, const unique_ptr<_Tp, _Dp>&)'
+  862 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::unique_ptr<_Tp, _Dp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: candidate 12: 'template<class _StateT> bool std::operator==(const fpos<_StateT>&, const fpos<_StateT>&)'
+  197 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::fpos<_StateT>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: candidate 13: 'template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp1, _Lp>&, const __shared_ptr<_Tp2, _Lp>&)'
+ 1803 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: candidate 14: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp, _Lp>&, nullptr_t)'
+ 1809 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: candidate 15: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>&)'
+ 1829 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::__shared_ptr<_Tp, _Lp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: candidate 16: 'template<class _Tp, class _Up> bool std::operator==(const shared_ptr<_Tp>&, const shared_ptr<_Tp>&)'
+  554 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: candidate 17: 'template<class _Tp> bool std::operator==(const shared_ptr<_Tp>&, nullptr_t)'
+  560 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: candidate 18: 'template<class _Tp> bool std::operator==(nullptr_t, const shared_ptr<_Tp>&)'
+  581 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::shared_ptr<_Tp>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: candidate 19: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, __type_identity_t<basic_string_view<_CharT, _Traits> >)'
+  633 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: candidate 20: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, basic_string_view<_CharT, _Traits>)'
+  641 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: candidate 21: 'template<class _CharT, class _Traits> constexpr bool std::operator==(__type_identity_t<basic_string_view<_CharT, _Traits> >, basic_string_view<_CharT, _Traits>)'
+  648 |     operator==(__type_identity_t<basic_string_view<_CharT, _Traits>> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'std::basic_string_view<_CharT, _Traits>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: candidate 22: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4045 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: candidate 23: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)'
+ 4062 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const _CharT*' and 'std::nullptr_t'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: candidate 24: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4109 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   mismatched types 'const _CharT*' and 'std::__cxx11::basic_string<char>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: candidate 25: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2376 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: candidate 26: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2390 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: candidate 27: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2036 |     operator==(const unordered_set<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: candidate 28: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2050 |     operator==(const unordered_multiset<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: candidate 29: 'template<class _Tp, class _Alloc> bool std::operator==(const vector<_Tp, _Alloc>&, const vector<_Tp, _Alloc>&)'
+ 2338 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:72:23: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::vector<_Tp, _Alloc>'
+   72 |     if (locationId == nullptr) {
+      |                       ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:7: note: candidate 30: 'bool std::operator==(const allocator<char>&, const allocator<char>&)'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:18: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'const std::allocator<char>&'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |                  ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:73:13: error: 'NullPointerException' was not declared in this scope
+   73 |       throw NullPointerException("locationId is nullptr");
+      |             ^~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:75:13: error: 'IllegalArgumentException' was not declared in this scope
+   75 |       throw IllegalArgumentException("locationId is empty");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:77:13: error: 'RuntimeException' was not declared in this scope
+   77 |       throw RuntimeException("no such location \"" + locationId + "\"");
+      |             ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp: At global scope:
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:7:1: error: expected unqualified-id before 'public'
+    7 | public
+      | ^~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:13:1: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   13 | AttachedLocation
+      | ^~~~~~~~~~~~~~~~
+      | AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:19:1: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   19 | AttachedLocation
+      | ^~~~~~~~~~~~~~~~
+      | AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:25:1: error: 'AttachedLocation' does not name a type; did you mean 'AttachedLocationGroup'?
+   25 | AttachedLocation AttachedLocationGroup::getLocationByIndex(int index) {
+      | ^~~~~~~~~~~~~~~~
+      | AttachedLocationGroup
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:30:5: error: redefinition of 'int zombie::characters::AttachedItems::AttachedLocationGroup::size()'
+   30 | int AttachedLocationGroup::size() {
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:58:7: note: 'int zombie::characters::AttachedItems::AttachedLocationGroup::size()' previously defined here
+   58 |   int size() { return this->locations.size(); }
+      |       ^~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:35:5: error: redefinition of 'int zombie::characters::AttachedItems::AttachedLocationGroup::indexOf(const std::string&)'
+   35 | int AttachedLocationGroup::indexOf(const std::string &locationId) {
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:60:7: note: 'int zombie::characters::AttachedItems::AttachedLocationGroup::indexOf(const std::string&)' previously defined here
+   60 |   int indexOf(const std::string &locationId) {
+      |       ^~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocationGroup.cpp:40:6: error: redefinition of 'void zombie::characters::AttachedItems::AttachedLocationGroup::checkValid(const std::string&)'
+   40 | void AttachedLocationGroup::checkValid(const std::string &locationId) {
+      |      ^~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocationGroup.h:71:8: note: 'void zombie::characters::AttachedItems::AttachedLocationGroup::checkValid(const std::string&)' previously defined here
+   71 |   void checkValid(const std::string &locationId) {
+      |        ^~~~~~~~~~
+In file included from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:17:9: error: 'AttachedLocationGroup' does not name a type; did you mean 'AttachedLocation'?
+   17 |   const AttachedLocationGroup group;
+      |         ^~~~~~~~~~~~~~~~~~~~~
+      |         AttachedLocation
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:21:7: error: expected ':' before 'AttachedLocation'
+   21 | public
+      |       ^
+      |       :
+   22 |   AttachedLocation(AttachedLocationGroup _group, const std::string &_id) {
+      |   ~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:22:41: error: expected ')' before '_group'
+   22 |   AttachedLocation(AttachedLocationGroup _group, const std::string &_id) {
+      |                   ~                     ^~~~~~~
+      |                                         )
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:46:2: error: expected ';' after class definition
+   46 | }
+      |  ^
+      |  ;
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h: In member function 'void zombie::characters::AttachedItems::AttachedLocation::setAttachmentName(const std::string&)':
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:18: error: no match for 'operator==' (operand types are 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} and 'std::nullptr_t')
+   34 |     if (this->id == nullptr) {
+      |         ~~~~~~~~~^~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:18: note: there are 30 candidates
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic/bits/c++allocator.h:33,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:46,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:67,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:3:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: candidate 1: 'template<class _Up> bool std::operator==(const __new_allocator<char>&, const __new_allocator<_Tp>&)'
+  215 |         operator==(const __new_allocator&, const __new_allocator<_Up>&)
+      |         ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/new_allocator.h:215:9: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'const std::__new_allocator<_Tp>' and 'std::nullptr_t'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: candidate 2: 'template<class _T1, class _T2> bool std::operator==(const allocator<_Tp1>&, const allocator<_T2>&)'
+  242 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:242:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::allocator<_Tp1>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_tempbuf.h:62,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:68:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: candidate 3: 'template<class _T1, class _T2> constexpr bool std::operator==(const pair<_T1, _T2>&, const pair<_T1, _T2>&)'
+ 1060 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_pair.h:1060:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::pair<_T1, _T2>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_algobase.h:67,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_uninitialized.h:63,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:71:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: candidate 4: 'template<class _Iterator> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_Iterator>&)'
+  443 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:443:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: candidate 5: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)'
+  488 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:488:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::reverse_iterator<_Iterator>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: candidate 6: 'template<class _IteratorL, class _IteratorR> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)'
+ 1662 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1662:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: candidate 7: 'template<class _Iterator> constexpr bool std::operator==(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)'
+ 1732 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_iterator.h:1732:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::move_iterator<_IteratorL>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:37,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:80:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: candidate 8: 'template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const tuple<_Elements ...>&, const tuple<_Elements ...>&)'
+ 2610 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/tuple:2610:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::tuple<_Elements ...>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: candidate 9: 'template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const unique_ptr<_Tp, _Dp>&, const unique_ptr<_Up, _Ep>&)'
+  846 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:846:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: candidate 10: 'template<class _Tp, class _Dp> bool std::operator==(const unique_ptr<_Tp, _Dp>&, nullptr_t)'
+  854 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:854:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: candidate 11: 'template<class _Tp, class _Dp> bool std::operator==(nullptr_t, const unique_ptr<_Tp, _Dp>&)'
+  862 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unique_ptr.h:862:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'const std::unique_ptr<_Tp, _Dp>' and 'std::nullptr_t'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/iosfwd:44,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:52,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/memory:82:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: candidate 12: 'template<class _StateT> bool std::operator==(const fpos<_StateT>&, const fpos<_StateT>&)'
+  197 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/postypes.h:197:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::fpos<_StateT>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:53:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: candidate 13: 'template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp1, _Lp>&, const __shared_ptr<_Tp2, _Lp>&)'
+ 1803 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1803:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: candidate 14: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const __shared_ptr<_Tp, _Lp>&, nullptr_t)'
+ 1809 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1809:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: candidate 15: 'template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>&)'
+ 1829 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr_base.h:1829:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'const std::__shared_ptr<_Tp, _Lp>' and 'std::nullptr_t'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: candidate 16: 'template<class _Tp, class _Up> bool std::operator==(const shared_ptr<_Tp>&, const shared_ptr<_Tp>&)'
+  554 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:554:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: candidate 17: 'template<class _Tp> bool std::operator==(const shared_ptr<_Tp>&, nullptr_t)'
+  560 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:560:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::shared_ptr<_Tp>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: candidate 18: 'template<class _Tp> bool std::operator==(nullptr_t, const shared_ptr<_Tp>&)'
+  581 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/shared_ptr.h:581:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'const std::shared_ptr<_Tp>' and 'std::nullptr_t'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:51,
+                 from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string:56,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:4:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: candidate 19: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, __type_identity_t<basic_string_view<_CharT, _Traits> >)'
+  633 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:633:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: candidate 20: 'template<class _CharT, class _Traits> constexpr bool std::operator==(basic_string_view<_CharT, _Traits>, basic_string_view<_CharT, _Traits>)'
+  641 |     operator==(basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:641:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'std::__cxx11::basic_string<char>' is not derived from 'std::basic_string_view<_CharT, _Traits>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: candidate 21: 'template<class _CharT, class _Traits> constexpr bool std::operator==(__type_identity_t<basic_string_view<_CharT, _Traits> >, basic_string_view<_CharT, _Traits>)'
+  648 |     operator==(__type_identity_t<basic_string_view<_CharT, _Traits>> __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/string_view:648:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'std::basic_string_view<_CharT, _Traits>' and 'std::nullptr_t'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: candidate 22: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4045 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4045:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'std::nullptr_t'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: candidate 23: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)'
+ 4062 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4062:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'const _CharT*' and 'std::nullptr_t'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: candidate 24: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+ 4109 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/basic_string.h:4109:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   mismatched types 'const _CharT*' and 'std::__cxx11::basic_string<char>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_map:43,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:5:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: candidate 25: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2376 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2376:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: candidate 26: 'template<class _Key1, class _Tp1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&, const unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&)'
+ 2390 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_map.h:2390:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multimap<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/unordered_set:43,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:6:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: candidate 27: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2036 |     operator==(const unordered_set<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2036:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_set<_Value1, _Hash1, _Pred1, _Alloc1>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: candidate 28: 'template<class _Value1, class _Hash1, class _Pred1, class _Alloc1> bool std::operator==(const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&, const unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>&)'
+ 2050 |     operator==(const unordered_multiset<_Value, _Hash, _Pred, _Alloc>& __x,
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/unordered_set.h:2050:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::unordered_multiset<_Value1, _Hash1, _Pred1, _Alloc1>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+In file included from /opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/vector:68,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:7:
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: candidate 29: 'template<class _Tp, class _Alloc> bool std::operator==(const vector<_Tp, _Alloc>&, const vector<_Tp, _Alloc>&)'
+ 2338 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/stl_vector.h:2338:5: note: template argument deduction/substitution failed:
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:34:21: note:   'const std::string' {aka 'const std::__cxx11::basic_string<char>'} is not derived from 'const std::vector<_Tp, _Alloc>'
+   34 |     if (this->id == nullptr) {
+      |                     ^~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:7: note: candidate 30: 'bool std::operator==(const allocator<char>&, const allocator<char>&)'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/bits/allocator.h:221:18: note: no known conversion for argument 1 from 'const std::string' {aka 'const std::__cxx11::basic_string<char>'} to 'const std::allocator<char>&'
+  221 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |                  ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:35:13: error: 'NullPointerException' was not declared in this scope
+   35 |       throw NullPointerException("attachmentName is nullptr");
+      |             ^~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:37:13: error: 'IllegalArgumentException' was not declared in this scope
+   37 |       throw IllegalArgumentException("attachmentName is empty");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp: At global scope:
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:7:1: error: expected unqualified-id before 'public'
+    7 | public
+      | ^~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:14:6: error: redefinition of 'void zombie::characters::AttachedItems::AttachedLocation::setAttachmentName(const std::string&)'
+   14 | void AttachedLocation::setAttachmentName(const std::string &_attachmentName) {
+      |      ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:33:8: note: 'void zombie::characters::AttachedItems::AttachedLocation::setAttachmentName(const std::string&)' previously defined here
+   33 |   void setAttachmentName(const std::string &_attachmentName) {
+      |        ^~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:18:13: error: redefinition of 'std::string zombie::characters::AttachedItems::AttachedLocation::getAttachmentName()'
+   18 | std::string AttachedLocation::getAttachmentName() {
+      |             ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:43:15: note: 'std::string zombie::characters::AttachedItems::AttachedLocation::getAttachmentName()' previously defined here
+   43 |   std::string getAttachmentName() { return this->attachmentName; }
+      |               ^~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedLocation.cpp:23:13: error: redefinition of 'std::string zombie::characters::AttachedItems::AttachedLocation::getId()'
+   23 | std::string AttachedLocation::getId() {
+      |             ^~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedLocation.h:45:15: note: 'std::string zombie::characters::AttachedItems::AttachedLocation::getId()' previously defined here
+   45 |   std::string getId() { return this->id; }
+      |               ^~~~~
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:902: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocationGroup.o] Error 1
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:888: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedLocation.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/ProjectZomboidCpp.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

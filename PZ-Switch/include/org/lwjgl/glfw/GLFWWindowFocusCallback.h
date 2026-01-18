@@ -1,0 +1,8 @@
+#ifndef ORG_LWJGL_GLFW_GLFWWINDOWFOCUSCALLBACK_H
+#define ORG_LWJGL_GLFW_GLFWWINDOWFOCUSCALLBACK_H
+
+namespace org::lwjgl::glfw {
+class GLFWWindowFocusCallback { };
+}
+
+#endif // ORG_LWJGL_GLFW_GLFWWINDOWFOCUSCALLBACK_H

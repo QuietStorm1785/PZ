@@ -1,0 +1,8 @@
+#ifndef ORG_LWJGL_GLFW_GLFWMOUSEBUTTONCALLBACK_H
+#define ORG_LWJGL_GLFW_GLFWMOUSEBUTTONCALLBACK_H
+
+namespace org::lwjgl::glfw {
+class GLFWMouseButtonCallback { };
+}
+
+#endif // ORG_LWJGL_GLFW_GLFWMOUSEBUTTONCALLBACK_H

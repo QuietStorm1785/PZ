@@ -1,0 +1,2 @@
+#include "IsFriendly.h"
+

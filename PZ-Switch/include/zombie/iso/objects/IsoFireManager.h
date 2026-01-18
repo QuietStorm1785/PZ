@@ -1,0 +1,527 @@
+#pragma once
+#include <mutex>
+#include "fmod/fmod/FMODSoundEmitter.h"
+#include "zombie/WorldSoundManager.h"
+#include "zombie/audio/BaseSoundEmitter.h"
+#include "zombie/audio/DummySoundEmitter.h"
+#include "zombie/audio/parameters/ParameterFireSize.h"
+#include "zombie/characters/IsoGameCharacter.h"
+#include "zombie/characters/IsoPlayer.h"
+#include "zombie/core/Core.h"
+#include "zombie/core/Rand.h"
+#include "zombie/core/network/ByteBufferWriter.h"
+#include "zombie/core/textures/ColorInfo.h"
+#include "zombie/debug/DebugLog.h"
+#include "zombie/iso/IsoCell.h"
+#include "zombie/iso/IsoGridSquare.h"
+#include "zombie/iso/IsoObject.h"
+#include "zombie/iso/IsoUtils.h"
+#include "zombie/iso/SpriteDetails/IsoFlagType.h"
+#include "zombie/network/GameClient.h"
+#include "zombie/network/GameServer.h"
+#include "zombie/network/PacketTypes.h"
+#include "zombie/util/list/PZArrayUtil.h"
+#include <algorithm>
+#include <cstdint>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+namespace zombie {
+namespace iso {
+namespace objects {
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
+// using Vineflower.
+
+class IsoFireManager {
+public:
+
+ // Mutexes for synchronized blocks
+ std::mutex charactersOnFire_mutex;
+ static double Red_Oscilator = 0.0;
+ static double Green_Oscilator = 0.0;
+ static double Blue_Oscilator = 0.0;
+ static double Red_Oscilator_Rate = 0.1F;
+ static double Green_Oscilator_Rate = 0.13F;
+ static double Blue_Oscilator_Rate = 0.0876F;
+ static double Red_Oscilator_Val = 0.0;
+ static double Green_Oscilator_Val = 0.0;
+ static double Blue_Oscilator_Val = 0.0;
+ static double OscilatorSpeedScalar = 15.6F;
+ static double OscilatorEffectScalar = 0.0039F;
+ static int MaxFireObjects = 75;
+ static int FireRecalcDelay = 25;
+ static int FireRecalc = FireRecalcDelay;
+ static bool LightCalcFromBurningCharacters = false;
+ static float FireAlpha = 1.0F;
+ static float SmokeAlpha = 0.3F;
+ static float FireAnimDelay = 0.2F;
+ static float SmokeAnimDelay = 0.2F;
+ static ColorInfo FireTintMod = new ColorInfo(1.0F, 1.0F, 1.0F, 1.0F);
+ static ColorInfo SmokeTintMod = new ColorInfo(0.5F, 0.5F, 0.5F, 1.0F);
+public
+ static ArrayList<IsoFire> FireStack = std::make_unique<ArrayList<>>();
+public
+ static ArrayList<IsoGameCharacter> CharactersOnFire_Stack =
+ std::make_unique<ArrayList<>>();
+private
+ static IsoFireManager.FireSounds fireSounds =
+ new IsoFireManager.FireSounds(20);
+private
+ static Stack<IsoFire> updateStack = std::make_unique<Stack<>>();
+private
+ static HashSet<IsoGameCharacter> charactersOnFire =
+ std::make_unique<HashSet<>>();
+
+ static void Add(IsoFire NewFire) {
+ if (FireStack.contains(NewFire) {
+ System.out.println("IsoFireManager.Add already added fire, ignoring");
+ } else {
+ if (FireStack.size() < MaxFireObjects) {
+ FireStack.add(NewFire);
+ } else {
+ IsoFire fire = nullptr;
+ int int0 = 0;
+
+ for (int int1 = 0; int1 < FireStack.size(); int1++) {
+ if (FireStack.get(int1).Age > int0) {
+ int0 = FireStack.get(int1).Age;
+ fire = FireStack.get(int1);
+ }
+ }
+
+ if (fire != nullptr && fire.square != nullptr) {
+ fire.square.getProperties().UnSet(IsoFlagType.burning);
+ fire.square.getProperties().UnSet(IsoFlagType.smoke);
+ fire.RemoveAttachedAnims();
+ fire.removeFromWorld();
+ fire.removeFromSquare();
+ }
+
+ FireStack.add(NewFire);
+ }
+ }
+ }
+
+ static void AddBurningCharacter(IsoGameCharacter BurningCharacter) {
+ for (int int0 = 0; int0 < CharactersOnFire_Stack.size(); int0++) {
+ if (CharactersOnFire_Stack.get(int0) == BurningCharacter) {
+ return;
+ }
+ }
+
+ CharactersOnFire_Stack.add(BurningCharacter);
+ }
+
+ static void Fire_LightCalc(IsoGridSquare FireSquare, IsoGridSquare TestSquare,
+ int playerIndex) {
+ if (TestSquare != nullptr && FireSquare != nullptr) {
+ int int0 = 0;
+ uint8_t byte0 = 8;
+ int0 += Math.abs(TestSquare.getX() - FireSquare.getX());
+ int0 += Math.abs(TestSquare.getY() - FireSquare.getY());
+ int0 += Math.abs(TestSquare.getZ() - FireSquare.getZ());
+ if (int0 <= byte0) {
+ float float0 = 0.199F / byte0 * (byte0 - int0);
+ float float1 = float0 * 0.6F;
+ float float2 = float0 * 0.4F;
+ if (TestSquare.getLightInfluenceR() == nullptr) {
+ TestSquare.setLightInfluenceR(std::make_unique<ArrayList<>>());
+ }
+
+ TestSquare.getLightInfluenceR().add(float0);
+ if (TestSquare.getLightInfluenceG() == nullptr) {
+ TestSquare.setLightInfluenceG(std::make_unique<ArrayList<>>());
+ }
+
+ TestSquare.getLightInfluenceG().add(float1);
+ if (TestSquare.getLightInfluenceB() == nullptr) {
+ TestSquare.setLightInfluenceB(std::make_unique<ArrayList<>>());
+ }
+
+ TestSquare.getLightInfluenceB().add(float2);
+ ColorInfo colorInfo = TestSquare.lighting[playerIndex].lightInfo();
+ colorInfo.r += float0;
+ colorInfo.g += float1;
+ colorInfo.b += float2;
+ if (colorInfo.r > 1.0F) {
+ colorInfo.r = 1.0F;
+ }
+
+ if (colorInfo.g > 1.0F) {
+ colorInfo.g = 1.0F;
+ }
+
+ if (colorInfo.b > 1.0F) {
+ colorInfo.b = 1.0F;
+ }
+ }
+ }
+ }
+
+ static void LightTileWithFire(IsoGridSquare TestSquare) {}
+
+ static void explode(IsoCell cell, IsoGridSquare gridSquare, int power) {
+ if (gridSquare != nullptr) {
+ IsoGridSquare square = nullptr;
+ void *object = nullptr;
+ FireRecalc = 1;
+
+ for (int int0 = -2; int0 <= 2; int0++) {
+ for (int int1 = -2; int1 <= 2; int1++) {
+ for (int int2 = 0; int2 <= 1; int2++) {
+ square = cell.getGridSquare(gridSquare.getX() + int0,
+ gridSquare.getY() + int1,
+ gridSquare.getZ() + int2);
+ if (square != nullptr && Rand.Next(100) < power &&
+ IsoFire.CanAddFire(square, true) {
+ StartFire(cell, square, true, Rand.Next(100, 250 + power);
+ square.BurnWalls(true);
+ }
+ }
+ }
+ }
+ }
+ }
+
+ static void MolotovSmash(IsoCell cell, IsoGridSquare gridSquare) {}
+
+ static void Remove(IsoFire DyingFire) {
+ if (!FireStack.contains(DyingFire) {
+ System.out.println("IsoFireManager.Remove unknown fire, ignoring");
+ } else {
+ FireStack.remove(DyingFire);
+ }
+ }
+
+ static void RemoveBurningCharacter(IsoGameCharacter BurningCharacter) {
+ CharactersOnFire_Stack.remove(BurningCharacter);
+ }
+
+ static void StartFire(IsoCell cell, IsoGridSquare gridSquare,
+ bool IgniteOnAny, int FireStartingEnergy, int Life) {
+ if (gridSquare.getFloor() != nullptr &&
+ gridSquare.getFloor().getSprite() != nullptr) {
+ FireStartingEnergy -= gridSquare.getFloor().getSprite().firerequirement;
+ }
+
+ if (FireStartingEnergy < 5) {
+ FireStartingEnergy = 5;
+ }
+
+ if (IsoFire.CanAddFire(gridSquare, IgniteOnAny) {
+ if (GameClient.bClient) {
+ DebugLog.General.warn("The StartFire function was called on Client");
+ } else if (GameServer.bServer) {
+ GameServer.startFireOnClient(gridSquare, FireStartingEnergy,
+ IgniteOnAny, Life, false);
+ } else {
+ IsoFire fire = new IsoFire(cell, gridSquare, IgniteOnAny,
+ FireStartingEnergy, Life);
+ Add(fire);
+ gridSquare.getObjects().add(fire);
+ if (Rand.Next(5) == 0) {
+ WorldSoundManager.instance.addSound(fire, gridSquare.getX(),
+ gridSquare.getY(),
+ gridSquare.getZ(), 20, 20);
+ }
+ }
+ }
+ }
+
+ static void StartSmoke(IsoCell cell, IsoGridSquare gridSquare,
+ bool IgniteOnAny, int FireStartingEnergy, int Life) {
+ if (IsoFire.CanAddSmoke(gridSquare, IgniteOnAny) {
+ if (GameClient.bClient) {
+ ByteBufferWriter byteBufferWriter = GameClient.connection.startPacket();
+ PacketTypes.PacketType.StartFire.doPacket(byteBufferWriter);
+ byteBufferWriter.putInt(gridSquare.getX());
+ byteBufferWriter.putInt(gridSquare.getY());
+ byteBufferWriter.putInt(gridSquare.getZ());
+ byteBufferWriter.putInt(FireStartingEnergy);
+ byteBufferWriter.putBoolean(IgniteOnAny);
+ byteBufferWriter.putInt(Life);
+ byteBufferWriter.putBoolean(true);
+ PacketTypes.PacketType.StartFire.send(GameClient.connection);
+ } else if (GameServer.bServer) {
+ GameServer.startFireOnClient(gridSquare, FireStartingEnergy,
+ IgniteOnAny, Life, true);
+ } else {
+ IsoFire fire = new IsoFire(cell, gridSquare, IgniteOnAny,
+ FireStartingEnergy, Life, true);
+ Add(fire);
+ gridSquare.getObjects().add(fire);
+ }
+ }
+ }
+
+ static void StartFire(IsoCell cell, IsoGridSquare gridSquare,
+ bool IgniteOnAny, int FireStartingEnergy) {
+ StartFire(cell, gridSquare, IgniteOnAny, FireStartingEnergy, 0);
+ }
+
+ static void addCharacterOnFire(IsoGameCharacter character) {
+ { std::lock_guard<std::mutex> __sync_lock__(charactersOnFire_mutex); charactersOnFire.add(character); }
+ }
+
+ static void deleteCharacterOnFire(IsoGameCharacter character) {
+ { std::lock_guard<std::mutex> __sync_lock__(charactersOnFire_mutex); charactersOnFire.remove(character); }
+ }
+
+ static void Update() {
+ { std::lock_guard<std::mutex> __sync_lock__(charactersOnFire_mutex);
+ charactersOnFire.forEach(IsoGameCharacter::SpreadFireMP);
+ }
+
+ Red_Oscilator_Val =
+ Math.sin(Red_Oscilator = Red_Oscilator +
+ Blue_Oscilator_Rate * OscilatorSpeedScalar);
+ Green_Oscilator_Val =
+ Math.sin(Green_Oscilator = Green_Oscilator +
+ Blue_Oscilator_Rate * OscilatorSpeedScalar);
+ Blue_Oscilator_Val =
+ Math.sin(Blue_Oscilator = Blue_Oscilator +
+ Blue_Oscilator_Rate * OscilatorSpeedScalar);
+ Red_Oscilator_Val = (Red_Oscilator_Val + 1.0) / 2.0;
+ Green_Oscilator_Val = (Green_Oscilator_Val + 1.0) / 2.0;
+ Blue_Oscilator_Val = (Blue_Oscilator_Val + 1.0) / 2.0;
+ Red_Oscilator_Val = Red_Oscilator_Val * OscilatorEffectScalar;
+ Green_Oscilator_Val = Green_Oscilator_Val * OscilatorEffectScalar;
+ Blue_Oscilator_Val = Blue_Oscilator_Val * OscilatorEffectScalar;
+ updateStack.clear();
+ updateStack.addAll(FireStack);
+
+ for (int int0 = 0; int0 < updateStack.size(); int0++) {
+ IsoFire fire = updateStack.get(int0);
+ if (fire.getObjectIndex() != -1 && FireStack.contains(fire) {
+ fire.update();
+ }
+ }
+
+ FireRecalc--;
+ if (FireRecalc < 0) {
+ FireRecalc = FireRecalcDelay;
+ }
+
+ fireSounds.update();
+ }
+
+ static void updateSound(IsoFire fire) { fireSounds.addFire(fire); }
+
+ static void stopSound(IsoFire fire) { fireSounds.removeFire(fire); }
+
+ static void RemoveAllOn(IsoGridSquare sq) {
+ for (int int0 = FireStack.size() - 1; int0 >= 0; int0--) {
+ IsoFire fire = FireStack.get(int0);
+ if (fire.square == sq) {
+ fire.extinctFire();
+ }
+ }
+ }
+
+ static void Reset() {
+ FireStack.clear();
+ CharactersOnFire_Stack.clear();
+ fireSounds.Reset();
+ }
+
+private
+ static class FireSounds {
+ ArrayList<IsoFire> fires = std::make_unique<ArrayList<>>();
+ IsoFireManager.FireSounds.Slot[] slots;
+ Comparator<IsoFire> comp = std::make_unique<Comparator<IsoFire>>(){
+ int compare(IsoFire fire0, IsoFire fire1){
+ float float0 = FireSounds.this->getClosestListener(
+ fire0.square.x + 0.5F, fire0.square.y + 0.5F, fire0.square.z);
+ float float1 = FireSounds.this->getClosestListener(
+ fire1.square.x + 0.5F, fire1.square.y + 0.5F, fire1.square.z);
+ if (float0 > float1) {
+ return 1;
+ } else {
+ return float0 < float1 ? -1 : 0;
+ }
+ }
+};
+
+FireSounds(int int0) {
+ this->slots =
+ PZArrayUtil.newInstance(IsoFireManager.FireSounds.Slot.class, int0,
+ IsoFireManager.FireSounds.Slot::new);
+}
+
+void addFire(IsoFire fire) {
+ if (!this->fires.contains(fire) {
+ this->fires.add(fire);
+ }
+}
+
+void removeFire(IsoFire fire) { this->fires.remove(fire); }
+
+void update() {
+ if (!GameServer.bServer) {
+ for (int int0 = 0; int0 < this->slots.length; int0++) {
+ this->slots[int0].playing = false;
+ }
+
+ if (this->fires.empty()) {
+ this->stopNotPlaying();
+ } else {
+ Collections.sort(this->fires, this->comp);
+ int int1 = Math.min(this->fires.size(), this->slots.length);
+
+ for (int int2 = 0; int2 < int1; int2++) {
+ IsoFire fire0 = this->fires.get(int2);
+ if (this->shouldPlay(fire0) {
+ int int3 = this->getExistingSlot(fire0);
+ if (int3 != -1) {
+ this->slots[int3].playSound(fire0);
+ }
+ }
+ }
+
+ for (int int4 = 0; int4 < int1; int4++) {
+ IsoFire fire1 = this->fires.get(int4);
+ if (this->shouldPlay(fire1) {
+ int int5 = this->getExistingSlot(fire1);
+ if (int5 == -1) {
+ int5 = this->getFreeSlot();
+ this->slots[int5].playSound(fire1);
+ }
+ }
+ }
+
+ this->stopNotPlaying();
+ this->fires.clear();
+ }
+ }
+}
+
+float getClosestListener(float float5, float float6, float float7) {
+ float float0 = Float.MAX_VALUE;
+
+ for (int int0 = 0; int0 < IsoPlayer.numPlayers; int0++) {
+ IsoPlayer player = IsoPlayer.players[int0];
+ if (player != nullptr && player.getCurrentSquare() != nullptr) {
+ float float1 = player.getX();
+ float float2 = player.getY();
+ float float3 = player.getZ();
+ float float4 = IsoUtils.DistanceToSquared(float1, float2, float3 * 3.0F,
+ float5, float6, float7 * 3.0F);
+ if (player.Traits.HardOfHearing.isSet()) {
+ float4 *= 4.5F;
+ }
+
+ if (float4 < float0) {
+ float0 = float4;
+ }
+ }
+ }
+
+ return float0;
+}
+
+bool shouldPlay(IsoFire fire) {
+ return fire != nullptr && fire.getObjectIndex() != -1 && fire.LifeStage < 4;
+}
+
+int getExistingSlot(IsoFire fire) {
+ for (int int0 = 0; int0 < this->slots.length; int0++) {
+ if (this->slots[int0].fire == fire) {
+ return int0;
+ }
+ }
+
+ return -1;
+}
+
+int getFreeSlot() {
+ for (int int0 = 0; int0 < this->slots.length; int0++) {
+ if (!this->slots[int0].playing) {
+ return int0;
+ }
+ }
+
+ return -1;
+}
+
+void stopNotPlaying() {
+ for (int int0 = 0; int0 < this->slots.length; int0++) {
+ IsoFireManager.FireSounds.Slot slot = this->slots[int0];
+ if (!slot.playing) {
+ slot.stopPlaying();
+ slot.fire = nullptr;
+ }
+ }
+}
+
+void Reset() {
+ for (int int0 = 0; int0 < this->slots.length; int0++) {
+ this->slots[int0].stopPlaying();
+ this->slots[int0].fire = nullptr;
+ this->slots[int0].playing = false;
+ }
+}
+
+static class Slot {
+ IsoFire fire;
+ BaseSoundEmitter emitter;
+ const ParameterFireSize parameterFireSize = new ParameterFireSize();
+ long instance = 0L;
+ bool playing;
+
+ void playSound(IsoFire firex) {
+ if (this->emitter.empty()) {
+ this->emitter =
+ (BaseSoundEmitter)(Core.SoundDisabled
+ ? std::make_unique<DummySoundEmitter>()
+ : std::make_unique<FMODSoundEmitter>());
+ if (!Core.SoundDisabled) {
+ ((FMODSoundEmitter)this->emitter).addParameter(this->parameterFireSize);
+ }
+ }
+
+ this->emitter.setPos(firex.square.x + 0.5F, firex.square.y + 0.5F,
+ firex.square.z);
+
+ byte byte0 = switch (firex.LifeStage) {
+ case 1, 3 -> 1;
+ case 2 -> 2;
+ default -> 0;
+ };
+ this->parameterFireSize.setSize(byte0);
+ if (firex.isCampfire()) {
+ if (!this->emitter.isPlaying("CampfireRunning")) {
+ this->instance = this->emitter.playSoundImpl("CampfireRunning", (IsoObject)nullptr);
+ }
+ } else if (!this->emitter.isPlaying("Fire")) {
+ this->instance = this->emitter.playSoundImpl("Fire", (IsoObject)nullptr);
+ }
+
+ this->fire = firex;
+ this->playing = true;
+ this->emitter.tick();
+ }
+
+ void stopPlaying() {
+ if (this->emitter != nullptr && this->instance != 0L) {
+ if (this->emitter.hasSustainPoints(this->instance) {
+ this->emitter.triggerCue(this->instance);
+ this->instance = 0L;
+ } else {
+ this->emitter.stopAll();
+ this->instance = 0L;
+ }
+ } else {
+ if (this->emitter != nullptr && !this->emitter.empty()) {
+ this->emitter.tick();
+ }
+ }
+ }
+ }
+ }
+}
+} // namespace objects
+} // namespace iso
+} // namespace zombie

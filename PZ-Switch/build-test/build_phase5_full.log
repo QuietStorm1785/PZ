@@ -1,0 +1,262 @@
+[  3%] Built target lua
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Core.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/main.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Config.o
+In file included from /workspaces/PZ/PZ-Switch/include/TextureManager.h:7,
+                 from /workspaces/PZ/PZ-Switch/src/main.cpp:4:
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h: In constructor 'zombie::assets::AssetHandle<T>::AssetHandle()':
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:21:18: error: class 'zombie::assets::AssetHandle<T>' does not have any field named 'asset' [-Wtemplate-body]
+   21 |  AssetHandle() : asset(nullptr), refCount(nullptr), ownsRef(true) {}
+      |                  ^~~~~
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h: In constructor 'zombie::assets::AssetHandle<T>::AssetHandle(T*, int*, bool)':
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:24:4: error: class 'zombie::assets::AssetHandle<T>' does not have any field named 'asset' [-Wtemplate-body]
+   24 |  : asset(ptr)
+      |    ^~~~~
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:26:11: error: expression cannot be used as a function [-Wtemplate-body]
+   26 |  , ownsRef(sharedRef ? ownsSharedRef : true) {
+      |    ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /workspaces/PZ/PZ-Switch/include/TextureManager.h:7,
+                 from /workspaces/PZ/PZ-Switch/src/GameWindow.cpp:4:
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h: In constructor 'zombie::assets::AssetHandle<T>::AssetHandle()':
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:21:18: error: class 'zombie::assets::AssetHandle<T>' does not have any field named 'asset' [-Wtemplate-body]
+   21 |  AssetHandle() : asset(nullptr), refCount(nullptr), ownsRef(true) {}
+      |                  ^~~~~
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h: In constructor 'zombie::assets::AssetHandle<T>::AssetHandle(T*, int*, bool)':
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:24:4: error: class 'zombie::assets::AssetHandle<T>' does not have any field named 'asset' [-Wtemplate-body]
+   24 |  : asset(ptr)
+      |    ^~~~~
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:26:11: error: expression cannot be used as a function [-Wtemplate-body]
+   26 |  , ownsRef(sharedRef ? ownsSharedRef : true) {
+      |    ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:33:33: error: 'other' was not declared in this scope [-Wtemplate-body]
+   33 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef)
+      |                                 ^~~~~
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:33:47: error: expression cannot be used as a function [-Wtemplate-body]
+   33 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef)
+      |                                               ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:33:71: error: expression cannot be used as a function [-Wtemplate-body]
+   33 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef)
+      |                                                                       ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:41:47: error: expression cannot be used as a function [-Wtemplate-body]
+   41 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef) {
+      |                                               ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:41:71: error: expression cannot be used as a function [-Wtemplate-body]
+   41 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef) {
+      |                                                                       ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:85:10: error: expected '{' at end of input [-Wtemplate-body]
+   85 |  T* asset;
+      |          ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:33:33: error: 'other' was not declared in this scope [-Wtemplate-body]
+   33 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef)
+      |                                 ^~~~~
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:33:47: error: expression cannot be used as a function [-Wtemplate-body]
+   33 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef)
+      |                                               ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:33:71: error: expression cannot be used as a function [-Wtemplate-body]
+   33 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef)
+      |                                                                       ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:41:47: error: expression cannot be used as a function [-Wtemplate-body]
+   41 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef) {
+      |                                               ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:41:71: error: expression cannot be used as a function [-Wtemplate-body]
+   41 |  : asset(other.asset), refCount(other.refCount), ownsRef(other.ownsRef) {
+      |                                                                       ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:85:10: error: expected '{' at end of input [-Wtemplate-body]
+   85 |  T* asset;
+      |          ^
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h: In member function 'void zombie::assets::AssetHandle<T>::release()':
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:96:2: error: 'asset' was not declared in this scope; did you mean 'assets'? [-Wtemplate-body]
+   96 |  asset = nullptr;
+      |  ^~~~~
+      |  assets
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h: In member function 'void zombie::assets::AssetHandle<T>::release()':
+/workspaces/PZ/PZ-Switch/include/AssetStreaming.h:96:2: error: 'asset' was not declared in this scope; did you mean 'assets'? [-Wtemplate-body]
+   96 |  asset = nullptr;
+      |  ^~~~~
+      |  assets
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:76: CMakeFiles/ProjectZomboidCpp.dir/src/main.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameStateMachine.o
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:104: CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/ProjectZomboidCpp.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
+[  3%] Built target lua
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/main.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameTime.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Sprite.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteBatch.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/BitmapFont.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Entity.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Collision.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/InputManager.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Player.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SoundManager.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoPlayer.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoObject.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoGridSquare.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoChunk.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoCell.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsoZombie.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Inventory.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Building.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AIBehaviors.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SaveLoad.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Animation.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AnimationController.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureAtlas.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteLoader.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Audio.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/UI.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Tasks.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/WorldContent.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/WorldLoader.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpatialGrid.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AudioInteractionSystem.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/VisibilitySystem.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/InventoryManager.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/PathfindingThreadPool.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o
+In file included from /workspaces/PZ/PZ-Switch/src/ObjectPool.cpp:1:
+/workspaces/PZ/PZ-Switch/include/ObjectPool.h: In member function 'void zombie::memory::ObjectPool<T>::release(T*)':
+/workspaces/PZ/PZ-Switch/include/ObjectPool.h:101:38: error: expected ')' before ';' token [-Wtemplate-body]
+  101 |  pool.push_back(std::move(it->second);
+      |                                      ^
+/workspaces/PZ/PZ-Switch/include/ObjectPool.h:101:16: note: to match this '('
+  101 |  pool.push_back(std::move(it->second);
+      |                ^
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:650: CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/ProjectZomboidCpp.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
+[  3%] Built target lua
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/main.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TextureManager.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/GameWindow.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/SpriteAnimation.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ObjectPool.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/TileMap.o
+[  3%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/AssetStreaming.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ChunkManager.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ChunkRenderer.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/PlayerChunkSync.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/IsometricRenderer.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/WorldCollisionSystem.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/MainMenuScreen.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/OptionsScreen.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/ControllerRebindUI.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/RadialMenu.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/NetworkManager.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/NetworkingEnhanced.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/Pathfinding.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AnimStateTriggerXmlFile.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o
+[  5%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o
+In file included from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItems.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItems.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:6:10: fatal error: javax/xml/bind/Unmarshaller.h: No such file or directory
+    6 | #include "javax/xml/bind/Unmarshaller.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItem.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItem.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:6:10: fatal error: javax/xml/bind/Unmarshaller.h: No such file or directory
+    6 | #include "javax/xml/bind/Unmarshaller.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:860: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:874: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/ProjectZomboidCpp.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
+[  3%] Built target lua
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedModelNames.o
+[  4%] Building CXX object CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedModelName.o
+In file included from /workspaces/PZ/PZ-Switch/include/zombie/core/Core.h:7,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:8,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItem.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItem.cpp:1:
+/workspaces/PZ/PZ-Switch/include/org/joml/Matrix4f.h:2:10: fatal error: java/text/DecimalFormat.h: No such file or directory
+    2 | #include "java/text/DecimalFormat.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /workspaces/PZ/PZ-Switch/include/zombie/core/Core.h:7,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:8,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameTime.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/InventoryItem.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedItems.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedItems.cpp:1:
+/workspaces/PZ/PZ-Switch/include/org/joml/Matrix4f.h:2:10: fatal error: java/text/DecimalFormat.h: No such file or directory
+    2 | #include "java/text/DecimalFormat.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /workspaces/PZ/PZ-Switch/include/fmod/fmod/SoundListener.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoPlayer.h:6,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODFootstep.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameSounds.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODSoundEmitter.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/SoundManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/GameSoundClip.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/IFMODParameterUpdater.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/IsoGameCharacter.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/audio/BaseSoundEmitter.h:3,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODAudio.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/se/krka/kahlua/vm/LuaCallFrame.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/Lua/LuaEventManager.h:5,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/ZomboidFileSystem.h:7,
+                 from /workspaces/PZ/PZ-Switch/include/fmod/fmod/FMODManager.h:4,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/GameWindow.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/inventory/types/HandWeapon.h:2,
+                 from /workspaces/PZ/PZ-Switch/include/zombie/characters/AttachedItems/AttachedModelNames.h:2,
+                 from /workspaces/PZ/PZ-Switch/src/zombie/characters/AttachedItems/AttachedModelNames.cpp:1:
+/workspaces/PZ/PZ-Switch/include/zombie/iso/Vector3.h:3:10: fatal error: java/awt/Point.h: No such file or directory
+    3 | #include "java/awt/Point.h"
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:944: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedModelNames.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:860: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItem.o] Error 1
+make[2]: *** [CMakeFiles/ProjectZomboidCpp.dir/build.make:874: CMakeFiles/ProjectZomboidCpp.dir/src/zombie/characters/AttachedItems/AttachedItems.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/ProjectZomboidCpp.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

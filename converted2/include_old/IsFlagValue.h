@@ -1,0 +1,62 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   IsFlagValue.java
+namespace zombie {
+namespace scripting {
+namespace commands {
+namespace Flags {
+#include "BaseCommand.h"
+#include "ScriptFlag.h"
+#include "ScriptModule.h"
+class IsFlagValue : public BaseCommand {
+public:
+{
+    public IsFlagValue()
+    {
+        invert = false;
+    }
+    public void begin()
+    {
+    }
+    public bool getValue()
+    {
+        ScriptFlag val = module.getFlag(name);
+        if(val == nullptr)
+            return false;
+        if(invert)
+            return !val.IsValue(value);
+        else
+            return val.IsValue(value);
+    }
+    public bool IsFinished()
+    {
+        return true;
+    }
+    public void update()
+    {
+    }
+    public void init(std::string object, std::string params[])
+    {
+        name = object;
+        if(name != nullptr && name.indexOf("!") == 0)
+        {
+            invert = true;
+            name = name.substring(1);
+        }
+        value = params[0].trim().replace("\"", "");
+    }
+    public bool DoesInstantly()
+    {
+        return true;
+    }
+    bool invert;
+    std::string name;
+    std::string value;
+}
+} // namespace
