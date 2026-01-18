@@ -23,7 +23,7 @@ public:
 
  static CustomBooleanSandboxOption parse(ScriptParser.Block block) {
  ScriptParser.Value value = block.getValue("default");
- if (value.empty()) {
+ if (value == nullptr) {
  return nullptr;
  } else {
  bool boolean0 = Boolean.parseBoolean(value.getValue().trim());

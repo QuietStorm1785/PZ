@@ -30,7 +30,7 @@ public:
  static ProfanityFilter instance;
 
  static ProfanityFilter getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<ProfanityFilter>();
  }
 

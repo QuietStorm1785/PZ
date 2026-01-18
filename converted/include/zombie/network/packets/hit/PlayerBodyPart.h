@@ -27,7 +27,7 @@ public:
  BodyPart bodyPart;
 
  void set(BodyPart bodyPartx) {
- if (bodyPartx.empty()) {
+ if (bodyPartx == nullptr) {
  this->bodyPartIndex = -1;
  } else {
  this->bodyPartIndex = (byte)bodyPartx.getIndex();
@@ -40,7 +40,7 @@ public:
  bool boolean0 = byteBuffer.get() == 1;
  if (boolean0) {
  this->bodyPartIndex = byteBuffer.get();
- if (character.empty()) {
+ if (character == nullptr) {
  this->bodyPart = nullptr;
  } else {
  this->bodyPart = character.getBodyDamage().getBodyPart(BodyPartType.FromIndex(this->bodyPartIndex);
@@ -55,7 +55,7 @@ public:
  }
 
  void write(ByteBufferWriter byteBufferWriter) {
- if (this->bodyPart.empty()) {
+ if (this->bodyPart == nullptr) {
  byteBufferWriter.putByte((byte)0);
  } else {
  byteBufferWriter.putByte((byte)1);
@@ -64,7 +64,7 @@ public:
  }
 
  std::string getDescription() {
- return "\n\tPlayerBodyPart [ Item=" + (this->bodyPart.empty() ? "?" : "\"" + this->bodyPart.getType().name() + "\"") + " ]";
+ return "\n\tPlayerBodyPart [ Item=" + (this->bodyPart == nullptr ? "?" : "\"" + this->bodyPart.getType().name() + "\"") + " ]";
  }
 
  BodyPart getBodyPart() {

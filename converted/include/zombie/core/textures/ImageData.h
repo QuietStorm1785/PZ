@@ -187,7 +187,7 @@ public:
  }
 
  MipMapLevel getData() {
- if (this->data.empty()) {
+ if (this->data == nullptr) {
  this->data = new MipMapLevel(this->widthHW, this->heightHW, DirectBufferAllocator.allocate(67108864);
  }
 
@@ -254,7 +254,7 @@ public:
  }
 
  void setData(Raster rasterData) {
- if (rasterData.empty()) {
+ if (rasterData == nullptr) {
  new Exception();
  } else {
  this->width = rasterData.getWidth();
@@ -363,7 +363,7 @@ public:
  }
 
  int getMipMapCount() {
- if (this->data.empty()) {
+ if (this->data == nullptr) {
  return 0;
  } else {
  if (this->mipMapCount < 0) {
@@ -382,7 +382,7 @@ public:
  if (idx == 0) {
  return this->getData();
  } else {
- if (this->mipMaps.empty()) {
+ if (this->mipMaps == nullptr) {
  this->generateMipMaps();
  }
 

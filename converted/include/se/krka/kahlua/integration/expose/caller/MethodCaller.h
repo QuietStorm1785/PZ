@@ -71,7 +71,7 @@ public:
  if (!this->method == methodCaller1.method) {
  return false;
  } else {
- return this->owner != nullptr ? this->owner == methodCaller1.owner) : methodCaller1.owner.empty();
+ return this->owner != nullptr ? this->owner == methodCaller1.owner) : methodCaller1.owner == nullptr;
  }
  } else {
  return false;

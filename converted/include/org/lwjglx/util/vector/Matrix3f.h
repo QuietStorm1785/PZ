@@ -38,7 +38,7 @@ public:
  }
 
  static Matrix3f load(Matrix3f matrix3f1, Matrix3f matrix3f0) {
- if (matrix3f0.empty()) {
+ if (matrix3f0 == nullptr) {
  matrix3f0 = std::make_unique<Matrix3f>();
  }
 
@@ -107,7 +107,7 @@ public:
  }
 
  static Matrix3f add(Matrix3f matrix3f2, Matrix3f matrix3f1, Matrix3f matrix3f0) {
- if (matrix3f0.empty()) {
+ if (matrix3f0 == nullptr) {
  matrix3f0 = std::make_unique<Matrix3f>();
  }
 
@@ -124,7 +124,7 @@ public:
  }
 
  static Matrix3f sub(Matrix3f matrix3f2, Matrix3f matrix3f1, Matrix3f matrix3f0) {
- if (matrix3f0.empty()) {
+ if (matrix3f0 == nullptr) {
  matrix3f0 = std::make_unique<Matrix3f>();
  }
 
@@ -141,7 +141,7 @@ public:
  }
 
  static Matrix3f mul(Matrix3f matrix3f2, Matrix3f matrix3f1, Matrix3f matrix3f0) {
- if (matrix3f0.empty()) {
+ if (matrix3f0 == nullptr) {
  matrix3f0 = std::make_unique<Matrix3f>();
  }
 
@@ -167,7 +167,7 @@ public:
  }
 
  static Vector3f transform(Matrix3f matrix3f, Vector3f vector3f1, Vector3f vector3f0) {
- if (vector3f0.empty()) {
+ if (vector3f0 == nullptr) {
  vector3f0 = std::make_unique<Vector3f>();
  }
 
@@ -189,7 +189,7 @@ public:
  }
 
  static Matrix3f transpose(Matrix3f matrix3f1, Matrix3f matrix3f0) {
- if (matrix3f0.empty()) {
+ if (matrix3f0 == nullptr) {
  matrix3f0 = std::make_unique<Matrix3f>();
  }
 
@@ -235,7 +235,7 @@ public:
  static Matrix3f invert(Matrix3f matrix3f0, Matrix3f matrix3f1) {
  float float0 = matrix3f0.determinant();
  if (float0 != 0.0F) {
- if (matrix3f1.empty()) {
+ if (matrix3f1 == nullptr) {
  matrix3f1 = std::make_unique<Matrix3f>();
  }
 
@@ -273,7 +273,7 @@ public:
  }
 
  static Matrix3f negate(Matrix3f matrix3f1, Matrix3f matrix3f0) {
- if (matrix3f0.empty()) {
+ if (matrix3f0 == nullptr) {
  matrix3f0 = std::make_unique<Matrix3f>();
  }
 

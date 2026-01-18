@@ -44,7 +44,7 @@ public:
  }
 
  bool remove(K object1, V object0) {
- if (object0.empty()) {
+ if (object0 == nullptr) {
  object0 = this->hashMap.get(object1);
  }
 

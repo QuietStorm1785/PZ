@@ -49,7 +49,7 @@ public:
  super(module, name, itemType, texName);
  this->setBookName(name);
  this->cat = ItemType.Literature;
- if (this->staticModel.empty()) {
+ if (this->staticModel == nullptr) {
  this->staticModel = "Book";
  }
  }
@@ -58,7 +58,7 @@ public:
  super(module, name, itemType, item);
  this->setBookName(name);
  this->cat = ItemType.Literature;
- if (this->staticModel.empty()) {
+ if (this->staticModel == nullptr) {
  this->staticModel = "Book";
  }
  }
@@ -373,7 +373,7 @@ public:
  }
 
  public HashMap<Integer, String> getCustomPages() {
- if (this->customPages.empty()) {
+ if (this->customPages == nullptr) {
  this->customPages = std::make_unique<HashMap<>>();
  this->customPages.put(1, "");
  }
@@ -390,7 +390,7 @@ public:
  text = text.substring(0, Math.min(text.length(), 16384);
  }
 
- if (this->customPages.empty()) {
+ if (this->customPages == nullptr) {
  this->customPages = std::make_unique<HashMap<>>();
  }
 
@@ -398,7 +398,7 @@ public:
  }
 
  std::string seePage(int index) {
- if (this->customPages.empty()) {
+ if (this->customPages == nullptr) {
  this->customPages = std::make_unique<HashMap<>>();
  this->customPages.put(1, "");
  }

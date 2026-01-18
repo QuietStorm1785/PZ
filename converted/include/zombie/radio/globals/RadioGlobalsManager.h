@@ -24,7 +24,7 @@ public:
  static RadioGlobalsManager instance;
 
  static RadioGlobalsManager getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<RadioGlobalsManager>();
  }
 
@@ -56,7 +56,7 @@ public:
  this->globals.put(string, radioGlobal);
  return true;
  } else {
- DebugLog.log(DebugType.Radio, "Error adding global: " + string + " to globals (already exists or global.empty())");
+ DebugLog.log(DebugType.Radio, "Error adding global: " + string + " to globals (already exists or global==nullptr)");
  return false;
  }
  }

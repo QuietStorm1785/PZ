@@ -61,7 +61,7 @@ public:
  this->RandomData.m_PickedItemRef = this->pickRandomItemInternal();
  this->bRandomized = true;
  ClothingItem clothingItem = this->getClothingItem();
- if (clothingItem.empty()) {
+ if (clothingItem == nullptr) {
  this->RandomData.m_Active = false;
  } else {
  this->RandomData.m_Active = OutfitRNG.Next(0.0F, 1.0F) <= this->probability;

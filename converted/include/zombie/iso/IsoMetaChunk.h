@@ -111,7 +111,7 @@ public:
  }
 
  void addZone(IsoMetaGrid.Zone zone) {
- if (this->zones.empty()) {
+ if (this->zones == nullptr) {
  this->zones = new IsoMetaGrid.Zone[8];
  }
 
@@ -156,7 +156,7 @@ public:
  return zone1;
  }
 
- if (zone0.empty()) {
+ if (zone0 == nullptr) {
  zone0 = zone1;
  }
  }
@@ -222,7 +222,7 @@ public:
  }
 
  void addRoom(RoomDef room) {
- if (this->rooms.empty()) {
+ if (this->rooms == nullptr) {
  this->rooms = new RoomDef[8];
  }
 

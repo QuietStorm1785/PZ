@@ -46,7 +46,7 @@ public:
  for (int int0 = 0; int0 < list.size(); int0++) {
  PolygonsIntersection.Interval interval = (PolygonsIntersection.Interval)list.get(int0);
  if (interval.start < float6 && interval.end < float6) {
- if (arrayList0.empty()) {
+ if (arrayList0 == nullptr) {
  arrayList0 = std::make_unique<ArrayList>();
  }
 
@@ -54,7 +54,7 @@ public:
  float0 = float0 < interval.start ? float0 : interval.start;
  float1 = float1 > interval.end ? float1 : interval.end;
  } else if (interval.start > float6 && interval.end > float6) {
- if (arrayList1.empty()) {
+ if (arrayList1 == nullptr) {
  arrayList1 = std::make_unique<ArrayList>();
  }
 
@@ -62,7 +62,7 @@ public:
  float2 = float2 < interval.start ? float2 : interval.start;
  float3 = float3 > interval.end ? float3 : interval.end;
  } else {
- if (arrayList2.empty() || arrayList3.empty()) {
+ if (arrayList2 == nullptr || arrayList3 == nullptr) {
  arrayList2 = std::make_unique<ArrayList>();
  arrayList3 = std::make_unique<ArrayList>();
  }

@@ -21,7 +21,7 @@ public:
 
  bool AddTexture(const std::string& string) {
  Texture texture = Texture.getSharedTexture(string);
- if (texture.empty()) {
+ if (texture == nullptr) {
  return false;
  } else {
  this->Textures.put(string, new Texture2D(texture);

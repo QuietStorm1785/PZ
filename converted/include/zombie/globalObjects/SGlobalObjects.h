@@ -40,7 +40,7 @@ public:
 
  static SGlobalObjectSystem registerSystem(const std::string& name) {
  SGlobalObjectSystem sGlobalObjectSystem = getSystemByName(name);
- if (sGlobalObjectSystem.empty()) {
+ if (sGlobalObjectSystem == nullptr) {
  sGlobalObjectSystem = newSystem(name);
  sGlobalObjectSystem.load();
  }
@@ -117,7 +117,7 @@ public:
  SGlobalObjectSystem sGlobalObjectSystem = systems.get(int0);
  GameWindow.WriteStringUTF(bb, sGlobalObjectSystem.name);
  KahluaTable table0 = sGlobalObjectSystem.getInitialStateForClient();
- if (table0.empty()) {
+ if (table0 == nullptr) {
  table0 = LuaManager.platform.newTable();
  }
 
@@ -150,7 +150,7 @@ public:
  static bool receiveClientCommand(const std::string& systemName, const std::string& command, IsoPlayer playerObj, KahluaTable args) {
  noise("receiveClientCommand " + systemName + " " + command + " OnlineID=" + playerObj.getOnlineID());
  SGlobalObjectSystem sGlobalObjectSystem = getSystemByName(systemName);
- if (sGlobalObjectSystem.empty()) {
+ if (sGlobalObjectSystem == nullptr) {
  throw IllegalStateException("system '" + systemName + "' not found");
  } else {
  sGlobalObjectSystem.receiveClientCommand(command, playerObj, args);

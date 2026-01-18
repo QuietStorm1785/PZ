@@ -64,7 +64,7 @@ public:
  int randomSeed(LuaCallFrame luaCallFrame, int var2) {
  Random random = this->getRandom(luaCallFrame, "seed");
  void* object = luaCallFrame.get(1);
- int int0 = object.empty() ? 0 : object.hashCode();
+ int int0 = object == nullptr ? 0 : object.hashCode();
  random.setSeed(int0);
  return 0;
  }
@@ -73,19 +73,19 @@ public:
  Random random = this->getRandom(luaCallFrame, "random");
  double double0 = KahluaUtil.getOptionalNumberArg(luaCallFrame, 2);
  double double1 = KahluaUtil.getOptionalNumberArg(luaCallFrame, 3);
- if (double0.empty()) {
+ if (double0 == nullptr) {
  return luaCallFrame.push(KahluaUtil.toDouble(random.nextDouble()));
  } else {
  int int0 = double0.intValue();
  int int1;
- if (double1.empty()) {
+ if (double1 == nullptr) {
  int1 = int0;
  int0 = 1;
  } else {
  int1 = double1.intValue();
  }
 
- return luaCallFrame.push(KahluaUtil.toDouble((long)(int0 + random.nextInt(int1 - int0 + 1);
+ return luaCallFrame.push(KahluaUtil.toDouble((long)(int0 + random.nextInt(int1 - int0 + 1));
  }
  }
 

@@ -235,7 +235,7 @@ public:
  this->LoadTemplate(string1);
  } else if ("template!" == string0) {
  VehicleTemplate vehicleTemplate = ScriptManager.instance.getVehicleTemplate(string1);
- if (vehicleTemplate.empty()) {
+ if (vehicleTemplate == nullptr) {
  DebugLog.log("ERROR: template \"" + string1 + "\" not found");
  } else {
  this->Load(_name, vehicleTemplate.body);
@@ -543,7 +543,7 @@ public:
 
  ModelAttachment LoadAttachment(ScriptParser.Block block) {
  ModelAttachment modelAttachment = this->getAttachmentById(block.id);
- if (modelAttachment.empty()) {
+ if (modelAttachment == nullptr) {
  modelAttachment = new ModelAttachment(block.id);
  this->m_attachments.add(modelAttachment);
  }
@@ -571,7 +571,7 @@ public:
 
  private VehicleScript.Model LoadModel(ScriptParser.Block block, ArrayList<VehicleScript.Model> arrayList) {
  VehicleScript.Model model = this->getModelById(block.id, arrayList);
- if (model.empty()) {
+ if (model == nullptr) {
  model = new VehicleScript.Model();
  model.id = block.id;
  arrayList.add(model);
@@ -626,7 +626,7 @@ public:
 
  private VehicleScript.Wheel LoadWheel(ScriptParser.Block block) {
  VehicleScript.Wheel wheel = this->getWheelById(block.id);
- if (wheel.empty()) {
+ if (wheel == nullptr) {
  wheel = new VehicleScript.Wheel();
  wheel.id = block.id;
  this->wheels.add(wheel);
@@ -653,7 +653,7 @@ public:
 
  private VehicleScript.Passenger LoadPassenger(ScriptParser.Block block0) {
  VehicleScript.Passenger passenger = this->getPassengerById(block0.id);
- if (passenger.empty()) {
+ if (passenger == nullptr) {
  passenger = new VehicleScript.Passenger();
  passenger.id = block0.id;
  this->passengers.add(passenger);
@@ -690,7 +690,7 @@ public:
 
  private VehicleScript.Anim LoadAnim(ScriptParser.Block block, ArrayList<VehicleScript.Anim> arrayList) {
  VehicleScript.Anim anim = this->getAnimationById(block.id, arrayList);
- if (anim.empty()) {
+ if (anim == nullptr) {
  anim = new VehicleScript.Anim();
  anim.id = block.id;
  arrayList.add(anim);
@@ -730,7 +730,7 @@ public:
 
  return nullptr;
  } else {
- if (switchSeat.empty()) {
+ if (switchSeat == nullptr) {
  switchSeat = new VehicleScript.Passenger.SwitchSeat();
  switchSeat.id = block.id;
  passenger.switchSeats.add(switchSeat);
@@ -754,7 +754,7 @@ public:
 
  private VehicleScript.Area LoadArea(ScriptParser.Block block) {
  VehicleScript.Area area = this->getAreaById(block.id);
- if (area.empty()) {
+ if (area == nullptr) {
  area = new VehicleScript.Area();
  area.id = block.id;
  this->areas.add(area);
@@ -777,7 +777,7 @@ public:
 
  private VehicleScript.Part LoadPart(ScriptParser.Block block0) {
  VehicleScript.Part part = this->getPartById(block0.id);
- if (part.empty()) {
+ if (part == nullptr) {
  part = new VehicleScript.Part();
  part.id = block0.id;
  this->parts.add(part);
@@ -815,7 +815,7 @@ public:
 
  for (ScriptParser.Block block1 : block0.children) {
  if ("anim" == block1.type) {
- if (part.anims.empty()) {
+ if (part.anims == nullptr) {
  part.anims = std::make_unique<ArrayList<>>();
  }
 
@@ -827,15 +827,15 @@ public:
  } else if ("lua" == block1.type) {
  part.luaFunctions = this->LoadLuaFunctions(block1);
  } else if ("model" == block1.type) {
- if (part.models.empty()) {
+ if (part.models == nullptr) {
  part.models = std::make_unique<ArrayList<>>();
  }
 
  this->LoadModel(block1, part.models);
  } else if ("table" == block1.type) {
- void* object = part.tables.empty() ? nullptr : part.tables.get(block1.id);
+ void* object = part.tables == nullptr ? nullptr : part.tables.get(block1.id);
  KahluaTable table = this->LoadTable(block1, object instanceof KahluaTable ? (KahluaTable)object : nullptr);
- if (part.tables.empty()) {
+ if (part.tables == nullptr) {
  part.tables = std::make_unique<HashMap<>>();
  }
 
@@ -920,7 +920,7 @@ public:
  }
 
  private VehicleScript.Container LoadContainer(ScriptParser.Block block, VehicleScript.Container container1) {
- VehicleScript.Container container0 = container1.empty() ? new VehicleScript.Container() : container1;
+ VehicleScript.Container container0 = container1 == nullptr ? new VehicleScript.Container() : container1;
 
  for (ScriptParser.Value value : block.values) {
  std::string string0 = value.getKey().trim();
@@ -972,7 +972,7 @@ public:
  }
 
  KahluaTable LoadTable(ScriptParser.Block block0, KahluaTable table1) {
- KahluaTable table0 = table1.empty() ? LuaManager.platform.newTable() : table1;
+ KahluaTable table0 = table1 == nullptr ? LuaManager.platform.newTable() : table1;
 
  for (ScriptParser.Value value : block0.values) {
  std::string string0 = value.getKey().trim();
@@ -1011,7 +1011,7 @@ public:
 
  std::string string1 = strings[0];
  VehicleTemplate vehicleTemplate0 = ScriptManager.instance.getVehicleTemplate(string1);
- if (vehicleTemplate0.empty()) {
+ if (vehicleTemplate0 == nullptr) {
  DebugLog.log("ERROR: template \"" + string0 + "\" not found");
  return;
  }
@@ -1058,7 +1058,7 @@ public:
  } else {
  std::string string3 = string0.trim();
  VehicleTemplate vehicleTemplate1 = ScriptManager.instance.getVehicleTemplate(string3);
- if (vehicleTemplate1.empty()) {
+ if (vehicleTemplate1 == nullptr) {
  DebugLog.log("ERROR: template \"" + string0 + "\" not found");
  return;
  }
@@ -1084,7 +1084,7 @@ public:
  }
  } else {
  VehicleScript.Area area1 = other.getAreaById(spec);
- if (area1.empty()) {
+ if (area1 == nullptr) {
  DebugLog.log("ERROR: area \"" + spec + "\" not found");
  return;
  }
@@ -1111,7 +1111,7 @@ public:
  }
  } else {
  VehicleScript.Part part1 = other.getPartById(spec);
- if (part1.empty()) {
+ if (part1 == nullptr) {
  DebugLog.log("ERROR: part \"" + spec + "\" not found");
  return;
  }
@@ -1138,7 +1138,7 @@ public:
  }
  } else {
  VehicleScript.Passenger passenger1 = other.getPassengerById(spec);
- if (passenger1.empty()) {
+ if (passenger1 == nullptr) {
  DebugLog.log("ERROR: passenger \"" + spec + "\" not found");
  return;
  }
@@ -1165,7 +1165,7 @@ public:
  }
  } else {
  VehicleScript.Wheel wheel1 = other.getWheelById(spec);
- if (wheel1.empty()) {
+ if (wheel1 == nullptr) {
  DebugLog.log("ERROR: wheel \"" + spec + "\" not found");
  return;
  }
@@ -1188,7 +1188,7 @@ public:
 
  return nullptr;
  } else {
- if (position.empty()) {
+ if (position == nullptr) {
  position = new VehicleScript.Position();
  position.id = block.id;
  arrayList.add(position);
@@ -2155,35 +2155,35 @@ public:
  Texture textureDataShadow;
 
  void copyMissingFrom(VehicleScript.Skin other) {
- if (this->textureRust.empty()) {
+ if (this->textureRust == nullptr) {
  this->textureRust = other.textureRust;
  }
 
- if (this->textureMask.empty()) {
+ if (this->textureMask == nullptr) {
  this->textureMask = other.textureMask;
  }
 
- if (this->textureLights.empty()) {
+ if (this->textureLights == nullptr) {
  this->textureLights = other.textureLights;
  }
 
- if (this->textureDamage1Overlay.empty()) {
+ if (this->textureDamage1Overlay == nullptr) {
  this->textureDamage1Overlay = other.textureDamage1Overlay;
  }
 
- if (this->textureDamage1Shell.empty()) {
+ if (this->textureDamage1Shell == nullptr) {
  this->textureDamage1Shell = other.textureDamage1Shell;
  }
 
- if (this->textureDamage2Overlay.empty()) {
+ if (this->textureDamage2Overlay == nullptr) {
  this->textureDamage2Overlay = other.textureDamage2Overlay;
  }
 
- if (this->textureDamage2Shell.empty()) {
+ if (this->textureDamage2Shell == nullptr) {
  this->textureDamage2Shell = other.textureDamage2Shell;
  }
 
- if (this->textureShadow.empty()) {
+ if (this->textureShadow == nullptr) {
  this->textureShadow = other.textureShadow;
  }
  }

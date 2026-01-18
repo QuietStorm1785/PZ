@@ -38,7 +38,7 @@ public:
  ((IsoZombie)owner).movex = 0.0F;
  ((IsoZombie)owner).movey = 0.0F;
  owner.setStateEventDelayTimer(this->pickRandomWanderInterval());
- if (IngameState.instance.empty()) {
+ if (IngameState.instance == nullptr) {
  hashMap.put(PARAM_TICK_COUNT, 0L);
  } else {
  hashMap.put(PARAM_TICK_COUNT, IngameState.instance.numberTicks);

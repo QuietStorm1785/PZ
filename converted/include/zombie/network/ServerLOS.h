@@ -149,7 +149,7 @@ public:
  }
  }
 
- class LOSThread extends Thread {
+ private class LOSThread extends Thread {
  void* notifier = new Object();
 
  void run() {
@@ -262,7 +262,7 @@ public:
  }
  }
 
- class PlayerData {
+ private class PlayerData {
  IsoPlayer player;
  public ServerLOS.UpdateStatus status = ServerLOS.UpdateStatus.NeverDone;
  int px;

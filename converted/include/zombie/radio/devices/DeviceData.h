@@ -111,7 +111,7 @@ public:
  }
 
  void generatePresets() {
- if (this->presets.empty()) {
+ if (this->presets == nullptr) {
  this->presets = std::make_unique<DevicePresets>();
  }
 
@@ -206,7 +206,7 @@ public:
  }
 
  void setDevicePresets(DevicePresets p) {
- if (p.empty()) {
+ if (p == nullptr) {
  p = std::make_unique<DevicePresets>();
  }
 
@@ -486,7 +486,7 @@ public:
  boolean0 = true;
  }
 
- if (this->parent.empty() || this->parent.getSquare() == nullptr) {
+ if (this->parent == nullptr || this->parent.getSquare() == nullptr) {
  boolean0 = false;
  } else if (this->parent.getSquare().haveElectricity()) {
  boolean0 = true;
@@ -613,7 +613,7 @@ public:
  }
 
  if (object != nullptr) {
- if (this->emitter.empty()) {
+ if (this->emitter == nullptr) {
  this->emitter = IsoWorld.instance
  .getFreeEmitter(((IsoObject)object).getX() + 0.5F, ((IsoObject)object).getY() + 0.5F, (int)((IsoObject)object).getZ());
  IsoWorld.instance.takeOwnershipOfEmitter(this->emitter);
@@ -890,7 +890,7 @@ public:
  try {
  for (int int0 = 0; int0 < GameServer.udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = GameServer.udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection1 != udpConnection0) {
+ if (udpConnection1 == nullptr || udpConnection1 != udpConnection0) {
  this->sendDeviceDataStatePacket(udpConnection0, short0);
  }
  }
@@ -1191,7 +1191,7 @@ public:
  }
 
  void load(ByteBuffer input, int WorldVersion, bool net) {
- if (this->presets.empty()) {
+ if (this->presets == nullptr) {
  this->presets = std::make_unique<DevicePresets>();
  }
 

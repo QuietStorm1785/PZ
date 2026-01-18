@@ -96,7 +96,7 @@ public:
  }
 
  CustomSandboxOption customSandboxOption = this->parseOption(block1);
- if (customSandboxOption.empty()) {
+ if (customSandboxOption == nullptr) {
  DebugLog.General.warn("failed to parse custom sandbox option \"%s\"", block1.id);
  } else {
  this->m_options.add(customSandboxOption);

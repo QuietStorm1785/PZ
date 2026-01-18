@@ -58,7 +58,7 @@ public:
 
  void addComment(const std::string& string0, const std::string& string1) {
  std::vector arrayList = (ArrayList)this->comments.get(string0);
- if (arrayList.empty()) {
+ if (arrayList == nullptr) {
  arrayList = std::make_unique<ArrayList>();
  this->comments.put(string0, arrayList);
  }

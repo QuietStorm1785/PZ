@@ -81,7 +81,7 @@ public:
  }
 
  ItemInfo itemInfo = itemLoadList.get(item.getFullName());
- if (itemInfo.empty()) {
+ if (itemInfo == nullptr) {
  itemInfo = std::make_unique<ItemInfo>();
  itemInfo.itemName = item.getName();
  itemInfo.moduleName = item.getModuleName();
@@ -90,7 +90,7 @@ public:
  }
 
  if (itemInfo.modID != nullptr && !item.getModID() == itemInfo.modID) {
- if (itemInfo.modOverrides.empty()) {
+ if (itemInfo.modOverrides == nullptr) {
  itemInfo.modOverrides = std::make_unique<ArrayList<>>();
  }
 
@@ -175,16 +175,16 @@ public:
 
  try {
  if (!GameClient.bClient) {
- if (data.empty() || data.isClient()) {
+ if (data == nullptr || data.isClient()) {
  data = std::make_unique<DictionaryData>();
  }
- } else if (data.empty() || !data.isClient()) {
+ } else if (data == nullptr || !data.isClient()) {
  data = std::make_unique<DictionaryDataClient>();
  }
 
  data.reset();
  if (GameClient.bClient) {
- if (clientRemoteData.empty()) {
+ if (clientRemoteData == nullptr) {
  throw WorldDictionaryException("WorldDictionary data not received from server.");
  }
 
@@ -312,7 +312,7 @@ public:
  itemInfo = getItemInfoFromType(string);
  }
 
- if (itemInfo.empty() && item1.getRegistry_id() >= 0) {
+ if (itemInfo == nullptr && item1.getRegistry_id() >= 0) {
  itemInfo = getItemInfoFromID(item1.getRegistry_id());
  }
 
@@ -331,7 +331,7 @@ public:
  itemInfo = getItemInfoFromType(string);
  }
 
- if (itemInfo.empty() && item.getRegistry_id() >= 0) {
+ if (itemInfo == nullptr && item.getRegistry_id() >= 0) {
  itemInfo = getItemInfoFromID(item.getRegistry_id());
  }
 

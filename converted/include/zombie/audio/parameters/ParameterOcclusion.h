@@ -46,12 +46,12 @@ public:
 
  float calculateValueForPlayer(int int0) {
  IsoPlayer player = IsoPlayer.players[int0];
- if (player.empty()) {
+ if (player == nullptr) {
  return 1.0F;
  } else {
  IsoGridSquare square0 = player.getCurrentSquare();
  IsoGridSquare square1 = IsoWorld.instance.getCell().getGridSquare((double)this->emitter.x, (double)this->emitter.y, (double)this->emitter.z);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  bool boolean0 = true;
  }
 

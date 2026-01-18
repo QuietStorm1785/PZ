@@ -59,7 +59,7 @@ public:
  }
 
  int indexOf(void* object) {
- if (object.empty()) {
+ if (object == nullptr) {
  return -1;
  } else {
  return object instanceof Number ? this->indexOf(((Number)object).floatValue()) : -1;

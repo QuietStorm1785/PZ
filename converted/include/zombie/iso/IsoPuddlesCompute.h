@@ -97,7 +97,7 @@ public:
  vector3f.mul(3.0F);
  float0 = (float)(float0 + 0.125 * FuncNoise(vector3f);
  return (float)(
- float0 * Math.min(1.0, 2.0 * FuncNoise(allocVector3f(vector3f).mul(0.02F) * Math.min(1.0, 1.0 * FuncNoise(allocVector3f(vector3f).mul(0.1F)
+ float0 * Math.min(1.0, 2.0 * FuncNoise(allocVector3f(vector3f).mul(0.02F) * Math.min(1.0, 1.0 * FuncNoise(allocVector3f(vector3f).mul(0.1F))
  );
  } else {
  return FuncNoise();

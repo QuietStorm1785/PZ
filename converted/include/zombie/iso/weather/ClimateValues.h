@@ -125,7 +125,7 @@ public:
  DebugLog.log("Current time of day = " + this->gt.getTimeOfDay());
  DebugLog.log("Current Worldagehours = " + this->gt.getWorldAgeHours());
  DebugLog.log("--------------------------------------------------");
- if (this->testCurrentDay.empty()) {
+ if (this->testCurrentDay == nullptr) {
  GregorianCalendar gregorianCalendar = new GregorianCalendar(this->cacheYear, this->cacheMonth, this->cacheDay);
  DebugLog.log("Printing climate values for: " + new SimpleDateFormat("yyyy MM dd").format(gregorianCalendar.getTime()));
  } else {
@@ -175,11 +175,11 @@ public:
  }
 
  void pollDate(GregorianCalendar calendar) {
- if (this->testCurrentDay.empty()) {
+ if (this->testCurrentDay == nullptr) {
  this->testCurrentDay = new ClimateManager.DayInfo();
  }
 
- if (this->testNextDay.empty()) {
+ if (this->testNextDay == nullptr) {
  this->testNextDay = new ClimateManager.DayInfo();
  }
 

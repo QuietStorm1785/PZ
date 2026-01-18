@@ -72,7 +72,7 @@ public:
 
  private Map<Class, LuaToJavaConverter> getOrCreate(Map<Class, Map<Class, LuaToJavaConverter>> map, Class clazz) {
  void* object = (Map)map.get(clazz);
- if (object.empty()) {
+ if (object == nullptr) {
  object = std::make_unique<HashMap>();
  map.put(clazz, object);
  }
@@ -81,7 +81,7 @@ public:
  }
 
  public <T> T fromLuaToJava(Object object0, Class<T> clazz0) {
- if (object0.empty()) {
+ if (object0 == nullptr) {
  return nullptr;
  } else {
  if (clazz0.isPrimitive()) {
@@ -110,7 +110,7 @@ public:
  }
 
  private <T> T tryInterfaces(Map<Class, LuaToJavaConverter> map, Class<T> clazz0, Object object1) {
- if (clazz0.empty()) {
+ if (clazz0 == nullptr) {
  return nullptr;
  } else {
  LuaToJavaConverter luaToJavaConverter = (LuaToJavaConverter)map.get(clazz0);
@@ -150,11 +150,11 @@ public:
  }
 
  private Map<Class, LuaToJavaConverter> getLuaCache(Class<?> clazz) {
- if (clazz.empty()) {
+ if (clazz == nullptr) {
  return LUA_NULL_MAP;
  } else {
  std::unordered_map map = this->luatoJavaCache.get(clazz);
- if (map.empty()) {
+ if (map == nullptr) {
  map = this->createLuaCache(clazz);
  }
 
@@ -163,7 +163,7 @@ public:
  }
 
  void* fromJavaToLua(void* arg0) {
- if (arg0.empty()) {
+ if (arg0 == nullptr) {
  return nullptr;
  } else {
  Class clazz = arg0.getClass();
@@ -179,11 +179,11 @@ public:
  }
 
  JavaToLuaConverter getJavaCache(Class clazz) {
- if (clazz.empty()) {
+ if (clazz == nullptr) {
  return NULL_CONVERTER;
  } else {
  JavaToLuaConverter javaToLuaConverter = this->javaToLuaCache.get(clazz);
- if (javaToLuaConverter.empty()) {
+ if (javaToLuaConverter == nullptr) {
  javaToLuaConverter = this->createJavaCache(clazz);
  this->javaToLuaCache.put(clazz, javaToLuaConverter);
  }

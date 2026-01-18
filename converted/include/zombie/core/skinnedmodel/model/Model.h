@@ -91,7 +91,7 @@ public:
  this->bStatic = this->assetParams != nullptr && this->assetParams.bStatic;
  ModelMesh.MeshAssetParams meshAssetParams = new ModelMesh.MeshAssetParams();
  meshAssetParams.bStatic = this->bStatic;
- meshAssetParams.animationsMesh = this->assetParams.empty() ? nullptr : this->assetParams.animationsModel;
+ meshAssetParams.animationsMesh = this->assetParams == nullptr ? nullptr : this->assetParams.animationsModel;
  this->Mesh = (ModelMesh)MeshAssetManager.instance.load(new AssetPath(params.meshName), meshAssetParams);
  if (!StringUtils.isNullOrWhitespace(params.textureName) {
  if (params.textureName.contains("media/")) {
@@ -202,7 +202,7 @@ public:
  this->Effect = nullptr;
  }
 
- if (this->Effect.empty()) {
+ if (this->Effect == nullptr) {
  this->CreateShader("basicEffect");
  }
 

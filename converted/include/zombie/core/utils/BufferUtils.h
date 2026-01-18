@@ -32,7 +32,7 @@ public:
 
  static void onBufferAllocated(Buffer buffer) {
  if (trackDirectMemory) {
- if (cleanupThread.empty()) {
+ if (cleanupThread == nullptr) {
  cleanupThread = new BufferUtils.ClearReferences();
  cleanupThread.start();
  }
@@ -59,8 +59,8 @@ public:
  static void printCurrentDirectMemory(StringBuilder stringBuilder) {
  long long0 = 0L;
  long long1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
- bool boolean0 = stringBuilder.empty();
- if (stringBuilder.empty()) {
+ bool boolean0 = stringBuilder == nullptr;
+ if (stringBuilder == nullptr) {
  stringBuilder = std::make_unique<StringBuilder>();
  }
 
@@ -162,7 +162,7 @@ public:
  synchronized (loadedMethods) {
  cleanerMethod = loadMethod("sun.nio.ch.DirectBuffer", "cleaner");
  viewedBufferMethod = loadMethod("sun.nio.ch.DirectBuffer", "viewedBuffer");
- if (viewedBufferMethod.empty()) {
+ if (viewedBufferMethod == nullptr) {
  viewedBufferMethod = loadMethod("sun.nio.ch.DirectBuffer", "attachment");
  }
 
@@ -186,7 +186,7 @@ public:
  freeMethod.invoke(buffer);
  } else {
  void* object0 = cleanerMethod.invoke(buffer);
- if (object0.empty()) {
+ if (object0 == nullptr) {
  void* object1 = viewedBufferMethod.invoke(buffer);
  if (object1 != nullptr) {
  destroyDirectBuffer((Buffer)object1);

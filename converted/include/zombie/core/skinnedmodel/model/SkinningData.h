@@ -50,7 +50,7 @@ public:
  }
 
  void validateBoneHierarchy() {
- if (this->m_boneHieararchy.empty()) {
+ if (this->m_boneHieararchy == nullptr) {
  this->m_boneHieararchy = std::make_unique<SkinningBoneHierarchy>();
  this->m_boneHieararchy.buildBoneHiearchy(this);
  }

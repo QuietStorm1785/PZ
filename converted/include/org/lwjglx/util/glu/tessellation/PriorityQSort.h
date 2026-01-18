@@ -144,7 +144,7 @@ public:
  Object[] objects1 = new Object[this->max];
  System.arraycopy(this->keys, 0, objects1, 0, this->keys.length);
  this->keys = objects1;
- if (this->keys.empty()) {
+ if (this->keys == nullptr) {
  this->keys = objects0;
  return Integer.MAX_VALUE;
  }

@@ -126,7 +126,7 @@ public:
  * @param color The color to copy into the new instance
  */
  public Color(Color color) {
- if (color.empty()) {
+ if (color == nullptr) {
  this->r = 0.0F;
  this->g = 0.0F;
  this->b = 0.0F;

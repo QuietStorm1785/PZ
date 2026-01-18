@@ -257,7 +257,7 @@ public:
  byteBufferWriter.putFloat(this->angle);
  byteBufferWriter.putByte((byte)this->direction.index());
  byteBufferWriter.putByte(this->characterFlags);
- if (this->killer.empty()) {
+ if (this->killer == nullptr) {
  byteBufferWriter.putByte((byte)0);
  } else {
  if (this->killer instanceof IsoZombie) {
@@ -297,7 +297,7 @@ public:
  + " id("
  + this->id
  + ") | killer="
- + (this->killer.empty() ? "Null" : this->killer.getClass().getSimpleName() + "(" + this->killer.getOnlineID() + ")")
+ + (this->killer == nullptr ? "Null" : this->killer.getClass().getSimpleName() + "(" + this->killer.getOnlineID() + ")")
  + " | pos=(x="
  + this->x
  + ",y="

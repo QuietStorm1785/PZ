@@ -361,7 +361,7 @@ public:
 
  if (!type == "Vehicle") && !type == "ParkingStall")) {
  IsoMetaGrid.Zone zone0 = this->registerZone(
- name, type, int0, int1, z, int2 - int0 + 1, int3 - int1 + 1, zoneGeometryType, tIntArrayList, double0.empty() ? 0 : double0.intValue()
+ name, type, int0, int1, z, int2 - int0 + 1, int3 - int1 + 1, zoneGeometryType, tIntArrayList, double0 == nullptr ? 0 : double0.intValue()
  );
  tIntArrayList.clear();
  return zone0;
@@ -370,7 +370,7 @@ public:
  if (zone1 != nullptr) {
  zone1.geometryType = zoneGeometryType;
  zone1.points.addAll(tIntArrayList);
- zone1.polylineWidth = double0.empty() ? 0 : double0.intValue();
+ zone1.polylineWidth = double0 == nullptr ? 0 : double0.intValue();
  }
 
  return zone1;
@@ -378,7 +378,7 @@ public:
  }
 
  void calculatePolylineOutlineBounds(TIntArrayList tIntArrayList, int int0, int[] ints) {
- if (s_clipperOffset.empty()) {
+ if (s_clipperOffset == nullptr) {
  s_clipperOffset = std::make_unique<ClipperOffset>();
  s_clipperBuffer = ByteBuffer.allocateDirect(3072);
  }
@@ -1328,7 +1328,7 @@ public:
  } while (((LotHeader)object).RoomList.empty());
 
  roomDef = ((LotHeader)object).RoomList.get(Rand.Next(((LotHeader)object).RoomList.size()));
- } while (roomDef.empty() || IsoUtils.DistanceManhatten(x, y, roomDef.x, roomDef.y) < range);
+ } while (roomDef == nullptr || IsoUtils.DistanceManhatten(x, y, roomDef.x, roomDef.y) < range);
 
  return roomDef;
  }
@@ -1690,7 +1690,7 @@ public:
  s_PreferredZoneTypes.add("TrailerPark");
  }
 
- class MetaGridLoaderThread extends Thread {
+ private class MetaGridLoaderThread extends Thread {
  const SharedStrings sharedStrings = new SharedStrings();
  ArrayList<BuildingDef> Buildings = std::make_unique<ArrayList<>>();
  ArrayList<RoomDef> tempRooms = std::make_unique<ArrayList<>>();
@@ -2076,7 +2076,7 @@ public:
  return true;
  } else {
  if (this->isPolygon()) {
- if (IsoMetaGrid.s_clipper.empty()) {
+ if (IsoMetaGrid.s_clipper == nullptr) {
  IsoMetaGrid.s_clipper = std::make_unique<Clipper>();
  IsoMetaGrid.s_clipperBuffer = ByteBuffer.allocateDirect(3072);
  }
@@ -2124,7 +2124,7 @@ public:
 
  int pickRandomTriangle() {
  float[] floats = this->isPolygon() ? this->getPolygonTriangles() : (this->isPolyline() ? this->getPolylineOutlineTriangles() : nullptr);
- if (floats.empty()) {
+ if (floats == nullptr) {
  return -1;
  } else {
  int int0 = floats.length / 6;
@@ -2299,10 +2299,10 @@ public:
  }
 
  void checkPolylineOutline() {
- if (this->polylineOutlinePoints.empty()) {
+ if (this->polylineOutlinePoints == nullptr) {
  if (this->isPolyline()) {
  if (this->polylineWidth > 0) {
- if (IsoMetaGrid.s_clipperOffset.empty()) {
+ if (IsoMetaGrid.s_clipperOffset == nullptr) {
  IsoMetaGrid.s_clipperOffset = std::make_unique<ClipperOffset>();
  IsoMetaGrid.s_clipperBuffer = ByteBuffer.allocateDirect(3072);
  }
@@ -2371,7 +2371,7 @@ public:
  IsoMetaGrid.Zone.PolygonHit isPointInPolyline_WindingNumber(float float5, float float4, int var3) {
  int int0 = 0;
  float[] floats = this->polylineOutlinePoints;
- if (floats.empty()) {
+ if (floats == nullptr) {
  return IsoMetaGrid.Zone.PolygonHit.Outside;
  } else {
  for (byte byte0 = 0; byte0 < floats.length; byte0 += 2) {
@@ -2431,7 +2431,7 @@ public:
  }
 
  bool polylineOutlineRectIntersect(int int1, int int0, int int3, int int2) {
- if (this->polylineOutlinePoints.empty()) {
+ if (this->polylineOutlinePoints == nullptr) {
  return false;
  } else {
  return this->x >= int1 && this->x + this->w <= int1 + int3 && this->y >= int0 && this->y + this->h <= int0 + int2
@@ -2499,7 +2499,7 @@ public:
  } else if (!this->isPolygon()) {
  return nullptr;
  } else {
- if (IsoMetaGrid.s_clipper.empty()) {
+ if (IsoMetaGrid.s_clipper == nullptr) {
  IsoMetaGrid.s_clipper = std::make_unique<Clipper>();
  IsoMetaGrid.s_clipperBuffer = ByteBuffer.allocateDirect(3072);
  }
@@ -2577,11 +2577,11 @@ public:
  } else {
  this->checkPolylineOutline();
  float[] floats = this->polylineOutlinePoints;
- if (floats.empty()) {
+ if (floats == nullptr) {
  this->bTriangulateFailed = true;
  return nullptr;
  } else {
- if (IsoMetaGrid.s_clipper.empty()) {
+ if (IsoMetaGrid.s_clipper == nullptr) {
  IsoMetaGrid.s_clipper = std::make_unique<Clipper>();
  IsoMetaGrid.s_clipperBuffer = ByteBuffer.allocateDirect(3072);
  }

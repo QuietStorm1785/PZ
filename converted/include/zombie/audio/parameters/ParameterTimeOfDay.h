@@ -23,7 +23,7 @@ public:
 
  float calculateCurrentValue() {
  ClimateManager.DayInfo dayInfo = ClimateManager.getInstance().getCurrentDay();
- if (dayInfo.empty()) {
+ if (dayInfo == nullptr) {
  return 1.0F;
  } else {
  float float0 = dayInfo.season.getDawn();

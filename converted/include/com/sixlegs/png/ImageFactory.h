@@ -79,7 +79,7 @@ public:
  int[] ints = (int[])pngImage.getProperty("transparency", int[].class, false);
  int int12 = int2 == 16 && pngConfig.getReduce16() ? 8 : 0;
  if (int12 != 0 || ints != nullptr || shorts != nullptr) {
- if (shorts.empty()) {
+ if (shorts == nullptr) {
  shorts = getIdentityTable(int2 - int12);
  }
 
@@ -96,7 +96,7 @@ public:
  object0 = new ConvertIndexedDestination((Destination)object0, int0, indexColorModel, (ComponentColorModel)colorModel);
  }
 
- if (object1.empty()) {
+ if (object1 == nullptr) {
  object1 = new BasicPixelProcessor((Destination)object0, int3);
  }
 

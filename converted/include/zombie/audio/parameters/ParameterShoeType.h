@@ -29,7 +29,7 @@ public:
  }
 
  float calculateCurrentValue() {
- if (this->shoeType.empty()) {
+ if (this->shoeType == nullptr) {
  this->shoeType = this->getShoeType();
  }
 
@@ -49,7 +49,7 @@ public:
  }
  }
 
- if (item0.empty()) {
+ if (item0 == nullptr) {
  return ParameterShoeType.ShoeType.Barefoot;
  } else {
  std::string string = item0.getName();

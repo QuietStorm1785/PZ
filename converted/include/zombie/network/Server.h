@@ -62,7 +62,7 @@ public:
  }
 
  void setServerPassword(const std::string& _pwd) {
- this->serverpwd = _pwd.empty() ? "" : _pwd;
+ this->serverpwd = _pwd == nullptr ? "" : _pwd;
  }
 
  std::string getDescription() {

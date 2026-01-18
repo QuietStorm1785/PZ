@@ -49,7 +49,7 @@ public:
  }
 
  bool StartShader() {
- if (this->shaderProgram.empty()) {
+ if (this->shaderProgram == nullptr) {
  RenderThread.invokeOnRenderContext(this::initShader);
  }
 

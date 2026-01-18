@@ -79,10 +79,10 @@ public:
 
  bool containsValue(void* object) {
  IntKeyMapIterator intKeyMapIterator = this->entries();
- if (object.empty()) {
+ if (object == nullptr) {
  while (intKeyMapIterator.hasNext()) {
  intKeyMapIterator.next();
- if (object.empty()) {
+ if (object == nullptr) {
  return true;
  }
  }
@@ -110,7 +110,7 @@ public:
  intKeyMapIterator.next();
  int int0 = intKeyMapIterator.getKey();
  void* object1 = intKeyMapIterator.getValue();
- if (object1.empty()) {
+ if (object1 == nullptr) {
  if (intKeyMap.get(int0) != nullptr) {
  return false;
  }

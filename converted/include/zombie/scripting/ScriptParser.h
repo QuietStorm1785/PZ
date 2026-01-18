@@ -196,7 +196,7 @@ public:
 
  public ScriptParser.Block getBlock(String _type, String _id) {
  for (ScriptParser.Block block : this->children) {
- if (block.type == _type) && (block.id != nullptr && block.id == _id) || block.id.empty() && _id.empty())) {
+ if (block.type == _type) && (block.id != nullptr && block.id == _id) || block.id == nullptr && _id == nullptr) {
  return block;
  }
  }
@@ -217,7 +217,7 @@ public:
 
  void setValue(const std::string& key, const std::string& value) {
  ScriptParser.Value _value = this->getValue(key);
- if (_value.empty()) {
+ if (_value == nullptr) {
  this->addValue(key, value);
  } else {
  _value.string = key + " = " + value;

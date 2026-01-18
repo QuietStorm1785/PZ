@@ -65,7 +65,7 @@ public:
  }
 
  void update() {
- if (this->Activated() && (this->container.empty() || !this->container.isPowered())) {
+ if (this->Activated() && (this->container == nullptr || !this->container.isPowered())) {
  this->setActivated(false);
  if (this->container != nullptr) {
  this->container.addItemsToProcessItems();
@@ -229,7 +229,7 @@ public:
  }
  } else if (this->getContainer() != nullptr && "stove" == this->container.getType())) {
  if (this->Activated()) {
- if (this->emitter.empty()) {
+ if (this->emitter == nullptr) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->getX() + 0.5F, this->getY() + 0.5F, (int)this->getZ());
  IsoWorld.instance.setEmitterOwner(this->emitter, this);
  this->soundInstance = this->emitter.playSoundLoopedImpl("StoveRunning");
@@ -281,7 +281,7 @@ public:
  }
 
  void syncIsoObject(bool bRemote, uint8_t val, UdpConnection source, ByteBuffer bb) {
- if (this->square.empty()) {
+ if (this->square == nullptr) {
  System.out.println("ERROR: " + this->getClass().getSimpleName() + " square is nullptr");
  } else if (this->getObjectIndex() == -1) {
  System.out
@@ -309,7 +309,7 @@ public:
  this->container.addItemsToProcessItems();
  if (GameServer.bServer) {
  for (UdpConnection udpConnection : GameServer.udpEngine.connections) {
- if (source.empty() || udpConnection.getConnectedGUID() != source.getConnectedGUID()) {
+ if (source == nullptr || udpConnection.getConnectedGUID() != source.getConnectedGUID()) {
  ByteBufferWriter byteBufferWriter1 = udpConnection.startPacket();
  PacketTypes.PacketType.SyncIsoObject.doPacket(byteBufferWriter1);
  this->syncIsoObjectSend(byteBufferWriter1);
@@ -414,11 +414,11 @@ public:
 
  bool isSpriteGridOriginObject() {
  IsoSprite sprite = this->getSprite();
- if (sprite.empty()) {
+ if (sprite == nullptr) {
  return false;
  } else {
  IsoSpriteGrid spriteGrid = sprite.getSpriteGrid();
- if (spriteGrid.empty()) {
+ if (spriteGrid == nullptr) {
  return true;
  } else {
  int int0 = spriteGrid.getSpriteGridPosX(sprite);

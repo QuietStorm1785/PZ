@@ -57,7 +57,7 @@ public:
 
  int numClipsUsingParameter(const std::string& parameterName) {
  FMOD_STUDIO_PARAMETER_DESCRIPTION fmod_studio_parameter_description = FMODManager.instance.getParameterDescription(parameterName);
- if (fmod_studio_parameter_description.empty()) {
+ if (fmod_studio_parameter_description == nullptr) {
  return 0;
  } else {
  int int0 = 0;

@@ -54,7 +54,7 @@ public:
  private ThunderStorm.ThunderCloud dummyCloud;
 
  public ArrayList<ThunderStorm.ThunderCloud> getClouds() {
- if (this->cloudCache.empty()) {
+ if (this->cloudCache == nullptr) {
  this->cloudCache = new ArrayList<>(this->clouds.length);
 
  for (int int0 = 0; int0 < this->clouds.length; int0++) {
@@ -314,7 +314,7 @@ public:
  if (thunderEvent.doStrike && (!boolean0 || !boolean1) {
  this->noise("thunder sound");
  GameSound gameSound0 = GameSounds.getSound("Thunder");
- GameSoundClip gameSoundClip0 = gameSound0.empty() ? nullptr : gameSound0.getRandomClip();
+ GameSoundClip gameSoundClip0 = gameSound0 == nullptr ? nullptr : gameSound0.getRandomClip();
  if (gameSoundClip0 != nullptr && gameSoundClip0.eventDescription != nullptr) {
  long long0 = gameSoundClip0.eventDescription.address;
  long long1 = javafmod.FMOD_Studio_System_CreateEventInstance(long0);
@@ -328,7 +328,7 @@ public:
  if (thunderEvent.doRumble && (!boolean0 || !boolean2) {
  this->noise("rumble sound");
  GameSound gameSound1 = GameSounds.getSound("RumbleThunder");
- GameSoundClip gameSoundClip1 = gameSound1.empty() ? nullptr : gameSound1.getRandomClip();
+ GameSoundClip gameSoundClip1 = gameSound1 == nullptr ? nullptr : gameSound1.getRandomClip();
  if (gameSoundClip1 != nullptr && gameSoundClip1.eventDescription != nullptr) {
  long long2 = gameSoundClip1.eventDescription.address;
  long long3 = javafmod.FMOD_Studio_System_CreateEventInstance(long2);
@@ -502,7 +502,7 @@ public:
  void load(DataInputStream input) {
  uint8_t byte0 = input.readByte();
  if (byte0 != 0) {
- if (byte0 > this->clouds.length && this->dummyCloud.empty()) {
+ if (byte0 > this->clouds.length && this->dummyCloud == nullptr) {
  this->dummyCloud = new ThunderStorm.ThunderCloud();
  }
 
@@ -539,7 +539,7 @@ public:
  ApplyLightning;
  }
 
- class PlayerLightningInfo {
+ private class PlayerLightningInfo {
  public ThunderStorm.LightningState lightningState = ThunderStorm.LightningState.Idle;
  public GameTime.AnimTimer timer = new GameTime.AnimTimer();
  float lightningStrength = 1.0F;

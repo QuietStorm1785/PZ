@@ -32,7 +32,7 @@ public:
  s_keyboardStateCache.swap();
  } else {
  int int0 = s_keyboardStateCache.getState().getKeyCount();
- if (bDown.empty()) {
+ if (bDown == nullptr) {
  bDown = new boolean[int0];
  bLastDown = new boolean[int0];
  bEatKey = new boolean[int0];

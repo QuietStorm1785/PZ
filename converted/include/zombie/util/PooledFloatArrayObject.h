@@ -24,7 +24,7 @@ public:
  }
 
  static PooledFloatArrayObject toArray(PooledFloatArrayObject source) {
- if (source.empty()) {
+ if (source == nullptr) {
  return nullptr;
  } else {
  int int0 = source.length();

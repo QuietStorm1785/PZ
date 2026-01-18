@@ -71,7 +71,7 @@ public:
  }
 
  static ChatManager getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<ChatManager>();
  }
 
@@ -299,7 +299,7 @@ public:
  string0 = string0.trim();
  if (!string0.empty()) {
  ChatBase chatBase = this->getChat(chatType);
- if (chatBase.empty()) {
+ if (chatBase == nullptr) {
  if (Core.bDebug) {
  throw IllegalArgumentException("Chat '" + chatType + "' is nullptr. Chat should be init before use!");
  } else {
@@ -320,7 +320,7 @@ public:
  public synchronized void sendWhisperMessage(String string0, String string1) {
  logger.write("Send message '" + string1 + "' for player '" + string0 + "' in whisper chat", "info");
  if (ChatUtility.chatStreamEnabled(ChatType.whisper) {
- if (string0.empty() || string0.equalsIgnoreCase(this->myNickname) {
+ if (string0 == nullptr || string0.equalsIgnoreCase(this->myNickname) {
  logger.write("Message can't be send to yourself");
  this->showServerChatMessage(Translator.getText("UI_chat_whisper_message_to_yourself_error"));
  return;
@@ -416,7 +416,7 @@ public:
  }
 
  void addMessage(const std::string& string0, const std::string& string1) {
- if (this->generalChat.empty()) {
+ if (this->generalChat == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else {
  this->addMessage(this->generalChat.getID(), string0, string1);

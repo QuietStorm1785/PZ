@@ -57,7 +57,7 @@ public:
  }
 
  int getUnauthorizedZombieCount() {
- return (int)IsoWorld.instance.CurrentCell.getZombieList().stream().filter(zombie0 -> zombie0.authOwner.empty()).count();
+ return (int)IsoWorld.instance.CurrentCell.getZombieList().stream().filter(zombie0 -> zombie0.authOwner == nullptr).count();
  }
 
  void clear() {
@@ -147,7 +147,7 @@ public:
  } else {
  try {
  IsoZombie zombie0 = GameClient.IDToZombieMap.get(zombiePacketx.id);
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  if (IsoDeadBody.isDead(zombiePacketx.id) {
  DebugLog.Death.debugln("Skip dead zombie creation id=%d", zombiePacketx.id);
  return;
@@ -218,7 +218,7 @@ public:
  }
  }
 
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  return;
  }
  }

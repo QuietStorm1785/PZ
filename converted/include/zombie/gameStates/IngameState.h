@@ -367,7 +367,7 @@ public:
  for (int int9 = 0; int9 < metaCells.length; int9++) {
  for (int int10 = 0; int10 < metaCells[0].length; int10++) {
  LotHeader lotHeader = metaCells[int9][int10].info;
- if (lotHeader.empty()) {
+ if (lotHeader == nullptr) {
  renderRect((metaGrid.minX + int9) * 300 + 1, (metaGrid.minY + int10) * 300 + 1, 298.0F, 298.0F, 0.2F, 0.0F, 0.0F, 0.3F);
  } else {
  for (int int11 = 0; int11 < lotHeader.Buildings.size(); int11++) {
@@ -987,7 +987,7 @@ public:
  if (GameKeyboard.isKeyDown(Core.getInstance().getKey("Display FPS"))) {
  if (!this->fpsKeyDown) {
  this->fpsKeyDown = true;
- if (FPSGraph.instance.empty()) {
+ if (FPSGraph.instance == nullptr) {
  FPSGraph.instance = std::make_unique<FPSGraph>();
  }
 
@@ -1010,7 +1010,7 @@ public:
  float float1 = (float0 - (int)float0) * 60.0F;
  std::string string = "media/ui/SleepClock" + (int)float1 / 10 + ".png";
  Texture texture = Texture.getSharedTexture(string);
- if (texture.empty()) {
+ if (texture == nullptr) {
  break;
  }
 

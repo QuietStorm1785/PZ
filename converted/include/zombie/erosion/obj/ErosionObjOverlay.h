@@ -39,7 +39,7 @@ public:
 
  IsoSprite sprite = this->sprites.getSprite(int0, int2);
  IsoSpriteInstance spriteInstance = sprite.newInstance();
- if (object.AttachedAnimSprite.empty()) {
+ if (object.AttachedAnimSprite == nullptr) {
  object.AttachedAnimSprite = std::make_unique<ArrayList<>>();
  }
 
@@ -51,7 +51,7 @@ public:
  }
 
  bool removeOverlay(IsoObject object, int int1) {
- if (object.empty()) {
+ if (object == nullptr) {
  return false;
  } else {
  std::vector arrayList = object.AttachedAnimSprite;

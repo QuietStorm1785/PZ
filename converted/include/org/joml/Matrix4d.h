@@ -1199,9 +1199,9 @@ public:
  ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17)
  ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17)
  ._m23(this->m23)
- ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)
- ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)
- ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)
+ ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30))
+ ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31))
+ ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32))
  ._m33(this->m33)
  ._properties(2 | this->properties & matrix4x3dc.properties() & 16);
  }
@@ -1563,9 +1563,9 @@ public:
  ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17)
  ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17)
  ._m23(this->m23)
- ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)
- ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)
- ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)
+ ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30))
+ ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31))
+ ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32))
  ._m33(this->m33)
  ._properties(2 | this->properties & arg0.properties() & 16);
  }
@@ -3812,10 +3812,10 @@ public:
  ._m21(this->m21)
  ._m22(this->m22)
  ._m23(this->m23)
- ._m30(Math.fma(this->m00, double0, Math.fma(this->m10, double1, Math.fma(this->m20, double2, this->m30)
- ._m31(Math.fma(this->m01, double0, Math.fma(this->m11, double1, Math.fma(this->m21, double2, this->m31)
- ._m32(Math.fma(this->m02, double0, Math.fma(this->m12, double1, Math.fma(this->m22, double2, this->m32)
- ._m33(Math.fma(this->m03, double0, Math.fma(this->m13, double1, Math.fma(this->m23, double2, this->m33)
+ ._m30(Math.fma(this->m00, double0, Math.fma(this->m10, double1, Math.fma(this->m20, double2, this->m30))
+ ._m31(Math.fma(this->m01, double0, Math.fma(this->m11, double1, Math.fma(this->m21, double2, this->m31))
+ ._m32(Math.fma(this->m02, double0, Math.fma(this->m12, double1, Math.fma(this->m22, double2, this->m32))
+ ._m33(Math.fma(this->m03, double0, Math.fma(this->m13, double1, Math.fma(this->m23, double2, this->m33))
  ._properties(this->properties & -6);
  return matrix4d1;
  }
@@ -3824,10 +3824,10 @@ public:
  if ((this->properties & 4) != 0) {
  return this->translation(arg0, arg1, arg2);
  } else {
- this->_m30(Math.fma(this->m00, arg0, Math.fma(this->m10, arg1, Math.fma(this->m20, arg2, this->m30);
- this->_m31(Math.fma(this->m01, arg0, Math.fma(this->m11, arg1, Math.fma(this->m21, arg2, this->m31);
- this->_m32(Math.fma(this->m02, arg0, Math.fma(this->m12, arg1, Math.fma(this->m22, arg2, this->m32);
- this->_m33(Math.fma(this->m03, arg0, Math.fma(this->m13, arg1, Math.fma(this->m23, arg2, this->m33);
+ this->_m30(Math.fma(this->m00, arg0, Math.fma(this->m10, arg1, Math.fma(this->m20, arg2, this->m30));
+ this->_m31(Math.fma(this->m01, arg0, Math.fma(this->m11, arg1, Math.fma(this->m21, arg2, this->m31));
+ this->_m32(Math.fma(this->m02, arg0, Math.fma(this->m12, arg1, Math.fma(this->m22, arg2, this->m32));
+ this->_m33(Math.fma(this->m03, arg0, Math.fma(this->m13, arg1, Math.fma(this->m23, arg2, this->m33));
  this->properties &= -6;
  return this;
  }
@@ -7961,7 +7961,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Matrix4d matrix4d) {
  return false;
@@ -8003,7 +8003,7 @@ public:
  bool equals(Matrix4dc arg0, double arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Matrix4d) {
  return false;

@@ -350,7 +350,7 @@ public:
  byte[] bytes = new byte[int0];
  dataInput.readFully(bytes);
  void* object = (List)pngImage.getProperty("suggested_palettes", List.class, false);
- if (object.empty()) {
+ if (object == nullptr) {
  map.put("suggested_palettes", object = std::make_unique<ArrayList>());
  }
 
@@ -412,7 +412,7 @@ public:
  throw PngException("Text value contains nullptr", false);
  } else {
  void* object = (List)pngImage.getProperty("text_chunks", List.class, false);
- if (object.empty()) {
+ if (object == nullptr) {
  map.put("text_chunks", object = std::make_unique<ArrayList>());
  }
 

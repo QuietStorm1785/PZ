@@ -220,7 +220,7 @@ public:
  IAnimatable iAnimatable = actionContext.getOwner();
  void* object0 = resolveValue(this->lhsValue, iAnimatable);
  void* object1 = resolveValue(this->rhsValue, iAnimatable);
- if (object0.empty() && object1 instanceof String && StringUtils.isNullOrEmpty((String)object1) {
+ if (object0 == nullptr && object1 instanceof String && StringUtils.isNullOrEmpty((String)object1) {
  if (this->op == CharacterVariableCondition.Operator.Equal) {
  return true;
  }

@@ -208,7 +208,7 @@ public:
  void checkHaveElectricity() {
  }
 
- class Ambient {
+ public class Ambient {
  float x;
  float y;
  std::string name;

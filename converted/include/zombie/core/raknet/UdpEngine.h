@@ -286,7 +286,7 @@ public:
  if (GameServer.bServer) {
  long long5 = this->peer.getGuidOfPacket();
  UdpConnection udpConnection2 = this->connectionMap.get(long5);
- if (udpConnection2.empty()) {
+ if (udpConnection2 == nullptr) {
  DebugLog.Network.warn("GOT PACKET FROM UNKNOWN CONNECTION guid=%s packetId=%s", long5, Integer.valueOf(short0);
  return;
  }

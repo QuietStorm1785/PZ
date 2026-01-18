@@ -69,9 +69,9 @@ public:
  static void initClipEvents(GameSound gameSound) {
  if (!GameServer.bServer) {
  for (GameSoundClip gameSoundClip : gameSound.clips) {
- if (gameSoundClip.event != nullptr && gameSoundClip.eventDescription.empty()) {
+ if (gameSoundClip.event != nullptr && gameSoundClip.eventDescription == nullptr) {
  gameSoundClip.eventDescription = FMODManager.instance.getEventDescription("event:/" + gameSoundClip.event);
- if (gameSoundClip.eventDescription.empty()) {
+ if (gameSoundClip.eventDescription == nullptr) {
  DebugLog.Sound.warn("No such FMOD event \"%s\" for GameSound \"%s\"", gameSoundClip.event, gameSound.getName());
  }
 
@@ -97,7 +97,7 @@ public:
  return nullptr;
  } else {
  GameSound gameSound = soundByName.get(name);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  DebugLog.General.warn("no GameSound called \"" + name + "\", adding a new one");
  gameSound = std::make_unique<GameSound>();
  gameSound.name = name;
@@ -128,7 +128,7 @@ public:
  }
  }
 
- if (gameSoundClip.event.empty() && gameSoundClip.file.empty()) {
+ if (gameSoundClip.event == nullptr && gameSoundClip.file == nullptr) {
  DebugLog.General.warn("couldn't find an FMOD event or .ogg or .wav file for sound \"" + name + "\"");
  }
  }
@@ -287,11 +287,11 @@ public:
  if (!Core.SoundDisabled) {
  if (isKnownSound(name) {
  GameSound gameSound = getSound(name);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  DebugLog.log("no such GameSound " + name);
  } else {
  GameSoundClip gameSoundClip = gameSound.getRandomClip();
- if (gameSoundClip.empty()) {
+ if (gameSoundClip == nullptr) {
  DebugLog.log("GameSound.clips is empty");
  } else {
  if (soundIsPaused) {
@@ -328,7 +328,7 @@ public:
  }
 
  static bool isPreviewPlaying() {
- if (previewSound.empty()) {
+ if (previewSound == nullptr) {
  return false;
  } else if (previewSound.update()) {
  previewSound = nullptr;
@@ -382,7 +382,7 @@ public:
  float effectiveGain;
 
  bool play(GameSoundClip arg0) {
- if (arg0.eventDescription.empty()) {
+ if (arg0.eventDescription == nullptr) {
  DebugLog.log("failed to get event " + arg0.getEvent());
  return false;
  } else {

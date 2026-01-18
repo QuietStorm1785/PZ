@@ -99,7 +99,7 @@ public:
  void process() {
  this->safehouse = SafeHouse.getSafeHouse(this->x, this->y, this->w, this->h);
  this->shouldCreateChat = false;
- if (this->safehouse.empty()) {
+ if (this->safehouse == nullptr) {
  this->safehouse = SafeHouse.addSafeHouse(this->x, this->y, this->w, this->h, this->ownerUsername, GameClient.bClient);
  this->shouldCreateChat = true;
  }
@@ -121,7 +121,7 @@ public:
  bool validate(UdpConnection udpConnection) {
  bool boolean0 = (udpConnection.accessLevel & 56) != 0;
  this->safehouse = SafeHouse.getSafeHouse(this->x, this->y, this->w, this->h);
- if (this->safehouse.empty()) {
+ if (this->safehouse == nullptr) {
  if (udpConnection.accessLevel == 1 && SafeHouse.hasSafehouse(this->ownerUsername) != nullptr) {
  if (ServerOptions.instance.AntiCheatProtectionType19.getValue() && PacketValidator.checkUser(udpConnection) {
  PacketValidator.doKickUser(udpConnection, this->getClass().getSimpleName(), "Type19", this->getDescription());

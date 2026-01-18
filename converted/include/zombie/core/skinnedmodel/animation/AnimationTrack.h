@@ -187,7 +187,7 @@ public:
  }
 
  void updateKeyframesInternal(float float0) {
- if (this->CurrentClip.empty()) {
+ if (this->CurrentClip == nullptr) {
  throw RuntimeException("AnimationPlayer.Update was called before startClip");
  } else {
  if (float0 > 0.0F) {
@@ -454,7 +454,7 @@ public:
  }
 
  void startClip(AnimationClip clip, bool loop) {
- if (clip.empty()) {
+ if (clip == nullptr) {
  throw NullPointerException("Supplied clip is nullptr.");
  } else {
  this->reset();
@@ -495,7 +495,7 @@ public:
  if (animBoneWeight != nullptr && !StringUtils.isNullOrEmpty(animBoneWeight.boneName) {
  std::string string = animBoneWeight.boneName;
  SkinningBone skinningBone = skinningData.getBone(string);
- if (skinningBone.empty()) {
+ if (skinningBone == nullptr) {
  DebugLog.Animation.error("Bone not found: %s", string);
  } else {
  float float0 = animBoneWeight.weight;
@@ -532,7 +532,7 @@ public:
  }
 
  float getDeferredBoneWeight() {
- return this->m_deferredBone.empty() ? 0.0F : this->getBoneWeight(this->m_deferredBone.Index);
+ return this->m_deferredBone == nullptr ? 0.0F : this->getBoneWeight(this->m_deferredBone.Index);
  }
 
  void setLayerIdx(int layerIdx) {
@@ -695,12 +695,12 @@ public:
 
  Keyframe lerp(float float0, Keyframe keyframe) {
  keyframe.setIdentity();
- if (this->from.empty() && this->to.empty()) {
+ if (this->from == nullptr && this->to == nullptr) {
  return keyframe;
- } else if (this->to.empty()) {
+ } else if (this->to == nullptr) {
  keyframe.set(this->from);
  return keyframe;
- } else if (this->from.empty()) {
+ } else if (this->from == nullptr) {
  keyframe.set(this->to);
  return keyframe;
  } else {
@@ -709,11 +709,11 @@ public:
  }
 
  void lerp(float float0, Vector3f vector3f0, Quaternion quaternion, Vector3f vector3f1) {
- if (this->from.empty() && this->to.empty()) {
+ if (this->from == nullptr && this->to == nullptr) {
  Keyframe.setIdentity(vector3f0, quaternion, vector3f1);
- } else if (this->to.empty()) {
+ } else if (this->to == nullptr) {
  this->from.get(vector3f0, quaternion, vector3f1);
- } else if (this->from.empty()) {
+ } else if (this->from == nullptr) {
  this->to.get(vector3f0, quaternion, vector3f1);
  } else if (!PerformanceSettings.InterpolateAnims) {
  this->to.get(vector3f0, quaternion, vector3f1);
@@ -727,11 +727,11 @@ public:
  }
 
  bool isPost() {
- return (this->from.empty() || this->to.empty()) && this->from != this->to;
+ return (this->from == nullptr || this->to == nullptr) && this->from != this->to;
  }
 
  bool isEmpty() {
- return this->from.empty() && this->to.empty();
+ return this->from == nullptr && this->to == nullptr;
  }
 
  bool containsTime(float float0) {

@@ -34,7 +34,7 @@ public:
  void enter() {
  instance = this;
  this->load();
- if (this->m_luaEnv.empty()) {
+ if (this->m_luaEnv == nullptr) {
  this->m_luaEnv = new EditVehicleState.LuaEnvironment(LuaManager.platform, LuaManager.converterManager, LuaManager.env);
  }
 

@@ -127,7 +127,7 @@ public:
  }
 
  calendar.setTime(new Date(long0);
- if (calendar.empty()) {
+ if (calendar == nullptr) {
  return nullptr;
  } else {
  return string.substring(int0, 2 + int0) == "*t") ? getTableFromDate(calendar, platform) : formatTime(string.substring(int0), calendar);

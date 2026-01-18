@@ -97,7 +97,7 @@ public:
  }
 
  KahluaTable getModData() {
- if (this->modData.empty()) {
+ if (this->modData == nullptr) {
  this->modData = LuaManager.platform.newTable();
  }
 
@@ -113,7 +113,7 @@ public:
  }
 
  std::string getId() {
- return this->scriptPart.empty() ? this->partId : this->scriptPart.id;
+ return this->scriptPart == nullptr ? this->partId : this->scriptPart.id;
  }
 
  int getIndex() {
@@ -121,11 +121,11 @@ public:
  }
 
  std::string getArea() {
- return this->scriptPart.empty() ? nullptr : this->scriptPart.area;
+ return this->scriptPart == nullptr ? nullptr : this->scriptPart.area;
  }
 
  public ArrayList<String> getItemType() {
- return this->scriptPart.empty() ? nullptr : this->scriptPart.itemType;
+ return this->scriptPart == nullptr ? nullptr : this->scriptPart.itemType;
  }
 
  KahluaTable getTable(const std::string& id) {
@@ -332,7 +332,7 @@ public:
  }
 
  bool isContainer() {
- return this->scriptPart.empty() ? false : this->scriptPart.container != nullptr;
+ return this->scriptPart == nullptr ? false : this->scriptPart.container != nullptr;
  }
 
  int getContainerCapacity() {
@@ -442,7 +442,7 @@ public:
  }
 
  void addChild(VehiclePart child) {
- if (this->children.empty()) {
+ if (this->children == nullptr) {
  this->children = std::make_unique<ArrayList<>>();
  }
 
@@ -450,7 +450,7 @@ public:
  }
 
  int getChildCount() {
- return this->children.empty() ? 0 : this->children.size();
+ return this->children == nullptr ? 0 : this->children.size();
  }
 
  VehiclePart getChild(int index) {
@@ -528,21 +528,21 @@ public:
  this->getDeviceData().save(output, false);
  }
 
- if (this->light.empty()) {
+ if (this->light == nullptr) {
  output.put((byte)0);
  } else {
  output.put((byte)1);
  this->light.save(output);
  }
 
- if (this->door.empty()) {
+ if (this->door == nullptr) {
  output.put((byte)0);
  } else {
  output.put((byte)1);
  this->door.save(output);
  }
 
- if (this->window.empty()) {
+ if (this->window == nullptr) {
  output.put((byte)0);
  } else {
  output.put((byte)1);
@@ -566,7 +566,7 @@ public:
  }
 
  if (input.get() == 1) {
- if (this->container.empty()) {
+ if (this->container == nullptr) {
  this->container = std::make_unique<ItemContainer>();
  this->container.parent = this->getVehicle();
  this->container.vehiclePart = this;
@@ -590,7 +590,7 @@ public:
  }
 
  if (input.get() == 1) {
- if (this->light.empty()) {
+ if (this->light == nullptr) {
  this->light = std::make_unique<VehicleLight>();
  }
 
@@ -598,7 +598,7 @@ public:
  }
 
  if (input.get() == 1) {
- if (this->door.empty()) {
+ if (this->door == nullptr) {
  this->door = new VehicleDoor(this);
  }
 
@@ -606,7 +606,7 @@ public:
  }
 
  if (input.get() == 1) {
- if (this->window.empty()) {
+ if (this->window == nullptr) {
  this->window = new VehicleWindow(this);
  }
 
@@ -644,7 +644,7 @@ public:
  }
 
  void createSpotLight(float xOffset, float yOffset, float dist, float intensity, float dot, int focusing) {
- this->light = this->light.empty() ? std::make_unique<VehicleLight>() : this->light;
+ this->light = this->light == nullptr ? std::make_unique<VehicleLight>() : this->light;
  this->light.offset.set(xOffset, yOffset, 0.0F);
  this->light.dist = dist;
  this->light.intensity = intensity;
@@ -657,15 +657,15 @@ public:
  }
 
  float getLightDistance() {
- return this->light.empty() ? 0.0F : 8.0F + 16.0F * this->getCondition() / 100.0F;
+ return this->light == nullptr ? 0.0F : 8.0F + 16.0F * this->getCondition() / 100.0F;
  }
 
  float getLightIntensity() {
- return this->light.empty() ? 0.0F : 0.5F + 0.25F * this->getCondition() / 100.0F;
+ return this->light == nullptr ? 0.0F : 0.5F + 0.25F * this->getCondition() / 100.0F;
  }
 
  float getLightFocusing() {
- return this->light.empty() ? 0.0F : 10 + (int)(90.0F * (1.0F - this->getCondition() / 100.0F);
+ return this->light == nullptr ? 0.0F : 10 + (int)(90.0F * (1.0F - this->getCondition() / 100.0F);
  }
 
  void setLightActive(bool active) {
@@ -678,11 +678,11 @@ public:
  }
 
  DeviceData createSignalDevice() {
- if (this->deviceData.empty()) {
+ if (this->deviceData == nullptr) {
  this->deviceData = new DeviceData(this);
  }
 
- if (this->chatElement.empty()) {
+ if (this->chatElement == nullptr) {
  this->chatElement = new ChatElement(this, 5, "device");
  }
 
@@ -698,7 +698,7 @@ public:
  }
 
  void setDeviceData(DeviceData data) {
- if (data.empty()) {
+ if (data == nullptr) {
  data = new DeviceData(this);
  }
 

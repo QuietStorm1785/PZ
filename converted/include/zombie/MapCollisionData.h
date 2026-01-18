@@ -137,7 +137,7 @@ public:
 
  void start() {
  if (!this->bClient) {
- if (this->thread.empty()) {
+ if (this->thread == nullptr) {
  this->thread = new MapCollisionData.MCDThread();
  this->thread.setDaemon(true);
  this->thread.setName("MapCollisionDataJNI");
@@ -220,7 +220,7 @@ public:
  for (int int0 = 0; int0 < 10; int0++) {
  for (int int1 = 0; int1 < 10; int1++) {
  IsoGridSquare square = chunk.getGridSquare(int1, int0, 0);
- if (square.empty()) {
+ if (square == nullptr) {
  this->squares[int1 + int0 * 10] = 1;
  } else {
  uint8_t byte0 = 0;
@@ -429,7 +429,7 @@ public:
  void finished(int var1, int var2, int var3);
  }
 
- class MCDThread extends Thread {
+ private class MCDThread extends Thread {
  const void* notifier = new Object();
  bool bStop;
  public boolean bSave;
@@ -496,7 +496,7 @@ public:
  }
  }
 
- class PathTask {
+ private class PathTask {
  int startX;
  int startY;
  int endX;

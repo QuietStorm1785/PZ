@@ -27,7 +27,7 @@ public:
 
  public ClientChunkRequest.Chunk getChunk() {
  ClientChunkRequest.Chunk chunk = freeChunks.poll();
- if (chunk.empty()) {
+ if (chunk == nullptr) {
  chunk = new ClientChunkRequest.Chunk();
  }
 
@@ -41,7 +41,7 @@ public:
 
  void getByteBuffer(ClientChunkRequest.Chunk chunk) {
  chunk.bb = freeBuffers.poll();
- if (chunk.bb.empty()) {
+ if (chunk.bb == nullptr) {
  chunk.bb = ByteBuffer.allocate(16384);
  } else {
  chunk.bb.clear();

@@ -303,7 +303,7 @@ public:
  }
 
  bool isRemoteZombie() {
- return this->authOwner.empty();
+ return this->authOwner == nullptr;
  }
 
  void setVehicle4TestCollision(BaseVehicle vehicle) {
@@ -473,7 +473,7 @@ public:
  return false;
  } else if (this->isMoving()) {
  return false;
- } else if (this->target.empty()) {
+ } else if (this->target == nullptr) {
  return false;
  } else if (Math.abs(this->target.z - this->z) >= 0.8F) {
  return false;
@@ -518,7 +518,7 @@ public:
  this->setVariable(
  "blunge",
  () -> {
- if (this->target.empty()) {
+ if (this->target == nullptr) {
  return false;
  } else if ((int)this->getZ() != (int)this->target.getZ()) {
  return false;
@@ -581,7 +581,7 @@ public:
  this->setVariable("bundervehicle", this::isUnderVehicle);
  this->setVariable("bBeingSteppedOn", this::isBeingSteppedOn);
  this->setVariable(
- "distancetotarget", () -> this->target.empty() ? "" : String.valueOf(this->vectorToTarget.getLength() - this->getWidth() + this->target.getWidth())
+ "distancetotarget", () -> this->target == nullptr ? "" : String.valueOf(this->vectorToTarget.getLength() - this->getWidth() + this->target.getWidth())
  );
  this->setVariable("lasttargetseen", () -> this->LastTargetSeenX != -1);
  this->setVariable("lungetimer", () -> this->LungeTimer);
@@ -790,7 +790,7 @@ public:
  || this->isCurrentState(WalkTowardNetworkState.instance())
  )
  && this->getPathFindBehavior2().isGoalSound();
- if (!SandboxOptions.instance.Lore.ThumpNoChasing.getValue() && this->target.empty() && !boolean1) {
+ if (!SandboxOptions.instance.Lore.ThumpNoChasing.getValue() && this->target == nullptr && !boolean1) {
  this->setVariable("bPathfind", false);
  this->setVariable("bMoving", false);
  } else {
@@ -905,7 +905,7 @@ public:
  ModelManager.instance.dressInRandomOutfit(this);
  }
 
- if (this->atlasTex.empty()) {
+ if (this->atlasTex == nullptr) {
  this->atlasTex = DeadBodyAtlas.instance.getBodyTexture(this);
  DeadBodyAtlas.instance.render();
  }
@@ -934,7 +934,7 @@ public:
 
  if (DebugOptions.instance.ZombieRenderMemory.getValue()) {
  std::string string;
- if (this->target.empty()) {
+ if (this->target == nullptr) {
  string = "media/ui/Moodles/Moodle_Icon_Bored.png";
  } else if (this->BonusSpotTime == 0.0F) {
  string = "media/ui/Moodles/Moodle_Icon_Angry.png";
@@ -1831,7 +1831,7 @@ public:
  if (!GameServer.bServer) {
  if (!(volume <= 0.0F) {
  if (this->getCurrentSquare() != nullptr) {
- if (GameClient.bClient && this->authOwner.empty()) {
+ if (GameClient.bClient && this->authOwner == nullptr) {
  if (this->def != nullptr
  && this->sprite != nullptr
  && this->sprite.CurrentAnim != nullptr
@@ -1902,7 +1902,7 @@ public:
  }
 
  super.postupdate();
- if (this->current.empty() && (!GameClient.bClient || this->authOwner != nullptr) {
+ if (this->current == nullptr && (!GameClient.bClient || this->authOwner != nullptr) {
  this->removeFromWorld();
  this->removeFromSquare();
  }
@@ -1933,7 +1933,7 @@ public:
  IsoPlayer.setInstance(player0);
  player0.updateLOS();
  IsoPlayer.setInstance(player1);
- if (GameClient.bClient && this->authOwner.empty() && this->networkUpdate.Check()) {
+ if (GameClient.bClient && this->authOwner == nullptr && this->networkUpdate.Check()) {
  GameClient.instance.sendPlayer(player0);
  }
 
@@ -2021,7 +2021,7 @@ public:
 
  BaseVehicle vehicle = this->getNearVehicle();
  if (vehicle != nullptr) {
- if (this->target.empty() && vehicle.hasLightbar() && vehicle.lightbarSirenMode.get() > 0) {
+ if (this->target == nullptr && vehicle.hasLightbar() && vehicle.lightbarSirenMode.get() > 0) {
  VehiclePart part = vehicle.getUseablePart(this, false);
  if (part != nullptr && part.getSquare().DistTo(this) < 0.7F) {
  this->setThumpTarget(vehicle);
@@ -2039,7 +2039,7 @@ public:
  this->spotSoundDelay--;
  }
 
- if (GameClient.bClient && this->authOwner.empty()) {
+ if (GameClient.bClient && this->authOwner == nullptr) {
  if (this->lastRemoteUpdate > 800
  && (
  this->legsSprite.CurrentAnim.name == "ZombieDeath")
@@ -2058,7 +2058,7 @@ public:
  }
 
  if (GameClient.bClient
- && this->authOwner.empty()
+ && this->authOwner == nullptr
  && this->lastRemoteUpdate < 2000
  && this->lastRemoteUpdate + 1000 / PerformanceSettings.getLockFPS() > 2000) {
  DebugLog.log(DebugType.Zombie, "lastRemoteUpdate 2000+ id=" + this->OnlineID);
@@ -2152,7 +2152,7 @@ public:
  } else if (state != AttackState.instance()
  && state != AttackVehicleState.instance()
  && (this->nx != this->x || this->ny != this->y) {
- if (this->walkVariantUse.empty() || state != LungeState.instance() && state != LungeNetworkState.instance()) {
+ if (this->walkVariantUse == nullptr || state != LungeState.instance() && state != LungeNetworkState.instance()) {
  this->walkVariantUse = this->walkVariant;
  }
 
@@ -2266,7 +2266,7 @@ public:
  }
 
  void updateSearchForCorpse() {
- if (!this->bCrawling && this->target.empty() && this->eatBodyTarget.empty()) {
+ if (!this->bCrawling && this->target == nullptr && this->eatBodyTarget == nullptr) {
  if (this->bodyToEat != nullptr) {
  if (this->bodyToEat.getStaticMovingObjectIndex() == -1) {
  this->bodyToEat = nullptr;
@@ -2275,7 +2275,7 @@ public:
  }
  }
 
- if (this->bodyToEat.empty()) {
+ if (this->bodyToEat == nullptr) {
  this->checkForCorpseTimer = this->checkForCorpseTimer - GameTime.getInstance().getMultiplier() / 1.6F;
  if (this->checkForCorpseTimer <= 0.0F) {
  this->checkForCorpseTimer = 10000.0F;
@@ -3127,7 +3127,7 @@ public:
  }
 
  if (!GameClient.bClient
- || this->target.empty()
+ || this->target == nullptr
  || wielder == this->target
  || !(IsoUtils.DistanceToSquared(this->x, this->y, this->target.x, this->target.y) < 10.0F) {
  this->setTarget(wielder);
@@ -3449,7 +3449,7 @@ public:
  void useDescriptor(SharedDescriptors.Descriptor _sharedDesc) {
  this->getHumanVisual().clear();
  this->itemVisuals.clear();
- this->m_persistentOutfitId = _sharedDesc.empty() ? 0 : _sharedDesc.getPersistentOutfitID();
+ this->m_persistentOutfitId = _sharedDesc == nullptr ? 0 : _sharedDesc.getPersistentOutfitID();
  this->m_bPersistentOutfitInit = true;
  this->sharedDesc = _sharedDesc;
  if (_sharedDesc != nullptr) {
@@ -3611,7 +3611,7 @@ public:
  }
 
  bool isTargetInCone(float dist, float dot) {
- if (this->target.empty()) {
+ if (this->target == nullptr) {
  return false;
  } else {
  tempo.set(this->target.getX() - this->getX(), this->target.getY() - this->getY());
@@ -3777,7 +3777,7 @@ public:
  }
 
  void addItemToSpawnAtDeath(InventoryItem item) {
- if (this->itemsToSpawnAtDeath.empty()) {
+ if (this->itemsToSpawnAtDeath == nullptr) {
  this->itemsToSpawnAtDeath = std::make_unique<ArrayList<>>();
  }
 
@@ -3804,7 +3804,7 @@ public:
 
  void setEatBodyTarget(IsoMovingObject _target, bool force, float _eatSpeed) {
  if (_target != this->eatBodyTarget) {
- if (force || _target.empty() || _target.getEatingZombies().size() < 3) {
+ if (force || _target == nullptr || _target.getEatingZombies().size() < 3) {
  if (this->eatBodyTarget != nullptr) {
  this->eatBodyTarget.getEatingZombies().remove(this);
  }
@@ -4009,7 +4009,7 @@ public:
  }
 
  bool isZombieAttacking(IsoMovingObject other) {
- return GameClient.bClient && this->authOwner.empty()
+ return GameClient.bClient && this->authOwner == nullptr
  ? this->legsSprite != nullptr && this->legsSprite.CurrentAnim != nullptr && "ZombieBite" == this->legsSprite.CurrentAnim.name)
  : other == this->target && this->isCurrentState(AttackState.instance());
  }
@@ -4056,7 +4056,7 @@ public:
  }
 
  bool isFacingTarget() {
- if (this->target.empty()) {
+ if (this->target == nullptr) {
  return false;
  } else if (GameClient.bClient && !this->isLocal() && this->isBumped()) {
  return false;
@@ -4073,7 +4073,7 @@ public:
  }
 
  bool isTargetLocationKnown() {
- if (this->target.empty()) {
+ if (this->target == nullptr) {
  return false;
  } else {
  return this->BonusSpotTime > 0.0F ? true : this->TimeSinceSeenFlesh < 1.0F;
@@ -4103,7 +4103,7 @@ public:
  return false;
  } else {
  IsoGameCharacter character = Type.tryCastTo(this->target, IsoGameCharacter.class);
- if (character.empty() || (int)character.getZ() != (int)this->getZ()) {
+ if (character == nullptr || (int)character.getZ() != (int)this->getZ()) {
  return false;
  } else {
  return character.getVehicle() != nullptr ? false : this->DistTo(character) < 3.9;
@@ -4237,7 +4237,7 @@ public:
 
  std::vector arrayList = this->getInventory().save(b);
  WornItems wornItems = this->getWornItems();
- if (wornItems.empty()) {
+ if (wornItems == nullptr) {
  uint8_t byte0 = 0;
  b.put((byte)byte0);
  } else {
@@ -4264,7 +4264,7 @@ public:
  }
 
  AttachedItems attachedItems = this->getAttachedItems();
- if (attachedItems.empty()) {
+ if (attachedItems == nullptr) {
  uint8_t byte1 = 0;
  b.put((byte)byte1);
  } else {
@@ -4298,7 +4298,7 @@ public:
  }
 
  LuaEventManager.triggerEvent("OnZombieDead", this);
- if (killer.empty()) {
+ if (killer == nullptr) {
  this->DoDeath(nullptr, nullptr, bGory);
  } else if (killer.getPrimaryHandItem() instanceof HandWeapon) {
  this->DoDeath((HandWeapon)killer.getPrimaryHandItem(), killer, bGory);
@@ -4477,13 +4477,13 @@ public:
  return false;
  } else {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, this->start.getZ());
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  } else if (square.Has(IsoObjectType.stairsBN) || square.Has(IsoObjectType.stairsMN) || square.Has(IsoObjectType.stairsTN) {
  return false;
  } else if (square.Has(IsoObjectType.stairsBW) || square.Has(IsoObjectType.stairsMW) || square.Has(IsoObjectType.stairsTW) {
  return false;
- } else if (square.getRoom() != nullptr && this->building.empty()) {
+ } else if (square.getRoom() != nullptr && this->building == nullptr) {
  return false;
  } else {
  return square.getRoom() == nullptr && this->building != nullptr

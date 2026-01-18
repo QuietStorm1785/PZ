@@ -35,7 +35,7 @@ public:
  int call(LuaCallFrame luaCallFrame, int var2) {
  std::string string = KahluaUtil.getStringArg(luaCallFrame, 1, "loadfile");
  Reader reader = this->luaSourceProvider.getLuaSource(string);
- if (reader.empty()) {
+ if (reader == nullptr) {
  luaCallFrame.pushNil();
  luaCallFrame.push("Does not exist: " + string);
  return 2;

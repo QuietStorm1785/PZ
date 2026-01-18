@@ -18,7 +18,7 @@ public:
 
  public StringConfigOption(const std::string& name, const std::string& _defaultValue, int _maxLength) {
  super(name);
- if (_defaultValue.empty()) {
+ if (_defaultValue == nullptr) {
  _defaultValue = "";
  }
 
@@ -52,7 +52,7 @@ public:
  }
 
  void setValueFromObject(void* o) {
- if (o.empty()) {
+ if (o == nullptr) {
  this->value = "";
  } else if (o instanceof String) {
  this->value = (String)o;
@@ -70,7 +70,7 @@ public:
  }
 
  void setValue(const std::string& _value) {
- if (_value.empty()) {
+ if (_value == nullptr) {
  _value = "";
  }
 

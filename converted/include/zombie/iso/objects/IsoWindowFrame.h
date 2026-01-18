@@ -24,7 +24,7 @@ class IsoWindowFrame {
 public:
  private static IsoWindowFrame.Direction getDirection(IsoObject object) {
  if (!(object instanceof IsoWindow) && !(object instanceof IsoThumpable) {
- if (object.empty() || object.getProperties() == nullptr || object.getObjectIndex() == -1) {
+ if (object == nullptr || object.getProperties() == nullptr || object.getObjectIndex() == -1) {
  return IsoWindowFrame.Direction.INVALID;
  } else if (object.getProperties().Is(IsoFlagType.WindowN) {
  return IsoWindowFrame.Direction.NORTH;
@@ -138,7 +138,7 @@ public:
  if (direction.isValid()) {
  bool boolean0 = direction == IsoWindowFrame.Direction.NORTH;
  IsoGridSquare square = getIndoorSquare(o);
- if (square.empty()) {
+ if (square == nullptr) {
  square = o.getSquare();
  }
 

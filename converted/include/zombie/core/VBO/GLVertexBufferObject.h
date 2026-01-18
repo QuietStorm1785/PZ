@@ -112,7 +112,7 @@ public:
  this->buffer = funcs.glMapBuffer(this->type, funcs.GL_WRITE_ONLY(), _size, this->buffer);
  }
 
- if (this->buffer.empty()) {
+ if (this->buffer == nullptr) {
  throw OpenGLException("Failed to map buffer " + this);
  }
 
@@ -143,7 +143,7 @@ public:
  this->buffer = funcs.glMapBuffer(this->type, funcs.GL_WRITE_ONLY(), this->size, this->buffer);
  }
 
- if (this->buffer.empty()) {
+ if (this->buffer == nullptr) {
  throw OpenGLException("Failed to map a buffer " + this->size + " bytes long");
  }
 

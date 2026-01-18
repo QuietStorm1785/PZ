@@ -340,7 +340,7 @@ public:
  }
 
  if (this->initialisedRecDev) {
- this->threadSafeCode(() -> javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this->volumeMic);
+ this->threadSafeCode(() -> javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this->volumeMic));
  }
  }
  }
@@ -594,7 +594,7 @@ public:
  }
  }
 
- if ((!GameClient.bClient || GameClient.connection.empty()) && !FakeClientManager.isVOIPEnabled()) {
+ if ((!GameClient.bClient || GameClient.connection == nullptr) && !FakeClientManager.isVOIPEnabled()) {
  if (this->bIsClient) {
  this->bIsClient = false;
  this->notifyThread();
@@ -764,7 +764,7 @@ public:
  voiceDataSource = VoiceManagerData.VoiceDataSource.Radio;
  int2 = radioData.freq;
  } else {
- if (radioData.empty()) {
+ if (radioData == nullptr) {
  javafmodJNI.FMOD_Channel_Set3DLevel(voiceManagerData1.userplaychannel, 0.0F);
  javafmod.FMOD_Channel_Set3DAttributes(
  voiceManagerData1.userplaychannel, player2.x, player2.y, player2.z, 0.0F, 0.0F, 0.0F

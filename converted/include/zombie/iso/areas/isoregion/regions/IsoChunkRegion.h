@@ -74,7 +74,7 @@ public:
  this->ID = int0;
  this->zLayer = (byte)int1;
  this->resetChunkBorderSquaresCnt();
- if (this->color.empty()) {
+ if (this->color == nullptr) {
  this->color = this->manager.getColor();
  }
 
@@ -295,7 +295,7 @@ public:
  for (int int0 = 0; int0 < this->connectedNeighbors.size(); int0++) {
  IsoChunkRegion chunkRegion2 = this->connectedNeighbors.get(int0);
  IsoWorldRegion worldRegion1 = chunkRegion2.getIsoWorldRegion();
- if (worldRegion1 != nullptr && (worldRegion0.empty() || worldRegion1.getSquareSize() > worldRegion0.getSquareSize())) {
+ if (worldRegion1 != nullptr && (worldRegion0 == nullptr || worldRegion1.getSquareSize() > worldRegion0.getSquareSize())) {
  worldRegion0 = worldRegion1;
  chunkRegion1 = chunkRegion2;
  }

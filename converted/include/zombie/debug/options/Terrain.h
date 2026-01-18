@@ -21,7 +21,7 @@ public:
  super("Terrain");
  }
 
- class RenderTiles extends OptionGroup {
+ public class RenderTiles extends OptionGroup {
  const BooleanDebugOption Enable = newDebugOnlyOption(this->Group, "Enable", true);
  const BooleanDebugOption NewRender = newDebugOnlyOption(this->Group, "NewRender", true);
  const BooleanDebugOption Shadows = newDebugOnlyOption(this->Group, "Shadows", true);
@@ -46,7 +46,7 @@ public:
  super(iDebugOptionGroup, "RenderTiles");
  }
 
- class IsoGridSquare extends OptionGroup {
+ public class IsoGridSquare extends OptionGroup {
  const BooleanDebugOption RenderMinusFloor = newDebugOnlyOption(this->Group, "RenderMinusFloor", true);
  const BooleanDebugOption DoorsAndWalls = newDebugOnlyOption(this->Group, "DoorsAndWalls", true);
  const BooleanDebugOption DoorsAndWalls_SimpleLighting = newDebugOnlyOption(this->Group, "DoorsAndWallsSL", true);
@@ -63,7 +63,7 @@ public:
  super(iDebugOptionGroup, "IsoGridSquare");
  }
 
- class Floor extends OptionGroup {
+ public class Floor extends OptionGroup {
  const BooleanDebugOption Lighting = newDebugOnlyOption(this->Group, "Lighting", true);
  const BooleanDebugOption LightingOld = newDebugOnlyOption(this->Group, "LightingOld", false);
  const BooleanDebugOption LightingDebug = newDebugOnlyOption(this->Group, "LightingDebug", false);
@@ -73,7 +73,7 @@ public:
  }
  }
 
- class Walls extends OptionGroup {
+ public class Walls extends OptionGroup {
  const BooleanDebugOption NW = newDebugOnlyOption(this->Group, "NW", true);
  const BooleanDebugOption W = newDebugOnlyOption(this->Group, "W", true);
  const BooleanDebugOption N = newDebugOnlyOption(this->Group, "N", true);

@@ -396,7 +396,7 @@ public:
  bool isMaskClicked(int x, int y, bool flip) {
  if (super.isMaskClicked(x, y, flip) {
  return true;
- } else if (this->AttachedAnimSprite.empty()) {
+ } else if (this->AttachedAnimSprite == nullptr) {
  return false;
  } else {
  for (int int0 = 0; int0 < this->AttachedAnimSprite.size(); int0++) {
@@ -489,7 +489,7 @@ public:
  }
 
  bool StartShader() {
- if (this->shaderProgram.empty()) {
+ if (this->shaderProgram == nullptr) {
  RenderThread.invokeOnRenderContext(this::initShader);
  }
 

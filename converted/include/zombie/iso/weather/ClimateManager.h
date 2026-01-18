@@ -635,7 +635,7 @@ public:
  }
 
  float getFrontStrength() {
- if (this->currentFront.empty()) {
+ if (this->currentFront == nullptr) {
  return 0.0F;
  } else {
  if (Core.bDebug) {
@@ -679,7 +679,7 @@ public:
  }
 
  KahluaTable getModData() {
- if (this->modDataTable.empty()) {
+ if (this->modDataTable == nullptr) {
  this->modDataTable = LuaManager.platform.newTable();
  }
 
@@ -716,7 +716,7 @@ public:
  bool boolean1 = IsoWorld.instance.isHydroPowerOn();
  if (float0 <= 22.0F) {
  float float1 = (22.0F - float0) / 8.0F;
- if (vehicle.empty()) {
+ if (vehicle == nullptr) {
  if (boolean0 && boolean1) {
  float0 = 22.0F;
  }
@@ -731,7 +731,7 @@ public:
  }
  } else {
  float float2 = (float0 - 22.0F) / 3.5F;
- if (vehicle.empty()) {
+ if (vehicle == nullptr) {
  if (boolean0 && boolean1) {
  float0 = 22.0F;
  }
@@ -1352,7 +1352,7 @@ public:
  this->cloudIntensity.internalValue = lerp(float8, this->cloudIntensity.internalValue, 0.0F);
  float float9 = this->dayFogStrength;
  this->fogIntensity.internalValue = clerp(float8, 0.0F, float9);
- if (Core.getInstance().RenderShader.empty() || Core.getInstance().getOffscreenBuffer() == nullptr) {
+ if (Core.getInstance().RenderShader == nullptr || Core.getInstance().getOffscreenBuffer() == nullptr) {
  this->desaturation.internalValue = clerp(float8, this->desaturation.internalValue, 0.8F * float9);
  } else if (PerformanceSettings.FogQuality == 2) {
  this->desaturation.internalValue = clerp(float8, this->desaturation.internalValue, 0.8F * float9);
@@ -1412,7 +1412,7 @@ public:
  }
 
  if (this->fogIntensity.internalValue > 0.0F) {
- if (Core.getInstance().RenderShader.empty() || Core.getInstance().getOffscreenBuffer() == nullptr) {
+ if (Core.getInstance().RenderShader == nullptr || Core.getInstance().getOffscreenBuffer() == nullptr) {
  this->globalLight.internalValue.interp(this->colFogLegacy, this->fogIntensity.internalValue, this->globalLight.internalValue);
  } else if (PerformanceSettings.FogQuality == 2) {
  this->globalLight.internalValue.interp(this->colFog, this->fogIntensity.internalValue, this->globalLight.internalValue);
@@ -1583,7 +1583,7 @@ public:
  }
 
  if (worldVersion >= 141 && input.readByte() == 1) {
- if (this->modDataTable.empty()) {
+ if (this->modDataTable == nullptr) {
  this->modDataTable = LuaManager.platform.newTable();
  }
 
@@ -1614,20 +1614,20 @@ public:
 
  void updateDayInfo(int int2, int int1, int int0) {
  this->tickIsDayChange = false;
- if (this->currentDay.empty() || this->currentDay.day != int2 || this->currentDay.month != int1 || this->currentDay.year != int0) {
+ if (this->currentDay == nullptr || this->currentDay.day != int2 || this->currentDay.month != int1 || this->currentDay.year != int0) {
  this->tickIsDayChange = this->currentDay != nullptr;
- if (this->currentDay.empty()) {
+ if (this->currentDay == nullptr) {
  this->currentDay = new ClimateManager.DayInfo();
  }
 
  this->setDayInfo(this->currentDay, int2, int1, int0, 0);
- if (this->previousDay.empty()) {
+ if (this->previousDay == nullptr) {
  this->previousDay = new ClimateManager.DayInfo();
  this->previousDay.season = this->season.clone();
  }
 
  this->setDayInfo(this->previousDay, int2, int1, int0, -1);
- if (this->nextDay.empty()) {
+ if (this->nextDay == nullptr) {
  this->nextDay = new ClimateManager.DayInfo();
  this->nextDay.season = this->season.clone();
  }
@@ -1643,7 +1643,7 @@ public:
  dayInfo.month = dayInfo.calendar.get(2);
  dayInfo.year = dayInfo.calendar.get(1);
  dayInfo.dateValue = dayInfo.calendar.getTime().getTime();
- if (dayInfo.season.empty()) {
+ if (dayInfo.season == nullptr) {
  dayInfo.season = this->season.clone();
  }
 
@@ -1673,7 +1673,7 @@ public:
  try {
  for (int int0 = 0; int0 < GameServer.udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = GameServer.udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection1 != udpConnection0) {
+ if (udpConnection1 == nullptr || udpConnection1 != udpConnection0) {
  if (this->writePacketContents(udpConnection0, byte0) {
  PacketTypes.PacketType.ClimateManagerPacket.send(udpConnection0);
  } else {
@@ -2351,7 +2351,7 @@ public:
  void CalculateWeatherFrontStrength(int year, int month, int day, ClimateManager.AirFront front) {
  GregorianCalendar gregorianCalendar = new GregorianCalendar(year, month, day, 0, 0);
  gregorianCalendar.add(5, -3);
- if (this->climateValuesFronts.empty()) {
+ if (this->climateValuesFronts == nullptr) {
  this->climateValuesFronts = this->climateValues.getCopy();
  }
 

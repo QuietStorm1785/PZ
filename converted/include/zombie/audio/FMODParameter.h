@@ -34,7 +34,7 @@ public:
  }
 
  FMOD_STUDIO_PARAMETER_ID getParameterID() {
- return this->m_parameterDescription.empty() ? nullptr : this->m_parameterDescription.id;
+ return this->m_parameterDescription == nullptr ? nullptr : this->m_parameterDescription.id;
  }
 
  float getCurrentValue() {

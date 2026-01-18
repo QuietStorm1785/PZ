@@ -37,7 +37,7 @@ public:
  std::string Command() {
  std::string string0 = "";
  std::string string1 = " <LINE> ";
- if (this->connection.empty()) {
+ if (this->connection == nullptr) {
  string1 = "\n";
  }
 

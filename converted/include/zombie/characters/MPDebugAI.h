@@ -26,7 +26,7 @@ public:
  IsoPlayer player0 = nullptr;
 
  for (IsoPlayer player1 : GameClient.IDToPlayerMap.values()) {
- if (player1 != player2 && (player0.empty() || player0.getDistanceSq(player2) > player1.getDistanceSq(player2) {
+ if (player1 != player2 && (player0 == nullptr || player0.getDistanceSq(player2) > player1.getDistanceSq(player2) {
  player0 = player1;
  }
  }

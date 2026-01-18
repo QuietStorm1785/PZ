@@ -98,7 +98,7 @@ public:
  }
 
  static std::string getStartupTimeStamp() {
- if (s_startupTimeStamp.empty()) {
+ if (s_startupTimeStamp == nullptr) {
  s_startupTimeStamp = s_fileNameSdf.format(Calendar.getInstance().getTime());
  }
 

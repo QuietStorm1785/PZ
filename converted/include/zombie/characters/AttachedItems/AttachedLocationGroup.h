@@ -15,10 +15,10 @@ namespace AttachedItems {
 class AttachedLocationGroup {
 public:
  const std::string id;
- protected std::vector<std::shared_ptr<AttachedLocation>> locations = std::make_unique<ArrayList<>>();
+ protected ArrayList<AttachedLocation> locations = std::make_unique<ArrayList<>>();
 
  public AttachedLocationGroup(const std::string& _id) {
- if (_id.empty()) {
+ if (_id == nullptr) {
  throw NullPointerException("id is nullptr");
  } else if (_id.empty()) {
  throw IllegalArgumentException("id is empty");
@@ -27,7 +27,7 @@ public:
  }
  }
 
- std::shared_ptr<AttachedLocation> getLocation(const std::string& locationId) {
+ AttachedLocation getLocation(const std::string& locationId) {
  for (int int0 = 0; int0 < this->locations.size(); int0++) {
  AttachedLocation attachedLocation = this->locations.get(int0);
  if (attachedLocation.id == locationId) {
@@ -38,9 +38,9 @@ public:
  return nullptr;
  }
 
- std::shared_ptr<AttachedLocation> getOrCreateLocation(const std::string& locationId) {
+ AttachedLocation getOrCreateLocation(const std::string& locationId) {
  AttachedLocation attachedLocation = this->getLocation(locationId);
- if (attachedLocation.empty()) {
+ if (attachedLocation == nullptr) {
  attachedLocation = new AttachedLocation(this, locationId);
  this->locations.add(attachedLocation);
  }
@@ -48,7 +48,7 @@ public:
  return attachedLocation;
  }
 
- std::shared_ptr<AttachedLocation> getLocationByIndex(int index) {
+ AttachedLocation getLocationByIndex(int index) {
  return index >= 0 && index < this->size() ? this->locations.get(index) : nullptr;
  }
 
@@ -68,7 +68,7 @@ public:
  }
 
  void checkValid(const std::string& locationId) {
- if (locationId.empty()) {
+ if (locationId == nullptr) {
  throw NullPointerException("locationId is nullptr");
  } else if (locationId.empty()) {
  throw IllegalArgumentException("locationId is empty");

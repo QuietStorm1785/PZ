@@ -43,7 +43,7 @@ public:
  FloatBuffer floatBuffer = BufferUtils.createFloatBuffer(16);
 
  public static synchronized ParticlesFire getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<ParticlesFire>();
  }
 
@@ -220,7 +220,7 @@ public:
  return this->particles.getCount();
  }
 
- class Particle {
+ public class Particle {
  float id;
  float x;
  float y;
@@ -230,7 +230,7 @@ public:
  ParticlesFire.Zone zone;
  }
 
- class Vortice {
+ public class Vortice {
  float x;
  float y;
  float z;
@@ -243,7 +243,7 @@ public:
  ParticlesFire.Zone zone;
  }
 
- class Zone {
+ public class Zone {
  ParticlesFire.ZoneType type;
  int intensity;
  int currentParticles;

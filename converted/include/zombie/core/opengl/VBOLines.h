@@ -62,7 +62,7 @@ public:
  this->flush();
  }
 
- if (this->m_elements.empty()) {
+ if (this->m_elements == nullptr) {
  this->create();
  }
 
@@ -134,7 +134,7 @@ public:
  }
 
  bool isFull() {
- if (this->m_elements.empty()) {
+ if (this->m_elements == nullptr) {
  return false;
  } else {
  return this->m_mode == 4 && this->m_elements.position() % 84 == 0 && this->m_elements.position() + 84 > 7168
@@ -150,7 +150,7 @@ public:
  }
 
  bool hasRoomFor(int int0) {
- return this->m_elements.empty() || this->m_elements.position() / 28 + int0 <= 256;
+ return this->m_elements == nullptr || this->m_elements.position() / 28 + int0 <= 256;
  }
 
  void flush() {

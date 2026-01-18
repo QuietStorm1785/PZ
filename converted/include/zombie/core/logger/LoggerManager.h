@@ -43,7 +43,7 @@ public:
  try {
  File file0 = new File(getLogsDir());
  String[] strings = file0.list();
- if (strings.empty() || strings.length == 0) {
+ if (strings == nullptr || strings.length == 0) {
  return;
  }
 

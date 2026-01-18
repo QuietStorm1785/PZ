@@ -483,7 +483,7 @@ public:
  int int1 = this->y - arg0.y();
  int int2 = this->z - arg0.z();
  int int3 = this->w - arg0.w();
- return Math.sqrt(Math.fma((float)int0, (float)int0, Math.fma((float)int1, (float)int1, Math.fma((float)int2, (float)int2, (float)(int3 * int3));
+ return Math.sqrt(Math.fma((float)int0, (float)int0, Math.fma((float)int1, (float)int1, Math.fma((float)int2, (float)int2, (float)(int3 * int3)));
  }
 
  double distance(int arg0, int arg1, int arg2, int arg3) {
@@ -491,7 +491,7 @@ public:
  int int1 = this->y - arg1;
  int int2 = this->z - arg2;
  int int3 = this->w - arg3;
- return Math.sqrt(Math.fma((float)int0, (float)int0, Math.fma((float)int1, (float)int1, Math.fma((float)int2, (float)int2, (float)(int3 * int3));
+ return Math.sqrt(Math.fma((float)int0, (float)int0, Math.fma((float)int1, (float)int1, Math.fma((float)int2, (float)int2, (float)(int3 * int3)));
  }
 
  long gridDistance(Vector4ic arg0) {
@@ -651,7 +651,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (this->getClass() != arg0.getClass()) {
  return false;

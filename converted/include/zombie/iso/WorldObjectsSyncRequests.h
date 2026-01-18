@@ -96,7 +96,7 @@ public:
  }
  }
 
- class SyncData {
+ private class SyncData {
  int x;
  int y;
  long hashCodeWorldObjects;

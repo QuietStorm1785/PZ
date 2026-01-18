@@ -80,7 +80,7 @@ public:
  if (vehicle.VehicleID == short0 && vehicle.isDriver(player) {
  PassengerMap.DriverLocal driverLocal = perPlayerDriver[int2];
  PassengerMap.PassengerRemote passengerRemote = driverLocal.passengers[byte0];
- if (passengerRemote.empty()) {
+ if (passengerRemote == nullptr) {
  passengerRemote = driverLocal.passengers[byte0] = new PassengerMap.PassengerRemote();
  }
 

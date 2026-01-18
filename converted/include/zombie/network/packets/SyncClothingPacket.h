@@ -52,7 +52,7 @@ public:
  exception.printStackTrace();
  }
 
- if (this->item.empty()) {
+ if (this->item == nullptr) {
  return;
  }
  }
@@ -85,7 +85,7 @@ public:
  void write(ByteBufferWriter byteBufferWriter) {
  byteBufferWriter.putShort(this->player.OnlineID);
  byteBufferWriter.putUTF(this->location);
- if (this->item.empty()) {
+ if (this->item == nullptr) {
  byteBufferWriter.putByte((byte)0);
  } else {
  byteBufferWriter.putByte((byte)1);
@@ -113,14 +113,14 @@ public:
 
  std::string getDescription() {
  std::string string;
- if (this->player.empty()) {
+ if (this->player == nullptr) {
  string = "player=nullptr";
  } else {
  string = String.format("player=%s(oid:%d)", this->player.username, this->player.OnlineID);
  }
 
  string = string + ", location=" + this->location;
- if (this->item.empty()) {
+ if (this->item == nullptr) {
  string = string + ", item=nullptr";
  } else {
  string = string + ", item=" + this->item.getFullType();

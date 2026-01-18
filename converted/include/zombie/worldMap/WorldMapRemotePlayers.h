@@ -20,7 +20,7 @@ public:
 
  WorldMapRemotePlayer getOrCreatePlayerByID(short short0) {
  WorldMapRemotePlayer worldMapRemotePlayer = this->playerLookup.get(short0);
- if (worldMapRemotePlayer.empty()) {
+ if (worldMapRemotePlayer == nullptr) {
  worldMapRemotePlayer = new WorldMapRemotePlayer(short0);
  this->playerList.add(worldMapRemotePlayer);
  this->playerLookup.put(short0, worldMapRemotePlayer);

@@ -340,7 +340,7 @@ public:
  }
  }
 
- if (this->water.empty()) {
+ if (this->water == nullptr) {
  try {
  this->water = IsoWaterGeometry.pool.alloc();
  this->water.m_adjacentChunkLoadedCounter = this->chunk.m_adjacentChunkLoadedCounter;
@@ -364,7 +364,7 @@ public:
  }
 
  IsoPuddlesGeometry getPuddles() {
- if (this->puddles.empty()) {
+ if (this->puddles == nullptr) {
  try {
  synchronized (IsoPuddlesGeometry.pool) {
  this->puddles = IsoPuddlesGeometry.pool.alloc();
@@ -417,7 +417,7 @@ public:
  IsoGridOcclusionData getOrCreateOcclusionData() {
  assert !GameServer.bServer;
 
- if (this->OcclusionDataCache.empty()) {
+ if (this->OcclusionDataCache == nullptr) {
  this->OcclusionDataCache = new IsoGridOcclusionData(this);
  }
 
@@ -472,7 +472,7 @@ public:
  }
 
  IsoObject getTransparentWallTo(IsoGridSquare other) {
- if (other.empty() || other == this || !this->isWallTo(other) {
+ if (other == nullptr || other == this || !this->isWallTo(other) {
  return nullptr;
  } else if (other.x > this->x && other.Properties.Is(IsoFlagType.SpearOnlyAttackThrough) && !other.Properties.Is(IsoFlagType.WindowW) {
  return other.getWall();
@@ -510,7 +510,7 @@ public:
  }
 
  bool isWallTo(IsoGridSquare other) {
- if (other.empty() || other == this) {
+ if (other == nullptr || other == this) {
  return false;
  } else if (other.x > this->x && other.Properties.Is(IsoFlagType.collideW) && !other.Properties.Is(IsoFlagType.WindowW) {
  return true;
@@ -538,7 +538,7 @@ public:
  }
 
  bool isWindowTo(IsoGridSquare other) {
- if (other.empty() || other == this) {
+ if (other == nullptr || other == this) {
  return false;
  } else if (other.x > this->x && other.Properties.Is(IsoFlagType.windowW) {
  return true;
@@ -628,7 +628,7 @@ public:
  }
 
  bool isDoorTo(IsoGridSquare other) {
- if (other.empty() || other == this) {
+ if (other == nullptr || other == this) {
  return false;
  } else if (other.x > this->x && other.Properties.Is(IsoFlagType.doorW) {
  return true;
@@ -660,7 +660,7 @@ public:
  }
 
  bool isWindowBlockedTo(IsoGridSquare other) {
- if (other.empty()) {
+ if (other == nullptr) {
  return false;
  } else if (other.x > this->x && other.hasBlockedWindow(false) {
  return true;
@@ -699,7 +699,7 @@ public:
  }
 
  bool isDoorBlockedTo(IsoGridSquare other) {
- if (other.empty()) {
+ if (other == nullptr) {
  return false;
  } else if (other.x > this->x && other.hasBlockedDoor(false) {
  return true;
@@ -829,7 +829,7 @@ public:
  }
 
  bool isHoppableTo(IsoGridSquare other) {
- if (other.empty()) {
+ if (other == nullptr) {
  return false;
  } else if (other.x != this->x && other.y != this->y) {
  return false;
@@ -2217,7 +2217,7 @@ public:
  return this->getBrokenGlass();
  } else {
  IsoBrokenGlass brokenGlass = this->getBrokenGlass();
- if (brokenGlass.empty()) {
+ if (brokenGlass == nullptr) {
  brokenGlass = new IsoBrokenGlass(this->getCell());
  brokenGlass.setSquare(this);
  this->AddSpecialObject(brokenGlass);
@@ -2270,7 +2270,7 @@ public:
  }
 
  object = IsoObject.factoryFromFileInput(this->getCell(), b);
- if (object.empty()) {
+ if (object == nullptr) {
  if (IS_DEBUG_SAVE) {
  int int3 = b.position();
  if (int3 - int1 != int2) {
@@ -2281,7 +2281,7 @@ public:
  + int2
  + ", reading obj size: "
  + short0
- + ", Object.empty()"
+ + ", Object == nullptr"
  );
  if (object.getSprite() != nullptr && object.getSprite().getName() != nullptr) {
  DebugLog.log("Obj sprite = " + object.getSprite().getName());
@@ -2429,7 +2429,7 @@ public:
  }
 
  if (bitHeaderRead1.hasFlags(2) {
- if (this->table.empty()) {
+ if (this->table == nullptr) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -2805,7 +2805,7 @@ public:
  return true;
  } else if (this->getThumpableWindow(false) == nullptr && this->getThumpableWindow(true) == nullptr) {
  IsoGridSquare square1 = this->nav[IsoDirections.S.index()];
- if (square1.empty() || square1.getWindow(true) == nullptr && square1.getWindowFrame(true) == nullptr && square1.getThumpableWindow(true) == nullptr) {
+ if (square1 == nullptr || square1.getWindow(true) == nullptr && square1.getWindowFrame(true) == nullptr && square1.getThumpableWindow(true) == nullptr) {
  IsoGridSquare square2 = this->nav[IsoDirections.E.index()];
  return square2 != nullptr
  && (square2.getWindow(false) != nullptr || square2.getWindowFrame(false) != nullptr || square2.getThumpableWindow(false) != nullptr);
@@ -3318,7 +3318,7 @@ public:
  if (!boolean0) {
  square0 = square1.getCell().getGridSquare(square1.getX(), square1.getY(), square1.getZ());
  IsoGridSquare square2 = north ? square0.nav[IsoDirections.S.index()] : square0.nav[IsoDirections.E.index()];
- if (square2.empty()) {
+ if (square2 == nullptr) {
  return true;
  }
 
@@ -3361,7 +3361,7 @@ public:
  }
 
  IsoObject testCollideSpecialObjects(IsoGridSquare next) {
- if (next.empty() || next == this) {
+ if (next == nullptr || next == this) {
  return nullptr;
  } else if (next.x < this->x && next.y == this->y) {
  if (next.z == this->z && this->Has(IsoObjectType.stairsTW) {
@@ -3446,7 +3446,7 @@ public:
  }
  }
 
- if (square0.empty() || this->isBlockedTo(square0) || square1.empty() || this->isBlockedTo(square1) {
+ if (square0 == nullptr || this->isBlockedTo(square0) || square1 == nullptr || this->isBlockedTo(square1) {
  return nullptr;
  } else if (!square0.isBlockedTo(next) && !square1.isBlockedTo(next) {
  object4 = next.getSpecialSolid();
@@ -3637,7 +3637,7 @@ public:
  static void getSquaresForThread(ArrayDeque<IsoGridSquare> isoGridSquareCacheDest, int count) {
  for (int int0 = 0; int0 < count; int0++) {
  IsoGridSquare square = isoGridSquareCache.poll();
- if (square.empty()) {
+ if (square == nullptr) {
  isoGridSquareCacheDest.add(new IsoGridSquare(nullptr, nullptr, 0, 0, 0);
  } else {
  isoGridSquareCacheDest.add(square);
@@ -3647,7 +3647,7 @@ public:
 
  static IsoGridSquare getNew(IsoCell cell, SliceY slice, int _x, int _y, int _z) {
  IsoGridSquare square = isoGridSquareCache.poll();
- if (square.empty()) {
+ if (square == nullptr) {
  return new IsoGridSquare(cell, slice, _x, _y, _z);
  } else {
  square.x = _x;
@@ -3841,10 +3841,10 @@ public:
  IsoObject object1 = this->getHoppableWall(bNorth);
  if (object0 != nullptr && object1 != nullptr && object0 == object1) {
  return object0;
- } else if (object0.empty() && object1 != nullptr) {
+ } else if (object0 == nullptr && object1 != nullptr) {
  return object1;
  } else {
- return object0 != nullptr && object1.empty() ? object0 : nullptr;
+ return object0 != nullptr && object1 == nullptr ? object0 : nullptr;
  }
  }
 
@@ -3900,7 +3900,7 @@ public:
  }
 
  IsoObject getPlayerBuiltFloor() {
- return this->getBuilding() == nullptr && this->roofHideBuilding.empty() ? this->getFloor() : nullptr;
+ return this->getBuilding() == nullptr && this->roofHideBuilding == nullptr ? this->getFloor() : nullptr;
  }
 
  void interpolateLight(ColorInfo inf, float _x, float _y) {
@@ -3948,7 +3948,7 @@ public:
  && IsoWorld.instance.isValidSquare(this->x + int0, this->y + int1, this->z)
  && this->getCell().getChunkForGridSquare(this->x + int0, this->y + int1, this->z) != nullptr) {
  IsoGridSquare square1 = this->getCell().getGridSquare(this->x + int0, this->y + int1, this->z);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = getNew(this->getCell(), nullptr, this->x + int0, this->y + int1, this->z);
  IsoGridSquare square2 = this->getCell().ConnectNewSquare(square1, false);
  }
@@ -4003,7 +4003,7 @@ public:
 
  for (int int2 = this->z - 1; int2 > 0; int2--) {
  IsoGridSquare square = this->getCell().getGridSquare(this->x, this->y, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  square = getNew(this->getCell(), nullptr, this->x, this->y, int2);
  this->getCell().ConnectNewSquare(square, false);
  }
@@ -4060,7 +4060,7 @@ public:
  if (boolean0 && level == 2) {
  int int0 = this->z - 1;
  IsoGridSquare square0 = this->getCell().getGridSquare(this->x, this->y, int0);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  square0 = new IsoGridSquare(this->getCell(), nullptr, this->x, this->y, int0);
  this->getCell().ConnectNewSquare(square0, true);
  }
@@ -4087,7 +4087,7 @@ public:
  if (north) {
  if (IsoWorld.instance.isValidSquare(this->x, this->y - 1, this->z + 1) {
  square1 = this->getCell().getGridSquare(this->x, this->y - 1, this->z + 1);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = new IsoGridSquare(this->getCell(), nullptr, this->x, this->y - 1, this->z + 1);
  this->getCell().ConnectNewSquare(square1, false);
  }
@@ -4098,7 +4098,7 @@ public:
  }
  } else if (IsoWorld.instance.isValidSquare(this->x - 1, this->y, this->z + 1) {
  square1 = this->getCell().getGridSquare(this->x - 1, this->y, this->z + 1);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = new IsoGridSquare(this->getCell(), nullptr, this->x - 1, this->y, this->z + 1);
  this->getCell().ConnectNewSquare(square1, false);
  }
@@ -4110,7 +4110,7 @@ public:
 
  square1.getModData().rawset("ConnectedToStairs" + north, true);
  square1 = this->getCell().getGridSquare(this->x, this->y, this->z + 1);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = new IsoGridSquare(this->getCell(), nullptr, this->x, this->y, this->z + 1);
  this->getCell().ConnectNewSquare(square1, false);
  }
@@ -4121,7 +4121,7 @@ public:
  for (int int3 = this->getZ() - 1; int3 <= this->getZ() + 1; int3++) {
  if (IsoWorld.instance.isValidSquare(int1, int2, int3) {
  IsoGridSquare square2 = this->getCell().getGridSquare(int1, int2, int3);
- if (square2.empty()) {
+ if (square2 == nullptr) {
  square2 = new IsoGridSquare(this->getCell(), nullptr, int1, int2, int3);
  this->getCell().ConnectNewSquare(square2, false);
  }
@@ -4446,8 +4446,8 @@ public:
  float float1 = Rand.Next(100) / 300.0F;
  IsoGridSquare square2 = this->getCell().getGridSquare(square1.getX(), square1.getY() + byte2, square1.getZ());
  IsoGridSquare square3 = this->getCell().getGridSquare(square1.getX(), square1.getY() + byte3, square1.getZ());
- if (square2.empty()
- || square3.empty()
+ if (square2 == nullptr
+ || square3 == nullptr
  || !square2.Is(IsoFlagType.cutW)
  || !square3.Is(IsoFlagType.cutW)
  || square2.getProperties().Is(IsoFlagType.WallSE)
@@ -4536,8 +4536,8 @@ public:
  float float2 = Rand.Next(100) / 300.0F;
  IsoGridSquare square4 = this->getCell().getGridSquare(square0.getX() + byte6, square0.getY(), square0.getZ());
  IsoGridSquare square5 = this->getCell().getGridSquare(square0.getX() + byte7, square0.getY(), square0.getZ());
- if (square4.empty()
- || square5.empty()
+ if (square4 == nullptr
+ || square5 == nullptr
  || !square4.Is(IsoFlagType.cutN)
  || !square5.Is(IsoFlagType.cutN)
  || square4.getProperties().Is(IsoFlagType.WallSE)
@@ -4644,11 +4644,11 @@ public:
  IsoObject object = this->getObjects().get(int0);
  if (object.sprite != nullptr && object.sprite.getProperties().Is(prop) && (!(object instanceof IsoWindow) || !object.isDestroyed())) {
  IsoSprite sprite = IsoSprite.getSprite(IsoSpriteManager.instance, id, 0);
- if (sprite.empty()) {
+ if (sprite == nullptr) {
  return;
  }
 
- if (object.wallBloodSplats.empty()) {
+ if (object.wallBloodSplats == nullptr) {
  object.wallBloodSplats = std::make_unique<ArrayList<>>();
  }
 
@@ -4666,7 +4666,7 @@ public:
  void ClearTileObjectsExceptFloor() {
  for (int int0 = 0; int0 < this->Objects.size(); int0++) {
  IsoObject object = this->Objects.get(int0);
- if (object.sprite.empty() || !object.sprite.getProperties().Is(IsoFlagType.solidfloor) {
+ if (object.sprite == nullptr || !object.sprite.getProperties().Is(IsoFlagType.solidfloor) {
  this->Objects.remove(object);
  int0--;
  }
@@ -4948,7 +4948,7 @@ public:
 
  InventoryItem AddWorldInventoryItem(const std::string& String, float _x, float _y, float height) {
  InventoryItem item = InventoryItemFactory.CreateItem(String);
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  } else {
  IsoWorldInventoryObject worldInventoryObject = new IsoWorldInventoryObject(item, this, _x, _y, height);
@@ -5001,7 +5001,7 @@ public:
 
  return item;
  }
- } else if (item.byteData.empty()) {
+ } else if (item.byteData == nullptr) {
  IsoZombie zombie0 = new IsoZombie(IsoWorld.instance.CurrentCell);
  zombie0.setDir(IsoDirections.fromIndex(Rand.Next(8);
  zombie0.getForwardDirection().set(zombie0.dir.ToVector());
@@ -5414,7 +5414,7 @@ public:
  void BurnWallsTCOnly() {
  for (int int0 = 0; int0 < this->Objects.size(); int0++) {
  IsoObject object = this->Objects.get(int0);
- if (object.sprite.empty()) {
+ if (object.sprite == nullptr) {
  }
  }
  }
@@ -5444,9 +5444,9 @@ public:
  public boolean CalculateCollide(
  IsoGridSquare gridSquare, boolean bVision, boolean bPathfind, boolean bIgnoreSolidTrans, boolean bIgnoreSolid, IsoGridSquare.GetSquare getter
  ) {
- if (gridSquare.empty() && bPathfind) {
+ if (gridSquare == nullptr && bPathfind) {
  return true;
- } else if (gridSquare.empty()) {
+ } else if (gridSquare == nullptr) {
  return false;
  } else {
  if (bVision && gridSquare.Properties.Is(IsoFlagType.trans) {
@@ -5606,7 +5606,7 @@ public:
  && (gridSquare.SolidFloorCached ? !gridSquare.SolidFloor : !gridSquare.TreatAsSolidFloor())
  && gridSquare.z > 0) {
  square2 = getter.getGridSquare(gridSquare.x, gridSquare.y, gridSquare.z - 1);
- if (square2.empty()) {
+ if (square2 == nullptr) {
  return true;
  }
  }
@@ -5733,7 +5733,7 @@ public:
  }
 
  bool CalculateVisionBlocked(IsoGridSquare gridSquare, IsoGridSquare.GetSquare getter) {
- if (gridSquare.empty()) {
+ if (gridSquare == nullptr) {
  return false;
  } else if (Math.abs(gridSquare.getX() - this->getX()) <= 1 && Math.abs(gridSquare.getY() - this->getY()) <= 1) {
  bool boolean0 = false;
@@ -5769,7 +5769,7 @@ public:
  }
 
  IsoGridSquare square0 = getter.getGridSquare(this->x, this->y, gridSquare.z);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return false;
  }
 
@@ -5787,7 +5787,7 @@ public:
  }
 
  IsoGridSquare square1 = getter.getGridSquare(gridSquare.x, gridSquare.y, this->z);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  return false;
  }
 
@@ -5963,7 +5963,7 @@ public:
  string1 = this->Properties.Val("fuelAmount");
  }
 
- if (this->zone.empty()) {
+ if (this->zone == nullptr) {
  this->zone = IsoWorld.instance.MetaGrid.getZoneAt(this->x, this->y, this->z);
  }
 
@@ -6099,7 +6099,7 @@ public:
  this->Properties.UnSet(IsoFlagType.transparentW);
  }
 
- this->propertiesDirty = this->chunk.empty() || this->chunk.bLoaded;
+ this->propertiesDirty = this->chunk == nullptr || this->chunk.bLoaded;
  if (this->chunk != nullptr) {
  this->chunk.lightCheck[0] = this->chunk.lightCheck[1] = this->chunk.lightCheck[2] = this->chunk.lightCheck[3] = true;
  }
@@ -6264,7 +6264,7 @@ public:
  if (_x >= -1 && _x <= 1 && _y >= -1 && _y <= 1 && _z >= -1 && _z <= 1) {
  if (this->Has(IsoObjectType.stairsTN) || this->Has(IsoObjectType.stairsTW) {
  IsoGridSquare square0 = getter.getGridSquare(_x + this->x, _y + this->y, _z + this->z);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return true;
  }
 
@@ -6325,7 +6325,7 @@ public:
  if (!this->SpecialObjects.empty()) {
  for (int int0 = 0; int0 < this->SpecialObjects.size(); int0++) {
  IsoObject object0 = this->SpecialObjects.get(int0);
- if (object0.empty()) {
+ if (object0 == nullptr) {
  return LosUtil.TestResults.Clear;
  }
 
@@ -6378,7 +6378,7 @@ public:
  if (!square3.SpecialObjects.empty()) {
  for (int int1 = 0; int1 < square3.SpecialObjects.size(); int1++) {
  IsoObject object1 = square3.SpecialObjects.get(int1);
- if (object1.empty()) {
+ if (object1 == nullptr) {
  return LosUtil.TestResults.Clear;
  }
 
@@ -6653,10 +6653,10 @@ public:
 
  IsoWaterGeometry waterGeometry = this->z == 0 ? this->getWater() : nullptr;
  bool boolean4 = waterGeometry != nullptr && waterGeometry.bShore;
- float float3 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[0];
- float float4 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[3];
- float float5 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[2];
- float float6 = waterGeometry.empty() ? 0.0F : waterGeometry.depth[1];
+ float float3 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[0];
+ float float4 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[3];
+ float float5 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[2];
+ float float6 = waterGeometry == nullptr ? 0.0F : waterGeometry.depth[1];
  uint8_t byte0 = 0;
  int int3 = this->Objects.size();
  IsoObject[] objects = this->Objects.getElements();
@@ -7047,7 +7047,7 @@ public:
  boolean12 = !boolean13;
  }
 
- if (this->z >= int8 && (object1.sprite.empty() || !object1.sprite.alwaysDraw) {
+ if (this->z >= int8 && (object1.sprite == nullptr || !object1.sprite.alwaysDraw) {
  boolean12 = false;
  }
 
@@ -7107,7 +7107,7 @@ public:
  object1.setAlpha(int1, 0.6F);
  }
 
- if (object1.sprite.empty() || !boolean15 && !boolean16) {
+ if (object1.sprite == nullptr || !boolean15 && !boolean16) {
  if (DebugOptions.instance.Terrain.RenderTiles.IsoGridSquare.Objects.getValue()) {
  if (this->getRoomID() != -1
  && this->getRoomID() != int6
@@ -7524,7 +7524,7 @@ public:
  float5 *= 0.94F;
  }
 
- if (this->room.empty() && square.getRoom() == nullptr) {
+ if (this->room == nullptr && square.getRoom() == nullptr) {
  iLighting.targetDarkMulti(float5);
  } else if (this->room != nullptr && square.getRoom() != nullptr && this->room.building == square.getRoom().building) {
  if (this->room != square.getRoom() && !iLighting.bCouldSee()) {
@@ -7532,7 +7532,7 @@ public:
  } else {
  iLighting.targetDarkMulti(float5);
  }
- } else if (this->room.empty()) {
+ } else if (this->room == nullptr) {
  iLighting.targetDarkMulti(float5 / 2.0F);
  } else if (iLighting.lampostTotalR() + iLighting.lampostTotalG() + iLighting.lampostTotalB() == 0.0F) {
  iLighting.targetDarkMulti(0.0F);
@@ -8265,7 +8265,7 @@ public:
  }
 
  KahluaTable getModData() {
- if (this->table.empty()) {
+ if (this->table == nullptr) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -8321,7 +8321,7 @@ public:
  }
 
  public ErosionData.Square getErosionData() {
- if (this->erosion.empty()) {
+ if (this->erosion == nullptr) {
  this->erosion = new ErosionData.Square();
  }
 
@@ -8516,7 +8516,7 @@ public:
  }
 
  bool haveElectricity() {
- if ((this->chunk.empty() || !this->chunk.bLoaded) && this->haveElectricity) {
+ if ((this->chunk == nullptr || !this->chunk.bLoaded) && this->haveElectricity) {
  return true;
  } else {
  return !SandboxOptions.getInstance().AllowExteriorGenerator.getValue() && this->Is(IsoFlagType.exterior)
@@ -8583,7 +8583,7 @@ public:
  PropertyContainer propertyContainer0 = object1.sprite.getProperties();
  if (propertyContainer0.getStackReplaceTileOffset() != 0) {
  object1.sprite = IsoSprite.getSprite(IsoSpriteManager.instance, object1.sprite.ID + propertyContainer0.getStackReplaceTileOffset());
- if (object1.sprite.empty()) {
+ if (object1.sprite == nullptr) {
  continue;
  }
 

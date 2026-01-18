@@ -48,17 +48,17 @@ public:
  IsoZombie zombie0 = (IsoZombie)character0;
  std::unordered_map hashMap = character0.getStateMachineParams(this);
  IsoGameCharacter character1 = (IsoGameCharacter)zombie0.target;
- if (character1.empty() || !"Chainsaw" == character1.getVariableString("ZombieHitReaction"))) {
+ if (character1 == nullptr || !"Chainsaw" == character1.getVariableString("ZombieHitReaction"))) {
  std::string string = character0.getVariableString("AttackOutcome");
  if ("success" == string)
  && !character0.getVariableBoolean("bAttack")
- && (character1.empty() || !character1.isGodMod())
+ && (character1 == nullptr || !character1.isGodMod())
  && !character0.getVariableBoolean("AttackDidDamage")
  && character0.getVariableString("ZombieBiteDone") != "true") {
  character0.setVariable("AttackOutcome", "interrupted");
  }
 
- if (character1.empty() || character1.isDead()) {
+ if (character1 == nullptr || character1.isDead()) {
  zombie0.setTargetSeenTime(10.0F);
  }
 

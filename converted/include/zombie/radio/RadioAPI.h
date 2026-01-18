@@ -39,7 +39,7 @@ public:
  }
 
  static RadioAPI getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<RadioAPI>();
  }
 

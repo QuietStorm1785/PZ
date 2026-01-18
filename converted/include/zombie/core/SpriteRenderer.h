@@ -791,7 +791,7 @@ public:
  AlphaOp alphaOp = style.getAlphaOp();
  floatBuffer.put(textureDraw0.x0);
  floatBuffer.put(textureDraw0.y0);
- if (textureDraw0.tex.empty()) {
+ if (textureDraw0.tex == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -804,7 +804,7 @@ public:
  floatBuffer.put(textureDraw0.v0);
  }
 
- if (textureDraw0.tex1.empty()) {
+ if (textureDraw0.tex1 == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -817,7 +817,7 @@ public:
  alphaOp.op(int0, 255, floatBuffer);
  floatBuffer.put(textureDraw0.x1);
  floatBuffer.put(textureDraw0.y1);
- if (textureDraw0.tex.empty()) {
+ if (textureDraw0.tex == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -830,7 +830,7 @@ public:
  floatBuffer.put(textureDraw0.v1);
  }
 
- if (textureDraw0.tex1.empty()) {
+ if (textureDraw0.tex1 == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -843,7 +843,7 @@ public:
  alphaOp.op(int0, 255, floatBuffer);
  floatBuffer.put(textureDraw0.x2);
  floatBuffer.put(textureDraw0.y2);
- if (textureDraw0.tex.empty()) {
+ if (textureDraw0.tex == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -856,7 +856,7 @@ public:
  floatBuffer.put(textureDraw0.v2);
  }
 
- if (textureDraw0.tex1.empty()) {
+ if (textureDraw0.tex1 == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -869,7 +869,7 @@ public:
  alphaOp.op(int0, 255, floatBuffer);
  floatBuffer.put(textureDraw0.x3);
  floatBuffer.put(textureDraw0.y3);
- if (textureDraw0.tex.empty()) {
+ if (textureDraw0.tex == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -882,7 +882,7 @@ public:
  floatBuffer.put(textureDraw0.v3);
  }
 
- if (textureDraw0.tex1.empty()) {
+ if (textureDraw0.tex1 == nullptr) {
  floatBuffer.put(0.0F);
  floatBuffer.put(0.0F);
  } else {
@@ -942,7 +942,7 @@ public:
  }
 
  bool isStateChanged(TextureDraw textureDraw0, TextureDraw textureDraw1, Style style, Texture texture0, Texture texture1, uint8_t byte0) {
- if (this->currentRun.empty()) {
+ if (this->currentRun == nullptr) {
  return true;
  } else if (textureDraw0.type == TextureDraw.Type.DrawModel) {
  return true;
@@ -968,7 +968,7 @@ public:
  }
 
  if (style != this->currentStyle) {
- if (this->currentStyle.empty()) {
+ if (this->currentStyle == nullptr) {
  return true;
  }
 
@@ -1065,7 +1065,7 @@ public:
  if (GL11.glGetInteger(34016) == _unit) {
  int int0 = GL11.glGetInteger(32873);
  std::string string = nullptr;
- if (texture0.empty() && int0 != 0) {
+ if (texture0 == nullptr && int0 != 0) {
  for (Asset asset0 : TextureAssetManager.instance.getAssetTable().values()) {
  Texture _texture0 = (Texture)asset0;
  if (_texture0.getID() == int0) {
@@ -1090,7 +1090,7 @@ public:
  }
  }
 
- class StateRun {
+ private class StateRun {
  Texture texture0;
  Texture texture1;
  uint8_t useAttribArray = -1;
@@ -1181,7 +1181,7 @@ public:
  if (RingBuffer.this->restoreBoundTextures) {
  Texture.lastTextureID = 0;
  GL11.glBindTexture(3553, 0);
- if (this->texture0.empty()) {
+ if (this->texture0 == nullptr) {
  GL11.glDisable(3553);
  }
 
@@ -1192,7 +1192,7 @@ public:
 
  if (this->texture0 != RingBuffer.this->lastRenderedTexture0) {
  if (this->texture0 != nullptr) {
- if (RingBuffer.this->lastRenderedTexture0.empty()) {
+ if (RingBuffer.this->lastRenderedTexture0 == nullptr) {
  GL11.glEnable(3553);
  }
 

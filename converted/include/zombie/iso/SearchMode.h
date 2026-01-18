@@ -24,7 +24,7 @@ public:
  private SearchMode.PlayerSearchMode[] plrModes = new SearchMode.PlayerSearchMode[4];
 
  static SearchMode getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<SearchMode>();
  }
 

@@ -85,7 +85,7 @@ public:
  if (Core.getInstance().StartFrameUI()) {
  UIManager.render();
  std::string string = GameWindow.kickReason;
- if (string.empty() || string.empty()) {
+ if (string == nullptr || string.empty()) {
  string = "Connection to server lost";
  }
 

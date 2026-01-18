@@ -1139,9 +1139,9 @@ public:
  ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17)
  ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17)
  ._m23(this->m23)
- ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)
- ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)
- ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)
+ ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30))
+ ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31))
+ ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32))
  ._m33(this->m33)
  ._properties(2 | this->properties & matrix4x3fc.properties() & 16);
  }
@@ -1364,9 +1364,9 @@ public:
  ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17)
  ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17)
  ._m23(this->m23)
- ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)
- ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)
- ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)
+ ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30))
+ ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31))
+ ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32))
  ._m33(this->m33)
  ._properties(2 | this->properties & arg0.properties() & 16);
  }
@@ -3957,10 +3957,10 @@ public:
 
  Matrix4f translateGeneric(float float0, float float1, float float2, Matrix4f matrix4f1) {
  MemUtil.INSTANCE.copy(this, matrix4f1);
- return matrix4f1._m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30)
- ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31)
- ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32)
- ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33)
+ return matrix4f1._m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30))
+ ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31))
+ ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32))
+ ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33))
  ._properties(this->properties & -6);
  }
 
@@ -3969,10 +3969,10 @@ public:
  }
 
  Matrix4f translateGeneric(float float0, float float1, float float2) {
- return this->_m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30)
- ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31)
- ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32)
- ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33)
+ return this->_m30(Math.fma(this->m00, float0, Math.fma(this->m10, float1, Math.fma(this->m20, float2, this->m30))
+ ._m31(Math.fma(this->m01, float0, Math.fma(this->m11, float1, Math.fma(this->m21, float2, this->m31))
+ ._m32(Math.fma(this->m02, float0, Math.fma(this->m12, float1, Math.fma(this->m22, float2, this->m32))
+ ._m33(Math.fma(this->m03, float0, Math.fma(this->m13, float1, Math.fma(this->m23, float2, this->m33))
  ._properties(this->properties & -6);
  }
 
@@ -7079,7 +7079,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Matrix4f) {
  return false;
@@ -7124,7 +7124,7 @@ public:
  bool equals(Matrix4fc arg0, float arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Matrix4f) {
  return false;

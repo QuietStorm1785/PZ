@@ -53,7 +53,7 @@ public:
  if (beardStyles != nullptr) {
  for (BeardStyle beardStyle0 : beardStyles.m_Styles) {
  BeardStyle beardStyle1 = instance.FindStyle(beardStyle0.name);
- if (beardStyle1.empty()) {
+ if (beardStyle1 == nullptr) {
  instance.m_Styles.add(beardStyle0);
  } else {
  if (DebugLog.isEnabled(DebugType.Clothing) {

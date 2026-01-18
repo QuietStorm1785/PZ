@@ -67,7 +67,7 @@ public:
  std::string string1 = methodParameter.getName();
  std::string string2 = methodParameter.getType();
  std::string string3 = methodParameter.getDescription();
- if (string3.empty()) {
+ if (string3 == nullptr) {
  this->writer.printf(" - **''%s''** ''%s''\n", string2, string1);
  } else {
  this->writer.printf(" - **''%s''** ''%s'': %s\n", string2, string1, string3);
@@ -75,7 +75,7 @@ public:
  }
 
  std::string string4 = methodDebugInformation.getReturnDescription();
- if (string4.empty()) {
+ if (string4 == nullptr) {
  this->writer.printf(" * returns ''%s''\n", methodDebugInformation.getReturnType());
  } else {
  this->writer.printf(" * returns ''%s'': %s\n", methodDebugInformation.getReturnType(), string4);

@@ -87,7 +87,7 @@ enum class BloodBodyPartType {
  }
 
  static int ToIndex(BloodBodyPartType BPT) {
- if (BPT.empty()) {
+ if (BPT == nullptr) {
  return 0;
  } else {
  switch (BPT) {

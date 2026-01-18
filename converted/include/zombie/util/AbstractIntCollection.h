@@ -87,7 +87,7 @@ public:
  }
 
  bool removeAll(IntCollection intCollection) {
- if (intCollection.empty()) {
+ if (intCollection == nullptr) {
  Exceptions.nullArgument("collection");
  }
 
@@ -105,7 +105,7 @@ public:
  }
 
  bool retainAll(IntCollection intCollection) {
- if (intCollection.empty()) {
+ if (intCollection == nullptr) {
  Exceptions.nullArgument("collection");
  }
 
@@ -139,7 +139,7 @@ public:
 
  public int[] toArray(int[] ints) {
  int int0 = this->size();
- if (ints.empty() || ints.length < int0) {
+ if (ints == nullptr || ints.length < int0) {
  ints = new int[int0];
  }
 

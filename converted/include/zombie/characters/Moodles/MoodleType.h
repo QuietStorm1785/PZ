@@ -826,7 +826,7 @@ enum class MoodleType {
  }
 
  static int ToIndex(MoodleType MT) {
- if (MT.empty()) {
+ if (MT == nullptr) {
  return 0;
  } else {
  switch (MT) {

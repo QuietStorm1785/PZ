@@ -68,7 +68,7 @@ public:
  for (Entry entry1 : kahluaTableImpl2.delegate.entrySet()) {
  std::string string1 = entry1.getKey().toString();
  VehicleScript vehicleScript0 = ScriptManager.instance.getVehicle(string1);
- if (vehicleScript0.empty()) {
+ if (vehicleScript0 == nullptr) {
  DebugLog.General.warn("vehicle type \"" + string1 + "\" doesn't exist");
  }
 
@@ -187,7 +187,7 @@ public:
 
  zoneName = zoneName.toLowerCase();
  VehicleType vehicleType = vehicles.get(zoneName);
- if (vehicleType.empty()) {
+ if (vehicleType == nullptr) {
  DebugLog.log(zoneName + " Don't exist in VehicleZoneDistribution");
  return nullptr;
  } else if (Rand.Next(100) < vehicleType.chanceToSpawnBurnt) {

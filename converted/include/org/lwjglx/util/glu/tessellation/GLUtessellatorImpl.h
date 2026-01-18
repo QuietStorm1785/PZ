@@ -196,42 +196,42 @@ public:
  void gluTessCallback(int int0, GLUtessellatorCallback gLUtessellatorCallback) {
  switch (int0) {
  case 100100:
- this->callBegin = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callBegin = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100101:
- this->callVertex = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callVertex = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100102:
- this->callEnd = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callEnd = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100103:
- this->callError = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callError = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100104:
- this->callEdgeFlag = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callEdgeFlag = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  this->flagBoundary = gLUtessellatorCallback != nullptr;
  return;
  case 100105:
- this->callCombine = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callCombine = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100106:
- this->callBeginData = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callBeginData = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100107:
- this->callVertexData = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callVertexData = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100108:
- this->callEndData = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callEndData = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100109:
- this->callErrorData = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callErrorData = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  case 100110:
- this->callEdgeFlagData = this->callBegin = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callEdgeFlagData = this->callBegin = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  this->flagBoundary = gLUtessellatorCallback != nullptr;
  return;
  case 100111:
- this->callCombineData = gLUtessellatorCallback.empty() ? NULL_CB : gLUtessellatorCallback;
+ this->callCombineData = gLUtessellatorCallback == nullptr ? NULL_CB : gLUtessellatorCallback;
  return;
  default:
  this->callErrorOrErrorData(100900);
@@ -240,9 +240,9 @@ public:
 
  bool addVertex(double[] doubles, void* object) {
  GLUhalfEdge gLUhalfEdge = this->lastEdge;
- if (gLUhalfEdge.empty()) {
+ if (gLUhalfEdge == nullptr) {
  gLUhalfEdge = Mesh.__gl_meshMakeEdge(this->mesh);
- if (gLUhalfEdge.empty()) {
+ if (gLUhalfEdge == nullptr) {
  return false;
  }
 
@@ -283,7 +283,7 @@ public:
  bool flushCache() {
  CachedVertex[] cachedVertexs = this->cache;
  this->mesh = Mesh.__gl_meshNewMesh();
- if (this->mesh.empty()) {
+ if (this->mesh == nullptr) {
  return false;
  } else {
  for (int int0 = 0; int0 < this->cacheCount; int0++) {
@@ -331,7 +331,7 @@ public:
  this->callErrorOrErrorData(100155);
  }
 
- if (this->mesh.empty()) {
+ if (this->mesh == nullptr) {
  if (this->cacheCount < 100) {
  this->cacheVertex(doubles0, object);
  return;
@@ -375,7 +375,7 @@ public:
  try {
  this->requireState(1);
  this->state = 0;
- if (this->mesh.empty()) {
+ if (this->mesh == nullptr) {
  if (!this->flagBoundary && Render.__gl_renderCache(this) {
  this->polygonData = nullptr;
  return;

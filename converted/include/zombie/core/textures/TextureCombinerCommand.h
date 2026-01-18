@@ -140,7 +140,7 @@ public:
  this->blendSrcA = int2;
  this->blendDestA = int3;
  this->mask = this->requireNonNull(texture1);
- if (this->shaderParams.empty()) {
+ if (this->shaderParams == nullptr) {
  this->shaderParams = std::make_unique<ArrayList<>>();
  }
 
@@ -162,7 +162,7 @@ public:
  this->blendSrcA = 1;
  this->blendDestA = 771;
  this->shader = smartShader;
- if (this->shaderParams.empty()) {
+ if (this->shaderParams == nullptr) {
  this->shaderParams = std::make_unique<ArrayList<>>();
  }
 

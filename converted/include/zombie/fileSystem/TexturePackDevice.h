@@ -165,7 +165,7 @@ public:
  ArrayList<TexturePackPage.SubTextureInfo> m_sub = std::make_unique<ArrayList<>>();
  }
 
- class PositionInputStream extends FilterInputStream {
+ public class PositionInputStream extends FilterInputStream {
  long pos = 0L;
  long mark = 0L;
 
@@ -236,7 +236,7 @@ public:
  super(texturePackDevice.m_filename);
  this->m_device = texturePackDevice;
  TexturePackDevice.Page page = this->m_device.m_pagemap.get(string);
- if (page.empty()) {
+ if (page == nullptr) {
  throw std::make_unique<FileNotFoundException>();
  } else {
  TexturePackDevice.skipInput(this, page.m_png_start);

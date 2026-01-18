@@ -99,8 +99,8 @@ public:
  }
 
  if (this->isActivated()) {
- if (!GameServer.bServer && (this->emitter.empty() || !this->emitter.isPlaying("GeneratorLoop"))) {
- if (this->emitter.empty()) {
+ if (!GameServer.bServer && (this->emitter == nullptr || !this->emitter.isPlaying("GeneratorLoop"))) {
+ if (this->emitter == nullptr) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->getX() + 0.5F, this->getY() + 0.5F, (int)this->getZ());
  IsoWorld.instance.takeOwnershipOfEmitter(this->emitter);
  }
@@ -466,7 +466,7 @@ public:
  this->getSquare().getBuilding().setToxic(_activated);
  }
 
- if (!GameServer.bServer && this->emitter.empty()) {
+ if (!GameServer.bServer && this->emitter == nullptr) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->getX() + 0.5F, this->getY() + 0.5F, this->getZ());
  IsoWorld.instance.takeOwnershipOfEmitter(this->emitter);
  }
@@ -504,7 +504,7 @@ public:
 
  void failToStart() {
  if (!GameServer.bServer) {
- if (this->emitter.empty()) {
+ if (this->emitter == nullptr) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->getX() + 0.5F, this->getY() + 0.5F, this->getZ());
  IsoWorld.instance.takeOwnershipOfEmitter(this->emitter);
  }
@@ -562,7 +562,7 @@ public:
  }
 
  void syncIsoObject(bool bRemote, uint8_t val, UdpConnection source, ByteBuffer bb) {
- if (this->square.empty()) {
+ if (this->square == nullptr) {
  System.out.println("ERROR: " + this->getClass().getSimpleName() + " square is nullptr");
  } else if (this->getObjectIndex() == -1) {
  System.out
@@ -636,7 +636,7 @@ public:
 
  assert square != nullptr;
 
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  } else {
  int int0 = chunk.wx * 10;

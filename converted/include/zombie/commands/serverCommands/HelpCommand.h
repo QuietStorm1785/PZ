@@ -43,7 +43,7 @@ public:
  } else {
  std::string string1 = " <LINE> ";
  StringBuilder stringBuilder = new StringBuilder();
- if (this->connection.empty()) {
+ if (this->connection == nullptr) {
  string1 = "\n";
  }
 

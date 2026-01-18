@@ -45,7 +45,7 @@ public:
  if (!StringUtils.isNullOrWhitespace(string0) {
  std::string string1 = this->group.getLocation(attachedItem.getLocation()).getAttachmentName();
  HandWeapon weapon = Type.tryCastTo(attachedItem.getItem(), HandWeapon.class);
- float float0 = weapon.empty() ? 0.0F : weapon.getBloodLevel();
+ float float0 = weapon == nullptr ? 0.0F : weapon.getBloodLevel();
  AttachedModelName attachedModelName0 = new AttachedModelName(string1, string0, float0);
  this->models.add(attachedModelName0);
  if (weapon != nullptr) {

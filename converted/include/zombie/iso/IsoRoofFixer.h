@@ -123,7 +123,7 @@ public:
  }
 
  static IsoGridSquare getRoofFloorForColumn(IsoGridSquare square0) {
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return nullptr;
  } else {
  IsoCell cell = IsoCell.getInstance();
@@ -135,7 +135,7 @@ public:
  label163: {
  if (int1 >= square0.getZ() + 1) {
  IsoGridSquare square1 = cell.getGridSquare(square0.x, square0.y, int1);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  if (int1 == square0.getZ() + 1 && int1 > 0 && !isStairsBelow(square0.x, square0.y, int1) {
  square1 = IsoGridSquare.getNew(cell, nullptr, square0.x, square0.y, int1);
  cell.ConnectNewSquare(square1, false);
@@ -151,7 +151,7 @@ public:
  if (square1.TreatAsSolidFloor()) {
  if (square1.getRoom() == nullptr) {
  IsoObject object0 = square1.getFloor();
- if (object0.empty() || !isObjectRoof(object0) || object0.getProperties() == nullptr) {
+ if (object0 == nullptr || !isObjectRoof(object0) || object0.getProperties() == nullptr) {
  break;
  }
 
@@ -161,7 +161,7 @@ public:
  }
 
  IsoGridSquare square2 = cell.getGridSquare(square0.x, square0.y, int1 - 1);
- if (square2.empty() || square2.getRoom() != nullptr) {
+ if (square2 == nullptr || square2.getRoom() != nullptr) {
  break;
  }
 
@@ -251,7 +251,7 @@ public:
  }
 
  static bool scanIsRoofAt(IsoGridSquare square0, bool boolean0) {
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return false;
  } else {
  for (int int0 = square0.x - 3; int0 <= square0.x + 3; int0++) {
@@ -270,7 +270,7 @@ public:
  }
 
  static bool isRoofAt(IsoGridSquare square0, bool boolean0) {
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return false;
  } else {
  for (int int0 = 0; int0 < square0.getObjects().size(); int0++) {
@@ -332,7 +332,7 @@ public:
  }
 
  static IsoRoom getRoomBelow(IsoGridSquare square0) {
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return nullptr;
  } else {
  for (int int0 = square0.z - 1; int0 >= 0; int0--) {
@@ -406,7 +406,7 @@ public:
  static bool hasRailing(int int0, int int1, int int2, IsoDirections directions) {
  IsoCell cell = IsoCell.getInstance();
  IsoGridSquare square = cell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  } else {
  switch (directions) {

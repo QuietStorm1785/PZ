@@ -188,7 +188,7 @@ public:
  this->RENDER_TO_TEXTURE = BaseVehicle.RENDER_TO_TEXTURE;
  this->modelData.clear();
  ModelInstanceRenderData modelInstanceRenderData0 = nullptr;
- if (_modelSlot.model.model.isReady() && (_modelSlot.model.AnimPlayer.empty() || _modelSlot.model.AnimPlayer.isReady())) {
+ if (_modelSlot.model.model.isReady() && (_modelSlot.model.AnimPlayer == nullptr || _modelSlot.model.AnimPlayer.isReady())) {
  modelInstanceRenderData0 = ModelInstanceRenderData.alloc().init(_modelSlot.model);
  this->modelData.add(modelInstanceRenderData0);
  if (_modelSlot.sub.size() != _modelSlot.model.sub.size()) {
@@ -258,14 +258,14 @@ public:
  void initRenderData(ArrayList<ModelInstance> arrayList, ModelInstanceRenderData modelInstanceRenderData) {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  ModelInstance modelInstance = (ModelInstance)arrayList.get(int0);
- if (modelInstance.model.isReady() && (modelInstance.AnimPlayer.empty() || modelInstance.AnimPlayer.isReady())) {
+ if (modelInstance.model.isReady() && (modelInstance.AnimPlayer == nullptr || modelInstance.AnimPlayer.isReady())) {
  this->initRenderData(modelInstance, modelInstanceRenderData);
  }
  }
  }
 
  void render() {
- if (this->character.empty()) {
+ if (this->character == nullptr) {
  this->renderVehicle();
  } else {
  this->renderCharacter();
@@ -441,7 +441,7 @@ public:
  modelInstanceRenderDataList = this->readyModelData;
  }
 
- if (solidColor.empty()) {
+ if (solidColor == nullptr) {
  solidColor = new Shader("aim_outline_solid", false);
  solidColorStatic = new Shader("aim_outline_solid", true);
  }

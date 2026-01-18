@@ -151,7 +151,7 @@ public:
  }
 
  private static ShaderProgram.Uniform getShaderUniform(Shader shader, String string, int int0) {
- if (shader.empty()) {
+ if (shader == nullptr) {
  return nullptr;
  } else {
  ShaderProgram shaderProgram = shader.getProgram();

@@ -184,10 +184,10 @@ public:
  return nullptr;
  } else if (this->choices != nullptr && !this->choices.empty()) {
  IsoGridSquare square = this->choices.get(Rand.Next(this->choices.size()));
- if (square.empty()) {
+ if (square == nullptr) {
  return nullptr;
  } else {
- if (this->w.empty()) {
+ if (this->w == nullptr) {
  this->w = (HandWeapon)InventoryItemFactory.CreateItem("Base.Axe");
  }
 
@@ -340,7 +340,7 @@ public:
 
  IsoGridSquare pickEatingZombieSquare(float float2, float float3, float float1, float float0, int int0) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare((double)float1, (double)float0, (double)int0);
- if (square.empty() || !this->canSpawnAt(square.x, square.y, square.z) || square.HasStairs()) {
+ if (square == nullptr || !this->canSpawnAt(square.x, square.y, square.z) || square.HasStairs()) {
  return nullptr;
  } else {
  return PolygonalMap2.instance.lineClearCollide(float2, float3, float1, float0, int0, nullptr, false, true) ? nullptr : square;
@@ -399,7 +399,7 @@ public:
  int int3 = Rand.Next(10);
  object = chk.getGridSquare(int2, int3, 0);
  int1++;
- } while (int1 < 100 && (object.empty() || !((IsoGridSquare)object).isFree(false);
+ } while (int1 < 100 && (object == nullptr || !((IsoGridSquare)object).isFree(false);
 
  if (object != nullptr) {
  uint8_t byte0 = 5;
@@ -696,7 +696,7 @@ public:
  IsoZombie createRealZombieNow(float x, float y, float z) {
  this->choices.clear();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare((double)x, (double)y, (double)z);
- if (square.empty()) {
+ if (square == nullptr) {
  return nullptr;
  } else {
  this->choices.add(square);
@@ -832,7 +832,7 @@ public:
 
  int getBlockedBits(IsoGridSquare square) {
  int int0 = 0;
- if (square.empty()) {
+ if (square == nullptr) {
  return int0;
  } else {
  if (square.nav[IsoDirections.N.index()] == nullptr) {
@@ -867,7 +867,7 @@ public:
  IsoGridSquare square = GameServer.bServer
  ? ServerMap.instance.getGridSquare(int0, int1, int2)
  : IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  } else {
  bool boolean0 = IsoGridSquare.getMatrixBit(square.pathMatrix, 1, 0, 1) && square.nav[IsoDirections.N.index()] != nullptr;

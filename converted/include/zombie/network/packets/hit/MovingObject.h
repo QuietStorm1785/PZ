@@ -45,7 +45,7 @@ public:
  void setMovingObject(IsoMovingObject movingObject0) {
  this->object = movingObject0;
  this->isProcessed = true;
- if (this->object.empty()) {
+ if (this->object == nullptr) {
  this->objectType = 0;
  this->objectId = 0;
  } else if (this->object instanceof IsoPlayer) {
@@ -95,7 +95,7 @@ public:
 
  if (this->objectType == 4) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(this->squareX, this->squareY, this->squareZ);
- if (square.empty()) {
+ if (square == nullptr) {
  this->object = nullptr;
  } else {
  this->object = square.getMovingObjects().get(this->objectId);

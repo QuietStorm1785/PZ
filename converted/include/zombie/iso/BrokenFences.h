@@ -41,7 +41,7 @@ public:
  }
 
  private ArrayList<String> tableToTiles(KahluaTableImpl kahluaTableImpl) {
- if (kahluaTableImpl.empty()) {
+ if (kahluaTableImpl == nullptr) {
  return nullptr;
  } else {
  std::vector arrayList = nullptr;
@@ -50,7 +50,7 @@ public:
  kahluaTableIterator.advance();
  arrayList.add(kahluaTableIterator.getValue().toString())
  ) {
- if (arrayList.empty()) {
+ if (arrayList == nullptr) {
  arrayList = std::make_unique<ArrayList>();
  }
  }
@@ -93,7 +93,7 @@ public:
  if (!"VERSION".equalsIgnoreCase(string) {
  KahluaTableImpl kahluaTableImpl = (KahluaTableImpl)kahluaTableIterator.getValue();
  BrokenFences.Tile tile = this->s_unbrokenMap.get(string);
- if (tile.empty()) {
+ if (tile == nullptr) {
  throw IllegalArgumentException("addDebrisTiles() with unknown tile");
  }
 

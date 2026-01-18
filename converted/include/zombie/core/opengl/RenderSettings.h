@@ -42,7 +42,7 @@ public:
  Color defaultClear = new Color(0, 0, 0, 1);
 
  static RenderSettings getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<RenderSettings>();
  }
 
@@ -55,7 +55,7 @@ public:
  }
 
  texture = Texture.getSharedTexture("media/textures/weather/fogwhite.png");
- if (texture.empty()) {
+ if (texture == nullptr) {
  DebugLog.log("Missing texture: media/textures/weather/fogwhite.png");
  }
  }
@@ -82,7 +82,7 @@ public:
 
  void legacyPostRender(int int0) {
  if (!GameServer.bServer) {
- if (Core.getInstance().RenderShader.empty() || Core.getInstance().getOffscreenBuffer() == nullptr) {
+ if (Core.getInstance().RenderShader == nullptr || Core.getInstance().getOffscreenBuffer() == nullptr) {
  this->getPlayerSettings(int0).legacyPostRender(int0);
  }
  }
@@ -177,7 +177,7 @@ public:
  this->night = 0.25F;
  }
 
- if (Core.getInstance().RenderShader.empty() || Core.getInstance().getOffscreenBuffer() == nullptr) {
+ if (Core.getInstance().RenderShader == nullptr || Core.getInstance().getOffscreenBuffer() == nullptr) {
  this->desaturation = this->desaturation * (1.0F - this->darkness);
  this->blendInfo.r = this->blendColor.r;
  this->blendInfo.g = this->blendColor.g;

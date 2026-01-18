@@ -87,7 +87,7 @@ public:
 
  if (activeRegion.fixUpperEdge) {
  GLUhalfEdge gLUhalfEdge = Mesh.__gl_meshConnect(RegionBelow(activeRegion).eUp.Sym, activeRegion.eUp.Lnext);
- if (gLUhalfEdge.empty()) {
+ if (gLUhalfEdge == nullptr) {
  return nullptr;
  }
 
@@ -115,7 +115,7 @@ public:
  ActiveRegion activeRegion0 = new ActiveRegion();
  activeRegion0.eUp = gLUhalfEdge;
  activeRegion0.nodeUp = Dict.dictInsertBefore(gLUtessellatorImpl.dict, activeRegion1.nodeUp, activeRegion0);
- if (activeRegion0.nodeUp.empty()) {
+ if (activeRegion0.nodeUp == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else {
  activeRegion0.fixUpperEdge = false;
@@ -171,7 +171,7 @@ public:
  }
 
  gLUhalfEdge1 = Mesh.__gl_meshConnect(gLUhalfEdge0.Onext.Sym, gLUhalfEdge1.Sym);
- if (gLUhalfEdge1.empty()) {
+ if (gLUhalfEdge1 == nullptr) {
  throw std::make_unique<RuntimeException>();
  }
 
@@ -213,7 +213,7 @@ public:
  AddRegionBelow(gLUtessellatorImpl, activeRegion0, gLUhalfEdge0.Sym);
  gLUhalfEdge0 = gLUhalfEdge0.Onext;
  if (gLUhalfEdge0 == gLUhalfEdge2) {
- if (gLUhalfEdge3.empty()) {
+ if (gLUhalfEdge3 == nullptr) {
  gLUhalfEdge3 = RegionBelow(activeRegion0).eUp.Sym.Onext;
  }
 
@@ -271,7 +271,7 @@ public:
  Object[] objects0 = new Object[1];
  gLUtessellatorImpl.callCombineOrCombineData(doubles, objects1, floats, objects0);
  gLUvertex.data = objects0[0];
- if (gLUvertex.data.empty()) {
+ if (gLUvertex.data == nullptr) {
  if (!boolean0) {
  gLUvertex.data = objects1[0];
  } else if (!gLUtessellatorImpl.fatalError) {
@@ -376,7 +376,7 @@ public:
 
  RegionAbove(activeRegion1).dirty = activeRegion1.dirty = true;
  GLUhalfEdge gLUhalfEdge2 = Mesh.__gl_meshSplitEdge(gLUhalfEdge0);
- if (gLUhalfEdge2.empty()) {
+ if (gLUhalfEdge2 == nullptr) {
  throw std::make_unique<RuntimeException>();
  }
 
@@ -392,7 +392,7 @@ public:
 
  activeRegion1.dirty = activeRegion0.dirty = true;
  GLUhalfEdge gLUhalfEdge3 = Mesh.__gl_meshSplitEdge(gLUhalfEdge1);
- if (gLUhalfEdge3.empty()) {
+ if (gLUhalfEdge3 == nullptr) {
  throw std::make_unique<RuntimeException>();
  }
 
@@ -496,7 +496,7 @@ public:
  throw std::make_unique<RuntimeException>();
  } else {
  activeRegion1 = TopLeftRegion(activeRegion1);
- if (activeRegion1.empty()) {
+ if (activeRegion1 == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else {
  gLUhalfEdge0 = RegionBelow(activeRegion1).eUp;
@@ -557,7 +557,7 @@ public:
  if (!activeRegion1.dirty) {
  activeRegion0 = activeRegion1;
  activeRegion1 = RegionAbove(activeRegion1);
- if (activeRegion1.empty() || !activeRegion1.dirty) {
+ if (activeRegion1 == nullptr || !activeRegion1.dirty) {
  return;
  }
  }
@@ -626,7 +626,7 @@ public:
  }
 
  activeRegion1 = TopLeftRegion(activeRegion1);
- if (activeRegion1.empty()) {
+ if (activeRegion1 == nullptr) {
  throw std::make_unique<RuntimeException>();
  }
 
@@ -655,7 +655,7 @@ public:
  }
 
  gLUhalfEdge4 = Mesh.__gl_meshConnect(gLUhalfEdge1.Onext.Sym, gLUhalfEdge4);
- if (gLUhalfEdge4.empty()) {
+ if (gLUhalfEdge4 == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else {
  AddRightEdges(gLUtessellatorImpl, activeRegion1, gLUhalfEdge4, gLUhalfEdge4.Onext, gLUhalfEdge4.Onext, false);
@@ -737,12 +737,12 @@ public:
  GLUhalfEdge gLUhalfEdge2;
  if (activeRegion3 == activeRegion1) {
  gLUhalfEdge2 = Mesh.__gl_meshConnect(gLUvertex.anEdge.Sym, gLUhalfEdge0.Lnext);
- if (gLUhalfEdge2.empty()) {
+ if (gLUhalfEdge2 == nullptr) {
  throw std::make_unique<RuntimeException>();
  }
  } else {
  GLUhalfEdge gLUhalfEdge3 = Mesh.__gl_meshConnect(gLUhalfEdge1.Sym.Onext.Sym, gLUvertex.anEdge);
- if (gLUhalfEdge3.empty()) {
+ if (gLUhalfEdge3 == nullptr) {
  throw std::make_unique<RuntimeException>();
  }
 
@@ -767,7 +767,7 @@ public:
  DebugEvent(gLUtessellatorImpl);
  GLUhalfEdge gLUhalfEdge0 = gLUvertex.anEdge;
 
- while (gLUhalfEdge0.activeRegion.empty()) {
+ while (gLUhalfEdge0.activeRegion == nullptr) {
  gLUhalfEdge0 = gLUhalfEdge0.Onext;
  if (gLUhalfEdge0 == gLUvertex.anEdge) {
  ConnectLeftVertex(gLUtessellatorImpl, gLUvertex);
@@ -776,7 +776,7 @@ public:
  }
 
  ActiveRegion activeRegion0 = TopLeftRegion(gLUhalfEdge0.activeRegion);
- if (activeRegion0.empty()) {
+ if (activeRegion0 == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else {
  ActiveRegion activeRegion1 = RegionBelow(activeRegion0);
@@ -793,7 +793,7 @@ public:
  static void AddSentinel(GLUtessellatorImpl gLUtessellatorImpl, double double0) {
  ActiveRegion activeRegion = new ActiveRegion();
  GLUhalfEdge gLUhalfEdge = Mesh.__gl_meshMakeEdge(gLUtessellatorImpl.mesh);
- if (gLUhalfEdge.empty()) {
+ if (gLUhalfEdge == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else {
  gLUhalfEdge.Org.s = 4.0E150;
@@ -808,7 +808,7 @@ public:
  activeRegion.sentinel = true;
  activeRegion.dirty = false;
  activeRegion.nodeUp = Dict.dictInsert(gLUtessellatorImpl.dict, activeRegion);
- if (activeRegion.nodeUp.empty()) {
+ if (activeRegion.nodeUp == nullptr) {
  throw std::make_unique<RuntimeException>();
  }
  }
@@ -820,7 +820,7 @@ public:
  return Sweep.EdgeLeq(gLUtessellatorImpl, (ActiveRegion)object1, (ActiveRegion)object0);
  }
  });
- if (gLUtessellatorImpl.dict.empty()) {
+ if (gLUtessellatorImpl.dict == nullptr) {
  throw std::make_unique<RuntimeException>();
  } else {
  AddSentinel(gLUtessellatorImpl, -4.0E150);
@@ -898,7 +898,7 @@ public:
  return Geom.VertLeq((GLUvertex)object1, (GLUvertex)object0);
  }
  });
- if (priorityQ.empty()) {
+ if (priorityQ == nullptr) {
  return false;
  } else {
  GLUvertex gLUvertex0 = gLUtessellatorImpl.mesh.vHead;
@@ -958,7 +958,7 @@ public:
  GLUvertex gLUvertex0;
  while ((gLUvertex0 = (GLUvertex)gLUtessellatorImpl.pq.pqExtractMin()) != nullptr) {
  GLUvertex gLUvertex1 = (GLUvertex)gLUtessellatorImpl.pq.pqMinimum();
- if (gLUvertex1.empty() || !Geom.VertEq(gLUvertex1, gLUvertex0) {
+ if (gLUvertex1 == nullptr || !Geom.VertEq(gLUvertex1, gLUvertex0) {
  SweepEvent(gLUtessellatorImpl, gLUvertex0);
  } else {
  gLUvertex1 = (GLUvertex)gLUtessellatorImpl.pq.pqExtractMin();

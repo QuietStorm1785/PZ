@@ -299,7 +299,7 @@ public:
  }
 
  IsoObject object1 = this->getFence(owner);
- if (object1.empty()) {
+ if (object1 == nullptr) {
  return;
  }
 
@@ -322,7 +322,7 @@ public:
  }
 
  IsoObject object2 = this->getFence(owner);
- if (object2.empty()) {
+ if (object2 == nullptr) {
  return;
  }
 
@@ -339,7 +339,7 @@ public:
  }
 
  if (event.m_EventName.equalsIgnoreCase("SetState")) {
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  return;
  }
 
@@ -542,7 +542,7 @@ public:
  }
 
  int countZombiesClimbingOver(IsoObject object, IsoGridSquare square) {
- if (square.empty()) {
+ if (square == nullptr) {
  return 0;
  } else {
  int int0 = 0;

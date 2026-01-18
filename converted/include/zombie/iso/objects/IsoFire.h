@@ -270,7 +270,7 @@ public:
  static bool CanAddFire(IsoGridSquare gridSquare, bool CanBurnAnywhere, bool smoke) {
  if (!smoke && (GameServer.bServer || GameClient.bClient) && ServerOptions.instance.NoFire.getValue()) {
  return false;
- } else if (gridSquare.empty() || gridSquare.getObjects().empty()) {
+ } else if (gridSquare == nullptr || gridSquare.getObjects().empty()) {
  return false;
  } else if (gridSquare.Is(IsoFlagType.water) {
  return false;
@@ -416,7 +416,7 @@ public:
  }
  }
 
- if (!this->bSmoke && !GameServer.bServer && this->LightSource.empty()) {
+ if (!this->bSmoke && !GameServer.bServer && this->LightSource == nullptr) {
  this->LightSource = new IsoLightSource(
  this->square.getX(), this->square.getY(), this->square.getZ(), 0.61F, 0.165F, 0.0F, this->perm ? this->LightRadius : 5
  );
@@ -424,7 +424,7 @@ public:
  }
 
  if (this->perm) {
- if (this->heatSource.empty()) {
+ if (this->heatSource == nullptr) {
  this->heatSource = new IsoHeatSource(this->square.x, this->square.y, this->square.z, this->LightRadius, 35);
  IsoWorld.instance.CurrentCell.addHeatSource(this->heatSource);
  } else {

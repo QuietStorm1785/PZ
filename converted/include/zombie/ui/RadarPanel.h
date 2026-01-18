@@ -177,7 +177,7 @@ public:
  }
 
  if (Core.bLastStand) {
- if (ZombiePopulationManager.instance.radarXY.empty()) {
+ if (ZombiePopulationManager.instance.radarXY == nullptr) {
  ZombiePopulationManager.instance.radarXY = new float[2048];
  }
 

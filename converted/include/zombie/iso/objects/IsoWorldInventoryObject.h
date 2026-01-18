@@ -160,7 +160,7 @@ public:
  }
 
  bool isWaterSource() {
- if (this->item.empty()) {
+ if (this->item == nullptr) {
  return false;
  } else {
  if (this->item.isBroken()) {
@@ -232,7 +232,7 @@ public:
  }
 
  Item itemx = ScriptManager.instance.getItem(this->getItem().getReplaceType("WaterSource"));
- if (itemx.empty()) {
+ if (itemx == nullptr) {
  return 0;
  }
 
@@ -272,7 +272,7 @@ public:
 
  try {
  Texture texture0 = Texture.getSharedTexture(string);
- if (texture0.empty()) {
+ if (texture0 == nullptr) {
  string = this->item.getTex().getName();
  }
  } catch (Exception exception) {
@@ -291,7 +291,7 @@ public:
  }
 
  bool finishupdate() {
- return this->removeProcess || this->item.empty() || !this->item.shouldUpdateInWorld();
+ return this->removeProcess || this->item == nullptr || !this->item.shouldUpdateInWorld();
  }
 
  void load(ByteBuffer input, int WorldVersion, bool IS_DEBUG_SAVE) {
@@ -302,7 +302,7 @@ public:
  float float1 = input.getFloat();
  this->sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  this->item = InventoryItem.loadItem(input, WorldVersion);
- if (this->item.empty()) {
+ if (this->item == nullptr) {
  input.getDouble();
  if (WorldVersion >= 193) {
  BitHeaderRead bitHeaderRead0 = BitHeader.allocRead(BitHeader.HeaderSize.Byte, input);
@@ -333,7 +333,7 @@ public:
 
  try {
  Texture texture0 = Texture.getSharedTexture(string);
- if (texture0.empty()) {
+ if (texture0 == nullptr) {
  string = this->item.getTex().getName();
  }
  } catch (Exception exception) {
@@ -527,8 +527,8 @@ public:
  }
 
  float getScreenPosY(int playerIndex) {
- Texture texture = this->sprite.empty() ? nullptr : this->sprite.getTextureForCurrentFrame(this->dir);
- float float0 = texture.empty() ? 0.0F : texture.getHeightOrig() * this->sprite.def.getScaleY() * 1.0F / 4.0F;
+ Texture texture = this->sprite == nullptr ? nullptr : this->sprite.getTextureForCurrentFrame(this->dir);
+ float float0 = texture == nullptr ? 0.0F : texture.getHeightOrig() * this->sprite.def.getScaleY() * 1.0F / 4.0F;
  float float1 = IsoUtils.YToScreen(this->getX() + this->xoff, this->getY() + this->yoff, this->getZ() + this->zoff, 0);
  PlayerCamera playerCamera = IsoCamera.cameras[playerIndex];
  return (float1 - playerCamera.getOffY() - float0) / Core.getInstance().getZoom(playerIndex);
@@ -555,7 +555,7 @@ public:
  }
 
  static float getSurfaceAlpha(IsoGridSquare square, float _zoff) {
- if (square.empty()) {
+ if (square == nullptr) {
  return 1.0F;
  } else {
  int int0 = IsoCamera.frameState.playerIndex;

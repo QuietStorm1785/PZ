@@ -81,7 +81,7 @@ public:
  }
 
  void checkId(const std::string& string0, const std::string& string1) {
- if (string0.empty()) {
+ if (string0 == nullptr) {
  throw NullPointerException(string1 + " is nullptr");
  } else if (string0.empty()) {
  throw IllegalArgumentException(string1 + " is empty");

@@ -253,7 +253,7 @@ public:
  }
  }
 
- class PlantInit {
+ private class PlantInit {
  std::string name;
  bool hasFlower;
  float bloomstart;

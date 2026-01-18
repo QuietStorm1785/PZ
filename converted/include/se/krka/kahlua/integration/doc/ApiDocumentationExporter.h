@@ -46,7 +46,7 @@ public:
  Class clazz1 = clazz0.getSuperclass();
  if (this->classes.get(clazz1) != nullptr) {
  void* object = this->classHierarchy.get(clazz1);
- if (object.empty()) {
+ if (object == nullptr) {
  object = std::make_unique<ArrayList>();
  this->classHierarchy.put(clazz1, (List<Class<?>>)object);
  }

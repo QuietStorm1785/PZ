@@ -66,9 +66,9 @@ public:
 
  int int1 = Core.getInstance().getOffscreenWidth(int0);
  int int2 = Core.getInstance().getOffscreenHeight(int0);
- if (textureDraw.vars.empty()) {
+ if (textureDraw.vars == nullptr) {
  textureDraw.vars = getFreeFloatArray();
- if (textureDraw.vars.empty()) {
+ if (textureDraw.vars == nullptr) {
  textureDraw.vars = new float[22];
  }
  }

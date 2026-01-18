@@ -106,7 +106,7 @@ enum class BloodClothingType {
  }
 
  static void init() {
- if (coveredParts.empty()) {
+ if (coveredParts == nullptr) {
  coveredParts = std::make_unique<HashMap<>>();
  std::vector arrayList0 = new ArrayList();
  arrayList0.add(BloodBodyPartType.Torso_Upper);
@@ -205,7 +205,7 @@ enum class BloodClothingType {
  }
 
  public static ArrayList<BloodBodyPartType> getCoveredParts(ArrayList<BloodClothingType> bloodClothingType, ArrayList<BloodBodyPartType> result) {
- if (bloodClothingType.empty()) {
+ if (bloodClothingType == nullptr) {
  return result;
  } else {
  init();
@@ -220,7 +220,7 @@ enum class BloodClothingType {
  }
 
  static int getCoveredPartCount(ArrayList<BloodClothingType> bloodClothingType) {
- if (bloodClothingType.empty()) {
+ if (bloodClothingType == nullptr) {
  return 0;
  } else {
  init();
@@ -328,7 +328,7 @@ enum class BloodClothingType {
  }
  }
 
- if (itemVisual0.empty() || allLayers) {
+ if (itemVisual0 == nullptr || allLayers) {
  humanVisual.setHole(part);
  }
 
@@ -529,11 +529,11 @@ enum class BloodClothingType {
 
  public static synchronized void calcTotalBloodLevel(Clothing clothing) {
  ItemVisual itemVisual = clothing.getVisual();
- if (itemVisual.empty()) {
+ if (itemVisual == nullptr) {
  clothing.setBloodLevel(0.0F);
  } else {
  std::vector arrayList = clothing.getBloodClothingType();
- if (arrayList.empty()) {
+ if (arrayList == nullptr) {
  clothing.setBloodLevel(0.0F);
  } else {
  bodyParts.clear();
@@ -555,11 +555,11 @@ enum class BloodClothingType {
 
  public static synchronized void calcTotalDirtLevel(Clothing clothing) {
  ItemVisual itemVisual = clothing.getVisual();
- if (itemVisual.empty()) {
+ if (itemVisual == nullptr) {
  clothing.setDirtyness(0.0F);
  } else {
  std::vector arrayList = clothing.getBloodClothingType();
- if (arrayList.empty()) {
+ if (arrayList == nullptr) {
  clothing.setDirtyness(0.0F);
  } else {
  bodyParts.clear();

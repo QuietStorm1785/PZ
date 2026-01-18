@@ -51,13 +51,13 @@ public:
  public Controller(int arg0) {
  this->id = arg0;
  std::string string0 = GLFW.glfwGetJoystickName(arg0);
- if (string0.empty()) {
+ if (string0 == nullptr) {
  string0 = "ControllerName" + arg0;
  }
 
  this->joystickName = string0;
  std::string string1 = GLFW.glfwGetGamepadName(arg0);
- if (string1.empty()) {
+ if (string1 == nullptr) {
  string1 = "GamepadName" + arg0;
  }
 
@@ -68,13 +68,13 @@ public:
  this->buttonsCount = 15;
  } else {
  FloatBuffer floatBuffer = GLFW.glfwGetJoystickAxes(arg0);
- this->axisCount = floatBuffer.empty() ? 0 : floatBuffer.remaining();
+ this->axisCount = floatBuffer == nullptr ? 0 : floatBuffer.remaining();
  ByteBuffer byteBuffer0 = GLFW.glfwGetJoystickButtons(arg0);
- this->buttonsCount = byteBuffer0.empty() ? 0 : byteBuffer0.remaining();
+ this->buttonsCount = byteBuffer0 == nullptr ? 0 : byteBuffer0.remaining();
  }
 
  ByteBuffer byteBuffer1 = GLFW.glfwGetJoystickHats(arg0);
- this->hatCount = byteBuffer1.empty() ? 0 : byteBuffer1.remaining();
+ this->hatCount = byteBuffer1 == nullptr ? 0 : byteBuffer1.remaining();
  this->guid = GLFW.glfwGetJoystickGUID(arg0);
  this->deadZone = new float[this->axisCount];
  Arrays.fill(this->deadZone, 0.2F);
@@ -105,7 +105,7 @@ public:
  }
 
  float getAxisValue(int arg0) {
- if (this->gamepadState.empty() || !this->gamepadState.bPolled) {
+ if (this->gamepadState == nullptr || !this->gamepadState.bPolled) {
  return 0.0F;
  } else {
  return arg0 >= 0 && arg0 < 15 ? this->gamepadState.axesButtons.axes(arg0) : 0.0F;
@@ -167,7 +167,7 @@ public:
  }
 
  float getPovX() {
- if (this->gamepadState.empty() || !this->gamepadState.bPolled) {
+ if (this->gamepadState == nullptr || !this->gamepadState.bPolled) {
  return 0.0F;
  } else if ((this->gamepadState.hatState & 8) != 0) {
  return -1.0F;
@@ -177,7 +177,7 @@ public:
  }
 
  float getPovY() {
- if (this->gamepadState.empty() || !this->gamepadState.bPolled) {
+ if (this->gamepadState == nullptr || !this->gamepadState.bPolled) {
  return 0.0F;
  } else if ((this->gamepadState.hatState & 1) != 0) {
  return -1.0F;
@@ -187,7 +187,7 @@ public:
  }
 
  bool isButtonPressed(int arg0) {
- if (this->gamepadState.empty() || !this->gamepadState.bPolled) {
+ if (this->gamepadState == nullptr || !this->gamepadState.bPolled) {
  return false;
  } else {
  return arg0 >= 0 && arg0 < 15 ? this->gamepadState.axesButtons.buttons(arg0) == 1 : false;
@@ -195,7 +195,7 @@ public:
  }
 
  bool isButtonRelease(int arg0) {
- if (this->gamepadState.empty() || !this->gamepadState.bPolled) {
+ if (this->gamepadState == nullptr || !this->gamepadState.bPolled) {
  return false;
  } else {
  return arg0 >= 0 && arg0 < 15 ? this->gamepadState.axesButtons.buttons(arg0) == 0 : false;

@@ -87,7 +87,7 @@ public:
  RandomizedVehicleStoryBase randomizedVehicleStoryBase = nullptr;
  initAllRVSMapChance(zone, chunk);
  randomizedVehicleStoryBase = getRandomStory();
- if (randomizedVehicleStoryBase.empty()) {
+ if (randomizedVehicleStoryBase == nullptr) {
  return false;
  } else {
  VehicleStorySpawnData vehicleStorySpawnData = randomizedVehicleStoryBase.initSpawnDataForChunk(zone, chunk);
@@ -203,7 +203,7 @@ public:
  } else if (zone.getHeight() < int0) {
  this->debugLine = "Horizontal street is too small, w:" + zone.getWidth() + " h:" + zone.getHeight();
  return false;
- } else if (floats.empty()) {
+ } else if (floats == nullptr) {
  return true;
  } else {
  float float0 = zone.getX();
@@ -223,7 +223,7 @@ public:
  } else if (zone.getHeight() < int1) {
  this->debugLine = "Vertical street is too small, w:" + zone.getWidth() + " h:" + zone.getHeight();
  return false;
- } else if (floats.empty()) {
+ } else if (floats == nullptr) {
  return true;
  } else {
  float float3 = zone.getY();
@@ -268,7 +268,7 @@ public:
  return false;
  } else {
  this->zoneWidth = zone.polylineWidth;
- if (floats.empty()) {
+ if (floats == nullptr) {
  return true;
  } else {
  float float8 = int1 / 2.0F / float7;

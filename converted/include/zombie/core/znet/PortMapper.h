@@ -69,7 +69,7 @@ public:
  }
 
  public static synchronized String getExternalAddress(boolean boolean0) {
- if (boolean0 || externalAddress.empty()) {
+ if (boolean0 || externalAddress == nullptr) {
  externalAddress = _get_external_address();
  }
 

@@ -576,9 +576,9 @@ public:
  ._m20(Math.fma(float0, float15, Math.fma(float3, float16, float6 * float17)
  ._m21(Math.fma(float1, float15, Math.fma(float4, float16, float7 * float17)
  ._m22(Math.fma(float2, float15, Math.fma(float5, float16, float8 * float17)
- ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30)
- ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31)
- ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32)
+ ._m30(Math.fma(float0, float18, Math.fma(float3, float19, Math.fma(float6, float20, this->m30))
+ ._m31(Math.fma(float1, float18, Math.fma(float4, float19, Math.fma(float7, float20, this->m31))
+ ._m32(Math.fma(float2, float18, Math.fma(float5, float19, Math.fma(float8, float20, this->m32))
  ._properties(this->properties & matrix4x3fc.properties() & 16);
  }
 
@@ -4020,7 +4020,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Matrix4x3f matrix4x3f) {
  return false;
@@ -4054,7 +4054,7 @@ public:
  bool equals(Matrix4x3fc arg0, float arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Matrix4x3f) {
  return false;

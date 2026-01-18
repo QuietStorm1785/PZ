@@ -118,7 +118,7 @@ public:
  public Texture(AssetPath path, AssetManager manager, Texture.TextureAssetParams params) {
  super(path, manager);
  this->assetParams = params;
- this->name = path.empty() ? nullptr : path.getPath();
+ this->name = path == nullptr ? nullptr : path.getPath();
  if (params != nullptr && params.subTexture != nullptr) {
  FileSystem.SubTexture subTexturex = params.subTexture;
  this->splitX = subTexturex.m_info.x;
@@ -146,7 +146,7 @@ public:
  AssetPath assetPath = new AssetPath("@pack@/" + string0 + "/" + string1);
  this->dataid = (TextureID)TextureIDAssetManager.instance.load(assetPath, textureIDAssetParams);
  } else {
- if (this->assetParams.empty()) {
+ if (this->assetParams == nullptr) {
  textureIDAssetParams.flags = textureIDAssetParams.flags | (TextureID.bUseCompressionOption ? 4 : 0);
  } else {
  textureIDAssetParams.flags = this->assetParams.flags;
@@ -314,7 +314,7 @@ public:
  }
 
  static Texture getWhite() {
- if (white.empty()) {
+ if (white == nullptr) {
  white = new Texture(32, 32, "white", 0);
  RenderThread.invokeOnRenderContext(() -> {
  GL11.glBindTexture(3553, lastTextureID = white.getID());
@@ -339,7 +339,7 @@ public:
  }
 
  static Texture getErrorTexture() {
- if (errorTexture.empty()) {
+ if (errorTexture == nullptr) {
  errorTexture = new Texture(32, 32, "EngineErrorTexture", 0);
  RenderThread.invokeOnRenderContext(() -> {
  GL11.glBindTexture(3553, lastTextureID = errorTexture.getID());
@@ -399,7 +399,7 @@ public:
  }
 
  static Texture getEngineMipmapTexture() {
- if (mipmap.empty()) {
+ if (mipmap == nullptr) {
  mipmap = new Texture(256, 256, "EngineMipmapTexture", 0);
  mipmap.dataid.setMinFilter(9984);
  RenderThread.invokeOnRenderContext(() -> {
@@ -447,7 +447,7 @@ public:
  return nullptr;
  } else {
  Texture texture = getSharedTexture(_name);
- if (texture.empty()) {
+ if (texture == nullptr) {
  std::string string0 = "media/textures/" + _name;
  if (!_name.endsWith(".png")) {
  string0 = string0 + ".png";
@@ -516,7 +516,7 @@ public:
  textureAssetParams0.subTexture = subTexture0;
  std::string string2 = "@pack/" + subTexture0.m_pack_name + "/" + subTexture0.m_page_name + "/" + subTexture0.m_info.name;
  Texture texture2 = (Texture)TextureAssetManager.instance.load(new AssetPath(string2), textureAssetParams0);
- if (texture2.empty()) {
+ if (texture2 == nullptr) {
  nullTextures.add(string0);
  } else {
  setSharedTextureInternal(string0, texture2);
@@ -535,7 +535,7 @@ public:
  textureAssetParams1.subTexture = subTexture1;
  std::string string3 = "@pack/" + subTexture1.m_pack_name + "/" + subTexture1.m_page_name + "/" + subTexture1.m_info.name;
  Texture texture3 = (Texture)TextureAssetManager.instance.load(new AssetPath(string3), textureAssetParams1);
- if (texture3.empty()) {
+ if (texture3 == nullptr) {
  nullTextures.add(string0);
  } else {
  setSharedTextureInternal(string0, texture3);
@@ -627,7 +627,7 @@ public:
  return steamAvatarMap.get(steamID);
  } else {
  TextureID textureID = TextureID.createSteamAvatar(steamID);
- if (textureID.empty()) {
+ if (textureID == nullptr) {
  return nullptr;
  } else {
  Texture texture = new Texture(textureID, "SteamAvatar" + SteamUtils.convertSteamIDToString(steamID);
@@ -652,9 +652,9 @@ public:
  static void reload(const std::string& _name) {
  if (_name != nullptr && !_name.empty()) {
  Texture texture = s_sharedTextureTable.get(_name);
- if (texture.empty()) {
+ if (texture == nullptr) {
  texture = Type.tryCastTo(TextureAssetManager.instance.getAssetTable().get(_name), Texture.class);
- if (texture.empty()) {
+ if (texture == nullptr) {
  return;
  }
  }
@@ -779,10 +779,10 @@ public:
  && other.height == this->height
  && other.solid == this->solid
  && (
- this->dataid.empty()
- || other.dataid.empty()
- || other.dataid.pathFileName.empty()
- || this->dataid.pathFileName.empty()
+ this->dataid == nullptr
+ || other.dataid == nullptr
+ || other.dataid.pathFileName == nullptr
+ || this->dataid.pathFileName == nullptr
  || other.dataid.pathFileName == this->dataid.pathFileName)
  );
  }
@@ -1310,7 +1310,7 @@ public:
  }
 
  AlphaColorIndex alphaColorIndex = new AlphaColorIndex(red, green, blue, alpha);
- if (this->dataid.alphaList.empty()) {
+ if (this->dataid.alphaList == nullptr) {
  this->dataid.alphaList = std::make_unique<ArrayList<>>();
  }
 
@@ -1361,7 +1361,7 @@ public:
  }
 
  Texture splitIcon() {
- if (this->splitIconTex.empty()) {
+ if (this->splitIconTex == nullptr) {
  if (!this->dataid.isReady()) {
  this->splitIconTex = std::make_unique<Texture>();
  this->splitIconTex.name = this->name + "_Icon";
@@ -1561,7 +1561,7 @@ public:
 
  Vector2 getUVScale(Vector2 uvScale) {
  uvScale.set(1.0F, 1.0F);
- if (this->dataid.empty()) {
+ if (this->dataid == nullptr) {
  return uvScale;
  } else {
  if (this->dataid.heightHW != this->dataid.height || this->dataid.widthHW != this->dataid.width) {

@@ -716,7 +716,7 @@ public:
  for (byte byte0 = 0; byte0 < this->m_rasterizeXY.size() - 1; byte0 += 2) {
  int int0 = this->m_rasterizeXY_ints[byte0];
  int int1 = this->m_rasterizeXY_ints[byte0 + 1];
- if (this->m_renderer.m_visited.empty() || this->m_renderer.m_visited.isCellVisible(int0, int1) {
+ if (this->m_renderer.m_visited == nullptr || this->m_renderer.m_visited.isCellVisible(int0, int1) {
  this->m_features.clear();
 
  for (int int2 = 0; int2 < this->m_worldMap.m_data.size(); int2++) {
@@ -794,7 +794,7 @@ public:
  for (int int1 = 0; int1 < arrayList1.size(); int1++) {
  WorldMapFeature worldMapFeature = (WorldMapFeature)arrayList1.get(int1);
  if (worldMapStyleLayer.filter(worldMapFeature, filterArgs) {
- if (worldMapRenderLayer.empty()) {
+ if (worldMapRenderLayer == nullptr) {
  worldMapRenderLayer = WorldMapRenderLayer.s_pool.alloc();
  worldMapRenderLayer.m_styleLayer = worldMapStyleLayer;
  worldMapRenderLayer.m_features.clear();
@@ -980,7 +980,7 @@ public:
  switch (worldMapGeometry.m_type) {
  case LineString:
  WorldMapPoints worldMapPoints = worldMapGeometry.m_points.get(0);
- if (this->m_floatArray.empty() || this->m_floatArray.length < worldMapPoints.numPoints() * 2) {
+ if (this->m_floatArray == nullptr || this->m_floatArray.length < worldMapPoints.numPoints() * 2) {
  this->m_floatArray = new float[worldMapPoints.numPoints() * 2];
  }
 
@@ -1088,7 +1088,7 @@ public:
  WorldMapGeometry worldMapGeometry = feature.m_geometries.get(int0);
  if (worldMapGeometry.m_type == WorldMapGeometry.Type.Polygon) {
  bool boolean0 = false;
- if (worldMapGeometry.m_triangles.empty()) {
+ if (worldMapGeometry.m_triangles == nullptr) {
  if (this->m_triangulationsThisFrame > 500) {
  continue;
  }
@@ -1096,7 +1096,7 @@ public:
  this->m_triangulationsThisFrame++;
  double[] doubles = feature.m_properties.containsKey("highway") ? new double[]{1.0, 2.0, 4.0, 8.0, 12.0, 18.0} : nullptr;
  worldMapGeometry.triangulate(doubles);
- if (worldMapGeometry.m_triangles.empty()) {
+ if (worldMapGeometry.m_triangles == nullptr) {
  if (!Core.bDebug) {
  continue;
  }
@@ -1236,9 +1236,9 @@ public:
  for (int int0 = 0; int0 < feature.m_geometries.size(); int0++) {
  WorldMapGeometry worldMapGeometry = feature.m_geometries.get(int0);
  if (worldMapGeometry.m_type == WorldMapGeometry.Type.Polygon) {
- if (worldMapGeometry.m_triangles.empty()) {
+ if (worldMapGeometry.m_triangles == nullptr) {
  worldMapGeometry.triangulate(nullptr);
- if (worldMapGeometry.m_triangles.empty()) {
+ if (worldMapGeometry.m_triangles == nullptr) {
  continue;
  }
  }
@@ -1549,7 +1549,7 @@ public:
  for (byte byte0 = 0; byte0 < this->m_rasterizeXY.size() - 1; byte0 += 2) {
  int int0 = this->m_rasterizeXY_ints[byte0];
  int int1 = this->m_rasterizeXY_ints[byte0 + 1];
- if (this->m_renderer.m_visited.empty() || this->m_renderer.m_visited.isCellVisible(int0, int1) {
+ if (this->m_renderer.m_visited == nullptr || this->m_renderer.m_visited.isCellVisible(int0, int1) {
  IsoMetaCell metaCell = IsoWorld.instance.MetaGrid.getCellData(int0, int1);
  if (metaCell != nullptr) {
  metaCell.getZonesUnique(this->m_zoneSet);
@@ -1831,7 +1831,7 @@ public:
  }
  }
 
- if (this->m_rasterizeXY_ints.empty() || this->m_rasterizeXY_ints.length < this->m_rasterizeXY.size()) {
+ if (this->m_rasterizeXY_ints == nullptr || this->m_rasterizeXY_ints.length < this->m_rasterizeXY.size()) {
  this->m_rasterizeXY_ints = new int[this->m_rasterizeXY.size()];
  }
 
@@ -1866,7 +1866,7 @@ public:
  .scanTriangle(
  float3 / int3, float4 / int3, float1 / int3, float2 / int3, float7 / int3, float8 / int3, 0, 1000, this::rasterizeCellsCallback
  );
- if (this->m_rasterizeXY_ints.empty() || this->m_rasterizeXY_ints.length < this->m_rasterizeXY.size()) {
+ if (this->m_rasterizeXY_ints == nullptr || this->m_rasterizeXY_ints.length < this->m_rasterizeXY.size()) {
  this->m_rasterizeXY_ints = new int[this->m_rasterizeXY.size()];
  }
 
@@ -2073,7 +2073,7 @@ public:
  this->m_rasterizeMaxTileY = (this->m_worldMap.getMaxYInSquares() - worldMapImages.getMinY()) / float1;
  this->m_rasterize.scanTriangle(float8, float9, float6, float7, float4, float5, 0, 1000, this::rasterizeTilesCallback);
  this->m_rasterize.scanTriangle(float4, float5, float2, float3, float8, float9, 0, 1000, this::rasterizeTilesCallback);
- if (this->m_rasterizeXY_ints.empty() || this->m_rasterizeXY_ints.length < this->m_rasterizeXY.size()) {
+ if (this->m_rasterizeXY_ints == nullptr || this->m_rasterizeXY_ints.length < this->m_rasterizeXY.size()) {
  this->m_rasterizeXY_ints = new int[this->m_rasterizeXY.size()];
  }
 
@@ -2355,14 +2355,14 @@ public:
  float m_y;
  }
 
- class WorldMapBooleanOption extends BooleanConfigOption {
+ public class WorldMapBooleanOption extends BooleanConfigOption {
  public WorldMapBooleanOption(const std::string& string, bool boolean0) {
  super(string, boolean0);
  WorldMapRenderer.this->options.add(this);
  }
  }
 
- class WorldMapDoubleOption extends DoubleConfigOption {
+ public class WorldMapDoubleOption extends DoubleConfigOption {
  public WorldMapDoubleOption(const std::string& string, double double0, double double1, double double2) {
  super(string, double0, double1, double2);
  WorldMapRenderer.this->options.add(this);

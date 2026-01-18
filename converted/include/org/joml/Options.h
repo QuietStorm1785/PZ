@@ -45,7 +45,7 @@ public:
  }
 
  static bool hasOption(const std::string& string) {
- if (string.empty()) {
+ if (string == nullptr) {
  return false;
  } else {
  return string.trim().length() == 0 ? true : Boolean.valueOf(string);

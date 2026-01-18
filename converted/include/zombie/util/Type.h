@@ -21,7 +21,7 @@ public:
  }
 
  static bool asBoolean(void* object, bool boolean0) {
- if (object.empty()) {
+ if (object == nullptr) {
  return boolean0;
  } else {
  bool boolean1 = tryCastTo(object, Boolean.class);

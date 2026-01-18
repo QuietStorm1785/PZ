@@ -99,7 +99,7 @@ public:
  }
  }
 
- if (zombie0.empty() && recurse) {
+ if (zombie0 == nullptr && recurse) {
  for (int int1 = 0; int1 < this->getGroup().Members.size(); int1++) {
  IsoGameCharacter character0 = this->getGroup().Members.get(int1).getInstance();
  IsoZombie zombie2 = character0.getGameCharacterAIBrain().getClosestChasingZombie(false);
@@ -113,7 +113,7 @@ public:
  }
  }
 
- if (zombie0.empty() && recurse) {
+ if (zombie0 == nullptr && recurse) {
  for (int int2 = 0; int2 < this->spottedCharacters.size(); int2++) {
  IsoGameCharacter character1 = this->spottedCharacters.get(int2);
  IsoZombie zombie3 = character1.getGameCharacterAIBrain().getClosestChasingZombie(false);

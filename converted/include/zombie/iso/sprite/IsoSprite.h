@@ -208,11 +208,11 @@ public:
  bool isMaskClicked(IsoDirections dir, int x, int y) {
  try {
  Texture texture = this->CurrentAnim.Frames.get((int)this->def.Frame).directions[dir.index()];
- if (texture.empty()) {
+ if (texture == nullptr) {
  return false;
  } else {
  Mask mask = texture.getMask();
- if (mask.empty()) {
+ if (mask == nullptr) {
  return false;
  } else {
  x = (int)(x - texture.offsetX);
@@ -227,7 +227,7 @@ public:
  }
 
  bool isMaskClicked(IsoDirections dir, int x, int y, bool flip) {
- if (this->CurrentAnim.empty()) {
+ if (this->CurrentAnim == nullptr) {
  return false;
  } else {
  this->initSpriteInstance();
@@ -235,11 +235,11 @@ public:
  try {
  if (this->CurrentAnim != nullptr && this->CurrentAnim.Frames != nullptr && !(this->def.Frame >= this->CurrentAnim.Frames.size())) {
  Texture texture = this->CurrentAnim.Frames.get((int)this->def.Frame).directions[dir.index()];
- if (texture.empty()) {
+ if (texture == nullptr) {
  return false;
  } else {
  Mask mask = texture.getMask();
- if (mask.empty()) {
+ if (mask == nullptr) {
  return false;
  } else {
  if (flip) {
@@ -267,11 +267,11 @@ public:
  float getMaskClickedY(IsoDirections dir, int x, int y, bool flip) {
  try {
  Texture texture = this->CurrentAnim.Frames.get((int)this->def.Frame).directions[dir.index()];
- if (texture.empty()) {
+ if (texture == nullptr) {
  return 10000.0F;
  } else {
  Mask mask = texture.getMask();
- if (mask.empty()) {
+ if (mask == nullptr) {
  return 10000.0F;
  } else {
  if (flip) {
@@ -377,20 +377,20 @@ public:
  }
 
  void PlayAnim(IsoAnim anim) {
- if (this->CurrentAnim.empty() || this->CurrentAnim != anim) {
+ if (this->CurrentAnim == nullptr || this->CurrentAnim != anim) {
  this->CurrentAnim = anim;
  }
  }
 
  void PlayAnim(const std::string& _name) {
- if ((this->CurrentAnim.empty() || !this->CurrentAnim.name == _name) && this->AnimMap.containsKey(_name) {
+ if ((this->CurrentAnim == nullptr || !this->CurrentAnim.name == _name) && this->AnimMap.containsKey(_name) {
  this->CurrentAnim = this->AnimMap.get(_name);
  }
  }
 
  void PlayAnimUnlooped(const std::string& _name) {
  if (this->AnimMap.containsKey(_name) {
- if (this->CurrentAnim.empty() || !this->CurrentAnim.name == _name) {
+ if (this->CurrentAnim == nullptr || !this->CurrentAnim.name == _name) {
  this->CurrentAnim = this->AnimMap.get(_name);
  }
 
@@ -472,7 +472,7 @@ public:
  globalOffsetY = -IsoCamera.frameState.OffY;
  }
 
- if (obj.empty() || obj.sx == 0.0F || obj instanceof IsoMovingObject) {
+ if (obj == nullptr || obj.sx == 0.0F || obj instanceof IsoMovingObject) {
  float0 = IsoUtils.XToScreen(x + inst.offX, y + inst.offY, z + inst.offZ, 0);
  float1 = IsoUtils.YToScreen(x + inst.offX, y + inst.offY, z + inst.offZ, 0);
  float0 -= offsetX;
@@ -574,7 +574,7 @@ public:
  }
 
  void initSpriteInstance() {
- if (this->def.empty()) {
+ if (this->def == nullptr) {
  this->def = IsoSpriteInstance.get(this);
  }
  }
@@ -662,7 +662,7 @@ public:
  }
 
  float getCurrentSpriteFrame(IsoSpriteInstance spriteInstance) {
- if (this->CurrentAnim.FramesArray.empty()) {
+ if (this->CurrentAnim.FramesArray == nullptr) {
  this->CurrentAnim.FramesArray = this->CurrentAnim.Frames.toArray(new IsoDirectionFrame[0]);
  }
 
@@ -707,7 +707,7 @@ public:
  globalOffsetY = -IsoCamera.frameState.OffY;
  }
 
- if (object.empty() || object.sx == 0.0F || object instanceof IsoMovingObject) {
+ if (object == nullptr || object.sx == 0.0F || object instanceof IsoMovingObject) {
  float0 = IsoUtils.XToScreen(float4 + spriteInstance.offX, float3 + spriteInstance.offY, float2 + spriteInstance.offZ, 0);
  float1 = IsoUtils.YToScreen(float4 + spriteInstance.offX, float3 + spriteInstance.offY, float2 + spriteInstance.offZ, 0);
  float0 -= float5;
@@ -955,7 +955,7 @@ public:
 
  Texture getTextureForFrame(int frame, IsoDirections dir) {
  if (this->CurrentAnim != nullptr && !this->CurrentAnim.Frames.empty()) {
- if (this->CurrentAnim.FramesArray.empty()) {
+ if (this->CurrentAnim.FramesArray == nullptr) {
  this->CurrentAnim.FramesArray = this->CurrentAnim.Frames.toArray(new IsoDirectionFrame[0]);
  }
 
@@ -987,7 +987,7 @@ public:
  }
 
  void update(IsoSpriteInstance _def) {
- if (_def.empty()) {
+ if (_def == nullptr) {
  _def = IsoSpriteInstance.get(this);
  }
 

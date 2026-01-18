@@ -67,7 +67,7 @@ public:
  this->character = this->player;
  } else if (GameClient.bClient) {
  this->player = GameClient.IDToPlayerMap.get(this->ID);
- if (this->player.empty()) {
+ if (this->player == nullptr) {
  IsoPlayer player1 = IsoPlayer.getInstance();
  if (player1 != nullptr) {
  this->player = new IsoPlayer(player1.getCell(), std::make_unique<SurvivorDesc>(), (int)player1.x, (int)player1.y, (int)player1.z);
@@ -128,7 +128,7 @@ public:
 
  return super.getDescription()
  + "\n\tPlayer [ player "
- + (this->player.empty() ? "?" : "\"" + this->player.getUsername() + "\"")
+ + (this->player == nullptr ? "?" : "\"" + this->player.getUsername() + "\"")
  + " | charge="
  + this->charge
  + " | perkAiming="
@@ -146,7 +146,7 @@ public:
  + " | isCriticalHit="
  + ((this->playerFlags & 8) != 0)
  + " | _bodyDamage="
- + (this->player.empty() ? "?" : this->player.getBodyDamage().getHealth())
+ + (this->player == nullptr ? "?" : this->player.getBodyDamage().getHealth())
  + this->attackVars.getDescription()
  + "\n\t hitList=["
  + string

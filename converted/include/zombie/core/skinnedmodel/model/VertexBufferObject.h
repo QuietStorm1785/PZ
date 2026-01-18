@@ -172,7 +172,7 @@ public:
  VertexBufferObject.Vbo vbo0 = vbo1;
  bool boolean0 = false;
  ByteBuffer byteBuffer0 = nullptr;
- if (vbo1.empty()) {
+ if (vbo1 == nullptr) {
  boolean0 = true;
  vbo0 = new VertexBufferObject.Vbo();
  vbo0.VboID = funcs.glGenBuffers();

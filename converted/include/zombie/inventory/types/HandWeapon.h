@@ -317,7 +317,7 @@ public:
  }
 
  layoutItem = layout.addItem();
- if (this->bulletName.empty()) {
+ if (this->bulletName == nullptr) {
  if (this->getMagazineType() != nullptr) {
  this->bulletName = InventoryItemFactory.CreateItem(this->getMagazineType()).getDisplayName();
  } else {
@@ -370,7 +370,7 @@ public:
  }
  }
  } else {
- if (string0.empty() && this->hasModData()) {
+ if (string0 == nullptr && this->hasModData()) {
  void* object0 = this->getModData().rawget("defaultAmmo");
  if (object0 instanceof String) {
  string0 = (String)object0;
@@ -379,7 +379,7 @@ public:
 
  if (string0 != nullptr) {
  Item item = ScriptManager.instance.FindItem(string0);
- if (item.empty()) {
+ if (item == nullptr) {
  item = ScriptManager.instance.FindItem(this->getModule() + "." + string0);
  }
 
@@ -1902,7 +1902,7 @@ public:
  }
 
  void setWeaponPart(const std::string& type, WeaponPart part) {
- if (part.empty() || type.equalsIgnoreCase(part.getPartType())) {
+ if (part == nullptr || type.equalsIgnoreCase(part.getPartType())) {
  if ("Scope".equalsIgnoreCase(type) {
  this->scope = part;
  } else if ("Clip".equalsIgnoreCase(type) {

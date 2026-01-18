@@ -85,7 +85,7 @@ public:
  } else {
  if (this->need2Tables) {
  this->table2 = this->getSecondTable(object);
- if (this->table2.empty()) {
+ if (this->table2 == nullptr) {
  return false;
  }
  }
@@ -103,21 +103,21 @@ public:
  object0.getSpriteGridObjects(tableObjects);
  IsoGridSquare square1 = square0.getAdjacentSquare(IsoDirections.W);
  IsoObject object1 = this->checkForTable(square1, object0, tableObjects);
- if (object1.empty()) {
+ if (object1 == nullptr) {
  square1 = square0.getAdjacentSquare(IsoDirections.E);
  object1 = this->checkForTable(square1, object0, tableObjects);
  }
 
- if (object1.empty()) {
+ if (object1 == nullptr) {
  this->westTable = false;
  }
 
- if (object1.empty()) {
+ if (object1 == nullptr) {
  square1 = square0.getAdjacentSquare(IsoDirections.N);
  object1 = this->checkForTable(square1, object0, tableObjects);
  }
 
- if (object1.empty()) {
+ if (object1 == nullptr) {
  square1 = square0.getAdjacentSquare(IsoDirections.S);
  object1 = this->checkForTable(square1, object0, tableObjects);
  }
@@ -127,7 +127,7 @@ public:
  }
 
  IsoObject checkForTable(IsoGridSquare square, IsoObject object0, ArrayList<IsoObject> arrayList) {
- if (square.empty()) {
+ if (square == nullptr) {
  return nullptr;
  } else if (square.isSomethingTo(object0.getSquare())) {
  return nullptr;

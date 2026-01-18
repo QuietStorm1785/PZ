@@ -147,14 +147,14 @@ public:
  IsoGridSquare square5 = this->square.getAdjacentSquare(IsoDirections.SE);
  IsoGridSquare square6 = this->square.getAdjacentSquare(IsoDirections.E);
  IsoGridSquare square7 = this->square.getAdjacentSquare(IsoDirections.NE);
- if (square0.empty()
- || square2.empty()
- || square4.empty()
- || square6.empty()
- || square1.empty()
- || square7.empty()
- || square3.empty()
- || square5.empty()
+ if (square0 == nullptr
+ || square2 == nullptr
+ || square4 == nullptr
+ || square6 == nullptr
+ || square1 == nullptr
+ || square7 == nullptr
+ || square3 == nullptr
+ || square5 == nullptr
  || !square0.getProperties().Is(IsoFlagType.exterior)
  && !square2.getProperties().Is(IsoFlagType.exterior)
  && !square4.getProperties().Is(IsoFlagType.exterior)

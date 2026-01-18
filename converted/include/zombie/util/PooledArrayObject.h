@@ -33,13 +33,13 @@ public:
  }
 
  void initCapacity(int int0, T[]> function) {
- if (this->m_array.empty() || this->m_array.length != int0) {
+ if (this->m_array == nullptr || this->m_array.length != int0) {
  this->m_array = (T[])((Object[])function.apply(int0);
  }
  }
 
  bool isEmpty() {
- return this->m_array.empty() || this->m_array.length == 0;
+ return this->m_array == nullptr || this->m_array.length == 0;
  }
 }
 } // namespace util

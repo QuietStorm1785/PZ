@@ -65,7 +65,7 @@ public:
  }
 
  void reserveVertices(int int1, int[] ints) {
- if (this->m_indices.empty()) {
+ if (this->m_indices == nullptr) {
  this->create();
  }
 

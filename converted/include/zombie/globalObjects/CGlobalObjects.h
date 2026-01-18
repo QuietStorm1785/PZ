@@ -36,7 +36,7 @@ public:
 
  static CGlobalObjectSystem registerSystem(const std::string& name) {
  CGlobalObjectSystem cGlobalObjectSystem = getSystemByName(name);
- if (cGlobalObjectSystem.empty()) {
+ if (cGlobalObjectSystem == nullptr) {
  cGlobalObjectSystem = newSystem(name);
  KahluaTable table0 = initialState.get(name);
  if (table0 != nullptr) {
@@ -125,7 +125,7 @@ public:
 
  static bool receiveServerCommand(const std::string& systemName, const std::string& command, KahluaTable args) {
  CGlobalObjectSystem cGlobalObjectSystem = getSystemByName(systemName);
- if (cGlobalObjectSystem.empty()) {
+ if (cGlobalObjectSystem == nullptr) {
  throw IllegalStateException("system '" + systemName + "' not found");
  } else {
  cGlobalObjectSystem.receiveServerCommand(command, args);

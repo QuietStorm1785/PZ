@@ -28,11 +28,11 @@ public:
  }
 
  void* getValue() {
- return this->coroutine.empty() ? this->value : this->coroutine.objectStack[this->index];
+ return this->coroutine == nullptr ? this->value : this->coroutine.objectStack[this->index];
  }
 
  void setValue(void* arg0) {
- if (this->coroutine.empty()) {
+ if (this->coroutine == nullptr) {
  this->value = arg0;
  } else {
  this->coroutine.objectStack[this->index] = arg0;

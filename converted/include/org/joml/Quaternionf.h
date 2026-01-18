@@ -88,7 +88,7 @@ public:
  }
 
  Quaternionf normalize(Quaternionf arg0) {
- float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
+ float float0 = Math.invsqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
  arg0.x = this->x * float0;
  arg0.y = this->y * float0;
  arg0.z = this->z * float0;
@@ -158,7 +158,7 @@ public:
  float float2 = this->z;
  float float3 = this->w;
  if (float3 > 1.0F) {
- float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
+ float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
  float0 *= float4;
  float1 *= float4;
  float2 *= float4;
@@ -187,7 +187,7 @@ public:
  float float2 = this->z;
  float float3 = this->w;
  if (float3 > 1.0F) {
- float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
+ float float4 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
  float0 *= float4;
  float1 *= float4;
  float2 *= float4;
@@ -1761,7 +1761,7 @@ public:
  arg2.y = Math.fma(float1, this->y, float2 * arg0.y());
  arg2.z = Math.fma(float1, this->z, float2 * arg0.z());
  arg2.w = Math.fma(float1, this->w, float2 * arg0.w());
- float float3 = Math.invsqrt(Math.fma(arg2.x, arg2.x, Math.fma(arg2.y, arg2.y, Math.fma(arg2.z, arg2.z, arg2.w * arg2.w);
+ float float3 = Math.invsqrt(Math.fma(arg2.x, arg2.x, Math.fma(arg2.y, arg2.y, Math.fma(arg2.z, arg2.z, arg2.w * arg2.w));
  arg2.x *= float3;
  arg2.y *= float3;
  arg2.z *= float3;
@@ -1806,7 +1806,7 @@ public:
  float5 = Math.fma(float11, float5, float12 * float1);
  float6 = Math.fma(float11, float6, float12 * float2);
  float7 = Math.fma(float11, float7, float12 * float3);
- float float13 = Math.invsqrt(Math.fma(float4, float4, Math.fma(float5, float5, Math.fma(float6, float6, float7 * float7);
+ float float13 = Math.invsqrt(Math.fma(float4, float4, Math.fma(float5, float5, Math.fma(float6, float6, float7 * float7));
  float4 *= float13;
  float5 *= float13;
  float6 *= float13;
@@ -1817,7 +1817,7 @@ public:
  float1 = Math.fma(float11, float1, float12 * float5);
  float2 = Math.fma(float11, float2, float12 * float6);
  float3 = Math.fma(float11, float3, float12 * float7);
- float float14 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
+ float float14 = Math.invsqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
  float0 *= float14;
  float1 *= float14;
  float2 *= float14;
@@ -1834,7 +1834,7 @@ public:
  float float18 = Math.fma(float15, float1, float16 * float5);
  float float19 = Math.fma(float15, float2, float16 * float6);
  float float20 = Math.fma(float15, float3, float16 * float7);
- float float21 = Math.invsqrt(Math.fma(float17, float17, Math.fma(float18, float18, Math.fma(float19, float19, float20 * float20);
+ float float21 = Math.invsqrt(Math.fma(float17, float17, Math.fma(float18, float18, Math.fma(float19, float19, float20 * float20));
  arg3.x = float17 * float21;
  arg3.y = float18 * float21;
  arg3.z = float19 * float21;
@@ -1967,7 +1967,7 @@ public:
  float float19 = float16 * float14;
  float float20 = float17 * float14;
  float float21 = float13 * 0.5F;
- float float22 = Math.invsqrt(Math.fma(float18, float18, Math.fma(float19, float19, Math.fma(float20, float20, float21 * float21);
+ float float22 = Math.invsqrt(Math.fma(float18, float18, Math.fma(float19, float19, Math.fma(float20, float20, float21 * float21));
  this->x = float18 * float22;
  this->y = float19 * float22;
  this->z = float20 * float22;
@@ -2016,7 +2016,7 @@ public:
  float10 = float16 * float14;
  float11 = float17 * float14;
  float12 = float13 * 0.5F;
- float float18 = Math.invsqrt(Math.fma(float9, float9, Math.fma(float10, float10, Math.fma(float11, float11, float12 * float12);
+ float float18 = Math.invsqrt(Math.fma(float9, float9, Math.fma(float10, float10, Math.fma(float11, float11, float12 * float12));
  float9 *= float18;
  float10 *= float18;
  float11 *= float18;
@@ -2184,7 +2184,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (this->getClass() != arg0.getClass()) {
  return false;
@@ -2323,7 +2323,7 @@ public:
  bool equals(Quaternionfc arg0, float arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Quaternionfc) {
  return false;

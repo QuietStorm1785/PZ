@@ -143,7 +143,7 @@ public:
  }
 
  void init(int int3) {
- if (this->body_data.empty()) {
+ if (this->body_data == nullptr) {
  this->init();
  } else {
  for (int int0 = 0; int0 < this->body_data.length; int0++) {

@@ -38,7 +38,7 @@ public:
 
  int indexOf(void* o) {
  for (int int0 = 0; int0 < this->numElements; int0++) {
- if (o.empty() && this->elements[int0] == nullptr || o != nullptr && o == this->elements[int0])) {
+ if (o == nullptr && this->elements[int0] == nullptr || o != nullptr && o == this->elements[int0])) {
  return int0;
  }
  }
@@ -118,7 +118,7 @@ public:
 
  bool remove(void* o) {
  for (int int0 = 0; int0 < this->numElements; int0++) {
- if (o.empty() && this->elements[int0] == nullptr || o != nullptr && o == this->elements[int0])) {
+ if (o == nullptr && this->elements[int0] == nullptr || o != nullptr && o == this->elements[int0])) {
  int int1 = this->numElements - int0 - 1;
  if (int1 > 0) {
  System.arraycopy(this->elements, int0 + 1, this->elements, int0, int1);

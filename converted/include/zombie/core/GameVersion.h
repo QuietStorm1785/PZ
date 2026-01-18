@@ -27,7 +27,7 @@ public:
  this->m_major = major;
  this->m_minor = minor;
  this->m_suffix = suffix;
- this->m_string = String.format(Locale.ENGLISH, "%d.%d%s", this->m_major, this->m_minor, this->m_suffix.empty() ? "" : this->m_suffix);
+ this->m_string = String.format(Locale.ENGLISH, "%d.%d%s", this->m_major, this->m_minor, this->m_suffix == nullptr ? "" : this->m_suffix);
  } else {
  throw IllegalArgumentException("minor version must be from 0 to 999");
  }

@@ -152,7 +152,7 @@ public:
 
  void render() {
  if (this->isVisible()) {
- if (this->Parent.empty() || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
+ if (this->Parent == nullptr || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
  if (this->bMask) {
  if (this->internalText.length() != this->Text.length()) {
  this->Text = this->maskChr.repeat(this->internalText.length());
@@ -429,7 +429,7 @@ public:
  this->setScrollHeight(this->Lines.size() * int2);
  }
 
- if (UIDebugConsole.instance.empty() || this != UIDebugConsole.instance.OutputLog) {
+ if (UIDebugConsole.instance == nullptr || this != UIDebugConsole.instance.OutputLog) {
  this->TopLineIndex = (int)(-this->getYScroll() + int1) / int2;
  }
 
@@ -852,7 +852,7 @@ public:
 
  void setClearButton(bool hasButton) {
  this->bClearButton = hasButton;
- if (this->bClearButton && this->clearButtonTransition.empty()) {
+ if (this->bClearButton && this->clearButtonTransition == nullptr) {
  this->clearButtonTransition = std::make_unique<UITransition>();
  }
  }

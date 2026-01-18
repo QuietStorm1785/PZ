@@ -323,7 +323,7 @@ public:
  }
 
  void setOwner(const std::string& _owner) {
- if (this->owner.empty()) {
+ if (this->owner == nullptr) {
  this->owner = _owner;
  } else {
  if (!this->isMember(this->owner) {

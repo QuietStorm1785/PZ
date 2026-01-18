@@ -171,18 +171,18 @@ public:
  private NBSI(int int0, Counter counter, NonBlockingSetInt nonBlockingSetInt) {
  this->_non_blocking_set_int = nonBlockingSetInt;
  this->_size = counter;
- this->_copyIdx = counter.empty() ? nullptr : std::make_unique<AtomicInteger>();
- this->_copyDone = counter.empty() ? nullptr : std::make_unique<AtomicInteger>();
+ this->_copyIdx = counter == nullptr ? nullptr : std::make_unique<AtomicInteger>();
+ this->_copyDone = counter == nullptr ? nullptr : std::make_unique<AtomicInteger>();
  this->_bits = new long[(int)(int0 + 63L >>> 6)];
  this->_nbsi64 = int0 + 1 >>> 6 == 0 ? nullptr : new NonBlockingSetInt.NBSI(int0 + 1 >>> 6, nullptr, nullptr);
- this->_sum_bits_length = this->_bits.length + (this->_nbsi64.empty() ? 0 : this->_nbsi64._sum_bits_length);
+ this->_sum_bits_length = this->_bits.length + (this->_nbsi64 == nullptr ? 0 : this->_nbsi64._sum_bits_length);
  }
 
  private NBSI(NonBlockingSetInt.NBSI nbsi2, NonBlockingSetInt.NBSI nbsi1, Counter counter, NonBlockingSetInt nonBlockingSetInt) {
  this->_non_blocking_set_int = nonBlockingSetInt;
  this->_size = counter;
- this->_copyIdx = counter.empty() ? nullptr : std::make_unique<AtomicInteger>();
- this->_copyDone = counter.empty() ? nullptr : std::make_unique<AtomicInteger>();
+ this->_copyIdx = counter == nullptr ? nullptr : std::make_unique<AtomicInteger>();
+ this->_copyDone = counter == nullptr ? nullptr : std::make_unique<AtomicInteger>();
  if (!has_bits(nbsi2) && !has_bits(nbsi1) {
  this->_bits = nullptr;
  this->_nbsi64 = nullptr;
@@ -240,7 +240,7 @@ public:
 
  bool remove(int int0) {
  if (int0 >> 6 >= this->_bits.length) {
- return this->_new.empty() ? false : this->help_copy().remove(int0);
+ return this->_new == nullptr ? false : this->help_copy().remove(int0);
  } else {
  NonBlockingSetInt.NBSI nbsi1 = this;
 
@@ -270,7 +270,7 @@ public:
 
  bool contains(int int0) {
  if (int0 >> 6 >= this->_bits.length) {
- return this->_new.empty() ? false : this->help_copy().contains(int0);
+ return this->_new == nullptr ? false : this->help_copy().contains(int0);
  } else {
  NonBlockingSetInt.NBSI nbsi1 = this;
 
@@ -337,7 +337,7 @@ public:
  }
 
  private NonBlockingSetInt.NBSI install_larger_new_bits(int var1) {
- if (this->_new.empty()) {
+ if (this->_new == nullptr) {
  int int0 = this->_bits.length << 6 << 1;
  this->CAS_new(new NonBlockingSetInt.NBSI(int0, this->_size, this->_non_blocking_set_int);
  }
@@ -365,7 +365,7 @@ public:
  private NonBlockingSetInt.NBSI help_copy_impl(int int1) {
  NonBlockingSetInt.NBSI nbsi0 = this;
  NonBlockingSetInt.NBSI nbsi2 = this->_new;
- if (nbsi2.empty()) {
+ if (nbsi2 == nullptr) {
  return this;
  } else {
  int int0;
@@ -456,7 +456,7 @@ public:
  }
  }
 
- class NBSIIntIterator implements IntIterator {
+ private class NBSIIntIterator implements IntIterator {
  NonBlockingSetInt.NBSI nbsi;
  int index = -1;
  int prev = -1;
@@ -471,7 +471,7 @@ public:
  this->index++;
 
  while (this->index >> 6 >= this->nbsi._bits.length) {
- if (this->nbsi._new.empty()) {
+ if (this->nbsi._new == nullptr) {
  this->index = -2;
  return;
  }
@@ -505,7 +505,7 @@ public:
  }
  }
 
- class iter implements Iterator<Integer> {
+ private class iter implements Iterator<Integer> {
  NonBlockingSetInt.NBSIIntIterator intIterator = NonBlockingSetInt.this->std::make_unique<NBSIIntIterator>();
 
  iter() {

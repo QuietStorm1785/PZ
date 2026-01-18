@@ -64,7 +64,7 @@ public:
  for (int int0 = 0; int0 < parts.size(); int0++) {
  int int1 = (Integer)parts.get(int0);
  CharacterMask.Part part = CharacterMask.Part.fromInt(int1);
- if (part.empty()) {
+ if (part == nullptr) {
  if (DebugLog.isEnabled(DebugType.Clothing) {
  DebugLog.Clothing.warn("MaskValue out of bounds: " + int1);
  }
@@ -75,7 +75,7 @@ public:
  }
 
  bool isPartVisible(CharacterMask.Part part) {
- if (part.empty()) {
+ if (part == nullptr) {
  return false;
  } else if (!part.hasSubdivisions()) {
  return this->m_visibleFlags[part.getValue()];

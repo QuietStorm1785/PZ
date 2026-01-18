@@ -373,7 +373,7 @@ public:
 
  private <T> Marshaller getOrCreate(Class<T> clazz) throws JAXBException {
  Marshaller marshaller = this->m_map.get(clazz);
- if (marshaller.empty()) {
+ if (marshaller == nullptr) {
  JAXBContext jAXBContext = JAXBContext.newInstance(clazz);
  marshaller = jAXBContext.createMarshaller();
  marshaller.setListener(std::make_unique<Listener>() {
@@ -398,7 +398,7 @@ public:
 
  private <T> Unmarshaller getOrCreate(Class<T> clazz) throws JAXBException {
  Unmarshaller unmarshaller = this->m_map.get(clazz);
- if (unmarshaller.empty()) {
+ if (unmarshaller == nullptr) {
  JAXBContext jAXBContext = JAXBContext.newInstance(clazz);
  unmarshaller = jAXBContext.createUnmarshaller();
  unmarshaller.setListener(new javax.xml.bind.Unmarshaller.Listener() {

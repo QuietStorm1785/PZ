@@ -138,7 +138,7 @@ public:
  std::vector arrayList1 = new ArrayList();
  this->getDirsRecursively(mapDirectory0, arrayList1);
  MapGroups.MapGroup mapGroup0 = this->findGroupWithAnyOfTheseDirectories(arrayList1);
- if (mapGroup0.empty()) {
+ if (mapGroup0 == nullptr) {
  mapGroup0 = new MapGroups.MapGroup();
  this->groups.add(mapGroup0);
  }
@@ -304,7 +304,7 @@ public:
  return nullptr;
  }
 
- class MapDirectory {
+ private class MapDirectory {
  std::string name;
  std::string path;
  ArrayList<String> lotDirs = std::make_unique<ArrayList<>>();
@@ -336,7 +336,7 @@ public:
  }
  }
 
- class MapGroup {
+ private class MapGroup {
  private LinkedList<MapGroups.MapDirectory> directories = std::make_unique<LinkedList<>>();
 
  void addDirectory(const std::string& string0, const std::string& string1) {

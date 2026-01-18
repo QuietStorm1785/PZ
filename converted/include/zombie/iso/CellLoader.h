@@ -183,7 +183,7 @@ public:
  }
 
  if (object2 != nullptr) {
- if (object2.AttachedAnimSprite.empty()) {
+ if (object2.AttachedAnimSprite == nullptr) {
  object2.AttachedAnimSprite = new ArrayList<>(4);
  }
 
@@ -202,7 +202,7 @@ public:
  if (sprite.getProperties().Is(IsoFlagType.FloorOverlay) {
  IsoObject object4 = square.getFloor();
  if (object4 != nullptr) {
- if (object4.AttachedAnimSprite.empty()) {
+ if (object4.AttachedAnimSprite == nullptr) {
  object4.AttachedAnimSprite = new ArrayList<>(4);
  }
 
@@ -214,7 +214,7 @@ public:
  } else if (objectType == IsoObjectType.tree) {
  if (sprite.getName() != nullptr && sprite.getName().startsWith("vegetation_trees")) {
  IsoObject object5 = square.getFloor();
- if (object5.empty()
+ if (object5 == nullptr
  || object5.getSprite() == nullptr
  || object5.getSprite().getName() == nullptr
  || !object5.getSprite().getName().startsWith("blends_natural")) {
@@ -456,7 +456,7 @@ public:
  IsoMovingObject movingObject = (IsoMovingObject)iterator.next();
  if (movingObject instanceof IsoPushableObject pushableObject
  && (movingObject.sprite.getProperties().Is("connectY") || movingObject.sprite.getProperties().Is("connectX"))
- && pushableObject.connectList.empty()) {
+ && pushableObject.connectList == nullptr) {
  pushableObject.connectList = std::make_unique<ArrayList<>>();
  pushableObject.connectList.add(pushableObject);
  if (movingObject.sprite.getProperties().Is("connectY")) {
@@ -464,7 +464,7 @@ public:
  IsoGridSquare square0 = cell.getGridSquare(
  movingObject.getCurrentSquare().getX(), movingObject.getCurrentSquare().getY() + int0, movingObject.getCurrentSquare().getZ()
  );
- if (square0.empty()) {
+ if (square0 == nullptr) {
  bool boolean0 = false;
  }
 

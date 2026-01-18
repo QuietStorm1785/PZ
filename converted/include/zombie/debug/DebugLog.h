@@ -228,7 +228,7 @@ public:
  }
 
  static void echoToLogFile(const std::string& string) {
- if (s_logFileLogger.empty()) {
+ if (s_logFileLogger == nullptr) {
  if (s_initialized) {
  return;
  }

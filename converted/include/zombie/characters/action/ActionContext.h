@@ -50,7 +50,7 @@ public:
  }
 
  void updateInternal() {
- if (this->m_currentState.empty()) {
+ if (this->m_currentState == nullptr) {
  this->logCurrentState();
  } else {
  ActionContext.s_performance.evaluateCurrentStateTransitions.invokeAndMeasure(this, ActionContext::evaluateCurrentStateTransitions);
@@ -122,7 +122,7 @@ public:
  DebugLog.ActionSystem.warn("%s> Transition's target state not specified: \"%s\"", this->getOwner().getUID(), actionTransition.transitionTo);
  } else {
  ActionState actionState = this->m_stateGroup.get(actionTransition.transitionTo);
- if (actionState.empty()) {
+ if (actionState == nullptr) {
  DebugLog.ActionSystem.warn("%s> Transition's target state not found: \"%s\"", this->getOwner().getUID(), actionTransition.transitionTo);
  } else if (!this->hasChildState(actionState) {
  if (!actionTransition.asSubstate || !this->currentStateSupportsChildState(actionState) {
@@ -165,7 +165,7 @@ public:
 
  if (!StringUtils.isNullOrWhitespace(actionTransition.transitionTo) {
  ActionState actionState2 = this->m_stateGroup.get(actionTransition.transitionTo);
- if (actionState2.empty()) {
+ if (actionState2 == nullptr) {
  DebugLog.ActionSystem
  .warn("%s> Transition's target state not found: \"%s\"", this->getOwner().getUID(), actionTransition.transitionTo);
  } else if (!this->hasChildState(actionState2) {
@@ -191,7 +191,7 @@ public:
  }
 
  bool currentStateSupportsChildState(ActionState actionState) {
- return this->m_currentState.empty() ? false : this->m_currentState.canHaveSubState(actionState);
+ return this->m_currentState == nullptr ? false : this->m_currentState.canHaveSubState(actionState);
  }
 
  bool hasChildState(ActionState actionState) {
@@ -201,7 +201,7 @@ public:
 
  void setPlaybackStateSnapshot(ActionStateSnapshot snapshot) {
  if (this->m_stateGroup != nullptr) {
- if (snapshot.stateName.empty()) {
+ if (snapshot.stateName == nullptr) {
  DebugLog.General.warn("Snapshot not valid. Missing root state name.");
  } else {
  ActionState actionState0 = this->m_stateGroup.get(snapshot.stateName);
@@ -231,7 +231,7 @@ public:
  }
 
  ActionStateSnapshot getPlaybackStateSnapshot() {
- if (this->m_currentState.empty()) {
+ if (this->m_currentState == nullptr) {
  return nullptr;
  } else {
  ActionStateSnapshot actionStateSnapshot = new ActionStateSnapshot();
@@ -250,7 +250,7 @@ public:
  if (actionState0 == this->m_currentState) {
  return false;
  } else {
- this->m_previousStateName = this->m_currentState.empty() ? "" : this->m_currentState.getName();
+ this->m_previousStateName = this->m_currentState == nullptr ? "" : this->m_currentState.getName();
  this->m_currentState = actionState0;
 
  for (int int0 = 0; int0 < this->m_childStates.size(); int0++) {
@@ -312,7 +312,7 @@ public:
  }
 
  void setGroup(ActionGroup group) {
- std::string string = this->m_currentState.empty() ? nullptr : this->m_currentState.name;
+ std::string string = this->m_currentState == nullptr ? nullptr : this->m_currentState.name;
  this->m_stateGroup = group;
  ActionState actionState = group.getInitialState();
  if (!StringUtils.equalsIgnoreCase(string, actionState.name) {

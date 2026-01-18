@@ -69,7 +69,7 @@ public:
  private IsoPuddles.PuddlesFloat[] climateFloats = new IsoPuddles.PuddlesFloat[5];
 
  public static synchronized IsoPuddles getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<IsoPuddles>();
  }
 
@@ -482,7 +482,7 @@ public:
 
  void addSquare(int int2, IsoPuddlesGeometry puddlesGeometry) {
  uint8_t byte0 = 4;
- if (this->data.empty()) {
+ if (this->data == nullptr) {
  this->data = new float[this->capacity * byte0 * 7];
  }
 

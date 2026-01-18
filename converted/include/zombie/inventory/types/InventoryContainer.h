@@ -65,7 +65,7 @@ public:
  super.load(input, WorldVersion);
  int int0 = input.getInt();
  this->setWeightReduction(input.getInt());
- if (this->container.empty()) {
+ if (this->container == nullptr) {
  this->container = std::make_unique<ItemContainer>();
  }
 
@@ -84,7 +84,7 @@ public:
 
  void setCapacity(int _capacity) {
  this->capacity = _capacity;
- if (this->container.empty()) {
+ if (this->container == nullptr) {
  this->container = std::make_unique<ItemContainer>();
  }
 
@@ -219,7 +219,7 @@ public:
  }
 
  void setCanBeEquipped(const std::string& canBeEquipped) {
- this->CanBeEquipped = canBeEquipped.empty() ? "" : canBeEquipped;
+ this->CanBeEquipped = canBeEquipped == nullptr ? "" : canBeEquipped;
  }
 
  std::string canBeEquipped() {

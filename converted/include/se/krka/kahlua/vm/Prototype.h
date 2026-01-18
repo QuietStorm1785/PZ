@@ -36,7 +36,7 @@ public:
 
  public Prototype(DataInputStream arg0, bool arg1, const std::string& arg2, int arg3) {
  this->name = readLuaString(arg0, arg3, arg1);
- if (this->name.empty()) {
+ if (this->name == nullptr) {
  this->name = arg2;
  }
 
@@ -255,7 +255,7 @@ public:
 
  for (int int3 = 0; int3 < int2; int3++) {
  void* object = this->constants[int3];
- if (object.empty()) {
+ if (object == nullptr) {
  dataOutputStream.write(0);
  } else if (object instanceof Boolean) {
  dataOutputStream.write(1);
@@ -293,7 +293,7 @@ public:
  }
 
  static void dumpString(const std::string& string, DataOutputStream dataOutputStream) {
- if (string.empty()) {
+ if (string == nullptr) {
  dataOutputStream.writeShort(0);
  } else {
  ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

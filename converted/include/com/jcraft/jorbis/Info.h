@@ -247,7 +247,7 @@ public:
 
  int unpack_books(Buffer buffer) {
  this->books = buffer.read(8) + 1;
- if (this->book_param.empty() || this->book_param.length != this->books) {
+ if (this->book_param == nullptr || this->book_param.length != this->books) {
  this->book_param = new StaticCodeBook[this->books];
  }
 
@@ -260,11 +260,11 @@ public:
  }
 
  this->times = buffer.read(6) + 1;
- if (this->time_type.empty() || this->time_type.length != this->times) {
+ if (this->time_type == nullptr || this->time_type.length != this->times) {
  this->time_type = new int[this->times];
  }
 
- if (this->time_param.empty() || this->time_param.length != this->times) {
+ if (this->time_param == nullptr || this->time_param.length != this->times) {
  this->time_param = new Object[this->times];
  }
 
@@ -283,11 +283,11 @@ public:
  }
 
  this->floors = buffer.read(6) + 1;
- if (this->floor_type.empty() || this->floor_type.length != this->floors) {
+ if (this->floor_type == nullptr || this->floor_type.length != this->floors) {
  this->floor_type = new int[this->floors];
  }
 
- if (this->floor_param.empty() || this->floor_param.length != this->floors) {
+ if (this->floor_param == nullptr || this->floor_param.length != this->floors) {
  this->floor_param = new Object[this->floors];
  }
 
@@ -306,11 +306,11 @@ public:
  }
 
  this->residues = buffer.read(6) + 1;
- if (this->residue_type.empty() || this->residue_type.length != this->residues) {
+ if (this->residue_type == nullptr || this->residue_type.length != this->residues) {
  this->residue_type = new int[this->residues];
  }
 
- if (this->residue_param.empty() || this->residue_param.length != this->residues) {
+ if (this->residue_param == nullptr || this->residue_param.length != this->residues) {
  this->residue_param = new Object[this->residues];
  }
 
@@ -329,11 +329,11 @@ public:
  }
 
  this->maps = buffer.read(6) + 1;
- if (this->map_type.empty() || this->map_type.length != this->maps) {
+ if (this->map_type == nullptr || this->map_type.length != this->maps) {
  this->map_type = new int[this->maps];
  }
 
- if (this->map_param.empty() || this->map_param.length != this->maps) {
+ if (this->map_param == nullptr || this->map_param.length != this->maps) {
  this->map_param = new Object[this->maps];
  }
 
@@ -352,7 +352,7 @@ public:
  }
 
  this->modes = buffer.read(6) + 1;
- if (this->mode_param.empty() || this->mode_param.length != this->modes) {
+ if (this->mode_param == nullptr || this->mode_param.length != this->modes) {
  this->mode_param = new InfoMode[this->modes];
  }
 

@@ -44,7 +44,7 @@ public:
  }
  } else if (movingObject != nullptr) {
  BaseSoundEmitter baseSoundEmitter = movingObject.emitter;
- if (baseSoundEmitter.empty()) {
+ if (baseSoundEmitter == nullptr) {
  baseSoundEmitter = IsoWorld.instance.getFreeEmitter(movingObject.x, movingObject.y, movingObject.z);
  IsoWorld.instance.takeOwnershipOfEmitter(baseSoundEmitter);
  movingObject.emitter = baseSoundEmitter;

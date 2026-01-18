@@ -61,7 +61,7 @@ public:
  }
 
  Vector2f negate(Vector2f vector2f0) {
- if (vector2f0.empty()) {
+ if (vector2f0 == nullptr) {
  vector2f0 = std::make_unique<Vector2f>();
  }
 
@@ -72,7 +72,7 @@ public:
 
  Vector2f normalise(Vector2f vector2f1) {
  float float0 = this->length();
- if (vector2f1.empty()) {
+ if (vector2f1 == nullptr) {
  vector2f1 = new Vector2f(this->x / float0, this->y / float0);
  } else {
  vector2f1.set(this->x / float0, this->y / float0);
@@ -97,7 +97,7 @@ public:
  }
 
  static Vector2f add(Vector2f vector2f2, Vector2f vector2f1, Vector2f vector2f0) {
- if (vector2f0.empty()) {
+ if (vector2f0 == nullptr) {
  return new Vector2f(vector2f2.x + vector2f1.x, vector2f2.y + vector2f1.y);
  } else {
  vector2f0.set(vector2f2.x + vector2f1.x, vector2f2.y + vector2f1.y);
@@ -106,7 +106,7 @@ public:
  }
 
  static Vector2f sub(Vector2f vector2f2, Vector2f vector2f1, Vector2f vector2f0) {
- if (vector2f0.empty()) {
+ if (vector2f0 == nullptr) {
  return new Vector2f(vector2f2.x - vector2f1.x, vector2f2.y - vector2f1.y);
  } else {
  vector2f0.set(vector2f2.x - vector2f1.x, vector2f2.y - vector2f1.y);

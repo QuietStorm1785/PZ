@@ -54,7 +54,7 @@ public:
  InfoMode infoMode = lookMapping0.mode;
  int int0 = block.pcmend = info.blocksizes[block.W];
  float[] floats0 = dspState.window[block.W][block.lW][block.nW][infoMode.windowtype];
- if (this->pcmbundle.empty() || this->pcmbundle.length < info.channels) {
+ if (this->pcmbundle == nullptr || this->pcmbundle.length < info.channels) {
  this->pcmbundle = new float[info.channels][];
  this->nonzero = new int[info.channels];
  this->zerobundle = new int[info.channels];

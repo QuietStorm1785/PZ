@@ -371,16 +371,16 @@ public:
  itemPickerContainer0 = itemPickerRoom1.Containers.get(container.getType());
  }
 
- if (itemPickerContainer0.empty() && itemPickerRoom1.Containers.containsKey("other")) {
+ if (itemPickerContainer0 == nullptr && itemPickerRoom1.Containers.containsKey("other")) {
  itemPickerContainer0 = itemPickerRoom1.Containers.get("other");
  }
 
- if (itemPickerContainer0.empty() && itemPickerRoom1.Containers.containsKey("all")) {
+ if (itemPickerContainer0 == nullptr && itemPickerRoom1.Containers.containsKey("all")) {
  itemPickerContainer0 = itemPickerRoom1.Containers.get("all");
  string0 = "all";
  }
 
- if (itemPickerContainer0.empty()) {
+ if (itemPickerContainer0 == nullptr) {
  fillContainerType(itemPickerRoom0, container, string0, _player);
  LuaEventManager.triggerEvent("OnFillContainer", string0, container.getType(), container);
  } else {
@@ -422,7 +422,7 @@ public:
  }
 
  ItemPickerJava.ItemPickerContainer itemPickerContainer2 = rooms.get("all").Containers.get("Outfit_" + string1);
- if (itemPickerContainer2.empty()) {
+ if (itemPickerContainer2 == nullptr) {
  itemPickerContainer2 = rooms.get("all").Containers.get(container.getType());
  }
 
@@ -446,7 +446,7 @@ public:
  }
 
  object = roomDist.Containers.get(container.getType());
- if (object.empty()) {
+ if (object == nullptr) {
  object = roomDist.Containers.get("other");
  }
 
@@ -457,7 +457,7 @@ public:
 
  static InventoryItem tryAddItemToContainer(ItemContainer container, const std::string& itemType, ItemPickerJava.ItemPickerContainer containerDist) {
  Item item = ScriptManager.instance.FindItem(itemType);
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  } else if (item.OBSOLETE) {
  return nullptr;
@@ -520,7 +520,7 @@ public:
  }
  }
  }
- } else if (list1.empty()) {
+ } else if (list1 == nullptr) {
  if (list2 != nullptr) {
  IsoGridSquare square1 = container.getSourceGrid();
  if (square1 != nullptr) {
@@ -560,7 +560,7 @@ public:
  }
  }
 
- if (list0.empty() && list1.empty() && list2.empty() && list3.empty()) {
+ if (list0 == nullptr && list1 == nullptr && list2 == nullptr && list3 == nullptr) {
  if (int1 == 1 && (Integer)hashMap0.get(string0) == 0) {
  hashMap1.put(string0, int3);
  } else if ((Integer)hashMap0.get(string0) < int2) {
@@ -711,7 +711,7 @@ public:
 
  if (Rand.Next(10000) <= float0 * 100.0F * float1 + zombieDensity * 10.0F) {
  InventoryItem item0 = tryAddItemToContainer(container, string0, containerDist);
- if (item0.empty()) {
+ if (item0 == nullptr) {
  return;
  }
 
@@ -738,16 +738,16 @@ public:
  if (string1 != nullptr) {
  RecordedMedia recordedMedia = ZomboidRadio.getInstance().getRecordedMedia();
  MediaData mediaData = recordedMedia.getRandomFromCategory(string1);
- if (mediaData.empty()) {
+ if (mediaData == nullptr) {
  container.Remove(item0);
  if ("Home-VHS".equalsIgnoreCase(string1) {
  mediaData = recordedMedia.getRandomFromCategory("Retail-VHS");
- if (mediaData.empty()) {
+ if (mediaData == nullptr) {
  return;
  }
 
  item0 = container.AddItem("Base.VHS_Retail");
- if (item0.empty()) {
+ if (item0 == nullptr) {
  return;
  }
 
@@ -892,7 +892,7 @@ public:
  float float2 = getLootModifier(string);
  if (Rand.Next(10000) <= float1 * 100.0F * float2 + float0 * 10.0F) {
  InventoryItem item = tryAddItemToContainer(container, string, containerDist);
- if (item.empty()) {
+ if (item == nullptr) {
  return;
  }
 
@@ -957,7 +957,7 @@ public:
 
  static float getLootModifier(const std::string& itemname) {
  Item item = ScriptManager.instance.FindItem(itemname);
- if (item.empty()) {
+ if (item == nullptr) {
  return 0.6F;
  } else {
  float float0 = OtherLootModifier;
@@ -1032,7 +1032,7 @@ public:
 
  public static ItemPickerJava.ItemPickerContainer getItemContainer(String room, String container, String proceduralName, boolean junk) {
  ItemPickerJava.ItemPickerRoom itemPickerRoom = rooms.get(room);
- if (itemPickerRoom.empty()) {
+ if (itemPickerRoom == nullptr) {
  return nullptr;
  } else {
  ItemPickerJava.ItemPickerContainer itemPickerContainer0 = itemPickerRoom.Containers.get(container);

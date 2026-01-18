@@ -23,7 +23,7 @@ public:
 
  static CustomStringSandboxOption parse(ScriptParser.Block block) {
  ScriptParser.Value value = block.getValue("default");
- if (value.empty()) {
+ if (value == nullptr) {
  return nullptr;
  } else {
  CustomStringSandboxOption customStringSandboxOption = new CustomStringSandboxOption(block.id, value.getValue().trim());

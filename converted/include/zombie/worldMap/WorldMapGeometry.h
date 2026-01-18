@@ -52,13 +52,13 @@ public:
  }
 
  void triangulate(double[] doubles) {
- if (s_clipper.empty()) {
+ if (s_clipper == nullptr) {
  s_clipper = std::make_unique<Clipper>();
  }
 
  s_clipper.clear();
  WorldMapPoints worldMapPoints0 = this->m_points.get(0);
- if (s_vertices.empty() || s_vertices.capacity() < worldMapPoints0.size() * 50 * 4) {
+ if (s_vertices == nullptr || s_vertices.capacity() < worldMapPoints0.size() * 50 * 4) {
  s_vertices = ByteBuffer.allocateDirect(worldMapPoints0.size() * 50 * 4);
  }
 
@@ -158,7 +158,7 @@ public:
  trianglesPerZoom.m_triangles[int9 * 2 + 1] = s_vertices.getFloat();
  }
 
- if (this->m_trianglesPerZoom.empty()) {
+ if (this->m_trianglesPerZoom == nullptr) {
  this->m_trianglesPerZoom = std::make_unique<ArrayList<>>();
  }
 
@@ -170,7 +170,7 @@ public:
  }
 
  WorldMapGeometry.TrianglesPerZoom findTriangles(double double0) {
- if (this->m_trianglesPerZoom.empty()) {
+ if (this->m_trianglesPerZoom == nullptr) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < this->m_trianglesPerZoom.size(); int0++) {

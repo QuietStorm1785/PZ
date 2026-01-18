@@ -179,7 +179,7 @@ public:
  }
 
  void assignEntryToAtlas(DeadBodyAtlas.AtlasEntry atlasEntry, int int2, int int1) {
- if (atlasEntry.atlas.empty()) {
+ if (atlasEntry.atlas == nullptr) {
  for (int int0 = 0; int0 < this->AtlasList.size(); int0++) {
  DeadBodyAtlas.Atlas atlas0 = this->AtlasList.get(int0);
  if (!atlas0.isFull() && atlas0.ENTRY_WID == int2 && atlas0.ENTRY_HGT == int1) {
@@ -320,7 +320,7 @@ public:
  return;
  }
 
- if (JobPool.get(JobPool.size() - 1).entry.atlas.empty()) {
+ if (JobPool.get(JobPool.size() - 1).entry.atlas == nullptr) {
  return;
  }
 
@@ -497,7 +497,7 @@ public:
  renderJob.done = 1;
  }
 
- class Atlas {
+ private class Atlas {
  const int ENTRY_WID;
  const int ENTRY_HGT;
  Texture tex;
@@ -508,7 +508,7 @@ public:
  this->ENTRY_WID = arg3;
  this->ENTRY_HGT = arg4;
  this->tex = new Texture(arg1, arg2, 16);
- if (DeadBodyAtlas.this->fbo.empty()) {
+ if (DeadBodyAtlas.this->fbo == nullptr) {
  DeadBodyAtlas.this->fbo = new TextureFBO(this->tex, false);
  }
  }
@@ -909,7 +909,7 @@ public:
  const StringBuilder sb = new StringBuilder();
 
  void reset() {
- if (this->md.empty()) {
+ if (this->md == nullptr) {
  this->md = MessageDigest.getInstance("MD5");
  }
 
@@ -1068,7 +1068,7 @@ public:
  public DeadBodyAtlas.RenderJob init(DeadBodyAtlas.BodyParams arg0, DeadBodyAtlas.AtlasEntry arg1) {
  this->body.init(arg0);
  this->entry = arg1;
- if (this->animatedModel.empty()) {
+ if (this->animatedModel == nullptr) {
  this->animatedModel = std::make_unique<AnimatedModel>();
  this->animatedModel.setAnimate(false);
  }

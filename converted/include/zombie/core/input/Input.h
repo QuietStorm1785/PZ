@@ -205,7 +205,7 @@ public:
 
  Controller checkControllerButton(int int0, int int1) {
  Controller controller = this->getController(int0);
- if (controller.empty()) {
+ if (controller == nullptr) {
  return nullptr;
  } else {
  return int1 >= 0 && int1 < controller.getButtonCount() ? controller : nullptr;

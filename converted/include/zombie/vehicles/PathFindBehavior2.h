@@ -201,7 +201,7 @@ public:
  double double0 = Type.tryCastTo(table.rawget(byte0), Double.class);
  double double1 = Type.tryCastTo(table.rawget(byte0 + 1), Double.class);
  double double2 = Type.tryCastTo(table.rawget(byte0 + 2), Double.class);
- if (double0.empty() || double1.empty() || double2.empty()) {
+ if (double0 == nullptr || double1 == nullptr || double2 == nullptr) {
  throw IllegalArgumentException("locations table should be multiples of x,y,z");
  }
 
@@ -271,7 +271,7 @@ public:
 
  void pathToVehicleArea(BaseVehicle vehicle, const std::string& string) {
  Vector2 vector = vehicle.getAreaCenter(string);
- if (vector.empty()) {
+ if (vector == nullptr) {
  this->targetX = this->chr.getX();
  this->targetY = this->chr.getY();
  this->targetZ = this->chr.getZ();
@@ -297,7 +297,7 @@ public:
  VehicleScript.Position position = vehicle.getPassengerPosition(int0, "outside2");
  if (position != nullptr) {
  Vector3f vector3f0 = BaseVehicle.TL_vector3f_pool.get().alloc();
- if (position.area.empty()) {
+ if (position.area == nullptr) {
  vehicle.getPassengerPositionWorldPos(position, vector3f0);
  } else {
  Vector2 vector0 = BaseVehicle.TL_vector2_pool.get().alloc();
@@ -327,9 +327,9 @@ public:
  }
 
  position = vehicle.getPassengerPosition(int0, "outside");
- if (position.empty()) {
+ if (position == nullptr) {
  VehiclePart part = vehicle.getPassengerDoor(int0);
- if (part.empty()) {
+ if (part == nullptr) {
  this->targetX = this->chr.getX();
  this->targetY = this->chr.getY();
  this->targetZ = this->chr.getZ();
@@ -342,7 +342,7 @@ public:
  this->goal = PathFindBehavior2.Goal.VehicleSeat;
  this->goalVehicle = vehicle;
  Vector3f vector3f1 = BaseVehicle.TL_vector3f_pool.get().alloc();
- if (position.area.empty()) {
+ if (position.area == nullptr) {
  vehicle.getPassengerPositionWorldPos(position, vector3f1);
  } else {
  Vector2 vector2 = BaseVehicle.TL_vector2_pool.get().alloc();
@@ -475,7 +475,7 @@ public:
  && this->goalCharacter.getVehicle() != nullptr
  && this->chr.DistToSquared(this->targetX, this->targetY) < 16.0F) {
  Vector3f vector3f = this->goalCharacter.getVehicle().chooseBestAttackPosition(this->goalCharacter, this->chr, tempVector3f_1);
- if (vector3f.empty()) {
+ if (vector3f == nullptr) {
  return PathFindBehavior2.BehaviorResult.Failed;
  }
 
@@ -554,7 +554,7 @@ public:
  this->checkCrawlingTransition(pathNode1, pathNode2, float3);
  }
 
- if (zombie0.empty() && float3 >= 0.5F) {
+ if (zombie0 == nullptr && float3 >= 0.5F) {
  if (this->checkDoorHoppableWindow(
  this->chr.x + vector.x * Math.max(0.5F, float0), this->chr.y + vector.y * Math.max(0.5F, float0), this->chr.z
  )) {
@@ -661,7 +661,7 @@ public:
 
  bool checkDoorHoppableWindow(float float2, float float1, float float0) {
  IsoGridSquare square0 = this->chr.getCurrentSquare();
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return false;
  } else {
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare((double)float2, (double)float1, (double)float0);
@@ -696,7 +696,7 @@ public:
  }
  } else {
  IsoThumpable thumpable1 = square0.getWindowThumpableTo(square1);
- if (thumpable1.empty()) {
+ if (thumpable1 == nullptr) {
  IsoObject object1 = square0.getWindowFrameTo(square1);
  if (object1 != nullptr) {
  this->chr.climbThroughWindowFrame(object1);
@@ -835,8 +835,8 @@ public:
  if (Math.abs(int1) <= 1 && Math.abs(int2) <= 1) {
  IsoGridSquare square2 = cell.getGridSquare((int)pathNode0.x, (int)pathNode0.y, (int)pathNode0.z);
  IsoGridSquare square3 = cell.getGridSquare((int)pathNode1.x, (int)pathNode1.y, (int)pathNode1.z);
- float float9 = square2.empty() ? pathNode0.z : PolygonalMap2.instance.getApparentZ(square2);
- float float10 = square3.empty() ? pathNode1.z : PolygonalMap2.instance.getApparentZ(square3);
+ float float9 = square2 == nullptr ? pathNode0.z : PolygonalMap2.instance.getApparentZ(square2);
+ float float10 = square3 == nullptr ? pathNode1.z : PolygonalMap2.instance.getApparentZ(square3);
  float8 = float9 + (float10 - float9) * (float)double0;
  }
 
@@ -1017,7 +1017,7 @@ public:
  VehicleSeat;
  }
 
- class NPCData {
+ public class NPCData {
  bool doDirectMovement;
  int MaxSteps;
  int nextTileX;

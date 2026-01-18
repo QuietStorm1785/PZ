@@ -142,7 +142,7 @@ public:
  }
 
  IsoGridSquare square0 = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  delayPacket(int0, int1, int2);
  return;
  }
@@ -169,7 +169,7 @@ public:
  }
 
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare(int5, int6, int7);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  delayPacket(int5, int6, int7);
  return;
  }

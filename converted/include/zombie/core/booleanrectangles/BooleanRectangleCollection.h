@@ -312,7 +312,7 @@ public:
  void DoRect(int var1, int var2) {
  }
 
- class Line {
+ public class Line {
  public BooleanRectangleCollection.Point Start = new BooleanRectangleCollection.Point();
  public BooleanRectangleCollection.Point End = new BooleanRectangleCollection.Point();
 

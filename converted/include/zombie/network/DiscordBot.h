@@ -37,7 +37,7 @@ public:
  }
 
  void connect(bool boolean0, const std::string& string0, const std::string& string1, const std::string& string2) {
- if (string0.empty() || string0.empty()) {
+ if (string0 == nullptr || string0.empty()) {
  DebugLog.log(DebugType.Network, "DISCORD: token not configured");
  boolean0 = false;
  }
@@ -56,7 +56,7 @@ public:
 
  void setChannel(const std::string& string0, const std::string& string1) {
  Collection collection = this->getChannelNames();
- if ((string0.empty() || string0.empty()) && !collection.empty()) {
+ if ((string0 == nullptr || string0.empty()) && !collection.empty()) {
  string0 = (String)collection.iterator().next();
  DebugLog.log(DebugType.Network, "DISCORD: set default channel name = \"" + string0 + "\"");
  }
@@ -103,7 +103,7 @@ public:
  }
  }
 
- if (this->current.empty()) {
+ if (this->current == nullptr) {
  DebugLog.log(DebugType.Network, "DISCORD: channel \"" + string + "\" is not found. Try to use channel ID instead");
  } else {
  DebugLog.log(DebugType.Network, "Discord enabled on channel: " + string);
@@ -121,7 +121,7 @@ public:
  }
  }
 
- if (this->current.empty()) {
+ if (this->current == nullptr) {
  DebugLog.log(DebugType.Network, "DISCORD: channel with ID \"" + string + "\" not found");
  }
  }

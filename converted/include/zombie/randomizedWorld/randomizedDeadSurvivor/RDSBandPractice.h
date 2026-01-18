@@ -43,11 +43,11 @@ public:
  void randomizeDeadSurvivor(BuildingDef def) {
  this->spawnItemsInContainers(def, "BandPractice", 90);
  RoomDef roomDef = this->getRoom(def, "garagestorage");
- if (roomDef.empty()) {
+ if (roomDef == nullptr) {
  roomDef = this->getRoom(def, "shed");
  }
 
- if (roomDef.empty()) {
+ if (roomDef == nullptr) {
  roomDef = this->getRoom(def, "garage");
  }
 

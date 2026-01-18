@@ -23,7 +23,7 @@ public:
  void startLoading(Asset asset) {
  AnimNodeAsset animNodeAsset = (AnimNodeAsset)asset;
  animNodeAsset.m_animNode = AnimNode.Parse(asset.getPath().getPath());
- if (animNodeAsset.m_animNode.empty()) {
+ if (animNodeAsset.m_animNode == nullptr) {
  this->onLoadingFailed(asset);
  } else {
  this->onLoadingSucceeded(asset);

@@ -50,7 +50,7 @@ public:
  throw IllegalArgumentException("invalid vehicle id " + short0 + " max=" + this->capacity);
  } else if (this->idToVehicle[short0] != nullptr) {
  throw IllegalArgumentException("duplicate vehicle with id " + short0);
- } else if (vehicle.empty()) {
+ } else if (vehicle == nullptr) {
  throw IllegalArgumentException("vehicle is nullptr");
  } else {
  this->idToVehicle[short0] = vehicle;

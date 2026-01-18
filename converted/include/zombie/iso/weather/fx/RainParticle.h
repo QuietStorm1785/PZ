@@ -137,7 +137,7 @@ public:
  );
  }
 
- class Point {
+ private class Point {
  double origx;
  double origy;
  double x;
@@ -156,7 +156,7 @@ public:
  }
  }
 
- class RenderPoints {
+ private class RenderPoints {
  RainParticle.Point[] points = new RainParticle.Point[4];
  RainParticle.Point center = RainParticle.this->std::make_unique<Point>();
  RainParticle.Point dim = RainParticle.this->std::make_unique<Point>();

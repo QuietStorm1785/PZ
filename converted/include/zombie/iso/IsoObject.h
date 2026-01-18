@@ -544,8 +544,8 @@ public:
 
  static IsoObject factoryFromFileInput(IsoCell cell, uint8_t classID) {
  IsoObject.IsoObjectFactory objectFactory = byteToObjectMap.get(classID);
- if (objectFactory.empty() || objectFactory.objectName == "Vehicle") && GameClient.bClient) {
- if (objectFactory.empty() && Core.bDebug) {
+ if (objectFactory == nullptr || objectFactory.objectName == "Vehicle") && GameClient.bClient) {
+ if (objectFactory == nullptr && Core.bDebug) {
  throw RuntimeException("Cannot get IsoObject from classID: " + classID);
  } else {
  return new IsoObject(cell);
@@ -720,7 +720,7 @@ public:
  }
 
  std::string getTextureName() {
- return this->sprite.empty() ? nullptr : this->sprite.name;
+ return this->sprite == nullptr ? nullptr : this->sprite.name;
  }
 
  bool Serialize() {
@@ -728,7 +728,7 @@ public:
  }
 
  KahluaTable getModData() {
- if (this->table.empty()) {
+ if (this->table == nullptr) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -805,7 +805,7 @@ public:
  }
 
  for (int int2 = 0; int2 < int1; int2++) {
- if (this->AttachedAnimSprite.empty()) {
+ if (this->AttachedAnimSprite == nullptr) {
  this->AttachedAnimSprite = std::make_unique<ArrayList<>>();
  }
 
@@ -877,7 +877,7 @@ public:
  if (spritex.name != nullptr && spritex.name.startsWith("overlay_blood_")) {
  float float7 = (float)GameTime.getInstance().getWorldAgeHours();
  IsoWallBloodSplat wallBloodSplat0 = new IsoWallBloodSplat(float7, spritex);
- if (this->wallBloodSplats.empty()) {
+ if (this->wallBloodSplats == nullptr) {
  this->wallBloodSplats = std::make_unique<ArrayList<>>();
  }
 
@@ -925,7 +925,7 @@ public:
  if (bitHeaderRead1.hasFlags(1) {
  uint8_t byte2 = input.get();
  if (byte2 > 0) {
- if (this->wallBloodSplats.empty()) {
+ if (this->wallBloodSplats == nullptr) {
  this->wallBloodSplats = std::make_unique<ArrayList<>>();
  }
 
@@ -986,7 +986,7 @@ public:
  }
 
  if (bitHeaderRead1.hasFlags(4) {
- if (this->table.empty()) {
+ if (this->table == nullptr) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -1040,7 +1040,7 @@ public:
  }
 
  bitHeaderRead0.release();
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  this->sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  this->sprite.LoadFramesNoDirPageSimple(this->spriteName);
  }
@@ -1054,7 +1054,7 @@ public:
  output.put((byte)(this->Serialize() ? 1 : 0);
  if (this->Serialize()) {
  output.put(factoryGetClassID(this->getObjectName()));
- output.putInt(this->sprite.empty() ? -1 : this->sprite.ID);
+ output.putInt(this->sprite == nullptr ? -1 : this->sprite.ID);
  BitHeaderWrite bitHeaderWrite0 = BitHeader.allocWrite(BitHeader.HeaderSize.Byte, output);
  if (this->AttachedAnimSprite != nullptr) {
  bitHeaderWrite0.addFlags(1);
@@ -1393,7 +1393,7 @@ public:
  if (this->getProperties().Is("HitByCar")) {
  BaseVehicle vehicle1 = (BaseVehicle)object;
  std::string string = this->getSprite().getProperties().Val("MinimumCarSpeedDmg");
- if (string.empty()) {
+ if (string == nullptr) {
  string = "150";
  }
 
@@ -1759,7 +1759,7 @@ public:
  * @return the type
  */
  IsoObjectType getType() {
- return this->sprite.empty() ? IsoObjectType.MAX : this->sprite.getType();
+ return this->sprite == nullptr ? IsoObjectType.MAX : this->sprite.getType();
  }
 
  void setType(IsoObjectType type) {
@@ -1769,7 +1769,7 @@ public:
  }
 
  void addChild(IsoObject child) {
- if (this->Children.empty()) {
+ if (this->Children == nullptr) {
  this->Children = new ArrayList<>(4);
  }
 
@@ -1787,7 +1787,7 @@ public:
 
  void checkMoveWithWind(bool boolean0) {
  if (!GameServer.bServer) {
- if (this->sprite != nullptr && this->windRenderEffects.empty() && this->sprite.moveWithWind) {
+ if (this->sprite != nullptr && this->windRenderEffects == nullptr && this->sprite.moveWithWind) {
  if (this->getSquare() != nullptr) {
  IsoGridSquare square0 = this->getCell().getGridSquare(this->getSquare().x - 1, this->getSquare().y, this->getSquare().z);
  if (square0 != nullptr) {
@@ -1810,7 +1810,7 @@ public:
 
  this->windRenderEffects = ObjectRenderEffects.getNextWindEffect(this->sprite.windType, boolean0);
  } else {
- if (this->windRenderEffects != nullptr && (this->sprite.empty() || !this->sprite.moveWithWind) {
+ if (this->windRenderEffects != nullptr && (this->sprite == nullptr || !this->sprite.moveWithWind) {
  this->windRenderEffects = nullptr;
  }
  }
@@ -1975,7 +1975,7 @@ public:
  float zBias,
  ColorInfo TintMod
  ) {
- if (this->AttachedAnimSprite.empty()) {
+ if (this->AttachedAnimSprite == nullptr) {
  this->AttachedAnimSprite = new ArrayList<>(4);
  }
 
@@ -1996,7 +1996,7 @@ public:
  public void AttachExistingAnim(
  IsoSprite spr, int OffsetX, int OffsetY, boolean Looping, int FinishHoldFrameIndex, boolean DeleteWhenFinished, float zBias, ColorInfo TintMod
  ) {
- if (this->AttachedAnimSprite.empty()) {
+ if (this->AttachedAnimSprite == nullptr) {
  this->AttachedAnimSprite = new ArrayList<>(4);
  }
 
@@ -2110,7 +2110,7 @@ public:
  return object1;
  }
 
- if (object0.empty()) {
+ if (object0 == nullptr) {
  object0 = object1;
  }
  }
@@ -2122,7 +2122,7 @@ public:
  }
 
  static IsoObject FindWaterSourceOnSquare(IsoGridSquare _square) {
- if (_square.empty()) {
+ if (_square == nullptr) {
  return nullptr;
  } else {
  PZArrayList pZArrayList = _square.getObjects();
@@ -2142,7 +2142,7 @@ public:
  }
 
  int getPipedFuelAmount() {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  return 0;
  } else {
  double double0 = 0.0;
@@ -2227,7 +2227,7 @@ public:
  }
 
  bool isWaterInfinite() {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  return false;
  } else if (this->square != nullptr && this->square.getRoom() != nullptr) {
  if (!this->sprite.getProperties().Is(IsoFlagType.waterPiped) {
@@ -2248,7 +2248,7 @@ public:
  if (!this->usesExternalWaterSource) {
  return nullptr;
  } else {
- if (this->externalWaterSource.empty() || !this->externalWaterSource.hasWater()) {
+ if (this->externalWaterSource == nullptr || !this->externalWaterSource.hasWater()) {
  this->doFindExternalWaterSource();
  }
 
@@ -2257,7 +2257,7 @@ public:
  }
 
  int getWaterAmount() {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  return 0;
  } else if (this->usesExternalWaterSource) {
  if (this->isWaterInfinite()) {
@@ -2328,7 +2328,7 @@ public:
  }
 
  int getWaterMax() {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  return 0;
  } else if (this->usesExternalWaterSource) {
  if (this->isWaterInfinite()) {
@@ -2370,7 +2370,7 @@ public:
  }
 
  int useWater(int amount) {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  return 0;
  } else {
  int int0 = this->getWaterAmount();
@@ -2495,7 +2495,7 @@ public:
  }
 
  PropertyContainer getProperties() {
- return this->sprite.empty() ? nullptr : this->sprite.getProperties();
+ return this->sprite == nullptr ? nullptr : this->sprite.getProperties();
  }
 
  void RemoveAttachedAnims() {
@@ -2518,7 +2518,7 @@ public:
  }
 
  Vector2 getFacingPosition(Vector2 pos) {
- if (this->square.empty()) {
+ if (this->square == nullptr) {
  return pos.set(0.0F, 0.0F);
  } else {
  PropertyContainer propertyContainer = this->getProperties();
@@ -2844,7 +2844,7 @@ public:
  }
 
  bool shouldDrawMainSprite() {
- return this->sprite.empty() ? false : DebugOptions.instance.Terrain.RenderTiles.RenderSprites.getValue();
+ return this->sprite == nullptr ? false : DebugOptions.instance.Terrain.RenderTiles.RenderSprites.getValue();
  }
 
  public void renderAttachedAndOverlaySprites(
@@ -2980,7 +2980,7 @@ public:
  }
 
  LowLightingQualityHack = true;
- this->NoPicking = this->rerouteMask.empty()
+ this->NoPicking = this->rerouteMask == nullptr
  && !(this instanceof IsoThumpable)
  && !IsoWindowFrame.isWindowFrame(this)
  && !this->sprite.getProperties().Is(IsoFlagType.doorN)
@@ -3248,9 +3248,9 @@ public:
  }
 
  Texture getCurrentFrameTex() {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  return nullptr;
- } else if (this->sprite.CurrentAnim.empty()) {
+ } else if (this->sprite.CurrentAnim == nullptr) {
  return nullptr;
  } else {
  return this->sprite.CurrentAnim.Frames.size() <= this->sprite.def.Frame
@@ -3260,11 +3260,11 @@ public:
  }
 
  bool isMaskClicked(int x, int y) {
- return this->sprite.empty() ? false : this->sprite.isMaskClicked(this->dir, x, y);
+ return this->sprite == nullptr ? false : this->sprite.isMaskClicked(this->dir, x, y);
  }
 
  bool isMaskClicked(int x, int y, bool flip) {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  return false;
  } else {
  return this->overlaySprite != nullptr && this->overlaySprite.isMaskClicked(this->dir, x, y, flip)
@@ -3274,7 +3274,7 @@ public:
  }
 
  float getMaskClickedY(int x, int y, bool flip) {
- return this->sprite.empty() ? 10000.0F : this->sprite.getMaskClickedY(this->dir, x, y, flip);
+ return this->sprite == nullptr ? 10000.0F : this->sprite.getMaskClickedY(this->dir, x, y, flip);
  }
 
  ColorInfo getCustomColor() {
@@ -3382,7 +3382,7 @@ public:
  } else if (this->sprite != nullptr && this->sprite.getProperties().Is(IsoFlagType.waterPiped) && this->getWaterAmount() > 0.0F && Rand.Next(15) == 0) {
  this->addObjectAmbientEmitter(new ObjectAmbientEmitters.WaterDripLogic().init(this);
  object1 = "WaterDrip";
- } else if (this->sprite.empty()
+ } else if (this->sprite == nullptr
  || this->sprite.getName() == nullptr
  || !this->sprite.getName().startsWith("camping_01")
  || this->sprite.tileSheetIndex != 0 && this->sprite.tileSheetIndex != 3) {
@@ -3451,7 +3451,7 @@ public:
 
  void transmitCompleteItemToClients() {
  if (GameServer.bServer) {
- if (GameServer.udpEngine.empty()) {
+ if (GameServer.udpEngine == nullptr) {
  return;
  }
 
@@ -3484,7 +3484,7 @@ public:
  UdpConnection udpConnection = GameServer.udpEngine.connections.get(int0);
  if (udpConnection != nullptr
  && this->square != nullptr
- && (connection.empty() || udpConnection.getConnectedGUID() != connection.getConnectedGUID())
+ && (connection == nullptr || udpConnection.getConnectedGUID() != connection.getConnectedGUID())
  && udpConnection.RelevantTo(this->square.x, this->square.y) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.UpdateItemSprite.doPacket(byteBufferWriter);
@@ -3590,7 +3590,7 @@ public:
  bool boolean0 = tbl != nullptr && Boolean.TRUE.equals(tbl.rawget("value"));
  bb.put((byte)(boolean0 ? 1 : 0);
  } else if ("sprite" == change) {
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  bb.putInt(0);
  } else {
  bb.putInt(this->sprite.ID);
@@ -3672,7 +3672,7 @@ public:
  } else {
  this->spriteName = GameWindow.ReadString(bb);
  this->sprite = IsoSprite.getSprite(IsoSpriteManager.instance, int4);
- if (this->sprite.empty()) {
+ if (this->sprite == nullptr) {
  this->sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  this->sprite.LoadFramesNoDirPageSimple(this->spriteName);
  }
@@ -3765,23 +3765,23 @@ public:
  }
 
  int getObjectIndex() {
- return this->square.empty() ? -1 : this->square.getObjects().indexOf(this);
+ return this->square == nullptr ? -1 : this->square.getObjects().indexOf(this);
  }
 
  int getMovingObjectIndex() {
- return this->square.empty() ? -1 : this->square.getMovingObjects().indexOf(this);
+ return this->square == nullptr ? -1 : this->square.getMovingObjects().indexOf(this);
  }
 
  int getSpecialObjectIndex() {
- return this->square.empty() ? -1 : this->square.getSpecialObjects().indexOf(this);
+ return this->square == nullptr ? -1 : this->square.getSpecialObjects().indexOf(this);
  }
 
  int getStaticMovingObjectIndex() {
- return this->square.empty() ? -1 : this->square.getStaticMovingObjects().indexOf(this);
+ return this->square == nullptr ? -1 : this->square.getStaticMovingObjects().indexOf(this);
  }
 
  int getWorldObjectIndex() {
- return this->square.empty() ? -1 : this->square.getWorldObjects().indexOf(this);
+ return this->square == nullptr ? -1 : this->square.getWorldObjects().indexOf(this);
  }
 
  IsoSprite getOverlaySprite() {
@@ -3810,7 +3810,7 @@ public:
 
  bool setOverlaySprite(const std::string& _spriteName, float r, float g, float b, float a, bool bTransmit) {
  if (StringUtils.isNullOrWhitespace(_spriteName) {
- if (this->overlaySprite.empty()) {
+ if (this->overlaySprite == nullptr) {
  return false;
  }
 
@@ -3819,7 +3819,7 @@ public:
  } else {
  bool boolean0;
  if (!(r > -1.0F) {
- boolean0 = this->overlaySpriteColor.empty();
+ boolean0 = this->overlaySpriteColor == nullptr;
  } else {
  boolean0 = this->overlaySpriteColor != nullptr
  && this->overlaySpriteColor.r == r
@@ -3913,7 +3913,7 @@ public:
  }
 
  void setHighlightColor(float r, float g, float b, float a) {
- if (this->highlightColor.empty()) {
+ if (this->highlightColor == nullptr) {
  this->highlightColor = new ColorInfo(r, g, b, a);
  } else {
  this->highlightColor.set(r, g, b, a);
@@ -3954,8 +3954,8 @@ public:
  }
 
  int getContainerCount() {
- int int0 = this->container.empty() ? 0 : 1;
- int int1 = this->secondaryContainers.empty() ? 0 : this->secondaryContainers.size();
+ int int0 = this->container == nullptr ? 0 : 1;
+ int int1 = this->secondaryContainers == nullptr ? 0 : this->secondaryContainers.size();
  return int0 + int1;
  }
 
@@ -3963,12 +3963,12 @@ public:
  if (this->container != nullptr) {
  if (index == 0) {
  return this->container;
- } else if (this->secondaryContainers.empty()) {
+ } else if (this->secondaryContainers == nullptr) {
  return nullptr;
  } else {
  return index >= 1 && index <= this->secondaryContainers.size() ? this->secondaryContainers.get(index - 1) : nullptr;
  }
- } else if (this->secondaryContainers.empty()) {
+ } else if (this->secondaryContainers == nullptr) {
  return nullptr;
  } else {
  return index >= 0 && index < this->secondaryContainers.size() ? this->secondaryContainers.get(index) : nullptr;
@@ -3998,7 +3998,7 @@ public:
  }
 
  void addSecondaryContainer(ItemContainer _container) {
- if (this->secondaryContainers.empty()) {
+ if (this->secondaryContainers == nullptr) {
  this->secondaryContainers = std::make_unique<ArrayList<>>();
  }
 
@@ -4009,12 +4009,12 @@ public:
  int getContainerIndex(ItemContainer _container) {
  if (_container == this->container) {
  return 0;
- } else if (this->secondaryContainers.empty()) {
+ } else if (this->secondaryContainers == nullptr) {
  return -1;
  } else {
  for (int int0 = 0; int0 < this->secondaryContainers.size(); int0++) {
  if (this->secondaryContainers.get(int0) == _container) {
- return (this->container.empty() ? 0 : 1) + int0;
+ return (this->container == nullptr ? 0 : 1) + int0;
  }
  }
 
@@ -4031,8 +4031,8 @@ public:
 
  void createContainersFromSpriteProperties() {
  if (this->sprite != nullptr) {
- if (this->container.empty()) {
- if (this->sprite.getProperties().Is(IsoFlagType.container) && this->container.empty()) {
+ if (this->container == nullptr) {
+ if (this->sprite.getProperties().Is(IsoFlagType.container) && this->container == nullptr) {
  this->container = new ItemContainer(this->sprite.getProperties().Val("container"), this->square, this);
  this->container.parent = this;
  this->OutlineOnMouseover = true;
@@ -4053,7 +4053,7 @@ public:
  containerx.Capacity = 15;
  }
 
- if (this->container.empty()) {
+ if (this->container == nullptr) {
  this->container = containerx;
  this->container.parent = this;
  } else {
@@ -4099,7 +4099,7 @@ public:
  void setRenderEffect(RenderEffectType type, bool reuseEqualType) {
  if (!GameServer.bServer) {
  IsoObject object = this->getRenderEffectMaster();
- if (object.objectRenderEffects.empty() || reuseEqualType) {
+ if (object.objectRenderEffects == nullptr || reuseEqualType) {
  object.objectRenderEffects = ObjectRenderEffects.getNew(this, type, reuseEqualType);
  }
  }
@@ -4311,7 +4311,7 @@ public:
  IsoGameCharacter character = Type.tryCastTo(thumper, IsoGameCharacter.class);
  if (character != nullptr) {
  Thumpable thumpable = this->getThumpableFor(character);
- if (thumpable.empty()) {
+ if (thumpable == nullptr) {
  return;
  }
 
@@ -4487,7 +4487,7 @@ public:
  }
 
  bool StartShader() {
- if (this->shaderProgram.empty()) {
+ if (this->shaderProgram == nullptr) {
  RenderThread.invokeOnRenderContext(this::initShader);
  }
 

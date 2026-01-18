@@ -109,7 +109,7 @@ public:
  }
 
  public short[] toArray(short[] shorts) {
- if (shorts.empty()) {
+ if (shorts == nullptr) {
  shorts = new short[this->count];
  }
 

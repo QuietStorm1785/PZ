@@ -598,7 +598,7 @@ public:
  int1 = 0;
  } else {
  Thermoregulator thermoregulator = this->Parent.getBodyDamage().getThermoregulator();
- if (thermoregulator.empty()) {
+ if (thermoregulator == nullptr) {
  int1 = 0;
  } else {
  boolean1 = thermoregulator.thermalChevronUp();

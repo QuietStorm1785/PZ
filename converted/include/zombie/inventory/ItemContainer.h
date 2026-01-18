@@ -191,7 +191,7 @@ public:
  }
 
  bool isItemAllowed(InventoryItem item) {
- if (item.empty()) {
+ if (item == nullptr) {
  return false;
  } else {
  std::string string0 = this->getOnlyAcceptCategory();
@@ -235,7 +235,7 @@ public:
  }
 
  bool isRemoveItemAllowed(InventoryItem item) {
- return item = = nullptr ? false : this->parent.empty() || this->parent.isRemoveItemAllowedFromContainer(this, item);
+ return item = = nullptr ? false : this->parent == nullptr || this->parent.isRemoveItemAllowedFromContainer(this, item);
  }
 
  bool isExplored() {
@@ -265,7 +265,7 @@ public:
  }
 
  bool isInside(InventoryItem item) {
- if (this->containingItem.empty()) {
+ if (this->containingItem == nullptr) {
  return false;
  } else {
  return this->containingItem == item ? true : this->containingItem.getContainer() != nullptr && this->containingItem.getContainer().isInside(item);
@@ -348,7 +348,7 @@ public:
  }
 
  InventoryItem AddItem(InventoryItem item) {
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  } else if (this->containsID(item.id) {
  System.out.println("Error, container already has id");
@@ -378,7 +378,7 @@ public:
  }
 
  InventoryItem AddItemBlind(InventoryItem item) {
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  } else if (item.getWeight() + this->getCapacityWeight() > this->getCapacity()) {
  return nullptr;
@@ -399,7 +399,7 @@ public:
  }
 
  Item item0 = ScriptManager.instance.FindItem(_type);
- if (item0.empty()) {
+ if (item0 == nullptr) {
  DebugLog.log("ERROR: ItemContainer.AddItem: can't find " + _type);
  return nullptr;
  } else if (item0.OBSOLETE) {
@@ -410,7 +410,7 @@ public:
 
  for (int int1 = 0; int1 < int0; int1++) {
  item1 = InventoryItemFactory.CreateItem(_type);
- if (item1.empty()) {
+ if (item1 == nullptr) {
  return nullptr;
  }
 
@@ -436,7 +436,7 @@ public:
  }
 
  InventoryItem item = InventoryItemFactory.CreateItem(_type);
- if (item.empty()) {
+ if (item == nullptr) {
  return false;
  } else {
  if (item instanceof Drainable) {
@@ -467,7 +467,7 @@ public:
 
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else if (item.type == string0.trim())
@@ -505,7 +505,7 @@ public:
 
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else {
@@ -598,7 +598,7 @@ public:
  } else {
  for (int int2 = 0; int2 < this->Items.size(); int2++) {
  InventoryItem item2 = this->Items.get(int2);
- if (item2.empty()) {
+ if (item2 == nullptr) {
  this->Items.remove(int2);
  int2--;
  } else {
@@ -958,7 +958,7 @@ public:
  InventoryItem getFirst(Predicate<InventoryItem> predicate) {
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else if (predicate.test(item) {
@@ -974,7 +974,7 @@ public:
 
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item0 = this->Items.get(int0);
- if (item0.empty()) {
+ if (item0 == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else {
@@ -1005,7 +1005,7 @@ public:
  public ArrayList<InventoryItem> getSome(Predicate<InventoryItem> predicate, int count, ArrayList<InventoryItem> result) {
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else if (predicate.test(item) {
@@ -1024,7 +1024,7 @@ public:
 
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else {
@@ -1057,7 +1057,7 @@ public:
  public ArrayList<InventoryItem> getAll(Predicate<InventoryItem> predicate, ArrayList<InventoryItem> result) {
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else if (predicate.test(item) {
@@ -1073,7 +1073,7 @@ public:
 
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  this->Items.remove(int0);
  int0--;
  } else {
@@ -1706,7 +1706,7 @@ public:
  }
 
  InventoryItem FindAndReturn(const std::string& _type, ArrayList<InventoryItem> itemToCheck) {
- if (_type.empty()) {
+ if (_type == nullptr) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
@@ -1747,7 +1747,7 @@ public:
 
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
- if ((item.type.empty() ? string.empty() : item.type == string) && item.CanStack(itemlike) {
+ if ((item.type == nullptr ? string == nullptr : item.type == string) && item.CanStack(itemlike) {
  return item;
  }
  }
@@ -1975,7 +1975,7 @@ public:
  }
 
  bool isEmpty() {
- return this->Items.empty() || this->Items.empty();
+ return this->Items == nullptr || this->Items.empty();
  }
 
  bool isMicrowave() {
@@ -1987,7 +1987,7 @@ public:
  }
 
  bool isSquarePowered(IsoGridSquare square0) {
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return false;
  } else {
  bool boolean0 = IsoWorld.instance.isHydroPowerOn();
@@ -2562,7 +2562,7 @@ public:
  && !inventoryItemList.contains(item0) {
  inventoryItemList.add(item0);
  }
- } else if ((!notEquipped || chr.empty() || !chr.isEquippedClothing(item0) && this->testBroken(ignoreBroken, item0) {
+ } else if ((!notEquipped || chr == nullptr || !chr.isEquippedClothing(item0) && this->testBroken(ignoreBroken, item0) {
  TL_itemListPool.get().release(inventoryItemList);
  return item0;
  }
@@ -2621,7 +2621,7 @@ public:
 
  void requestSync() {
  if (GameClient.bClient) {
- if (this->parent.empty() || this->parent.square.empty() || this->parent.square.chunk.empty()) {
+ if (this->parent == nullptr || this->parent.square == nullptr || this->parent.square.chunk == nullptr) {
  return;
  }
 
@@ -2853,7 +2853,7 @@ public:
  }
 
  public LinkedHashMap<String, InventoryItem> getAllItems(LinkedHashMap<String, InventoryItem> items, boolean inInv) {
- if (items.empty()) {
+ if (items == nullptr) {
  items = std::make_unique<LinkedHashMap>();
  }
 
@@ -2928,7 +2928,7 @@ public:
  return this->containingItem.worldItem.getWorldObjectIndex() != -1;
  } else if (this->getType() == "floor")) {
  return true;
- } else if (this->SourceGrid.empty()) {
+ } else if (this->SourceGrid == nullptr) {
  return false;
  } else {
  IsoGridSquare square = this->SourceGrid;

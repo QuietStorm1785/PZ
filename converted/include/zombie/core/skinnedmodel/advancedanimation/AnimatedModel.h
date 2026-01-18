@@ -225,9 +225,9 @@ public:
 
  void setModelData(HumanVisual _baseVisual, ItemVisuals _itemVisuals) {
  AnimationPlayer animationPlayer = this->animPlayer;
- Model model0 = this->animPlayer.empty() ? nullptr : animationPlayer.getModel();
+ Model model0 = this->animPlayer == nullptr ? nullptr : animationPlayer.getModel();
  if (this->baseVisual != _baseVisual) {
- if (this->baseVisual.empty()) {
+ if (this->baseVisual == nullptr) {
  this->baseVisual = new HumanVisual(this);
  }
 
@@ -380,7 +380,7 @@ public:
 
  void populateCharacterModelSlot() {
  HumanVisual humanVisual = this->getHumanVisual();
- if (humanVisual.empty()) {
+ if (humanVisual == nullptr) {
  this->bUpdateTextures = true;
  } else {
  CharacterMask characterMask = HumanVisual.GetMask(this->itemVisuals);
@@ -576,10 +576,10 @@ public:
  }
 
  Model model = ModelManager.instance.tryGetLoadedModel(string0, string1, true, string2, false);
- if (model.empty()) {
+ if (model == nullptr) {
  ModelManager.instance.loadStaticModel(string0.toLowerCase(), string1, string2);
  model = ModelManager.instance.getLoadedModel(string0, string1, true, string2);
- if (model.empty()) {
+ if (model == nullptr) {
  DebugLog.General.error("ModelManager.addStatic> Model not found. model:" + string0 + " tex:" + string1);
  return nullptr;
  }
@@ -897,7 +897,7 @@ public:
  int int0 = SpriteRenderer.instance.getRenderStateIndex();
  AnimatedModel.StateInfo stateInfo = this->stateInfos[int0];
  ModelInstance modelInstancex = stateInfo.modelInstance;
- if (modelInstancex.empty()) {
+ if (modelInstancex == nullptr) {
  bool boolean0 = true;
  } else {
  std::vector arrayList = this->bReady ? stateInfo.instData : stateInfo.readyData;
@@ -929,7 +929,7 @@ public:
  GL11.glDepthFunc(513);
  GL11.glDepthRange(0.0, 1.0);
  GL11.glAlphaFunc(516, 0.01F);
- if (modelInstancex.model.Effect.empty()) {
+ if (modelInstancex.model.Effect == nullptr) {
  modelInstancex.model.CreateShader("basicEffect");
  }
 
@@ -1040,7 +1040,7 @@ public:
  shader.End();
  }
 
- if (Core.bDebug && DebugOptions.instance.ModelRenderLights.getValue() && modelInstancex.parent.empty()) {
+ if (Core.bDebug && DebugOptions.instance.ModelRenderLights.getValue() && modelInstancex.parent == nullptr) {
  if (this->lights[0].radius > 0) {
  Model.debugDrawLightSource(
  this->lights[0].x,
@@ -1127,7 +1127,7 @@ public:
  this->animPlayer = Pool.tryRelease(this->animPlayer);
  }
 
- if (this->animPlayer.empty()) {
+ if (this->animPlayer == nullptr) {
  this->animPlayer = AnimationPlayer.alloc(model);
  }
 
@@ -1180,12 +1180,12 @@ public:
  this->m_animPlayerAngle = modelInstancex.AnimPlayer.getRenderedAngle();
  if (!modelInstancex.model.bStatic) {
  SkinningData skinningData = (SkinningData)modelInstancex.model.Tag;
- if (Core.bDebug && skinningData.empty()) {
+ if (Core.bDebug && skinningData == nullptr) {
  DebugLog.General.warn("skinningData is nullptr, matrixPalette may be invalid");
  }
 
  Matrix4f[] matrix4fs = modelInstancex.AnimPlayer.getSkinTransforms(skinningData);
- if (this->matrixPalette.empty() || this->matrixPalette.capacity() < matrix4fs.length * 16) {
+ if (this->matrixPalette == nullptr || this->matrixPalette.capacity() < matrix4fs.length * 16) {
  this->matrixPalette = BufferUtils.createFloatBuffer(matrix4fs.length * 16);
  }
 
@@ -1209,14 +1209,14 @@ public:
  public AnimatedModel.AnimatedModelInstanceRenderData transformToParent(AnimatedModel.AnimatedModelInstanceRenderData arg0) {
  if (this->modelInstance instanceof VehicleModelInstance || this->modelInstance instanceof VehicleSubModelInstance) {
  return this;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return this;
  } else {
  this->xfrm.set(arg0.xfrm);
  this->xfrm.transpose();
  org.joml.Matrix4f matrix4f = BaseVehicle.TL_matrix4f_pool.get().alloc();
  ModelAttachment modelAttachment0 = arg0.modelInstance.getAttachmentById(this->modelInstance.attachmentNameParent);
- if (modelAttachment0.empty()) {
+ if (modelAttachment0 == nullptr) {
  if (this->modelInstance.parentBoneName != nullptr && arg0.modelInstance.AnimPlayer != nullptr) {
  ModelInstanceRenderData.applyBoneTransform(arg0.modelInstance, this->modelInstance.parentBoneName, this->xfrm);
  }
@@ -1268,7 +1268,7 @@ public:
  }
  }
 
- class UIModelCamera extends ModelCamera {
+ private class UIModelCamera extends ModelCamera {
  int x;
  int y;
  int w;

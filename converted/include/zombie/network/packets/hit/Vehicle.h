@@ -45,7 +45,7 @@ public:
  }
 
  std::string getDescription() {
- return super.getDescription() + "\n\tVehicle [ vehicle=" + (this->vehicle.empty() ? "?" : "\"" + this->vehicle.getScriptName() + "\"") + " ]";
+ return super.getDescription() + "\n\tVehicle [ vehicle=" + (this->vehicle == nullptr ? "?" : "\"" + this->vehicle.getScriptName() + "\"") + " ]";
  }
 
  void process(IsoGameCharacter character, HandWeapon weapon) {

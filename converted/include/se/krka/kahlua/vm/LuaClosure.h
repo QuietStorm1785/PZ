@@ -51,7 +51,7 @@ public:
  arg0 = 1;
  }
 
- if (this->prototype.filename.empty()) {
+ if (this->prototype.filename == nullptr) {
  return "function: " + this->prototype.name + " -- file: " + this->prototype.file + " line # " + this->prototype.lines[arg0 - 1];
  } else {
  std::string string0 = " | Vanilla";

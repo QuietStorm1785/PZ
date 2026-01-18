@@ -729,7 +729,7 @@ public:
  for (auto& string3 : loadList) if (!hashSet.contains(string3) {
  hashSet.add(string3);
  std::string string4 = ZomboidFileSystem.instance.getAbsolutePath(string3);
- if (string4.empty()) {
+ if (string4 == nullptr) {
  throw IllegalStateException("couldn't find \"" + string3 + "\"");
  }
 
@@ -944,7 +944,7 @@ public:
 
  for (int int0 = 0; int0 < strings.length - 1; int0++) {
  KahluaTable table1 = Type.tryCastTo(table0.rawget(strings[int0]), KahluaTable.class);
- if (table1.empty()) {
+ if (table1 == nullptr) {
  DebugLog.General.error("no such function \"%s\"", string);
  return nullptr;
  }
@@ -1034,7 +1034,7 @@ public:
  }
 
  static KahluaTable copyTable(KahluaTable table0, KahluaTable table1) {
- if (table0.empty()) {
+ if (table0 == nullptr) {
  table0 = platform.newTable();
  } else {
  table0.wipe();
@@ -1885,7 +1885,7 @@ public:
  bool boolean0 = false;
  }
 
- if (obj.empty()) {
+ if (obj == nullptr) {
  return false;
  } else if (LuaManager.exposer.TypeMap.containsKey(name) {
  Class clazz = LuaManager.exposer.TypeMap.get(name);
@@ -2370,7 +2370,7 @@ public:
  )
  static std::string getServerIP() {
  if (GameServer.bServer) {
- return GameServer.IPCommandline.empty() ? GameServer.ip : GameServer.IPCommandline;
+ return GameServer.IPCommandline == nullptr ? GameServer.ip : GameServer.IPCommandline;
  } else {
  return GameClient.bClient ? GameClient.ip : "";
  }
@@ -2480,7 +2480,7 @@ public:
  }
 
  LuaCallFrame luaCallFrame = LuaManager.thread.currentCoroutine.getCallFrame(int0);
- return luaCallFrame.closure.empty()
+ return luaCallFrame.closure == nullptr
  ? false
  : luaCallFrame.closure.prototype.lines[luaCallFrame.pc] == line && file == luaCallFrame.closure.prototype.filename);
  }
@@ -2697,7 +2697,7 @@ public:
  KahluaTable table = LuaManager.platform.newTable();
  File file = ZomboidFileSystem.instance.getMediaFile("maps");
  String[] strings = file.list();
- if (strings.empty()) {
+ if (strings == nullptr) {
  return table;
  } else {
  int int0 = 1;
@@ -2904,7 +2904,7 @@ public:
  }
 
  String[] strings = file0.list();
- if (strings.empty()) {
+ if (strings == nullptr) {
  return nullptr;
  } else {
  std::vector arrayList = new ArrayList();
@@ -2931,7 +2931,7 @@ public:
  }
 
  String[] strings = file0.list();
- if (strings.empty()) {
+ if (strings == nullptr) {
  return table;
  } else {
  std::vector arrayList0 = new ArrayList();
@@ -3242,7 +3242,7 @@ public:
  global = true
  )
  static void sendItemsInContainer(IsoObject obj, ItemContainer container) {
- GameServer.sendItemsInContainer(obj, container.empty() ? obj.getContainer() : container);
+ GameServer.sendItemsInContainer(obj, container == nullptr ? obj.getContainer() : container);
  }
 
  name = "getModDirectoryTable",
@@ -3293,7 +3293,7 @@ public:
  public static ArrayList<String> getMapFoldersForMod(String modID) {
  try {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getModDetails(modID);
- if (mod.empty()) {
+ if (mod == nullptr) {
  return nullptr;
  } else {
  std::string string = mod.getDir() + File.separator + "media" + File.separator + "maps";
@@ -3305,7 +3305,7 @@ public:
  for (auto& path : directoryStream) if (Files.isDirectory(path) {
  file = new File(string + File.separator + path.getFileName().toString() + File.separator + "map.info");
  if (file.exists()) {
- if (arrayList.empty()) {
+ if (arrayList == nullptr) {
  arrayList = std::make_unique<ArrayList>();
  }
 
@@ -3332,7 +3332,7 @@ public:
  static bool spawnpointsExistsForMod(const std::string& modID, const std::string& mapFolder) {
  try {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getModDetails(modID);
- if (mod.empty()) {
+ if (mod == nullptr) {
  return false;
  } else {
  String string = mod.getDir()
@@ -3755,7 +3755,7 @@ public:
  std::string string0 = ZomboidFileSystem.instance.getCacheDir() + File.separator + "mods" + File.separator + filename;
  if (modId != nullptr) {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getModDetails(modId);
- if (mod.empty()) {
+ if (mod == nullptr) {
  return nullptr;
  }
 
@@ -3847,7 +3847,7 @@ public:
  public static LuaManager.GlobalObject.LuaFileWriter getModFileWriter(String modId, String filename, boolean createIfNull, boolean append) {
  if (!filename.empty() && !StringUtils.containsDoubleDot(filename) && !new File(filename).isAbsolute()) {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getModDetails(modId);
- if (mod.empty()) {
+ if (mod == nullptr) {
  return nullptr;
  } else {
  std::string string0 = mod.getDir() + File.separator + filename;
@@ -3959,7 +3959,7 @@ public:
  static float getControllerAxisValue(int c, int axis) {
  if (c >= 0 && c < GameWindow.GameInput.getControllerCount()) {
  Controller controller = GameWindow.GameInput.getController(c);
- if (controller.empty()) {
+ if (controller == nullptr) {
  return 0.0F;
  } else {
  return axis >= 0 && axis < controller.getAxisCount() ? controller.getAxisValue(axis) : 0.0F;
@@ -4210,7 +4210,7 @@ public:
  global = true
  )
  static void activateJoypadOnSteamDeck() {
- if (GameWindow.ActivatedJoyPad.empty()) {
+ if (GameWindow.ActivatedJoyPad == nullptr) {
  JoypadManager.instance.isAPressed(0);
  if (JoypadManager.instance.JoypadList.empty()) {
  return;
@@ -4317,8 +4317,8 @@ public:
  )
  static void setPlayerJoypad(int player, int joypad, IsoPlayer playerObj, const std::string& username) {
  if (IsoPlayer.players[player] == nullptr || IsoPlayer.players[player].isDead()) {
- bool boolean0 = playerObj.empty();
- if (playerObj.empty()) {
+ bool boolean0 = playerObj == nullptr;
+ if (playerObj == nullptr) {
  IsoPlayer _player = IsoPlayer.getInstance();
  IsoWorld world = IsoWorld.instance;
  int int0 = world.getLuaPosX() + 300 * world.getLuaSpawnCellX();
@@ -4357,8 +4357,8 @@ public:
  )
  static void setPlayerMouse(IsoPlayer playerObj) {
  uint8_t byte0 = 0;
- bool boolean0 = playerObj.empty();
- if (playerObj.empty()) {
+ bool boolean0 = playerObj == nullptr;
+ if (playerObj == nullptr) {
  IsoPlayer player = IsoPlayer.getInstance();
  IsoWorld world = IsoWorld.instance;
  int int0 = world.getLuaPosX() + 300 * world.getLuaSpawnCellX();
@@ -4558,7 +4558,7 @@ public:
  global = true
  )
  static void createWorld(const std::string& worldName) {
- if (worldName.empty() || worldName.empty()) {
+ if (worldName == nullptr || worldName.empty()) {
  worldName = "blah";
  }
 
@@ -4734,7 +4734,7 @@ public:
  global = true
  )
  static int getLineNumber(LuaCallFrame c) {
- if (c.closure.empty()) {
+ if (c.closure == nullptr) {
  return 0;
  } else {
  int int0 = c.pc;
@@ -4920,7 +4920,7 @@ public:
  global = true
  )
  static std::string getFilenameOfCallframe(LuaCallFrame c) {
- return c.closure.empty() ? nullptr : c.closure.prototype.filename;
+ return c.closure == nullptr ? nullptr : c.closure.prototype.filename;
  }
 
  name = "getFilenameOfClosure",
@@ -5597,13 +5597,13 @@ public:
  global = true
  )
  static bool renameSaveFile(const std::string& gameMode, const std::string& oldName, const std::string& newName) {
- if (gameMode.empty()
+ if (gameMode == nullptr
  || gameMode.contains("/")
  || gameMode.contains("\\")
  || gameMode.contains(File.separator)
  || StringUtils.containsDoubleDot(gameMode) {
  return false;
- } else if (oldName.empty()
+ } else if (oldName == nullptr
  || oldName.contains("/")
  || oldName.contains("\\")
  || oldName.contains(File.separator)
@@ -5687,7 +5687,7 @@ public:
  )
  static KahluaTable getZombieInfo(IsoZombie zombie) {
  KahluaTable table = LuaManager.platform.newTable();
- if (zombie.empty()) {
+ if (zombie == nullptr) {
  return table;
  } else {
  table.rawset("OnlineID", zombie.OnlineID);
@@ -5720,7 +5720,7 @@ public:
  )
  static KahluaTable getPlayerInfo(IsoPlayer player) {
  KahluaTable table = LuaManager.platform.newTable();
- if (player.empty()) {
+ if (player == nullptr) {
  return table;
  } else {
  long long0 = GameTime.getServerTime() / 1000000L;
@@ -5758,7 +5758,7 @@ public:
  }
 
  ChooseGameInfo.Map map = ChooseGameInfo.getMapDetails(mapDir);
- if (map.empty()) {
+ if (map == nullptr) {
  return nullptr;
  } else {
  KahluaTable table0 = LuaManager.platform.newTable();
@@ -5782,7 +5782,7 @@ public:
  global = true
  )
  static KahluaTable getVehicleInfo(BaseVehicle vehicle) {
- if (vehicle.empty()) {
+ if (vehicle == nullptr) {
  return nullptr;
  } else {
  KahluaTable table = LuaManager.platform.newTable();
@@ -5835,7 +5835,7 @@ public:
  if (vehicle.getPartById("Heater") != nullptr) {
  table.rawset("heater_isset", true);
  void* object = vehicle.getPartById("Heater").getModData().rawget("active");
- if (object.empty()) {
+ if (object == nullptr) {
  table.rawset("heater_on", false);
  } else {
  table.rawset("heater_on", object == Boolean.TRUE);
@@ -6602,7 +6602,7 @@ public:
  if (SteamUtils.isSteamModeEnabled()) {
  std::vector arrayList = new ArrayList();
  String[] strings = SteamWorkshop.instance.GetInstalledItemFolders();
- if (strings.empty()) {
+ if (strings == nullptr) {
  return arrayList;
  } else {
  for (int int0 = 0; int0 < strings.length; int0++) {
@@ -6718,10 +6718,10 @@ public:
  global = true
  )
  static void querySteamWorkshopItemDetails(ArrayList<String> itemIDs, LuaClosure functionObj, void* arg1) {
- if (itemIDs.empty() || functionObj.empty()) {
+ if (itemIDs == nullptr || functionObj == nullptr) {
  throw std::make_unique<NullPointerException>();
  } else if (itemIDs.empty()) {
- if (arg1.empty()) {
+ if (arg1 == nullptr) {
  LuaManager.caller.pcall(LuaManager.thread, functionObj, "Completed", std::make_unique<ArrayList>());
  } else {
  LuaManager.caller.pcall(LuaManager.thread, functionObj, arg1, "Completed", std::make_unique<ArrayList>());
@@ -6873,7 +6873,7 @@ public:
  return nullptr;
  } else {
  GameServerDetails gameServerDetails = ServerBrowser.GetServerDetails(index);
- if (gameServerDetails.empty()) {
+ if (gameServerDetails == nullptr) {
  return nullptr;
  } else if (gameServerDetails.tags.contains("hidden") || gameServerDetails.tags.contains("hosted")) {
  return nullptr;
@@ -7122,7 +7122,7 @@ public:
  global = true
  )
  static IsoDeadBody createRandomDeadBody(IsoGridSquare square, int blood) {
- if (square.empty()) {
+ if (square == nullptr) {
  return nullptr;
  } else {
  ItemPickerJava.ItemPickerRoom itemPickerRoom = ItemPickerJava.rooms.get("all");
@@ -7239,7 +7239,7 @@ public:
  return arrayList;
  } else {
  IsoGridSquare square = IsoCell.getInstance().getGridSquare(x, y, z);
- if (square.empty()) {
+ if (square == nullptr) {
  return arrayList;
  } else {
  for (int int0 = 0; int0 < totalZombies; int0++) {
@@ -7290,12 +7290,12 @@ public:
  global = true
  )
  public ArrayList<IsoZombie> addZombiesInBuilding(BuildingDef def, int totalZombies, String outfit, RoomDef room, Integer femaleChance) {
- bool boolean0 = room.empty();
+ bool boolean0 = room == nullptr;
  std::vector arrayList = new ArrayList();
  if (IsoWorld.getZombiesDisabled()) {
  return arrayList;
  } else {
- if (room.empty()) {
+ if (room == nullptr) {
  room = def.getRandomRoom(6);
  }
 
@@ -7328,7 +7328,7 @@ public:
 
  for (int int3 = 0; int3 < int2; int3++) {
  IsoGridSquare square = RandomizedBuildingBase.getRandomSpawnSquare(room);
- if (square.empty()) {
+ if (square == nullptr) {
  break;
  }
 
@@ -7363,7 +7363,7 @@ public:
  global = true
  )
  static BaseVehicle addVehicleDebug(const std::string& scriptName, IsoDirections dir, int skinIndex, IsoGridSquare sq) {
- if (dir.empty()) {
+ if (dir == nullptr) {
  dir = IsoDirections.getRandom();
  }
 
@@ -7447,7 +7447,7 @@ public:
  IsoPlayer player = IsoPlayer.players[playerIndex];
  IsoGridSquare square = player.getCurrentSquare();
  BaseVehicle vehicle0 = player.getVehicle();
- if (vehicle0.empty()) {
+ if (vehicle0 == nullptr) {
  vehicle0 = addVehicleDebug("Base.OffRoad", IsoDirections.N, 0, square);
  vehicle0.repair();
  player.getInventory().AddItem(vehicle0.createVehicleKey());
@@ -7838,7 +7838,7 @@ public:
  )
  static void reloadVehicleTextures(const std::string& scriptName) {
  VehicleScript vehicleScript = ScriptManager.instance.getVehicle(scriptName);
- if (vehicleScript.empty()) {
+ if (vehicleScript == nullptr) {
  DebugLog.Lua.warn("no such vehicle script");
  } else {
  for (int int0 = 0; int0 < vehicleScript.getSkinCount(); int0++) {
@@ -7930,7 +7930,7 @@ public:
  public static ArrayList<String> getAllOutfits(boolean female) {
  std::vector arrayList = new ArrayList();
  ModelManager.instance.create();
- if (OutfitManager.instance.empty()) {
+ if (OutfitManager.instance == nullptr) {
  return arrayList;
  } else {
  for (Outfit outfit : female ? OutfitManager.instance.m_FemaleOutfits : OutfitManager.instance.m_MaleOutfits) {
@@ -7959,7 +7959,7 @@ public:
  )
  public static ArrayList<String> getAllHairStyles(boolean female) {
  std::vector arrayList0 = new ArrayList();
- if (HairStyles.instance.empty()) {
+ if (HairStyles.instance == nullptr) {
  return arrayList0;
  } else {
  std::vector arrayList1 = new ArrayList<>(female ? HairStyles.instance.m_FemaleStyles : HairStyles.instance.m_MaleStyles);
@@ -8001,7 +8001,7 @@ public:
  )
  public static ArrayList<String> getAllBeardStyles() {
  std::vector arrayList0 = new ArrayList();
- if (BeardStyles.instance.empty()) {
+ if (BeardStyles.instance == nullptr) {
  return arrayList0;
  } else {
  std::vector arrayList1 = new ArrayList<>(BeardStyles.instance.m_Styles);
@@ -8052,7 +8052,7 @@ public:
  std::vector arrayList = new ArrayList();
  if (item != nullptr && ClothingDecals.instance != nullptr) {
  ClothingItem clothingItem = item.getClothingItem();
- if (clothingItem.empty()) {
+ if (clothingItem == nullptr) {
  return arrayList;
  } else {
  std::string string = clothingItem.getDecalGroup();
@@ -8060,7 +8060,7 @@ public:
  return arrayList;
  } else {
  ClothingDecalGroup clothingDecalGroup = ClothingDecals.instance.FindGroup(string);
- if (clothingDecalGroup.empty()) {
+ if (clothingDecalGroup == nullptr) {
  return arrayList;
  } else {
  clothingDecalGroup.getDecals(arrayList);
@@ -8280,7 +8280,7 @@ public:
  this->handle = SteamWorkshop.instance.CreateQueryUGCDetailsRequest(longs, this);
  if (this->handle == 0L) {
  SteamWorkshop.instance.RemoveCallback(this);
- if (object.empty()) {
+ if (object == nullptr) {
  LuaManager.caller.pcall(LuaManager.thread, luaClosure, "NotCompleted");
  } else {
  LuaManager.caller.pcall(LuaManager.thread, luaClosure, object, "NotCompleted");
@@ -8325,7 +8325,7 @@ public:
  }
 
  SteamWorkshop.instance.ReleaseQueryUGCRequest(long0);
- if (this->arg1.empty()) {
+ if (this->arg1 == nullptr) {
  LuaManager.caller.pcall(LuaManager.thread, this->functionObj, "Completed", arrayList);
  } else {
  LuaManager.caller.pcall(LuaManager.thread, this->functionObj, this->arg1, "Completed", arrayList);
@@ -8337,7 +8337,7 @@ public:
  if (long0 == this->handle) {
  SteamWorkshop.instance.RemoveCallback(this);
  SteamWorkshop.instance.ReleaseQueryUGCRequest(long0);
- if (this->arg1.empty()) {
+ if (this->arg1 == nullptr) {
  LuaManager.caller.pcall(LuaManager.thread, this->functionObj, "NotCompleted");
  } else {
  LuaManager.caller.pcall(LuaManager.thread, this->functionObj, this->arg1, "NotCompleted");

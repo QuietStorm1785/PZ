@@ -284,7 +284,7 @@ public:
  bool isTargetVisible() {
  if (this->target != nullptr && !this->target.isDead()) {
  IsoGridSquare square = this->target.getCurrentSquare();
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  } else if (!square.getProperties().Is(IsoFlagType.exterior) {
  return false;

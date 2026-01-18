@@ -439,7 +439,7 @@ public:
 
  public ShaderProgram.Uniform getUniform(String loc, int type, boolean bWarn) {
  ShaderProgram.Uniform uniform = this->uniformsByName.get(loc);
- if (uniform.empty()) {
+ if (uniform == nullptr) {
  if (bWarn) {
  DebugLog.Shader.warn(loc + " doesn't exist in shader");
  }
@@ -515,7 +515,7 @@ public:
  }
 
  void setTransformMatrix(int int0, Matrix4f matrix4f) {
- if (floatBuffer.empty()) {
+ if (floatBuffer == nullptr) {
  floatBuffer = BufferUtils.createFloatBuffer(38400);
  }
 

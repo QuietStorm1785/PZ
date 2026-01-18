@@ -40,7 +40,7 @@ public:
 
  while (true) {
  std::string string1 = bufferedReader.readLine();
- if (string1.empty()) {
+ if (string1 == nullptr) {
  return true;
  }
 

@@ -65,7 +65,7 @@ public:
 
  IsoObject createObject(IsoGridSquare square, int int0, bool boolean0, int int1) {
  std::string string = this->sprites.getBase(int0, this->noSeasonBase ? 0 : int1);
- if (string.empty()) {
+ if (string == nullptr) {
  string = "";
  }
 
@@ -106,7 +106,7 @@ public:
  object.doNotSync = true;
  if (int0 >= 0 && int0 < this->stages && object != nullptr) {
  std::string string = this->sprites.getBase(int0, this->noSeasonBase ? 0 : int1);
- if (string.empty()) {
+ if (string == nullptr) {
  object.setSprite(this->getSprite(""));
  if (object.AttachedAnimSprite != nullptr) {
  object.AttachedAnimSprite.clear();
@@ -117,7 +117,7 @@ public:
  IsoSprite sprite = this->getSprite(string);
  object.setSprite(sprite);
  if (this->hasChildSprite || this->hasFlower) {
- if (object.AttachedAnimSprite.empty()) {
+ if (object.AttachedAnimSprite == nullptr) {
  object.AttachedAnimSprite = std::make_unique<ArrayList<>>();
  }
 

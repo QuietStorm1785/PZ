@@ -25,7 +25,7 @@ public:
  }
 
  public synchronized int addParticle(E object) {
- if (object.empty()) {
+ if (object == nullptr) {
  return -1;
  } else if (this->size() == this->ParticleSystemsCount) {
  this->add((E)object);

@@ -533,7 +533,7 @@ public:
  }
 
  void render(Texture tex, float x, float y, float width, float height, float r, float g, float b, float a, Consumer<TextureDraw> texdModifier) {
- if (tex.empty() || tex.isReady()) {
+ if (tex == nullptr || tex.isReady()) {
  if (a != 0.0F) {
  if (this->numSprites == this->sprite.length) {
  this->CheckSpriteSlots();
@@ -544,7 +544,7 @@ public:
  float float0 = x + width;
  float float1 = y + height;
  TextureDraw textureDraw;
- if (this->wallShaderTexRender.empty()) {
+ if (this->wallShaderTexRender == nullptr) {
  textureDraw = TextureDraw.Create(
  this->sprite[this->numSprites], tex, x, y, float0, y, float0, float1, x, float1, int0, int0, int0, int0, texdModifier
  );
@@ -607,7 +607,7 @@ public:
  }
 
  void renderPoly(Texture tex, float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, float r, float g, float b, float a) {
- if (tex.empty() || tex.isReady()) {
+ if (tex == nullptr || tex.isReady()) {
  if (this->numSprites == this->sprite.length) {
  this->CheckSpriteSlots();
  }
@@ -658,7 +658,7 @@ public:
  float u4,
  float v4
  ) {
- if (tex.empty() || tex.isReady()) {
+ if (tex == nullptr || tex.isReady()) {
  if (this->numSprites == this->sprite.length) {
  this->CheckSpriteSlots();
  }

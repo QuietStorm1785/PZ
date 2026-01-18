@@ -92,7 +92,7 @@ public:
  }
  }
 
- class NetworkPlayerVariable {
+ private class NetworkPlayerVariable {
  PlayerVariables.NetworkPlayerVariableIDs id;
  float value;
 

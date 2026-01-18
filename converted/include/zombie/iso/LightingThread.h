@@ -46,7 +46,7 @@ public:
  this->bFinished = false;
  this->lightingThread = new Thread(ThreadGroups.Workers, () -> {
  while (!this->bFinished) {
- if (IsoWorld.instance.CurrentCell.empty()) {
+ if (IsoWorld.instance.CurrentCell == nullptr) {
  return;
  }
 

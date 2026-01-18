@@ -275,7 +275,7 @@ public:
  this->query = nullptr;
  ConnectionManager.log("connect-state-" + this->state.name().toLowerCase(), ConnectToServerState.State.WorkshopUpdate.name().toLowerCase(), nullptr);
  this->state = ConnectToServerState.State.WorkshopUpdate;
- } else if (this->query.empty()) {
+ } else if (this->query == nullptr) {
  ConnectionManager.log("connect-state-" + this->state.name().toLowerCase(), ConnectToServerState.State.WorkshopUpdate.name().toLowerCase(), nullptr);
  this->state = ConnectToServerState.State.WorkshopUpdate;
  } else {
@@ -482,7 +482,7 @@ public:
  instance = nullptr;
  }
 
- class ItemQuery implements ISteamWorkshopCallback {
+ private class ItemQuery implements ISteamWorkshopCallback {
  long handle;
  ArrayList<SteamUGCDetails> details;
  bool bCompleted;

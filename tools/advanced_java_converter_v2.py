@@ -93,6 +93,16 @@ class AdvancedProductionConverter:
     
     def _build_batch_patterns(self) -> Dict:
         """Build combined regex patterns for batch processing."""
+        # Extract callback names (they are dict keys)
+        callback_names = []
+        if self.callbacks and isinstance(self.callbacks, dict):
+            callback_names = [cb.split('.')[-1] for cb in self.callbacks.keys() if cb]
+        
+        # Extract event names (they are in a list of dicts with 'name' field)
+        event_names = []
+        if self.events and isinstance(self.events, list):
+            event_names = [e.get('name', '') for e in self.events if isinstance(e, dict) and e.get('name')]
+        
         return {
             # Batch Java keyword removal
             'java_keywords': re.compile(r'\b(?:final|abstract|volatile|transient|strictfp|native)\s+'),
@@ -108,8 +118,8 @@ class AdvancedProductionConverter:
             'whitespace': re.compile(r'  +'),
             
             # Project Zomboid specific patterns
-            'callback_pattern': re.compile(r'(?:' + '|'.join(re.escape(cb) for cb in self.callbacks.keys() if cb) + r')\s*\(') if self.callbacks else None,
-            'event_pattern': re.compile(r'handler[_\s]*(?:' + '|'.join(re.escape(e) for e in self.events.keys() if e) + r')|on[_\s]*(?:' + '|'.join(re.escape(e) for e in self.events.keys() if e) + r')', re.IGNORECASE) if self.events else None,
+            'callback_pattern': re.compile(r'(?:' + '|'.join(re.escape(cb) for cb in callback_names) + r')\s*\(') if callback_names else None,
+            'event_pattern': re.compile(r'handler[_\s]*(?:' + '|'.join(re.escape(e) for e in event_names) + r')|on[_\s]*(?:' + '|'.join(re.escape(e) for e in event_names) + r')', re.IGNORECASE) if event_names else None,
         }
     
     def process_file_streaming(self, filepath):

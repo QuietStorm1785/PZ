@@ -120,7 +120,7 @@ public:
  }
 
  bool isVanilla() {
- return this->radioData.empty() || this->radioData.isVanilla();
+ return this->radioData == nullptr || this->radioData.isVanilla();
  }
 
  void setLouisvilleObfuscate(bool b) {
@@ -145,7 +145,7 @@ public:
 
  void SetPlayerIsListening(bool isListening) {
  this->playerIsListening = isListening;
- if (this->playerIsListening && this->airingBroadcast.empty() && this->currentScript != nullptr) {
+ if (this->playerIsListening && this->airingBroadcast == nullptr && this->currentScript != nullptr) {
  this->airingBroadcast = this->currentScript.getValidAirBroadcast();
  if (this->airingBroadcast != nullptr) {
  this->airingBroadcast.resetLineCounter();
@@ -231,7 +231,7 @@ public:
  this->airCounter = this->airCounter - 1.25F * GameTime.getInstance().getMultiplier();
  if (this->airCounter < 0.0F) {
  RadioLine radioLine = this->airingBroadcast.getNextLine();
- if (radioLine.empty()) {
+ if (radioLine == nullptr) {
  this->lastBroadcastID = this->airingBroadcast.getID();
  this->airingBroadcast = nullptr;
  this->playerIsListening = false;

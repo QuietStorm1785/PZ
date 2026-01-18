@@ -23,7 +23,7 @@ public:
 
  static ReplaceSingle alloc_single() {
  ReplaceSingle replaceSingle = pool_single.poll();
- if (replaceSingle.empty()) {
+ if (replaceSingle == nullptr) {
  replaceSingle = std::make_unique<ReplaceSingle>();
  }
 
@@ -36,7 +36,7 @@ public:
 
  static ReplaceList alloc_list() {
  ReplaceList replaceList = pool_list.poll();
- if (replaceList.empty()) {
+ if (replaceList == nullptr) {
  replaceList = std::make_unique<ReplaceList>();
  }
 
@@ -50,7 +50,7 @@ public:
 
  static ReplaceProviderLua Alloc() {
  ReplaceProviderLua replaceProviderLua = pool.poll();
- if (replaceProviderLua.empty()) {
+ if (replaceProviderLua == nullptr) {
  replaceProviderLua = std::make_unique<ReplaceProviderLua>();
  }
 

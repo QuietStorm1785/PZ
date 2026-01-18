@@ -32,12 +32,12 @@ public:
  while (true) {
  arrayList.add(new Long(this->source.getFilePointer()));
  OggPage oggPage = this->getNextPage(int0 > 0);
- if (oggPage.empty()) {
+ if (oggPage == nullptr) {
  break;
  }
 
  LogicalOggStreamImpl logicalOggStreamImpl = (LogicalOggStreamImpl)this->getLogicalStream(oggPage.getStreamSerialNumber());
- if (logicalOggStreamImpl.empty()) {
+ if (logicalOggStreamImpl == nullptr) {
  logicalOggStreamImpl = new LogicalOggStreamImpl(this, oggPage.getStreamSerialNumber());
  this->logicalStreams.put(new Integer(oggPage.getStreamSerialNumber()), logicalOggStreamImpl);
  }

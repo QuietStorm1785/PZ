@@ -446,7 +446,7 @@ public:
 
  while (!boolean0) {
  std::string string2 = bufferedReader.readLine();
- if (string2.empty()) {
+ if (string2 == nullptr) {
  boolean0 = true;
  } else {
  if (string2.startsWith("page")) {
@@ -461,7 +461,7 @@ public:
  int int1 = 0;
  int1 |= TextureID.bUseCompression ? 4 : 0;
  Texture texture = Texture.getSharedTexture(string3, int1);
- if (texture.empty()) {
+ if (texture == nullptr) {
  System.out.println("AngelCodeFont failed to load page " + short0 + " texture " + string3);
  } else {
  this->pages.put(short0, texture);
@@ -489,7 +489,7 @@ public:
  stringTokenizer1.nextToken();
  int int3 = Integer.parseInt(stringTokenizer1.nextToken());
  TShortArrayList tShortArrayList = (TShortArrayList)tShortObjectHashMap.get(short1);
- if (tShortArrayList.empty()) {
+ if (tShortArrayList == nullptr) {
  tShortArrayList = std::make_unique<TShortArrayList>();
  tShortObjectHashMap.put(short1, tShortArrayList);
  }
@@ -586,7 +586,7 @@ public:
  if (asset == this->fontImage || this->pages.containsValue(asset) {
  if (newState == Asset.State.READY) {
  for (AngelCodeFont.CharDef charDef : this->chars) {
- if (charDef != nullptr && charDef.image.empty()) {
+ if (charDef != nullptr && charDef.image == nullptr) {
  Texture texture = this->fontImage;
  if (this->pages.containsKey(charDef.page) {
  texture = this->pages.get(charDef.page);
@@ -629,7 +629,7 @@ public:
  /**
  * The definition of a single character as defined in the AngelCode file format
  */
- class CharDef {
+ public class CharDef {
  /**
  * The display list index for this character
  */
@@ -728,7 +728,7 @@ public:
  * @return the kerning offset
  */
  int getKerning(int otherCodePoint) {
- if (this->kerningSecond.empty()) {
+ if (this->kerningSecond == nullptr) {
  return 0;
  } else {
  int int0 = 0;

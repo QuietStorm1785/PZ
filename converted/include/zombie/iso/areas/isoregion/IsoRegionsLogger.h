@@ -47,7 +47,7 @@ public:
 
  private IsoRegionsLogger.IsoRegionLog getLog() {
  IsoRegionsLogger.IsoRegionLog regionLog = this->pool.poll();
- if (regionLog.empty()) {
+ if (regionLog == nullptr) {
  regionLog = new IsoRegionsLogger.IsoRegionLog();
  }
 

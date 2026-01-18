@@ -23,7 +23,7 @@ public:
 
  float calculateCurrentValue() {
  IsoPlayer player = this->getPlayer();
- if (player.empty()) {
+ if (player == nullptr) {
  return 0.0F;
  } else {
  float float0 = Core.getInstance().getZoom(player.PlayerIndex) - Core.getInstance().OffscreenBuffer.getMinZoom();
@@ -37,7 +37,7 @@ public:
 
  for (int int0 = 0; int0 < IsoPlayer.numPlayers; int0++) {
  IsoPlayer player1 = IsoPlayer.players[int0];
- if (player1 != nullptr && (player0.empty() || player0.isDead() && player1.isAlive())) {
+ if (player1 != nullptr && (player0 == nullptr || player0.isDead() && player1.isAlive())) {
  player0 = player1;
  }
  }

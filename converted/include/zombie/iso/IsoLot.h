@@ -103,7 +103,7 @@ public:
  try {
  string = "world_" + cX + "_" + cY + ".lotpack";
  File file = new File(InfoFileNames.get(string);
- if (this->m_in.empty() || !this->m_lastUsedPath == file.getAbsolutePath())) {
+ if (this->m_in == nullptr || !this->m_lastUsedPath == file.getAbsolutePath())) {
  if (this->m_in != nullptr) {
  this->m_in.close();
  }

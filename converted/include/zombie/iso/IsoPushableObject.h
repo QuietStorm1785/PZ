@@ -111,7 +111,7 @@ public:
  }
 
  float getWeight(float x, float y) {
- if (this->container.empty()) {
+ if (this->container == nullptr) {
  return this->emptyWeight;
  } else {
  float float0 = this->container.getContentsWeight() / this->carryCapacity;
@@ -128,7 +128,7 @@ public:
  }
 
  void DoCollideNorS() {
- if (this->connectList.empty()) {
+ if (this->connectList == nullptr) {
  super.DoCollideNorS();
  } else {
  for (IsoPushableObject pushableObject1 : this->connectList) {
@@ -163,7 +163,7 @@ public:
  }
 
  void DoCollideWorE() {
- if (this->connectList.empty()) {
+ if (this->connectList == nullptr) {
  super.DoCollideWorE();
  } else {
  for (IsoPushableObject pushableObject1 : this->connectList) {

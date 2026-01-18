@@ -500,7 +500,7 @@ public:
  uint8_t byte2 = 2;
  int int13 = int11 - (int12 + byte2 + int12) / 2;
  std::string string2 = GameWindow.kickReason;
- if (string2.empty()) {
+ if (string2 == nullptr) {
  string2 = Translator.getText("UI_OnConnectFailed_ConnectionLost");
  }
 
@@ -554,7 +554,7 @@ public:
  uint8_t byte3 = 2;
  int int17 = int15 - (int16 + byte3 + int16) / 2;
  std::string string3 = GameLoadingString;
- if (GameLoadingString.empty()) {
+ if (GameLoadingString == nullptr) {
  string3 = "";
  }
 
@@ -564,7 +564,7 @@ public:
  } else {
  if (GameClient.bClient) {
  std::string string4 = GameLoadingString;
- if (GameLoadingString.empty()) {
+ if (GameLoadingString == nullptr) {
  string4 = "";
  }
 

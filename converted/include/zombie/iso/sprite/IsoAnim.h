@@ -87,7 +87,7 @@ public:
  int integer = int3;
  void* object = nullptr;
  std::string string0 = integer.toString();
- if (texture.empty()) {
+ if (texture == nullptr) {
  stringBuilder.setCharAt(int1, '8');
 
  try {

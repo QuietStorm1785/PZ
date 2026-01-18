@@ -101,7 +101,7 @@ public:
  }
 
  static uint8_t getMediaTypeForCategory(const std::string& category) {
- if (category.empty()) {
+ if (category == nullptr) {
  return -1;
  } else {
  return (byte)(category.equalsIgnoreCase("cds") ? 0 : 1);
@@ -354,7 +354,7 @@ public:
  }
 
  bool hasListenedToAll(IsoPlayer player, MediaData mediaData) {
- if (player.empty()) {
+ if (player == nullptr) {
  player = IsoPlayer.players[0];
  }
 

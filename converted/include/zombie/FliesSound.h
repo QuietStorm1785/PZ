@@ -105,7 +105,7 @@ public:
  }
 
  void chunkLoaded(IsoChunk chunk) {
- if (chunk.corpseData.empty()) {
+ if (chunk.corpseData == nullptr) {
  chunk.corpseData = new FliesSound.ChunkData(chunk.wx, chunk.wy);
  }
 
@@ -162,7 +162,7 @@ public:
  FliesSound.ChunkData chunkData = this->getChunkData((int4 + int2) * 10, (int3 + int1) * 10);
  if (chunkData != nullptr) {
  FliesSound.ChunkLevelData chunkLevelData = chunkData.levelData[int5];
- if (building.empty()) {
+ if (building == nullptr) {
  int0 += chunkLevelData.corpseCount;
  } else if (chunkLevelData.buildingCorpseCount != nullptr) {
  int integer = chunkLevelData.buildingCorpseCount.get(building);
@@ -182,7 +182,7 @@ public:
  return chunk != nullptr ? chunk.corpseData : nullptr;
  }
 
- class ChunkData {
+ public class ChunkData {
  int wx;
  int wy;
  private FliesSound.ChunkLevelData[] levelData = new FliesSound.ChunkLevelData[8];
@@ -198,7 +198,7 @@ public:
 
  void corpseAdded(int int0, int int1, int int2) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- IsoBuilding building = square.empty() ? nullptr : square.getBuilding();
+ IsoBuilding building = square == nullptr ? nullptr : square.getBuilding();
  int int3 = int0 - this->wx * 10;
  int int4 = int1 - this->wy * 10;
  this->levelData[int2].corpseAdded(int3, int4, building);
@@ -206,7 +206,7 @@ public:
 
  void corpseRemoved(int int0, int int1, int int2) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- IsoBuilding building = square.empty() ? nullptr : square.getBuilding();
+ IsoBuilding building = square == nullptr ? nullptr : square.getBuilding();
  int int3 = int0 - this->wx * 10;
  int int4 = int1 - this->wy * 10;
  this->levelData[int2].corpseRemoved(int3, int4, building);
@@ -219,7 +219,7 @@ public:
  }
  }
 
- class ChunkLevelData {
+ private class ChunkLevelData {
  int corpseCount = 0;
  HashMap<IsoBuilding, Integer> buildingCorpseCount = nullptr;
  int[] refCount = new int[4];
@@ -229,15 +229,15 @@ public:
  }
 
  void corpseAdded(int var1, int var2, IsoBuilding building) {
- if (building.empty()) {
+ if (building == nullptr) {
  this->corpseCount++;
  } else {
- if (this->buildingCorpseCount.empty()) {
+ if (this->buildingCorpseCount == nullptr) {
  this->buildingCorpseCount = std::make_unique<HashMap<>>();
  }
 
  int integer = this->buildingCorpseCount.get(building);
- if (integer.empty()) {
+ if (integer == nullptr) {
  this->buildingCorpseCount.put(building, 1);
  } else {
  this->buildingCorpseCount.put(building, integer + 1);
@@ -246,7 +246,7 @@ public:
  }
 
  void corpseRemoved(int var1, int var2, IsoBuilding building) {
- if (building.empty()) {
+ if (building == nullptr) {
  this->corpseCount--;
  } else if (this->buildingCorpseCount != nullptr) {
  int integer = this->buildingCorpseCount.get(building);
@@ -262,7 +262,7 @@ public:
 
  IsoGridSquare calcSoundPos(int int2, int int1, int int0, IsoBuilding building) {
  IsoChunk chunk = IsoWorld.instance.CurrentCell.getChunkForGridSquare(int2 * 10, int1 * 10, int0);
- if (chunk.empty()) {
+ if (chunk == nullptr) {
  return nullptr;
  } else {
  int int3 = 0;
@@ -286,7 +286,7 @@ public:
  if (BodyDamage.getSicknessFromCorpsesRate(int0) > ZomboidGlobals.FoodSicknessDecrease) {
  IsoBuilding building = player.getCurrentBuilding();
  IsoGridSquare square = this->calcSoundPos(int1, int2, int3, building);
- if (square.empty()) {
+ if (square == nullptr) {
  return;
  }
 
@@ -295,7 +295,7 @@ public:
  }
 
  FliesSound.FadeEmitter fadeEmitter0 = this->emitters[player.PlayerIndex];
- if (fadeEmitter0.emitter.empty()) {
+ if (fadeEmitter0.emitter == nullptr) {
  fadeEmitter0.emitter = IsoWorld.instance.getFreeEmitter(square.x, square.y, int3);
  fadeEmitter0.emitter.playSoundLoopedImpl("CorpseFlies");
  fadeEmitter0.emitter.setVolumeAll(0.0F);
@@ -355,7 +355,7 @@ public:
  }
  }
 
- class FadeEmitter {
+ private class FadeEmitter {
  static const float FADE_IN_RATE = 0.01F;
  static const float FADE_OUT_RATE = -0.01F;
  BaseSoundEmitter emitter = nullptr;
@@ -364,7 +364,7 @@ public:
  IsoGridSquare sq = nullptr;
 
  bool update() {
- if (this->emitter.empty()) {
+ if (this->emitter == nullptr) {
  return true;
  } else {
  if (this->volume < this->targetVolume) {
@@ -396,7 +396,7 @@ public:
  }
  }
 
- class PlayerData {
+ private class PlayerData {
  int wx = -1;
  int wy = -1;
  int z = -1;

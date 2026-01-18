@@ -111,7 +111,7 @@ public:
  }
 
  bool ReadFromWorldSprite(const std::string& sprite) {
- if (sprite.empty()) {
+ if (sprite == nullptr) {
  return false;
  } else if (this->hasReadWorldSprite && this->worldSprite != nullptr && this->worldSprite.equalsIgnoreCase(sprite) {
  return true;
@@ -181,13 +181,13 @@ public:
  this->setColor(new Color(Rand.Next(0.7F, 1.0F), Rand.Next(0.7F, 1.0F), Rand.Next(0.7F, 1.0F);
  }
 
- if (texture0.empty()) {
+ if (texture0 == nullptr) {
  texture0 = Texture.getSharedTexture("media/inventory/Question_On.png");
  }
 
  this->setTexture(texture0);
  this->getModData().rawset("Flatpack", "true");
- } else if (this->texture.empty()
+ } else if (this->texture == nullptr
  || this->texture.getName() == nullptr
  || this->texture.getName() == "Item_Moveable_object")
  || this->texture.getName() == "Question_On")) {
@@ -201,7 +201,7 @@ public:
  }
  }
 
- if (texture1.empty()) {
+ if (texture1 == nullptr) {
  if (!propertyContainer.Is("MoveType")) {
  object = "Item_Moveable_object";
  } else if (propertyContainer.Val("MoveType") == "WallObject")) {
@@ -223,7 +223,7 @@ public:
  }
  }
 
- if (texture1.empty()) {
+ if (texture1 == nullptr) {
  texture1 = Texture.getSharedTexture("media/inventory/Question_On.png");
  }
 
@@ -349,7 +349,7 @@ public:
  DebugLog.log("Moveable.load -> Radio item = " + (this->fullType != nullptr ? this->fullType : "unknown"));
  }
 
- if (this->customItem.empty() && !StringUtils.isNullOrWhitespace(this->worldSprite) && !this->type.equalsIgnoreCase(this->worldSprite) {
+ if (this->customItem == nullptr && !StringUtils.isNullOrWhitespace(this->worldSprite) && !this->type.equalsIgnoreCase(this->worldSprite) {
  this->type = this->worldSprite;
  this->fullType = this->module + "." + this->worldSprite;
  }

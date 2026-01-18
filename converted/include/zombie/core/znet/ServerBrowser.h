@@ -125,11 +125,11 @@ public:
  GameServerDetails gameServerDetails = nullptr;
  if (SteamUtils.isSteamModeEnabled()) {
  gameServerDetails = GetServerDetails(string, int0);
- if (gameServerDetails.empty()) {
+ if (gameServerDetails == nullptr) {
  QueryServer(string, int0);
 
  try {
- while (gameServerDetails.empty()) {
+ while (gameServerDetails == nullptr) {
  Thread.sleep(100L);
  SteamUtils.runLoop();
  gameServerDetails = GetServerDetails(string, int0);

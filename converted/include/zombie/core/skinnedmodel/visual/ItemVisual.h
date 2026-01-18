@@ -96,7 +96,7 @@ public:
 
  ClothingItem getClothingItem() {
  Item item = this->getScriptItem();
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  } else {
  if (!StringUtils.isNullOrWhitespace(this->m_alternateModelName) {
@@ -141,7 +141,7 @@ public:
 
  ImmutableColor getTint(ClothingItem clothingItem) {
  if (clothingItem.m_AllowRandomTint) {
- if (this->m_Tint.empty()) {
+ if (this->m_Tint == nullptr) {
  this->m_Tint = OutfitRNG.randomImmutableColor();
  }
 
@@ -189,7 +189,7 @@ public:
  if (StringUtils.isNullOrWhitespace(clothingItem.m_DecalGroup) {
  return this->m_Decal = nullptr;
  } else {
- if (this->m_Decal.empty()) {
+ if (this->m_Decal == nullptr) {
  this->m_Decal = ClothingDecals.instance.getRandomDecal(clothingItem.m_DecalGroup);
  }
 
@@ -252,7 +252,7 @@ public:
  }
 
  void copyFrom(ItemVisual other) {
- if (other.empty()) {
+ if (other == nullptr) {
  this->clear();
  } else {
  ClothingItem clothingItem = other.getClothingItem();
@@ -421,7 +421,7 @@ public:
  }
 
  uint8_t byte0 = input.get();
- if (byte0 > 0 && this->blood.empty()) {
+ if (byte0 > 0 && this->blood == nullptr) {
  this->blood = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -434,7 +434,7 @@ public:
 
  if (WorldVersion >= 163) {
  byte0 = input.get();
- if (byte0 > 0 && this->dirt.empty()) {
+ if (byte0 > 0 && this->dirt == nullptr) {
  this->dirt = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -447,7 +447,7 @@ public:
  }
 
  byte0 = input.get();
- if (byte0 > 0 && this->holes.empty()) {
+ if (byte0 > 0 && this->holes == nullptr) {
  this->holes = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -460,7 +460,7 @@ public:
 
  if (WorldVersion >= 154) {
  byte0 = input.get();
- if (byte0 > 0 && this->basicPatches.empty()) {
+ if (byte0 > 0 && this->basicPatches == nullptr) {
  this->basicPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -474,7 +474,7 @@ public:
 
  if (WorldVersion >= 155) {
  byte0 = input.get();
- if (byte0 > 0 && this->denimPatches.empty()) {
+ if (byte0 > 0 && this->denimPatches == nullptr) {
  this->denimPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -486,7 +486,7 @@ public:
  }
 
  byte0 = input.get();
- if (byte0 > 0 && this->leatherPatches.empty()) {
+ if (byte0 > 0 && this->leatherPatches == nullptr) {
  this->leatherPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -500,7 +500,7 @@ public:
  }
 
  void setDenimPatch(BloodBodyPartType bodyPartType) {
- if (this->denimPatches.empty()) {
+ if (this->denimPatches == nullptr) {
  this->denimPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -508,11 +508,11 @@ public:
  }
 
  float getDenimPatch(BloodBodyPartType bodyPartType) {
- return this->denimPatches.empty() ? 0.0F : (this->denimPatches[bodyPartType.index()] & 255) / 255.0F;
+ return this->denimPatches == nullptr ? 0.0F : (this->denimPatches[bodyPartType.index()] & 255) / 255.0F;
  }
 
  void setLeatherPatch(BloodBodyPartType bodyPartType) {
- if (this->leatherPatches.empty()) {
+ if (this->leatherPatches == nullptr) {
  this->leatherPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -520,11 +520,11 @@ public:
  }
 
  float getLeatherPatch(BloodBodyPartType bodyPartType) {
- return this->leatherPatches.empty() ? 0.0F : (this->leatherPatches[bodyPartType.index()] & 255) / 255.0F;
+ return this->leatherPatches == nullptr ? 0.0F : (this->leatherPatches[bodyPartType.index()] & 255) / 255.0F;
  }
 
  void setBasicPatch(BloodBodyPartType bodyPartType) {
- if (this->basicPatches.empty()) {
+ if (this->basicPatches == nullptr) {
  this->basicPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -532,11 +532,11 @@ public:
  }
 
  float getBasicPatch(BloodBodyPartType bodyPartType) {
- return this->basicPatches.empty() ? 0.0F : (this->basicPatches[bodyPartType.index()] & 255) / 255.0F;
+ return this->basicPatches == nullptr ? 0.0F : (this->basicPatches[bodyPartType.index()] & 255) / 255.0F;
  }
 
  int getBasicPatchesNumber() {
- if (this->basicPatches.empty()) {
+ if (this->basicPatches == nullptr) {
  return 0;
  } else {
  int int0 = 0;
@@ -552,7 +552,7 @@ public:
  }
 
  void setHole(BloodBodyPartType bodyPartType) {
- if (this->holes.empty()) {
+ if (this->holes == nullptr) {
  this->holes = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -560,11 +560,11 @@ public:
  }
 
  float getHole(BloodBodyPartType bodyPartType) {
- return this->holes.empty() ? 0.0F : (this->holes[bodyPartType.index()] & 255) / 255.0F;
+ return this->holes == nullptr ? 0.0F : (this->holes[bodyPartType.index()] & 255) / 255.0F;
  }
 
  int getHolesNumber() {
- if (this->holes.empty()) {
+ if (this->holes == nullptr) {
  return 0;
  } else {
  int int0 = 0;
@@ -580,7 +580,7 @@ public:
  }
 
  void setBlood(BloodBodyPartType bodyPartType, float amount) {
- if (this->blood.empty()) {
+ if (this->blood == nullptr) {
  this->blood = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -589,15 +589,15 @@ public:
  }
 
  float getBlood(BloodBodyPartType bodyPartType) {
- return this->blood.empty() ? 0.0F : (this->blood[bodyPartType.index()] & 255) / 255.0F;
+ return this->blood == nullptr ? 0.0F : (this->blood[bodyPartType.index()] & 255) / 255.0F;
  }
 
  float getDirt(BloodBodyPartType bodyPartType) {
- return this->dirt.empty() ? 0.0F : (this->dirt[bodyPartType.index()] & 255) / 255.0F;
+ return this->dirt == nullptr ? 0.0F : (this->dirt[bodyPartType.index()] & 255) / 255.0F;
  }
 
  void setDirt(BloodBodyPartType bodyPartType, float amount) {
- if (this->dirt.empty()) {
+ if (this->dirt == nullptr) {
  this->dirt = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -607,7 +607,7 @@ public:
 
  void copyBlood(ItemVisual other) {
  if (other.blood != nullptr) {
- if (this->blood.empty()) {
+ if (this->blood == nullptr) {
  this->blood = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -619,7 +619,7 @@ public:
 
  void copyDirt(ItemVisual other) {
  if (other.dirt != nullptr) {
- if (this->dirt.empty()) {
+ if (this->dirt == nullptr) {
  this->dirt = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -631,7 +631,7 @@ public:
 
  void copyHoles(ItemVisual other) {
  if (other.holes != nullptr) {
- if (this->holes.empty()) {
+ if (this->holes == nullptr) {
  this->holes = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -643,7 +643,7 @@ public:
 
  void copyPatches(ItemVisual other) {
  if (other.basicPatches != nullptr) {
- if (this->basicPatches.empty()) {
+ if (this->basicPatches == nullptr) {
  this->basicPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -653,7 +653,7 @@ public:
  }
 
  if (other.denimPatches != nullptr) {
- if (this->denimPatches.empty()) {
+ if (this->denimPatches == nullptr) {
  this->denimPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -663,7 +663,7 @@ public:
  }
 
  if (other.leatherPatches != nullptr) {
- if (this->leatherPatches.empty()) {
+ if (this->leatherPatches == nullptr) {
  this->leatherPatches = new byte[BloodBodyPartType.MAX.index()];
  }
 
@@ -766,11 +766,11 @@ public:
 
  std::string getLastStandString() {
  Item item = this->getScriptItem();
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  } else {
  ClothingItem clothingItem = this->getClothingItem();
- if (clothingItem.empty()) {
+ if (clothingItem == nullptr) {
  return nullptr;
  } else {
  StringBuilder stringBuilder = new StringBuilder();
@@ -868,12 +868,12 @@ public:
  break;
  case "type":
  item = InventoryItemFactory.CreateItem(string1);
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  }
 
  itemVisual = item.getVisual();
- if (itemVisual.empty()) {
+ if (itemVisual == nullptr) {
  return nullptr;
  }
  }

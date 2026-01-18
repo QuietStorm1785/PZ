@@ -52,7 +52,7 @@ public:
 
  public IsoCarBatteryCharger(InventoryItem _item, IsoCell cell, IsoGridSquare square) {
  super(cell, square, (IsoSprite)nullptr);
- if (_item.empty()) {
+ if (_item == nullptr) {
  throw NullPointerException("item is nullptr");
  } else {
  this->item = _item;
@@ -88,7 +88,7 @@ public:
 
  void save(ByteBuffer bb, bool IS_DEBUG_SAVE) {
  super.save(bb, IS_DEBUG_SAVE);
- if (this->item.empty()) {
+ if (this->item == nullptr) {
  assert false;
 
  bb.put((byte)0);
@@ -97,7 +97,7 @@ public:
  this->item.saveWithSize(bb, false);
  }
 
- if (this->battery.empty()) {
+ if (this->battery == nullptr) {
  bb.put((byte)0);
  } else {
  bb.put((byte)1);
@@ -125,7 +125,7 @@ public:
  this->battery = nullptr;
  }
 
- if (this->battery.empty()) {
+ if (this->battery == nullptr) {
  this->lastUpdate = -1.0F;
  this->activated = false;
  this->stopChargingSound();
@@ -227,7 +227,7 @@ public:
 
  try {
  Texture texture0 = Texture.getSharedTexture(string);
- if (texture0.empty()) {
+ if (texture0 == nullptr) {
  string = itemx.getTex().getName();
  }
  } catch (Exception exception) {
@@ -236,11 +236,11 @@ public:
 
  Texture texture1 = Texture.getSharedTexture(string);
  bool boolean0 = false;
- if (sprite.empty()) {
+ if (sprite == nullptr) {
  sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  }
 
- if (sprite.CurrentAnim.empty()) {
+ if (sprite.CurrentAnim == nullptr) {
  sprite.LoadFramesNoDirPageSimple(string);
  sprite.CurrentAnim.name = string;
  boolean0 = true;
@@ -271,7 +271,7 @@ public:
  b.putByte(byte0);
  b.putByte((byte)1);
  b.putByte((byte)0);
- if (this->battery.empty()) {
+ if (this->battery == nullptr) {
  b.putByte((byte)0);
  } else {
  b.putByte((byte)1);
@@ -376,7 +376,7 @@ public:
  if (!GameServer.bServer) {
  if (this->getObjectIndex() != -1) {
  if (this->sound != -1L) {
- if (this->emitter.empty()) {
+ if (this->emitter == nullptr) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->square.x + 0.5F, this->square.y + 0.5F, this->square.z);
  IsoWorld.instance.takeOwnershipOfEmitter(this->emitter);
  }

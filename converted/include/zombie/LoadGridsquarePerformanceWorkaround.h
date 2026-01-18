@@ -80,7 +80,7 @@ public:
  }
  }
 
- if (container.empty() || !container.empty()) {
+ if (container == nullptr || !container.empty()) {
  ItemPickerJava.updateOverlaySprite(object);
  }
  }

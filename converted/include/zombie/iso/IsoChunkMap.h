@@ -306,7 +306,7 @@ public:
  chunk.refs.add(this);
  } else {
  chunk = chunkStore.poll();
- if (chunk.empty()) {
+ if (chunk == nullptr) {
  chunk = new IsoChunk(this->cell);
  } else {
  MPStatistics.decreaseStoredChunk();
@@ -337,7 +337,7 @@ public:
  this->setChunk(x, y, chunk);
  } else {
  chunk = chunkStore.poll();
- if (chunk.empty()) {
+ if (chunk == nullptr) {
  chunk = new IsoChunk(this->cell);
  } else {
  MPStatistics.decreaseStoredChunk();
@@ -508,7 +508,7 @@ public:
  IsoChunk chunk = this->getChunk(int0, int1);
  if (chunk != nullptr) {
  IsoGridSquare square = chunk.getGridSquare(0, 0, 0);
- if (square.empty()) {
+ if (square == nullptr) {
  TextManager.instance.DrawString(short0, byte0, "wx:" + chunk.wx + " wy:" + chunk.wy);
  }
  }
@@ -661,7 +661,7 @@ public:
  for (int int0 = 0; int0 < ChunkGridWidth; int0++) {
  for (int int1 = ChunkGridWidth - 1; int1 > 0; int1--) {
  IsoChunk chunk = this->getChunk(int0, int1);
- if (chunk.empty() && int1 == ChunkGridWidth - 1) {
+ if (chunk == nullptr && int1 == ChunkGridWidth - 1) {
  int int2 = this->WorldX - ChunkGridWidth / 2 + int0;
  int int3 = this->WorldY - ChunkGridWidth / 2 + int1;
  chunk = SharedChunks.get((int2 << 16) + int3);
@@ -699,7 +699,7 @@ public:
  for (int int0 = 0; int0 < ChunkGridWidth; int0++) {
  for (int int1 = 0; int1 < ChunkGridWidth - 1; int1++) {
  IsoChunk chunk = this->getChunk(int0, int1);
- if (chunk.empty() && int1 == 0) {
+ if (chunk == nullptr && int1 == 0) {
  int int2 = this->WorldX - ChunkGridWidth / 2 + int0;
  int int3 = this->WorldY - ChunkGridWidth / 2 + int1;
  chunk = SharedChunks.get((int2 << 16) + int3);
@@ -737,7 +737,7 @@ public:
  for (int int0 = 0; int0 < ChunkGridWidth; int0++) {
  for (int int1 = ChunkGridWidth - 1; int1 > 0; int1--) {
  IsoChunk chunk = this->getChunk(int1, int0);
- if (chunk.empty() && int1 == ChunkGridWidth - 1) {
+ if (chunk == nullptr && int1 == ChunkGridWidth - 1) {
  int int2 = this->WorldX - ChunkGridWidth / 2 + int1;
  int int3 = this->WorldY - ChunkGridWidth / 2 + int0;
  chunk = SharedChunks.get((int2 << 16) + int3);
@@ -775,7 +775,7 @@ public:
  for (int int0 = 0; int0 < ChunkGridWidth; int0++) {
  for (int int1 = 0; int1 < ChunkGridWidth - 1; int1++) {
  IsoChunk chunk = this->getChunk(int1, int0);
- if (chunk.empty() && int1 == 0) {
+ if (chunk == nullptr && int1 == 0) {
  int int2 = this->WorldX - ChunkGridWidth / 2 + int1;
  int int3 = this->WorldY - ChunkGridWidth / 2 + int0;
  chunk = SharedChunks.get((int2 << 16) + int3);

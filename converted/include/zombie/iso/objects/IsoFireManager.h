@@ -446,7 +446,7 @@ public:
  bool playing;
 
  void playSound(IsoFire firex) {
- if (this->emitter.empty()) {
+ if (this->emitter == nullptr) {
  this->emitter = (BaseSoundEmitter)(Core.SoundDisabled ? std::make_unique<DummySoundEmitter>() : std::make_unique<FMODSoundEmitter>());
  if (!Core.SoundDisabled) {
  ((FMODSoundEmitter)this->emitter).addParameter(this->parameterFireSize);

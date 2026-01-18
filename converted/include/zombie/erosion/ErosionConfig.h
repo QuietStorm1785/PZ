@@ -174,7 +174,7 @@ public:
 
  while (true) {
  std::string string0 = bufferedReader.readLine();
- if (string0.empty()) {
+ if (string0 == nullptr) {
  bufferedReader.close();
  return true;
  }

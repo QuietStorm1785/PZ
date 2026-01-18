@@ -58,14 +58,14 @@ public:
 
  void enter() {
  instance = this;
- if (this->m_luaEnv.empty()) {
+ if (this->m_luaEnv == nullptr) {
  this->m_luaEnv = new EditVehicleState.LuaEnvironment(LuaManager.platform, LuaManager.converterManager, LuaManager.env);
  }
 
  this->saveGameUI();
  if (this->m_selfUI.size() == 0) {
  IsoPlayer player = IsoPlayer.players[this->m_playerIndex];
- this->m_z = player.empty() ? 0 : (int)player.z;
+ this->m_z = player == nullptr ? 0 : (int)player.z;
  this->m_luaEnv.caller.pcall(this->m_luaEnv.thread, this->m_luaEnv.env.rawget("DebugGlobalObjectState_InitUI"), this);
  } else {
  UIManager.UI.addAll(this->m_selfUI);

@@ -337,10 +337,10 @@ public:
  );
  return nullptr;
  } else {
- return cCNode0.empty() && cCNode1.empty()
+ return cCNode0 == nullptr && cCNode1 == nullptr
  ? CollideWithObstacles.CCIntersection.alloc().init(cCEdge0, cCEdge1, (float)double1, (float)double2, float8, float9)
  : CollideWithObstacles.CCIntersection.alloc()
- .init(cCEdge0, cCEdge1, (float)double1, (float)double2, cCNode0.empty() ? cCNode1 : cCNode0);
+ .init(cCEdge0, cCEdge1, (float)double1, (float)double2, cCNode0 == nullptr ? cCNode1 : cCNode0);
  }
  } else {
  return nullptr;
@@ -512,7 +512,7 @@ public:
  cCEdge0 = nullptr;
  }
 
- if (cCEdge0.empty()) {
+ if (cCEdge0 == nullptr) {
  double double2 = Double.MAX_VALUE;
  cCEdge0 = nullptr;
  cCNode2 = nullptr;
@@ -864,7 +864,7 @@ public:
  for (int int0 = 0; int0 < this->edges.size(); int0++) {
  CollideWithObstacles.CCEdge cCEdge2 = this->edges.get(int0);
  if (cCEdge2.node1.visible.contains(cCEdge2.node2) {
- if (cCEdge0.empty()) {
+ if (cCEdge0 == nullptr) {
  cCEdge0 = cCEdge2;
  } else if (!cCEdge0.hasNode(cCEdge2.node1) || !cCEdge0.hasNode(cCEdge2.node2) {
  cCEdge1 = cCEdge2;
@@ -960,7 +960,7 @@ public:
  }
 
  cCObjectOutline = get(int0, int1 + 1, int2, cCObjectOutlines);
- if (cCObjectOutline.empty()) {
+ if (cCObjectOutline == nullptr) {
  if (cCObjectOutline != nullptr) {
  cCObjectOutline.w_cutoff = true;
  }
@@ -993,7 +993,7 @@ public:
  }
 
  cCObjectOutline = get(int0 + 1, int1, int2, cCObjectOutlines);
- if (cCObjectOutline.empty()) {
+ if (cCObjectOutline == nullptr) {
  if (cCObjectOutline != nullptr) {
  cCObjectOutline.n_cutoff = true;
  }
@@ -1051,7 +1051,7 @@ public:
  this->trace_NW_W(cCObjectOutlines, nullptr);
  } else {
  CollideWithObstacles.CCObjectOutline cCObjectOutline1 = get(this->x - 1, this->y, this->z, cCObjectOutlines);
- if (cCObjectOutline1.empty()) {
+ if (cCObjectOutline1 == nullptr) {
  return;
  }
 
@@ -1075,7 +1075,7 @@ public:
  this->trace_NW_N(cCObjectOutlines, nullptr);
  } else {
  CollideWithObstacles.CCObjectOutline cCObjectOutline1 = get(this->x, this->y - 1, this->z, cCObjectOutlines);
- if (cCObjectOutline1.empty()) {
+ if (cCObjectOutline1 == nullptr) {
  return;
  }
 
@@ -1146,7 +1146,7 @@ public:
  this->trace_NW_W(cCObjectOutlines, this->nodes.get(this->nodes.size() - 1);
  } else {
  CollideWithObstacles.CCObjectOutline cCObjectOutline1 = get(this->x - 1, this->y, this->z, cCObjectOutlines);
- if (cCObjectOutline1.empty()) {
+ if (cCObjectOutline1 == nullptr) {
  return;
  }
 
@@ -1182,7 +1182,7 @@ public:
  cCObjectOutline1.trace_NW_N(cCObjectOutlines, this->nodes.get(this->nodes.size() - 1);
  } else {
  cCObjectOutline1 = get(this->x + 1, this->y - 1, this->z, cCObjectOutlines);
- if (cCObjectOutline1.empty()) {
+ if (cCObjectOutline1 == nullptr) {
  return;
  }
 

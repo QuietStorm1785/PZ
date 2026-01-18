@@ -18,7 +18,7 @@ public:
  static const double EPSILON = 1.0E-4;
 
  static StrokeGeometry.Point newPoint(double double0, double double1) {
- if (s_firstPoint.empty()) {
+ if (s_firstPoint == nullptr) {
  return new StrokeGeometry.Point(double0, double1);
  } else {
  StrokeGeometry.Point point = s_firstPoint;
@@ -33,10 +33,10 @@ public:
  }
 
  static void release(StrokeGeometry.Point point) {
- if (point.next.empty() && point != s_lastPoint) {
+ if (point.next == nullptr && point != s_lastPoint) {
  point.next = s_firstPoint;
  s_firstPoint = point;
- if (s_lastPoint.empty()) {
+ if (s_lastPoint == nullptr) {
  s_lastPoint = point;
  }
  }

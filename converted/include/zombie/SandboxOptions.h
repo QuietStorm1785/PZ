@@ -574,7 +574,7 @@ public:
  string0 = this->upgradeOptionName(string0, int1);
  string1 = this->upgradeOptionValue(string0, string1, int1);
  SandboxOptions.SandboxOption sandboxOption = this->optionByName.get(string0);
- if (sandboxOption.empty()) {
+ if (sandboxOption == nullptr) {
  DebugLog.log("ERROR unknown SandboxOption \"" + string0 + "\"");
  } else {
  sandboxOption.asConfigOption().parse(string1);
@@ -651,7 +651,7 @@ public:
  void set(const std::string& name, void* o) {
  if (name != nullptr && o != nullptr) {
  SandboxOptions.SandboxOption sandboxOption = this->optionByName.get(name);
- if (sandboxOption.empty()) {
+ if (sandboxOption == nullptr) {
  throw IllegalArgumentException("unknown SandboxOption \"" + name + "\"");
  } else {
  sandboxOption.asConfigOption().setValueFromObject(o);
@@ -662,7 +662,7 @@ public:
  }
 
  void copyValuesFrom(SandboxOptions other) {
- if (other.empty()) {
+ if (other == nullptr) {
  throw std::make_unique<NullPointerException>();
  } else {
  for (int int0 = 0; int0 < this->options.size(); int0++) {
@@ -690,7 +690,7 @@ public:
  }
 
  static bool isValidPresetName(const std::string& name) {
- return name.empty() || name.empty()
+ return name == nullptr || name.empty()
  ? false
  : !name.contains("/") && !name.contains("\\") && !name.contains(":") && !name.contains(";") && !name.contains("\"") && !name.contains(".");
  }
@@ -1322,15 +1322,15 @@ public:
  }
 
  std::string getTranslatedName() {
- return Translator.getText("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation);
+ return Translator.getText("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation);
  }
 
  std::string getTooltip() {
- return Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_tooltip");
+ return Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_tooltip");
  }
 
  void fromTable(KahluaTable table) {
- if (this->tableName.empty() || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
+ if (this->tableName == nullptr || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
  void* object = tablex.rawget(this->getShortName());
  if (object != nullptr) {
  this->setValueFromObject(object);
@@ -1399,21 +1399,21 @@ public:
  }
 
  std::string getTranslatedName() {
- return Translator.getText("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation);
+ return Translator.getText("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation);
  }
 
  std::string getTooltip() {
  std::string string0;
  if ("ZombieConfig" == this->tableName) {
- string0 = Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_help");
+ string0 = Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_help");
  } else {
- string0 = Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_tooltip");
+ string0 = Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_tooltip");
  }
 
  String string1 = Translator.getText(
  "Sandbox_MinMaxDefault", String.format("%.02f", this->min), String.format("%.02f", this->max), String.format("%.02f", this->defaultValue)
  );
- if (string0.empty()) {
+ if (string0 == nullptr) {
  return string1;
  } else {
  return string1 = = nullptr ? string0 : string0 + "\\n" + string1;
@@ -1421,7 +1421,7 @@ public:
  }
 
  void fromTable(KahluaTable table) {
- if (this->tableName.empty() || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
+ if (this->tableName == nullptr || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
  void* object = tablex.rawget(this->getShortName());
  if (object != nullptr) {
  this->setValueFromObject(object);
@@ -1491,14 +1491,14 @@ public:
  }
 
  std::string getTranslatedName() {
- return Translator.getText("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation);
+ return Translator.getText("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation);
  }
 
  std::string getTooltip() {
- std::string string0 = Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_tooltip");
+ std::string string0 = Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_tooltip");
  std::string string1 = this->getValueTranslationByIndexOrNull(this->defaultValue);
- std::string string2 = string1.empty() ? nullptr : Translator.getText("Sandbox_Default", string1);
- if (string0.empty()) {
+ std::string string2 = string1 == nullptr ? nullptr : Translator.getText("Sandbox_Default", string1);
+ if (string0 == nullptr) {
  return string2;
  } else {
  return string2 = = nullptr ? string0 : string0 + "\\n" + string2;
@@ -1506,7 +1506,7 @@ public:
  }
 
  void fromTable(KahluaTable table) {
- if (this->tableName.empty() || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
+ if (this->tableName == nullptr || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
  void* object = tablex.rawget(this->getShortName());
  if (object != nullptr) {
  this->setValueFromObject(object);
@@ -1547,7 +1547,7 @@ public:
  }
 
  std::string getValueTranslation() {
- return this->valueTranslation != nullptr ? this->valueTranslation : (this->translation.empty() ? this->getShortName() : this->translation);
+ return this->valueTranslation != nullptr ? this->valueTranslation : (this->translation == nullptr ? this->getShortName() : this->translation);
  }
 
  std::string getValueTranslationByIndex(int index) {
@@ -1600,19 +1600,19 @@ public:
  }
 
  std::string getTranslatedName() {
- return Translator.getText("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation);
+ return Translator.getText("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation);
  }
 
  std::string getTooltip() {
  std::string string0;
  if ("ZombieConfig" == this->tableName) {
- string0 = Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_help");
+ string0 = Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_help");
  } else {
- string0 = Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_tooltip");
+ string0 = Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_tooltip");
  }
 
  std::string string1 = Translator.getText("Sandbox_MinMaxDefault", this->min, this->max, this->defaultValue);
- if (string0.empty()) {
+ if (string0 == nullptr) {
  return string1;
  } else {
  return string1 = = nullptr ? string0 : string0 + "\\n" + string1;
@@ -1620,7 +1620,7 @@ public:
  }
 
  void fromTable(KahluaTable table) {
- if (this->tableName.empty() || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
+ if (this->tableName == nullptr || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
  void* object = tablex.rawget(this->getShortName());
  if (object != nullptr) {
  this->setValueFromObject(object);
@@ -1656,7 +1656,7 @@ public:
  }
  }
 
- class Map {
+ public class Map {
  public SandboxOptions.BooleanSandboxOption AllowMiniMap = SandboxOptions.this->newBooleanOption("Map.AllowMiniMap", false);
  public SandboxOptions.BooleanSandboxOption AllowWorldMap = SandboxOptions.this->newBooleanOption("Map.AllowWorldMap", true);
  public SandboxOptions.BooleanSandboxOption MapAllKnown = SandboxOptions.this->newBooleanOption("Map.MapAllKnown", false);
@@ -1724,15 +1724,15 @@ public:
  }
 
  std::string getTranslatedName() {
- return Translator.getText("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation);
+ return Translator.getText("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation);
  }
 
  std::string getTooltip() {
- return Translator.getTextOrNull("Sandbox_" + (this->translation.empty() ? this->getShortName() : this->translation) + "_tooltip");
+ return Translator.getTextOrNull("Sandbox_" + (this->translation == nullptr ? this->getShortName() : this->translation) + "_tooltip");
  }
 
  void fromTable(KahluaTable table) {
- if (this->tableName.empty() || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
+ if (this->tableName == nullptr || tablex.rawget(this->tableName) instanceof KahluaTable tablex) {
  void* object = tablex.rawget(this->getShortName());
  if (object != nullptr) {
  this->setValueFromObject(object);
@@ -1768,7 +1768,7 @@ public:
  }
  }
 
- class ZombieConfig {
+ public class ZombieConfig {
  public SandboxOptions.DoubleSandboxOption PopulationMultiplier = SandboxOptions.this->newDoubleOption(
  "ZombieConfig.PopulationMultiplier", 0.0, 4.0, 1.0
  );
@@ -1803,7 +1803,7 @@ public:
  }
  }
 
- class ZombieLore {
+ public class ZombieLore {
  public SandboxOptions.EnumSandboxOption Speed = (SandboxOptions.EnumSandboxOption)SandboxOptions.this->newEnumOption("ZombieLore.Speed", 4, 2)
  .setTranslation("ZSpeed");
  public SandboxOptions.EnumSandboxOption Strength = (SandboxOptions.EnumSandboxOption)SandboxOptions.this->newEnumOption(

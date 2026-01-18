@@ -184,7 +184,7 @@ public:
  packet.realz = (byte)this->player.z;
  packet.realdir = (byte)this->player.dir.index();
  packet.realt = int0;
- if (this->player.vehicle.empty()) {
+ if (this->player.vehicle == nullptr) {
  packet.VehicleID = -1;
  packet.VehicleSeat = -1;
  } else {
@@ -255,7 +255,7 @@ public:
  if (vehicle != nullptr) {
  if (packet.VehicleSeat >= 0 && packet.VehicleSeat < vehicle.getMaxPassengers()) {
  IsoGameCharacter character0 = vehicle.getCharacter(packet.VehicleSeat);
- if (character0.empty()) {
+ if (character0 == nullptr) {
  if (GameServer.bDebug) {
  DebugLog.log(this->player.getUsername() + " got in vehicle " + vehicle.VehicleID + " seat " + packet.VehicleSeat);
  }
@@ -272,7 +272,7 @@ public:
  } else if (vehicle != nullptr) {
  if (vehicle == this->player.getVehicle() && this->player.getVehicle().getSeat(this->player) != -1) {
  IsoGameCharacter character1 = vehicle.getCharacter(packet.VehicleSeat);
- if (character1.empty()) {
+ if (character1 == nullptr) {
  if (vehicle.getSeat(this->player) != packet.VehicleSeat) {
  vehicle.switchSeat(this->player, packet.VehicleSeat);
  }

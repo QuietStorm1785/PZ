@@ -17,7 +17,7 @@ public:
 
  std::string get(const std::string& s) {
  std::string string = this->strings.get(s);
- if (string.empty()) {
+ if (string == nullptr) {
  this->strings.put(s, s);
  string = s;
  }

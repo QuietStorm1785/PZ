@@ -287,7 +287,7 @@ public:
  this->CamCharacterY = this->CamCharacter.getY();
  this->CamCharacterZ = this->CamCharacter.getZ();
  this->CamCharacterSquare = this->CamCharacter.getCurrentSquare();
- this->CamCharacterRoom = this->CamCharacterSquare.empty() ? nullptr : this->CamCharacterSquare.getRoom();
+ this->CamCharacterRoom = this->CamCharacterSquare == nullptr ? nullptr : this->CamCharacterSquare.getRoom();
  this->OffX = IsoCamera.getOffX();
  this->OffY = IsoCamera.getOffY();
  this->OffscreenWidth = IsoCamera.getOffscreenWidth(_playerIndex);

@@ -573,7 +573,7 @@ public:
 
  if (SteamUtils.isSteamModeEnabled()) {
  std::string string4 = ServerOptions.instance.PublicName.getValue();
- if (string4.empty() || string4.empty()) {
+ if (string4 == nullptr || string4.empty()) {
  ServerOptions.instance.PublicName.setValue("My PZ Server");
  }
  }
@@ -944,7 +944,7 @@ public:
  std::string string16 = consoleCommands.get(int14);
 
  try {
- if (CoopSlave.instance.empty() || !CoopSlave.instance.handleCommand(string16) {
+ if (CoopSlave.instance == nullptr || !CoopSlave.instance.handleCommand(string16) {
  System.out.println(handleServerCommand(string16, nullptr);
  }
  } catch (Exception exception4) {
@@ -1027,7 +1027,7 @@ public:
  UdpConnection udpConnection3 = udpEngine.connections.get(int21);
 
  try {
- if (udpConnection3.username.empty()
+ if (udpConnection3.username == nullptr
  && !udpConnection3.awaitingCoopApprove
  && !LoginQueue.isInTheQueue(udpConnection3)
  && udpConnection3.isConnectionAttemptTimeout()) {
@@ -1145,7 +1145,7 @@ public:
 
  while (true) {
  std::string string = bufferedReader.readLine();
- if (string.empty()) {
+ if (string == nullptr) {
  consoleCommands.add("process-status@eof");
  break;
  }
@@ -1174,7 +1174,7 @@ public:
  }
 
  static std::string handleServerCommand(const std::string& string0, UdpConnection udpConnection) {
- if (string0.empty()) {
+ if (string0 == nullptr) {
  return nullptr;
  } else {
  std::string string1 = "admin";
@@ -1216,7 +1216,7 @@ public:
 
  static void sendTeleport(IsoPlayer player, float float0, float float1, float float2) {
  UdpConnection udpConnection = getConnectionFromPlayer(player);
- if (udpConnection.empty()) {
+ if (udpConnection == nullptr) {
  DebugLog.log("No connection found for user " + player.getUsername());
  } else {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
@@ -1514,19 +1514,19 @@ public:
  if (SystemDisabler.getDoMainLoopDealWithNetData()) {
  ByteBuffer byteBuffer = zomboidNetData.buffer;
  UdpConnection udpConnection = udpEngine.getActiveConnection(zomboidNetData.connection);
- if (zomboidNetData.type.empty()) {
+ if (zomboidNetData.type == nullptr) {
  ZomboidNetDataPool.instance.discard(zomboidNetData);
  } else {
  zomboidNetData.type.serverPacketCount++;
  MPStatistic.getInstance().addIncomePacket(zomboidNetData.type, byteBuffer.limit());
 
  try {
- if (udpConnection.empty()) {
+ if (udpConnection == nullptr) {
  DebugLog.log(DebugType.Network, "Received packet type=" + zomboidNetData.type.name() + " connection is nullptr.");
  return;
  }
 
- if (udpConnection.username.empty()) {
+ if (udpConnection.username == nullptr) {
  switch (zomboidNetData.type) {
  case Login:
  case Ping:
@@ -1547,7 +1547,7 @@ public:
 
  zomboidNetData.type.onServerPacket(byteBuffer, udpConnection);
  } catch (Exception exception) {
- if (udpConnection.empty()) {
+ if (udpConnection == nullptr) {
  DebugLog.log(DebugType.Network, "Error with packet of type: " + zomboidNetData.type + " connection is nullptr.");
  } else {
  DebugLog.General.error("Error with packet of type: " + zomboidNetData.type + " for " + udpConnection.username);
@@ -2002,7 +2002,7 @@ public:
 
  static void updateZombieControl(IsoZombie zombie0, short short0, int int0) {
  try {
- if (zombie0.authOwner.empty()) {
+ if (zombie0.authOwner == nullptr) {
  return;
  }
 
@@ -2027,7 +2027,7 @@ public:
  IsoPlayer player = getPlayerFromConnection(udpConnection0, playerPacket.id);
 
  try {
- if (player.empty()) {
+ if (player == nullptr) {
  DebugLog.General
  .error("receivePlayerUpdate: Server received position for unknown player (id:" + playerPacket.id + "). Server will ignore this data.");
  } else {
@@ -2067,7 +2067,7 @@ public:
 
  if (ServerOptions.instance.KickFastPlayers.getValue()) {
  Vector2 vector = playerToCoordsMap.get(Integer.valueOf(playerPacket.id);
- if (vector.empty()) {
+ if (vector == nullptr) {
  vector = std::make_unique<Vector2>();
  vector.x = playerPacket.x;
  vector.y = playerPacket.y;
@@ -2157,7 +2157,7 @@ public:
  short short0 = byteBuffer.getShort();
  short short1 = byteBuffer.getShort();
  IsoChunk chunk = ServerMap.instance.getChunk(short0, short1);
- if (chunk.empty()) {
+ if (chunk == nullptr) {
  udpConnection.chunkObjectState.add(short0);
  udpConnection.chunkObjectState.add(short1);
  } else {
@@ -2295,7 +2295,7 @@ public:
  int int0 = byteBuffer.getInt();
  Faction faction = Faction.getFaction(string0);
  bool boolean0 = false;
- if (faction.empty()) {
+ if (faction == nullptr) {
  faction = new Faction(string0, string1);
  boolean0 = true;
  Faction.getFactions().add(faction);
@@ -2336,7 +2336,7 @@ public:
 
  for (int int2 = 0; int2 < udpEngine.connections.size(); int2++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int2);
- if (udpConnection1.empty() || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
+ if (udpConnection1 == nullptr || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.SyncFaction.doPacket(byteBufferWriter);
  faction.writeToBuffer(byteBufferWriter, boolean1);
@@ -2362,7 +2362,7 @@ public:
  static void sendNonPvpZone(NonPvpZone nonPvpZone, bool boolean0, UdpConnection udpConnection1) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
+ if (udpConnection1 == nullptr || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.SyncNonPvpZone.doPacket(byteBufferWriter);
  nonPvpZone.save(byteBufferWriter.bb);
@@ -2414,7 +2414,7 @@ public:
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
  if (square != nullptr) {
  IsoCompost compost = square.getCompost();
- if (compost.empty()) {
+ if (compost == nullptr) {
  compost = new IsoCompost(square.getCell(), square);
  square.AddSpecialObject(compost);
  }
@@ -2429,7 +2429,7 @@ public:
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
  if (udpConnection0.RelevantTo(compost.square.x, compost.square.y)
- && (udpConnection1 != nullptr && udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID() || udpConnection1.empty())) {
+ && (udpConnection1 != nullptr && udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID() || udpConnection1 == nullptr) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.SyncCompost.doPacket(byteBufferWriter);
  byteBufferWriter.putInt(compost.square.x);
@@ -2535,7 +2535,7 @@ public:
  exception.printStackTrace();
  }
 
- if (item.empty()) {
+ if (item == nullptr) {
  return;
  }
 
@@ -2630,7 +2630,7 @@ public:
  static void sendZone(IsoMetaGrid.Zone zone, UdpConnection udpConnection1) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
+ if (udpConnection1 == nullptr || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.RegisterZone.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(zone.name);
@@ -2660,7 +2660,7 @@ public:
  if (PlayerToAddressMap.containsKey(player) {
  long long0 = PlayerToAddressMap.get(player);
  UdpConnection udpConnection = udpEngine.getActiveConnection(long0);
- if (udpConnection.empty()) {
+ if (udpConnection == nullptr) {
  return;
  }
 
@@ -2709,7 +2709,7 @@ public:
  IsoObject object = square.getObjects().get(int4);
  if (object != nullptr) {
  object.sprite = IsoSpriteManager.instance.getSprite(int0);
- if (object.sprite.empty() && !string.empty()) {
+ if (object.sprite == nullptr && !string.empty()) {
  object.setSprite(string);
  }
 
@@ -3204,7 +3204,7 @@ public:
  for (int int3 = 0; int3 < udpEngine.connections.size(); int3++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int3);
  if (udpConnection0.RelevantTo(square.getX(), square.getY())
- && (udpConnection1.empty() || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID())) {
+ && (udpConnection1 == nullptr || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID())) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.ReceiveModData.doPacket(byteBufferWriter);
  byteBufferWriter.putInt(int0);
@@ -3240,7 +3240,7 @@ public:
  }
  }
 
- if (item.empty() && !(object instanceof IsoWindow) {
+ if (item == nullptr && !(object instanceof IsoWindow) {
  return;
  }
 
@@ -3561,11 +3561,11 @@ public:
  std::string string = GameWindow.ReadString(byteBuffer);
  void* object = nullptr;
  object = handleClientCommand(string.substring(1), udpConnection);
- if (object.empty()) {
+ if (object == nullptr) {
  object = handleServerCommand(string.substring(1), udpConnection);
  }
 
- if (object.empty()) {
+ if (object == nullptr) {
  object = "Unknown command " + string;
  }
 
@@ -3577,7 +3577,7 @@ public:
  }
 
  static std::string handleClientCommand(const std::string& string0, UdpConnection udpConnection) {
- if (string0.empty()) {
+ if (string0 == nullptr) {
  return nullptr;
  } else {
  std::vector arrayList = new ArrayList();
@@ -3626,13 +3626,13 @@ public:
  } else if (string1 == "dance")) {
  return "Stop kidding me...";
  } else if (string1 == "safehouse")) {
- if (int0 != 2 || udpConnection.empty()) {
+ if (int0 != 2 || udpConnection == nullptr) {
  return ServerOptions.clientOptionsList.get("safehouse");
  } else if (!ServerOptions.instance.PlayerSafehouse.getValue() && !ServerOptions.instance.AdminSafehouse.getValue()) {
  return "Safehouses are disabled on this server.";
  } else if ("release" == strings[1])) {
  SafeHouse safeHouse = SafeHouse.hasSafehouse(udpConnection.username);
- if (safeHouse.empty()) {
+ if (safeHouse == nullptr) {
  return "You don't own a safehouse.";
  } else if (!ServerOptions.instance.PlayerSafehouse.getValue()
  && !"admin" == udpConnection.accessLevel)
@@ -3670,7 +3670,7 @@ public:
  exception.printStackTrace();
  }
 
- if (item.empty()) {
+ if (item == nullptr) {
  LoggerManager.getLogger("user").write(udpConnection0.idStr + " equipped unknown item type");
  return;
  }
@@ -3755,7 +3755,7 @@ public:
  arrayList1.add(player.getDisplayName());
  } else {
  std::string string = ServerWorldDatabase.instance.getDisplayName(udpConnection1.usernames[int1]);
- arrayList1.add(string.empty() ? udpConnection1.usernames[int1] : string);
+ arrayList1.add(string == nullptr ? udpConnection1.usernames[int1] : string);
  }
 
  if (SteamUtils.isSteamModeEnabled()) {
@@ -3814,7 +3814,7 @@ public:
  UdpConnection udpConnection1 = udpEngine.connections.get(int2);
  if (udpConnection1.getConnectedGUID() != udpConnection0.getConnectedGUID() && udpConnection1.isFullyConnected()) {
  IsoPlayer player = getAnyPlayerFromConnection(udpConnection1);
- if (player != nullptr && (movingObject.empty() || udpConnection1.RelevantTo(movingObject.getX(), movingObject.getY(), int0) {
+ if (player != nullptr && (movingObject == nullptr || udpConnection1.RelevantTo(movingObject.getX(), movingObject.getY(), int0) {
  ByteBufferWriter byteBufferWriter = udpConnection1.startPacket();
  PacketTypes.PacketType.PlaySound.doPacket(byteBufferWriter);
  playSoundPacket.write(byteBufferWriter);
@@ -3884,7 +3884,7 @@ public:
  public static void PlayWorldSoundServer(
  IsoGameCharacter character, String string, boolean var2, IsoGridSquare square, float var4, float float0, float var6, boolean var7
  ) {
- if (character.empty() || !character.isInvisible() || DebugOptions.instance.Character.Debug.PlaySoundWhenInvisible.getValue()) {
+ if (character == nullptr || !character.isInvisible() || DebugOptions.instance.Character.Debug.PlaySoundWhenInvisible.getValue()) {
  PlayWorldSound(string, square, float0);
  }
  }
@@ -3985,7 +3985,7 @@ public:
  if (boolean0) {
  std::string string1 = GameWindow.ReadString(byteBuffer);
  item = InventoryItemFactory.CreateItem(string1);
- if (item.empty()) {
+ if (item == nullptr) {
  return;
  }
  }
@@ -4118,11 +4118,11 @@ public:
  player = getAnyPlayerFromConnection(udpConnection);
  }
 
- if (player.empty()) {
+ if (player == nullptr) {
  DebugLog.log("receiveClientCommand: player is nullptr");
  } else {
  GameServer.CCFilter cCFilter = ccFilters.get(string0);
- if (cCFilter.empty() || cCFilter.passes(string1) {
+ if (cCFilter == nullptr || cCFilter.passes(string1) {
  LoggerManager.getLogger("cmd")
  .write(
  udpConnection.idStr
@@ -4158,7 +4158,7 @@ public:
  player = getAnyPlayerFromConnection(udpConnection);
  }
 
- if (player.empty()) {
+ if (player == nullptr) {
  DebugLog.log("receiveGlobalObjects: player is nullptr");
  } else {
  SGlobalObjectNetwork.receive(byteBuffer, player);
@@ -4267,11 +4267,11 @@ public:
  object = container.getContainingItem().getWorldItem();
  }
 
- if (object.empty()) {
+ if (object == nullptr) {
  DebugLog.General.error("container has no parent object");
  } else {
  IsoGridSquare square = ((IsoObject)object).getSquare();
- if (square.empty()) {
+ if (square == nullptr) {
  DebugLog.General.error("container parent object has no square");
  } else {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
@@ -4326,11 +4326,11 @@ public:
  object = container.getContainingItem().getWorldItem();
  }
 
- if (object.empty()) {
+ if (object == nullptr) {
  DebugLog.log("sendRemoveItemFromContainer: o is nullptr");
  } else {
  IsoGridSquare square = ((IsoObject)object).getSquare();
- if (square.empty()) {
+ if (square == nullptr) {
  DebugLog.log("sendRemoveItemFromContainer: square is nullptr");
  } else {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
@@ -4389,7 +4389,7 @@ public:
  int int1 = byteBufferReader.getInt();
  int int2 = byteBufferReader.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  square = ServerMap.instance.getGridSquare(int0, int1, int2);
  }
 
@@ -4405,7 +4405,7 @@ public:
  for (int int4 = 0; int4 < int3; int4++) {
  int int5 = byteBufferReader.getInt();
  InventoryItem item0 = object0.getContainer().getItemWithID(int5);
- if (item0.empty()) {
+ if (item0 == nullptr) {
  alreadyRemoved.add(int5);
  } else {
  object0.getContainer().Remove(item0);
@@ -4438,7 +4438,7 @@ public:
  for (int int8 = 0; int8 < int3; int8++) {
  int int9 = byteBufferReader.getInt();
  InventoryItem item1 = container0.getItemWithID(int9);
- if (item1.empty()) {
+ if (item1 == nullptr) {
  alreadyRemoved.add(int9);
  } else {
  container0.Remove(item1);
@@ -4461,7 +4461,7 @@ public:
  for (int int10 = 0; int10 < int3; int10++) {
  int int11 = byteBufferReader.getInt();
  InventoryItem item2 = container1.getItemWithID(int11);
- if (item2.empty()) {
+ if (item2 == nullptr) {
  alreadyRemoved.add(int11);
  } else {
  container1.Remove(item2);
@@ -4481,13 +4481,13 @@ public:
  int3 = byteBuffer.getInt();
  BaseVehicle vehicle = VehicleManager.instance.getVehicleByID(short1);
  if (vehicle != nullptr) {
- VehiclePart part = vehicle.empty() ? nullptr : vehicle.getPartByIndex(byte3);
- ItemContainer container2 = part.empty() ? nullptr : part.getItemContainer();
+ VehiclePart part = vehicle == nullptr ? nullptr : vehicle.getPartByIndex(byte3);
+ ItemContainer container2 = part == nullptr ? nullptr : part.getItemContainer();
  if (container2 != nullptr) {
  for (int int12 = 0; int12 < int3; int12++) {
  int int13 = byteBufferReader.getInt();
  InventoryItem item3 = container2.getItemWithID(int13);
- if (item3.empty()) {
+ if (item3 == nullptr) {
  alreadyRemoved.add(int13);
  } else {
  container2.Remove(item3);
@@ -4680,7 +4680,7 @@ public:
  object = square.getObjects().get(byte0);
  if (object != nullptr) {
  container = object.getContainerByIndex(byte1);
- if (container.empty() || container.isExplored()) {
+ if (container == nullptr || container.isExplored()) {
  return;
  }
  }
@@ -4691,8 +4691,8 @@ public:
  BaseVehicle vehicle = VehicleManager.instance.getVehicleByID(short2);
  if (vehicle != nullptr) {
  VehiclePart part = vehicle.getPartByIndex(byte1);
- container = part.empty() ? nullptr : part.getItemContainer();
- if (container.empty() || container.isExplored()) {
+ container = part == nullptr ? nullptr : part.getItemContainer();
+ if (container == nullptr || container.isExplored()) {
  return;
  }
  }
@@ -4761,7 +4761,7 @@ public:
 
  static void sendItemsInContainer(IsoObject object, ItemContainer container) {
  if (udpEngine != nullptr) {
- if (container.empty()) {
+ if (container == nullptr) {
  DebugLog.log("sendItemsInContainer: container is nullptr");
  } else {
  if (object instanceof IsoWorldInventoryObject worldInventoryObject) {
@@ -4776,7 +4776,7 @@ public:
  return;
  }
  } else if (object instanceof BaseVehicle) {
- if (container.vehiclePart.empty() || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != object) {
+ if (container.vehiclePart == nullptr || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != object) {
  DebugLog.log("sendItemsInContainer: wrong container for BaseVehicle");
  return;
  }
@@ -4863,7 +4863,7 @@ public:
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
  std::unordered_set hashSet = new HashSet();
  uint8_t byte0 = 0;
- if (square.empty()) {
+ if (square == nullptr) {
  DebugLog.log("ERROR sendItemsToContainer square is nullptr");
  } else {
  ItemContainer container = nullptr;
@@ -4892,7 +4892,7 @@ public:
  }
  }
 
- if (container.empty()) {
+ if (container == nullptr) {
  DebugLog.log("ERROR sendItemsToContainer can't find world item with id=" + int3);
  return;
  }
@@ -4921,13 +4921,13 @@ public:
  short short1 = byteBufferReader.getShort();
  uint8_t byte4 = byteBufferReader.getByte();
  BaseVehicle vehicle = VehicleManager.instance.getVehicleByID(short1);
- if (vehicle.empty()) {
+ if (vehicle == nullptr) {
  DebugLog.log("ERROR sendItemsToContainer invalid vehicle id");
  return;
  }
 
  VehiclePart part = vehicle.getPartByIndex(byte4);
- container = part.empty() ? nullptr : part.getItemContainer();
+ container = part == nullptr ? nullptr : part.getItemContainer();
  }
 
  if (container != nullptr) {
@@ -5305,7 +5305,7 @@ public:
  return;
  }
 
- if (object.empty()) {
+ if (object == nullptr) {
  LoggerManager.getLogger("user").write(udpConnection0.idStr + " equipped unknown item");
  return;
  }
@@ -5327,7 +5327,7 @@ public:
  return;
  }
 
- if (object.empty()) {
+ if (object == nullptr) {
  LoggerManager.getLogger("user").write(udpConnection0.idStr + " equipped unknown item");
  return;
  }
@@ -5349,7 +5349,7 @@ public:
  player0.remoteSneakLvl = int2;
  player0.username = string0;
  player0.accessLevel = PlayerType.toString(udpConnection0.accessLevel);
- if (!player0.accessLevel == "") && CoopSlave.instance.empty()) {
+ if (!player0.accessLevel == "") && CoopSlave.instance == nullptr) {
  player0.setGhostMode(true);
  player0.setInvisible(true);
  player0.setGodMod(true);
@@ -5441,7 +5441,7 @@ public:
  } else if (byte0 != 1) {
  if (byte0 == 2) {
  std::string string0 = udpConnection0.usernames[byte1];
- if (string0.empty()) {
+ if (string0 == nullptr) {
  coopAccessDenied("Coop player login wasn't received", byte1, udpConnection0);
  } else {
  DebugLog.log("coop player=" + (byte1 + 1) + "/4 username=\"" + string0 + "\" player info received");
@@ -5837,7 +5837,7 @@ public:
  }
 
  IsoGridSquare square = ServerMap.instance.getGridSquare(int4, int5, int6);
- if (square.empty()) {
+ if (square == nullptr) {
  DebugLog.log("SyncAlarmClock: sq is nullptr x,y,z=" + int4 + "," + int5 + "," + int6);
  } else {
  AlarmClock alarmClock = nullptr;
@@ -5850,7 +5850,7 @@ public:
  }
  }
 
- if (alarmClock.empty()) {
+ if (alarmClock == nullptr) {
  DebugLog.log("SyncAlarmClock: AlarmClock is nullptr x,y,z=" + int4 + "," + int5 + "," + int6);
  } else {
  if (boolean2) {
@@ -5968,7 +5968,7 @@ public:
  for (int int8 = int4 * 10; int8 < int4 * 10 + 10; int8++) {
  for (int int9 = 0; int9 <= 7; int9++) {
  IsoGridSquare square = ServerMap.instance.getGridSquare(int7, int8, int9);
- if (square.empty()) {
+ if (square == nullptr) {
  break;
  }
 
@@ -6012,7 +6012,7 @@ public:
  for (int int3 = chunk.wy * 10; int3 < chunk.wy * 10 + 10; int3++) {
  for (int int4 = 0; int4 <= 7; int4++) {
  IsoGridSquare square = ServerMap.instance.getGridSquare(int2, int3, int4);
- if (square.empty()) {
+ if (square == nullptr) {
  break;
  }
 
@@ -6492,7 +6492,7 @@ public:
  }
 
  zomboidNetData.read(short0, byteBuffer, udpConnection);
- if (zomboidNetData.type.empty()) {
+ if (zomboidNetData.type == nullptr) {
  try {
  if (ServerOptions.instance.AntiCheatProtectionType13.getValue() && PacketValidator.checkUser(udpConnection) {
  PacketValidator.doKickUser(udpConnection, String.valueOf((int)short0), "Type13", nullptr);
@@ -6664,7 +6664,7 @@ public:
 
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection1.getConnectedGUID() != udpConnection0.getConnectedGUID()) {
+ if (udpConnection1 == nullptr || udpConnection1.getConnectedGUID() != udpConnection0.getConnectedGUID()) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.PlayerDeath.doPacket(byteBufferWriter);
  deadPlayerPacket.write(byteBufferWriter);
@@ -6834,7 +6834,7 @@ public:
 
  short short0 = byteBuffer.getShort();
  IsoZombie zombie0 = ServerMap.instance.ZombieMap.get(short0);
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  DebugLog.Multiplayer.error("ReceiveEatBody: zombie " + short0 + " not found");
  return;
  }
@@ -6892,7 +6892,7 @@ public:
 
  short short0 = byteBuffer.getShort();
  IsoZombie zombie0 = ServerMap.instance.ZombieMap.get(short0);
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  DebugLog.Multiplayer.error("ReceiveThump: zombie " + short0 + " not found");
  return;
  }
@@ -6935,7 +6935,7 @@ public:
  static void sendWorldSound(WorldSoundManager.WorldSound worldSound, UdpConnection udpConnection1) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
- if ((udpConnection1.empty() || udpConnection1.getConnectedGUID() != udpConnection0.getConnectedGUID()) && udpConnection0.isFullyConnected()) {
+ if ((udpConnection1 == nullptr || udpConnection1.getConnectedGUID() != udpConnection0.getConnectedGUID()) && udpConnection0.isFullyConnected()) {
  IsoPlayer player = getAnyPlayerFromConnection(udpConnection0);
  if (player != nullptr && udpConnection0.RelevantTo(worldSound.x, worldSound.y, worldSound.radius) {
  sendWorldSound(udpConnection0, worldSound);
@@ -7078,7 +7078,7 @@ public:
  static bool shouldSendWorldMapPlayerPosition(UdpConnection udpConnection1, IsoPlayer player) {
  if (player != nullptr && !player.isDead()) {
  UdpConnection udpConnection0 = getConnectionFromPlayer(player);
- if (udpConnection0.empty() || udpConnection0 == udpConnection1 || !udpConnection0.isFullyConnected()) {
+ if (udpConnection0 == nullptr || udpConnection0 == udpConnection1 || !udpConnection0.isFullyConnected()) {
  return false;
  } else if (udpConnection1.accessLevel > 1) {
  return true;
@@ -7354,7 +7354,7 @@ public:
  if (udpConnection0 != nullptr
  && object.square != nullptr
  && udpConnection0.RelevantTo(object.square.x, object.square.y)
- && (udpConnection1.empty() || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID())) {
+ && (udpConnection1 == nullptr || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID())) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.UpdateOverlaySprite.doPacket(byteBufferWriter);
  GameWindow.WriteStringUTF(byteBufferWriter.bb, string);
@@ -7426,17 +7426,17 @@ public:
  static void receiveKickOutOfSafehouse(ByteBuffer byteBuffer, UdpConnection udpConnection0, short var2) {
  try {
  IsoPlayer player0 = IDToPlayerMap.get(byteBuffer.getShort());
- if (player0.empty()) {
+ if (player0 == nullptr) {
  return;
  }
 
  IsoPlayer player1 = udpConnection0.players[0];
- if (player1.empty()) {
+ if (player1 == nullptr) {
  return;
  }
 
  SafeHouse safeHouse = SafeHouse.hasSafehouse(player1);
- if (safeHouse.empty()) {
+ if (safeHouse == nullptr) {
  return;
  }
 
@@ -7449,7 +7449,7 @@ public:
  }
 
  UdpConnection udpConnection1 = getConnectionFromPlayer(player0);
- if (udpConnection1.empty()) {
+ if (udpConnection1 == nullptr) {
  return;
  }
 
@@ -7477,7 +7477,7 @@ public:
  static void sendSafehouse(SyncSafehousePacket syncSafehousePacket, UdpConnection udpConnection1) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
+ if (udpConnection1 == nullptr || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.SyncSafehouse.doPacket(byteBufferWriter);
  syncSafehousePacket.write(byteBufferWriter);
@@ -7644,7 +7644,7 @@ public:
  for (int int4 = 0; int4 < udpEngine.connections.size(); int4++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int4);
  if (udpConnection0.RelevantTo(int0, int1)
- && (udpConnection1 != nullptr && udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID() || udpConnection1.empty())) {
+ && (udpConnection1 != nullptr && udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID() || udpConnection1 == nullptr) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.SendCustomColor.doPacket(byteBufferWriter);
  byteBufferWriter.putInt(int0);
@@ -7665,7 +7665,7 @@ public:
  int int1 = byteBuffer.getInt();
  int int2 = byteBuffer.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  DebugLog.log("receiveFurnaceChange: square is nullptr x,y,z=" + int0 + "," + int1 + "," + int2);
  } else {
  BSFurnace bSFurnace = nullptr;
@@ -7677,7 +7677,7 @@ public:
  }
  }
 
- if (bSFurnace.empty()) {
+ if (bSFurnace == nullptr) {
  DebugLog.log("receiveFurnaceChange: furnace is nullptr x,y,z=" + int0 + "," + int1 + "," + int2);
  } else {
  bSFurnace.fireStarted = byteBuffer.get() == 1;
@@ -7703,7 +7703,7 @@ public:
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
  if (udpConnection0.RelevantTo(bSFurnace.square.x, bSFurnace.square.y)
- && (udpConnection1 != nullptr && udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID() || udpConnection1.empty())) {
+ && (udpConnection1 != nullptr && udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID() || udpConnection1 == nullptr) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.SyncFurnace.doPacket(byteBufferWriter);
  byteBufferWriter.putInt(bSFurnace.square.x);
@@ -7808,7 +7808,7 @@ public:
  static void sendWakeUpPlayer(IsoPlayer player, UdpConnection udpConnection1) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
+ if (udpConnection1 == nullptr || udpConnection0.getConnectedGUID() != udpConnection1.getConnectedGUID()) {
  ByteBufferWriter byteBufferWriter = udpConnection0.startPacket();
  PacketTypes.PacketType.WakeUpPlayer.doPacket(byteBufferWriter);
  byteBufferWriter.putShort(player.getOnlineID());
@@ -8019,7 +8019,7 @@ public:
  ) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = udpEngine.connections.get(int0);
- if (udpConnection1.empty() || udpConnection0 != udpConnection1) {
+ if (udpConnection1 == nullptr || udpConnection0 != udpConnection1) {
  if (player0 != nullptr) {
  bool boolean0 = false;
 
@@ -8094,7 +8094,7 @@ public:
  exception.printStackTrace();
  }
 
- if (player0.empty()) {
+ if (player0 == nullptr) {
  LuaEventManager.triggerEvent("OnReceiveItemListNet", player1, arrayList, player0, string0, string1);
  } else {
  sendItemListNet(udpConnection, player1, arrayList, player0, string0, string1);
@@ -8443,11 +8443,11 @@ public:
  short short0 = byteBuffer.getShort();
  short short1 = byteBuffer.getShort();
  IsoPlayer player = IDToPlayerMap.get(short0);
- if (player.empty()) {
+ if (player == nullptr) {
  DebugLog.Network.warn("Player not found by id " + short0);
  } else {
  IsoDeadBody deadBody = IsoDeadBody.getDeadBody(short1);
- if (deadBody.empty()) {
+ if (deadBody == nullptr) {
  DebugLog.Network.warn("Corpse not found by id " + short1);
  } else {
  float float0 = IsoUtils.DistanceTo(player.x, player.y, deadBody.x, deadBody.y);
@@ -8498,7 +8498,7 @@ public:
  if (this->matches(string) {
  return this->allow;
  } else {
- return this->next.empty() ? true : this->next.passes(string);
+ return this->next == nullptr ? true : this->next.passes(string);
  }
  }
  }

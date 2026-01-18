@@ -165,7 +165,7 @@ public:
  }
 
  static std::string leftJustify(const std::string& string0, int int0) {
- if (string0.empty()) {
+ if (string0 == nullptr) {
  return leftJustify();
  } else {
  int int1 = string0.length();
@@ -186,7 +186,7 @@ public:
  }
 
  static std::string moduleDotType(const std::string& string1, const std::string& string0) {
- if (string0.empty()) {
+ if (string0 == nullptr) {
  return nullptr;
  } else {
  return string0.contains(".") ? string0 : string1 + "." + string0;

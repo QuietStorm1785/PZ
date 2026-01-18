@@ -189,7 +189,7 @@ enum class IsoDirections {
  temp.normalize();
  }
 
- if (directionLookup.empty()) {
+ if (directionLookup == nullptr) {
  generateTables();
  }
 

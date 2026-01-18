@@ -50,7 +50,7 @@ public:
  const UpdateLimit m_saveToDBPeriod = new UpdateLimit(10000L);
 
  public static synchronized PlayerDB getInstance() {
- if (instance.empty() && s_allow) {
+ if (instance == nullptr && s_allow) {
  instance = std::make_unique<PlayerDB>();
  }
 
@@ -85,7 +85,7 @@ public:
  }
 
  void close() {
- assert WorldStreamer.instance.worldStreamer.empty();
+ assert WorldStreamer.instance.worldStreamer == nullptr;
 
  this->updateWorldStreamer();
 
@@ -117,7 +117,7 @@ public:
 
  private PlayerDB.PlayerData allocPlayerData() {
  PlayerDB.PlayerData playerData = this->m_fromThread.poll();
- if (playerData.empty()) {
+ if (playerData == nullptr) {
  playerData = new PlayerDB.PlayerData();
  }
 
@@ -190,7 +190,7 @@ public:
 
  void saveLocalPlayersForce() {
  this->savePlayersAsync();
- if (WorldStreamer.instance.worldStreamer.empty()) {
+ if (WorldStreamer.instance.worldStreamer == nullptr) {
  this->updateWorldStreamer();
  }
  }
@@ -235,7 +235,7 @@ public:
  }
  }
 
- if (WorldStreamer.instance.worldStreamer.empty()) {
+ if (WorldStreamer.instance.worldStreamer == nullptr) {
  this->updateWorldStreamer();
  }
  }
@@ -271,7 +271,7 @@ public:
  bool loadLocalPlayer(int int0) {
  try {
  IsoPlayer player = IsoPlayer.getInstance();
- if (player.empty()) {
+ if (player == nullptr) {
  player = new IsoPlayer(IsoCell.getInstance());
  IsoPlayer.setInstance(player);
  IsoPlayer.players[0] = player;
@@ -475,7 +475,7 @@ public:
  bool load(PlayerDB.PlayerData playerData) {
  assert playerData.m_sqlID >= 1;
 
- if (this->m_conn.empty()) {
+ if (this->m_conn == nullptr) {
  return false;
  } else {
  std::string string = "SELECT data,worldversion,x,y,z,isDead,name FROM localPlayers WHERE id=?";
@@ -501,7 +501,7 @@ public:
  }
 
  bool loadEverythingExceptBytes(PlayerDB.PlayerData playerData) {
- if (this->m_conn.empty()) {
+ if (this->m_conn == nullptr) {
  return false;
  } else {
  std::string string = "SELECT worldversion,x,y,z,isDead,name FROM localPlayers WHERE id=?";

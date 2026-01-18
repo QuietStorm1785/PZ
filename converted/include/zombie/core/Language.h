@@ -62,7 +62,7 @@ public:
 
  static Language FromString(const std::string& str) {
  Language language = Languages.instance.getByName(str);
- if (language.empty()) {
+ if (language == nullptr) {
  language = Languages.instance.getDefaultLanguage();
  }
 

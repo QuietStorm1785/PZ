@@ -357,7 +357,7 @@ public:
 
  long loadSound(const std::string& string) {
  string = ZomboidFileSystem.instance.getAbsolutePath(string);
- if (string.empty()) {
+ if (string == nullptr) {
  return 0L;
  } else {
  long long0 = this->fileToSoundMap.get(string);
@@ -387,7 +387,7 @@ public:
 
  long loadSound(const std::string& string, bool boolean0) {
  string = ZomboidFileSystem.instance.getAbsolutePath(string);
- if (string.empty()) {
+ if (string == nullptr) {
  return 0L;
  } else {
  long long0 = this->fileToSoundMap.get(string);
@@ -448,7 +448,7 @@ public:
  FMOD_STUDIO_PARAMETER_DESCRIPTION initParameterDescription(long long0) {
  std::string string = javafmodJNI.FMOD_Studio_ParameterDescription_GetName(long0);
  FMOD_STUDIO_PARAMETER_DESCRIPTION fmod_studio_parameter_description = this->parameterDescriptionMap.get(string);
- if (fmod_studio_parameter_description.empty()) {
+ if (fmod_studio_parameter_description == nullptr) {
  int int0 = javafmodJNI.FMOD_Studio_ParameterDescription_GetFlags(long0);
  long long1 = javafmodJNI.FMOD_Studio_ParameterDescription_GetID(long0);
  FMOD_STUDIO_PARAMETER_ID fmod_studio_parameter_id = new FMOD_STUDIO_PARAMETER_ID(long1);

@@ -138,7 +138,7 @@ public:
  float0 /= 25.0F;
  player.useChargeDelta = float0;
  void* object = player.getPrimaryHandItem();
- if (object.empty() || !(object instanceof HandWeapon) || boolean0 || attackVars.bDoShove) {
+ if (object == nullptr || !(object instanceof HandWeapon) || boolean0 || attackVars.bDoShove) {
  object = player.bareHands;
  }
 
@@ -354,7 +354,7 @@ public:
  return;
  }
 
- if (weapon1.empty()) {
+ if (weapon1 == nullptr) {
  return;
  }
 
@@ -396,7 +396,7 @@ public:
  if (owner.isAimAtFloor() && ((IsoLivingCharacter)owner).bDoShove) {
  Clothing clothing = (Clothing)owner.getWornItem("Shoes");
  int int0 = 10;
- if (clothing.empty()) {
+ if (clothing == nullptr) {
  int0 = 3;
  } else {
  int0 += clothing.getConditionLowerChance() / 2;
@@ -406,7 +406,7 @@ public:
  }
 
  if (Rand.Next(int0) == 0) {
- if (clothing.empty()) {
+ if (clothing == nullptr) {
  owner.getBodyDamage().getBodyPart(BodyPartType.Foot_R).AddDamage(Rand.Next(5, 10);
  owner.getBodyDamage()
  .getBodyPart(BodyPartType.Foot_R)
@@ -457,14 +457,14 @@ public:
  HandWeapon weapon = Type.tryCastTo(owner.getPrimaryHandItem(), HandWeapon.class);
  if (weapon != nullptr && weapon.getOtherHandRequire() != nullptr) {
  InventoryItem item = owner.getSecondaryHandItem();
- if (item.empty() || !item.getType() == weapon.getOtherHandRequire())) {
+ if (item == nullptr || !item.getType() == weapon.getOtherHandRequire())) {
  weapon = nullptr;
  }
  }
 
  if (!GameClient.bClient || owner.isLocal()) {
  bool boolean0 = owner.isAttackAnim() || owner.getVariableBoolean("ShoveAnim") || owner.getVariableBoolean("StompAnim");
- vars.setWeapon(weapon.empty() ? owner.bareHands : weapon);
+ vars.setWeapon(weapon == nullptr ? owner.bareHands : weapon);
  vars.targetOnGround.setMovingObject(nullptr);
  vars.bAimAtFloor = false;
  vars.bCloseKill = false;
@@ -517,7 +517,7 @@ public:
  }
 
  if (!(float0 >= vars.getWeapon(owner).getMinRange() * vars.getWeapon(owner).getMinRange())
- && (hitInfo0.empty() || !this->isWindowBetween(owner, hitInfo0.getObject()))) {
+ && (hitInfo0 == nullptr || !this->isWindowBetween(owner, hitInfo0.getObject()))) {
  if (owner.getStats().NumChasingZombies <= 1 && WeaponType.getWeaponType(owner) == WeaponType.knife) {
  vars.bCloseKill = true;
  return;
@@ -605,7 +605,7 @@ public:
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  HitInfo hitInfo = (HitInfo)arrayList.get(int0);
  IsoZombie zombie0 = Type.tryCastTo(hitInfo.getObject(), IsoZombie.class);
- if ((zombie0.empty() || zombie0.target != nullptr || boolean0) && !(hitInfo.distSq > float0 * float0) {
+ if ((zombie0 == nullptr || zombie0.target != nullptr || boolean0) && !(hitInfo.distSq > float0 * float0) {
  int int1 = (int)character.z;
  boolean boolean1 = PolygonalMap2.instance
  .lineClearCollide(character.x, character.y, hitInfo.getObject().x, hitInfo.getObject().y, int1, character, false, true);
@@ -684,7 +684,7 @@ public:
  Vector2 vector0 = tempVector2_1.set(Float.MAX_VALUE, Float.NaN);
  vector4f.w = Float.NEGATIVE_INFINITY;
  IsoGameCharacter character0 = Type.tryCastTo(movingObject, IsoGameCharacter.class);
- if (character0.empty()) {
+ if (character0 == nullptr) {
  this->getNearestTargetPosAndDot(character1, movingObject, (String)nullptr, vector0, vector4f);
  } else {
  getBoneWorldPos(movingObject, "Bip01_Head", tempVector3_1);
@@ -710,7 +710,7 @@ public:
  return nullptr;
  } else {
  IsoGameCharacter character = Type.tryCastTo(movingObject, IsoGameCharacter.class);
- if (character.empty()) {
+ if (character == nullptr) {
  return nullptr;
  } else if (character.isGodMod()) {
  return nullptr;
@@ -763,7 +763,7 @@ public:
 
  static bool isProne(IsoMovingObject obj) {
  IsoZombie zombie0 = Type.tryCastTo(obj, IsoZombie.class);
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  return obj.isOnFloor();
  } else if (zombie0.isOnFloor()) {
  return true;
@@ -781,9 +781,9 @@ public:
  }
 
  bool isProneTargetBetter(IsoGameCharacter owner, HitInfo bestStanding, HitInfo bestProne) {
- if (bestStanding.empty() || bestStanding.getObject() == nullptr) {
+ if (bestStanding == nullptr || bestStanding.getObject() == nullptr) {
  return false;
- } else if (bestProne.empty() || bestProne.getObject() == nullptr) {
+ } else if (bestProne == nullptr || bestProne.getObject() == nullptr) {
  return false;
  } else if (bestStanding.distSq <= bestProne.distSq) {
  return false;
@@ -829,7 +829,7 @@ public:
  }
  }
 
- return GameClient.bClient || player1.empty() || IsoPlayer.getCoopPVP();
+ return GameClient.bClient || player1 == nullptr || IsoPlayer.getCoopPVP();
  }
 
  void CalcHitListShove(IsoGameCharacter character0, bool boolean1, AttackVars attackVars, ArrayList<HitInfo> arrayList1) {
@@ -842,7 +842,7 @@ public:
  IsoGameCharacter character1 = Type.tryCastTo(movingObject, IsoGameCharacter.class);
  if (character1 != nullptr && !character1.isGodMod() && !character1.isDead()) {
  IsoZombie zombie0 = Type.tryCastTo(movingObject, IsoZombie.class);
- if ((zombie0.empty() || !zombie0.isCurrentState(FakeDeadZombieState.instance())) && checkPVP(character0, movingObject) {
+ if ((zombie0 == nullptr || !zombie0.isCurrentState(FakeDeadZombieState.instance())) && checkPVP(character0, movingObject) {
  boolean boolean0 = movingObject == attackVars.targetOnGround.getMovingObject()
  || movingObject.isShootable() && isStanding(movingObject) && !attackVars.bAimAtFloor
  || movingObject.isShootable() && isProne(movingObject) && attackVars.bAimAtFloor;
@@ -897,9 +897,9 @@ public:
  IsoMovingObject movingObject = (IsoMovingObject)arrayList0.get(int0);
  if (movingObject != character0) {
  IsoGameCharacter character1 = Type.tryCastTo(movingObject, IsoGameCharacter.class);
- if ((character1.empty() || !character1.isGodMod()) && (character1.empty() || !character1.isDead())) {
+ if ((character1 == nullptr || !character1.isGodMod()) && (character1 == nullptr || !character1.isDead())) {
  IsoZombie zombie0 = Type.tryCastTo(movingObject, IsoZombie.class);
- if ((zombie0.empty() || !zombie0.isCurrentState(FakeDeadZombieState.instance())) && checkPVP(character0, movingObject) {
+ if ((zombie0 == nullptr || !zombie0.isCurrentState(FakeDeadZombieState.instance())) && checkPVP(character0, movingObject) {
  boolean boolean0 = movingObject == attackVars.targetOnGround.getMovingObject()
  || movingObject.isShootable() && isStanding(movingObject) && !attackVars.bAimAtFloor
  || movingObject.isShootable() && isProne(movingObject) && attackVars.bAimAtFloor;
@@ -907,7 +907,7 @@ public:
  Vector4f vector4f = this->tempVector4f;
  if (movingObject instanceof BaseVehicle) {
  VehiclePart part = ((BaseVehicle)movingObject).getNearestBodyworkPart(character0);
- if (part.empty()) {
+ if (part == nullptr) {
  continue;
  }
 
@@ -917,7 +917,7 @@ public:
  }
 
  vector4f.set(movingObject.x, movingObject.y, movingObject.z, float0);
- } else if (character1.empty() || !this->getNearestTargetPosAndDot(character0, weapon, movingObject, boolean1, vector4f) {
+ } else if (character1 == nullptr || !this->getNearestTargetPosAndDot(character0, weapon, movingObject, boolean1, vector4f) {
  continue;
  }
 
@@ -945,7 +945,7 @@ public:
  }
 
  IsoWindow window = this->getWindowBetween(character0, movingObject);
- if (window.empty() || !window.isBarricaded()) {
+ if (window == nullptr || !window.isBarricaded()) {
  HitInfo hitInfo = this->hitInfoPool.alloc().init(movingObject, float1, float2, vector4f.x, vector4f.y, vector4f.z);
  hitInfo.window.setObject(window);
  arrayList1.add(hitInfo);
@@ -981,9 +981,9 @@ public:
  float float4 = IsoUtils.DistanceToSquared(
  character.x, character.y, float0 + (float2 - float0) / 2.0F, float1 + (float3 - float1) / 2.0F
  );
- if (hitInfo.empty() || !(hitInfo.distSq < float4) {
+ if (hitInfo == nullptr || !(hitInfo.distSq < float4) {
  float float5 = 1.0F;
- if (hitInfo.empty()) {
+ if (hitInfo == nullptr) {
  hitInfo = this->hitInfoPool.alloc();
  }
 
@@ -1111,7 +1111,7 @@ public:
 
  int CalcHitChance(IsoGameCharacter owner, HandWeapon weapon, HitInfo hitInfo) {
  IsoMovingObject movingObject = hitInfo.getObject();
- if (movingObject.empty()) {
+ if (movingObject == nullptr) {
  return 0;
  } else {
  if (owner.getVehicle() != nullptr) {
@@ -1174,7 +1174,7 @@ public:
  }
 
  if (weapon.isRanged() && owner.getBeenMovingFor() > weapon.getAimingTime() + owner.getPerkLevel(PerkFactory.Perks.Aiming) {
- int1 = (int)(int1 - (owner.getBeenMovingFor() - (weapon.getAimingTime() + owner.getPerkLevel(PerkFactory.Perks.Aiming);
+ int1 = (int)(int1 - (owner.getBeenMovingFor() - (weapon.getAimingTime() + owner.getPerkLevel(PerkFactory.Perks.Aiming));
  }
 
  if (hitInfo.getObject() instanceof IsoPlayer) {
@@ -1369,7 +1369,7 @@ public:
  splash(movingObject, weapon, owner);
  byte0 = (byte)Rand.Next(2);
  } else if (owner.isAimAtFloor() && !weapon.isRanged()) {
- if (player.empty() || player.isLocalPlayer()) {
+ if (player == nullptr || player.isLocalPlayer()) {
  if (!StringUtils.isNullOrEmpty(weapon.getHitFloorSound())) {
  owner.getEmitter().stopSoundByName(weapon.getSwingSound());
  if (player != nullptr) {
@@ -1457,7 +1457,7 @@ public:
  && (!owner.attackVars.bCloseKill || !owner.isCriticalHit())
  && !livingCharacter.bDoShove
  && movingObject instanceof IsoGameCharacter
- && (player.empty() || player.isLocalPlayer())) {
+ && (player == nullptr || player.isLocalPlayer())) {
  if (player != nullptr) {
  player.setMeleeHitSurface(ParameterMeleeHitSurface.Material.Body);
  }
@@ -1604,7 +1604,7 @@ public:
  if (owner.isAimAtFloor() && livingCharacter.bDoShove) {
  float12 = Rand.Next(0.7F, 1.0F) + owner.getPerkLevel(PerkFactory.Perks.Strength) * 0.2F;
  Clothing clothing = (Clothing)owner.getWornItem("Shoes");
- if (clothing.empty()) {
+ if (clothing == nullptr) {
  float12 *= 0.5F;
  } else {
  float12 *= clothing.getStompPower();
@@ -1737,7 +1737,7 @@ public:
 
  float float17 = 0.0F;
  bool boolean9 = owner.isCriticalHit();
- if (vehicle.empty() && movingObject.getSquare() != nullptr && owner.getSquare() != nullptr) {
+ if (vehicle == nullptr && movingObject.getSquare() != nullptr && owner.getSquare() != nullptr) {
  movingObject.setCloseKilled(owner.attackVars.bCloseKill);
  if (((IsoPlayer)owner).isLocalPlayer() || owner.isNPC()) {
  float17 = movingObject.Hit(weapon, owner, float12, boolean0, float14);
@@ -1914,7 +1914,7 @@ public:
  }
 
  bool checkObjectHit(IsoGameCharacter character, HandWeapon weapon, IsoGridSquare square, bool boolean1, bool boolean0) {
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  } else {
  for (int int0 = square.getSpecialObjects().size() - 1; int0 >= 0; int0--) {
@@ -2138,7 +2138,7 @@ public:
  }
  }
 
- if (weapon.empty() || weapon.getCondition() <= 0 || weapon.isUseSelf()) {
+ if (weapon == nullptr || weapon.getCondition() <= 0 || weapon.isUseSelf()) {
  HandWeapon _weapon = (HandWeapon)owner.getInventory().getBestWeapon(owner.getDescriptor());
  owner.setPrimaryHandItem(nullptr);
  if (owner.getSecondaryHandItem() == weapon) {
@@ -2258,7 +2258,7 @@ public:
  }
 
  bool isHittable(IsoWindow windowx) {
- if (windowx.empty()) {
+ if (windowx == nullptr) {
  return false;
  } else {
  return windowx.isBarricaded() ? true : !windowx.isDestroyed() && !windowx.IsOpen();

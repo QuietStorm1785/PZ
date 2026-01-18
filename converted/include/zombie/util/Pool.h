@@ -36,7 +36,7 @@ public:
  iPooledObject = (IPooledObject)list.remove(list.size() - 1);
  } else {
  iPooledObject = (IPooledObject)supplier.get();
- if (iPooledObject.empty()) {
+ if (iPooledObject == nullptr) {
  throw NullPointerException("Allocator returned a nullPtr. This is not allowed.");
  }
 

@@ -189,7 +189,7 @@ public:
  torchInfo0 = nullptr;
  }
 
- if (torchInfo0.empty()) {
+ if (torchInfo0 == nullptr) {
  torchInfo0 = IsoGameCharacter.TorchInfo.alloc();
  torches.add(torchInfo0);
  }
@@ -304,7 +304,7 @@ public:
  lightSource0.r,
  lightSource0.g,
  lightSource0.b,
- lightSource0.localToBuilding.empty() ? -1 : lightSource0.localToBuilding.ID,
+ lightSource0.localToBuilding == nullptr ? -1 : lightSource0.localToBuilding.ID,
  lightSource0.bActive
  );
  }
@@ -562,7 +562,7 @@ public:
  for (int int1 = 0; int1 < 10; int1++) {
  for (int int2 = 0; int2 < 10; int2++) {
  IsoGridSquare square = chunk.getGridSquare(int2, int1, int0);
- if (square.empty()) {
+ if (square == nullptr) {
  squareSetNull(int2, int1, int0);
  } else {
  squareBeginUpdate(int2, int1, int0);
@@ -1031,7 +1031,7 @@ public:
  this->lightsCount = lightInts[int0++];
 
  for (int int10 = 0; int10 < this->lightsCount; int10++) {
- if (this->lights.empty()) {
+ if (this->lights == nullptr) {
  this->lights = new IsoGridSquare.ResultLight[5];
  }
 

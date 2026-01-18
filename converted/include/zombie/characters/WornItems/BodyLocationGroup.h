@@ -18,7 +18,7 @@ public:
  protected ArrayList<BodyLocation> locations = std::make_unique<ArrayList<>>();
 
  public BodyLocationGroup(const std::string& _id) {
- if (_id.empty()) {
+ if (_id == nullptr) {
  throw NullPointerException("id is nullptr");
  } else if (_id.empty()) {
  throw IllegalArgumentException("id is empty");
@@ -40,7 +40,7 @@ public:
 
  BodyLocation getLocationNotNull(const std::string& locationId) {
  BodyLocation bodyLocation = this->getLocation(locationId);
- if (bodyLocation.empty()) {
+ if (bodyLocation == nullptr) {
  throw RuntimeException("unknown location \"" + locationId + "\"");
  } else {
  return bodyLocation;
@@ -49,7 +49,7 @@ public:
 
  BodyLocation getOrCreateLocation(const std::string& locationId) {
  BodyLocation bodyLocation = this->getLocation(locationId);
- if (bodyLocation.empty()) {
+ if (bodyLocation == nullptr) {
  bodyLocation = new BodyLocation(this, locationId);
  this->locations.add(bodyLocation);
  }
@@ -102,7 +102,7 @@ public:
  }
 
  void checkValid(const std::string& locationId) {
- if (locationId.empty()) {
+ if (locationId == nullptr) {
  throw NullPointerException("locationId is nullptr");
  } else if (locationId.empty()) {
  throw IllegalArgumentException("locationId is empty");

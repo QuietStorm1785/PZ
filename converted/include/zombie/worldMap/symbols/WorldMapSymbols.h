@@ -79,7 +79,7 @@ public:
  WorldMapTextureSymbol worldMapTextureSymbol = new WorldMapTextureSymbol(this);
  worldMapTextureSymbol.setSymbolID(symbolID);
  MapSymbolDefinitions.MapSymbolDefinition mapSymbolDefinition = MapSymbolDefinitions.getInstance().getSymbolById(symbolID);
- if (mapSymbolDefinition.empty()) {
+ if (mapSymbolDefinition == nullptr) {
  worldMapTextureSymbol.m_width = 18.0F;
  worldMapTextureSymbol.m_height = 18.0F;
  } else {
@@ -88,7 +88,7 @@ public:
  worldMapTextureSymbol.m_height = mapSymbolDefinition.getHeight();
  }
 
- if (worldMapTextureSymbol.m_texture.empty() && !GameServer.bServer) {
+ if (worldMapTextureSymbol.m_texture == nullptr && !GameServer.bServer) {
  worldMapTextureSymbol.m_texture = Texture.getErrorTexture();
  }
 

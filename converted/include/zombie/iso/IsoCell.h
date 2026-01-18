@@ -481,7 +481,7 @@ public:
  }
 
  Texture getStencilTexture() {
- if (this->m_stencilTexture.empty()) {
+ if (this->m_stencilTexture == nullptr) {
  this->m_stencilTexture = Texture.getSharedTexture("media/mask_circledithernew.png");
  }
 
@@ -532,7 +532,7 @@ public:
 
  void renderTilesInternal(int int1) {
  if (DebugOptions.instance.Terrain.RenderTiles.Enable.getValue()) {
- if (m_floorRenderShader.empty()) {
+ if (m_floorRenderShader == nullptr) {
  RenderThread.invokeOnRenderContext(this::initTileShaders);
  }
 
@@ -644,7 +644,7 @@ public:
  booleans1[vector2i.x][vector2i.y] = false;
  }
 
- if (square0.empty()) {
+ if (square0 == nullptr) {
  WeatherFxMask.addMaskLocation(nullptr, vector2i.x + this->minX, vector2i.y + this->minY, int4);
  } else {
  IsoChunk chunk0 = square0.getChunk();
@@ -703,11 +703,11 @@ public:
  if (int3 < int4) {
  int7++;
  } else {
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = this->getGridSquare(int7, int6, int4);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = this->ChunkMap[int0].getGridSquare(int7, int6, int4);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  int7++;
  continue;
  }
@@ -799,7 +799,7 @@ public:
 
  for (int int2 = 0; int2 < GridStack.size(); int2++) {
  IsoGridSquare square0 = GridStack.get(int2);
- if (square0.chunk.empty() || !square0.chunk.bLightingNeverDone[int3]) {
+ if (square0.chunk == nullptr || !square0.chunk.bLightingNeverDone[int3]) {
  square0.bFlattenGrassEtc = int0 == 0 && booleans[square0.x - this->minX][square0.y - this->minY];
  int int4 = square0.renderFloor(shader0);
  if (!square0.getStaticMovingObjects().empty()) {
@@ -1290,7 +1290,7 @@ public:
  && !DebugOptions.instance.Terrain.RenderTiles.IsoGridSquare.Floor.Lighting.getValue()) {
  if (zza < this->maxZ && PerformanceSettings.LightingFrameSkip < 3) {
  if (!Core.bDebug || !DebugOptions.instance.DebugDraw_SkipWorldShading.getValue()) {
- if (texWhite.empty()) {
+ if (texWhite == nullptr) {
  texWhite = Texture.getWhite();
  }
 
@@ -1392,7 +1392,7 @@ public:
  this->tempPlayerCutawayRoomIDs = arrayList;
  this->tempPlayerCutawayRoomIDs.clear();
  IsoGridSquare square0 = player.getSquare();
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return false;
  } else {
  IsoBuilding building = square0.getBuilding();
@@ -1435,9 +1435,9 @@ public:
  bool IsCutawaySquare(IsoGridSquare square0, long long0) {
  int int0 = IsoCamera.frameState.playerIndex;
  IsoPlayer player = IsoPlayer.players[int0];
- if (player.current.empty()) {
+ if (player.current == nullptr) {
  return false;
- } else if (square0.empty()) {
+ } else if (square0 == nullptr) {
  return false;
  } else {
  IsoGridSquare square1 = player.current;
@@ -1460,7 +1460,7 @@ public:
 
  for (int int1 = 0; int1 < 3; int1++) {
  square4 = square4.nav[IsoDirections.NW.index()];
- if (square4.empty()) {
+ if (square4 == nullptr) {
  break;
  }
 
@@ -1501,7 +1501,7 @@ public:
 
  for (int int3 = 0; int3 < 3; int3++) {
  square13 = square13.nav[IsoDirections.NW.index()];
- if (square13.empty()) {
+ if (square13 == nullptr) {
  break;
  }
 
@@ -1614,7 +1614,7 @@ public:
 
  int int2 = square6.x - square1.x;
  int int3 = square6.y - square1.y;
- if ((object0.empty() || !object0.sprite.name.contains("fencing")) && (object1.empty() || !object1.sprite.name.contains("fencing"))) {
+ if ((object0 == nullptr || !object0.sprite.name.contains("fencing")) && (object1 == nullptr || !object1.sprite.name.contains("fencing"))) {
  if (square1.DistTo(square6) <= 6.0F
  && square1.nav[IsoDirections.NW.index()] != nullptr
  && square1.nav[IsoDirections.NW.index()].getRoomID() == square1.getRoomID()
@@ -1693,7 +1693,7 @@ public:
 
  for (int int1 = 0; int1 < short0 && this->playerOccluderBuildingsArr[int0] != nullptr; int1++) {
  IsoBuilding building0 = this->playerOccluderBuildingsArr[int0][int1];
- if (building0.empty()) {
+ if (building0 == nullptr) {
  break;
  }
 
@@ -1719,7 +1719,7 @@ public:
  } else {
  for (int int3 = 0; int3 < 500 && this->zombieOccluderBuildingsArr[int2] != nullptr; int3++) {
  IsoBuilding building1 = this->zombieOccluderBuildingsArr[int2][int3];
- if (building1.empty()) {
+ if (building1 == nullptr) {
  break;
  }
 
@@ -1731,7 +1731,7 @@ public:
 
  for (int int4 = 0; int4 < 500 && this->otherOccluderBuildingsArr[int2] != nullptr; int4++) {
  IsoBuilding building2 = this->otherOccluderBuildingsArr[int2][int4];
- if (building2.empty()) {
+ if (building2 == nullptr) {
  break;
  }
 
@@ -1782,7 +1782,7 @@ public:
 
  bool IsDissolvedSquare(IsoGridSquare square1, int int0) {
  IsoPlayer player = IsoPlayer.players[int0];
- if (player.current.empty()) {
+ if (player.current == nullptr) {
  return false;
  } else {
  IsoGridSquare square0 = player.current;
@@ -1793,21 +1793,21 @@ public:
  } else {
  if (square1.getZ() > this->hidesOrphanStructuresAbove) {
  IsoBuilding building = square1.getBuilding();
- if (building.empty()) {
+ if (building == nullptr) {
  building = square1.roofHideBuilding;
  }
 
- for (int int1 = square1.getZ() - 1; int1 >= 0 && building.empty(); int1--) {
+ for (int int1 = square1.getZ() - 1; int1 >= 0 && building == nullptr; int1--) {
  IsoGridSquare square2 = this->getGridSquare(square1.x, square1.y, int1);
  if (square2 != nullptr) {
  building = square2.getBuilding();
- if (building.empty()) {
+ if (building == nullptr) {
  building = square2.roofHideBuilding;
  }
  }
  }
 
- if (building.empty()) {
+ if (building == nullptr) {
  if (square1.isSolidFloor()) {
  return true;
  }
@@ -1866,7 +1866,7 @@ public:
  }
 
  void updateSnow(int int0) {
- if (this->snowGridCur.empty()) {
+ if (this->snowGridCur == nullptr) {
  this->snowGridCur = new IsoCell.SnowGrid(int0);
  this->snowGridPrev = new IsoCell.SnowGrid(0);
  } else {
@@ -1894,7 +1894,7 @@ public:
  return false;
  } else if (square.getProperties().Is(IsoFlagType.water) {
  return false;
- } else if (square.getProperties().Is(IsoFlagType.exterior) && square.room.empty() && !square.isInARoom()) {
+ } else if (square.getProperties().Is(IsoFlagType.exterior) && square.room == nullptr && !square.isInARoom()) {
  int int0 = square.getX() % this->snowGridCur.w;
  int int1 = square.getY() % this->snowGridCur.h;
  return this->snowGridCur.check(int0, int1);
@@ -1936,7 +1936,7 @@ public:
 
  for (int int2 = 0; int2 < SolidFloor.size(); int2++) {
  IsoGridSquare square = SolidFloor.get(int2);
- if (square.room.empty() && square.getProperties().Is(IsoFlagType.exterior) && square.getProperties().Is(IsoFlagType.solidfloor) {
+ if (square.room == nullptr && square.getProperties().Is(IsoFlagType.exterior) && square.getProperties().Is(IsoFlagType.solidfloor) {
  int int3;
  if (square.getProperties().Is(IsoFlagType.water) {
  int3 = getShoreInt(square);
@@ -2141,7 +2141,7 @@ public:
 
  for (int int1 = 0; int1 < building1.Exits.size(); int1++) {
  float float1 = chr.DistTo(building1.Exits.get(int1).x, building1.Exits.get(int1).y);
- if (float1 < float0 && (except.empty() || except.building != building1) {
+ if (float1 < float0 && (except == nullptr || except.building != building1) {
  building0 = building1;
  float0 = float1;
  }
@@ -2455,11 +2455,11 @@ public:
  for (int int10 = 0; int10 < int9; int10++) {
  std::string string = lot.info.tilesUsed.get(lot.m_data.getQuick(int8 + 1 + int10);
  IsoSprite sprite = IsoSpriteManager.instance.NamedMap.get(string);
- if (sprite.empty()) {
+ if (sprite == nullptr) {
  Logger.getLogger(GameWindow.class.getName()).log(Level.SEVERE, "Missing tile definition: " + string);
  } else {
  IsoGridSquare square = this->getGridSquare(int1, int2, int3);
- if (square.empty()) {
+ if (square == nullptr) {
  if (IsoGridSquare.loadGridSquareCache != nullptr) {
  square = IsoGridSquare.getNew(IsoGridSquare.loadGridSquareCache, this, nullptr, int1, int2, int3);
  } else {
@@ -2511,7 +2511,7 @@ public:
  int int9 = lot.m_data.getQuick(int8);
  if (int9 > 0) {
  IsoGridSquare square0 = ch.getGridSquare(int1 - WX, int2 - WY, int3);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  if (IsoGridSquare.loadGridSquareCache != nullptr) {
  square0 = IsoGridSquare.getNew(IsoGridSquare.loadGridSquareCache, this, nullptr, int1, int2, int3);
  } else {
@@ -2532,7 +2532,7 @@ public:
  && int11 + int2 - WY >= 0
  && int11 + int2 - WY < 10) {
  IsoGridSquare square1 = ch.getGridSquare(int1 + int10 - WX, int2 + int11 - WY, int3);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = IsoGridSquare.getNew(this, nullptr, int1 + int10, int2 + int11, int3);
  ch.setSquare(int1 + int10 - WX, int2 + int11 - WY, int3, square1);
  }
@@ -2547,7 +2547,7 @@ public:
  roomDef = metaGrid.getEmptyOutsideAt(int1, int2, int3);
  if (roomDef != nullptr) {
  IsoRoom room = ch.getRoom(roomDef.ID);
- square0.roofHideBuilding = room.empty() ? nullptr : room.building;
+ square0.roofHideBuilding = room == nullptr ? nullptr : room.building;
  }
 
  bool boolean0 = true;
@@ -2559,7 +2559,7 @@ public:
  }
 
  IsoSprite sprite = IsoSpriteManager.instance.NamedMap.get(string);
- if (sprite.empty()) {
+ if (sprite == nullptr) {
  Logger.getLogger(GameWindow.class.getName()).log(Level.SEVERE, "Missing tile definition: " + string);
  } else {
  if (int13 == 0
@@ -2635,11 +2635,11 @@ public:
 
  IsoGridSquare square = this->getGridSquare((int)UIManager.getPickedTile().x, (int)UIManager.getPickedTile().y, (int)IsoCamera.CamCharacter.getZ());
  if (!boolean0) {
- if (square.empty()) {
+ if (square == nullptr) {
  square = this->createNewGridSquare(
  (int)UIManager.getPickedTile().x, (int)UIManager.getPickedTile().y, (int)IsoCamera.CamCharacter.getZ(), true
  );
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  }
  }
@@ -3130,7 +3130,7 @@ public:
  if (square != nullptr) {
  square.setCachedIsFree(false);
  }
- } while (square.empty() || !square.isFree(false) || square.getRoom() != nullptr);
+ } while (square == nullptr || !square.isFree(false) || square.getRoom() != nullptr);
 
  return square;
  }
@@ -3211,7 +3211,7 @@ public:
 
  bool blocked(Mover mover, int x, int y, int z, int lx, int ly, int lz) {
  IsoGridSquare square = this->getGridSquare(lx, ly, lz);
- if (square.empty()) {
+ if (square == nullptr) {
  return true;
  } else {
  if (mover instanceof IsoMovingObject) {
@@ -3291,7 +3291,7 @@ public:
  IsoGridSquare getOrCreateGridSquare(double x, double y, double z) {
  if (GameServer.bServer) {
  IsoGridSquare square0 = ServerMap.instance.getGridSquare((int)x, (int)y, (int)z);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  square0 = IsoGridSquare.getNew(this, nullptr, (int)x, (int)y, (int)z);
  ServerMap.instance.setGridSquare((int)x, (int)y, (int)z, square0);
  this->ConnectNewSquare(square0, true);
@@ -3300,7 +3300,7 @@ public:
  return square0;
  } else {
  IsoGridSquare square1 = this->getGridSquare((int)x, (int)y, (int)z);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  square1 = IsoGridSquare.getNew(this, nullptr, (int)x, (int)y, (int)z);
  this->ConnectNewSquare(square1, true);
  }
@@ -3470,7 +3470,7 @@ public:
  float float1 = 0.0F;
  float float2 = 0.0F;
  float float3 = 1.0F;
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return 0;
  } else {
  float float4 = 0.0F;
@@ -3595,7 +3595,7 @@ public:
  this->minX -= 2;
  this->minY -= 2;
  this->maxZ = MaxHeight;
- if (IsoCamera.CamCharacter.empty()) {
+ if (IsoCamera.CamCharacter == nullptr) {
  this->maxZ = 1;
  }
 
@@ -3610,7 +3610,7 @@ public:
  }
 
  if (!PerformanceSettings.NewRoofHiding) {
- IsoGridSquare square0 = IsoCamera.CamCharacter.empty() ? nullptr : IsoCamera.CamCharacter.getCurrentSquare();
+ IsoGridSquare square0 = IsoCamera.CamCharacter == nullptr ? nullptr : IsoCamera.CamCharacter.getCurrentSquare();
  if (square0 != nullptr) {
  IsoGridSquare square1 = this->getGridSquare(
  (double)Math.round(IsoCamera.CamCharacter.getX()), (double)Math.round(IsoCamera.CamCharacter.getY()), (double)IsoCamera.CamCharacter.getZ()
@@ -3734,7 +3734,7 @@ public:
  }
 
  this->playerHidesOrphanStructures[int8] = this->bOccludedByOrphanStructureFlag;
- if (building0.empty() && !player1.bRemote) {
+ if (building0 == nullptr && !player1.bRemote) {
  building0 = this->GetPeekedInBuilding(square5, directions0);
  if (building0 != nullptr) {
  this->playerWindowPeekingRoomId[int8] = this->playerPeekedRoomId;
@@ -3875,7 +3875,7 @@ public:
  IsoPlayer player2 = IsoPlayer.players[int17];
  if (player2 != nullptr) {
  IsoBuilding building4 = player2.getCurrentBuilding();
- if (building4.empty()) {
+ if (building4 == nullptr) {
  IsoDirections directions1 = IsoDirections.fromAngle(player2.getForwardDirection());
  building4 = this->GetPeekedInBuilding(player2.getCurrentSquare(), directions1);
  if (building4 != nullptr) {
@@ -3938,7 +3938,7 @@ public:
  if (GameServer.bServer) {
  return false;
  } else {
- if (this->weatherFX.empty()) {
+ if (this->weatherFX == nullptr) {
  this->weatherFX = std::make_unique<IsoWeatherFX>();
  this->weatherFX.init();
  }
@@ -4005,7 +4005,7 @@ public:
 
  void GetBuildingsInFrontOfCharacterSquare(int int0, int int1, int int2, bool boolean0, ArrayList<IsoBuilding> arrayList0) {
  IsoGridSquare square = this->getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  if (int2 < MaxHeight) {
  this->GetBuildingsInFrontOfCharacterSquare(int0 + 3, int1 + 3, int2 + 1, boolean0, arrayList0);
  }
@@ -4031,7 +4031,7 @@ public:
 
  IsoBuilding GetPeekedInBuilding(IsoGridSquare square0, IsoDirections directions) {
  this->playerPeekedRoomId = -1;
- if (square0.empty()) {
+ if (square0 == nullptr) {
  return nullptr;
  } else {
  if ((directions == IsoDirections.NW || directions == IsoDirections.N || directions == IsoDirections.NE)
@@ -4132,7 +4132,7 @@ public:
  }
 
  IsoObject object = square1.getObjects().get(0);
- if (object.sprite.empty() || object.sprite.name.empty() || !object.sprite.name.startsWith("lighting_outdoor")) {
+ if (object.sprite == nullptr || object.sprite.name == nullptr || !object.sprite.name.startsWith("lighting_outdoor")) {
  return true;
  }
  }
@@ -4229,7 +4229,7 @@ public:
  do {
  boolean0 = true;
  square = this->getGridSquare(Rand.Next(this->width), Rand.Next(this->height), 0);
- if (square.empty()) {
+ if (square == nullptr) {
  boolean0 = false;
  } else if (!square.isFree(false) {
  boolean0 = false;
@@ -4254,7 +4254,7 @@ public:
  do {
  boolean0 = true;
  square = this->getGridSquare(Rand.Next(this->width), Rand.Next(this->height), 0);
- if (square.empty()) {
+ if (square == nullptr) {
  boolean0 = false;
  } else if (!square.isFree(false) {
  boolean0 = false;
@@ -4531,7 +4531,7 @@ public:
  }
 
  IsoZombie getFakeZombieForHit() {
- if (this->fakeZombieForHit.empty()) {
+ if (this->fakeZombieForHit == nullptr) {
  this->fakeZombieForHit = new IsoZombie(this);
  }
 
@@ -4722,7 +4722,7 @@ public:
  int maxY;
 
  void setSize(int w, int h) {
- if (this->VisiOccludedFlags.empty() || this->VisiOccludedFlags.length < w || this->VisiOccludedFlags[0].length < h) {
+ if (this->VisiOccludedFlags == nullptr || this->VisiOccludedFlags.length < w || this->VisiOccludedFlags[0].length < h) {
  this->VisiOccludedFlags = new boolean[w][h][2];
  this->VisiCulledFlags = new boolean[w][h];
  this->StencilValues = new short[w][h][2];
@@ -4731,7 +4731,7 @@ public:
  }
  }
 
- class SnowGrid {
+ private class SnowGrid {
  int w = 256;
  int h = 256;
  int frac = 0;
@@ -4877,7 +4877,7 @@ public:
  for (int int12 = 0; int12 < this->h; int12++) {
  for (int int13 = 0; int13 < this->w; int13++) {
  Texture texture = this->grid[int13][int12][0];
- if (texture.empty()) {
+ if (texture == nullptr) {
  bool boolean0 = this->check(int13, int12 - 1);
  bool boolean1 = this->check(int13, int12 + 1);
  bool boolean2 = this->check(int13 - 1, int12);
@@ -5037,7 +5037,7 @@ public:
  }
  }
 
- class SnowGridTiles {
+ protected class SnowGridTiles {
  uint8_t ID = -1;
  int counter = -1;
  private ArrayList<Texture> textures = std::make_unique<ArrayList<>>();

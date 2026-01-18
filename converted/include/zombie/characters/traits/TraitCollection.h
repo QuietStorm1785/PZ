@@ -117,7 +117,7 @@ public:
  return "TraitCollection(" + PZArrayUtil.arrayToString(this->m_activeTraitNames, "", "", ", ") + ")";
  }
 
- class TraitSlot {
+ public class TraitSlot {
  const std::string Name;
  bool m_isSet;
 

@@ -162,7 +162,7 @@ public:
 
  uint8_t byte0 = 0;
  IsoPlayer player = getPlayerToFollow();
- if (player.empty()) {
+ if (player == nullptr) {
  Core.getInstance().StartFrame();
  Core.getInstance().EndFrame();
  Core.getInstance().StartFrameUI();
@@ -220,7 +220,7 @@ public:
  frameState.CamCharacterY = IsoCamera.CamCharacter.getY();
  frameState.CamCharacterZ = IsoCamera.CamCharacter.getZ();
  frameState.CamCharacterSquare = IsoCamera.CamCharacter.getCurrentSquare();
- frameState.CamCharacterRoom = frameState.CamCharacterSquare.empty() ? nullptr : frameState.CamCharacterSquare.getRoom();
+ frameState.CamCharacterRoom = frameState.CamCharacterSquare == nullptr ? nullptr : frameState.CamCharacterSquare.getRoom();
  frameState.OffX = IsoCamera.getOffX();
  frameState.OffY = IsoCamera.getOffY();
  frameState.OffscreenWidth = IsoCamera.getOffscreenWidth(byte0);
@@ -287,7 +287,7 @@ public:
  }
 
  IsoCell.PerPlayerRender perPlayerRender = IsoCell.perPlayerRender[0];
- if (perPlayerRender.empty()) {
+ if (perPlayerRender == nullptr) {
  IsoCell.perPlayerRender[0] = new IsoCell.PerPlayerRender();
  }
 
@@ -312,9 +312,9 @@ public:
  square0 = nullptr;
  }
 
- if (square0.empty()) {
+ if (square0 == nullptr) {
  square0 = ServerMap.instance.getGridSquare(int2, int1, int0);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  int2++;
  continue;
  }
@@ -483,13 +483,13 @@ public:
 
  if ((
  !boolean4
- || object.sprite.empty()
+ || object.sprite == nullptr
  || object.sprite.Properties.Is(IsoFlagType.canBeRemoved)
  || object.sprite.Properties.Is(IsoFlagType.attachedFloor)
  )
  && (
  boolean4
- || object.sprite.empty()
+ || object.sprite == nullptr
  || !object.sprite.Properties.Is(IsoFlagType.canBeRemoved) && !object.sprite.Properties.Is(IsoFlagType.attachedFloor)
  )) {
  if (object.sprite != nullptr
@@ -535,7 +535,7 @@ public:
  if (boolean5) {
  if (object.sprite.getProperties().Is(IsoFlagType.cutW) && square0.getProperties().Is(IsoFlagType.WallSE) {
  IsoGridSquare square2 = square0.nav[IsoDirections.NW.index()];
- if (square2.empty() || square2.getRoom() == nullptr) {
+ if (square2 == nullptr || square2.getRoom() == nullptr) {
  boolean5 = false;
  }
  } else if (object.sprite.getType() != IsoObjectType.doorFrW
@@ -545,13 +545,13 @@ public:
  || object.sprite.getType() == IsoObjectType.doorN
  || object.sprite.getProperties().Is(IsoFlagType.cutN) {
  IsoGridSquare square3 = square0.nav[IsoDirections.N.index()];
- if (square3.empty() || square3.getRoom() == nullptr) {
+ if (square3 == nullptr || square3.getRoom() == nullptr) {
  boolean5 = false;
  }
  }
  } else {
  IsoGridSquare square4 = square0.nav[IsoDirections.W.index()];
- if (square4.empty() || square4.getRoom() == nullptr) {
+ if (square4 == nullptr || square4.getRoom() == nullptr) {
  boolean5 = false;
  }
  }

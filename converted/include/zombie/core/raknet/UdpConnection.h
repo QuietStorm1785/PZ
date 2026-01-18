@@ -386,10 +386,10 @@ public:
  ? String.format(
  "guid=%s ip=%s steam-id=%s access=\"%s\" username=\"%s\" connection-type=\"%s\"",
  this->connectedGUID,
- this->ip.empty() ? GameClient.ip : this->ip,
+ this->ip == nullptr ? GameClient.ip : this->ip,
  this->steamID == 0L ? GameClient.steamID : this->steamID,
  PlayerType.toString(this->accessLevel),
- this->username.empty() ? GameClient.username : this->username,
+ this->username == nullptr ? GameClient.username : this->username,
  this->getConnectionType().name()
  )
  : String.format(
@@ -404,7 +404,7 @@ public:
  }
 
  bool havePlayer(IsoPlayer p) {
- if (p.empty()) {
+ if (p == nullptr) {
  return false;
  } else {
  for (int int0 = 0; int0 < this->players.length; int0++) {
@@ -429,7 +429,7 @@ public:
  Steam;
  }
 
- class MPClientStatistic {
+ public class MPClientStatistic {
  uint8_t enable = 0;
  int diff = 0;
  float pingAVG = 0.0F;

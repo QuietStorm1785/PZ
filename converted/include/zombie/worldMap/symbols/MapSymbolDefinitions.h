@@ -20,7 +20,7 @@ public:
  private HashMap<String, MapSymbolDefinitions.MapSymbolDefinition> m_symbolByID = std::make_unique<HashMap<>>();
 
  static MapSymbolDefinitions getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<MapSymbolDefinitions>();
  }
 
@@ -39,7 +39,7 @@ public:
 
  void addTexture(const std::string& string1, const std::string& string0) {
  Texture texture = Texture.getSharedTexture(string0);
- if (texture.empty()) {
+ if (texture == nullptr) {
  this->addTexture(string1, string0, 18, 18);
  } else {
  this->addTexture(string1, string0, texture.getWidth(), texture.getHeight());

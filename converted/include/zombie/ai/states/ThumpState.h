@@ -102,7 +102,7 @@ public:
  } else if (thumpable1 != nullptr) {
  std::string string = "ZombieThumpGeneric";
  IsoBarricade barricade = Type.tryCastTo(thumpable1, IsoBarricade.class);
- if (barricade.empty() || !barricade.isMetal() && !barricade.isMetalBar()) {
+ if (barricade == nullptr || !barricade.isMetal() && !barricade.isMetalBar()) {
  if (thumpable1 instanceof IsoDoor) {
  string = ((IsoDoor)thumpable1).getThumpSound();
  } else if (thumpable1 instanceof IsoThumpable) {
@@ -247,13 +247,13 @@ public:
  }
 
  bool isThumpTargetValid(IsoGameCharacter character, Thumpable thumpable) {
- if (thumpable.empty()) {
+ if (thumpable == nullptr) {
  return false;
  } else if (thumpable.isDestroyed()) {
  return false;
  } else {
  IsoObject object = Type.tryCastTo(thumpable, IsoObject.class);
- if (object.empty()) {
+ if (object == nullptr) {
  return false;
  } else if (thumpable instanceof BaseVehicle) {
  return object.getMovingObjectIndex() != -1;

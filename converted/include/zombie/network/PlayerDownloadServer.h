@@ -61,7 +61,7 @@ public:
 
  void receiveRequestArray(ByteBuffer _bb) {
  ClientChunkRequest clientChunkRequest = this->workerThread.freeRequests.poll();
- if (clientChunkRequest.empty()) {
+ if (clientChunkRequest == nullptr) {
  clientChunkRequest = std::make_unique<ClientChunkRequest>();
  }
 
@@ -72,7 +72,7 @@ public:
  for (int int1 = 0; int1 < int0; int1++) {
  if (clientChunkRequest.chunks.size() >= 20) {
  clientChunkRequest = this->workerThread.freeRequests.poll();
- if (clientChunkRequest.empty()) {
+ if (clientChunkRequest == nullptr) {
  clientChunkRequest = std::make_unique<ClientChunkRequest>();
  }
 
@@ -229,7 +229,7 @@ public:
  Quit;
  }
 
- class WorkerThread extends Thread {
+ private class WorkerThread extends Thread {
  bool bQuit;
  boolean bReady = true;
  LinkedBlockingQueue<PlayerDownloadServer.WorkerThreadCommand> commandQ = std::make_unique<LinkedBlockingQueue<>>();

@@ -57,7 +57,7 @@ public:
  if (clothingDecals != nullptr) {
  for (ClothingDecalGroup clothingDecalGroup0 : clothingDecals.m_Groups) {
  ClothingDecalGroup clothingDecalGroup1 = instance.FindGroup(clothingDecalGroup0.m_Name);
- if (clothingDecalGroup1.empty()) {
+ if (clothingDecalGroup1 == nullptr) {
  instance.m_Groups.add(clothingDecalGroup0);
  } else {
  if (DebugLog.isEnabled(DebugType.Clothing) {
@@ -110,7 +110,7 @@ public:
  return nullptr;
  } else {
  ClothingDecals.CachedDecal cachedDecal = this->m_cachedDecals.get(string0);
- if (cachedDecal.empty()) {
+ if (cachedDecal == nullptr) {
  cachedDecal = new ClothingDecals.CachedDecal();
  this->m_cachedDecals.put(string0, cachedDecal);
  }

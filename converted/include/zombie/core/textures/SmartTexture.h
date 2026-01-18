@@ -67,7 +67,7 @@ public:
  }
 
  void addOverlayPatches(const std::string& string0, const std::string& string1, int int0) {
- if (blit.empty()) {
+ if (blit == nullptr) {
  this->create();
  }
 
@@ -77,7 +77,7 @@ public:
  }
 
  void addOverlay(const std::string& string0, const std::string& string1, float float0, int int0) {
- if (masked.empty()) {
+ if (masked == nullptr) {
  this->create();
  }
 
@@ -89,7 +89,7 @@ public:
  }
 
  void addDirtOverlay(const std::string& string0, const std::string& string1, float float0, int int0) {
- if (dirtMask.empty()) {
+ if (dirtMask == nullptr) {
  this->create();
  }
 
@@ -100,7 +100,7 @@ public:
  }
 
  void addOverlay(const std::string& string) {
- if (tint.empty()) {
+ if (tint == nullptr) {
  this->create();
  }
 
@@ -126,7 +126,7 @@ public:
  }
 
  void addTint(Texture texture, int int0, float float0, float float1, float float2) {
- if (tint.empty()) {
+ if (tint == nullptr) {
  this->create();
  }
 
@@ -143,7 +143,7 @@ public:
  }
 
  void addHue(Texture texture, int int0, float float0) {
- if (hue.empty()) {
+ if (hue == nullptr) {
  this->create();
  }
 
@@ -155,7 +155,7 @@ public:
 
  Texture addHole(BloodBodyPartType bloodBodyPartType) {
  std::string string = "media/textures/HoleTextures/" + CharacterSmartTexture.MaskFiles[bloodBodyPartType.index()] + ".png";
- if (addHole.empty()) {
+ if (addHole == nullptr) {
  this->create();
  }
 
@@ -180,7 +180,7 @@ public:
  }
 
  void removeHole(Texture texture0, Texture texture1, BloodBodyPartType var3) {
- if (removeHole.empty()) {
+ if (removeHole == nullptr) {
  this->create();
  }
 
@@ -194,7 +194,7 @@ public:
  }
 
  void mask(Texture texture0, Texture texture1, int int0) {
- if (bodyMask.empty()) {
+ if (bodyMask == nullptr) {
  this->create();
  }
 
@@ -208,7 +208,7 @@ public:
  }
 
  void maskHue(Texture texture0, Texture texture1, int int0, float float0) {
- if (bodyMask.empty()) {
+ if (bodyMask == nullptr) {
  this->create();
  }
 
@@ -224,7 +224,7 @@ public:
  }
 
  void maskTint(Texture texture0, Texture texture1, int int0, float float0, float float1, float float2) {
- if (bodyMask.empty()) {
+ if (bodyMask == nullptr) {
  this->create();
  }
 
@@ -407,7 +407,7 @@ public:
  }
 
  void add(Texture texture) {
- if (blit.empty()) {
+ if (blit == nullptr) {
  this->create();
  }
 
@@ -488,15 +488,15 @@ public:
  }
 
  bool isEmpty() {
- return this->result.empty() ? true : this->result.empty();
+ return this->result == nullptr ? true : this->result.empty();
  }
 
  bool isFailure() {
- return this->result.empty() ? false : this->result.isFailure();
+ return this->result == nullptr ? false : this->result.isFailure();
  }
 
  bool isReady() {
- return this->result.empty() ? false : this->result.isReady();
+ return this->result == nullptr ? false : this->result.isReady();
  }
 }
 } // namespace textures

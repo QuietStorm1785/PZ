@@ -329,7 +329,7 @@ public:
 
  try {
  IsoPlayer player = IDToPlayerMap.get(playerPacket.id);
- if (player.empty()) {
+ if (player == nullptr) {
  PlayerDataRequestPacket playerDataRequestPacket = new PlayerDataRequestPacket();
  playerDataRequestPacket.set(playerPacket.id);
  ByteBufferWriter byteBufferWriter = connection.startPacket();
@@ -691,7 +691,7 @@ public:
  ByteBuffer byteBuffer = zomboidNetData.buffer;
  int int0 = byteBuffer.position();
  this->delayPacket = false;
- if (zomboidNetData.type.empty()) {
+ if (zomboidNetData.type == nullptr) {
  ZomboidNetDataPool.instance.discard(zomboidNetData);
  } else {
  zomboidNetData.type.clientPacketCount++;
@@ -785,7 +785,7 @@ public:
  static void receiveInvMngRemoveItem(ByteBuffer byteBuffer, short var1) {
  int int0 = byteBuffer.getInt();
  InventoryItem item = IsoPlayer.getInstance().getInventory().getItemWithIDRecursiv(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  DebugLog.log("ERROR: invMngRemoveItem can not find " + int0 + " item.");
  } else {
  IsoPlayer.getInstance().removeWornItem(item);
@@ -834,9 +834,9 @@ public:
 
  short short0 = byteBuffer.getShort();
  InventoryItem item = nullptr;
- if (string.empty()) {
+ if (string == nullptr) {
  item = IsoPlayer.getInstance().getInventory().getItemWithIDRecursiv(int0);
- if (item.empty()) {
+ if (item == nullptr) {
  DebugLog.log("ERROR: invMngRemoveItem can not find " + int0 + " item.");
  return;
  }
@@ -845,7 +845,7 @@ public:
  }
 
  if (item != nullptr) {
- if (string.empty()) {
+ if (string == nullptr) {
  IsoPlayer.getInstance().removeWornItem(item);
  if (item.getCategory() == "Clothing")) {
  LuaEventManager.triggerEvent("OnClothingUpdated", IsoPlayer.getInstance());
@@ -901,7 +901,7 @@ public:
  std::string string1 = GameWindow.ReadString(byteBuffer);
  int int0 = byteBuffer.getInt();
  Faction faction = Faction.getFaction(string0);
- if (faction.empty()) {
+ if (faction == nullptr) {
  faction = new Faction(string0, string1);
  Faction.getFactions().add(faction);
  }
@@ -960,7 +960,7 @@ public:
  DebugLog.log(DebugType.Sound, "sound: received " + string + " at " + int0 + "," + int1 + "," + int2);
  if (!Core.SoundDisabled) {
  FMOD_STUDIO_EVENT_DESCRIPTION fmod_studio_event_description = FMODManager.instance.getEventDescription(string);
- if (fmod_studio_event_description.empty()) {
+ if (fmod_studio_event_description == nullptr) {
  return;
  }
 
@@ -1075,7 +1075,7 @@ public:
  int int2 = byteBuffer.getInt();
  uint8_t byte0 = byteBuffer.get();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  if (byte0 >= 0 && byte0 < square.getObjects().size()) {
@@ -1099,7 +1099,7 @@ public:
  int int2 = byteBuffer.getInt();
  uint8_t byte0 = byteBuffer.get();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  if (byte0 >= 0 && byte0 < square.getObjects().size()) {
@@ -1353,7 +1353,7 @@ public:
  }
 
  static void SendCommandToServer(const std::string& command) {
- if (ServerOptions.clientOptionsList.empty()) {
+ if (ServerOptions.clientOptionsList == nullptr) {
  ServerOptions.initClientCommandsHelp();
  }
 
@@ -1408,8 +1408,8 @@ public:
  .showServerChatMessage(
  Translator.getText(
  "UI_ServerOptionDesc_SetLogLevel",
- debugType.empty() ? "\"type\"" : debugType.name().toLowerCase(),
- logSeverity.empty() ? "\"severity\"" : logSeverity.name().toLowerCase()
+ debugType == nullptr ? "\"type\"" : debugType.name().toLowerCase(),
+ logSeverity == nullptr ? "\"severity\"" : logSeverity.name().toLowerCase()
  )
  );
  }
@@ -1635,7 +1635,7 @@ public:
  int int2 = byteBuffer.getInt();
  int int3 = byteBuffer.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  if (square != nullptr && int3 < square.getObjects().size()) {
@@ -1655,7 +1655,7 @@ public:
  int int3 = byteBuffer.getInt();
  int int4 = byteBuffer.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int1, int2, int3);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int1, int2, int3);
  } else {
  if (square != nullptr && int4 < square.getObjects().size()) {
@@ -1667,7 +1667,7 @@ public:
  && object.sprite.getProperties().Val("DamagedSprite") != nullptr
  && !object.sprite.getProperties().Val("DamagedSprite").empty();
  object.sprite = IsoSpriteManager.instance.getSprite(int0);
- if (object.sprite.empty() && !string.empty()) {
+ if (object.sprite == nullptr && !string.empty()) {
  object.setSprite(string);
  }
 
@@ -1682,7 +1682,7 @@ public:
  }
  }
 
- if (object instanceof IsoThumpable && boolean0 && (object.sprite.empty() || !object.sprite.getProperties().Is("HitByCar"))) {
+ if (object instanceof IsoThumpable && boolean0 && (object.sprite == nullptr || !object.sprite.getProperties().Is("HitByCar"))) {
  ((IsoThumpable)object).setBlockAllTheSquare(false);
  }
 
@@ -1705,7 +1705,7 @@ public:
  float float3 = byteBuffer.getFloat();
  int int3 = byteBuffer.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  if (square != nullptr && int3 < square.getObjects().size()) {
@@ -1782,7 +1782,7 @@ public:
  ((IsoDeadBody)object).setOnlineID(short1);
  IsoDeadBody.addDeadBodyID(short0, (IsoDeadBody)object);
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  square.addCorpse((IsoDeadBody)object, true);
@@ -1794,13 +1794,13 @@ public:
  int int1 = byteBuffer.getInt();
  int int2 = byteBuffer.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()
+ if (square == nullptr
  && IsoWorld.instance.isValidSquare(int0, int1, int2)
  && IsoWorld.instance.CurrentCell.getChunkForGridSquare(int0, int1, int2) != nullptr) {
  square = IsoGridSquare.getNew(IsoWorld.instance.getCell(), nullptr, int0, int1, int2);
  }
 
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  try {
@@ -1820,7 +1820,7 @@ public:
  int int3 = byteBuffer.getInt();
  bool boolean0 = byteBuffer.get() == 1;
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  if (square != nullptr && int3 >= 0 && int3 < square.getObjects().size()) {
@@ -1879,7 +1879,7 @@ public:
  }
 
  IsoGridSquare square0 = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square0.empty()) {
+ if (square0 == nullptr) {
  instance.delayPacket(int0, int1, int2);
  return;
  }
@@ -1902,7 +1902,7 @@ public:
  int int8 = byteBuffer.getInt();
  std::string string3 = GameWindow.ReadString(byteBuffer);
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare(int5, int6, int7);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  instance.delayPacket(int5, int6, int7);
  return;
  }
@@ -1924,7 +1924,7 @@ public:
  }
 
  IsoGridSquare square2 = IsoWorld.instance.CurrentCell.getGridSquare(int9, int10, int11);
- if (square2.empty()) {
+ if (square2 == nullptr) {
  instance.delayPacket(int9, int10, int11);
  return;
  }
@@ -2034,7 +2034,7 @@ public:
  );
  }
  } else if (wielder instanceof IsoPlayer) {
- if (target.empty()) {
+ if (target == nullptr) {
  PlayerHitSquarePacket playerHitSquarePacket = new PlayerHitSquarePacket();
  playerHitSquarePacket.set((IsoPlayer)wielder, weapon, isCriticalHit);
  object = playerHitSquarePacket;
@@ -2365,7 +2365,7 @@ public:
  }
 
  IsoZombie zombie0 = IDToZombieMap.get(short0);
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  DebugLog.Multiplayer.error("ReceiveEatBody: zombie " + short0 + " not found");
  return;
  }
@@ -2379,7 +2379,7 @@ public:
  float float3 = bb.getFloat();
  float float4 = bb.getFloat();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare((double)float2, (double)float3, (double)float4);
- if (square.empty()) {
+ if (square == nullptr) {
  DebugLog.Multiplayer.error("ReceiveEatBody: incorrect square");
  return;
  }
@@ -2403,7 +2403,7 @@ public:
  float float6 = bb.getFloat();
  short short1 = bb.getShort();
  IsoPlayer player = IDToPlayerMap.get(short1);
- if (player.empty()) {
+ if (player == nullptr) {
  DebugLog.Multiplayer.error("ReceiveEatBody: player " + short1 + " not found");
  return;
  }
@@ -2441,7 +2441,7 @@ public:
  if (Core.bDebug) {
  DebugLog.log(
  DebugType.Multiplayer,
- String.format("SendThump: zombie=%d type=%s target=%s", short0, string, thumpable.empty() ? "nullptr" : thumpable.getClass().getSimpleName())
+ String.format("SendThump: zombie=%d type=%s target=%s", short0, string, thumpable == nullptr ? "nullptr" : thumpable.getClass().getSimpleName())
  );
  }
 
@@ -2479,7 +2479,7 @@ public:
  }
 
  IsoZombie zombie0 = IDToZombieMap.get(short0);
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  DebugLog.Multiplayer.error("ReceiveThump: zombie " + short0 + " not found");
  return;
  }
@@ -2495,7 +2495,7 @@ public:
  float float1 = bb.getFloat();
  float float2 = bb.getFloat();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare((double)float0, (double)float1, (double)float2);
- if (square.empty()) {
+ if (square == nullptr) {
  DebugLog.Multiplayer.error("ReceiveThump: incorrect square");
  return;
  }
@@ -2533,7 +2533,7 @@ public:
  int int2 = byteBuffer.getInt();
  int int3 = byteBuffer.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  if (square != nullptr && int3 >= 0 && int3 < square.getObjects().size()) {
@@ -2608,7 +2608,7 @@ public:
  }
  }
 
- if (container0.empty()) {
+ if (container0 == nullptr) {
  DebugLog.log("ERROR removeItemFromContainer can't find world item with id=" + int6);
  return;
  }
@@ -2641,19 +2641,19 @@ public:
  uint8_t byte3 = byteBufferReader.getByte();
  int int14 = byteBuffer.getInt();
  BaseVehicle vehicle = VehicleManager.instance.getVehicleByID(short1);
- if (vehicle.empty()) {
+ if (vehicle == nullptr) {
  DebugLog.log("ERROR: removeItemFromContainer: invalid vehicle id");
  return;
  }
 
  VehiclePart part = vehicle.getPartByIndex(byte3);
- if (part.empty()) {
+ if (part == nullptr) {
  DebugLog.log("ERROR: removeItemFromContainer: invalid part index");
  return;
  }
 
  ItemContainer container2 = part.getItemContainer();
- if (container2.empty()) {
+ if (container2 == nullptr) {
  DebugLog.log("ERROR: removeItemFromContainer: part " + part.getId() + " has no container");
  return;
  }
@@ -2684,7 +2684,7 @@ public:
  int int1 = byteBufferReader.getInt();
  int int2 = byteBufferReader.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  ItemContainer container = nullptr;
@@ -2713,7 +2713,7 @@ public:
  }
  }
 
- if (container.empty()) {
+ if (container == nullptr) {
  DebugLog.log("ERROR: sendItemsToContainer: can't find world item with id=" + int3);
  return;
  }
@@ -2731,19 +2731,19 @@ public:
  short short1 = byteBufferReader.getShort();
  uint8_t byte3 = byteBufferReader.getByte();
  BaseVehicle vehicle = VehicleManager.instance.getVehicleByID(short1);
- if (vehicle.empty()) {
+ if (vehicle == nullptr) {
  DebugLog.log("ERROR: sendItemsToContainer: invalid vehicle id");
  return;
  }
 
  part = vehicle.getPartByIndex(byte3);
- if (part.empty()) {
+ if (part == nullptr) {
  DebugLog.log("ERROR: sendItemsToContainer: invalid part index");
  return;
  }
 
  container = part.getItemContainer();
- if (container.empty()) {
+ if (container == nullptr) {
  DebugLog.log("ERROR: sendItemsToContainer: part " + part.getId() + " has no container");
  return;
  }
@@ -2958,7 +2958,7 @@ public:
  }
 
  InventoryItem item0 = player.getPrimaryHandItem();
- if (item0.empty()) {
+ if (item0 == nullptr) {
  b.putByte((byte)0);
  } else {
  b.putByte((byte)1);
@@ -2971,7 +2971,7 @@ public:
  }
 
  InventoryItem item1 = player.getSecondaryHandItem();
- if (item1.empty()) {
+ if (item1 == nullptr) {
  b.putByte((byte)0);
  } else if (item1 == item0) {
  b.putByte((byte)2);
@@ -3461,7 +3461,7 @@ public:
  int int2 = byteBuffer.getInt();
  uint8_t byte0 = byteBuffer.get();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  this->delayPacket(int0, int1, int2);
  return nullptr;
  } else {
@@ -3523,7 +3523,7 @@ public:
  short short1 = byteBuffer.getShort();
  DebugLog.log("[" + int1 + "," + int2 + "]:" + short1 + " ");
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int1 * 10, int2 * 10, 0);
- if (square.empty()) {
+ if (square == nullptr) {
  return;
  }
 
@@ -3566,7 +3566,7 @@ public:
 
  if (byte1 == 1) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  return;
  }
 
@@ -3826,7 +3826,7 @@ public:
  PacketTypes.PacketType.Equip.doPacket(byteBufferWriter);
  byteBufferWriter.putByte((byte)player.PlayerIndex);
  byteBufferWriter.putByte((byte)i);
- if (item.empty()) {
+ if (item == nullptr) {
  byteBufferWriter.putByte((byte)0);
  } else if (i == 1 && player.getPrimaryHandItem() == player.getSecondaryHandItem()) {
  byteBufferWriter.putByte((byte)2);
@@ -4063,7 +4063,7 @@ public:
  if (boolean0) {
  std::string string1 = GameWindow.ReadString(byteBuffer);
  InventoryItem item = InventoryItemFactory.CreateItem(string1);
- if (item.empty()) {
+ if (item == nullptr) {
  return;
  }
 
@@ -4115,7 +4115,7 @@ public:
  uint8_t byte0 = byteBuffer.get();
  IsoCell cell = IsoWorld.instance.CurrentCell;
  IsoGridSquare square = cell.getGridSquare((double)float0, (double)float1, (double)float2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket((int)float0, (int)float1, (int)float2);
  } else if (boolean1 && SandboxOptions.instance.BloodLevel.getValue() > 1) {
  for (int int0 = -1; int0 <= 1; int0++) {
@@ -4324,7 +4324,7 @@ public:
  byteBufferWriter.putInt(i);
  byteBufferWriter.putBoolean(doIt);
  if (doIt) {
- if (splintItem.empty()) {
+ if (splintItem == nullptr) {
  splintItem = "";
  }
 
@@ -4397,7 +4397,7 @@ public:
  void addToItemSendBuffer(IsoObject parent, ItemContainer container, InventoryItem item) {
  if (parent instanceof IsoWorldInventoryObject) {
  InventoryItem _item = ((IsoWorldInventoryObject)parent).getItem();
- if (item.empty() || _item.empty() || !(_item instanceof InventoryContainer) || container != ((InventoryContainer)_item).getInventory()) {
+ if (item == nullptr || _item == nullptr || !(_item instanceof InventoryContainer) || container != ((InventoryContainer)_item).getInventory()) {
  DebugLog.log("ERROR: addToItemSendBuffer parent=" + parent + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4406,7 +4406,7 @@ public:
  }
  }
  } else if (parent instanceof BaseVehicle) {
- if (container.vehiclePart.empty() || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != parent) {
+ if (container.vehiclePart == nullptr || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != parent) {
  DebugLog.log("ERROR: addToItemSendBuffer parent=" + parent + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4414,7 +4414,7 @@ public:
 
  return;
  }
- } else if (parent.empty() || item.empty() || parent.getContainerIndex(container) == -1) {
+ } else if (parent == nullptr || item == nullptr || parent.getContainerIndex(container) == -1) {
  DebugLog.log("ERROR: addToItemSendBuffer parent=" + parent + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4446,7 +4446,7 @@ public:
  void addToItemRemoveSendBuffer(IsoObject parent, ItemContainer container, InventoryItem item) {
  if (parent instanceof IsoWorldInventoryObject) {
  InventoryItem _item = ((IsoWorldInventoryObject)parent).getItem();
- if (item.empty() || _item.empty() || !(_item instanceof InventoryContainer) || container != ((InventoryContainer)_item).getInventory()) {
+ if (item == nullptr || _item == nullptr || !(_item instanceof InventoryContainer) || container != ((InventoryContainer)_item).getInventory()) {
  DebugLog.log("ERROR: addToItemRemoveSendBuffer parent=" + parent + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4455,7 +4455,7 @@ public:
  }
  }
  } else if (parent instanceof BaseVehicle) {
- if (container.vehiclePart.empty() || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != parent) {
+ if (container.vehiclePart == nullptr || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != parent) {
  DebugLog.log("ERROR: addToItemRemoveSendBuffer parent=" + parent + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4464,7 +4464,7 @@ public:
  return;
  }
  } else if (parent instanceof IsoDeadBody) {
- if (item.empty() || container != parent.getContainer()) {
+ if (item == nullptr || container != parent.getContainer()) {
  DebugLog.log("ERROR: addToItemRemoveSendBuffer parent=" + parent + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4472,7 +4472,7 @@ public:
 
  return;
  }
- } else if (parent.empty() || item.empty() || parent.getContainerIndex(container) == -1) {
+ } else if (parent == nullptr || item == nullptr || parent.getContainerIndex(container) == -1) {
  DebugLog.log("ERROR: addToItemRemoveSendBuffer parent=" + parent + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4815,7 +4815,7 @@ public:
  }
  }
  } else if (object instanceof BaseVehicle) {
- if (container.vehiclePart.empty() || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != object) {
+ if (container.vehiclePart == nullptr || container.vehiclePart.getItemContainer() != container || container.vehiclePart.getVehicle() != object) {
  DebugLog.log("ERROR: sendItemStats() parent=" + object + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -4832,7 +4832,7 @@ public:
 
  return;
  }
- } else if (object.empty() || ((IsoObject)object).getContainerIndex(container) == -1) {
+ } else if (object == nullptr || ((IsoObject)object).getContainerIndex(container) == -1) {
  DebugLog.log("ERROR: sendItemStats() parent=" + object + " item=" + item);
  if (Core.bDebug) {
  throw std::make_unique<IllegalStateException>();
@@ -5241,7 +5241,7 @@ public:
  int int1 = byteBuffer.getInt();
  int int2 = byteBuffer.getInt();
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  instance.delayPacket(int0, int1, int2);
  } else {
  if (square != nullptr) {
@@ -5254,7 +5254,7 @@ public:
  }
  }
 
- if (bSFurnace.empty()) {
+ if (bSFurnace == nullptr) {
  DebugLog.log("receiveFurnaceChange: furnace is nullptr x,y,z=" + int0 + "," + int1 + "," + int2);
  return;
  }
@@ -5302,7 +5302,7 @@ public:
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
  if (square != nullptr) {
  IsoCompost compost = square.getCompost();
- if (compost.empty()) {
+ if (compost == nullptr) {
  compost = new IsoCompost(square.getCell(), square);
  square.AddSpecialObject(compost);
  }
@@ -5847,7 +5847,7 @@ public:
  }
 
  static void receiveSpawnRegion(ByteBuffer byteBuffer, short var1) {
- if (instance.ServerSpawnRegions.empty()) {
+ if (instance.ServerSpawnRegions == nullptr) {
  instance.ServerSpawnRegions = LuaManager.platform.newTable();
  }
 

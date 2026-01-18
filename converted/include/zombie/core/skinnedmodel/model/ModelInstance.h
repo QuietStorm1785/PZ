@@ -86,7 +86,7 @@ public:
  this->data = (SkinningData)_model.Tag;
  this->model = _model;
  this->tex = _model.tex;
- if (!_model.bStatic && player.empty()) {
+ if (!_model.bStatic && player == nullptr) {
  player = AnimationPlayer.alloc(_model);
  }
 
@@ -146,7 +146,7 @@ public:
  void LoadTexture(const std::string& name) {
  if (name != nullptr && name.length() != 0) {
  this->tex = Texture.getSharedTexture("media/textures/" + name + ".png");
- if (this->tex.empty()) {
+ if (this->tex == nullptr) {
  if (name == "Vest_White")) {
  this->tex = Texture.getSharedTexture("media/textures/Shirt_White.png");
  } else if (name.contains("Hair")) {
@@ -192,7 +192,7 @@ public:
 
  this->instanceSkip = 0;
  if (this->AnimPlayer != nullptr) {
- if (this->matrixModel.empty()) {
+ if (this->matrixModel == nullptr) {
  if (this->skipped >= this->instanceSkip) {
  if (this->skipped == Integer.MAX_VALUE) {
  this->skipped = 1;
@@ -246,7 +246,7 @@ public:
 
  void updateLights() {
  int int0 = IsoCamera.frameState.playerIndex;
- if (this->playerData.empty()) {
+ if (this->playerData == nullptr) {
  this->playerData = new ModelInstance.PlayerData[4];
  }
 
@@ -274,14 +274,14 @@ public:
  }
 
  ModelAttachment getAttachment(int index) {
- return this->m_modelScript.empty() ? nullptr : this->m_modelScript.getAttachment(index);
+ return this->m_modelScript == nullptr ? nullptr : this->m_modelScript.getAttachment(index);
  }
 
  ModelAttachment getAttachmentById(const std::string& id) {
  if (StringUtils.isNullOrWhitespace(id) {
  return nullptr;
  } else {
- return this->m_modelScript.empty() ? nullptr : this->m_modelScript.getAttachmentById(id);
+ return this->m_modelScript == nullptr ? nullptr : this->m_modelScript.getAttachmentById(id);
  }
  }
 
@@ -309,7 +309,7 @@ public:
  void setOwner(void* owner) {
  Objects.requireNonNull(owner);
 
- assert this->m_owner.empty();
+ assert this->m_owner == nullptr;
 
  this->m_owner = owner;
  }
@@ -395,7 +395,7 @@ public:
  }
 
  void initFrameLightsForFrame() {
- if (this->frameLights.empty()) {
+ if (this->frameLights == nullptr) {
  this->effectLightsMain = new ModelInstance.EffectLight[5];
 
  for (int int0 = 0; int0 < 5; int0++) {
@@ -539,8 +539,8 @@ public:
  Arrays.sort(
  this->frameLights,
  (frameLightInfo0, frameLightInfo1) -> {
- bool boolean0 = frameLightInfo0.empty() || frameLightInfo0.radius == -1 || !frameLightInfo0.active;
- bool boolean1 = frameLightInfo1.empty() || frameLightInfo1.radius == -1 || !frameLightInfo1.active;
+ bool boolean0 = frameLightInfo0 == nullptr || frameLightInfo0.radius == -1 || !frameLightInfo0.active;
+ bool boolean1 = frameLightInfo1 == nullptr || frameLightInfo1.radius == -1 || !frameLightInfo1.active;
  if (boolean0 && boolean1) {
  return 0;
  } else if (boolean0) {

@@ -343,7 +343,7 @@ public:
 
  void updateActiveNode(AnimatorDebugMonitor.MonitoredLayer monitoredLayer, const std::string& string) {
  AnimatorDebugMonitor.MonitoredNode monitoredNode = monitoredLayer.activeNodes.get(string);
- if (monitoredNode.empty()) {
+ if (monitoredNode == nullptr) {
  monitoredNode = new AnimatorDebugMonitor.MonitoredNode();
  monitoredNode.name = string;
  monitoredLayer.activeNodes.put(string, monitoredNode);
@@ -361,7 +361,7 @@ public:
 
  void updateAnimTrack(AnimatorDebugMonitor.MonitoredLayer monitoredLayer, const std::string& string, float float0) {
  AnimatorDebugMonitor.MonitoredTrack monitoredTrack = monitoredLayer.animTracks.get(string);
- if (monitoredTrack.empty()) {
+ if (monitoredTrack == nullptr) {
  monitoredTrack = new AnimatorDebugMonitor.MonitoredTrack();
  monitoredTrack.name = string;
  monitoredTrack.blendDelta = float0;
@@ -385,7 +385,7 @@ public:
  void updateVariable(const std::string& string0, const std::string& string1) {
  AnimatorDebugMonitor.MonitoredVar monitoredVar = this->monitoredVariables.get(string0);
  bool boolean0 = false;
- if (monitoredVar.empty()) {
+ if (monitoredVar == nullptr) {
  monitoredVar = new AnimatorDebugMonitor.MonitoredVar();
  this->monitoredVariables.put(string0, monitoredVar);
  boolean0 = true;
@@ -399,14 +399,14 @@ public:
  if (boolean0) {
  registerVariable(string0);
  }
- } else if (string1.empty()) {
+ } else if (string1 == nullptr) {
  if (monitoredVar.isFloat) {
  monitoredVar.isFloat = false;
  this->floatsListDirty = true;
  }
 
  monitoredVar.value = nullptr;
- } else if (monitoredVar.value.empty() || !monitoredVar.value == string1) {
+ } else if (monitoredVar.value == nullptr || !monitoredVar.value == string1) {
  try {
  float float0 = Float.parseFloat(string1);
  monitoredVar.logFloat(float0);
@@ -528,7 +528,7 @@ public:
  }
 
  void setSelectedVariable(const std::string& key) {
- if (key.empty()) {
+ if (key == nullptr) {
  this->selectedVariable = nullptr;
  } else {
  this->selectedVariable = this->monitoredVariables.get(key);
@@ -591,7 +591,7 @@ public:
 
  void ensureLayers(AnimLayer[] animLayers) {
  int int0 = animLayers.length;
- if (this->monitoredLayers.empty() || this->monitoredLayers.length != int0) {
+ if (this->monitoredLayers == nullptr || this->monitoredLayers.length != int0) {
  this->monitoredLayers = new AnimatorDebugMonitor.MonitoredLayer[int0];
 
  for (int int1 = 0; int1 < int0; int1++) {
@@ -619,14 +619,14 @@ public:
  }
  }
 
- class MonitorLogLine {
+ private class MonitorLogLine {
  std::string line;
  Color color = nullptr;
  AnimatorDebugMonitor.LogType type = AnimatorDebugMonitor.LogType.DEFAULT;
  int tick;
  }
 
- class MonitoredLayer {
+ private class MonitoredLayer {
  int index;
  std::string nodeName = "";
  HashMap<String, AnimatorDebugMonitor.MonitoredNode> activeNodes = std::make_unique<HashMap<>>();
@@ -639,20 +639,20 @@ public:
  }
  }
 
- class MonitoredNode {
+ private class MonitoredNode {
  std::string name = "";
  bool active = false;
  bool updated = false;
  }
 
- class MonitoredTrack {
+ private class MonitoredTrack {
  std::string name = "";
  float blendDelta;
  bool active = false;
  bool updated = false;
  }
 
- class MonitoredVar {
+ private class MonitoredVar {
  std::string key = "";
  std::string value = "";
  bool isFloat = false;
@@ -665,7 +665,7 @@ public:
  float f_max = 1.0F;
 
  void logFloat(float arg0) {
- if (this->f_floats.empty()) {
+ if (this->f_floats == nullptr) {
  this->f_floats = new float[1024];
  }
 

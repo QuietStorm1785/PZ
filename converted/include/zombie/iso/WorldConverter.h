@@ -219,7 +219,7 @@ public:
 
  for (int int6 = 0; int6 < int5; int6++) {
  IsoSprite sprite = IsoSpriteManager.instance.NamedMap.get(string3 + "_" + int6);
- if (this->TilesetConversions.empty()) {
+ if (this->TilesetConversions == nullptr) {
  this->TilesetConversions = std::make_unique<HashMap<>>();
  }
 

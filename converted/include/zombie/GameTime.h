@@ -233,7 +233,7 @@ public:
  * @return Number of days in the month.
  */
  int daysInMonth(int year, int month) {
- if (this->Calender.empty()) {
+ if (this->Calender == nullptr) {
  this->updateCalendar(this->getYear(), this->getMonth(), this->getDay(), (int)this->getTimeOfDay(), this->getMinutes());
  }
 
@@ -363,12 +363,12 @@ public:
  */
  std::string getGameModeText() {
  std::string string0 = Translator.getTextOrNull("IGUI_Gametime_" + Core.GameMode);
- if (string0.empty()) {
+ if (string0 == nullptr) {
  string0 = Core.GameMode;
  }
 
  std::string string1 = Translator.getTextOrNull("IGUI_Gametime_GameMode", string0);
- if (string1.empty()) {
+ if (string1 == nullptr) {
  string1 = "Game mode: " + string0;
  }
 
@@ -1195,7 +1195,7 @@ public:
  }
 
  void updateCalendar(int year, int month, int dayOfMonth, int hourOfDay, int minute) {
- if (this->Calender.empty()) {
+ if (this->Calender == nullptr) {
  this->Calender = new PZCalendar(std::make_unique<GregorianCalendar>());
  }
 
@@ -1446,7 +1446,7 @@ public:
  input.readFloat();
  int int1 = input.readInt();
  if (input.readByte() == 1) {
- if (this->table.empty()) {
+ if (this->table == nullptr) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -1485,7 +1485,7 @@ public:
  input.getFloat();
  int int0 = input.getInt();
  if (input.get() == 1) {
- if (this->table.empty()) {
+ if (this->table == nullptr) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -1547,7 +1547,7 @@ public:
  * This was used to store non-object-specific mod data in the save file before global mod data was added. It is generally better to use the global mod data API provided by ModData.
  */
  KahluaTable getModData() {
- if (this->table.empty()) {
+ if (this->table == nullptr) {
  this->table = LuaManager.platform.newTable();
  }
 

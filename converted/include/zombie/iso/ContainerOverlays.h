@@ -125,7 +125,7 @@ public:
  }
 
  ContainerOverlays.ContainerOverlayEntry containerOverlayEntry = containerOverlay.pickRandom(string1, square.x, square.y, square.z);
- if (containerOverlayEntry.empty()) {
+ if (containerOverlayEntry == nullptr) {
  containerOverlayEntry = containerOverlay.pickRandom("other", square.x, square.y, square.z);
  }
 

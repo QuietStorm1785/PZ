@@ -166,9 +166,9 @@ public:
  lexState.chunk();
  lexState.check(287);
  lexState.close_func();
- FuncState._assert(funcState.prev.empty());
+ FuncState._assert(funcState.prev == nullptr);
  FuncState._assert(funcState.f.numUpvalues == 0);
- FuncState._assert(lexState.fs.empty());
+ FuncState._assert(lexState.fs == nullptr);
  return funcState.f;
  }
 
@@ -204,7 +204,7 @@ public:
  }
 
  void save(int int0) {
- if (this->buff.empty() || this->nbuff + 1 > this->buff.length) {
+ if (this->buff == nullptr || this->nbuff + 1 > this->buff.length) {
  this->buff = FuncState.realloc(this->buff, this->nbuff * 2 + 1);
  }
 
@@ -358,7 +358,7 @@ public:
  case 13:
  this->save(10);
  this->inclinenumber();
- if (token.empty()) {
+ if (token == nullptr) {
  this->nbuff = 0;
  }
  break;
@@ -676,7 +676,7 @@ public:
 
  int registerlocalvar(const std::string& string) {
  FuncState funcState = this->fs;
- if (funcState.locvars.empty() || funcState.nlocvars + 1 > funcState.locvars.length) {
+ if (funcState.locvars == nullptr || funcState.nlocvars + 1 > funcState.locvars.length) {
  funcState.locvars = FuncState.realloc(funcState.locvars, funcState.nlocvars * 2 + 1);
  }
 
@@ -762,7 +762,7 @@ public:
  void pushclosure(FuncState funcState1, ExpDesc expDesc) {
  FuncState funcState0 = this->fs;
  Prototype prototype = funcState0.f;
- if (prototype.prototypes.empty() || funcState0.np + 1 > prototype.prototypes.length) {
+ if (prototype.prototypes == nullptr || funcState0.np + 1 > prototype.prototypes.length) {
  prototype.prototypes = FuncState.realloc(prototype.prototypes, funcState0.np * 2 + 1);
  }
 
@@ -792,7 +792,7 @@ public:
  }
 
  funcState.upvalues = FuncState.realloc(funcState.upvalues, prototype.numUpvalues);
- FuncState._assert(funcState.bl.empty());
+ FuncState._assert(funcState.bl == nullptr);
  this->fs = funcState.prev;
  }
 
@@ -1268,7 +1268,7 @@ public:
  boolean0 |= blockCnt.upval;
  }
 
- if (blockCnt.empty()) {
+ if (blockCnt == nullptr) {
  this->syntaxerror("no loop to break");
  }
 

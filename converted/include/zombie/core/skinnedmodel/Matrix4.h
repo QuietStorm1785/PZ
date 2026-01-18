@@ -230,7 +230,7 @@ public:
  }
 
  FloatBuffer getBuffer() {
- if (this->direct.empty()) {
+ if (this->direct == nullptr) {
  this->direct = BufferUtils.createFloatBuffer(16);
  }
 

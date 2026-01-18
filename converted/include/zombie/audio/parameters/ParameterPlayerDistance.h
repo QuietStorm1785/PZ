@@ -25,7 +25,7 @@ public:
  }
 
  float calculateCurrentValue() {
- return this->zombie.target.empty() ? 1000.0F : (int)PZMath.ceil(this->zombie.DistToProper(this->zombie.target);
+ return this->zombie.target == nullptr ? 1000.0F : (int)PZMath.ceil(this->zombie.DistToProper(this->zombie.target);
  }
 }
 } // namespace parameters

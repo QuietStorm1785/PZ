@@ -106,7 +106,7 @@ public:
  }
 
  static Matrix4f load(Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -223,7 +223,7 @@ public:
  }
 
  static Matrix4f add(Matrix4f matrix4f2, Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -247,7 +247,7 @@ public:
  }
 
  static Matrix4f sub(Matrix4f matrix4f2, Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -271,7 +271,7 @@ public:
  }
 
  static Matrix4f mul(Matrix4f matrix4f2, Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -311,7 +311,7 @@ public:
  }
 
  static Vector4f transform(Matrix4f matrix4f, Vector4f vector4f1, Vector4f vector4f0) {
- if (vector4f0.empty()) {
+ if (vector4f0 == nullptr) {
  vector4f0 = std::make_unique<Vector4f>();
  }
 
@@ -343,7 +343,7 @@ public:
  }
 
  static Matrix4f scale(Vector3f vector3f, Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -371,7 +371,7 @@ public:
  }
 
  static Matrix4f rotate(float float1, Vector3f vector3f, Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -421,7 +421,7 @@ public:
  }
 
  static Matrix4f translate(Vector3f vector3f, Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -437,7 +437,7 @@ public:
  }
 
  static Matrix4f translate(Vector2f vector2f, Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -453,7 +453,7 @@ public:
  }
 
  static Matrix4f transpose(Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 
@@ -545,7 +545,7 @@ public:
  static Matrix4f invert(Matrix4f matrix4f0, Matrix4f matrix4f1) {
  float float0 = matrix4f0.determinant();
  if (float0 != 0.0F) {
- if (matrix4f1.empty()) {
+ if (matrix4f1 == nullptr) {
  matrix4f1 = std::make_unique<Matrix4f>();
  }
 
@@ -629,7 +629,7 @@ public:
  }
 
  static Matrix4f negate(Matrix4f matrix4f1, Matrix4f matrix4f0) {
- if (matrix4f0.empty()) {
+ if (matrix4f0 == nullptr) {
  matrix4f0 = std::make_unique<Matrix4f>();
  }
 

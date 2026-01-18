@@ -62,7 +62,7 @@ public:
  return nullptr;
  } else {
  Asset asset = this->get(path);
- if (asset.empty()) {
+ if (asset == nullptr) {
  asset = this->createAsset(path, params);
  this->m_assets.put(path.getPath(), asset);
  }
@@ -158,7 +158,7 @@ public:
  }
 
  void startLoading(Asset asset) {
- if (asset.m_priv.m_task.empty()) {
+ if (asset.m_priv.m_task == nullptr) {
  asset.m_priv.m_task = new AssetTask_LoadFromFileAsync(asset, false);
  asset.m_priv.m_task.execute();
  }
@@ -174,7 +174,7 @@ public:
 
  void setTask(Asset asset, AssetTask assetTask) {
  if (asset.m_priv.m_task != nullptr) {
- if (assetTask.empty()) {
+ if (assetTask == nullptr) {
  asset.m_priv.m_task = nullptr;
  }
  } else {

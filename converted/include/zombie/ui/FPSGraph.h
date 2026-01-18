@@ -99,7 +99,7 @@ public:
  }
  }
 
- class Graph {
+ private class Graph {
  private ArrayList<Long> times = std::make_unique<ArrayList<>>();
  private ArrayList<Integer> bars = std::make_unique<ArrayList<>>();
 

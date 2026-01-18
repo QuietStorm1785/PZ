@@ -180,7 +180,7 @@ public:
  }
 
  void initMessaging() {
- if (m_triggerWatcher.empty()) {
+ if (m_triggerWatcher == nullptr) {
  m_triggerWatcher = new PredicatedFileWatcher(
  ZomboidFileSystem.instance.getMessagingDirSub("Trigger_SetDebugOptions.xml"), this::onTrigger_SetDebugOptions
  );

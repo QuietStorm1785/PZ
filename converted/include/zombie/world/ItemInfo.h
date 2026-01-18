@@ -259,7 +259,7 @@ public:
  this->obsolete = Bits.hasFlags(byte0, 4);
  this->removed = Bits.hasFlags(byte0, 8);
  if (Bits.hasFlags(byte0, 16) {
- if (this->modOverrides.empty()) {
+ if (this->modOverrides == nullptr) {
  this->modOverrides = std::make_unique<ArrayList<>>();
  }
 

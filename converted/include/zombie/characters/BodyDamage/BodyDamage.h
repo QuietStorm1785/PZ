@@ -673,7 +673,7 @@ public:
  IsoGridSquare square = this->getParentChar().getCurrentSquare();
  BaseVehicle vehicle = this->getParentChar().getVehicle();
  IsoGameCharacter character = this->getParentChar();
- bool boolean0 = square.empty() || !square.isInARoom() && !square.haveRoof;
+ bool boolean0 = square == nullptr || !square.isInARoom() && !square.haveRoof;
  if (vehicle != nullptr && vehicle.hasRoof(vehicle.getSeat(this->getParentChar()))) {
  boolean0 = false;
  }
@@ -871,7 +871,7 @@ public:
  if (this->isHasACold()) {
  bool boolean0 = true;
  IsoGridSquare square = this->getParentChar().getCurrentSquare();
- if (square.empty()
+ if (square == nullptr
  || !square.isInARoom()
  || this->getParentChar().getMoodles().getMoodleLevel(MoodleType.Wet) > 0
  || this->getParentChar().getMoodles().getMoodleLevel(MoodleType.Hypothermia) >= 1

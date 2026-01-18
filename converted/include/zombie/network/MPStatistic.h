@@ -83,7 +83,7 @@ public:
  KahluaTable table = nullptr;
 
  static MPStatistic getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<MPStatistic>();
  }
 
@@ -772,7 +772,7 @@ public:
  }
  }
 
- if (udpConnection1.empty()) {
+ if (udpConnection1 == nullptr) {
  for (int int3 = 0; int3 < 51; int3++) {
  this->csvConnectionsFile.print("; ");
  }
@@ -880,7 +880,7 @@ public:
  }
  }
 
- class MainThreadStatistic extends MPStatistic.ThreadStatistic {
+ public class MainThreadStatistic extends MPStatistic.ThreadStatistic {
  long timeStartSleep = 0L;
 
  void Start() {

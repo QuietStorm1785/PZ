@@ -126,7 +126,7 @@ public:
  int nextIndex;
 
  void put(void* arg0, void* arg1) {
- if (this->keys.empty()) {
+ if (this->keys == nullptr) {
  this->grow();
  this->keys[0] = arg0;
  this->values[0] = arg1;
@@ -166,7 +166,7 @@ public:
  }
 
  void grow() {
- if (this->keys.empty()) {
+ if (this->keys == nullptr) {
  this->keys = new Object[2];
  this->values = new Object[2];
  } else {

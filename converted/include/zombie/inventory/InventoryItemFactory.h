@@ -33,7 +33,7 @@ public:
  static InventoryItem CreateItem(const std::string& string, Food food1) {
  InventoryItem item = CreateItem(string, 1.0F);
  Food food0 = Type.tryCastTo(item, Food.class);
- if (food0.empty()) {
+ if (food0 == nullptr) {
  return nullptr;
  } else {
  food0.setBaseHunger(food1.getBaseHunger());
@@ -71,7 +71,7 @@ public:
  DebugLog.log("couldn't find item " + string1);
  }
 
- if (item1.empty()) {
+ if (item1 == nullptr) {
  return nullptr;
  } else {
  item0 = item1.InstanceItem(nullptr);
@@ -119,12 +119,12 @@ public:
  static InventoryItem CreateItem(const std::string& string0, float float0, const std::string& string1) {
  InventoryItem item0 = nullptr;
  Item item1 = ScriptManager.instance.getItem(string0);
- if (item1.empty()) {
+ if (item1 == nullptr) {
  DebugLog.log(string0 + " item not found.");
  return nullptr;
  } else {
  item0 = item1.InstanceItem(string1);
- if (item0.empty()) {
+ if (item0 == nullptr) {
  }
 
  if (item0 instanceof Drainable) {
@@ -163,7 +163,7 @@ public:
  "InventoryItemFactory.CreateItem() unknown item with registry ID \"" + short0 + "\". Make sure all mods used in save are installed."
  );
  }
- } else if (itemInfo.empty()) {
+ } else if (itemInfo == nullptr) {
  DebugLog.log("InventoryItemFactory.CreateItem() unknown item with registry ID \"" + short0 + "\". Make sure all mods used in save are installed.");
  } else {
  DebugLog.log("InventoryItemFactory.CreateItem() cannot create item: " + itemInfo.ToString());

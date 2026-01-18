@@ -30,7 +30,7 @@ public:
  int index;
 
  public static synchronized void register(Platform platform, KahluaTable table1) {
- if (metatable.empty()) {
+ if (metatable == nullptr) {
  metatable = platform.newTable();
  metatable.rawset("__metatable", "restricted");
  metatable.rawset("__len", new UserdataArray(0);

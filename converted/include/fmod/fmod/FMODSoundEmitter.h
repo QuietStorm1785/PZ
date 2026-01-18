@@ -61,7 +61,7 @@ public:
 
  public FMODSoundEmitter() {
  SoundManager.instance.registerEmitter(this);
- if (parameterSet.empty()) {
+ if (parameterSet == nullptr) {
  parameterSet = new BitSet(FMODManager.instance.getParameterCount());
  }
  }
@@ -119,7 +119,7 @@ public:
 
  int stopSoundByName(const std::string& arg0) {
  GameSound gameSound = GameSounds.getSound(arg0);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  return 0;
  } else {
  for (int int0 = 0; int0 < this->ToStart.size(); int0++) {
@@ -261,7 +261,7 @@ public:
  for (int int0 = 0; int0 < this->ToStart.size(); int0++) {
  FMODSoundEmitter.Sound sound0 = this->ToStart.get(int0);
  if (sound0.getRef() == arg0) {
- if (sound0.clip.eventDescription.empty()) {
+ if (sound0.clip.eventDescription == nullptr) {
  return false;
  }
 
@@ -272,7 +272,7 @@ public:
  for (int int1 = 0; int1 < this->Instances.size(); int1++) {
  FMODSoundEmitter.Sound sound1 = this->Instances.get(int1);
  if (sound1.getRef() == arg0) {
- if (sound1.clip.eventDescription.empty()) {
+ if (sound1.clip.eventDescription == nullptr) {
  return false;
  }
 
@@ -407,7 +407,7 @@ public:
 
  long playSoundImpl(const std::string& arg0, IsoObject arg1) {
  GameSound gameSound = GameSounds.getSound(arg0);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  return 0L;
  } else {
  GameSoundClip gameSoundClip = gameSound.getRandomClip();
@@ -425,7 +425,7 @@ public:
  return 0L;
  } else {
  GameSound gameSound = GameSounds.getSound(arg0);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  return 0L;
  } else {
  GameSoundClip gameSoundClip = gameSound.getRandomClip();
@@ -444,7 +444,7 @@ public:
  return 0L;
  } else {
  GameSound gameSound = GameSounds.getSound(arg0);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  return 0L;
  } else {
  GameSoundClip gameSoundClip = gameSound.getRandomClip();
@@ -560,7 +560,7 @@ public:
 
  int findInstance(const std::string& string) {
  GameSound gameSound = GameSounds.getSound(string);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  return -1;
  } else {
  for (int int0 = 0; int0 < this->Instances.size(); int0++) {
@@ -587,7 +587,7 @@ public:
 
  int findToStart(const std::string& string) {
  GameSound gameSound = GameSounds.getSound(string);
- if (gameSound.empty()) {
+ if (gameSound == nullptr) {
  return -1;
  } else {
  for (int int0 = 0; int0 < this->ToStart.size(); int0++) {
@@ -771,7 +771,7 @@ public:
  }
 
  private FMODSoundEmitter.Sound addSound(GameSoundClip gameSoundClip, float float0, IsoObject object) {
- if (gameSoundClip.empty()) {
+ if (gameSoundClip == nullptr) {
  DebugLog.log("nullptr sound passed to SoundEmitter.playSoundImpl");
  return nullptr;
  } else {
@@ -780,7 +780,7 @@ public:
  }
 
  if (gameSoundClip.event != nullptr && !gameSoundClip.event.empty()) {
- if (gameSoundClip.eventDescription.empty()) {
+ if (gameSoundClip.eventDescription == nullptr) {
  return nullptr;
  } else {
  FMOD_STUDIO_EVENT_DESCRIPTION fmod_studio_event_description = gameSoundClip.eventDescription;
@@ -1104,7 +1104,7 @@ public:
  )
  / float4;
  IsoGridSquare square0 = IsoPlayer.getInstance().getCurrentSquare();
- if (square0.empty()) {
+ if (square0 == nullptr) {
  javafmod.FMOD_Channel_Set3DMinMaxDistance(this->channel, float0, this->clip.distanceMax);
  javafmod.FMOD_Channel_SetVolume(this->channel, this->getVolume());
  if (boolean0) {
@@ -1210,7 +1210,7 @@ public:
  if (object != nullptr) {
  IsoRoom room1 = IsoPlayer.getInstance().getCurrentSquare().getRoom();
  if (room1 != nullptr || ((IsoGridSquare)object).getRoom() == nullptr) {
- if (room1.empty()
+ if (room1 == nullptr
  || ((IsoGridSquare)object).getRoom() == nullptr
  || room1.building != ((IsoGridSquare)object).getBuilding()) {
  float9 = 0.33F;
@@ -1230,7 +1230,7 @@ public:
  }
  } else if (square2.getRoom() != nullptr) {
  IsoRoom room2 = IsoPlayer.getInstance().getCurrentSquare().getRoom();
- if (room2.empty()) {
+ if (room2 == nullptr) {
  float9 = 0.33F;
  float10 = 0.23F;
  } else if (room2 != square2.getRoom()) {

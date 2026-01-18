@@ -57,7 +57,7 @@ public:
  }
 
  void setDeviceData(DeviceData data) {
- if (data.empty()) {
+ if (data == nullptr) {
  data = new DeviceData(this);
  }
 
@@ -120,7 +120,7 @@ public:
  }
  }
 
- System.out.println("Warning: Radio worldsprite not valid, sprite = " + (sprite.empty() ? "nullptr" : sprite);
+ System.out.println("Warning: Radio worldsprite not valid, sprite = " + (sprite == nullptr ? "nullptr" : sprite);
  return false;
  }
  }
@@ -217,7 +217,7 @@ public:
 
  void load(ByteBuffer input, int WorldVersion) {
  super.load(input, WorldVersion);
- if (this->deviceData.empty()) {
+ if (this->deviceData == nullptr) {
  this->deviceData = new DeviceData(this);
  }
 

@@ -39,7 +39,7 @@ public:
 
  void read(short short0, ByteBuffer byteBuffer, UdpConnection udpConnection) {
  this->type = PacketTypes.packetTypes.get(short0);
- if (this->type.empty()) {
+ if (this->type == nullptr) {
  DebugLog.Multiplayer.error("Received unknown packet id=%d", short0);
  }
 

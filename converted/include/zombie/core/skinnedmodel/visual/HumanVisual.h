@@ -95,7 +95,7 @@ public:
  }
 
  ImmutableColor getSkinColor() {
- if (this->skinColor.empty()) {
+ if (this->skinColor == nullptr) {
  this->skinColor = new ImmutableColor(SurvivorDesc.getRandomSkinColor());
  }
 
@@ -207,7 +207,7 @@ public:
  }
 
  ImmutableColor getHairColor() {
- if (this->hairColor.empty()) {
+ if (this->hairColor == nullptr) {
  this->hairColor = HairOutfitDefinitions.instance.getRandomHaircutColor(this->outfit != nullptr ? this->outfit.m_Name : nullptr);
  }
 
@@ -219,7 +219,7 @@ public:
  }
 
  ImmutableColor getBeardColor() {
- if (this->beardColor.empty()) {
+ if (this->beardColor == nullptr) {
  this->beardColor = this->getHairColor();
  }
 
@@ -231,7 +231,7 @@ public:
  }
 
  ImmutableColor getNaturalHairColor() {
- if (this->naturalHairColor.empty()) {
+ if (this->naturalHairColor == nullptr) {
  this->naturalHairColor = this->getHairColor();
  }
 
@@ -243,7 +243,7 @@ public:
  }
 
  ImmutableColor getNaturalBeardColor() {
- if (this->naturalBeardColor.empty()) {
+ if (this->naturalBeardColor == nullptr) {
  this->naturalBeardColor = this->getNaturalHairColor();
  }
 
@@ -358,11 +358,11 @@ public:
  }
 
  void copyFrom(BaseVisual other_) {
- if (other_.empty()) {
+ if (other_ == nullptr) {
  this->clear();
  } else {
  HumanVisual humanVisual = Type.tryCastTo(other_, HumanVisual.class);
- if (humanVisual.empty()) {
+ if (humanVisual == nullptr) {
  throw IllegalArgumentException("expected HumanVisual, got " + other_);
  } else {
  humanVisual.getHairColor();
@@ -730,11 +730,11 @@ public:
  return nullptr;
  } else {
  Item item = ScriptManager.instance.getItemForClothingItem(clothingItemName);
- if (item.empty()) {
+ if (item == nullptr) {
  return nullptr;
  } else {
  ClothingItem clothingItem = item.getClothingItemAsset();
- if (clothingItem.empty()) {
+ if (clothingItem == nullptr) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < this->bodyVisuals.size(); int0++) {
@@ -785,7 +785,7 @@ public:
  for (int int0 = 0; int0 < itemVisuals.size(); int0++) {
  ItemVisual itemVisual = itemVisuals.get(int0);
  Item item = itemVisual.getScriptItem();
- if (item.empty()) {
+ if (item == nullptr) {
  arrayList.add(nullptr);
  } else {
  std::string string = item.getBodyLocation();
@@ -799,11 +799,11 @@ public:
  }
 
  ItemVisual addClothingItem(ItemVisuals itemVisuals, Item scriptItem) {
- if (scriptItem.empty()) {
+ if (scriptItem == nullptr) {
  return nullptr;
  } else {
  ClothingItem clothingItem = scriptItem.getClothingItemAsset();
- if (clothingItem.empty()) {
+ if (clothingItem == nullptr) {
  return nullptr;
  } else if (!clothingItem.isReady()) {
  return nullptr;
@@ -823,7 +823,7 @@ public:
  return nullptr;
  } else {
  Item item = ScriptManager.instance.getItemForClothingItem(string0);
- if (item.empty()) {
+ if (item == nullptr) {
  if (DebugLog.isEnabled(DebugType.Clothing) {
  DebugLog.Clothing.warn("Could not find item type for %s", string0);
  }
@@ -831,7 +831,7 @@ public:
  return nullptr;
  } else {
  ClothingItem clothingItem = item.getClothingItemAsset();
- if (clothingItem.empty()) {
+ if (clothingItem == nullptr) {
  return nullptr;
  } else if (!clothingItem.isReady()) {
  return nullptr;
@@ -844,7 +844,7 @@ public:
  if (StringUtils.isNullOrWhitespace(string1) {
  return nullptr;
  } else {
- if (clothingItemReference.empty()) {
+ if (clothingItemReference == nullptr) {
  clothingItemReference = std::make_unique<ClothingItemReference>();
  clothingItemReference.itemGUID = clothingItem.m_GUID;
  clothingItemReference.randomize();
@@ -855,7 +855,7 @@ public:
  } else {
  BodyLocationGroup bodyLocationGroup = BodyLocations.getGroup("Human");
  BodyLocation bodyLocation = bodyLocationGroup.getLocation(string1);
- if (bodyLocation.empty()) {
+ if (bodyLocation == nullptr) {
  DebugLog.General.error("The game can't found location '" + string1 + "' for the item '" + item.name + "'");
  return nullptr;
  } else {

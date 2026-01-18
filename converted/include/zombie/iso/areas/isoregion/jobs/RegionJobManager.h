@@ -27,7 +27,7 @@ public:
 
  static JobSquareUpdate allocSquareUpdate(int int0, int int1, int int2, uint8_t byte0) {
  JobSquareUpdate jobSquareUpdate = poolSquareUpdate.poll();
- if (jobSquareUpdate.empty()) {
+ if (jobSquareUpdate == nullptr) {
  jobSquareUpdate = std::make_unique<JobSquareUpdate>();
  }
 
@@ -40,7 +40,7 @@ public:
 
  static JobChunkUpdate allocChunkUpdate() {
  JobChunkUpdate jobChunkUpdate = poolChunkUpdate.poll();
- if (jobChunkUpdate.empty()) {
+ if (jobChunkUpdate == nullptr) {
  jobChunkUpdate = std::make_unique<JobChunkUpdate>();
  }
 
@@ -49,7 +49,7 @@ public:
 
  static JobApplyChanges allocApplyChanges(bool boolean0) {
  JobApplyChanges jobApplyChanges = poolApplyChanges.poll();
- if (jobApplyChanges.empty()) {
+ if (jobApplyChanges == nullptr) {
  jobApplyChanges = std::make_unique<JobApplyChanges>();
  }
 
@@ -59,7 +59,7 @@ public:
 
  static JobServerSendFullData allocServerSendFullData(UdpConnection udpConnection) {
  JobServerSendFullData jobServerSendFullData = poolServerSendFullData.poll();
- if (jobServerSendFullData.empty()) {
+ if (jobServerSendFullData == nullptr) {
  jobServerSendFullData = std::make_unique<JobServerSendFullData>();
  }
 
@@ -69,7 +69,7 @@ public:
 
  static JobDebugResetAllData allocDebugResetAllData() {
  JobDebugResetAllData jobDebugResetAllData = poolDebugResetAllData.poll();
- if (jobDebugResetAllData.empty()) {
+ if (jobDebugResetAllData == nullptr) {
  jobDebugResetAllData = std::make_unique<JobDebugResetAllData>();
  }
 

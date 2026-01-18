@@ -325,7 +325,7 @@ public:
  }
 
  static bool inBounds(IsoGridSquare sq) {
- if (sq.empty()) {
+ if (sq == nullptr) {
  return false;
  } else {
  for (int int0 = 0; int0 < IsoPlayer.numPlayers; int0++) {

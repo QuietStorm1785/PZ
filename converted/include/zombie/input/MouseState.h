@@ -45,7 +45,7 @@ public:
  void set(MouseState rhs) {
  this->m_isCreated = rhs.m_isCreated;
  if (rhs.m_buttonDownStates != nullptr) {
- if (this->m_buttonDownStates.empty() || this->m_buttonDownStates.length != rhs.m_buttonDownStates.length) {
+ if (this->m_buttonDownStates == nullptr || this->m_buttonDownStates.length != rhs.m_buttonDownStates.length) {
  this->m_buttonDownStates = new boolean[rhs.m_buttonDownStates.length];
  }
 

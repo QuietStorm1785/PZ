@@ -216,7 +216,7 @@ public:
  }
  }
 
- class BushInit {
+ private class BushInit {
  std::string name;
  float bloomstart;
  float bloomend;

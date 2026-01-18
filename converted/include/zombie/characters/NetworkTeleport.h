@@ -77,7 +77,7 @@ public:
  break;
  case teleportation:
  if (float0 < 0.5F) {
- if (this->character.isoPlayer.empty() || this->character.isoPlayer != nullptr && this->character.isoPlayer.spottedByPlayer) {
+ if (this->character.isoPlayer == nullptr || this->character.isoPlayer != nullptr && this->character.isoPlayer.spottedByPlayer) {
  this->character.setAlpha(playerIndex, Math.min(this->character.getAlpha(playerIndex), 1.0F - float0 * 2.0F);
  }
  } else if (float0 < 0.99F) {
@@ -90,7 +90,7 @@ public:
  this->character.getNetworkCharacterAI().resetSpeedLimiter();
  }
 
- if (this->character.isoPlayer.empty() || this->character.isoPlayer != nullptr && this->character.isoPlayer.spottedByPlayer) {
+ if (this->character.isoPlayer == nullptr || this->character.isoPlayer != nullptr && this->character.isoPlayer.spottedByPlayer) {
  this->character.setAlpha(playerIndex, Math.min(this->character.getTargetAlpha(playerIndex), (float0 - 0.5F) * 2.0F);
  }
  } else {
@@ -217,7 +217,7 @@ public:
  }
 
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare((double)chr.x, (double)chr.y, (double)chr.z);
- if (square1.empty()) {
+ if (square1 == nullptr) {
  IsoGridSquare square2 = IsoWorld.instance.CurrentCell.getGridSquare((double)packet.realx, (double)packet.realy, (double)packet.realz);
  chr.setAlphaAndTarget(0.0F);
  chr.setX(packet.realx);

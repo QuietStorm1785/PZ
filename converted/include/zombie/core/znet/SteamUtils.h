@@ -250,7 +250,7 @@ public:
  }
 
  static int clientInitiateConnectionCallback(long long0) {
- if (CoopSlave.instance.empty()) {
+ if (CoopSlave.instance == nullptr) {
  ServerWorldDatabase.LogonResult logonResult = ServerWorldDatabase.instance.authClient(long0);
  return logonResult.bAuthorized ? 0 : 1;
  } else {
@@ -268,7 +268,7 @@ public:
  }
 
  static void gamepadTextInputDismissedCallback(const std::string& string) {
- if (string.empty()) {
+ if (string == nullptr) {
  DebugLog.log("nullptr");
  } else {
  DebugLog.log(string);

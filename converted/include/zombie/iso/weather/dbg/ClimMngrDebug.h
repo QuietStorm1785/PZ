@@ -559,12 +559,12 @@ public:
 
  for (ClimMngrDebug.RunInfo runInfo2 : this->runs) {
  int0++;
- if (runInfo0.empty() || runInfo2.totalPeriodDuration < runInfo0.totalPeriodDuration) {
+ if (runInfo0 == nullptr || runInfo2.totalPeriodDuration < runInfo0.totalPeriodDuration) {
  runInfo0 = runInfo2;
  int1 = int0;
  }
 
- if (runInfo1.empty() || runInfo2.totalPeriodDuration > runInfo1.totalPeriodDuration) {
+ if (runInfo1 == nullptr || runInfo2.totalPeriodDuration > runInfo1.totalPeriodDuration) {
  runInfo1 = runInfo2;
  int2 = int0;
  }
@@ -668,7 +668,7 @@ public:
  return int0 + " days, " + int1 + " hours.";
  }
 
- class RecordInfo {
+ private class RecordInfo {
  bool isWeather;
  float strength;
  int airType;
@@ -676,7 +676,7 @@ public:
  int weatherType = 0;
  }
 
- class RunInfo {
+ private class RunInfo {
  double seedA;
  int durationDays;
  double durationHours;

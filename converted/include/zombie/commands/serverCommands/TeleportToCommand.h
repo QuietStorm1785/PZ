@@ -79,7 +79,7 @@ public:
  float float0 = this->coords[0];
  float float1 = this->coords[1];
  float float2 = this->coords[2];
- if (this->connection.empty()) {
+ if (this->connection == nullptr) {
  return "Error";
  } else {
  ByteBufferWriter byteBufferWriter = this->connection.startPacket();
@@ -106,7 +106,7 @@ public:
  return "An Observer can only teleport himself";
  } else {
  IsoPlayer player = GameServer.getPlayerByUserNameForCommand(this->username);
- if (player.empty()) {
+ if (player == nullptr) {
  return "Can't find player " + this->username;
  } else {
  UdpConnection udpConnection = GameServer.getConnectionFromPlayer(player);

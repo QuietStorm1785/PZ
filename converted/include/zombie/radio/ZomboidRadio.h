@@ -79,7 +79,7 @@ public:
  }
 
  static ZomboidRadio getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<ZomboidRadio>();
  }
 

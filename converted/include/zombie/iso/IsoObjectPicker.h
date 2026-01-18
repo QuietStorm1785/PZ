@@ -137,7 +137,7 @@ public:
  IsoObjectPicker.ClickObject clickObject0 = this->ThisFrame.get(int0);
  if ((!(clickObject0.tile instanceof IsoPlayer) || clickObject0.tile != IsoPlayer.players[0])
  && (
- clickObject0.tile.sprite.empty()
+ clickObject0.tile.sprite == nullptr
  || clickObject0.tile.getTargetAlpha(0) != 0.0F
  && (
  !clickObject0.tile.sprite.Properties.Is(IsoFlagType.cutW) && !clickObject0.tile.sprite.Properties.Is(IsoFlagType.cutN)
@@ -153,10 +153,10 @@ public:
  && float0 <= clickObject0.x + clickObject0.width
  && float1 <= clickObject0.y + clickObject0.height) {
  if (clickObject0.tile instanceof IsoPlayer) {
- if (clickObject0.tile.sprite.empty()
- || clickObject0.tile.sprite.def.empty()
- || clickObject0.tile.sprite.CurrentAnim.empty()
- || clickObject0.tile.sprite.CurrentAnim.Frames.empty()
+ if (clickObject0.tile.sprite == nullptr
+ || clickObject0.tile.sprite.def == nullptr
+ || clickObject0.tile.sprite.CurrentAnim == nullptr
+ || clickObject0.tile.sprite.CurrentAnim.Frames == nullptr
  || clickObject0.tile.sprite.def.Frame < 0.0F
  || clickObject0.tile.sprite.def.Frame >= clickObject0.tile.sprite.CurrentAnim.Frames.size()) {
  continue;
@@ -261,7 +261,7 @@ public:
  if (clickObject.tile.square != nullptr) {
  }
 
- if (!(clickObject.tile instanceof IsoPlayer) && (clickObject.tile.sprite.empty() || clickObject.tile.getTargetAlpha(0) != 0.0F) {
+ if (!(clickObject.tile instanceof IsoPlayer) && (clickObject.tile.sprite == nullptr || clickObject.tile.getTargetAlpha(0) != 0.0F) {
  if (clickObject.tile != nullptr && clickObject.tile.sprite != nullptr) {
  }
 
@@ -333,7 +333,7 @@ public:
  if (clickObject.tile.square != nullptr) {
  }
 
- if (clickObject.tile != IsoPlayer.getInstance() && (clickObject.tile.sprite.empty() || clickObject.tile.getTargetAlpha() != 0.0F) {
+ if (clickObject.tile != IsoPlayer.getInstance() && (clickObject.tile.sprite == nullptr || clickObject.tile.getTargetAlpha() != 0.0F) {
  if (clickObject.tile != nullptr && clickObject.tile.sprite != nullptr) {
  }
 
@@ -389,7 +389,7 @@ public:
  for (int int0 = this->ThisFrame.size() - 1; int0 >= 0; int0--) {
  IsoObjectPicker.ClickObject clickObject = this->ThisFrame.get(int0);
  if ((clickObject.tile instanceof IsoWindow || clickObject.tile instanceof IsoCurtain)
- && (clickObject.tile.sprite.empty() || clickObject.tile.getTargetAlpha() != 0.0F)
+ && (clickObject.tile.sprite == nullptr || clickObject.tile.getTargetAlpha() != 0.0F)
  && float0 >= clickObject.x
  && float1 >= clickObject.y
  && float0 < clickObject.x + clickObject.width
@@ -435,7 +435,7 @@ public:
  for (int int0 = this->ThisFrame.size() - 1; int0 >= 0; int0--) {
  IsoObjectPicker.ClickObject clickObject = this->ThisFrame.get(int0);
  if (IsoWindowFrame.isWindowFrame(clickObject.tile)
- && (clickObject.tile.sprite.empty() || clickObject.tile.getTargetAlpha() != 0.0F)
+ && (clickObject.tile.sprite == nullptr || clickObject.tile.getTargetAlpha() != 0.0F)
  && float0 >= clickObject.x
  && float1 >= clickObject.y
  && float0 < clickObject.x + clickObject.width
@@ -479,7 +479,7 @@ public:
  for (int int0 = this->ThisFrame.size() - 1; int0 >= 0; int0--) {
  IsoObjectPicker.ClickObject clickObject = this->ThisFrame.get(int0);
  if (clickObject.tile instanceof IsoThumpable thumpable
- && (clickObject.tile.sprite.empty() || clickObject.tile.getTargetAlpha() != 0.0F)
+ && (clickObject.tile.sprite == nullptr || clickObject.tile.getTargetAlpha() != 0.0F)
  && float0 >= clickObject.x
  && float1 >= clickObject.y
  && float0 < clickObject.x + clickObject.width
@@ -502,7 +502,7 @@ public:
  for (int int0 = this->ThisFrame.size() - 1; int0 >= 0; int0--) {
  IsoObjectPicker.ClickObject clickObject = this->ThisFrame.get(int0);
  if (clickObject.tile.isHoppable()
- && (clickObject.tile.sprite.empty() || clickObject.tile.getTargetAlpha() != 0.0F)
+ && (clickObject.tile.sprite == nullptr || clickObject.tile.getTargetAlpha() != 0.0F)
  && float0 >= clickObject.x
  && float1 >= clickObject.y
  && float0 < clickObject.x + clickObject.width
@@ -550,7 +550,7 @@ public:
  for (int int0 = this->ThisFrame.size() - 1; int0 >= 0; int0--) {
  IsoObjectPicker.ClickObject clickObject = this->ThisFrame.get(int0);
  if (clickObject.tile instanceof IsoTree
- && (clickObject.tile.sprite.empty() || clickObject.tile.getTargetAlpha() != 0.0F)
+ && (clickObject.tile.sprite == nullptr || clickObject.tile.getTargetAlpha() != 0.0F)
  && float0 >= clickObject.x
  && float1 >= clickObject.y
  && float0 < clickObject.x + clickObject.width
@@ -611,7 +611,7 @@ public:
  IsoSprite sprite = object.sprite;
  IsoDoor door = Type.tryCastTo(object, IsoDoor.class);
  IsoThumpable thumpable = Type.tryCastTo(object, IsoThumpable.class);
- if (door.empty() && (thumpable.empty() || !thumpable.isDoor())) {
+ if (door == nullptr && (thumpable == nullptr || !thumpable.isDoor())) {
  if (object instanceof IsoWindow) {
  float0 += 4.0F;
  if (player.getZ() > square1.getZ()) {

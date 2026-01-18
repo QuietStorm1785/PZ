@@ -237,7 +237,7 @@ public:
  }
 
  randomizedBuildingBase2 = getRandomStory();
- if (randomizedBuildingBase2.empty()) {
+ if (randomizedBuildingBase2 == nullptr) {
  return;
  }
  }
@@ -328,10 +328,10 @@ public:
  * @param room force spawn zombies inside a certain room (not mandatory)
  */
  public ArrayList<IsoZombie> addZombies(BuildingDef def, int totalZombies, String outfit, Integer femaleChance, RoomDef room) {
- bool boolean0 = room.empty();
+ bool boolean0 = room == nullptr;
  std::vector arrayList = new ArrayList();
  if (!IsoWorld.getZombiesDisabled() && !"Tutorial" == Core.GameMode) {
- if (room.empty()) {
+ if (room == nullptr) {
  room = this->getRandomRoom(def, 6);
  }
 
@@ -364,7 +364,7 @@ public:
 
  for (int int3 = 0; int3 < int2; int3++) {
  IsoGridSquare square = getRandomSpawnSquare(room);
- if (square.empty()) {
+ if (square == nullptr) {
  break;
  }
 
@@ -398,14 +398,14 @@ public:
  }
 
  HandWeapon addRandomRangedWeapon(ItemContainer container, bool addBulletsInGun, bool addBoxInContainer, bool attachPart) {
- if (weaponsList.empty() || weaponsList.empty()) {
+ if (weaponsList == nullptr || weaponsList.empty()) {
  this->init();
  }
 
  std::vector arrayList = new ArrayList<>(weaponsList.keySet());
  std::string string = (String)arrayList.get(Rand.Next(0, arrayList.size()));
  HandWeapon weapon = this->addWeapon(string, addBulletsInGun);
- if (weapon.empty()) {
+ if (weapon == nullptr) {
  return nullptr;
  } else {
  if (addBoxInContainer) {
@@ -414,12 +414,12 @@ public:
 
  if (attachPart) {
  KahluaTable table0 = (KahluaTable)LuaManager.env.rawget("WeaponUpgrades");
- if (table0.empty()) {
+ if (table0 == nullptr) {
  return nullptr;
  }
 
  KahluaTable table1 = (KahluaTable)table0.rawget(weapon.getType());
- if (table1.empty()) {
+ if (table1 == nullptr) {
  return nullptr;
  }
 

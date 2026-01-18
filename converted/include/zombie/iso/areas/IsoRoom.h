@@ -109,7 +109,7 @@ public:
  buildingx.AddRoom(this);
 
  for (IsoRoomExit roomExit : this->Exits) {
- if (roomExit.To.From != nullptr && roomExit.To.From.building.empty()) {
+ if (roomExit.To.From != nullptr && roomExit.To.From.building == nullptr) {
  roomExit.To.From.AddToBuilding(buildingx);
  }
  }
@@ -199,7 +199,7 @@ public:
 
  if (room0 != nullptr || room1 != nullptr) {
  IsoRoom room2 = room0;
- if (room0.empty()) {
+ if (room0 == nullptr) {
  room2 = room1;
  }
 
@@ -208,7 +208,7 @@ public:
  if (room2 == room0) {
  if (room1 != nullptr) {
  IsoRoomExit roomExit1 = room1.getExitAt(square1.getX(), square1.getY(), square1.getZ());
- if (roomExit1.empty()) {
+ if (roomExit1 == nullptr) {
  roomExit1 = new IsoRoomExit(room1, square1.getX(), square1.getY(), square1.getZ());
  room1.Exits.add(roomExit1);
  }

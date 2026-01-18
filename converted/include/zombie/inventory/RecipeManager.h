@@ -50,7 +50,7 @@ public:
  std::string string = source.getItems().get(int2);
  if (!"Water" == string) && !string.contains(".") && !string.startsWith("[")) {
  Item item0 = resolveItemModuleDotType(recipe, string, hashSet, "recipe source");
- if (item0.empty()) {
+ if (item0 == nullptr) {
  source.getItems().set(int2, "???." + string);
  } else {
  source.getItems().set(int2, item0.getFullName());
@@ -61,7 +61,7 @@ public:
 
  if (recipe.getResult() != nullptr && recipe.getResult().getModule() == nullptr) {
  Item item1 = resolveItemModuleDotType(recipe, recipe.getResult().getType(), hashSet, "recipe result");
- if (item1.empty()) {
+ if (item1 == nullptr) {
  recipe.getResult().module = "???";
  } else {
  recipe.getResult().module = item1.getModule().getName();
@@ -121,7 +121,7 @@ public:
  static void LoadedAfterLua(Recipe recipe, const std::string& string0, const std::string& string1) {
  if (!StringUtils.isNullOrWhitespace(string0) {
  void* object = LuaManager.getFunctionObject(string0);
- if (object.empty()) {
+ if (object == nullptr) {
  DebugLog.General.error("no such function %s = \"%s\" in recipe \"%s\"", string1, string0, recipe.name);
  }
  }
@@ -233,7 +233,7 @@ public:
  }
 
  static bool IsRecipeValid(Recipe recipe, IsoGameCharacter chr, InventoryItem item, ArrayList<ItemContainer> containers) {
- if (recipe.Result.empty()) {
+ if (recipe.Result == nullptr) {
  return false;
  } else if (!chr.isRecipeKnown(recipe) {
  return false;
@@ -278,7 +278,7 @@ public:
  return true;
  } else {
  void* object = LuaManager.getFunctionObject(recipe.getCanPerform());
- if (object.empty()) {
+ if (object == nullptr) {
  return false;
  } else {
  bool boolean0 = LuaManager.caller.protectedCallBoolean(LuaManager.thread, object, recipe, character, item);
@@ -400,7 +400,7 @@ public:
  }
 
  RecipeManager.SourceItems sourceItems = new RecipeManager.SourceItems(recipe, character, item, arrayList0);
- if (arrayList1.empty()) {
+ if (arrayList1 == nullptr) {
  arrayList1 = std::make_unique<ArrayList>();
  arrayList1.add(character.getInventory());
  }
@@ -454,7 +454,7 @@ public:
  static int getNumberOfTimesRecipeCanBeDone(Recipe recipe, IsoGameCharacter chr, ArrayList<ItemContainer> containers, InventoryItem selectedItem) {
  int int0 = 0;
  RecipeManager.RMRecipe rMRecipe = RecipeManager.RMRecipe.alloc(recipe);
- if (containers.empty()) {
+ if (containers == nullptr) {
  containers = std::make_unique<ArrayList>();
  containers.add(chr.getInventory());
  }
@@ -753,12 +753,12 @@ public:
 
  static void GivePlayerExperience(Recipe recipe, ArrayList<InventoryItem> arrayList, InventoryItem item, IsoGameCharacter character) {
  std::string string = recipe.LuaGiveXP;
- if (string.empty()) {
+ if (string == nullptr) {
  string = "Recipe.OnGiveXP.Default";
  }
 
  void* object = LuaManager.getFunctionObject(string);
- if (object.empty()) {
+ if (object == nullptr) {
  DebugLog.Recipe.warn("ERROR: Lua method \"" + string + "\" not found (in RecipeManager.GivePlayerExperience())");
  } else {
  LuaManager.caller.protectedCall(LuaManager.thread, object, recipe, arrayList, item, character);
@@ -814,9 +814,9 @@ public:
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  Recipe recipe = (Recipe)arrayList.get(int0);
- if (recipe.empty()) {
+ if (recipe == nullptr) {
  DebugLog.Recipe.println("Null recipe.");
- } else if (recipe.Result.empty()) {
+ } else if (recipe.Result == nullptr) {
  DebugLog.Recipe.println("Null result.");
  } else {
  DebugLog.Recipe.println(recipe.Result.type);
@@ -922,7 +922,7 @@ public:
  for (int int0 = 0; int0 < container.getItems().size(); int0++) {
  InventoryItem item0 = container.getItems().get(int0);
  if ((item1 != nullptr && item1 == item0 || !character.isEquippedClothing(item0) || this->isKeep(item0.getFullType()))
- && (!this->recipe.InSameInventory || this->isKeep(item0.getFullType()) || item1.empty() || container == item1.getContainer())) {
+ && (!this->recipe.InSameInventory || this->isKeep(item0.getFullType()) || item1 == nullptr || container == item1.getContainer())) {
  if (this->usesWater && item0 instanceof DrainableComboItem && item0.isWaterSource()) {
  this->allItems.add(RecipeManager.RMRecipeItem.alloc(item0);
  } else if (this->allSourceTypes.contains(item0.getFullType())) {
@@ -935,7 +935,7 @@ public:
  bool Test(InventoryItem item) {
  if (item != nullptr && this->recipe.LuaTest != nullptr) {
  void* object = LuaManager.getFunctionObject(this->recipe.LuaTest);
- if (object.empty()) {
+ if (object == nullptr) {
  return false;
  } else {
  bool boolean0 = LuaManager.caller.protectedCallBoolean(LuaManager.thread, object, item, this->recipe.getResult());
@@ -1096,17 +1096,17 @@ public:
  } else if (string == rMRecipeItem.item.getFullType())
  && (
  !(rMRecipe.recipe.getHeat() > 0.0F)
- || drainableComboItem.empty()
+ || drainableComboItem == nullptr
  || !rMRecipeItem.item.IsCookable
  || !(rMRecipeItem.item.getInvHeat() + 1.0F < rMRecipe.recipe.getHeat())
  )
  && (
  !(rMRecipe.recipe.getHeat() < 0.0F)
- || drainableComboItem.empty()
+ || drainableComboItem == nullptr
  || !rMRecipeItem.item.IsCookable
  || !(rMRecipeItem.item.getInvHeat() > rMRecipe.recipe.getHeat())
  )
- && (food.empty() || !(food.getFreezingTime() > 0.0F) || rMRecipe.recipe.isAllowFrozenItem())
+ && (food == nullptr || !(food.getFreezingTime() > 0.0F) || rMRecipe.recipe.isAllowFrozenItem())
  && (!rMRecipe.recipe.noBrokenItems() || !rMRecipeItem.item.isBroken())
  && (!"Clothing" == rMRecipeItem.item.getCategory()) || !rMRecipeItem.item.isFavorite())
  && rMRecipe.Test(rMRecipeItem.item) {

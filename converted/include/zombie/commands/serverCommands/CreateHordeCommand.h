@@ -49,14 +49,14 @@ public:
  IsoPlayer player = nullptr;
  if (this->getCommandArgsCount() == 2) {
  player = GameServer.getPlayerByUserNameForCommand(string);
- if (player.empty()) {
+ if (player == nullptr) {
  return "User \"" + string + "\" not found";
  }
  } else if (this->connection != nullptr) {
  player = GameServer.getAnyPlayerFromConnection(this->connection);
  }
 
- if (integer.empty()) {
+ if (integer == nullptr) {
  return this->getHelp();
  } else {
  integer = Math.min(integer, 500);

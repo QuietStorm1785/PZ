@@ -52,14 +52,14 @@ public:
  saveSettings();
  }
 
- if (m_fileWatcher.empty()) {
+ if (m_fileWatcher == nullptr) {
  m_fileWatcher = new PredicatedFileWatcher(string, SpritePaddingSettings.Settings.class, SpritePaddingSettings::settingsFileChanged);
  DebugFileWatcher.instance.add(m_fileWatcher);
  }
  }
 
  static std::string getSettingsFilePath() {
- if (m_settingsFilePath.empty()) {
+ if (m_settingsFilePath == nullptr) {
  m_settingsFilePath = ZomboidFileSystem.instance.getLocalWorkDirSub("SpritePaddingSettings.xml");
  }
 
@@ -75,7 +75,7 @@ public:
  }
 
  public static SpritePaddingSettings.Settings getSettings() {
- if (m_settings.empty()) {
+ if (m_settings == nullptr) {
  loadSettings();
  }
 

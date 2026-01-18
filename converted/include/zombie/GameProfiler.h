@@ -227,9 +227,9 @@ public:
  }
 
  static void initTriggerWatcher() {
- if (m_gameProfilerRecordingTriggerWatcher.empty()) {
+ if (m_gameProfilerRecordingTriggerWatcher == nullptr) {
  synchronized (m_gameProfilerRecordingTriggerLock) {
- if (m_gameProfilerRecordingTriggerWatcher.empty()) {
+ if (m_gameProfilerRecordingTriggerWatcher == nullptr) {
  m_gameProfilerRecordingTriggerWatcher = new PredicatedFileWatcher(
  ZomboidFileSystem.instance.getMessagingDirSub("Trigger_PerformanceProfiler.xml"),
  TriggerGameProfilerFile.class,

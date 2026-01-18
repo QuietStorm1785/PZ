@@ -51,7 +51,7 @@ public:
  }
 
  public Asset.ObserverCallback getObserverCb() {
- if (this->m_priv.m_cb.empty()) {
+ if (this->m_priv.m_cb == nullptr) {
  this->m_priv.m_cb = new Asset.ObserverCallback();
  }
 

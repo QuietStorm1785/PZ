@@ -132,7 +132,7 @@ public:
  }
  }
 
- if (gameSoundClip1.empty()) {
+ if (gameSoundClip1 == nullptr) {
  this->reloadEpoch = this->gameSound.reloadEpoch;
  return this;
  } else {

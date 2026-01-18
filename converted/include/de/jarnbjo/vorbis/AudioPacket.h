@@ -101,7 +101,7 @@ public:
  int int5 = this->mapping.getSubmapFloors()[int4];
  Floor floor = setupHeader.getFloors()[int5].decodeFloor(vorbisStream, bitInputStream);
  this->channelFloors[int3] = floor;
- this->noResidues[int3] = floor.empty();
+ this->noResidues[int3] = floor == nullptr;
  if (floor != nullptr) {
  boolean0 = false;
  }
@@ -167,7 +167,7 @@ public:
  private float[] getComputedWindow() {
  int int0 = (this->blockFlag ? 4 : 0) + (this->previousWindowFlag ? 2 : 0) + (this->nextWindowFlag ? 1 : 0);
  float[] floats = windows[int0];
- if (floats.empty()) {
+ if (floats == nullptr) {
  floats = new float[this->n];
 
  for (int int1 = 0; int1 < this->leftN; int1++) {

@@ -74,7 +74,7 @@ public:
  }
 
  static Vector4f add(Vector4f vector4f2, Vector4f vector4f1, Vector4f vector4f0) {
- if (vector4f0.empty()) {
+ if (vector4f0 == nullptr) {
  return new Vector4f(vector4f2.x + vector4f1.x, vector4f2.y + vector4f1.y, vector4f2.z + vector4f1.z, vector4f2.w + vector4f1.w);
  } else {
  vector4f0.set(vector4f2.x + vector4f1.x, vector4f2.y + vector4f1.y, vector4f2.z + vector4f1.z, vector4f2.w + vector4f1.w);
@@ -83,7 +83,7 @@ public:
  }
 
  static Vector4f sub(Vector4f vector4f2, Vector4f vector4f1, Vector4f vector4f0) {
- if (vector4f0.empty()) {
+ if (vector4f0 == nullptr) {
  return new Vector4f(vector4f2.x - vector4f1.x, vector4f2.y - vector4f1.y, vector4f2.z - vector4f1.z, vector4f2.w - vector4f1.w);
  } else {
  vector4f0.set(vector4f2.x - vector4f1.x, vector4f2.y - vector4f1.y, vector4f2.z - vector4f1.z, vector4f2.w - vector4f1.w);
@@ -100,7 +100,7 @@ public:
  }
 
  Vector4f negate(Vector4f vector4f0) {
- if (vector4f0.empty()) {
+ if (vector4f0 == nullptr) {
  vector4f0 = std::make_unique<Vector4f>();
  }
 
@@ -113,7 +113,7 @@ public:
 
  Vector4f normalise(Vector4f vector4f1) {
  float float0 = this->length();
- if (vector4f1.empty()) {
+ if (vector4f1 == nullptr) {
  vector4f1 = new Vector4f(this->x / float0, this->y / float0, this->z / float0, this->w / float0);
  } else {
  vector4f1.set(this->x / float0, this->y / float0, this->z / float0, this->w / float0);

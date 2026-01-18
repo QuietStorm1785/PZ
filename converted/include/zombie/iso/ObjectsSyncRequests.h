@@ -352,7 +352,7 @@ public:
  uint8_t byte0 = byteBuffer.get();
  this->receiveSyncIsoGridSquare(int1, int2, byte0);
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int1, int2, byte0);
- if (square.empty()) {
+ if (square == nullptr) {
  return;
  }
 
@@ -521,7 +521,7 @@ public:
  }
  }
 
- class SyncIsoChunk {
+ private class SyncIsoChunk {
  int x;
  int y;
  long hashCodeObjects;
@@ -529,7 +529,7 @@ public:
  int reqCount;
  }
 
- class SyncIsoGridSquare {
+ private class SyncIsoGridSquare {
  int x;
  int y;
  int z;
@@ -541,7 +541,7 @@ public:
  }
  }
 
- class SyncIsoObject {
+ private class SyncIsoObject {
  int x;
  int y;
  int z;

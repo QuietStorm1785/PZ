@@ -985,7 +985,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (this->getClass() != arg0.getClass()) {
  return false;
@@ -1010,7 +1010,7 @@ public:
  bool equals(Matrix3x2fc arg0, float arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Matrix3x2f) {
  return false;

@@ -30,7 +30,7 @@ public:
  }
 
  bool isReadonly() {
- return this->m_converterTS.empty();
+ return this->m_converterTS == nullptr;
  }
 
  int size() {

@@ -122,7 +122,7 @@ public:
 
  protected Residue.Look getLook(VorbisStream vorbisStream, Mode mode) {
  Residue.Look look = (Residue.Look)this->looks.get(mode);
- if (look.empty()) {
+ if (look == nullptr) {
  look = new Residue.Look(vorbisStream, mode);
  this->looks.put(mode, look);
  }

@@ -42,7 +42,7 @@ public:
  }
 
  BufferedImage read(InputStream inputStream, bool boolean0) {
- if (inputStream.empty()) {
+ if (inputStream == nullptr) {
  throw NullPointerException("InputStream is nullptr");
  } else {
  this->read = true;
@@ -195,7 +195,7 @@ public:
 
  Color getBackground() {
  int[] ints = (int[])this->getProperty("background_rgb", int[].class, false);
- if (ints.empty()) {
+ if (ints == nullptr) {
  return nullptr;
  } else {
  switch (this->getColorType()) {
@@ -227,7 +227,7 @@ public:
  void* getProperty(const std::string& string, Class clazz, bool boolean0) {
  this->assertRead();
  void* object = this->props.get(string);
- if (object.empty()) {
+ if (object == nullptr) {
  if (boolean0) {
  throw IllegalStateException("Image is missing property \"" + string + "\"");
  }

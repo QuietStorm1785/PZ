@@ -1531,7 +1531,7 @@ public:
  arg2.y = Math.fma(double1, this->y, double2 * arg0.y());
  arg2.z = Math.fma(double1, this->z, double2 * arg0.z());
  arg2.w = Math.fma(double1, this->w, double2 * arg0.w());
- double double3 = Math.invsqrt(Math.fma(arg2.x, arg2.x, Math.fma(arg2.y, arg2.y, Math.fma(arg2.z, arg2.z, arg2.w * arg2.w);
+ double double3 = Math.invsqrt(Math.fma(arg2.x, arg2.x, Math.fma(arg2.y, arg2.y, Math.fma(arg2.z, arg2.z, arg2.w * arg2.w));
  arg2.x *= double3;
  arg2.y *= double3;
  arg2.z *= double3;
@@ -1576,7 +1576,7 @@ public:
  double5 = Math.fma(double11, double5, double12 * double1);
  double6 = Math.fma(double11, double6, double12 * double2);
  double7 = Math.fma(double11, double7, double12 * double3);
- float float0 = (float)Math.invsqrt(Math.fma(double4, double4, Math.fma(double5, double5, Math.fma(double6, double6, double7 * double7);
+ float float0 = (float)Math.invsqrt(Math.fma(double4, double4, Math.fma(double5, double5, Math.fma(double6, double6, double7 * double7));
  double4 *= float0;
  double5 *= float0;
  double6 *= float0;
@@ -1587,7 +1587,7 @@ public:
  double1 = Math.fma(double11, double1, double12 * double5);
  double2 = Math.fma(double11, double2, double12 * double6);
  double3 = Math.fma(double11, double3, double12 * double7);
- float float1 = (float)Math.invsqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
+ float float1 = (float)Math.invsqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3));
  double0 *= float1;
  double1 *= float1;
  double2 *= float1;
@@ -1604,7 +1604,7 @@ public:
  double double16 = Math.fma(double13, double1, double14 * double5);
  double double17 = Math.fma(double13, double2, double14 * double6);
  double double18 = Math.fma(double13, double3, double14 * double7);
- double double19 = Math.invsqrt(Math.fma(double15, double15, Math.fma(double16, double16, Math.fma(double17, double17, double18 * double18);
+ double double19 = Math.invsqrt(Math.fma(double15, double15, Math.fma(double16, double16, Math.fma(double17, double17, double18 * double18));
  arg3.x = double15 * double19;
  arg3.y = double16 * double19;
  arg3.z = double17 * double19;
@@ -1746,7 +1746,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (this->getClass() != arg0.getClass()) {
  return false;
@@ -1819,7 +1819,7 @@ public:
  double double19 = double16 * double14;
  double double20 = double17 * double14;
  double double21 = double13 * 0.5;
- double double22 = Math.invsqrt(Math.fma(double18, double18, Math.fma(double19, double19, Math.fma(double20, double20, double21 * double21);
+ double double22 = Math.invsqrt(Math.fma(double18, double18, Math.fma(double19, double19, Math.fma(double20, double20, double21 * double21));
  this->x = double18 * double22;
  this->y = double19 * double22;
  this->z = double20 * double22;
@@ -1868,7 +1868,7 @@ public:
  double10 = double16 * double14;
  double11 = double17 * double14;
  double12 = double13 * 0.5;
- double double18 = Math.invsqrt(Math.fma(double9, double9, Math.fma(double10, double10, Math.fma(double11, double11, double12 * double12);
+ double double18 = Math.invsqrt(Math.fma(double9, double9, Math.fma(double10, double10, Math.fma(double11, double11, double12 * double12));
  double9 *= double18;
  double10 *= double18;
  double11 *= double18;
@@ -2220,7 +2220,7 @@ public:
  bool equals(Quaterniondc arg0, double arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0.empty()) {
+ } else if (arg0 == nullptr) {
  return false;
  } else if (!(arg0 instanceof Quaterniondc) {
  return false;

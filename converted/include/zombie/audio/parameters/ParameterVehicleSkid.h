@@ -34,7 +34,7 @@ public:
  return float0;
  } else {
  VehicleScript vehicleScript = this->vehicle.getScript();
- if (vehicleScript.empty()) {
+ if (vehicleScript == nullptr) {
  return float0;
  } else {
  int int0 = 0;

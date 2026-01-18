@@ -137,10 +137,10 @@ public:
  .append(this->override)
  .append(" ")
  .append("primary=\"")
- .append(this->primary.empty() ? "" : this->primary)
+ .append(this->primary == nullptr ? "" : this->primary)
  .append("\" ")
  .append("secondary=\"")
- .append(this->secondary.empty() ? "" : this->secondary)
+ .append(this->secondary == nullptr ? "" : this->secondary)
  .append("\" ]");
  return stringBuilder.toString();
  }

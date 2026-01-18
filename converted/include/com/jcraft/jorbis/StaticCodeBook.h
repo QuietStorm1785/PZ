@@ -122,7 +122,7 @@ public:
  switch (this->maptype) {
  case 1:
  case 2:
- if (this->quantlist.empty()) {
+ if (this->quantlist == nullptr) {
  return -1;
  } else {
  buffer.write(this->q_min, 32);

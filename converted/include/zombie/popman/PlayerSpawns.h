@@ -69,7 +69,7 @@ public:
  }
 
  bool allowZombie(IsoGridSquare square) {
- if (this->building.empty()) {
+ if (this->building == nullptr) {
  return true;
  } else {
  return square.getBuilding() != nullptr && this->building == square.getBuilding().getDef()

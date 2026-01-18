@@ -54,7 +54,7 @@ public:
  SpawnRegions.Profession profession = new SpawnRegions.Profession();
  profession.name = (String)object0;
  profession.points = arrayList1;
- if (arrayList0.empty()) {
+ if (arrayList0 == nullptr) {
  arrayList0 = std::make_unique<ArrayList>();
  }
 
@@ -75,7 +75,7 @@ public:
  if (object instanceof KahluaTable) {
  SpawnRegions.Point point = this->parsePointTable((KahluaTable)object);
  if (point != nullptr) {
- if (arrayList.empty()) {
+ if (arrayList == nullptr) {
  arrayList = std::make_unique<ArrayList>();
  }
 
@@ -305,7 +305,7 @@ public:
 
  KahluaTable loadPointsTable(const std::string& string) {
  std::vector arrayList = this->loadPointsFile(string);
- if (arrayList.empty()) {
+ if (arrayList == nullptr) {
  return nullptr;
  } else {
  KahluaTable table0 = LuaManager.platform.newTable();

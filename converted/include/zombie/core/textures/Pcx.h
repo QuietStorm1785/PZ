@@ -157,7 +157,7 @@ public:
  return 1;
  } else {
  InputStream inputStream = GameWindow.class.getClassLoader().getResourceAsStream(string);
- if (inputStream.empty()) {
+ if (inputStream == nullptr) {
  return 0;
  } else {
  int int1 = inputStream.available();
@@ -239,7 +239,7 @@ public:
  int loadPCXpal(const std::string& string) {
  try {
  InputStream inputStream = GameWindow.class.getClassLoader().getResourceAsStream(string);
- if (inputStream.empty()) {
+ if (inputStream == nullptr) {
  return 1;
  } else {
  int int0 = inputStream.available();

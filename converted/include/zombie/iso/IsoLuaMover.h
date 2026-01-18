@@ -29,7 +29,7 @@ public:
  super(nullptr, 0.0F, 0.0F, 0.0F);
  this->sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  this->luaMoverTable = table;
- if (this->def.empty()) {
+ if (this->def == nullptr) {
  this->def = IsoSpriteInstance.get(this->sprite);
  }
  }

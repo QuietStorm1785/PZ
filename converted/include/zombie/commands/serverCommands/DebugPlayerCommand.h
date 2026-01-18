@@ -37,11 +37,11 @@ public:
  } else {
  std::string string = this->getCommandArg(0);
  IsoPlayer player = GameServer.getPlayerByUserNameForCommand(string);
- if (player.empty()) {
+ if (player == nullptr) {
  return "no such user";
  } else {
  UdpConnection udpConnection = GameServer.getConnectionByPlayerOnlineID(player.OnlineID);
- if (udpConnection.empty()) {
+ if (udpConnection == nullptr) {
  return "no connection for user";
  } else if (GameServer.DebugPlayer.contains(udpConnection) {
  GameServer.DebugPlayer.remove(udpConnection);

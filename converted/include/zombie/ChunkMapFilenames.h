@@ -35,7 +35,7 @@ public:
  if (this->Map.containsKey(long0) {
  return (File)this->Map.get(long0);
  } else {
- if (this->cacheDir.empty()) {
+ if (this->cacheDir == nullptr) {
  this->cacheDir = ZomboidFileSystem.instance.getGameModeCacheDir();
  }
 
@@ -47,11 +47,11 @@ public:
  }
 
  File getDir(const std::string& string) {
- if (this->cacheDir.empty()) {
+ if (this->cacheDir == nullptr) {
  this->cacheDir = ZomboidFileSystem.instance.getGameModeCacheDir();
  }
 
- if (this->dirFile.empty()) {
+ if (this->dirFile == nullptr) {
  this->dirFile = new File(this->cacheDir + File.separator + string);
  }
 

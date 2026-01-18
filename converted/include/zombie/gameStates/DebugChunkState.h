@@ -116,14 +116,14 @@ public:
  void enter() {
  instance = this;
  this->load();
- if (this->m_luaEnv.empty()) {
+ if (this->m_luaEnv == nullptr) {
  this->m_luaEnv = new EditVehicleState.LuaEnvironment(LuaManager.platform, LuaManager.converterManager, LuaManager.env);
  }
 
  this->saveGameUI();
  if (this->m_selfUI.size() == 0) {
  IsoPlayer player = IsoPlayer.players[this->m_playerIndex];
- this->m_z = player.empty() ? 0 : (int)player.z;
+ this->m_z = player == nullptr ? 0 : (int)player.z;
  this->m_luaEnv.caller.pcall(this->m_luaEnv.thread, this->m_luaEnv.env.rawget("DebugChunkState_InitUI"), this);
  if (this->m_table != nullptr && this->m_table.getMetatable() != nullptr) {
  this->m_table.getMetatable().rawset("_LUA_RELOADED_CHECK", Boolean.FALSE);
@@ -533,7 +533,7 @@ public:
  SpriteRenderer.instance.renderPoly(int2, int3, int2 + 32, int3 - 16, int2 + 64, int3, int2 + 32, int3 + 16, 1.0F, 0.0F, 0.0F, 0.8F);
  }
 
- if (square0.empty()
+ if (square0 == nullptr
  || square0.getX() != int5
  || square0.getY() != int4
  || square0.getZ() != float0
@@ -1137,14 +1137,14 @@ public:
  }
  }
 
- class BooleanDebugOption extends BooleanConfigOption {
+ public class BooleanDebugOption extends BooleanConfigOption {
  public BooleanDebugOption(const std::string& string, bool boolean0) {
  super(string, boolean0);
  DebugChunkState.this->options.add(this);
  }
  }
 
- class FloodFill {
+ private class FloodFill {
  IsoGridSquare start = nullptr;
  const int FLOOD_SIZE = 11;
  BooleanGrid visited = new BooleanGrid(11, 11);
@@ -1212,13 +1212,13 @@ public:
  return false;
  } else {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, this->start.getZ());
- if (square.empty()) {
+ if (square == nullptr) {
  return false;
  } else if (square.Has(IsoObjectType.stairsBN) || square.Has(IsoObjectType.stairsMN) || square.Has(IsoObjectType.stairsTN) {
  return false;
  } else if (square.Has(IsoObjectType.stairsBW) || square.Has(IsoObjectType.stairsMW) || square.Has(IsoObjectType.stairsTW) {
  return false;
- } else if (square.getRoom() != nullptr && this->building.empty()) {
+ } else if (square.getRoom() != nullptr && this->building == nullptr) {
  return false;
  } else {
  return square.getRoom() == nullptr && this->building != nullptr

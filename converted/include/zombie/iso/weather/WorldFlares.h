@@ -268,7 +268,7 @@ public:
  for (int int0 = 0; int0 < 4; int0++) {
  WorldFlares.PlayerFlareLightInfo playerFlareLightInfo = this->infos[int0];
  IsoPlayer player = IsoPlayer.players[int0];
- if (player.empty()) {
+ if (player == nullptr) {
  playerFlareLightInfo.intensity = 0.0F;
  } else {
  int int1 = this->GetDistance((int)this->x, (int)this->y, (int)player.getX(), (int)player.getY());

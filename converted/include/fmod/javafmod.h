@@ -2835,7 +2835,7 @@ public:
  }
 
  static int FMOD_Studio_EventInstance_SetParameterByID(long long0, FMOD_STUDIO_PARAMETER_ID fmod_studio_parameter_id, float float0, bool boolean0) {
- return fmod_studio_parameter_id.empty()
+ return fmod_studio_parameter_id == nullptr
  ? 0
  : javafmodJNI.FMOD_Studio_EventInstance_SetParameterByID(long0, fmod_studio_parameter_id.address(), float0, boolean0);
  }

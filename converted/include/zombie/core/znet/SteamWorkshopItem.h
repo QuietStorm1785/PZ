@@ -61,7 +61,7 @@ public:
  }
 
  void setTitle(const std::string& _title) {
- if (_title.empty()) {
+ if (_title == nullptr) {
  _title = "";
  }
 
@@ -73,7 +73,7 @@ public:
  }
 
  void setDescription(const std::string& _description) {
- if (_description.empty()) {
+ if (_description == nullptr) {
  _description = "";
  }
 
@@ -184,7 +184,7 @@ public:
  }
 
  void setChangeNote(const std::string& _changeNote) {
- if (_changeNote.empty()) {
+ if (_changeNote == nullptr) {
  _changeNote = "";
  }
 
@@ -204,7 +204,7 @@ public:
  }
 
  bool getUpdateProgress(KahluaTable table) {
- if (table.empty()) {
+ if (table == nullptr) {
  throw NullPointerException("table is nullptr");
  } else {
  long[] longs = new long[2];
@@ -574,7 +574,7 @@ public:
  BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
  bufferedWriter.write("version=1");
  bufferedWriter.newLine();
- bufferedWriter.write("id=" + (this->PublishedFileId.empty() ? "" : this->PublishedFileId);
+ bufferedWriter.write("id=" + (this->PublishedFileId == nullptr ? "" : this->PublishedFileId);
  bufferedWriter.newLine();
  bufferedWriter.write("title=" + this->title);
  bufferedWriter.newLine();

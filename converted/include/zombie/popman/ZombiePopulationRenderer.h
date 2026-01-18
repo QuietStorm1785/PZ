@@ -379,7 +379,7 @@ public:
  }
  }
 
- class BooleanDebugOption extends BooleanConfigOption {
+ public class BooleanDebugOption extends BooleanConfigOption {
  public BooleanDebugOption(const std::string& string, bool boolean0) {
  super(string, boolean0);
  ZombiePopulationRenderer.this->options.add(this);

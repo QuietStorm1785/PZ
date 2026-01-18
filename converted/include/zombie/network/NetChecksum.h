@@ -48,7 +48,7 @@ public:
  bool convertLineEndings;
 
  void reset(bool boolean0) {
- if (this->md.empty()) {
+ if (this->md == nullptr) {
  this->md = MessageDigest.getInstance("MD5");
  }
 
@@ -57,7 +57,7 @@ public:
  }
 
  void addFile(const std::string& string1, const std::string& string0) {
- if (this->md.empty()) {
+ if (this->md == nullptr) {
  this->md = MessageDigest.getInstance("MD5");
  }
 
@@ -297,7 +297,7 @@ public:
  }
 
  bool checksumEquals(byte[] bytes) {
- if (bytes.empty()) {
+ if (bytes == nullptr) {
  return false;
  } else if (this->checksum.length < bytes.length) {
  return false;
@@ -536,7 +536,7 @@ public:
  byte[][] checksums = new byte[20][];
 
  private GroupOfFiles() {
- if (mdTotal.empty()) {
+ if (mdTotal == nullptr) {
  mdTotal = MessageDigest.getInstance("MD5");
  mdCurrentFile = MessageDigest.getInstance("MD5");
  }
@@ -599,7 +599,7 @@ public:
  }
 
  static void addFile(const std::string& string0, const std::string& string1) {
- if (currentGroup.empty()) {
+ if (currentGroup == nullptr) {
  currentGroup = new NetChecksum.GroupOfFiles();
  }
 

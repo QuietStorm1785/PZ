@@ -26,7 +26,7 @@ public:
  return nullptr;
  } else {
  WorldMapImages worldMapImages = s_filenameToImages.get(string);
- if (worldMapImages.empty()) {
+ if (worldMapImages == nullptr) {
  worldMapImages = std::make_unique<WorldMapImages>();
  worldMapImages.m_directory = directory;
  worldMapImages.m_pyramid = std::make_unique<ImagePyramid>();

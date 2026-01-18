@@ -189,7 +189,7 @@ public:
  }
  }
 
- if (this->container.empty() && this->Heat != 1.0F) {
+ if (this->container == nullptr && this->Heat != 1.0F) {
  float float4 = 1.0F;
  if (this->Heat > float4) {
  this->Heat = this->Heat - 0.001F * GameTime.instance.getMultiplier();

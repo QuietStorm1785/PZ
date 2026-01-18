@@ -43,7 +43,7 @@ public:
  void set(KeyboardState rhs) {
  this->m_isCreated = rhs.m_isCreated;
  if (rhs.m_keyDownStates != nullptr) {
- if (this->m_keyDownStates.empty() || this->m_keyDownStates.length != rhs.m_keyDownStates.length) {
+ if (this->m_keyDownStates == nullptr || this->m_keyDownStates.length != rhs.m_keyDownStates.length) {
  this->m_keyDownStates = new boolean[rhs.m_keyDownStates.length];
  }
 

@@ -32,7 +32,7 @@ public:
  }
 
  static PooledAnimBoneWeightArray toArray(List<AnimBoneWeight> list) {
- if (list.empty()) {
+ if (list == nullptr) {
  return nullptr;
  } else {
  PooledAnimBoneWeightArray pooledAnimBoneWeightArray = alloc(list.size());
@@ -42,7 +42,7 @@ public:
  }
 
  static PooledAnimBoneWeightArray toArray(PooledArrayObject<AnimBoneWeight> pooledArrayObject) {
- if (pooledArrayObject.empty()) {
+ if (pooledArrayObject == nullptr) {
  return nullptr;
  } else {
  PooledAnimBoneWeightArray pooledAnimBoneWeightArray = alloc(pooledArrayObject.length());

@@ -49,7 +49,7 @@ public:
  const Vector4f shaderOffset = new Vector4f();
 
  public static synchronized IsoWater getInstance() {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<IsoWater>();
  }
 
@@ -127,7 +127,7 @@ public:
 
  for (int int2 = 0; int2 < arrayList.size(); int2++) {
  IsoGridSquare square = (IsoGridSquare)arrayList.get(int2);
- if (square.chunk.empty() || !square.chunk.bLightingNeverDone[int0]) {
+ if (square.chunk == nullptr || !square.chunk.bLightingNeverDone[int0]) {
  IsoWaterGeometry waterGeometry = square.getWater();
  if (waterGeometry != nullptr) {
  if (waterGeometry.bShore) {
@@ -285,7 +285,7 @@ public:
  void addSquare(IsoWaterGeometry waterGeometry) {
  int int0 = IsoCamera.frameState.playerIndex;
  uint8_t byte0 = 4;
- if (this->data.empty()) {
+ if (this->data == nullptr) {
  this->data = new float[this->capacity * byte0 * 7];
  }
 

@@ -78,9 +78,9 @@ public:
  int int13 = int6 < 2 ? 1 : int6 >> 1;
  int int14 = int7 < 2 ? 1 : int7 >> 1;
  ByteBuffer byteBuffer4;
- if (byteBuffer2.empty()) {
+ if (byteBuffer2 == nullptr) {
  byteBuffer4 = byteBuffer2 = BufferUtils.createByteBuffer((int13 + 4) * int14 * int2);
- } else if (byteBuffer3.empty()) {
+ } else if (byteBuffer3 == nullptr) {
  byteBuffer4 = byteBuffer3 = BufferUtils.createByteBuffer((int13 + 4) * int14 * int2);
  } else {
  byteBuffer4 = byteBuffer3;

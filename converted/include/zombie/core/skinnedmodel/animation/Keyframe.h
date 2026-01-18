@@ -62,7 +62,7 @@ public:
  }
 
  void setScale(Vector3f vector3f) {
- if (this->Scale.empty()) {
+ if (this->Scale == nullptr) {
  this->Scale = std::make_unique<Vector3f>();
  }
 
@@ -70,7 +70,7 @@ public:
  }
 
  void setRotation(Quaternion quaternion) {
- if (this->Rotation.empty()) {
+ if (this->Rotation == nullptr) {
  this->Rotation = std::make_unique<Quaternion>();
  }
 
@@ -78,7 +78,7 @@ public:
  }
 
  void setPosition(Vector3f vector3f) {
- if (this->Position.empty()) {
+ if (this->Position == nullptr) {
  this->Position = std::make_unique<Vector3f>();
  }
 

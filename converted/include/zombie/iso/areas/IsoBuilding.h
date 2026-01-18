@@ -167,7 +167,7 @@ public:
 
  void AddRoom(IsoRoom room) {
  this->Rooms.add(room);
- if (this->bounds.empty()) {
+ if (this->bounds == nullptr) {
  this->bounds = (Rectangle)room.bounds.clone();
  }
 
@@ -179,7 +179,7 @@ public:
  void CalculateExits() {
  for (IsoRoom room : this->Rooms) {
  for (IsoRoomExit roomExit : room.Exits) {
- if (roomExit.To.From.empty() && room.layer == 0) {
+ if (roomExit.To.From == nullptr && room.layer == 0) {
  this->Exits.add(roomExit);
  }
  }
@@ -328,7 +328,7 @@ public:
  do {
  IsoRoom room = this->Rooms.get(Rand.Next(this->Rooms.size()));
  square = room.getFreeTile();
- } while (square.empty());
+ } while (square == nullptr);
 
  return square;
  }
@@ -497,7 +497,7 @@ public:
 
  for (int int2 = 0; int2 < room.Containers.size(); int2++) {
  ItemContainer containerx = room.Containers.get(int2);
- if (type.empty() || RandomContainerChoices.contains(containerx.getType())) {
+ if (type == nullptr || RandomContainerChoices.contains(containerx.getType())) {
  tempContainer.add(containerx);
  }
  }

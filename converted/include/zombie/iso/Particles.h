@@ -78,7 +78,7 @@ public:
  }
 
  static void init() {
- if (funcs.empty()) {
+ if (funcs == nullptr) {
  if (!GL.getCapabilities().OpenGL33) {
  System.out.println("OpenGL 3.3 don't supported");
  }

@@ -53,7 +53,7 @@ public:
  AiScene aiScene = Jassimp.importFile(this->m_fileName, enumSet);
  JAssImpImporter.LoadMode loadMode = JAssImpImporter.LoadMode.AnimationOnly;
  ModelMesh modelMesh = this->m_anim.assetParams.animationsMesh;
- SkinningData skinningData = modelMesh.empty() ? nullptr : modelMesh.skinningData;
+ SkinningData skinningData = modelMesh == nullptr ? nullptr : modelMesh.skinningData;
  ProcessedAiSceneParams processedAiSceneParams = ProcessedAiSceneParams.create();
  processedAiSceneParams.scene = aiScene;
  processedAiSceneParams.mode = loadMode;
@@ -69,7 +69,7 @@ public:
  AiScene aiScene = Jassimp.importFile(this->m_fileName, enumSet);
  JAssImpImporter.LoadMode loadMode = JAssImpImporter.LoadMode.AnimationOnly;
  ModelMesh modelMesh = this->m_anim.assetParams.animationsMesh;
- SkinningData skinningData = modelMesh.empty() ? nullptr : modelMesh.skinningData;
+ SkinningData skinningData = modelMesh == nullptr ? nullptr : modelMesh.skinningData;
  Quaternion quaternion = new Quaternion();
  Vector4f vector4f = new Vector4f(1.0F, 0.0F, 0.0F, (float) (-Math.PI / 2);
  quaternion.setFromAxisAngle(vector4f);
@@ -88,7 +88,7 @@ public:
  bool boolean0 = false;
  bool boolean1 = false;
  ModelMesh modelMesh = this->m_anim.assetParams.animationsMesh;
- SkinningData skinningData = modelMesh.empty() ? nullptr : modelMesh.skinningData;
+ SkinningData skinningData = modelMesh == nullptr ? nullptr : modelMesh.skinningData;
  return ModelLoader.instance.loadTxt(this->m_fileName, boolean0, boolean1, skinningData);
  }
 }

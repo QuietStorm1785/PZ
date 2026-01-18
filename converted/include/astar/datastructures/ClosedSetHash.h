@@ -49,7 +49,7 @@ public:
  ISearchNode candidate;
 
  bool execute(ISearchNode iSearchNode) {
- if (this->candidate.empty()) {
+ if (this->candidate == nullptr) {
  this->candidate = iSearchNode;
  return true;
  } else {

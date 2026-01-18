@@ -109,7 +109,7 @@ public:
  this->description = desc;
  this->prof = _prof;
  this->texture = Texture.getSharedTexture("media/ui/Traits/trait_" + this->traitID.toLowerCase(Locale.ENGLISH) + ".png");
- if (this->texture.empty()) {
+ if (this->texture == nullptr) {
  this->texture = Texture.getSharedTexture("media/ui/Traits/trait_generic.png");
  }
 

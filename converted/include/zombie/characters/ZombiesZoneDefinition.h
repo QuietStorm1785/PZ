@@ -124,7 +124,7 @@ public:
  IsoGridSquare square = zombie0.getCurrentSquare();
  if (square != nullptr) {
  ZombiesZoneDefinition.PickDefinition pickDefinition = pickDefinition(square.x, square.y, square.z, zombie0.isFemale());
- if (pickDefinition.empty()) {
+ if (pickDefinition == nullptr) {
  std::string string = square.getRoom() == nullptr ? nullptr : square.getRoom().getName();
  Outfit outfit = getRandomDefaultOutfit(zombie0.isFemale(), string);
  zombie0.dressInPersistentOutfit(outfit.m_Name);
@@ -152,27 +152,27 @@ public:
 
  public static ZombiesZoneDefinition.PickDefinition pickDefinition(int int0, int int1, int int2, boolean boolean0) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  return nullptr;
  } else {
  std::string string0 = square.getRoom() == nullptr ? nullptr : square.getRoom().getName();
  checkDirty();
  IsoMetaGrid.Zone zone = getDefinitionZoneAt(int0, int1, int2);
- if (zone.empty()) {
+ if (zone == nullptr) {
  return nullptr;
  } else if (zone.spawnSpecialZombies == Boolean.FALSE) {
  return nullptr;
  } else {
  std::string string1 = StringUtils.isNullOrEmpty(zone.name) ? zone.type : zone.name;
  ZombiesZoneDefinition.ZZDZone zZDZone = s_zoneMap.get(string1);
- if (zZDZone.empty()) {
+ if (zZDZone == nullptr) {
  return nullptr;
  } else {
  if (zZDZone.chanceToSpawn != -1) {
  int int3 = zZDZone.chanceToSpawn;
  int int4 = zZDZone.toSpawn;
  std::vector arrayList0 = IsoWorld.instance.getSpawnedZombieZone().get(zone.getName());
- if (arrayList0.empty()) {
+ if (arrayList0 == nullptr) {
  arrayList0 = std::make_unique<ArrayList>();
  IsoWorld.instance.getSpawnedZombieZone().put(zone.getName(), arrayList0);
  }
@@ -181,7 +181,7 @@ public:
  zone.spawnSpecialZombies = true;
  }
 
- if (int4 == -1 || zone.spawnSpecialZombies.empty() && arrayList0.size() < int4) {
+ if (int4 == -1 || zone.spawnSpecialZombies == nullptr && arrayList0.size() < int4) {
  if (Rand.Next(100) < int3) {
  zone.spawnSpecialZombies = true;
  arrayList0.add(zone.id);
@@ -192,7 +192,7 @@ public:
  }
  }
 
- if (zone.empty()) {
+ if (zone == nullptr) {
  return nullptr;
  } else {
  std::vector arrayList1 = new ArrayList();
@@ -211,14 +211,14 @@ public:
  ZombiesZoneDefinition.ZZDOutfit zZDOutfit0 = zZDZone.outfits.get(int7);
  std::string string2 = zZDOutfit0.gender;
  std::string string3 = zZDOutfit0.room;
- if ((string3.empty() || string0 != nullptr && string3.contains(string0)
+ if ((string3 == nullptr || string0 != nullptr && string3.contains(string0)
  && (!"male".equalsIgnoreCase(string2) || !boolean0)
  && (!"female".equalsIgnoreCase(string2) || boolean0) {
  std::string string4 = zZDOutfit0.name;
  bool boolean1 = Boolean.parseBoolean(zZDOutfit0.mandatory);
  if (boolean1) {
  int integer = zone.spawnedZombies.get(string4);
- if (integer.empty()) {
+ if (integer == nullptr) {
  integer = 0;
  }
 
@@ -238,7 +238,7 @@ public:
  zZDOutfit1 = getRandomOutfitInSetList(arrayList2, true);
  }
 
- if (zZDOutfit1.empty()) {
+ if (zZDOutfit1 == nullptr) {
  return nullptr;
  } else {
  pickDef.table = zZDOutfit1;
@@ -262,12 +262,12 @@ public:
  }
 
  std::string string = zZDOutfit.customName;
- if (outfit.empty()) {
+ if (outfit == nullptr) {
  outfit = OutfitManager.instance.GetRandomOutfit(boolean0);
  string = outfit.m_Name;
  } else if (zone != nullptr) {
  int integer = zone.spawnedZombies.get(outfit.m_Name);
- if (integer.empty()) {
+ if (integer == nullptr) {
  integer = 1;
  }
 
@@ -291,8 +291,8 @@ public:
  ZombiesZoneDefinition.ZZDOutfit zZDOutfit0 = zZDZone.outfits.get(int0);
  std::string string0 = zZDOutfit0.gender;
  std::string string1 = zZDOutfit0.room;
- if ((string1.empty() || string2 != nullptr && string1.contains(string2)
- && (string0.empty() || "male".equalsIgnoreCase(string0) && !boolean0 || "female".equalsIgnoreCase(string0) && boolean0) {
+ if ((string1 == nullptr || string2 != nullptr && string1.contains(string2)
+ && (string0 == nullptr || "male".equalsIgnoreCase(string0) && !boolean0 || "female".equalsIgnoreCase(string0) && boolean0) {
  arrayList.add(zZDOutfit0);
  }
  }
@@ -307,7 +307,7 @@ public:
  }
  }
 
- if (outfit.empty()) {
+ if (outfit == nullptr) {
  outfit = OutfitManager.instance.GetRandomOutfit(boolean0);
  }
 
@@ -380,7 +380,7 @@ public:
  }
 
  character.dressInNamedOutfit(zZDOutfit.name);
- if (zombie0.empty()) {
+ if (zombie0 == nullptr) {
  PersistentOutfits.instance.removeFallenHat(int0, character);
  } else {
  AttachedWeaponDefinitions.instance.addRandomAttachedWeapon(zombie0);
@@ -409,7 +409,7 @@ public:
  bool boolean0 = Rand.Next(2) == 0;
  ZombiesZoneDefinition.PickDefinition pickDefinition = pickDefinition(square.x, square.y, square.z, boolean0);
  Outfit outfit;
- if (pickDefinition.empty()) {
+ if (pickDefinition == nullptr) {
  std::string string0 = square.getRoom() == nullptr ? nullptr : square.getRoom().getName();
  outfit = getRandomDefaultOutfit(boolean0, string0);
  } else {
@@ -422,7 +422,7 @@ public:
  }
  }
 
- if (outfit.empty()) {
+ if (outfit == nullptr) {
  bool boolean1 = true;
  } else {
  int int0 = PersistentOutfits.instance.pickOutfit(outfit.m_Name, boolean0);

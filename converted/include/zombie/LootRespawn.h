@@ -143,7 +143,7 @@ public:
  for (int int1 = 0; int1 < 10; int1++) {
  for (int int2 = 0; int2 < 10; int2++) {
  IsoGridSquare square = chunk.getGridSquare(int2, int1, 0);
- IsoMetaGrid.Zone zone = square.empty() ? nullptr : square.getZone();
+ IsoMetaGrid.Zone zone = square == nullptr ? nullptr : square.getZone();
  if (zone != nullptr
  && ("TownZone" == zone.getType()) || "TownZones" == zone.getType()) || "TrailerPark" == zone.getType()))
  && (!boolean0 || !zone.haveConstruction)

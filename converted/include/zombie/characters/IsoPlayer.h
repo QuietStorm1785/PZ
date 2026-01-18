@@ -694,7 +694,7 @@ public:
  }
  }
 
- return IsoWorld.instance.empty() || IsoWorld.instance.AddCoopPlayers.empty();
+ return IsoWorld.instance == nullptr || IsoWorld.instance.AddCoopPlayers.empty();
  }
 
  public static ArrayList<IsoPlayer> getPlayers() {
@@ -1768,7 +1768,7 @@ public:
  this->updateCursorVisibility();
  this->bSeenThisFrame = false;
  this->bCouldBeSeenThisFrame = false;
- if (IsoCamera.CamCharacter.empty() && GameClient.bClient) {
+ if (IsoCamera.CamCharacter == nullptr && GameClient.bClient) {
  IsoCamera.CamCharacter = instance;
  }
 
@@ -2001,7 +2001,7 @@ public:
  this->dir = moveVars.NewFacing;
  }
 
- if (this->isAiming() && (GameWindow.ActivatedJoyPad.empty() || this->JoypadBind == -1) {
+ if (this->isAiming() && (GameWindow.ActivatedJoyPad == nullptr || this->JoypadBind == -1) {
  this->playerMoveDir.x = moveVars.moveX;
  this->playerMoveDir.y = moveVars.moveY;
  }
@@ -2370,7 +2370,7 @@ public:
 
  if (this->isAiming() && !this->isCurrentState(SwipeStatePlayer.instance())) {
  HandWeapon weapon = Type.tryCastTo(this->getPrimaryHandItem(), HandWeapon.class);
- weapon = weapon.empty() ? this->bareHands : weapon;
+ weapon = weapon == nullptr ? this->bareHands : weapon;
  SwipeStatePlayer.instance().calcValidTargets(this, weapon, true, s_targetsProne, s_targetsStanding);
  HitInfo hitInfo0 = s_targetsStanding.empty() ? nullptr : s_targetsStanding.get(0);
  HitInfo hitInfo1 = s_targetsProne.empty() ? nullptr : s_targetsProne.get(0);
@@ -2914,7 +2914,7 @@ public:
 
  void highlightRangedTargetsInternal() {
  HandWeapon weapon0 = Type.tryCastTo(this->getPrimaryHandItem(), HandWeapon.class);
- if (weapon0.empty() || weapon0.getSwingAnim() == nullptr || weapon0.getCondition() <= 0) {
+ if (weapon0 == nullptr || weapon0.getSwingAnim() == nullptr || weapon0.getCondition() <= 0) {
  weapon0 = this->bareHands;
  }
 
@@ -3146,7 +3146,7 @@ public:
  void updateSoundListener() {
  if (!GameServer.bServer) {
  if (this->isLocalPlayer()) {
- if (this->soundListener.empty()) {
+ if (this->soundListener == nullptr) {
  this->soundListener = (BaseSoundListener)(Core.SoundDisabled
  ? new DummySoundListener(this->PlayerIndex)
  : new SoundListener(this->PlayerIndex);
@@ -3159,7 +3159,7 @@ public:
  this->numNearbyBuildingsRooms = IsoWorld.instance.MetaGrid.countNearbyBuildingsRooms(this);
  }
 
- if (this->testemitter.empty()) {
+ if (this->testemitter == nullptr) {
  this->testemitter = (BaseSoundEmitter)(Core.SoundDisabled ? std::make_unique<DummySoundEmitter>() : std::make_unique<FMODSoundEmitter>());
  this->testemitter.setPos(this->x, this->y, this->z);
  }
@@ -3285,7 +3285,7 @@ public:
  character = Type.tryCastTo(this->hitList.get(0).getObject(), IsoGameCharacter.class);
  }
 
- if (character.empty()) {
+ if (character == nullptr) {
  if (this->isAiming() && !this->m_meleePressed && this->useHandWeapon != this->bareHands) {
  this->setDoShove(false);
  this->setForceShove(false);
@@ -3314,7 +3314,7 @@ public:
  if (!this->attackVars.bAimAtFloor
  && float1 > 1.25
  && weaponType == WeaponType.spear
- && (zombie0.empty() || IsoUtils.DistanceTo(character.x, character.y, zombie0.x, zombie0.y) > 1.7) {
+ && (zombie0 == nullptr || IsoUtils.DistanceTo(character.x, character.y, zombie0.x, zombie0.y) > 1.7) {
  if (!GameClient.bClient || this->isLocalPlayer()) {
  this->setAttackType("overhead");
  }
@@ -3328,7 +3328,7 @@ public:
  }
 
  if (this->isAttackFromBehind()) {
- if (character instanceof IsoZombie && ((IsoZombie)character).target.empty()) {
+ if (character instanceof IsoZombie && ((IsoZombie)character).target == nullptr) {
  int2 += 30;
  } else {
  int2 += 5;
@@ -3348,7 +3348,7 @@ public:
  if (this->isAttackFromBehind()
  && this->attackVars.bCloseKill
  && character instanceof IsoZombie
- && ((IsoZombie)character).target.empty()) {
+ && ((IsoZombie)character).target == nullptr) {
  this->setCriticalHit(true);
  }
 
@@ -3811,7 +3811,7 @@ public:
  for (int int1 = 0; int1 < arrayList0.size(); int1++) {
  IsoZombie zombie1 = (IsoZombie)arrayList0.get(int1);
  float float1 = IsoUtils.DistanceTo(zombie1.x, zombie1.y, closestTo.x, closestTo.y);
- if (zombie0.empty() || float1 < float0) {
+ if (zombie0 == nullptr || float1 < float0) {
  zombie0 = zombie1;
  float0 = float1;
  }
@@ -4351,7 +4351,7 @@ public:
  void updateTorchStrength() {
  if (this->getTorchStrength() > 0.0F || this->flickTorch) {
  DrainableComboItem drainableComboItem = Type.tryCastTo(this->getActiveLightItem(), DrainableComboItem.class);
- if (drainableComboItem.empty()) {
+ if (drainableComboItem == nullptr) {
  return;
  }
 
@@ -4425,7 +4425,7 @@ public:
 
  for (int int0 = 0; int0 < 4; int0++) {
  IsoGridSquare square = squares[int0];
- if (square.empty()) {
+ if (square == nullptr) {
  }
  }
  }
@@ -4449,7 +4449,7 @@ public:
  return false;
  }
 
- if (object.empty()) {
+ if (object == nullptr) {
  return false;
  } else if (((IsoGridSquare)object).Is(IsoFlagType.water) {
  return false;
@@ -4606,7 +4606,7 @@ public:
  bool doContextNSWE(IsoDirections directions) {
  assert directions = = IsoDirections.N || directions == IsoDirections.S || directions == IsoDirections.W || directions == IsoDirections.E;
 
- if (this->current.empty()) {
+ if (this->current == nullptr) {
  return false;
  } else if (directions == IsoDirections.N && this->current.Is(IsoFlagType.climbSheetN) && this->canClimbSheetRope(this->current) {
  this->climbSheetRope();
@@ -4817,9 +4817,9 @@ public:
  }
  } else if (window.Health > 0 && !window.isDestroyed()) {
  IsoBarricade barricade = window.getBarricadeForCharacter(this);
- if (!window.open && barricade.empty()) {
+ if (!window.open && barricade == nullptr) {
  this->openWindow(window);
- } else if (barricade.empty()) {
+ } else if (barricade == nullptr) {
  this->closeWindow(window);
  }
  } else if (window.isGlassRemoved()) {
@@ -4894,7 +4894,7 @@ public:
  } else {
  return this->hopFence(IsoDirections.W, bTest) ? true : this->hopFence(IsoDirections.S, bTest);
  }
- } else if (this->current.empty()) {
+ } else if (this->current == nullptr) {
  return false;
  } else {
  IsoGridSquare square = this->current.nav[dir.index()];
@@ -4941,7 +4941,7 @@ public:
  bool canClimbOverWall(IsoDirections dir) {
  if (this->isSprinting()) {
  return false;
- } else if (!this->isSafeToClimbOver(dir) || this->current.empty()) {
+ } else if (!this->isSafeToClimbOver(dir) || this->current == nullptr) {
  return false;
  } else if (this->current.haveRoof) {
  return false;
@@ -5341,7 +5341,7 @@ public:
  remoteChr.spottedByPlayer = true;
  return true;
  } else {
- float float1 = this->current.empty() ? 0.0F : remoteChr.getCurrentSquare().DistTo(this->getCurrentSquare());
+ float float1 = this->current == nullptr ? 0.0F : remoteChr.getCurrentSquare().DistTo(this->getCurrentSquare());
  if (float1 <= 2.0F) {
  remoteChr.spottedByPlayer = true;
  return true;
@@ -5523,7 +5523,7 @@ public:
  }
 
  bool IsUsingAimWeapon() {
- if (this->leftHandItem.empty()) {
+ if (this->leftHandItem == nullptr) {
  return false;
  } else if (!(this->leftHandItem instanceof HandWeapon) {
  return false;
@@ -5533,7 +5533,7 @@ public:
  }
 
  bool IsUsingAimHandWeapon() {
- if (this->leftHandItem.empty()) {
+ if (this->leftHandItem == nullptr) {
  return false;
  } else if (!(this->leftHandItem instanceof HandWeapon) {
  return false;
@@ -5823,7 +5823,7 @@ public:
  }
 
  bool isMaskClicked(int x, int y, bool flip) {
- return this->sprite.empty() ? false : this->sprite.isMaskClicked(this->dir, x, y, flip);
+ return this->sprite == nullptr ? false : this->sprite.isMaskClicked(this->dir, x, y, flip);
  }
 
  int getOffSetXUI() {
@@ -6966,7 +6966,7 @@ public:
 
  std::string getDisplayName() {
  if (GameClient.bClient) {
- if (this->displayName.empty() || this->displayName == "")) {
+ if (this->displayName == nullptr || this->displayName == "")) {
  this->displayName = this->getUsername();
  }
  } else if (!GameServer.bServer) {
@@ -7106,7 +7106,7 @@ public:
 
  void updateFootInjuries() {
  InventoryItem item = this->getWornItems().getItem("Shoes");
- if (item.empty() || item.getCondition() <= 0) {
+ if (item == nullptr || item.getCondition() <= 0) {
  if (this->getCurrentSquare() != nullptr) {
  if (this->getCurrentSquare().getBrokenGlass() != nullptr) {
  BodyPartType bodyPartType0 = BodyPartType.FromIndex(
@@ -7420,7 +7420,7 @@ public:
  this->getBodyDamage().setInfectionLevel(100.0F);
  }
 
- if (killer.empty()) {
+ if (killer == nullptr) {
  this->DoDeath(nullptr, nullptr);
  } else {
  this->DoDeath(killer.getUseHandWeapon(), killer);

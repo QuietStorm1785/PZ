@@ -331,7 +331,7 @@ public:
  ZombieVocalsManager.instance.update();
  }
 
- class Contact {
+ public class Contact {
  IsoMovingObject a;
  IsoMovingObject b;
 
@@ -341,7 +341,7 @@ public:
  }
  }
 
- class PolygonCollisionResult {
+ public class PolygonCollisionResult {
  bool WillIntersect;
  bool Intersect;
  Vector2 MinimumTranslationVector = new Vector2();

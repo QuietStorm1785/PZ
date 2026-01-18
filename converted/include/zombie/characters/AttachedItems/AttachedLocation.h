@@ -18,7 +18,7 @@ public:
  std::string attachmentName;
 
  public AttachedLocation(AttachedLocationGroup _group, const std::string& _id) {
- if (_id.empty()) {
+ if (_id == nullptr) {
  throw NullPointerException("id is nullptr");
  } else if (_id.empty()) {
  throw IllegalArgumentException("id is empty");
@@ -29,7 +29,7 @@ public:
  }
 
  void setAttachmentName(const std::string& _attachmentName) {
- if (this->id.empty()) {
+ if (this->id == nullptr) {
  throw NullPointerException("attachmentName is nullptr");
  } else if (this->id.empty()) {
  throw IllegalArgumentException("attachmentName is empty");

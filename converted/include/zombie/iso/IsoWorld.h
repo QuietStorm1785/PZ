@@ -419,7 +419,7 @@ public:
  int int1 = bb.getInt();
  int int2 = bb.getInt();
  IsoGridSquare square = this->CurrentCell.getGridSquare(int0, int1, int2);
- if (square.empty()) {
+ if (square == nullptr) {
  return nullptr;
  } else {
  uint8_t byte0 = bb.get();
@@ -433,7 +433,7 @@ public:
  }
 
  static void initMessaging() {
- if (m_setAnimationRecordingTriggerWatcher.empty()) {
+ if (m_setAnimationRecordingTriggerWatcher == nullptr) {
  m_setAnimationRecordingTriggerWatcher = new PredicatedFileWatcher(
  ZomboidFileSystem.instance.getMessagingDirSub("Trigger_AnimationRecorder.xml"),
  TriggerSetAnimationRecorderFile.class,
@@ -561,7 +561,7 @@ public:
  IsoSprite sprite0;
  if (boolean0) {
  sprite0 = sprMan.NamedMap.get(string1 + "_" + int13);
- if (sprite0.empty()) {
+ if (sprite0 == nullptr) {
  continue;
  }
  } else if (fileNumber < 2) {
@@ -1865,7 +1865,7 @@ public:
  if (square0 != nullptr && square0.isFree(false) && square0.getRoom() != nullptr) {
  IsoGridSquare square1 = square0;
  square0 = square0.getRoom().getFreeTile();
- if (square0.empty()) {
+ if (square0 == nullptr) {
  square0 = square1;
  }
  }
@@ -1877,13 +1877,13 @@ public:
  if (square0 != nullptr && square0.isFree(false) && square0.getRoom() != nullptr) {
  IsoGridSquare square2 = square0;
  square0 = square0.getRoom().getFreeTile();
- if (square0.empty()) {
+ if (square0 == nullptr) {
  square0 = square2;
  }
  }
  }
 
- if (square0.empty()) {
+ if (square0 == nullptr) {
  throw RuntimeException("can't create player at x,y,z=" + int10 + "," + int11 + "," + int12 + " because the square is nullptr");
  }
 
@@ -2035,7 +2035,7 @@ public:
  }
 
  public ArrayList<String> getLuaTraits() {
- if (this->luatraits.empty()) {
+ if (this->luatraits == nullptr) {
  this->luatraits = std::make_unique<ArrayList<>>();
  }
 
@@ -2634,7 +2634,7 @@ public:
  }
  }
 
- class Frame {
+ public class Frame {
  public ArrayList<Integer> xPos = std::make_unique<ArrayList<>>();
  public ArrayList<Integer> yPos = std::make_unique<ArrayList<>>();
  public ArrayList<Integer> Type = std::make_unique<ArrayList<>>();

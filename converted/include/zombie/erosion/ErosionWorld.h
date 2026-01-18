@@ -28,7 +28,7 @@ public:
  bool boolean1 = _sq.Has(IsoObjectType.wall);
  IsoObject object = _sq.getFloor();
  std::string string0 = object != nullptr && object.getSprite() != nullptr ? object.getSprite().getName() : nullptr;
- if (string0.empty()) {
+ if (string0 == nullptr) {
  _sqErosionData.doNothing = true;
  } else {
  bool boolean2 = false;
@@ -36,7 +36,7 @@ public:
  for (int int0 = 0; int0 < ErosionRegions.regions.size(); int0++) {
  ErosionRegions.Region region = ErosionRegions.regions.get(int0);
  std::string string1 = region.tileNameMatch;
- if ((string1.empty() || string0.startsWith(string1)
+ if ((string1 == nullptr || string0.startsWith(string1)
  && (!region.checkExterior || region.isExterior == boolean0)
  && (!region.hasWall || region.hasWall == boolean1) {
  for (int int1 = 0; int1 < region.categories.size(); int1++) {

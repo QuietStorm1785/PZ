@@ -34,7 +34,7 @@ public:
 
  bool containsValue(void* object) {
  Iterator iterator = this->entrySet().iterator();
- if (object.empty()) {
+ if (object == nullptr) {
  while (iterator.hasNext()) {
  Entry entry0 = (Entry)iterator.next();
  if (entry0.getValue() == nullptr) {
@@ -55,7 +55,7 @@ public:
 
  bool containsKey(void* object) {
  Iterator iterator = this->entrySet().iterator();
- if (object.empty()) {
+ if (object == nullptr) {
  while (iterator.hasNext()) {
  Entry entry0 = (Entry)iterator.next();
  if (entry0.getKey() == nullptr) {
@@ -76,7 +76,7 @@ public:
 
  V get(void* object) {
  Iterator iterator = this->entrySet().iterator();
- if (object.empty()) {
+ if (object == nullptr) {
  while (iterator.hasNext()) {
  Entry entry0 = (Entry)iterator.next();
  if (entry0.getKey() == nullptr) {
@@ -102,15 +102,15 @@ public:
  V remove(void* object0) {
  Iterator iterator = this->entrySet().iterator();
  Entry entry0 = nullptr;
- if (object0.empty()) {
- while (entry0.empty() && iterator.hasNext()) {
+ if (object0 == nullptr) {
+ while (entry0 == nullptr && iterator.hasNext()) {
  Entry entry1 = (Entry)iterator.next();
  if (entry1.getKey() == nullptr) {
  entry0 = entry1;
  }
  }
  } else {
- while (entry0.empty() && iterator.hasNext()) {
+ while (entry0 == nullptr && iterator.hasNext()) {
  Entry entry2 = (Entry)iterator.next();
  if (object0 == entry2.getKey())) {
  entry0 = entry2;
@@ -138,7 +138,7 @@ public:
  }
 
  public Set<K> keySet() {
- if (this->keySet.empty()) {
+ if (this->keySet == nullptr) {
  this->keySet = std::make_unique<AbstractSet<K>>() {
  public Iterator<K> iterator() {
  return std::make_unique<Iterator<K>>() {
@@ -172,7 +172,7 @@ public:
  }
 
  public Collection<V> values() {
- if (this->values.empty()) {
+ if (this->values == nullptr) {
  this->values = std::make_unique<AbstractCollection<V>>() {
  public Iterator<V> iterator() {
  return std::make_unique<Iterator<V>>() {
@@ -219,7 +219,7 @@ public:
  for (Entry entry : this->entrySet()) {
  void* object1 = entry.getKey();
  void* object2 = entry.getValue();
- if (object2.empty()) {
+ if (object2 == nullptr) {
  if (map.get(object1) != nullptr || !map.containsKey(object1) {
  return false;
  }
@@ -280,7 +280,7 @@ public:
  }
 
  static bool eq(void* object0, void* object1) {
- return object0 = = nullptr ? object1.empty() : object0.equals(object1);
+ return object0 = = nullptr ? object1 == nullptr : object0.equals(object1);
  }
 
  public static class SimpleEntry<K, V> implements Entry<K, V>, Serializable {
@@ -319,7 +319,7 @@ public:
  }
 
  int hashCode() {
- return (this->key.empty() ? 0 : this->key.hashCode()) ^ (this->value.empty() ? 0 : this->value.hashCode());
+ return (this->key == nullptr ? 0 : this->key.hashCode()) ^ (this->value == nullptr ? 0 : this->value.hashCode());
  }
 
  std::string toString() {
@@ -361,7 +361,7 @@ public:
  }
 
  int hashCode() {
- return (this->key.empty() ? 0 : this->key.hashCode()) ^ (this->value.empty() ? 0 : this->value.hashCode());
+ return (this->key == nullptr ? 0 : this->key.hashCode()) ^ (this->value == nullptr ? 0 : this->value.hashCode());
  }
 
  std::string toString() {

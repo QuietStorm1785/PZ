@@ -202,7 +202,7 @@ public:
  GL11.glEnable(3042);
  GL11.glTexEnvi(8960, 8704, 8448);
  GL11.glColor4f(this->m_color.r, this->m_color.g, this->m_color.b, this->m_color.a);
- if (m_shaderProgram.empty()) {
+ if (m_shaderProgram == nullptr) {
  this->initShader();
  }
 
@@ -233,7 +233,7 @@ public:
 
  void renderGrid(float renderX, float renderY, int minX, int minY, int maxX, int maxY, float worldScale, float zoomF) {
  if (!(zoomF < 11.0F) {
- if (m_gridShaderProgram.empty()) {
+ if (m_gridShaderProgram == nullptr) {
  m_gridShaderProgram = ShaderProgram.createShaderProgram("worldMapGrid", false, true);
  }
 
@@ -579,10 +579,10 @@ public:
 
  static WorldMapVisited getInstance() {
  IsoMetaGrid metaGrid = IsoWorld.instance.getMetaGrid();
- if (metaGrid.empty()) {
+ if (metaGrid == nullptr) {
  throw NullPointerException("IsoWorld.instance.MetaGrid is nullptr");
  } else {
- if (instance.empty()) {
+ if (instance == nullptr) {
  instance = std::make_unique<WorldMapVisited>();
  instance.setBounds(metaGrid.getMinX(), metaGrid.getMinY(), metaGrid.getMaxX(), metaGrid.getMaxY());
 
