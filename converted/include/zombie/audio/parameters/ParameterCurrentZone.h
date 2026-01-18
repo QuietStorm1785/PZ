@@ -29,14 +29,14 @@ public:
 
  float calculateCurrentValue() {
  IsoGridSquare square = this->object.getSquare();
- if (square == nullptr) {
+ if (square.empty()) {
  this->zone = ParameterCurrentZone.Zone.None;
  return this->zone.label;
  } else if (square.zone == this->metaZone) {
  return this->zone.label;
  } else {
  this->metaZone = square.zone;
- if (this->metaZone == nullptr) {
+ if (this->metaZone.empty()) {
  this->zone = ParameterCurrentZone.Zone.None;
  return this->zone.label;
  } else {

@@ -22,7 +22,7 @@ public:
  case 0:
  return (int)(zombie0.Health * 1000.0F);
  case 1:
- if (zombie0.target == nullptr) {
+ if (zombie0.target.empty()) {
  return -1;
  }
 
@@ -33,7 +33,7 @@ public:
  return (int)zombie0.TimeSinceSeenFlesh;
  case 4:
  float float0 = (Float)zombie0.getStateMachineParams(ZombieTurnAlerted.instance()).get(ZombieTurnAlerted.PARAM_TARGET_ANGLE);
- if (float0 == nullptr) {
+ if (float0.empty()) {
  return 0;
  }
 

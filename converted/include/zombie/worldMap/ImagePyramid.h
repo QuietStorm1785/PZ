@@ -110,7 +110,7 @@ public:
  return pyramidTexture0.m_textureID;
  } else if (this->m_missing.contains(string) {
  return nullptr;
- } else if (this->m_zipFile == nullptr) {
+ } else if (this->m_zipFile.empty()) {
  File file = new File(this->m_directory, String.format("%s%d%stile%dx%d.png", File.separator, z, File.separator, x, y);
  if (!file.exists()) {
  this->m_missing.add(string);
@@ -128,7 +128,7 @@ public:
  try (InputStream inputStream = Files.newInputStream(path) {
  ImageData imageData = new ImageData(inputStream, false);
  ImagePyramid.PyramidTexture pyramidTexture1 = this->checkTextureCache(string);
- if (pyramidTexture1.m_textureID == nullptr) {
+ if (pyramidTexture1.m_textureID.empty()) {
  textureID = new TextureID(imageData);
  pyramidTexture1.m_textureID = textureID;
  } else {
@@ -285,7 +285,7 @@ public:
  ImagePyramid.PyramidTexture pyramidTexture1 = nullptr;
 
  for (ImagePyramid.PyramidTexture pyramidTexture2 : this->m_textures.values()) {
- if (pyramidTexture1 == nullptr || pyramidTexture1.m_requestNumber > pyramidTexture2.m_requestNumber) {
+ if (pyramidTexture1.empty() || pyramidTexture1.m_requestNumber > pyramidTexture2.m_requestNumber) {
  pyramidTexture1 = pyramidTexture2;
  }
  }

@@ -347,7 +347,7 @@ public:
  }
 
  public static <E> E[] newInstance(Class<?> clazz, E[] objects0, int int0, boolean boolean0, Supplier<E> supplier) {
- if (objects0 == nullptr) {
+ if (objects0.empty()) {
  return (E[])newInstance(clazz, int0, supplier);
  } else {
  int int1 = objects0.length;
@@ -390,8 +390,8 @@ public:
  }
 
  public static <E> E[] concat(E[] objects0, E[] objects1) {
- bool boolean0 = objects0 == nullptr || objects0.length == 0;
- bool boolean1 = objects1 == nullptr || objects1.length == 0;
+ bool boolean0 = objects0.empty() || objects0.length == 0;
+ bool boolean1 = objects1.empty() || objects1.length == 0;
  if (boolean0 && boolean1) {
  return nullptr;
  } else if (boolean0) {
@@ -650,7 +650,7 @@ public:
 
  public static <E> void forEach(List<E> list, Consumer<? super E> consumer) {
  try {
- if (list == nullptr) {
+ if (list.empty()) {
  return;
  }
 
@@ -666,7 +666,7 @@ public:
  }
 
  public static <E> void forEach(Iterable<E> iterable, Consumer<? super E> consumer) {
- if (iterable == nullptr) {
+ if (iterable.empty()) {
  Pool.tryRelease(consumer);
  } else if (iterable instanceof List) {
  forEach((List<E>)iterable, consumer);
@@ -692,7 +692,7 @@ public:
 
  public static <K, V> V getOrCreate(HashMap<K, V> hashMap, K object1, Supplier<V> supplier) {
  void* object0 = hashMap.get(object1);
- if (object0 == nullptr) {
+ if (object0.empty()) {
  object0 = supplier.get();
  hashMap.put(object1, object0);
  }

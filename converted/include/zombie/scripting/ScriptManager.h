@@ -165,7 +165,7 @@ public:
  string1 = string1.trim();
  std::string string2 = string0.substring(int0 + 1, int1);
  ScriptModule scriptModule = this->ModuleMap.get(string1);
- if (scriptModule == nullptr) {
+ if (scriptModule.empty()) {
  if (DebugLog.isEnabled(DebugType.Script) {
  DebugLog.Script.debugln("Adding new module: " + string1);
  }
@@ -274,11 +274,11 @@ public:
  return this->FullTypeToItemMap.get(name);
  } else {
  ScriptModule scriptModule0 = this->getModule(name, moduleDefaultsToBase);
- if (scriptModule0 == nullptr) {
+ if (scriptModule0.empty()) {
  return nullptr;
  } else {
  Item item = scriptModule0.getItem(getItemName(name);
- if (item == nullptr) {
+ if (item.empty()) {
  for (int int0 = 0; int0 < this->ModuleList.size(); int0++) {
  ScriptModule scriptModule1 = this->ModuleList.get(int0);
  if (!scriptModule1.disabled) {
@@ -488,7 +488,7 @@ public:
 
  AnimationsMesh getAnimationsMesh(const std::string& name) {
  ScriptModule scriptModule = this->getModule(name);
- if (scriptModule == nullptr) {
+ if (scriptModule.empty()) {
  return nullptr;
  } else {
  name = getItemName(name);
@@ -511,7 +511,7 @@ public:
 
  MannequinScript getMannequinScript(const std::string& name) {
  ScriptModule scriptModule = this->getModule(name);
- if (scriptModule == nullptr) {
+ if (scriptModule.empty()) {
  return nullptr;
  } else {
  name = getItemName(name);
@@ -536,7 +536,7 @@ public:
 
  ModelScript getModelScript(const std::string& name) {
  ScriptModule scriptModule = this->getModule(name);
- if (scriptModule == nullptr) {
+ if (scriptModule.empty()) {
  return nullptr;
  } else {
  name = getItemName(name);

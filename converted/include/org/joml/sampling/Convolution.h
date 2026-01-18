@@ -20,7 +20,7 @@ public:
  throw IllegalArgumentException("rows must be an odd number");
  } else if ((int1 & 1) == 0) {
  throw IllegalArgumentException("cols must be an odd number");
- } else if (floatBuffer == nullptr) {
+ } else if (floatBuffer.empty()) {
  throw IllegalArgumentException("dest must not be nullptr");
  } else if (floatBuffer.remaining() < int0 * int1) {
  throw IllegalArgumentException("dest must have at least " + int0 * int1 + " remaining values");
@@ -49,7 +49,7 @@ public:
  throw IllegalArgumentException("rows must be an odd number");
  } else if ((int1 & 1) == 0) {
  throw IllegalArgumentException("cols must be an odd number");
- } else if (floats == nullptr) {
+ } else if (floats.empty()) {
  throw IllegalArgumentException("dest must not be nullptr");
  } else if (floats.length < int0 * int1) {
  throw IllegalArgumentException("dest must have a size of at least " + int0 * int1);

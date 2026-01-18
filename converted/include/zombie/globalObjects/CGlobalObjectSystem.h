@@ -32,7 +32,7 @@ public:
 
  void receiveServerCommand(const std::string& command, KahluaTable args) {
  void* object = this->modData.rawget("OnServerCommand");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("OnServerCommand method undefined for system '" + this->name + "'");
  } else {
  LuaManager.caller.pcallvoid(LuaManager.thread, object, this->modData, command, args);
@@ -41,7 +41,7 @@ public:
 
  void receiveNewLuaObjectAt(int x, int y, int z, KahluaTable args) {
  void* object = this->modData.rawget("newLuaObjectAt");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("newLuaObjectAt method undefined for system '" + this->name + "'");
  } else {
  LuaManager.caller
@@ -59,7 +59,7 @@ public:
 
  void receiveRemoveLuaObjectAt(int x, int y, int z) {
  void* object = this->modData.rawget("removeLuaObjectAt");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("removeLuaObjectAt method undefined for system '" + this->name + "'");
  } else {
  LuaManager.caller
@@ -77,7 +77,7 @@ public:
  }
 
  void* object = this->modData.rawget("OnLuaObjectUpdated");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("OnLuaObjectUpdated method undefined for system '" + this->name + "'");
  } else {
  LuaManager.caller.pcall(LuaManager.thread, object, this->modData, globalObject.getModData());

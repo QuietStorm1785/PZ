@@ -124,7 +124,7 @@ public:
  if (this->digital || boolean0) {
  int0 = this->uxOriginal;
  int1 += this->digitsLarge[0].getHeight() + this->displayVerticalSpacing;
- if (this->clockPlayer == nullptr) {
+ if (this->clockPlayer.empty()) {
  int0 += this->dateOffset;
  } else {
  int[] ints1 = this->tempDigits();
@@ -192,7 +192,7 @@ public:
  }
 
  void assignTextures(bool boolean0) {
- if (this->digitsLarge == nullptr || this->bLargeTextures != boolean0) {
+ if (this->digitsLarge.empty() || this->bLargeTextures != boolean0) {
  this->bLargeTextures = boolean0;
  if (boolean0) {
  this->background = Texture.getSharedTexture("media/ui/ClockAssets/ClockLargeBackground.png");
@@ -210,7 +210,7 @@ public:
  this->assignSmallOffsets();
  }
 
- if (this->digitsLarge == nullptr) {
+ if (this->digitsLarge.empty()) {
  this->digitsLarge = new Texture[10];
  this->digitsSmall = new Texture[10];
  }
@@ -411,7 +411,7 @@ public:
  this->visible = UIManager.VisibleAllUI;
  }
 
- if (this->background == nullptr) {
+ if (this->background.empty()) {
  if (Core.getInstance().getOptionClockSize() == 2) {
  this->background = Texture.getSharedTexture("media/ui/ClockAssets/ClockLargeBackground.png");
  } else {

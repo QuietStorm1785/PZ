@@ -97,7 +97,7 @@ public:
 
  int0 = PZMath.clamp(int0, 1, 500);
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int2, int3, int4);
- if (square == nullptr) {
+ if (square.empty()) {
  return "invalid location";
  } else if (string0 != nullptr && OutfitManager.instance.FindMaleOutfit(string0) == nullptr && OutfitManager.instance.FindFemaleOutfit(string0) == nullptr) {
  return "invalid outfit";

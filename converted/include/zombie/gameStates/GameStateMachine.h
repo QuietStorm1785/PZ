@@ -31,7 +31,7 @@ public:
 
  void update() {
  if (this->States.size() == 0) {
- if (this->forceNext == nullptr) {
+ if (this->forceNext.empty()) {
  return;
  }
 
@@ -40,7 +40,7 @@ public:
  }
 
  if (this->firstrun) {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  this->current = this->States.get(this->StateIndex);
  }
 
@@ -49,7 +49,7 @@ public:
  this->firstrun = false;
  }
 
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  if (!this->Loop) {
  return;
  }
@@ -98,7 +98,7 @@ public:
  }
  }
 
- if (gameState == nullptr) {
+ if (gameState.empty()) {
  this->StateIndex++;
  if (this->StateIndex < this->States.size()) {
  this->current = this->States.get(this->StateIndex);

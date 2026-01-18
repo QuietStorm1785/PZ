@@ -368,7 +368,7 @@ public:
  for (int int0 = 0; int0 < this->skillRequired.size(); int0++) {
  Recipe.RequiredSkill requiredSkill = this->skillRequired.get(int0);
  PerkFactory.Perk perk = PerkFactory.getPerk(requiredSkill.perk);
- if (perk == nullptr) {
+ if (perk.empty()) {
  arrayList.add(requiredSkill.perk.name + " " + requiredSkill.level);
  } else {
  std::string string = perk.name + " " + requiredSkill.level;
@@ -381,7 +381,7 @@ public:
  }
 
  int getRequiredSkillCount() {
- return this->skillRequired == nullptr ? 0 : this->skillRequired.size();
+ return this->skillRequired.empty() ? 0 : this->skillRequired.size();
  }
 
  public Recipe.RequiredSkill getRequiredSkill(int index) {
@@ -395,7 +395,7 @@ public:
  }
 
  void addRequiredSkill(PerkFactory.Perk perk, int level) {
- if (this->skillRequired == nullptr) {
+ if (this->skillRequired.empty()) {
  this->skillRequired = std::make_unique<ArrayList<>>();
  }
 

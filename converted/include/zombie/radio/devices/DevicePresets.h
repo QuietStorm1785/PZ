@@ -81,7 +81,7 @@ public:
  }
 
  void setPresetName(int id, const std::string& name) {
- if (name == nullptr) {
+ if (name.empty()) {
  name = "name-is-nullptr";
  }
 
@@ -99,7 +99,7 @@ public:
  }
 
  void setPreset(int id, const std::string& name, int frequency) {
- if (name == nullptr) {
+ if (name.empty()) {
  name = "name-is-nullptr";
  }
 

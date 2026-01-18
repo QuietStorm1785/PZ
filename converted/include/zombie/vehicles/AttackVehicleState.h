@@ -46,7 +46,7 @@ public:
  } else {
  character1.setLeaveBodyTimedown(character1.getLeaveBodyTimedown() + GameTime.getInstance().getMultiplier() / 1.6F);
  if (!GameServer.bServer && !Core.SoundDisabled && Rand.Next(Rand.AdjustForFramerate(15) == 0) {
- if (this->emitter == nullptr) {
+ if (this->emitter.empty()) {
  this->emitter = std::make_unique<FMODSoundEmitter>();
  }
 
@@ -62,7 +62,7 @@ public:
  BaseVehicle vehicle = character1.getVehicle();
  if (vehicle != nullptr && vehicle.isCharacterAdjacentTo(character0) {
  Vector3f vector3f = vehicle.chooseBestAttackPosition(character1, character0, this->worldPos);
- if (vector3f == nullptr) {
+ if (vector3f.empty()) {
  if (zombie0.AllowRepathDelay <= 0.0F) {
  character0.pathToCharacter(character1);
  zombie0.AllowRepathDelay = 6.25F;
@@ -124,7 +124,7 @@ public:
  vehicleWindow = nullptr;
  }
 
- if (vehicleWindow == nullptr) {
+ if (vehicleWindow.empty()) {
  part0 = part1;
  }
  }
@@ -132,7 +132,7 @@ public:
  part0 = vehicle.getNearestBodyworkPart(character0);
  if (part0 != nullptr) {
  vehicleWindow = part0.getWindow();
- if (vehicleWindow == nullptr) {
+ if (vehicleWindow.empty()) {
  vehicleWindow = part0.findWindow();
  }
 
@@ -196,7 +196,7 @@ public:
  return false;
  } else {
  BaseVehicle vehicle = character1.getVehicle();
- if (vehicle == nullptr) {
+ if (vehicle.empty()) {
  return false;
  } else {
  bool boolean0 = false;
@@ -214,7 +214,7 @@ public:
  object = nullptr;
  }
 
- boolean0 = object == nullptr;
+ boolean0 = object.empty();
  } else {
  boolean0 = false;
  }

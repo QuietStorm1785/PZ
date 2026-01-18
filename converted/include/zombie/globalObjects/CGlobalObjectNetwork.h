@@ -76,7 +76,7 @@ public:
  int int0 = byteBuffer.getInt();
  int int1 = byteBuffer.getInt();
  uint8_t byte0 = byteBuffer.get();
- if (tempTable == nullptr) {
+ if (tempTable.empty()) {
  tempTable = LuaManager.platform.newTable();
  }
 
@@ -103,7 +103,7 @@ public:
  int int0 = byteBuffer.getInt();
  int int1 = byteBuffer.getInt();
  uint8_t byte0 = byteBuffer.get();
- if (tempTable == nullptr) {
+ if (tempTable.empty()) {
  tempTable = LuaManager.platform.newTable();
  }
 

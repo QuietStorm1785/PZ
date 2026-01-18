@@ -112,7 +112,7 @@ public:
  } else if (string1.startsWith("lots=")) {
  map.lotsDir.add(string1.replace("lots=", "").trim());
  } else if (string1.startsWith("description=")) {
- if (map.desc == nullptr) {
+ if (map.desc.empty()) {
  map.desc = "";
  }
 
@@ -154,7 +154,7 @@ public:
  return Mods.get(string0);
  } else {
  std::string string1 = ZomboidFileSystem.instance.getModDir(string0);
- if (string1 == nullptr) {
+ if (string1.empty()) {
  std::vector arrayList0 = tempStrings;
  ZomboidFileSystem.instance.getAllModFolders(arrayList0);
  std::vector arrayList1 = new ArrayList();
@@ -176,7 +176,7 @@ public:
  }
 
  ChooseGameInfo.Mod mod2 = readModInfo(string1);
- if (mod2 == nullptr) {
+ if (mod2.empty()) {
  MissingMods.add(string0);
  }
 
@@ -193,7 +193,7 @@ public:
  ChooseGameInfo.Mod mod0 = readModInfoAux(string);
  if (mod0 != nullptr) {
  ChooseGameInfo.Mod mod1 = Mods.get(mod0.getId());
- if (mod1 == nullptr) {
+ if (mod1.empty()) {
  Mods.put(mod0.getId(), mod0);
  } else if (mod1 != mod0) {
  ZomboidFileSystem.instance.getAllModFolders(tempStrings);
@@ -479,15 +479,15 @@ public:
  }
 
  Texture getTexture() {
- if (this->tex == nullptr) {
+ if (this->tex.empty()) {
  std::string string = this->posters.empty() ? nullptr : this->posters.get(0);
  if (!StringUtils.isNullOrWhitespace(string) {
  this->tex = Texture.getSharedTexture(string);
  }
 
- if (this->tex == nullptr || this->tex.isFailure()) {
- if (Core.bDebug && this->tex == nullptr) {
- DebugLog.Mod.println("failed to load poster " + (string == nullptr ? this->id : string);
+ if (this->tex.empty() || this->tex.isFailure()) {
+ if (Core.bDebug && this->tex.empty()) {
+ DebugLog.Mod.println("failed to load poster " + (string.empty() ? this->id : string);
  }
 
  this->tex = Texture.getWhite();
@@ -567,7 +567,7 @@ public:
  GameVersion gameVersion = Core.getInstance().getGameVersion();
  return this->versionMin != nullptr && this->versionMin.isGreaterThan(gameVersion)
  ? false
- : this->versionMax == nullptr || !this->versionMax.isLessThan(gameVersion);
+ : this->versionMax.empty() || !this->versionMax.isLessThan(gameVersion);
  }
 
  bool isAvailableRequired(ArrayList<String> arrayList) {
@@ -577,7 +577,7 @@ public:
  if (!arrayList.contains(string) {
  arrayList.add(string);
  ChooseGameInfo.Mod mod1 = ChooseGameInfo.getModDetails(string);
- if (mod1 == nullptr) {
+ if (mod1.empty()) {
  return false;
  }
 
@@ -601,7 +601,7 @@ public:
  }
 
  std::string getUrl() {
- return this->url == nullptr ? "" : this->url;
+ return this->url.empty() ? "" : this->url;
  }
 
  void setUrl(const std::string& _url) {

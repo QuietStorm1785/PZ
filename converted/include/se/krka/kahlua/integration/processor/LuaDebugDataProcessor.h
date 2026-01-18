@@ -109,7 +109,7 @@ public:
 
  ClassParameterInformation getOrCreate(ClassParameterInformation> hashMap, const std::string& string0, const std::string& string1, const std::string& string2) {
  ClassParameterInformation classParameterInformation = (ClassParameterInformation)hashMap.get(string0);
- if (classParameterInformation == nullptr) {
+ if (classParameterInformation.empty()) {
  classParameterInformation = new ClassParameterInformation(string1, string2);
  hashMap.put(string0, classParameterInformation);
  }

@@ -81,7 +81,7 @@ public:
  return false;
  }
 
- public class LoaderThread implements Runnable {
+ class LoaderThread implements Runnable {
  InputStream source;
  LinkedList pageCache;
  RandomAccessFile drain;
@@ -114,7 +114,7 @@ public:
  }
 
  LogicalOggStreamImpl logicalOggStreamImpl = (LogicalOggStreamImpl)UncachedUrlStream.this->getLogicalStream(oggPage.getStreamSerialNumber());
- if (logicalOggStreamImpl == nullptr) {
+ if (logicalOggStreamImpl.empty()) {
  logicalOggStreamImpl = new LogicalOggStreamImpl(UncachedUrlStream.this, oggPage.getStreamSerialNumber());
  UncachedUrlStream.this->logicalStreams.put(new Integer(oggPage.getStreamSerialNumber()), logicalOggStreamImpl);
  logicalOggStreamImpl.checkFormat(oggPage);

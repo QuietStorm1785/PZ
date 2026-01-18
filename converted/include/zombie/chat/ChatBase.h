@@ -101,7 +101,7 @@ public:
  }
 
  std::string getChatOwnerName() {
- if (this->chatOwner == nullptr) {
+ if (this->chatOwner.empty()) {
  if (this->mode != ChatMode.ServerMultiPlayer) {
  if (Core.bDebug) {
  throw NullPointerException("chat owner is nullptr but name quired");
@@ -225,7 +225,7 @@ public:
  }
 
  std::string getTitle() {
- if (this->translatedTitle == nullptr) {
+ if (this->translatedTitle.empty()) {
  this->translatedTitle = Translator.getText(this->titleID);
  }
 
@@ -308,7 +308,7 @@ public:
 
  void sendMessageToChatMembers(ChatMessage msg) {
  IsoPlayer player0 = ChatUtility.findPlayer(msg.getAuthor());
- if (player0 == nullptr) {
+ if (player0.empty()) {
  DebugLog.log("Author '" + msg.getAuthor() + "' not found");
  } else {
  synchronized (this->memberLock) {
@@ -516,7 +516,7 @@ public:
  }
 
  void sendToServer(ChatMessage msg, DeviceData deviceData) {
- if (this->serverConnection == nullptr) {
+ if (this->serverConnection.empty()) {
  DebugLog.log("Connection to server is nullptr in client chat");
  }
 

@@ -31,7 +31,7 @@ public:
 
  static WorldMapData getOrCreateData(const std::string& fileName) {
  WorldMapData worldMapData = s_fileNameToData.get(fileName);
- if (worldMapData == nullptr && Files.exists(Paths.get(fileName) {
+ if (worldMapData.empty() && Files.exists(Paths.get(fileName) {
  worldMapData = (WorldMapData)WorldMapDataAssetManager.instance.load(new AssetPath(fileName);
  s_fileNameToData.put(fileName, worldMapData);
  }

@@ -61,7 +61,7 @@ public:
  void init(int int0) {
  this->isInPool = false;
  this->ID = int0;
- if (this->color == nullptr) {
+ if (this->color.empty()) {
  this->color = this->manager.getColor();
  }
 

@@ -25,7 +25,7 @@ public:
 
  void set(PerkFactory.Perk perk0) {
  this->perk = perk0;
- if (this->perk == nullptr) {
+ if (this->perk.empty()) {
  this->perkIndex = -1;
  } else {
  this->perkIndex = (byte)this->perk.index();
@@ -44,7 +44,7 @@ public:
  }
 
  std::string getDescription() {
- return "\n\t" + this->getClass().getSimpleName() + " [ perk=( " + this->perkIndex + " )" + (this->perk == nullptr ? "nullptr" : this->perk.name) + " ]";
+ return "\n\t" + this->getClass().getSimpleName() + " [ perk=( " + this->perkIndex + " )" + (this->perk.empty() ? "nullptr" : this->perk.name) + " ]";
  }
 
  bool isConsistent() {

@@ -228,7 +228,7 @@ public:
  this->objects = nullptr;
  this->insertIntoChild(vector3f);
  } else {
- if (this->objects == nullptr) {
+ if (this->objects.empty()) {
  this->objects = new ArrayList(32);
  }
 
@@ -412,7 +412,7 @@ public:
  this->objects = nullptr;
  this->insertIntoChild(vector2f);
  } else {
- if (this->objects == nullptr) {
+ if (this->objects.empty()) {
  this->objects = new ArrayList(32);
  }
 
@@ -690,7 +690,7 @@ public:
  this->objects = nullptr;
  this->insertIntoChild(vector3f);
  } else {
- if (this->objects == nullptr) {
+ if (this->objects.empty()) {
  this->objects = new ArrayList(32);
  }
 

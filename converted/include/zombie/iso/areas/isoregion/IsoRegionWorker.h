@@ -65,7 +65,7 @@ public:
  }
 
  void create() {
- if (this->thread == nullptr) {
+ if (this->thread.empty()) {
  this->bFinished = false;
  this->thread = new Thread(ThreadGroups.Workers, () -> {
  while (!this->bFinished) {
@@ -136,12 +136,12 @@ public:
  }
 
  UdpConnection udpConnection = ((JobServerSendFullData)regionJob).getTargetConn();
- if (udpConnection == nullptr) {
+ if (udpConnection.empty()) {
  if (Core.bDebug) {
- throw IsoRegionException("IsoRegion: Server send full data target connection == nullptr");
+ throw IsoRegionException("IsoRegion: Server send full data target connection.empty()");
  }
 
- IsoRegions.warn("IsoRegion: Server send full data target connection == nullptr");
+ IsoRegions.warn("IsoRegion: Server send full data target connection.empty()");
  break;
  }
 

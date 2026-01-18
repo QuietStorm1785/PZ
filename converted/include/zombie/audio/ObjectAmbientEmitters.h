@@ -54,7 +54,7 @@ public:
  };
 
  static ObjectAmbientEmitters getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<ObjectAmbientEmitters>();
  }
 
@@ -233,7 +233,7 @@ public:
  }
 
  bool shouldPlay(IsoObject object, ObjectAmbientEmitters.PerObjectLogic perObjectLogic) {
- if (object == nullptr) {
+ if (object.empty()) {
  return false;
  } else {
  return object.getObjectIndex() == -1 ? false : perObjectLogic.shouldPlaySound();
@@ -502,7 +502,7 @@ public:
  bool playing = false;
 
  void playSound(IsoObject objectx, ObjectAmbientEmitters.PerObjectLogic perObjectLogic) {
- if (this->emitter == nullptr) {
+ if (this->emitter.empty()) {
  this->emitter = (BaseSoundEmitter)(Core.SoundDisabled ? std::make_unique<DummySoundEmitter>() : std::make_unique<FMODSoundEmitter>());
  }
 

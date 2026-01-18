@@ -76,7 +76,7 @@ public:
  }
 
  ByteBuffer ensureCapacity(ByteBuffer byteBuffer0, int int0) {
- if (byteBuffer0 == nullptr) {
+ if (byteBuffer0.empty()) {
  return ByteBuffer.allocate(this->bufferSize(int0);
  } else if (byteBuffer0.capacity() < int0) {
  ByteBuffer byteBuffer1 = ByteBuffer.allocate(this->bufferSize(int0);
@@ -88,7 +88,7 @@ public:
 
  ByteBuffer getByteBuffer(int int0) {
  ByteBuffer byteBuffer = this->freeBuffers.poll();
- if (byteBuffer == nullptr) {
+ if (byteBuffer.empty()) {
  return ByteBuffer.allocate(this->bufferSize(int0);
  } else {
  byteBuffer.clear();
@@ -114,7 +114,7 @@ public:
  chunkRequest2.requestNumber = this->requestNumber++;
  chunkRequest2.time = long0;
  chunkRequest2.crc = ChunkChecksum.getChecksum(chunk.wx, chunk.wy);
- if (chunkRequest0 == nullptr) {
+ if (chunkRequest0.empty()) {
  chunkRequest0 = chunkRequest2;
  } else {
  chunkRequest1.next = chunkRequest2;
@@ -440,7 +440,7 @@ public:
  }
 
  void create() {
- if (this->worldStreamer == nullptr) {
+ if (this->worldStreamer.empty()) {
  if (!GameServer.bServer) {
  this->bFinished = false;
  this->worldStreamer = new Thread(ThreadGroups.Workers, () -> {
@@ -505,7 +505,7 @@ public:
  }
  }
 
- if (byteBuffer == nullptr) {
+ if (byteBuffer.empty()) {
  VehiclesDB2.instance.loadChunk(chunk);
  }
  } catch (Exception exception0) {
@@ -581,7 +581,7 @@ public:
  return !GameClient.bClient
  || this->chunkRequests0.empty()
  && this->chunkRequests1.empty()
- && this->chunkHeadMain == nullptr
+ && this->chunkHeadMain.empty()
  && this->waitingToSendQ.empty()
  && this->waitingToCancelQ.empty()
  && this->sentRequests.empty()
@@ -635,7 +635,7 @@ public:
  for (int int9 = int3; int9 <= int6; int9++) {
  if (IsoWorld.instance.MetaGrid.isValidChunk(int9, int8) {
  IsoChunk chunk = IsoChunkMap.chunkStore.poll();
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  chunk = new IsoChunk(IsoWorld.instance.CurrentCell);
  } else {
  MPStatistics.decreaseStoredChunk();
@@ -730,12 +730,12 @@ public:
  this->pendingRequests.remove(int6--);
  chunkRequest1.flagsUDP |= 16;
  } else if (chunkRequest1.requestNumber == int0) {
- if (chunkRequest1.bb == nullptr) {
+ if (chunkRequest1.bb.empty()) {
  chunkRequest1.bb = this->getByteBuffer(int3);
  }
 
  System.arraycopy(byteBuffer.array(), byteBuffer.position(), chunkRequest1.bb.array(), int4, int5);
- if (chunkRequest1.partsReceived == nullptr) {
+ if (chunkRequest1.partsReceived.empty()) {
  chunkRequest1.partsReceived = new boolean[int1];
  }
 
@@ -797,7 +797,7 @@ public:
 
  void compare(WorldStreamer.ChunkRequest chunkRequest, ByteBuffer byteBuffer, File file) {
  IsoChunk chunk0 = IsoChunkMap.chunkStore.poll();
- if (chunk0 == nullptr) {
+ if (chunk0.empty()) {
  chunk0 = new IsoChunk(IsoWorld.instance.getCell());
  } else {
  MPStatistics.decreaseStoredChunk();
@@ -806,7 +806,7 @@ public:
  chunk0.wx = chunkRequest.chunk.wx;
  chunk0.wy = chunkRequest.chunk.wy;
  IsoChunk chunk1 = IsoChunkMap.chunkStore.poll();
- if (chunk1 == nullptr) {
+ if (chunk1.empty()) {
  chunk1 = new IsoChunk(IsoWorld.instance.getCell());
  } else {
  MPStatistics.decreaseStoredChunk();
@@ -947,7 +947,7 @@ public:
  + " "
  + object0.getName()
  + " "
- + (object0.sprite == nullptr ? "no sprite" : object0.sprite.name)
+ + (object0.sprite.empty() ? "no sprite" : object0.sprite.name)
  );
  DebugLog.log(
  " 2: "
@@ -955,7 +955,7 @@ public:
  + " "
  + object1.getName()
  + " "
- + (object1.sprite == nullptr ? "no sprite" : object1.sprite.name)
+ + (object1.sprite.empty() ? "no sprite" : object1.sprite.name)
  );
  }
  }
@@ -968,7 +968,7 @@ public:
  + " "
  + object2.getName()
  + " "
- + (object2.sprite == nullptr ? "no sprite" : object2.sprite.name)
+ + (object2.sprite.empty() ? "no sprite" : object2.sprite.name)
  );
  }
  }
@@ -1048,7 +1048,7 @@ public:
  WorldStreamer.ChunkRequest next;
 
  bool isReceived() {
- if (this->partsReceived == nullptr) {
+ if (this->partsReceived.empty()) {
  return false;
  } else {
  for (int int0 = 0; int0 < this->partsReceived.length; int0++) {

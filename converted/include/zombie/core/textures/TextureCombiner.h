@@ -86,7 +86,7 @@ public:
  Texture combine(Texture texture1, Texture texture0) {
  Core.getInstance().DoStartFrameStuff(texture1.width, texture0.width, 1.0F, 0);
  Texture texture2 = new Texture(texture1.width, texture0.height, 16);
- if (this->fbo == nullptr) {
+ if (this->fbo.empty()) {
  this->fbo = new TextureFBO(texture2);
  } else {
  this->fbo.setTexture(texture2);
@@ -153,7 +153,7 @@ public:
  Texture createTexture(int int0, int int1) {
  TextureCombiner.CombinerFBO combinerFBO = this->getFBO(int0, int1);
  Texture texture;
- if (combinerFBO == nullptr) {
+ if (combinerFBO.empty()) {
  combinerFBO = new TextureCombiner.CombinerFBO();
  texture = new Texture(int0, int1, 16);
  combinerFBO.fbo = new TextureFBO(texture);
@@ -208,7 +208,7 @@ public:
 
  GL13.glActiveTexture(33984);
  GL11.glEnable(3553);
- Texture texture1 = textureCombinerCommand.tex == nullptr ? Texture.getErrorTexture() : textureCombinerCommand.tex;
+ Texture texture1 = textureCombinerCommand.tex.empty() ? Texture.getErrorTexture() : textureCombinerCommand.tex;
  texture1.bind();
  if (textureCombinerCommand.mask != nullptr) {
  GL13.glActiveTexture(33985);
@@ -309,7 +309,7 @@ public:
  TextureCombinerCommand textureCombinerCommand = findDominantCommand(
  arrayList, Comparator.comparingInt(textureCombinerCommandx -> textureCombinerCommandx.tex.height)
  );
- if (textureCombinerCommand == nullptr) {
+ if (textureCombinerCommand.empty()) {
  return 32;
  } else {
  Texture texture = textureCombinerCommand.tex;
@@ -325,7 +325,7 @@ public:
  TextureCombinerCommand textureCombinerCommand = findDominantCommand(
  arrayList, Comparator.comparingInt(textureCombinerCommandx -> textureCombinerCommandx.tex.width)
  );
- if (textureCombinerCommand == nullptr) {
+ if (textureCombinerCommand.empty()) {
  return 32;
  } else {
  Texture texture = textureCombinerCommand.tex;
@@ -341,7 +341,7 @@ public:
  for (int int1 = 0; int1 < int0; int1++) {
  TextureCombinerCommand textureCombinerCommand1 = (TextureCombinerCommand)arrayList.get(int1);
  if (textureCombinerCommand1.tex != nullptr
- && (textureCombinerCommand0 == nullptr || comparator.compare(textureCombinerCommand1, textureCombinerCommand0) > 0) {
+ && (textureCombinerCommand0.empty() || comparator.compare(textureCombinerCommand1, textureCombinerCommand0) > 0) {
  textureCombinerCommand0 = textureCombinerCommand1;
  }
  }

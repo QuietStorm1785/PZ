@@ -2019,7 +2019,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (this->getClass() != arg0.getClass()) {
  return false;
@@ -2050,7 +2050,7 @@ public:
  bool equals(Matrix3dc arg0, double arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (!(arg0 instanceof Matrix3d) {
  return false;

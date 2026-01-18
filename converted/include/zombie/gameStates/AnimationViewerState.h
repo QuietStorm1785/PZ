@@ -47,7 +47,7 @@ public:
  void enter() {
  instance = this;
  this->load();
- if (this->m_luaEnv == nullptr) {
+ if (this->m_luaEnv.empty()) {
  this->m_luaEnv = new EditVehicleState.LuaEnvironment(LuaManager.platform, LuaManager.converterManager, LuaManager.env);
  }
 
@@ -233,7 +233,7 @@ public:
  }
  }
 
- public class BooleanDebugOption extends BooleanConfigOption {
+ class BooleanDebugOption extends BooleanConfigOption {
  public BooleanDebugOption(const std::string& string, bool boolean0) {
  super(string, boolean0);
  AnimationViewerState.this->options.add(this);

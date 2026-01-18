@@ -130,7 +130,7 @@ public:
  }
 
  IsoGridSquare getInsideSquare() {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return nullptr;
  } else {
  return this->north
@@ -451,7 +451,7 @@ public:
  void Thump(IsoMovingObject thumper) {
  if (thumper instanceof IsoGameCharacter) {
  Thumpable thumpable = this->getThumpableFor((IsoGameCharacter)thumper);
- if (thumpable == nullptr) {
+ if (thumpable.empty()) {
  return;
  }
 
@@ -581,7 +581,7 @@ public:
  }
  }
 
- if (this->glassRemovedSprite == nullptr) {
+ if (this->glassRemovedSprite.empty()) {
  this->glassRemovedSprite = this->smashedSprite != nullptr ? this->smashedSprite : this->closedSprite;
  }
  }
@@ -840,7 +840,7 @@ public:
  IsoGridSquare.setRecalcLightTime(-1);
  if (!this->PermaLocked) {
  if (!this->destroyed) {
- if (chr == nullptr || this->getBarricadeForCharacter(chr) == nullptr) {
+ if (chr.empty() || this->getBarricadeForCharacter(chr) == nullptr) {
  this->Locked = false;
  this->open = !this->open;
  this->sprite = this->closedSprite;
@@ -876,7 +876,7 @@ public:
  }
 
  void syncIsoObject(bool bRemote, uint8_t val, UdpConnection source, ByteBuffer bb) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  System.out.println("ERROR: " + this->getClass().getSimpleName() + " square is nullptr");
  } else if (this->getObjectIndex() == -1) {
  System.out
@@ -940,13 +940,13 @@ public:
  }
 
  static bool isTopOfSheetRopeHere(IsoGridSquare sq) {
- return sq == nullptr
+ return sq.empty()
  ? false
  : sq.Is(IsoFlagType.climbSheetTopN) || sq.Is(IsoFlagType.climbSheetTopS) || sq.Is(IsoFlagType.climbSheetTopW) || sq.Is(IsoFlagType.climbSheetTopE);
  }
 
  static bool isTopOfSheetRopeHere(IsoGridSquare sq, bool _north) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return false;
  } else {
  if (_north) {
@@ -976,7 +976,7 @@ public:
  }
 
  static bool isSheetRopeHere(IsoGridSquare sq) {
- return sq == nullptr
+ return sq.empty()
  ? false
  : sq.Is(IsoFlagType.climbSheetTopW)
  || sq.Is(IsoFlagType.climbSheetTopN)
@@ -989,7 +989,7 @@ public:
  }
 
  static bool canClimbHere(IsoGridSquare sq) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return false;
  } else if (sq.getProperties().Is(IsoFlagType.solid) {
  return false;
@@ -1008,14 +1008,14 @@ public:
  if (sq.TreatAsSolidFloor()) {
  if (_north) {
  IsoGridSquare square0 = cell.getOrCreateGridSquare(sq.getX(), sq.getY() - 1, sq.getZ());
- if (square0 == nullptr || square0.TreatAsSolidFloor() || isSheetRopeHere(square0) || !canClimbHere(square0) {
+ if (square0.empty() || square0.TreatAsSolidFloor() || isSheetRopeHere(square0) || !canClimbHere(square0) {
  return 0;
  }
 
  sq = square0;
  } else {
  IsoGridSquare square1 = cell.getOrCreateGridSquare(sq.getX() - 1, sq.getY(), sq.getZ());
- if (square1 == nullptr || square1.TreatAsSolidFloor() || isSheetRopeHere(square1) || !canClimbHere(square1) {
+ if (square1.empty() || square1.TreatAsSolidFloor() || isSheetRopeHere(square1) || !canClimbHere(square1) {
  return 0;
  }
 
@@ -1162,7 +1162,7 @@ public:
  }
 
  static bool removeSheetRope(IsoPlayer player, IsoGridSquare square, bool _north) {
- if (square == nullptr) {
+ if (square.empty()) {
  return false;
  } else {
  IsoGridSquare _square = square;
@@ -1326,7 +1326,7 @@ public:
 
  bool isBarricaded() {
  IsoBarricade barricade = this->getBarricadeOnSameSquare();
- if (barricade == nullptr) {
+ if (barricade.empty()) {
  barricade = this->getBarricadeOnOppositeSquare();
  }
 
@@ -1350,7 +1350,7 @@ public:
  }
 
  Vector2 getFacingPosition(Vector2 pos) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return pos.set(0.0F, 0.0F);
  } else {
  return this->north ? pos.set(this->getX() + 0.5F, this->getY()) : pos.set(this->getX(), this->getY() + 0.5F);
@@ -1416,7 +1416,7 @@ public:
  float0 = 0.3F;
  }
 
- if (square == nullptr) {
+ if (square.empty()) {
  return false;
  } else if (square.isSolid()) {
  return false;
@@ -1435,7 +1435,7 @@ public:
  }
 
  bool canClimbThrough(IsoGameCharacter chr) {
- if (this->square == nullptr || this->isInvincible()) {
+ if (this->square.empty() || this->isInvincible()) {
  return false;
  } else if (this->isBarricaded()) {
  return false;
@@ -1457,7 +1457,7 @@ public:
  }
 
  IsoGameCharacter getFirstCharacterClimbingThrough(IsoGridSquare square) {
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < square.getMovingObjects().size(); int0++) {
@@ -1477,7 +1477,7 @@ public:
  }
 
  IsoGameCharacter getFirstCharacterClosing(IsoGridSquare square) {
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < square.getMovingObjects().size(); int0++) {

@@ -91,7 +91,7 @@ public:
  }
 
  void assignEntryToAtlas(WorldItemAtlas.AtlasEntry atlasEntry, int int2, int int1) {
- if (atlasEntry.atlas == nullptr) {
+ if (atlasEntry.atlas.empty()) {
  for (int int0 = 0; int0 < this->AtlasList.size(); int0++) {
  WorldItemAtlas.Atlas atlas0 = this->AtlasList.get(int0);
  if (!atlas0.isFull() && atlas0.ENTRY_WID == int2 && atlas0.ENTRY_HGT == int1) {
@@ -233,7 +233,7 @@ public:
  this->RenderJobs.clear();
  }
 
- private class Atlas {
+ class Atlas {
  const int ENTRY_WID;
  const int ENTRY_HGT;
  Texture tex;
@@ -244,7 +244,7 @@ public:
  this->ENTRY_WID = arg3;
  this->ENTRY_HGT = arg4;
  this->tex = new Texture(arg1, arg2, 16);
- if (WorldItemAtlas.this->fbo == nullptr) {
+ if (WorldItemAtlas.this->fbo.empty()) {
  WorldItemAtlas.this->fbo = new TextureFBO(this->tex, false);
  }
  }
@@ -328,7 +328,7 @@ public:
  const StringBuilder sb = new StringBuilder();
 
  void reset() {
- if (this->md == nullptr) {
+ if (this->md.empty()) {
  this->md = MessageDigest.getInstance("MD5");
  }
 
@@ -461,7 +461,7 @@ public:
  }
 
  if (itemParams0.m_weaponParts != nullptr) {
- if (this->m_weaponParts == nullptr) {
+ if (this->m_weaponParts.empty()) {
  this->m_weaponParts = std::make_unique<ArrayList<>>();
  }
 
@@ -487,7 +487,7 @@ public:
  std::string string0 = StringUtils.discardNullOrWhitespace(item.getWorldStaticItem());
  if (string0 != nullptr) {
  ModelScript modelScript0 = ScriptManager.instance.getModelScript(string0);
- if (modelScript0 == nullptr) {
+ if (modelScript0.empty()) {
  return false;
  } else {
  std::string string1 = modelScript0.getMeshName();
@@ -537,7 +537,7 @@ public:
  ItemVisual itemVisual0 = item.getVisual();
  ClothingItem clothingItem0 = item.getClothingItem();
  ImmutableColor immutableColor1 = itemVisual0.getTint(clothingItem0);
- if (string4 == nullptr) {
+ if (string4.empty()) {
  if (clothingItem0.textureChoices.empty()) {
  string4 = itemVisual0.getBaseTexture(clothingItem0);
  } else {
@@ -553,7 +553,7 @@ public:
 
  bool boolean0 = modelScript0.bStatic;
  Model model0 = ModelManager.instance.tryGetLoadedModel(string1, string2, boolean0, string3, true);
- if (model0 == nullptr) {
+ if (model0.empty()) {
  ModelManager.instance.loadAdditionalModel(string1, string2, boolean0, string3);
  }
 
@@ -576,15 +576,15 @@ public:
  }
  } else {
  Clothing clothing1 = Type.tryCastTo(item, Clothing.class);
- if (clothing1 == nullptr) {
+ if (clothing1.empty()) {
  HandWeapon weapon = Type.tryCastTo(item, HandWeapon.class);
  if (weapon != nullptr) {
  std::string string5 = StringUtils.discardNullOrWhitespace(weapon.getStaticModel());
- if (string5 == nullptr) {
+ if (string5.empty()) {
  return false;
  } else {
  ModelScript modelScript4 = ScriptManager.instance.getModelScript(string5);
- if (modelScript4 == nullptr) {
+ if (modelScript4.empty()) {
  return false;
  } else {
  std::string string6 = modelScript4.getMeshName();
@@ -592,7 +592,7 @@ public:
  std::string string8 = modelScript4.getShaderName();
  bool boolean1 = modelScript4.bStatic;
  Model model1 = ModelManager.instance.tryGetLoadedModel(string6, string7, boolean1, string8, false);
- if (model1 == nullptr) {
+ if (model1.empty()) {
  ModelManager.instance.loadAdditionalModel(string6, string7, boolean1, string8);
  }
 
@@ -632,7 +632,7 @@ public:
  bool boolean3 = clothingItem1.m_Static;
  std::string string11 = clothingItem1.m_Shader;
  Model model2 = ModelManager.instance.tryGetLoadedModel(string9, string10, boolean3, string11, false);
- if (model2 == nullptr) {
+ if (model2.empty()) {
  ModelManager.instance.loadAdditionalModel(string9, string10, boolean3, string11);
  }
 
@@ -658,7 +658,7 @@ public:
 
  bool initWeaponParts(HandWeapon weapon, ModelScript modelScript) {
  std::vector arrayList0 = weapon.getModelWeaponPart();
- if (arrayList0 == nullptr) {
+ if (arrayList0.empty()) {
  return true;
  } else {
  std::vector arrayList1 = weapon.getAllWeaponParts(WorldItemAtlas.instance.m_tempWeaponPartList);
@@ -683,11 +683,11 @@ public:
 
  bool initWeaponPart(ModelWeaponPart modelWeaponPart, ModelScript modelScript1) {
  std::string string0 = StringUtils.discardNullOrWhitespace(modelWeaponPart.modelName);
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return false;
  } else {
  ModelScript modelScript0 = ScriptManager.instance.getModelScript(string0);
- if (modelScript0 == nullptr) {
+ if (modelScript0.empty()) {
  return false;
  } else {
  std::string string1 = modelScript0.getMeshName();
@@ -695,7 +695,7 @@ public:
  std::string string3 = modelScript0.getShaderName();
  bool boolean0 = modelScript0.bStatic;
  Model model = ModelManager.instance.tryGetLoadedModel(string1, string2, boolean0, string3, false);
- if (model == nullptr) {
+ if (model.empty()) {
  ModelManager.instance.loadAdditionalModel(string1, string2, boolean0, string3);
  }
 
@@ -706,7 +706,7 @@ public:
  weaponPartParams.m_attachmentNameSelf = modelWeaponPart.attachmentNameSelf;
  weaponPartParams.m_attachmentNameParent = modelWeaponPart.attachmentParent;
  weaponPartParams.initTransform(modelScript1, modelScript0);
- if (this->m_weaponParts == nullptr) {
+ if (this->m_weaponParts.empty()) {
  this->m_weaponParts = std::make_unique<ArrayList<>>();
  }
 
@@ -796,7 +796,7 @@ public:
  WorldItemAtlas.AtlasEntry entry;
 
  bool isStillValid(InventoryItem item) {
- return this->entry == nullptr ? false : this->itemParams.isStillValid(item);
+ return this->entry.empty() ? false : this->itemParams.isStillValid(item);
  }
 
  bool isRenderMainOK() {
@@ -1032,12 +1032,12 @@ public:
  if (!model.bStatic) {
  return false;
  } else {
- if (model.Effect == nullptr) {
+ if (model.Effect.empty()) {
  model.CreateShader("basicEffect");
  }
 
  Shader shader = model.Effect;
- if (shader == nullptr || model.Mesh == nullptr || !model.Mesh.isReady()) {
+ if (shader.empty() || model.Mesh.empty() || !model.Mesh.isReady()) {
  return false;
  } else if (model.tex != nullptr && !model.tex.isReady()) {
  return false;
@@ -1054,7 +1054,7 @@ public:
  GL11.glEnable(2929);
  GL11.glColor3f(1.0F, 1.0F, 1.0F);
  shader.Start();
- if (model.tex == nullptr) {
+ if (model.tex.empty()) {
  shader.setTexture(Texture.getErrorTexture(), "Texture", 0);
  } else {
  shader.setTexture(model.tex, "Texture", 0);
@@ -1092,7 +1092,7 @@ public:
  0.0F,
  nullptr
  );
- if (matrix4f2 == nullptr) {
+ if (matrix4f2.empty()) {
  shader.setTransformMatrix(this->itemParams.m_transform, false);
  } else {
  tempMatrix4f_1.set(this->itemParams.m_transform);

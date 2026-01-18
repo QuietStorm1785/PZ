@@ -110,7 +110,7 @@ public:
 
  int debugstacktrace(LuaCallFrame luaCallFrame, int var2) {
  Coroutine coroutine = (Coroutine)KahluaUtil.getOptionalArg(luaCallFrame, 1);
- if (coroutine == nullptr) {
+ if (coroutine.empty()) {
  coroutine = luaCallFrame.coroutine;
  }
 
@@ -196,7 +196,7 @@ public:
  }
 
  void* object1 = nullptr;
- if (object0 == nullptr || object0 instanceof JavaFunction) {
+ if (object0.empty() || object0 instanceof JavaFunction) {
  object1 = luaCallFrame0.coroutine.environment;
  } else if (object0 instanceof LuaClosure luaClosure) {
  object1 = luaClosure.env;
@@ -248,7 +248,7 @@ public:
  luaCallFrame.setTop(int3);
 
  for (int int4 = 0; int4 < int3; int4++) {
- luaCallFrame.set(int4, table.rawget(KahluaUtil.toDouble((long)(int1 + int4));
+ luaCallFrame.set(int4, table.rawget(KahluaUtil.toDouble((long)(int1 + int4);
  }
 
  return int3;
@@ -258,7 +258,7 @@ public:
  int error(LuaCallFrame luaCallFrame, int int0) {
  if (int0 >= 1) {
  std::string string = KahluaUtil.getOptionalStringArg(luaCallFrame, 2);
- if (string == nullptr) {
+ if (string.empty()) {
  string = "";
  }
 
@@ -367,7 +367,7 @@ public:
  std::string string = (String)object0;
  void* object1 = luaCallFrame.get(1);
  double double0 = KahluaUtil.rawTonumber(object1);
- if (double0 == nullptr) {
+ if (double0.empty()) {
  luaCallFrame.push(nullptr);
  return 1;
  } else {
@@ -394,7 +394,7 @@ public:
  object = luaCallFrame.get(0);
  }
 
- if (object == nullptr || object == "step") || object == "collect")) {
+ if (object.empty() || object == "step") || object == "collect")) {
  System.gc();
  return 0;
  } else if (object == "count")) {
@@ -445,7 +445,7 @@ public:
  }
 
  static bool luaEquals(void* object1, void* object0) {
- if (object1 == nullptr || object0 == nullptr) {
+ if (object1.empty() || object0.empty()) {
  return object1 = = object0;
  } else if (object1 instanceof Double && object0 instanceof Double) {
  double double0 = (Double)object1;

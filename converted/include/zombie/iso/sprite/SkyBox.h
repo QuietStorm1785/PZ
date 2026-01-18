@@ -73,7 +73,7 @@ public:
  int apiId;
 
  public static synchronized SkyBox getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<SkyBox>();
  }
 

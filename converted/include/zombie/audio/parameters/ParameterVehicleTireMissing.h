@@ -32,7 +32,7 @@ public:
  for (int int0 = 0; int0 < vehicleScript.getWheelCount(); int0++) {
  VehicleScript.Wheel wheel = vehicleScript.getWheel(int0);
  VehiclePart part = this->vehicle.getPartById("Tire" + wheel.getId());
- if (part == nullptr || part.getInventoryItem() == nullptr) {
+ if (part.empty() || part.getInventoryItem() == nullptr) {
  boolean0 = true;
  break;
  }

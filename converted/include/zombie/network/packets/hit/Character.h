@@ -105,11 +105,11 @@ public:
  + " ; "
  + this->directionY
  + " ) | health="
- + (this->character == nullptr ? "?" : this->character.getHealth())
+ + (this->character.empty() ? "?" : this->character.getHealth())
  + " | current="
- + (this->character == nullptr ? "?" : "\"" + this->character.getCurrentActionContextStateName() + "\"")
+ + (this->character.empty() ? "?" : "\"" + this->character.getCurrentActionContextStateName() + "\"")
  + " | previous="
- + (this->character == nullptr ? "?" : "\"" + this->character.getPreviousActionContextStateName() + "\"")
+ + (this->character.empty() ? "?" : "\"" + this->character.getPreviousActionContextStateName() + "\"")
  + " ]";
  }
 

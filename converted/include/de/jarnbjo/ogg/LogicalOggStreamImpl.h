@@ -58,7 +58,7 @@ public:
  public synchronized byte[] getNextOggPacket() throws EndOfOggStreamException, OggFormatException, IOException {
  ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
  int int0 = 0;
- if (this->currentPage == nullptr) {
+ if (this->currentPage.empty()) {
  this->currentPage = this->getNextOggPage();
  }
 

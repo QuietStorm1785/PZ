@@ -72,7 +72,7 @@ public:
  }
 
  static IGLFramebufferObject getFuncs() {
- if (funcs == nullptr) {
+ if (funcs.empty()) {
  checkFBOSupport();
  }
 
@@ -89,7 +89,7 @@ public:
  this->height = this->texture.getHeight();
  if (!checkFBOSupport()) {
  throw RuntimeException("Could not create FBO. FBO's not supported.");
- } else if (this->texture == nullptr) {
+ } else if (this->texture.empty()) {
  throw NullPointerException("Could not create FBO. Texture is nullptr.");
  } else {
  this->texture.bind();
@@ -279,7 +279,7 @@ public:
  }
 
  bool isDestroyed() {
- return this->texture == nullptr || this->id == 0 || this->depth == 0;
+ return this->texture.empty() || this->id == 0 || this->depth == 0;
  }
 
  void startDrawing() {

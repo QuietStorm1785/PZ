@@ -19,11 +19,11 @@ public:
  const InventoryItem item;
 
  public AttachedItem(const std::string& _location, InventoryItem _item) {
- if (_location == nullptr) {
+ if (_location.empty()) {
  throw NullPointerException("location is nullptr");
  } else if (_location.empty()) {
  throw IllegalArgumentException("location is empty");
- } else if (_item == nullptr) {
+ } else if (_item.empty()) {
  throw NullPointerException("item is nullptr");
  } else {
  this->location = _location;

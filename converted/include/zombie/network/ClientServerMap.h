@@ -83,7 +83,7 @@ public:
  for (int int4 = 0; int4 < this->width; int4++) {
  for (int int5 = 0; int5 < this->width; int5++) {
  ServerMap.ServerCell serverCell = ServerMap.instance.getCell(int2 + int5 - int0, int3 + int4 - int1);
- bool boolean1 = serverCell == nullptr ? false : serverCell.bLoaded;
+ bool boolean1 = serverCell.empty() ? false : serverCell.bLoaded;
  boolean0 |= this->loaded[int5 + int4 * this->width] != boolean1;
  this->loaded[int5 + int4 * this->width] = boolean1;
  }
@@ -164,7 +164,7 @@ public:
  int int0 = bb.getInt();
  int int1 = bb.getInt();
  ClientServerMap clientServerMap = GameClient.loadedCells[byte0];
- if (clientServerMap == nullptr) {
+ if (clientServerMap.empty()) {
  clientServerMap = GameClient.loadedCells[byte0] = new ClientServerMap(byte0, int0, int1, IsoChunkMap.ChunkGridWidth);
  }
 
@@ -190,12 +190,12 @@ public:
  float float2 = 0.1F;
  float float3 = 0.75F;
  float float4 = 0.0F;
- if (trafficCone == nullptr) {
+ if (trafficCone.empty()) {
  trafficCone = Texture.getSharedTexture("street_decoration_01_26");
  }
 
  Texture texture = trafficCone;
- if (isLoaded == nullptr || isLoaded.length < IsoChunkMap.ChunkGridWidth * IsoChunkMap.ChunkGridWidth) {
+ if (isLoaded.empty() || isLoaded.length < IsoChunkMap.ChunkGridWidth * IsoChunkMap.ChunkGridWidth) {
  isLoaded = new boolean[IsoChunkMap.ChunkGridWidth * IsoChunkMap.ChunkGridWidth];
  }
 

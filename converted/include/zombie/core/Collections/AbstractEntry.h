@@ -45,11 +45,11 @@ public:
  }
 
  int hashCode() {
- return (this->_key == nullptr ? 0 : this->_key.hashCode()) ^ (this->_val == nullptr ? 0 : this->_val.hashCode());
+ return (this->_key.empty() ? 0 : this->_key.hashCode()) ^ (this->_val.empty() ? 0 : this->_val.hashCode());
  }
 
  static bool eq(void* object0, void* object1) {
- return object0 = = nullptr ? object1 == nullptr : object0.equals(object1);
+ return object0 = = nullptr ? object1.empty() : object0.equals(object1);
  }
 }
 } // namespace Collections

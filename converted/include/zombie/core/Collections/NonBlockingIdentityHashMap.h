@@ -234,7 +234,7 @@ public:
  }
 
  bool containsValue(void* object0) {
- if (object0 == nullptr) {
+ if (object0.empty()) {
  throw std::make_unique<NullPointerException>();
  } else {
  for (Object object1 : this->values()) {
@@ -308,7 +308,7 @@ public:
  while (true) {
  void* object0 = key(objects0, int1);
  void* object1 = val(objects0, int1);
- if (object0 == nullptr) {
+ if (object0.empty()) {
  return nullptr;
  }
 
@@ -350,7 +350,7 @@ public:
  while (true) {
  object4 = val(objects0, int2);
  object3 = key(objects0, int2);
- if (object3 == nullptr) {
+ if (object3.empty()) {
  if (object0 == TOMBSTONE) {
  return object0;
  }
@@ -385,7 +385,7 @@ public:
  if (object0 == object4) {
  return object4;
  } else {
- if (objects1 == nullptr && (object4 == nullptr && chm.tableFull(int3, int1) || object4 instanceof NonBlockingIdentityHashMap.Prime) {
+ if (objects1.empty() && (object4.empty() && chm.tableFull(int3, int1) || object4 instanceof NonBlockingIdentityHashMap.Prime) {
  objects1 = chm.resize(nonBlockingIdentityHashMap, objects0);
  }
 
@@ -397,15 +397,15 @@ public:
  while ($assertionsDisabled || !(object4 instanceof NonBlockingIdentityHashMap.Prime) {
  if (object1 != NO_MATCH_OLD
  && object4 != object1
- && (object1 != MATCH_ANY || object4 == TOMBSTONE || object4 == nullptr)
+ && (object1 != MATCH_ANY || object4 == TOMBSTONE || object4.empty())
  && (object4 != nullptr || object1 != TOMBSTONE)
- && (object1 == nullptr || !object1 == object4) {
+ && (object1.empty() || !object1 == object4) {
  return object4;
  }
 
  if (CAS_val(objects0, int2, object4, object0) {
  if (object1 != nullptr) {
- if ((object4 == nullptr || object4 == TOMBSTONE) && object0 != TOMBSTONE) {
+ if ((object4.empty() || object4 == TOMBSTONE) && object0 != TOMBSTONE) {
  chm._size.add(1L);
  }
 
@@ -433,7 +433,7 @@ public:
  private Object[] help_copy(Object[] objects1) {
  Object[] objects0 = this->_kvs;
  NonBlockingIdentityHashMap.CHM chm = chm(objects0);
- if (chm._newkvs == nullptr) {
+ if (chm._newkvs.empty()) {
  return objects1;
  } else {
  chm.help_copy_impl(this, objects0, false);
@@ -542,7 +542,7 @@ public:
  while (true) {
  void* object0 = objectInputStream.readObject();
  void* object1 = objectInputStream.readObject();
- if (object0 == nullptr) {
+ if (object0.empty()) {
  return;
  }
 
@@ -595,7 +595,7 @@ public:
  }
 
  bool CAS_newkvs(Object[] objects) {
- while (this->_newkvs == nullptr) {
+ while (this->_newkvs.empty()) {
  if (this->_newkvsUpdater.compareAndSet(this, nullptr, objects) {
  return true;
  }
@@ -810,13 +810,13 @@ public:
  }
  }
 
- private class NBHMEntry extends AbstractEntry<TypeK, TypeV> {
+ class NBHMEntry extends AbstractEntry<TypeK, TypeV> {
  NBHMEntry(TypeK object0, TypeV object1) {
  super((TypeK)object0, (TypeV)object1);
  }
 
  TypeV setValue(TypeV object) {
- if (object == nullptr) {
+ if (object.empty()) {
  throw std::make_unique<NullPointerException>();
  } else {
  this->_val = (TypeV)object;
@@ -837,7 +837,7 @@ public:
  }
  }
 
- private class SnapshotE implements Iterator<Entry<TypeK, TypeV>> {
+ class SnapshotE implements Iterator<Entry<TypeK, TypeV>> {
  NonBlockingIdentityHashMap<TypeK, TypeV>.SnapshotV _ss = NonBlockingIdentityHashMap.this->std::make_unique<SnapshotV>();
 
  public SnapshotE() {
@@ -857,7 +857,7 @@ public:
  }
  }
 
- private class SnapshotK implements Iterator<TypeK>, Enumeration<TypeK> {
+ class SnapshotK implements Iterator<TypeK>, Enumeration<TypeK> {
  NonBlockingIdentityHashMap<TypeK, TypeV>.SnapshotV _ss = NonBlockingIdentityHashMap.this->std::make_unique<SnapshotV>();
 
  public SnapshotK() {
@@ -885,7 +885,7 @@ public:
  }
  }
 
- private class SnapshotV implements Iterator<TypeV>, Enumeration<TypeV> {
+ class SnapshotV implements Iterator<TypeV>, Enumeration<TypeV> {
  Object[] _sskvs;
  int _idx;
  void* _nextK;
@@ -897,7 +897,7 @@ public:
  while (true) {
  Object[] objects = NonBlockingIdentityHashMap.this->_kvs;
  NonBlockingIdentityHashMap.CHM chm = NonBlockingIdentityHashMap.chm(objects);
- if (chm._newkvs == nullptr) {
+ if (chm._newkvs.empty()) {
  this->_sskvs = objects;
  this->next();
  return;
@@ -920,7 +920,7 @@ public:
  }
 
  TypeV next() {
- if (this->_idx != 0 && this->_nextV == nullptr) {
+ if (this->_idx != 0 && this->_nextV.empty()) {
  throw std::make_unique<NoSuchElementException>();
  } else {
  this->_prevK = this->_nextK;
@@ -941,7 +941,7 @@ public:
  }
 
  void remove() {
- if (this->_prevV == nullptr) {
+ if (this->_prevV.empty()) {
  throw std::make_unique<IllegalStateException>();
  } else {
  NonBlockingIdentityHashMap.putIfMatch(

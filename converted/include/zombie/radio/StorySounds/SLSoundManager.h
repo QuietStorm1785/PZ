@@ -42,7 +42,7 @@ public:
  float borderScale = 1.0F;
 
  static SLSoundManager getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<SLSoundManager>();
  }
 

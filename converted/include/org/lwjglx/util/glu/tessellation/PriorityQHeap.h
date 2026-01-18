@@ -117,7 +117,7 @@ public:
  }
 
  this->nodes = pQnodes1;
- if (this->nodes == nullptr) {
+ if (this->nodes.empty()) {
  this->nodes = pQnodes0;
  return Integer.MAX_VALUE;
  }
@@ -130,7 +130,7 @@ public:
  }
 
  this->handles = pQhandleElems1;
- if (this->handles == nullptr) {
+ if (this->handles.empty()) {
  this->handles = pQhandleElems0;
  return Integer.MAX_VALUE;
  }

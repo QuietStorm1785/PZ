@@ -424,7 +424,7 @@ public:
  }
 
  bool setActive(bool active, bool setActiveBoolOnly, bool ignoreSwitchCheck) {
- if (this->bulbItem == nullptr) {
+ if (this->bulbItem.empty()) {
  active = false;
  }
 
@@ -507,7 +507,7 @@ public:
  this->writeCustomizedSettingsPacket(GameClient.connection);
  } else if (GameServer.bServer) {
  for (UdpConnection udpConnection : GameServer.udpEngine.connections) {
- if (source == nullptr || udpConnection.getConnectedGUID() != source.getConnectedGUID()) {
+ if (source.empty() || udpConnection.getConnectedGUID() != source.getConnectedGUID()) {
  this->writeCustomizedSettingsPacket(udpConnection);
  }
  }
@@ -588,7 +588,7 @@ public:
  }
 
  void syncIsoObject(bool bRemote, uint8_t val, UdpConnection source) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  System.out.println("ERROR: " + this->getClass().getSimpleName() + " square is nullptr");
  } else if (this->getObjectIndex() == -1) {
  System.out

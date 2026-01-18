@@ -80,8 +80,8 @@ public:
  this->summerTilt = 2.0F;
  this->winterMod = this->tempMin < 0 ? 0.05F * -this->tempMin : 0.02F * -this->tempMin;
  this->summerMod = this->tempMax < 0 ? 0.05F * this->tempMax : 0.02F * this->tempMax;
- this->suSol = 2.0 * this->degree(Math.acos(-Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44)) / 15.0;
- this->wiSol = 2.0 * this->degree(Math.acos(Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44)) / 15.0;
+ this->suSol = 2.0 * this->degree(Math.acos(-Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44) / 15.0;
+ this->wiSol = 2.0 * this->degree(Math.acos(Math.tan(this->radian(this->lat) * Math.tan(this->radian(23.44) / 15.0;
  this->per.reset();
  this->per.addLayer(_seedA, 8.0F, 2.0F);
  this->per.addLayer(_seedB, 6.0F, 4.0F);

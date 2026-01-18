@@ -87,7 +87,7 @@ public:
 
  std::string getItemTypeDebugString(short short0) {
  std::string string = this->getItemTypeFromID(short0);
- if (string == nullptr) {
+ if (string.empty()) {
  string = "Unknown";
  }
 
@@ -184,7 +184,7 @@ public:
  for (Entry entry : map.entrySet()) {
  ItemInfo itemInfo0 = (ItemInfo)entry.getValue();
  ItemInfo itemInfo1 = this->itemTypeToInfoMap.get(itemInfo0.fullType);
- if (itemInfo1 == nullptr) {
+ if (itemInfo1.empty()) {
  if (!itemInfo0.obsolete) {
  if (this->NextItemID >= 32767) {
  throw WorldDictionaryException("Max item ID value reached for WorldDictionary!");
@@ -228,7 +228,7 @@ public:
  WorldDictionaryLogger.log(new Log.RemovedItem(itemInfo.copy(), false);
  }
 
- if (itemInfo.scriptItem == nullptr) {
+ if (itemInfo.scriptItem.empty()) {
  itemInfo.scriptItem = ScriptManager.instance.getSpecificItem(itemInfo.fullType);
  }
 

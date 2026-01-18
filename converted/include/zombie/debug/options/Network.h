@@ -23,7 +23,7 @@ public:
  super("Network");
  }
 
- public class Client extends OptionGroup {
+ class Client extends OptionGroup {
  const BooleanDebugOption MainLoop = newDebugOnlyOption(this->Group, "MainLoop", true);
  const BooleanDebugOption UpdateZombiesFromPacket = newDebugOnlyOption(this->Group, "UpdateZombiesFromPacket", true);
  const BooleanDebugOption SyncIsoObject = newDebugOnlyOption(this->Group, "SyncIsoObject", true);
@@ -33,7 +33,7 @@ public:
  }
  }
 
- public class PublicServerUtil extends OptionGroup {
+ class PublicServerUtil extends OptionGroup {
  const BooleanDebugOption Enabled = newDebugOnlyOption(this->Group, "Enabled", true);
 
  public PublicServerUtil(IDebugOptionGroup iDebugOptionGroup) {
@@ -41,7 +41,7 @@ public:
  }
  }
 
- public class Server extends OptionGroup {
+ class Server extends OptionGroup {
  const BooleanDebugOption SyncIsoObject = newDebugOnlyOption(this->Group, "SyncIsoObject", true);
 
  public Server(IDebugOptionGroup iDebugOptionGroup) {

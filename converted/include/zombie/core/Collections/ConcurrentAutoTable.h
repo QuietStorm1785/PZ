@@ -186,7 +186,7 @@ public:
  if (long0 != Long.MIN_VALUE) {
  return long0;
  } else {
- long0 = this->_next == nullptr ? 0L : this->_next.sum(long1);
+ long0 = this->_next.empty() ? 0L : this->_next.sum(long1);
  long[] longs = this->_t;
 
  for (int int0 = 0; int0 < longs.length; int0++) {

@@ -55,7 +55,7 @@ public:
  }
 
  void write(ByteBufferWriter byteBufferWriter) {
- if (this->item == nullptr) {
+ if (this->item.empty()) {
  byteBufferWriter.putByte((byte)0);
  } else {
  byteBufferWriter.putByte((byte)1);
@@ -73,7 +73,7 @@ public:
  }
 
  std::string getDescription() {
- return super.getDescription() + "\n\tItem [ Item=" + (this->item == nullptr ? "?" : "\"" + this->item.getDisplayName() + "\"") + " ]";
+ return super.getDescription() + "\n\tItem [ Item=" + (this->item.empty() ? "?" : "\"" + this->item.getDisplayName() + "\"") + " ]";
  }
 
  InventoryItem getItem() {

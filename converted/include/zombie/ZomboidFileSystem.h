@@ -114,7 +114,7 @@ public:
  }
 
  std::string getGameModeCacheDir() {
- if (Core.GameMode == nullptr) {
+ if (Core.GameMode.empty()) {
  Core.GameMode = "Sandbox";
  }
 
@@ -177,9 +177,9 @@ public:
  }
 
  std::string getCacheDir() {
- if (this->cacheDir == nullptr) {
+ if (this->cacheDir.empty()) {
  std::string string0 = System.getProperty("deployment.user.cachedir");
- if (string0 == nullptr || System.getProperty("os.name").startsWith("Win")) {
+ if (string0.empty() || System.getProperty("os.name").startsWith("Win")) {
  string0 = System.getProperty("user.home");
  }
 
@@ -383,7 +383,7 @@ public:
 
  URI getCanonicalURI(const std::string& string) {
  URI uri = this->CanonicalURIMap.get(string);
- if (uri == nullptr) {
+ if (uri.empty()) {
  uri = this->getCanonicalFile(string).toURI();
  this->CanonicalURIMap.put(string, uri);
  }
@@ -457,9 +457,9 @@ public:
  }
 
  void getAllModFolders(List<String> list) {
- if (this->modFolders == nullptr) {
+ if (this->modFolders.empty()) {
  this->modFolders = std::make_unique<ArrayList<>>();
- if (this->modFoldersOrder == nullptr) {
+ if (this->modFoldersOrder.empty()) {
  this->setModFoldersOrder("workshop,steam,mods");
  }
 
@@ -503,7 +503,7 @@ public:
  return arrayList;
  } else {
  std::string string = SteamWorkshop.instance.GetItemInstallFolder(long0);
- if (string == nullptr) {
+ if (string.empty()) {
  return arrayList;
  } else {
  File file0 = new File(string + File.separator + "mods");
@@ -529,7 +529,7 @@ public:
  public ChooseGameInfo.Mod searchForModInfo(File file0, String string, ArrayList<ChooseGameInfo.Mod> arrayList) {
  if (file0.isDirectory()) {
  String[] strings = file0.list();
- if (strings == nullptr) {
+ if (strings.empty()) {
  return nullptr;
  }
 
@@ -542,7 +542,7 @@ public:
  }
  } else if (file0.getAbsolutePath().endsWith("mod.info")) {
  ChooseGameInfo.Mod mod1 = ChooseGameInfo.readModInfo(file0.getAbsoluteFile().getParent());
- if (mod1 == nullptr) {
+ if (mod1.empty()) {
  return nullptr;
  }
 
@@ -671,7 +671,7 @@ public:
 
  bool isTranslationMod(const std::string& string0) {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getAvailableModDetails(string0);
- if (mod == nullptr) {
+ if (mod.empty()) {
  return false;
  } else {
  bool boolean0 = false;
@@ -734,7 +734,7 @@ public:
  return nullptr;
  } else {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getAvailableModDetails(string0);
- if (mod == nullptr) {
+ if (mod.empty()) {
  if (GameServer.bServer) {
  GameServer.ServerMods.remove(string0);
  }
@@ -786,7 +786,7 @@ public:
 
  public ChooseGameInfo.Mod getModInfoForDir(String string) {
  ChooseGameInfo.Mod mod = this->modDirToMod.get(string);
- if (mod == nullptr) {
+ if (mod.empty()) {
  mod = new ChooseGameInfo.Mod(string);
  this->modDirToMod.put(string, mod);
  }
@@ -987,7 +987,7 @@ public:
  }
 
  FileGuidTable getFileGuidTable() {
- if (this->m_fileGuidTable == nullptr) {
+ if (this->m_fileGuidTable.empty()) {
  this->loadFileGuidTable();
  }
 
@@ -1197,7 +1197,7 @@ public:
  bool isModFile(const std::string& string0) {
  if (this->m_modsChangedTime > 0L) {
  return false;
- } else if (this->modFolders == nullptr) {
+ } else if (this->modFolders.empty()) {
  return false;
  } else {
  string0 = string0.toLowerCase().replace('\\', '/');

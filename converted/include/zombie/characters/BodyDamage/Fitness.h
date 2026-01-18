@@ -79,7 +79,7 @@ public:
  for (int int2 = 0; int2 < this->bodypartToIncStiffness.size(); int2++) {
  std::string string1 = this->bodypartToIncStiffness.get(int2);
  float float0 = this->stiffnessIncMap.get(string1);
- if (float0 == nullptr) {
+ if (float0.empty()) {
  return;
  }
 
@@ -159,7 +159,7 @@ public:
  double double0 = Math.log(this->fitnessLvl / 5.0F + byte0);
  float0 = (float)(float0 * (Math.log(byte0 + 1) / double0);
  float float1 = this->regularityMap.get(this->currentExe.type);
- if (float1 == nullptr) {
+ if (float1.empty()) {
  float1 = 0.0F;
  }
 
@@ -174,7 +174,7 @@ public:
  void reduceEndurance() {
  float float0 = 0.015F;
  float float1 = this->regularityMap.get(this->currentExe.type);
- if (float1 == nullptr) {
+ if (float1.empty()) {
  float1 = 0.0F;
  }
 
@@ -194,7 +194,7 @@ public:
  */
  void incFutureStiffness() {
  float float0 = this->regularityMap.get(this->currentExe.type);
- if (float0 == nullptr) {
+ if (float0.empty()) {
  float0 = 0.0F;
  }
 
@@ -206,7 +206,7 @@ public:
  }
 
  float float2 = this->stiffnessIncMap.get(string);
- if (float2 == nullptr) {
+ if (float2.empty()) {
  float2 = 0.0F;
  }
 
@@ -371,7 +371,7 @@ public:
 
  float getRegularity(const std::string& type) {
  float float0 = this->regularityMap.get(type);
- if (float0 == nullptr) {
+ if (float0.empty()) {
  float0 = 0.0F;
  }
 

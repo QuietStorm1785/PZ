@@ -96,7 +96,7 @@ public:
  } else {
  try {
  IsoZombie zombie0 = ServerMap.instance.ZombieMap.get(this->packet.id);
- if (zombie0 == nullptr) {
+ if (zombie0.empty()) {
  return;
  }
 

@@ -43,7 +43,7 @@ public:
  }
 
  bool isEmpty() {
- return this->mMin == nullptr;
+ return this->mMin.empty();
  }
 
  int size() {
@@ -84,7 +84,7 @@ public:
  }
 
  this->mMin = mergeLists(this->mMin, entry0.mChild);
- if (this->mMin == nullptr) {
+ if (this->mMin.empty()) {
  return entry0;
  } else {
  this->treeTable.clear();
@@ -153,11 +153,11 @@ public:
  }
 
  private static <T> FibonacciHeap.Entry<T> mergeLists(FibonacciHeap.Entry<T> entry1, FibonacciHeap.Entry<T> entry0) {
- if (entry1 == nullptr && entry0 == nullptr) {
+ if (entry1.empty() && entry0.empty()) {
  return nullptr;
- } else if (entry1 != nullptr && entry0 == nullptr) {
+ } else if (entry1 != nullptr && entry0.empty()) {
  return entry1;
- } else if (entry1 == nullptr && entry0 != nullptr) {
+ } else if (entry1.empty() && entry0 != nullptr) {
  return entry0;
  } else {
  FibonacciHeap.Entry entry2 = entry1.mNext;

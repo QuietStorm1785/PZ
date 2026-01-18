@@ -356,7 +356,7 @@ public:
  zombiePopulationRenderer.renderZombie(vector.x, vector.y, color0.r, color0.g, color0.b);
  zombiePopulationRenderer.renderCircle(vector.x, vector.y, float3, color0.r, color0.g, color0.b, color0.a);
  zombiePopulationRenderer.renderString(
- vector.x, vector.y, player0 == nullptr ? String.valueOf(entry0.getKey()) : player0.getUsername(), color0.r, color0.g, color0.b, color0.a
+ vector.x, vector.y, player0.empty() ? String.valueOf(entry0.getKey()) : player0.getUsername(), color0.r, color0.g, color0.b, color0.a
  );
  }
 

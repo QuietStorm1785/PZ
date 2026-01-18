@@ -69,7 +69,7 @@ public:
  }
 
  Vector2 getFacingPosition(Vector2 pos) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return pos.set(0.0F, 0.0F);
  } else {
  return this->getProperties() != nullptr && this->getProperties().Is(IsoFlagType.collideN)
@@ -153,9 +153,9 @@ public:
  }
 
  void updateFuelSprite() {
- if (this->container == nullptr || !"woodstove" == this->container.getType())) {
+ if (this->container.empty() || !"woodstove" == this->container.getType())) {
  if (this->hasFuel()) {
- if (this->FuelSprite == nullptr) {
+ if (this->FuelSprite.empty()) {
  this->FuelSprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  Texture texture = this->FuelSprite.LoadFrameExplicit("Item_Logs");
  }
@@ -186,7 +186,7 @@ public:
  }
 
  void updateFireSprite() {
- if (this->container == nullptr || !"woodstove" == this->container.getType())) {
+ if (this->container.empty() || !"woodstove" == this->container.getType())) {
  if (this->isLit()) {
  if (this->FireSpriteIndex == -1) {
  DebugLog.log(DebugType.Fireplace, "fireplace: added fire sprite");
@@ -249,7 +249,7 @@ public:
  this->LightSource = nullptr;
  }
 
- if (this->LightSource == nullptr) {
+ if (this->LightSource.empty()) {
  this->LightSource = new IsoLightSource(this->square.getX(), this->square.getY(), this->square.getZ(), 1.0F, 0.1F, 0.1F, int0);
  IsoWorld.instance.CurrentCell.addLamppost(this->LightSource);
  IsoGridSquare.RecalcLightTime = -1;
@@ -264,7 +264,7 @@ public:
  void updateHeatSource() {
  if (this->isLit()) {
  int int0 = this->calcLightRadius();
- if (this->heatSource == nullptr) {
+ if (this->heatSource.empty()) {
  this->heatSource = new IsoHeatSource((int)this->getX(), (int)this->getY(), (int)this->getZ(), int0, 35);
  IsoWorld.instance.CurrentCell.addHeatSource(this->heatSource);
  } else if (int0 != this->heatSource.getRadius()) {
@@ -279,7 +279,7 @@ public:
  void updateSound() {
  if (!GameServer.bServer) {
  if (this->isLit()) {
- if (this->emitter == nullptr) {
+ if (this->emitter.empty()) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->getX() + 0.5F, this->getY() + 0.5F, (int)this->getZ());
  IsoWorld.instance.setEmitterOwner(this->emitter, this);
  }

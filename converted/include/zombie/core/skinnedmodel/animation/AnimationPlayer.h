@@ -324,7 +324,7 @@ public:
  }
 
  AnimationTrack startClip(AnimationClip animationClip, bool boolean0) {
- if (animationClip == nullptr) {
+ if (animationClip.empty()) {
  throw NullPointerException("Supplied clip is nullptr.");
  } else {
  AnimationTrack animationTrack = AnimationTrack.alloc();
@@ -342,11 +342,11 @@ public:
  }
 
  AnimationTrack play(const std::string& animName, bool looped) {
- if (this->m_skinningData == nullptr) {
+ if (this->m_skinningData.empty()) {
  return nullptr;
  } else {
  AnimationClip animationClip = this->m_skinningData.AnimationClips.get(animName);
- if (animationClip == nullptr) {
+ if (animationClip.empty()) {
  DebugLog.General.warn("Anim Clip not found: %s", animName);
  return nullptr;
  } else {
@@ -383,7 +383,7 @@ public:
  }
 
  SharedSkeleAnimationTrack determineCurrentSharedSkeleTrack() {
- if (this->m_sharedSkeleAnimationRepo == nullptr) {
+ if (this->m_sharedSkeleAnimationRepo.empty()) {
  return nullptr;
  } else if (this->bDoBlending) {
  return nullptr;
@@ -406,7 +406,7 @@ public:
  return this->m_currentSharedTrack;
  } else {
  SharedSkeleAnimationTrack sharedSkeleAnimationTrack = this->m_sharedSkeleAnimationRepo.getTrack(animationClip);
- if (sharedSkeleAnimationTrack == nullptr) {
+ if (sharedSkeleAnimationTrack.empty()) {
  DebugLog.Animation.debugln("Caching SharedSkeleAnimationTrack: %s", animationTrack.name);
  sharedSkeleAnimationTrack = std::make_unique<SharedSkeleAnimationTrack>();
  ModelTransformSampler modelTransformSampler = ModelTransformSampler.alloc(this, animationTrack);
@@ -452,7 +452,7 @@ public:
  }
 
  void updateAnimation_StandardAnimation() {
- if (this->parentPlayer == nullptr) {
+ if (this->parentPlayer.empty()) {
  this->updateMultiTrackBoneTransforms();
  } else {
  this->copyBoneTransformsFromParentPlayer();
@@ -934,7 +934,7 @@ public:
  Quaternion quaternion,
  Vector3f vector3f1
  ) {
- if (animationBoneBindingPair == nullptr) {
+ if (animationBoneBindingPair.empty()) {
  animationTrack.get(int0, vector3f0, quaternion, vector3f1);
  } else {
  Matrix4f matrix4f0 = AnimationPlayer.L_getTrackTransform.result;
@@ -966,7 +966,7 @@ public:
 
  void updateMultiTrackBoneTransforms_DeferredMovementOnly() {
  this->m_deferredMovement.set(0.0F, 0.0F);
- if (this->parentPlayer == nullptr) {
+ if (this->parentPlayer.empty()) {
  this->updateLayerBlendWeightings();
  if (this->m_totalAnimBlendCount != 0) {
  int[] ints = AnimationPlayer.updateMultiTrackBoneTransforms_DeferredMovementOnly.boneIndices;
@@ -1071,7 +1071,7 @@ public:
  }
 
  public Matrix4f[] getSkinTransforms(SkinningData skinningData) {
- if (skinningData == nullptr) {
+ if (skinningData.empty()) {
  return this->modelTransforms;
  } else {
  AnimationPlayer.SkinTransformData skinTransformData = this->getSkinTransformData(skinningData);

@@ -46,7 +46,7 @@ public:
  }
 
  static std::string update(const std::string& string2, UdpConnection udpConnection0, const std::string& string0, const std::string& string1) {
- if ((udpConnection0 == nullptr || !udpConnection0.isCoopHost) && !ServerWorldDatabase.instance.containsUser(string0) && udpConnection0 != nullptr) {
+ if ((udpConnection0.empty() || !udpConnection0.isCoopHost) && !ServerWorldDatabase.instance.containsUser(string0) && udpConnection0 != nullptr) {
  return "User \"" + string0 + "\" is not in the whitelist, use /adduser first";
  } else {
  IsoPlayer player = GameServer.getPlayerByUserName(string0);

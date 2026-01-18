@@ -37,7 +37,7 @@ public:
  if (pathFindBehavior2.getIsCancelled()
  || pathFindBehavior2.isGoalNone()
  || pathFindBehavior2.bStopping
- || this->zombie.realState == nullptr
+ || this->zombie.realState.empty()
  || NetworkVariables.ZombieState.Idle == this->zombie.realState) {
  packet.pfbType = 0;
  } else if (pathFindBehavior2.isGoalCharacter()) {

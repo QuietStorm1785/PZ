@@ -116,7 +116,7 @@ public:
  static const Vector2 tempo = new Vector2();
 
  KahluaTable getModData() {
- if (this->modData == nullptr) {
+ if (this->modData.empty()) {
  this->modData = LuaManager.platform.newTable();
  }
 
@@ -275,7 +275,7 @@ public:
  }
 
  Vector2 getFacingPosition(Vector2 pos) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return pos.set(0.0F, 0.0F);
  } else if (this->isDoor
  || this->isDoorFrame
@@ -392,7 +392,7 @@ public:
  }
 
  if (bitHeaderRead.hasFlags(2097152) {
- if (this->table == nullptr) {
+ if (this->table.empty()) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -400,7 +400,7 @@ public:
  }
 
  if (bitHeaderRead.hasFlags(4194304) {
- if (this->modData == nullptr) {
+ if (this->modData.empty()) {
  this->modData = LuaManager.platform.newTable();
  }
 
@@ -894,7 +894,7 @@ public:
  if (SandboxOptions.instance.Lore.ThumpOnConstruction.getValue()) {
  if (thumper instanceof IsoGameCharacter) {
  Thumpable thumpable = this->getThumpableFor((IsoGameCharacter)thumper);
- if (thumpable == nullptr) {
+ if (thumpable.empty()) {
  return;
  }
 
@@ -1351,7 +1351,7 @@ public:
  this->lightSource = nullptr;
  }
 
- if (this->lightSourceFuel != nullptr && !this->lightSourceFuel.empty() && this->lightSource == nullptr && this->square != nullptr) {
+ if (this->lightSourceFuel != nullptr && !this->lightSourceFuel.empty() && this->lightSource.empty() && this->square != nullptr) {
  uint8_t byte0 = 0;
  int int0 = this->calcLightSourceX();
  int int1 = this->calcLightSourceY();
@@ -1456,7 +1456,7 @@ public:
 
  bool isBarricaded() {
  IsoBarricade barricade = this->getBarricadeOnSameSquare();
- if (barricade == nullptr) {
+ if (barricade.empty()) {
  barricade = this->getBarricadeOnOppositeSquare();
  }
 
@@ -1539,7 +1539,7 @@ public:
  PropertyContainer propertyContainer = this->closedSprite.getProperties();
  return propertyContainer.Is(IsoFlagType.HoppableN) || propertyContainer.Is(IsoFlagType.HoppableW);
  } else {
- return this->sprite == nullptr || !this->sprite.getProperties().Is(IsoFlagType.HoppableN) && !this->sprite.getProperties().Is(IsoFlagType.HoppableW)
+ return this->sprite.empty() || !this->sprite.getProperties().Is(IsoFlagType.HoppableN) && !this->sprite.getProperties().Is(IsoFlagType.HoppableW)
  ? this->isHoppable
  : true;
  }
@@ -1656,7 +1656,7 @@ public:
  }
 
  void syncIsoObject(bool bRemote, uint8_t val, UdpConnection source, ByteBuffer bb) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  System.out.println("ERROR: " + this->getClass().getSimpleName() + " square is nullptr");
  } else if (this->getObjectIndex() == -1) {
  System.out
@@ -2248,7 +2248,7 @@ public:
  square = IsoWorld.instance.CurrentCell.getGridSquare(this->square.getX() - 1, this->square.getY(), this->square.getZ());
  }
 
- if (square == nullptr || square.getFloor() == nullptr) {
+ if (square.empty() || square.getFloor() == nullptr) {
  return this->square;
  } else if (square.getRoom() != nullptr) {
  return square;
@@ -2359,20 +2359,20 @@ public:
  }
 
  bool canClimbOver(IsoGameCharacter chr) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return false;
  } else {
- return !this->isHoppable() ? false : chr == nullptr || IsoWindow.canClimbThroughHelper(chr, this->getSquare(), this->getOppositeSquare(), this->north);
+ return !this->isHoppable() ? false : chr.empty() || IsoWindow.canClimbThroughHelper(chr, this->getSquare(), this->getOppositeSquare(), this->north);
  }
  }
 
  bool canClimbThrough(IsoGameCharacter chr) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return false;
  } else if (!this->isWindow()) {
  return false;
  } else {
- return this->isBarricaded() ? false : chr == nullptr || IsoWindow.canClimbThroughHelper(chr, this->getSquare(), this->getOppositeSquare(), this->north);
+ return this->isBarricaded() ? false : chr.empty() || IsoWindow.canClimbThroughHelper(chr, this->getSquare(), this->getOppositeSquare(), this->north);
  }
  }
 
@@ -2425,7 +2425,7 @@ public:
  }
 
  std::string getSoundPrefix() {
- if (this->closedSprite == nullptr) {
+ if (this->closedSprite.empty()) {
  return "WoodDoor";
  } else {
  PropertyContainer propertyContainer = this->closedSprite.getProperties();

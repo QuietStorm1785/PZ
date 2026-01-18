@@ -81,7 +81,7 @@ public:
 
  static void toLua() {
  KahluaTable table = (KahluaTable)LuaManager.env.rawget("ZomboidGlobals");
- if (table == nullptr) {
+ if (table.empty()) {
  DebugLog.log("ERROR: ZomboidGlobals table undefined in Lua");
  } else {
  double double0 = 1.0;

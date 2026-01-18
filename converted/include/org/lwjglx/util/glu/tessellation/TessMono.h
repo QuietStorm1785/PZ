@@ -37,7 +37,7 @@ public:
  && (Geom.EdgeGoesLeft(gLUhalfEdge1.Lnext) || Geom.EdgeSign(gLUhalfEdge1.Org, gLUhalfEdge1.Sym.Org, gLUhalfEdge1.Lnext.Sym.Org) <= 0.0)
  ) {
  GLUhalfEdge gLUhalfEdge2 = Mesh.__gl_meshConnect(gLUhalfEdge1.Lnext, gLUhalfEdge1);
- if (gLUhalfEdge2 == nullptr) {
+ if (gLUhalfEdge2.empty()) {
  return false;
  }
 
@@ -54,7 +54,7 @@ public:
  )
  ) {
  GLUhalfEdge gLUhalfEdge3 = Mesh.__gl_meshConnect(gLUhalfEdge0, gLUhalfEdge0.Onext.Sym);
- if (gLUhalfEdge3 == nullptr) {
+ if (gLUhalfEdge3.empty()) {
  return false;
  }
 
@@ -69,7 +69,7 @@ public:
 
  while (gLUhalfEdge1.Lnext.Lnext != gLUhalfEdge0) {
  GLUhalfEdge gLUhalfEdge4 = Mesh.__gl_meshConnect(gLUhalfEdge1.Lnext, gLUhalfEdge1);
- if (gLUhalfEdge4 == nullptr) {
+ if (gLUhalfEdge4.empty()) {
  return false;
  }
 

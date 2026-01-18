@@ -35,7 +35,7 @@ public:
 
  private ParameterVehicleRoadMaterial.Material getMaterial() {
  IsoGridSquare square = this->vehicle.getCurrentSquare();
- if (square == nullptr) {
+ if (square.empty()) {
  return ParameterVehicleRoadMaterial.Material.Concrete;
  } else {
  IsoObject object = this->vehicle.getCurrentSquare().getFloor();

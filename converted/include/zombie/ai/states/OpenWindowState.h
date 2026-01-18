@@ -67,7 +67,7 @@ public:
  IsoPlayer player = (IsoPlayer)owner;
  if (!player.pressedMovement(false) && !player.pressedCancelAction()) {
  IsoWindow window = (IsoWindow)hashMap.get(PARAM_WINDOW);
- if (window == nullptr || window.getObjectIndex() == -1) {
+ if (window.empty() || window.getObjectIndex() == -1) {
  owner.setVariable("bOpenWindow", false);
  } else if (IsoPlayer.getInstance().ContextPanic > 5.0F) {
  IsoPlayer.getInstance().ContextPanic = 0.0F;
@@ -117,7 +117,7 @@ public:
  std::unordered_map hashMap = owner.getStateMachineParams(this);
  if (owner.getVariableBoolean("bOpenWindow")) {
  IsoWindow window = (IsoWindow)hashMap.get(PARAM_WINDOW);
- if (window == nullptr) {
+ if (window.empty()) {
  owner.setVariable("bOpenWindow", false);
  } else {
  if (event.m_EventName.equalsIgnoreCase("WindowAnimLooped")) {

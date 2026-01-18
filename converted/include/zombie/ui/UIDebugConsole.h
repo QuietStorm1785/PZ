@@ -293,7 +293,7 @@ public:
  int int1 = 0;
  Method method0 = nullptr;
 
- for (auto& method1 : arrayList) if (method0 == nullptr) {
+ for (auto& method1 : arrayList) if (method0.empty()) {
  method0 = method1;
  int0 = this->levenshteinDistance(string, method1.getName());
  } else {
@@ -376,7 +376,7 @@ public:
  outputChanged = false;
 
  try {
- if (outputDecoder == nullptr) {
+ if (outputDecoder.empty()) {
  outputDecoder = Charset.forName("UTF-8")
  .newDecoder()
  .onMalformedInput(CodingErrorAction.REPLACE)
@@ -387,7 +387,7 @@ public:
  int int0 = outputBB.position();
  outputBB.flip();
  int int1 = (int)((double)int0 * outputDecoder.maxCharsPerByte());
- if (outputChars == nullptr || outputChars.length < int1) {
+ if (outputChars.empty() || outputChars.length < int1) {
  int int2 = (int1 + 128 - 1) / 128 * 128;
  outputChars = new char[int2];
  outputCharBuf = CharBuffer.wrap(outputChars);
@@ -418,7 +418,7 @@ public:
  }
  }
 
- private class CommandEntry extends UITextBox2 {
+ class CommandEntry extends UITextBox2 {
  public CommandEntry(UIFont uIFont, int int0, int int1, int int2, int int3, const std::string& string, bool boolean0) {
  super(uIFont, int0, int1, int2, int3, string, boolean0);
  }

@@ -61,7 +61,7 @@ public:
  static const std::string adminTabID = "admin";
 
  static ChatServer getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<ChatServer>();
  }
 
@@ -157,7 +157,7 @@ public:
  logger.write("Player " + player.getUsername() + "(" + short0 + ") joined to chat server successfully", "info");
  } else {
  logger.write("Player or connection is not found on server!", "error");
- logger.write((udpConnection == nullptr ? "connection = nullptr " : "") + (player == nullptr ? "player = nullptr" : ""), "error");
+ logger.write((udpConnection.empty() ? "connection = nullptr " : "") + (player.empty() ? "player = nullptr" : ""), "error");
  }
  }
 
@@ -186,10 +186,10 @@ public:
  logger.write("Player '" + string0 + "' attempt to start whispering with '" + string1 + "'", "info");
  IsoPlayer player0 = ChatUtility.findPlayer(string0);
  IsoPlayer player1 = ChatUtility.findPlayer(string1);
- if (player0 == nullptr) {
+ if (player0.empty()) {
  logger.write("Player '" + string0 + "' is not found!", "error");
  throw RuntimeException("Player not found");
- } else if (player1 == nullptr) {
+ } else if (player1.empty()) {
  logger.write("Player '" + string0 + "' attempt to start whisper dialog with '" + string1 + "' but this player not found!", "info");
  UdpConnection udpConnection = ChatUtility.findConnection(player0.getOnlineID());
  this->sendPlayerNotFoundMessage(udpConnection, string1);
@@ -255,7 +255,7 @@ public:
  }
 
  void joinAdminChat(short short0) {
- if (adminChat == nullptr) {
+ if (adminChat.empty()) {
  logger.write("Admin chat is nullptr! Can't add player to it", "warning");
  } else {
  adminChat.addMember(short0);
@@ -266,9 +266,9 @@ public:
  void leaveAdminChat(short short0) {
  logger.write("Player " + short0 + " are leaving admin chat...", "info");
  UdpConnection udpConnection = ChatUtility.findConnection(short0);
- if (adminChat == nullptr) {
+ if (adminChat.empty()) {
  logger.write("Admin chat is nullptr. Can't leave it! ChatServer", "warning");
- } else if (udpConnection == nullptr) {
+ } else if (udpConnection.empty()) {
  logger.write("Connection to player is nullptr. Can't leave admin chat! ChatServer.leaveAdminChat", "warning");
  } else {
  adminChat.leaveMember(short0);

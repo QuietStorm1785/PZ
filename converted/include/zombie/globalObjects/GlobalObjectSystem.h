@@ -49,7 +49,7 @@ public:
  }
 
  void removeObject(GlobalObject object) {
- if (object == nullptr) {
+ if (object.empty()) {
  throw NullPointerException("object is nullptr");
  } else if (object.system != this) {
  throw IllegalStateException("object not in this system");

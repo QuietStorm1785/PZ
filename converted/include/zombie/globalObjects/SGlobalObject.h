@@ -36,7 +36,7 @@ public:
  bb.putInt(this->x);
  bb.putInt(this->y);
  bb.put((byte)this->z);
- if (tempTable == nullptr) {
+ if (tempTable.empty()) {
  tempTable = LuaManager.platform.newTable();
  }
 

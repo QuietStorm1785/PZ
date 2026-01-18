@@ -80,7 +80,7 @@ public:
  IsoChunk chunk = GameServer.bServer
  ? ServerMap.instance.getChunk(int0 / 10, int1 / 10)
  : IsoWorld.instance.CurrentCell.getChunkForGridSquare(int0, int1, 0);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  zombie0.setVariable("bMoving", true);
  return;
  }

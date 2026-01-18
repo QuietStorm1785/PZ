@@ -54,7 +54,7 @@ public:
 
  void initSpawnRegions() {
  KahluaTable table = (KahluaTable)LuaManager.env.rawget("SpawnRegionMgr");
- if (table == nullptr) {
+ if (table.empty()) {
  DebugLog.General.error("SpawnRegionMgr is undefined");
  } else {
  Object[] objects = LuaManager.caller.pcall(LuaManager.thread, table.rawget("getSpawnRegions"));
@@ -136,7 +136,7 @@ public:
  if (double0 != nullptr && double1 != nullptr && double2 != nullptr && double3 != nullptr) {
  this->m_tempLocation.x = double0.intValue() * 300 + double2.intValue();
  this->m_tempLocation.y = double1.intValue() * 300 + double3.intValue();
- this->m_tempLocation.z = double4 == nullptr ? 0 : double4.intValue();
+ this->m_tempLocation.z = double4.empty() ? 0 : double4.intValue();
  if (!this->SpawnPoints.contains(this->m_tempLocation) {
  IsoGameCharacter.Location location = new IsoGameCharacter.Location(this->m_tempLocation.x, this->m_tempLocation.y, this->m_tempLocation.z);
  this->SpawnPoints.add(location);

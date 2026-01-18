@@ -45,7 +45,7 @@ public:
  RoomDef roomDef2 = this->getRoom(def, "livingroom");
  if ("kitchen" == roomDef0.name) && roomDef2 != nullptr && Rand.Next(3) == 0) {
  deadBody = RandomizedDeadSurvivorBase.createRandomDeadBody(roomDef2, Rand.Next(5, 10);
- if (deadBody == nullptr) {
+ if (deadBody.empty()) {
  return;
  }
 
@@ -54,7 +54,7 @@ public:
 
  if ("livingroom" == roomDef0.name) && roomDef1 != nullptr && Rand.Next(3) == 0) {
  deadBody = RandomizedDeadSurvivorBase.createRandomDeadBody(roomDef1, Rand.Next(5, 10);
- if (deadBody == nullptr) {
+ if (deadBody.empty()) {
  return;
  }
 

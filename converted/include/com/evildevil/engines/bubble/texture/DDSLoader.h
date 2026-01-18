@@ -44,14 +44,14 @@ public:
 
  try {
  new FileInputStream();
- if (this->ddsFileChannel == nullptr) {
+ if (this->ddsFileChannel.empty()) {
  throw NullPointerException("ddsFileChannel couldn't be nullptr!");
  }
  } catch (FileNotFoundException fileNotFoundException) {
  fileNotFoundException.printStackTrace();
  }
 
- if (ddsHeader == nullptr) {
+ if (ddsHeader.empty()) {
  ddsHeader = ByteBuffer.allocate(128);
  }
 
@@ -61,10 +61,10 @@ public:
 
  int loadDDSFile(BufferedInputStream bufferedInputStream) {
  this->ddsFileChannel = bufferedInputStream;
- if (this->ddsFileChannel == nullptr) {
+ if (this->ddsFileChannel.empty()) {
  throw NullPointerException("ddsFileChannel couldn't be nullptr!");
  } else {
- if (ddsHeader == nullptr) {
+ if (ddsHeader.empty()) {
  ddsHeader = ByteBuffer.allocate(128);
  }
 
@@ -129,7 +129,7 @@ public:
  }
  }
 
- if (imageData == nullptr) {
+ if (imageData.empty()) {
  imageData = ByteBuffer.allocate(4194304);
  }
 
@@ -142,7 +142,7 @@ public:
  iOException.printStackTrace();
  }
 
- if (imageData2 == nullptr) {
+ if (imageData2.empty()) {
  imageData2 = ByteBuffer.allocateDirect(4194304);
  }
 

@@ -63,7 +63,7 @@ public:
 
  void addObject(GlobalObject object) {
  GlobalObjectLookup.Cell cell = this->getCellForObject(object, true);
- if (cell == nullptr) {
+ if (cell.empty()) {
  DebugLog.log("ERROR: GlobalObjectLookup.addObject object location invalid " + object.x + "," + object.y);
  } else {
  cell.addObject(object);
@@ -72,7 +72,7 @@ public:
 
  void removeObject(GlobalObject object) {
  GlobalObjectLookup.Cell cell = this->getCellForObject(object, false);
- if (cell == nullptr) {
+ if (cell.empty()) {
  DebugLog.log("ERROR: GlobalObjectLookup.removeObject object location invalid " + object.x + "," + object.y);
  } else {
  cell.removeObject(object);
@@ -81,11 +81,11 @@ public:
 
  GlobalObject getObjectAt(int x, int y, int z) {
  GlobalObjectLookup.Cell cell = this->getCellAt(x, y, false);
- if (cell == nullptr) {
+ if (cell.empty()) {
  return nullptr;
  } else {
  GlobalObjectLookup.Chunk chunk = cell.getChunkAt(x, y, false);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < chunk.objects.size(); int0++) {
@@ -102,7 +102,7 @@ public:
 
  bool hasObjectsInChunk(int wx, int wy) {
  GlobalObjectLookup.Chunk chunk = this->getChunkForChunkPos(wx, wy, false);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  return false;
  } else {
  for (int int0 = 0; int0 < chunk.objects.size(); int0++) {
@@ -118,7 +118,7 @@ public:
 
  public ArrayList<GlobalObject> getObjectsInChunk(int wx, int wy, ArrayList<GlobalObject> objects) {
  GlobalObjectLookup.Chunk chunk = this->getChunkForChunkPos(wx, wy, false);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  return objects;
  } else {
  for (int int0 = 0; int0 < chunk.objects.size(); int0++) {

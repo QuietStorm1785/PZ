@@ -45,7 +45,7 @@ public:
 
  StringBuilder stringBuilder = new StringBuilder("Players connected (" + arrayList.size() + "): ");
  std::string string0 = " <LINE> ";
- if (this->connection == nullptr) {
+ if (this->connection.empty()) {
  string0 = "\n";
  }
 

@@ -111,7 +111,7 @@ public:
  }
 
  Vector2 getFacingPosition(Vector2 pos) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return pos.set(0.0F, 0.0F);
  } else if (this->getType() == IsoObjectType.curtainS) {
  return pos.set(this->getX() + 0.5F, this->getY() + 1.0F);
@@ -233,7 +233,7 @@ public:
  void ToggleDoor(IsoGameCharacter chr) {
  if (!this->Barricaded) {
  this->DirtySlice();
- if (!this->Locked || chr == nullptr || chr.getCurrentSquare().getRoom() != nullptr || this->open) {
+ if (!this->Locked || chr.empty() || chr.getCurrentSquare().getRoom() != nullptr || this->open) {
  this->open = !this->open;
  this->sprite = this->closedSprite;
  if (this->open) {
@@ -296,7 +296,7 @@ public:
  }
 
  void syncIsoObject(bool bRemote, uint8_t val, UdpConnection source) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  System.out.println("ERROR: " + this->getClass().getSimpleName() + " square is nullptr");
  } else if (this->getObjectIndex() == -1) {
  System.out
@@ -390,7 +390,7 @@ public:
  }
 
  std::string getSoundPrefix() {
- if (this->closedSprite == nullptr) {
+ if (this->closedSprite.empty()) {
  return "CurtainShort";
  } else {
  PropertyContainer propertyContainer = this->closedSprite.getProperties();

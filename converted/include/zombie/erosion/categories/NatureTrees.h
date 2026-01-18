@@ -253,7 +253,7 @@ public:
  }
  }
 
- private class TreeInit {
+ class TreeInit {
  std::string name;
  std::string tile;
  bool evergreen;

@@ -371,7 +371,7 @@ public:
 
  std::string changeOption(const std::string& key, const std::string& value) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
- if (serverOption == nullptr) {
+ if (serverOption.empty()) {
  return "Option " + key + " doesn't exist.";
  } else {
  serverOption.asConfigOption().parse(value);
@@ -391,7 +391,7 @@ public:
  string = "\n";
  }
 
- if (clientOptionsList == nullptr) {
+ if (clientOptionsList.empty()) {
  initClientCommandsHelp();
  }
 
@@ -409,7 +409,7 @@ public:
  }
 
  static std::string getRandomCard() {
- if (cardList == nullptr) {
+ if (cardList.empty()) {
  cardList = std::make_unique<ArrayList<>>();
  cardList.add("the Ace of Clubs");
  cardList.add("a Two of Clubs");
@@ -552,7 +552,7 @@ public:
  String string1 = Translator.getText(
  "Sandbox_MinMaxDefault", String.format("%.02f", this->min), String.format("%.02f", this->max), String.format("%.02f", this->defaultValue)
  );
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return string1;
  } else {
  return string1 = = nullptr ? string0 : string0 + "\\n" + string1;
@@ -573,7 +573,7 @@ public:
  std::string getTooltip() {
  std::string string0 = Translator.getTextOrNull("UI_ServerOption_" + this->name + "_tooltip");
  std::string string1 = Translator.getText("Sandbox_MinMaxDefault", this->min, this->max, this->defaultValue);
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return string1;
  } else {
  return string1 = = nullptr ? string0 : string0 + "\\n" + string1;

@@ -42,7 +42,7 @@ public:
  }
 
  public IsoDirectionFrame(Texture n, Texture nw, Texture w, Texture sw, Texture s, Texture se, Texture e, Texture ne) {
- if (s == nullptr) {
+ if (s.empty()) {
  bool boolean0 = false;
  }
 

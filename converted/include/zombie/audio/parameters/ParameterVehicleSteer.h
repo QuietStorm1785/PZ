@@ -31,7 +31,7 @@ public:
  return float0;
  } else {
  VehicleScript vehicleScript = this->vehicle.getScript();
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  return float0;
  } else {
  BaseVehicle.WheelInfo[] wheelInfos = this->vehicle.wheelInfo;

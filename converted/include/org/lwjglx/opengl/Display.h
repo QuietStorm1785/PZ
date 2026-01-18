@@ -273,7 +273,7 @@ public:
  }
 
  static void setDisplayMode(DisplayMode displayMode) {
- if (displayMode == nullptr) {
+ if (displayMode.empty()) {
  throw std::make_unique<NullPointerException>();
  } else {
  setDisplayModeAndFullscreenInternal(displayMode, displayMode.isFullscreenCapable() && isFullscreen());

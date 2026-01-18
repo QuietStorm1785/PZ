@@ -78,7 +78,7 @@ public:
 
  while (int0 > 0) {
  AttachedWeaponDefinition attachedWeaponDefinition = this->pickRandomInList(arrayList, zombie0);
- if (attachedWeaponDefinition == nullptr) {
+ if (attachedWeaponDefinition.empty()) {
  return;
  }
 

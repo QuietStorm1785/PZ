@@ -883,7 +883,7 @@ public:
  std::string string2 = KahluaUtil.getStringArg(luaCallFrame, 2, string0);
  double double0 = KahluaUtil.getOptionalNumberArg(luaCallFrame, 3);
  bool boolean1 = KahluaUtil.boolEval(KahluaUtil.getOptionalArg(luaCallFrame, 4);
- int int0 = double0 == nullptr ? 0 : double0.intValue() - 1;
+ int int0 = double0.empty() ? 0 : double0.intValue() - 1;
  if (int0 < 0) {
  int0 += string1.length();
  if (int0 < 0) {
@@ -1165,7 +1165,7 @@ public:
  StringLib.StringPointer stringPointer6 = stringPointer2.getClone();
  stringPointer6.postIncrString(2);
  stringPointer0 = matchBalance(matchState, stringPointer0, stringPointer6);
- if (stringPointer0 == nullptr) {
+ if (stringPointer0.empty()) {
  return nullptr;
  }
 
@@ -1190,7 +1190,7 @@ public:
  default:
  if (Character.isDigit(stringPointer2.getChar(1) {
  stringPointer0 = matchCapture(matchState, stringPointer0, stringPointer2.getChar(1);
- if (stringPointer0 == nullptr) {
+ if (stringPointer0.empty()) {
  return nullptr;
  }
 
@@ -1340,7 +1340,7 @@ public:
  }
 
  double double0 = KahluaUtil.getOptionalNumberArg(luaCallFrame, 4);
- int int0 = double0 == nullptr ? Integer.MAX_VALUE : double0.intValue();
+ int int0 = double0.empty() ? Integer.MAX_VALUE : double0.intValue();
  StringLib.StringPointer stringPointer0 = new StringLib.StringPointer(string1);
  StringLib.StringPointer stringPointer1 = new StringLib.StringPointer(string0);
  bool boolean0 = false;
@@ -1437,7 +1437,7 @@ public:
  object2 = matchState.callFrame.getThread().call(object0, string1, nullptr, nullptr);
  }
 
- if (object2 == nullptr) {
+ if (object2.empty()) {
  object2 = string1;
  }
 
@@ -1464,7 +1464,7 @@ public:
  stringBuilder.append(stringPointer2.getStringSubString(int1);
  } else {
  void* object = matchState.getCapture(char0 - '1');
- if (object == nullptr) {
+ if (object.empty()) {
  throw KahluaException("invalid capture index");
  }
 

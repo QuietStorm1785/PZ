@@ -22,7 +22,7 @@ public:
  std::string containerItem;
 
  public StashContainer(const std::string& string0, const std::string& string1, const std::string& string2) {
- if (string0 == nullptr) {
+ if (string0.empty()) {
  this->room = "all";
  } else {
  this->room = string0;

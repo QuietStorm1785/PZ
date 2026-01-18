@@ -189,7 +189,7 @@ public:
  }
 
  SurroundVehicle.Position position1 = this->getClosestPositionFor(zombie);
- if (position1 == nullptr) {
+ if (position1.empty()) {
  return nullptr;
  } else {
  position1.zombie = zombie;
@@ -294,7 +294,7 @@ public:
  if (position1.zombie.isDead()
  || VirtualZombieManager.instance.isReused(position1.zombie)
  || position1.zombie.isOnFloor()
- || character == nullptr
+ || character.empty()
  || this->m_vehicle.getSeat(character) == -1) {
  position1.zombie = nullptr;
  } else if (IsoUtils.DistanceToSquared(position1.targetX, position1.targetY, character.x, character.y) > 0.1F) {

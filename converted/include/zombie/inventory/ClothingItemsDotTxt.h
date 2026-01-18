@@ -200,7 +200,7 @@ public:
 
  std::string toString() {
  StringBuilder stringBuilder = new StringBuilder();
- stringBuilder.append(this->type + (this->id == nullptr ? "" : " " + this->id) + "\n");
+ stringBuilder.append(this->type + (this->id.empty() ? "" : " " + this->id) + "\n");
  stringBuilder.append("{\n");
 
  for (ClothingItemsDotTxt.BlockElement blockElement : this->elements) {

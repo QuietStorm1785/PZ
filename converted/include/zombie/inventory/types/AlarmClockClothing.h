@@ -91,17 +91,17 @@ public:
  ItemContainer container = this->getOutermostContainer();
  if (container != nullptr) {
  square = container.getSourceGrid();
- if (square == nullptr && container.parent != nullptr) {
+ if (square.empty() && container.parent != nullptr) {
  square = container.parent.square;
  }
 
  InventoryItem item = container.containingItem;
- if (square == nullptr && item != nullptr && item.getWorldItem() != nullptr) {
+ if (square.empty() && item != nullptr && item.getWorldItem() != nullptr) {
  square = item.getWorldItem().getSquare();
  }
  }
 
- if (square == nullptr && this->getWorldItem() != nullptr && this->getWorldItem().getWorldObjectIndex() != -1) {
+ if (square.empty() && this->getWorldItem() != nullptr && this->getWorldItem().getWorldObjectIndex() != -1) {
  square = this->getWorldItem().square;
  }
 
@@ -126,7 +126,7 @@ public:
  }
 
  IsoGridSquare square = this->getAlarmSquare();
- if (square == nullptr || this->ringSince + 0.5 < double0) {
+ if (square.empty() || this->ringSince + 0.5 < double0) {
  this->stopRinging();
  } else if (!GameClient.bClient && square != nullptr) {
  WorldSoundManager.instance.addSoundRepeating(nullptr, square.getX(), square.getY(), square.getZ(), this->getSoundRadius(), 3, false);
@@ -150,7 +150,7 @@ public:
  if (square != nullptr) {
  emitter.setPos(square.x + 0.5F, square.y + 0.5F, square.z);
  if (!emitter.isPlaying(this->ringSound) {
- if (this->alarmSound == nullptr || "" == this->alarmSound) {
+ if (this->alarmSound.empty() || "" == this->alarmSound) {
  this->alarmSound = "AlarmClockLoop";
  }
 
@@ -294,7 +294,7 @@ public:
  }
 
  IsoPlayer getOwnerPlayer(ItemContainer container) {
- if (container == nullptr) {
+ if (container.empty()) {
  return nullptr;
  } else {
  IsoObject object = container.getParent();

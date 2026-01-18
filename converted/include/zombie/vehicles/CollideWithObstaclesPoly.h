@@ -72,7 +72,7 @@ public:
  }
 
  void getObstaclesInRect(float float3, float float1, float float2, float float0, int int4, int int5, int int8, bool boolean0) {
- if (this->clipper == nullptr) {
+ if (this->clipper.empty()) {
  this->clipper = std::make_unique<Clipper>();
  }
 
@@ -163,7 +163,7 @@ public:
  cCEdge0 = nullptr;
  }
 
- if (cCEdge0 == nullptr) {
+ if (cCEdge0.empty()) {
  this->closestPointOnEdge.edge = nullptr;
  this->closestPointOnEdge.node = nullptr;
  this->closestPointOnEdge.distSq = Double.MAX_VALUE;
@@ -257,12 +257,12 @@ public:
  (int)float1,
  (int)float3,
  (int)float6,
- vehicle == nullptr
+ vehicle.empty()
  );
 
  for (int int1 = 0; int1 < this->obstacles.size(); int1++) {
  CollideWithObstaclesPoly.CCObstacle cCObstacle = this->obstacles.get(int1);
- if ((vehicle == nullptr || cCObstacle.vehicle != vehicle) && cCObstacle.isPointInside(float1, float3, int0) {
+ if ((vehicle.empty() || cCObstacle.vehicle != vehicle) && cCObstacle.isPointInside(float1, float3, int0) {
  return false;
  }
  }
@@ -323,11 +323,11 @@ public:
  }
 
  CollideWithObstaclesPoly.ChunkDataZ chunkDataZ = chunk.collision.init(chunk, int3, this);
- std::vector arrayList = vehicle == nullptr ? chunkDataZ.worldVehicleUnion : chunkDataZ.worldVehicleSeparate;
+ std::vector arrayList = vehicle.empty() ? chunkDataZ.worldVehicleUnion : chunkDataZ.worldVehicleSeparate;
 
  for (int int4 = 0; int4 < arrayList.size(); int4++) {
  CollideWithObstaclesPoly.CCObstacle cCObstacle = (CollideWithObstaclesPoly.CCObstacle)arrayList.get(int4);
- if ((vehicle == nullptr || cCObstacle.vehicle != vehicle) && cCObstacle.lineSegmentIntersects(float0, float2, float4, float6, boolean0) {
+ if ((vehicle.empty() || cCObstacle.vehicle != vehicle) && cCObstacle.lineSegmentIntersects(float0, float2, float4, float6, boolean0) {
  return true;
  }
  }
@@ -379,7 +379,7 @@ public:
  bool boolean0 = Core.bDebug && DebugOptions.instance.CollideWithObstaclesRenderObstacles.getValue();
  if (boolean0) {
  IsoPlayer player = IsoPlayer.getInstance();
- if (player == nullptr) {
+ if (player.empty()) {
  return;
  }
 
@@ -726,7 +726,7 @@ public:
 
  for (int int0 = 0; int0 < this->edges.size(); int0++) {
  CollideWithObstaclesPoly.CCEdge cCEdge2 = this->edges.get(int0);
- if (cCEdge0 == nullptr) {
+ if (cCEdge0.empty()) {
  cCEdge0 = cCEdge2;
  } else if (!cCEdge0.hasNode(cCEdge2.node1) || !cCEdge0.hasNode(cCEdge2.node2) {
  cCEdge1 = cCEdge2;
@@ -985,7 +985,7 @@ public:
 
  if (square0.Has(IsoObjectType.stairsTN) {
  IsoGridSquare square2 = IsoWorld.instance.CurrentCell.getGridSquare(int4, int3, int0 - 1);
- if (square2 == nullptr || !square2.Has(IsoObjectType.stairsTN) {
+ if (square2.empty() || !square2.Has(IsoObjectType.stairsTN) {
  clipper.addAABBBevel(int4 - 0.3F, int3 - 0.3F, int4 + 1.0F + 0.3F, int3 + 0.3F, float0);
  float float1 = 0.1F;
  clipper.clipAABB(int4 + 0.3F, int3 - float1, int4 + 1.0F - 0.3F, int3 + 0.3F);
@@ -1001,7 +1001,7 @@ public:
 
  if (square0.Has(IsoObjectType.stairsTW) {
  IsoGridSquare square4 = IsoWorld.instance.CurrentCell.getGridSquare(int4, int3, int0 - 1);
- if (square4 == nullptr || !square4.Has(IsoObjectType.stairsTW) {
+ if (square4.empty() || !square4.Has(IsoObjectType.stairsTW) {
  clipper.addAABBBevel(int4 - 0.3F, int3 - 0.3F, int4 + 0.3F, int3 + 1.0F + 0.3F, float0);
  float float2 = 0.1F;
  clipper.clipAABB(int4 - float2, int3 + 0.3F, int4 + 0.3F, int3 + 1.0F - 0.3F);

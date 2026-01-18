@@ -99,7 +99,7 @@ public:
  }
 
  Vector2i line2coord(Vector2i a) {
- if (a == nullptr) {
+ if (a.empty()) {
  return nullptr;
  } else if (a.y < this->size) {
  Vector2i vector2i0 = new Vector2i(0, a.y);

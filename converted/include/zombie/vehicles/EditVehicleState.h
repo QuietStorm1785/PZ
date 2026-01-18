@@ -55,7 +55,7 @@ public:
 
  void enter() {
  instance = this;
- if (this->m_luaEnv == nullptr) {
+ if (this->m_luaEnv.empty()) {
  this->m_luaEnv = new EditVehicleState.LuaEnvironment(LuaManager.platform, LuaManager.converterManager, LuaManager.env);
  }
 
@@ -160,7 +160,7 @@ public:
  }
 
  void setScript(const std::string& scriptName) {
- if (this->m_table == nullptr) {
+ if (this->m_table.empty()) {
  this->m_initialScript = scriptName;
  } else {
  this->m_luaEnv.caller.pcall(this->m_luaEnv.thread, this->m_table.rawget("setScript"), this->m_table, scriptName);
@@ -190,7 +190,7 @@ public:
  switch (byte0) {
  case 0:
  VehicleScript vehicleScript = ScriptManager.instance.getVehicle((String)arg0);
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  throw NullPointerException("vehicle script \"" + arg0 + "\" not found");
  }
 
@@ -359,7 +359,7 @@ public:
  for (int int3 = 0; int3 < vehicleScript.getAttachmentCount(); int3++) {
  ModelAttachment modelAttachment = vehicleScript.getAttachment(int3);
  ScriptParser.Block block5 = block0.getBlock("attachment", modelAttachment.getId());
- if (block5 == nullptr) {
+ if (block5.empty()) {
  block5 = new ScriptParser.Block();
  block5.type = "attachment";
  block5.id = modelAttachment.getId();

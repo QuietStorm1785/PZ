@@ -89,7 +89,7 @@ public:
 
  int getOrCreateKey(const std::string& string) {
  int integer = this->m_keyValueTable.get(string);
- if (integer == nullptr) {
+ if (integer.empty()) {
  integer = this->m_keyValueTable.size();
  this->m_keyValueTable.put(string, integer);
  this->m_headerDirty = true;
@@ -135,14 +135,14 @@ public:
  }
 
  void writeData() {
- if (this->m_outValues == nullptr) {
+ if (this->m_outValues.empty()) {
  this->openValuesFile(false);
  }
 
  StringBuilder stringBuilder = this->m_lineBuffer;
  stringBuilder.setLength(0);
  this->m_currentSegmentFrameCount++;
- if (this->m_outSegment == nullptr || this->m_currentSegmentFrameCount >= this->m_numFramesPerFile) {
+ if (this->m_outSegment.empty() || this->m_currentSegmentFrameCount >= this->m_numFramesPerFile) {
  this->openSegmentFile(false);
  }
 

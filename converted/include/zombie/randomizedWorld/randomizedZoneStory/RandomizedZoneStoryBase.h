@@ -125,7 +125,7 @@ public:
  } else if (Rand.Next(100) < byte0) {
  initAllRZSMapChance(zone);
  randomizedZoneStoryBase0 = getRandomStory();
- if (randomizedZoneStoryBase0 == nullptr) {
+ if (randomizedZoneStoryBase0.empty()) {
  return false;
  } else {
  int int5 = zone.x;
@@ -204,7 +204,7 @@ public:
  for (int int8 = int5; int8 <= int7; int8++) {
  for (int int9 = int4; int9 <= int6; int9++) {
  IsoChunk chunk = GameServer.bServer ? ServerMap.instance.getChunk(int9, int8) : IsoWorld.instance.CurrentCell.getChunk(int9, int8);
- if (chunk == nullptr || !chunk.bLoaded) {
+ if (chunk.empty() || !chunk.bLoaded) {
  return false;
  }
  }

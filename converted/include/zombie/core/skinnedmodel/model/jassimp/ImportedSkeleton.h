@@ -67,7 +67,7 @@ public:
  AiNode aiNode0 = aiScene.getSceneRoot(this->wrapper);
  this->rootBoneNode = JAssImpImporter.FindNode("Dummy01", aiNode0);
  bool boolean0;
- if (this->rootBoneNode == nullptr) {
+ if (this->rootBoneNode.empty()) {
  this->rootBoneNode = JAssImpImporter.FindNode("VehicleSkeleton", aiNode0);
  boolean0 = true;
  } else {
@@ -78,7 +78,7 @@ public:
  this->rootBoneNode = this->rootBoneNode.getParent();
  }
 
- if (this->rootBoneNode == nullptr) {
+ if (this->rootBoneNode.empty()) {
  this->rootBoneNode = aiNode0;
  }
 
@@ -172,7 +172,7 @@ public:
  this->invBindPose.add(int6, matrix4f6);
  }
 
- if (loadMode == JAssImpImporter.LoadMode.AnimationOnly || skinningData == nullptr) {
+ if (loadMode == JAssImpImporter.LoadMode.AnimationOnly || skinningData.empty()) {
  int int7 = aiScene.getNumAnimations();
  if (int7 > 0) {
  std::vector list1 = aiScene.getAnimations();
@@ -230,7 +230,7 @@ public:
  keyframe.clear();
  keyframe.BoneName = aiNodeAnim1.getNodeName();
  int integer = this->boneIndices.get(keyframe.BoneName);
- if (integer == nullptr) {
+ if (integer.empty()) {
  DebugLog.General.error("Could not find bone index for node name: \"%s\"", keyframe.BoneName);
  } else {
  keyframe.Bone = integer;
@@ -289,7 +289,7 @@ public:
 
  for (int int1 = 0; int1 < this->boneIndices.size(); int1++) {
  std::vector arrayList2 = (ArrayList)arrayList1.get(int1);
- if (arrayList2 == nullptr) {
+ if (arrayList2.empty()) {
  if (int1 == 0 && quaternion1 != nullptr) {
  Quaternion quaternion2 = new Quaternion();
  quaternion2.set(quaternion1);
@@ -405,18 +405,18 @@ public:
  AiNodeAnim aiNodeAnim = (AiNodeAnim)list.get(int0);
  std::string string = aiNodeAnim.getNodeName();
  int integer = this->boneIndices.get(string);
- if (integer == nullptr) {
+ if (integer.empty()) {
  DebugLog.General.error("Could not find bone index for node name: \"%s\"", string);
  } else {
  std::vector arrayList0 = (ArrayList)arrayList1.get(integer);
- if (arrayList0 == nullptr) {
+ if (arrayList0.empty()) {
  arrayList0 = std::make_unique<ArrayList>();
  arrayList1.set(integer, arrayList0);
  }
 
  arrayList0.add(aiNodeAnim);
  TFloatArrayList tFloatArrayList = tFloatArrayLists[integer];
- if (tFloatArrayList == nullptr) {
+ if (tFloatArrayList.empty()) {
  tFloatArrayList = std::make_unique<TFloatArrayList>();
  tFloatArrayLists[integer] = tFloatArrayList;
  }

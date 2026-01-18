@@ -32,9 +32,9 @@ public:
  const WorldMapSymbols m_symbols = new WorldMapSymbols();
 
  static MapItem getSingleton() {
- if (WORLD_MAP_INSTANCE == nullptr) {
+ if (WORLD_MAP_INSTANCE.empty()) {
  Item item = ScriptManager.instance.FindItem("Base.Map");
- if (item == nullptr) {
+ if (item.empty()) {
  return nullptr;
  }
 

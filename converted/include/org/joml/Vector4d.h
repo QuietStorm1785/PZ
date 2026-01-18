@@ -924,11 +924,11 @@ public:
  }
 
  double length() {
- return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  }
 
  static double length(double arg0, double arg1, double arg2, double arg3) {
- return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3));
+ return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3);
  }
 
  Vector4d normalize() {
@@ -990,7 +990,7 @@ public:
  double double1 = this->y - arg0.y();
  double double2 = this->z - arg0.z();
  double double3 = this->w - arg0.w();
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  double distance(double arg0, double arg1, double arg2, double arg3) {
@@ -998,7 +998,7 @@ public:
  double double1 = this->y - arg1;
  double double2 = this->z - arg2;
  double double3 = this->w - arg3;
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  double distanceSquared(Vector4dc arg0) {
@@ -1022,7 +1022,7 @@ public:
  double double1 = arg1 - arg5;
  double double2 = arg2 - arg6;
  double double3 = arg3 - arg7;
- return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3));
+ return Math.sqrt(Math.fma(double0, double0, Math.fma(double1, double1, Math.fma(double2, double2, double3 * double3);
  }
 
  static double distanceSquared(double arg0, double arg1, double arg2, double arg3, double arg4, double arg5, double arg6, double arg7) {
@@ -1156,7 +1156,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (this->getClass() != arg0.getClass()) {
  return false;
@@ -1177,7 +1177,7 @@ public:
  bool equals(Vector4dc arg0, double arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (!(arg0 instanceof Vector4dc) {
  return false;

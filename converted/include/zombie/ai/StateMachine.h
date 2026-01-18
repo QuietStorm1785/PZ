@@ -207,7 +207,7 @@ public:
  }
 
  bool isEmpty() {
- return this->state == nullptr;
+ return this->state.empty();
  }
  }
 }

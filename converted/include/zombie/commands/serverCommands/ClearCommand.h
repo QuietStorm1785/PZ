@@ -28,7 +28,7 @@ public:
 
  std::string Command() {
  std::string string = "Console cleared";
- if (this->connection == nullptr) {
+ if (this->connection.empty()) {
  for (int int0 = 0; int0 < 100; int0++) {
  System.out.println();
  }

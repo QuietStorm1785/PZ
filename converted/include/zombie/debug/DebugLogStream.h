@@ -78,7 +78,7 @@ public:
  }
 
  static std::string getStackTraceElementString(StackTraceElement stackTraceElement, bool includeLineNo) {
- if (stackTraceElement == nullptr) {
+ if (stackTraceElement.empty()) {
  return "(UnknownStack)";
  } else {
  std::string string0 = getUnqualifiedClassName(stackTraceElement.getClassName());
@@ -98,7 +98,7 @@ public:
  }
 
  static std::string getTopStackTraceString(std::exception ex) {
- if (ex == nullptr) {
+ if (ex.empty()) {
  return "Null Exception";
  } else {
  StackTraceElement[] stackTraceElements = ex.getStackTrace();
@@ -539,7 +539,7 @@ public:
  }
 
  void printException(std::exception ex, const std::string& errorMessage, const std::string& callerPrefix, LogSeverity severity) {
- if (ex == nullptr) {
+ if (ex.empty()) {
  this->warn("Null exception passed.");
  } else {
  std::string string;

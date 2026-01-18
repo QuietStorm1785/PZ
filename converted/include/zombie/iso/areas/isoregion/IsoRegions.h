@@ -187,8 +187,8 @@ public:
  }
 
  static void receiveServerUpdatePacket(ByteBuffer input) {
- if (regionWorker == nullptr) {
- logger.warn("IsoRegion cannot receive server packet, regionWorker == nullptr.");
+ if (regionWorker.empty()) {
+ logger.warn("IsoRegion cannot receive server packet, regionWorker.empty().");
  } else {
  if (GameClient.bClient) {
  regionWorker.readServerUpdatePacket(input);
@@ -197,8 +197,8 @@ public:
  }
 
  static void receiveClientRequestFullDataChunks(ByteBuffer input, UdpConnection conn) {
- if (regionWorker == nullptr) {
- logger.warn("IsoRegion cannot receive client packet, regionWorker == nullptr.");
+ if (regionWorker.empty()) {
+ logger.warn("IsoRegion cannot receive client packet, regionWorker.empty().");
  } else {
  if (GameServer.bServer) {
  regionWorker.readClientRequestFullUpdatePacket(input, conn);

@@ -252,7 +252,7 @@ public:
  }
 
  this->checklimit(this->f.numUpvalues + 1, 60, "upvalues");
- if (this->upvalues == nullptr || this->f.numUpvalues + 1 > this->upvalues.length) {
+ if (this->upvalues.empty() || this->f.numUpvalues + 1 > this->upvalues.length) {
  this->upvalues = realloc(this->upvalues, this->f.numUpvalues * 2 + 1);
  }
 
@@ -295,7 +295,7 @@ public:
  }
 
  return 6;
- } else if (this->prev == nullptr) {
+ } else if (this->prev.empty()) {
  expDesc.init(8, 255);
  return 8;
  } else if (this->prev.singlevaraux(string, expDesc, 0) == 8) {
@@ -556,7 +556,7 @@ public:
  int0 = this->nk;
  this->htable.put(object, new Integer(int0);
  Prototype prototype = this->f;
- if (prototype.constants == nullptr || this->nk + 1 >= prototype.constants.length) {
+ if (prototype.constants.empty() || this->nk + 1 >= prototype.constants.length) {
  prototype.constants = realloc(prototype.constants, this->nk * 2 + 1);
  }
 
@@ -1102,12 +1102,12 @@ public:
  int code(int int0, int int1) {
  Prototype prototype = this->f;
  this->dischargejpc();
- if (prototype.code == nullptr || this->pc + 1 > prototype.code.length) {
+ if (prototype.code.empty() || this->pc + 1 > prototype.code.length) {
  prototype.code = realloc(prototype.code, this->pc * 2 + 1);
  }
 
  prototype.code[this->pc] = int0;
- if (prototype.lines == nullptr || this->pc + 1 > prototype.lines.length) {
+ if (prototype.lines.empty() || this->pc + 1 > prototype.lines.length) {
  prototype.lines = realloc(prototype.lines, this->pc * 2 + 1);
  }
 

@@ -48,7 +48,7 @@ public:
 
  protected ErosionCategory.Data setCatModData(ErosionData.Square square) {
  ErosionCategory.Data data = this->getCatModData(square);
- if (data == nullptr) {
+ if (data.empty()) {
  data = this->allocData();
  data.regionID = this->region.ID;
  data.categoryID = this->ID;
@@ -62,7 +62,7 @@ public:
  }
 
  IsoObject validWall(IsoGridSquare square0, bool boolean0, bool boolean1) {
- if (square0 == nullptr) {
+ if (square0.empty()) {
  return nullptr;
  } else {
  IsoGridSquare square1 = boolean0 ? square0.getTileInDirection(IsoDirections.N) : square0.getTileInDirection(IsoDirections.W);
@@ -74,7 +74,7 @@ public:
  }
  } else if (boolean1 && (square0.isWindowBlockedTo(square1) || square0.isWindowTo(square1) {
  object = square0.getWindowTo(square1);
- if (object == nullptr) {
+ if (object.empty()) {
  object = square0.getWall(boolean0);
  }
  }
@@ -176,7 +176,7 @@ public:
  data.hasSpawned = true;
  } else if (data.stage != int0 || data.dispSeason != int1 || data.dispBloom != boolean1) {
  IsoObject object = erosionObj.getObject(square0, false);
- if (object == nullptr) {
+ if (object.empty()) {
  this->clearCatModData(square1);
  return;
  }
@@ -287,7 +287,7 @@ public:
  }
  }
 
- protected class SeasonDisplay {
+ class SeasonDisplay {
  int season1;
  int season2;
  bool split;

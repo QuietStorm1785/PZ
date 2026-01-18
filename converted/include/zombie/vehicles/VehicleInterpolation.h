@@ -145,7 +145,7 @@ public:
  VehicleInterpolationData vehicleInterpolationData0 = this->buffer.higher(temp);
  VehicleInterpolationData vehicleInterpolationData1 = this->buffer.floor(temp);
  if (this->buffering) {
- if (this->buffer.size() < 2 || vehicleInterpolationData0 == nullptr || vehicleInterpolationData1 == nullptr) {
+ if (this->buffer.size() < 2 || vehicleInterpolationData0.empty() || vehicleInterpolationData1.empty()) {
  return false;
  }
 
@@ -156,8 +156,8 @@ public:
  }
 
  int int0 = 0;
- if (vehicleInterpolationData0 == nullptr) {
- if (vehicleInterpolationData1 == nullptr) {
+ if (vehicleInterpolationData0.empty()) {
+ if (vehicleInterpolationData1.empty()) {
  this->reset();
  return false;
  } else {

@@ -1048,7 +1048,7 @@ public:
  SecondaryDelta;
  }
 
- public class ThermalNode {
+ class ThermalNode {
  const float distToCore;
  const float skinSurface;
  const BodyPartType bodyPartType;

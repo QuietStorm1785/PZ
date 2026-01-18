@@ -91,7 +91,7 @@ public:
  }
 
  void addRequiredItem(const std::string& _require) {
- if (this->require == nullptr) {
+ if (this->require.empty()) {
  this->require = std::make_unique<ArrayList<>>();
  }
 
@@ -148,7 +148,7 @@ public:
  }
 
  public ArrayList<InventoryItem> getRequiredFixerItems(IsoGameCharacter chr, Fixing.Fixer fixer, InventoryItem brokenItem, ArrayList<InventoryItem> items) {
- if (fixer == nullptr) {
+ if (fixer.empty()) {
  return nullptr;
  } else {
  assert Thread.currentThread() == GameWindow.GameThread;

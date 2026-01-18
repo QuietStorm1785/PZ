@@ -173,7 +173,7 @@ public:
  UdpConnection udpConnection0 = GameServer.getConnectionFromPlayer(playerx);
 
  try {
- if (playerx == nullptr) {
+ if (playerx.empty()) {
  DebugLog.General
  .error(
  "receivePlayerUpdate: Server received position for unknown player (id:" + this->nextpp.id + "). Server will ignore this data."

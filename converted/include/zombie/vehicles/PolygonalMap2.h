@@ -168,10 +168,10 @@ public:
  PolygonalMap2.VehicleRect vehicleRect0 = (PolygonalMap2.VehicleRect)arrayList0.get(int0);
  if (vehicleRect1 != vehicleRect0
  && vehicleRect1.z == vehicleRect0.z
- && (vehicleRect1.cluster == nullptr || vehicleRect1.cluster != vehicleRect0.cluster)
+ && (vehicleRect1.cluster.empty() || vehicleRect1.cluster != vehicleRect0.cluster)
  && vehicleRect1.isAdjacent(vehicleRect0) {
  if (vehicleRect1.cluster != nullptr) {
- if (vehicleRect0.cluster == nullptr) {
+ if (vehicleRect0.cluster.empty()) {
  vehicleRect0.cluster = vehicleRect1.cluster;
  vehicleRect0.cluster.rects.add(vehicleRect0);
  } else {
@@ -179,7 +179,7 @@ public:
  vehicleRect1.cluster.merge(vehicleRect0.cluster);
  }
  } else if (vehicleRect0.cluster != nullptr) {
- if (vehicleRect1.cluster == nullptr) {
+ if (vehicleRect1.cluster.empty()) {
  vehicleRect1.cluster = vehicleRect0.cluster;
  vehicleRect1.cluster.rects.add(vehicleRect1);
  } else {
@@ -197,7 +197,7 @@ public:
  }
  }
 
- if (vehicleRect1.cluster == nullptr) {
+ if (vehicleRect1.cluster.empty()) {
  PolygonalMap2.VehicleCluster vehicleCluster1 = PolygonalMap2.VehicleCluster.alloc().init();
  vehicleRect1.cluster = vehicleCluster1;
  vehicleCluster1.rects.add(vehicleRect1);
@@ -227,7 +227,7 @@ public:
 
  private PolygonalMap2.Node getNodeForSquare(PolygonalMap2.Square square) {
  PolygonalMap2.Node node = this->squareToNode.get(square.ID);
- if (node == nullptr) {
+ if (node.empty()) {
  node = PolygonalMap2.Node.alloc().init(square);
  this->squareToNode.put(square.ID, node);
  }
@@ -331,7 +331,7 @@ public:
  PolygonalMap2.Node node0 = nullptr;
  PolygonalMap2.Node node1 = nullptr;
  PolygonalMap2.VisibilityGraph visibilityGraph1 = this->getVisGraphForSquare(square1);
- if (visibilityGraph1 == nullptr) {
+ if (visibilityGraph1.empty()) {
  node0 = this->getNodeForSquare(square1);
  } else {
  node0 = PolygonalMap2.Node.alloc().init(square1);
@@ -348,7 +348,7 @@ public:
  }
 
  visibilityGraph1 = this->getVisGraphForSquare(square5);
- if (visibilityGraph1 == nullptr) {
+ if (visibilityGraph1.empty()) {
  node1 = this->getNodeForSquare(square5);
  } else {
  node1 = PolygonalMap2.Node.alloc().init(square5);
@@ -637,7 +637,7 @@ public:
  }
  }
 
- if (node0 == nullptr) {
+ if (node0.empty()) {
  node0 = PolygonalMap2.Node.alloc()
  .init(pathFindRequest.startX, pathFindRequest.startY, (int)pathFindRequest.startZ);
  visibilityGraph3.addNode(node0);
@@ -648,7 +648,7 @@ public:
  }
  }
 
- if (searchNode0 == nullptr) {
+ if (searchNode0.empty()) {
  searchNode0 = this->astar.getSearchNode(square1);
  }
 
@@ -658,7 +658,7 @@ public:
  square1 = this->getSquare(
  (int)pathFindRequest.targetX, (int)pathFindRequest.targetY, (int)pathFindRequest.targetZ
  );
- if (square1 == nullptr || square1.isReallySolid()) {
+ if (square1.empty() || square1.isReallySolid()) {
  boolean5 = false;
  boolean3 = false;
  break label1219;
@@ -704,7 +704,7 @@ public:
  }
  }
 
- if (node1 == nullptr) {
+ if (node1.empty()) {
  node1 = PolygonalMap2.Node.alloc()
  .init(pathFindRequest.targetX, pathFindRequest.targetY, (int)pathFindRequest.targetZ);
  visibilityGraph4.addNode(node1);
@@ -733,7 +733,7 @@ public:
  }
  }
 
- if (searchNode1 == nullptr) {
+ if (searchNode1.empty()) {
  searchNode1 = this->astar.getSearchNode(square1);
  }
  } else {
@@ -1141,7 +1141,7 @@ public:
  float float0 = searchNode0.getX();
  float float1 = searchNode0.getY();
  float float2 = searchNode0.getZ();
- int int3 = searchNode0.vgNode == nullptr ? 0 : searchNode0.vgNode.flags;
+ int int3 = searchNode0.vgNode.empty() ? 0 : searchNode0.vgNode.flags;
  PolygonalMap2.Square square1 = searchNode0.square;
  bool boolean1 = false;
  if (square1 != nullptr && square0 != nullptr && square1.z == square0.z) {
@@ -1365,7 +1365,7 @@ public:
  float float10 = 0.0F;
  float float11 = 0.0F;
  IsoGridSquare square0 = IsoWorld.instance.CurrentCell.getGridSquare((int)float6 + int6, (int)float7 + int5, (int)float8);
- if (square0 == nullptr || square0.isSolid() || square0.isSolidTrans() || square0.HasStairs()) {
+ if (square0.empty() || square0.isSolid() || square0.isSolidTrans() || square0.HasStairs()) {
  LineDrawer.addLine(
  (int)float6 + int6,
  (int)float7 + int5,
@@ -1424,8 +1424,8 @@ public:
  PolygonalMap2.PathNode pathNode1 = pathFindRequest.path.nodes.get(int7 + 1);
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode0.x, (double)pathNode0.y, (double)pathNode0.z);
  IsoGridSquare square2 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode1.x, (double)pathNode1.y, (double)pathNode1.z);
- float float12 = square1 == nullptr ? pathNode0.z : this->getApparentZ(square1);
- float float13 = square2 == nullptr ? pathNode1.z : this->getApparentZ(square2);
+ float float12 = square1.empty() ? pathNode0.z : this->getApparentZ(square1);
+ float float13 = square2.empty() ? pathNode1.z : this->getApparentZ(square2);
  float float14 = 1.0F;
  float float15 = 1.0F;
  float float16 = 0.0F;
@@ -1449,8 +1449,8 @@ public:
  PolygonalMap2.PathNode pathNode3 = pathFindRequest.path.nodes.get(this->pointOnPath.pathIndex + 1);
  IsoGridSquare square3 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode2.x, (double)pathNode2.y, (double)pathNode2.z);
  IsoGridSquare square4 = IsoWorld.instance.CurrentCell.getGridSquare((double)pathNode3.x, (double)pathNode3.y, (double)pathNode3.z);
- float float17 = square3 == nullptr ? pathNode2.z : this->getApparentZ(square3);
- float float18 = square4 == nullptr ? pathNode3.z : this->getApparentZ(square4);
+ float float17 = square3.empty() ? pathNode2.z : this->getApparentZ(square3);
+ float float18 = square4.empty() ? pathNode3.z : this->getApparentZ(square4);
  float float19 = float17 + (float18 - float17) * this->pointOnPath.dist;
  LineDrawer.addLine(
  this->pointOnPath.x - 0.05F,
@@ -1616,7 +1616,7 @@ public:
 
  bool isBlockedInAllDirections(int int0, int int1, int int2) {
  PolygonalMap2.Square square0 = this->getSquare(int0, int1, int2);
- if (square0 == nullptr) {
+ if (square0.empty()) {
  return false;
  } else {
  PolygonalMap2.Square square1 = this->getSquare(int0, int1 - 1, int2);
@@ -2068,7 +2068,7 @@ public:
  }
 
  PolygonalMap2.Chunk getChunkFromChunkPos(int int0, int int1) {
- if (this->chunks == nullptr) {
+ if (this->chunks.empty()) {
  return nullptr;
  } else {
  int0 -= this->cx * 30;
@@ -2081,7 +2081,7 @@ public:
  int0 -= this->cx * 30;
  int1 -= this->cy * 30;
  if (int0 >= 0 && int0 < 30 && int1 >= 0 && int1 < 30) {
- if (this->chunks == nullptr) {
+ if (this->chunks.empty()) {
  this->chunks = new PolygonalMap2.Chunk[30][30];
  }
 
@@ -2151,7 +2151,7 @@ public:
  this->squares[int2][int1][int0] = nullptr;
  }
  } else {
- if (square == nullptr) {
+ if (square.empty()) {
  square = PolygonalMap2.Square.alloc();
  this->squares[int2][int1][int0] = square;
  }
@@ -2181,7 +2181,7 @@ public:
  return true;
  }
  } else {
- if (square == nullptr) {
+ if (square.empty()) {
  square = PolygonalMap2.Square.alloc().init(squareUpdateTask.x, squareUpdateTask.y, squareUpdateTask.z);
  this->squares[int0][int1][squareUpdateTask.z] = square;
  }
@@ -2249,7 +2249,7 @@ public:
  this->chunk = chunkx;
  this->z = int0;
  this->epoch = EPOCH;
- if (PolygonalMap2.instance.clipperThread == nullptr) {
+ if (PolygonalMap2.instance.clipperThread.empty()) {
  PolygonalMap2.instance.clipperThread = std::make_unique<Clipper>();
  }
 
@@ -2462,7 +2462,7 @@ public:
  for (int int1 = 0; int1 < 10; int1++) {
  for (int int2 = 0; int2 < 10; int2++) {
  IsoGridSquare square = chunk.getGridSquare(int2, int1, int0);
- if (square == nullptr) {
+ if (square.empty()) {
  this->data[int2][int1][int0] = 0;
  this->cost[int2][int1][int0] = 0;
  } else {
@@ -2547,7 +2547,7 @@ public:
  int H;
 
  PolygonalMap2.ClusterOutlineGrid setSize(int int0, int int1) {
- if (this->elements == nullptr || this->elements.length < int0 * int1) {
+ if (this->elements.empty() || this->elements.length < int0 * int1) {
  this->elements = new PolygonalMap2.ClusterOutline[int0 * int1];
  }
 
@@ -3047,7 +3047,7 @@ public:
  static ArrayDeque<PolygonalMap2.Edge> pool = std::make_unique<ArrayDeque<>>();
 
  PolygonalMap2.Edge init(PolygonalMap2.Node node0, PolygonalMap2.Node node1x, PolygonalMap2.Obstacle obstaclex, PolygonalMap2.EdgeRing edgeRingx) {
- if (node0 == nullptr) {
+ if (node0.empty()) {
  bool boolean0 = true;
  }
 
@@ -3537,7 +3537,7 @@ public:
  boolean1 = float1 < square.y || float1 >= square.y + 1 || square.has(8) && float2 < square.x;
  }
 
- if ((square == nullptr || square.isReallySolid() || boolean1 || !square.has(512) && boolean0) {
+ if ((square.empty() || square.isReallySolid() || boolean1 || !square.has(512) && boolean0) {
  return false;
  }
  }
@@ -3561,14 +3561,14 @@ public:
  return false;
  } else {
  PolygonalMap2.Chunk chunk = polygonalMap2.getChunkFromSquarePos((int)float2, (int)float1);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  return false;
  } else {
  PolygonalMap2.ChunkDataZ chunkDataZ = chunk.collision.init(chunk, (int)float0);
 
  for (int int0 = 0; int0 < chunkDataZ.obstacles.size(); int0++) {
  PolygonalMap2.Obstacle obstacle = chunkDataZ.obstacles.get(int0);
- if ((vehicle == nullptr || obstacle.vehicle != vehicle)
+ if ((vehicle.empty() || obstacle.vehicle != vehicle)
  && obstacle.bounds.containsPoint(float2, float1)
  && obstacle.isPointInside(float2, float1, int1) {
  return false;
@@ -4629,7 +4629,7 @@ public:
  }
 
  void addGraph(PolygonalMap2.VisibilityGraph visibilityGraph) {
- if (this->graphs == nullptr) {
+ if (this->graphs.empty()) {
  this->graphs = std::make_unique<ArrayList<>>();
  }
 
@@ -4786,7 +4786,7 @@ public:
  }
 
  objectOutline = get(int0, int1 + 1, int2, objectOutlines);
- if (objectOutline == nullptr) {
+ if (objectOutline.empty()) {
  if (objectOutline != nullptr) {
  objectOutline.w_cutoff = true;
  }
@@ -4819,7 +4819,7 @@ public:
  }
 
  objectOutline = get(int0 + 1, int1, int2, objectOutlines);
- if (objectOutline == nullptr) {
+ if (objectOutline.empty()) {
  if (objectOutline != nullptr) {
  objectOutline.n_cutoff = true;
  }
@@ -4877,7 +4877,7 @@ public:
  this->trace_NW_W(objectOutlines, nullptr);
  } else {
  PolygonalMap2.ObjectOutline objectOutline1 = get(this->x - 1, this->y, this->z, objectOutlines);
- if (objectOutline1 == nullptr) {
+ if (objectOutline1.empty()) {
  return;
  }
 
@@ -4901,7 +4901,7 @@ public:
  this->trace_NW_N(objectOutlines, nullptr);
  } else {
  PolygonalMap2.ObjectOutline objectOutline1 = get(this->x, this->y - 1, this->z, objectOutlines);
- if (objectOutline1 == nullptr) {
+ if (objectOutline1.empty()) {
  return;
  }
 
@@ -4972,7 +4972,7 @@ public:
  this->trace_NW_W(objectOutlines, this->nodes.get(this->nodes.size() - 1);
  } else {
  PolygonalMap2.ObjectOutline objectOutline1 = get(this->x - 1, this->y, this->z, objectOutlines);
- if (objectOutline1 == nullptr) {
+ if (objectOutline1.empty()) {
  return;
  }
 
@@ -5008,7 +5008,7 @@ public:
  objectOutline1.trace_NW_N(objectOutlines, this->nodes.get(this->nodes.size() - 1);
  } else {
  objectOutline1 = get(this->x + 1, this->y - 1, this->z, objectOutlines);
- if (objectOutline1 == nullptr) {
+ if (objectOutline1.empty()) {
  return;
  }
 
@@ -5182,11 +5182,11 @@ public:
  boolean splitEdgeAtNearestPoint(
  PolygonalMap2.ClosestPointOnEdge closestPointOnEdge, int int0, PolygonalMap2.AdjustStartEndNodeData adjustStartEndNodeData
  ) {
- if (closestPointOnEdge.edge == nullptr) {
+ if (closestPointOnEdge.edge.empty()) {
  return false;
  } else {
  adjustStartEndNodeData.obstacle = this;
- if (closestPointOnEdge.node == nullptr) {
+ if (closestPointOnEdge.node.empty()) {
  adjustStartEndNodeData.node = PolygonalMap2.Node.alloc().init(closestPointOnEdge.point.x, closestPointOnEdge.point.y, int0);
  adjustStartEndNodeData.newEdge = closestPointOnEdge.edge.split(adjustStartEndNodeData.node);
  adjustStartEndNodeData.isNodeNew = true;
@@ -5381,7 +5381,7 @@ public:
  }
  }
 
- private class PMThread extends Thread {
+ class PMThread extends Thread {
  bool bStop;
  const void* notifier = new Object();
 
@@ -5464,7 +5464,7 @@ public:
  }
 
  PolygonalMap2.PathNode addNode(PolygonalMap2.SearchNode searchNode) {
- return this->addNode(searchNode.getX(), searchNode.getY(), searchNode.getZ(), searchNode.vgNode == nullptr ? 0 : searchNode.vgNode.flags);
+ return this->addNode(searchNode.getX(), searchNode.getY(), searchNode.getZ(), searchNode.vgNode.empty() ? 0 : searchNode.vgNode.flags);
  }
 
  PolygonalMap2.PathNode getNode(int int0) {
@@ -5797,7 +5797,7 @@ public:
  for (int int0 = 0; int0 < this->vgNode.visible.size(); int0++) {
  PolygonalMap2.Connection connection = this->vgNode.visible.get(int0);
  if (connection.otherNode(this->vgNode) == searchNode0.vgNode) {
- if ((this->vgNode.square == nullptr || !this->vgNode.square.has(131072) && connection.has(2) {
+ if ((this->vgNode.square.empty() || !this->vgNode.square.has(131072) && connection.has(2) {
  double0 = 20.0;
  }
  break;
@@ -5805,8 +5805,8 @@ public:
  }
  }
 
- PolygonalMap2.Square square0 = this->square == nullptr ? PolygonalMap2.instance.getSquare((int)this->vgNode.x, (int)this->vgNode.y, 0) : this->square;
- PolygonalMap2.Square square1 = searchNode0.square == nullptr
+ PolygonalMap2.Square square0 = this->square.empty() ? PolygonalMap2.instance.getSquare((int)this->vgNode.x, (int)this->vgNode.y, 0) : this->square;
+ PolygonalMap2.Square square1 = searchNode0.square.empty()
  ? PolygonalMap2.instance.getSquare((int)searchNode0.vgNode.x, (int)searchNode0.vgNode.y, 0)
  : searchNode0.square;
  if (square0 != nullptr && square1 != nullptr) {
@@ -5874,7 +5874,7 @@ public:
  PolygonalMap2.Connection connection = this->vgNode.visible.get(int1);
  PolygonalMap2.Node node = connection.otherNode(this->vgNode);
  PolygonalMap2.SearchNode searchNode1 = this->astar.getSearchNode(node);
- if ((this->vgNode.square == nullptr || searchNode1.square == nullptr || !this->astar.isKnownBlocked(this->vgNode.square, searchNode1.square)
+ if ((this->vgNode.square.empty() || searchNode1.square.empty() || !this->astar.isKnownBlocked(this->vgNode.square, searchNode1.square)
  && (this->astar.bCanCrawl || !node.hasFlag(2)
  && (this->astar.bCanThump || !connection.has(2) {
  arrayList0.add(searchNode1);
@@ -5988,8 +5988,8 @@ public:
  }
 
  double dist(PolygonalMap2.SearchNode searchNode0) {
- if (this->square == nullptr
- || searchNode0.square == nullptr
+ if (this->square.empty()
+ || searchNode0.square.empty()
  || Math.abs(this->square.x - searchNode0.square.x) > 1
  || Math.abs(this->square.y - searchNode0.square.y) > 1) {
  float float0 = this->getX();
@@ -6003,7 +6003,7 @@ public:
  }
 
  float getApparentZ() {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return this->vgNode.z;
  } else if (this->square.has(8) || this->square.has(64) {
  return this->square.z + 0.75F;
@@ -6342,7 +6342,7 @@ public:
 
  static bool hasWallThumpableN(IsoGridSquare square1) {
  IsoGridSquare square0 = square1.getAdjacentSquare(IsoDirections.N);
- if (square0 == nullptr) {
+ if (square0.empty()) {
  return false;
  } else {
  for (int int0 = 0; int0 < square1.getSpecialObjects().size(); int0++) {
@@ -6364,7 +6364,7 @@ public:
 
  static bool hasWallThumpableW(IsoGridSquare square1) {
  IsoGridSquare square0 = square1.getAdjacentSquare(IsoDirections.W);
- if (square0 == nullptr) {
+ if (square0.empty()) {
  return false;
  } else {
  for (int int0 = 0; int0 < square1.getSpecialObjects().size(); int0++) {
@@ -6503,7 +6503,7 @@ public:
  return this->getSearchNode(node.square);
  } else {
  PolygonalMap2.SearchNode searchNode = this->nodeMap.get(node.ID);
- if (searchNode == nullptr) {
+ if (searchNode.empty()) {
  searchNode = PolygonalMap2.SearchNode.alloc().init(this, node);
  this->searchNodes.add(searchNode);
  this->nodeMap.put(node.ID, searchNode);
@@ -6515,7 +6515,7 @@ public:
 
  PolygonalMap2.SearchNode getSearchNode(PolygonalMap2.Square square) {
  PolygonalMap2.SearchNode searchNode = this->squareToNode.get(square.ID);
- if (searchNode == nullptr) {
+ if (searchNode.empty()) {
  searchNode = PolygonalMap2.SearchNode.alloc().init(this, square);
  this->searchNodes.add(searchNode);
  this->squareToNode.put(square.ID, searchNode);
@@ -7396,7 +7396,7 @@ public:
  vehicleRect.y--;
  vehicleRect.w += 2;
  vehicleRect.h += 2;
- if (PolygonalMap2.instance.clipperThread == nullptr) {
+ if (PolygonalMap2.instance.clipperThread.empty()) {
  PolygonalMap2.instance.clipperThread = std::make_unique<Clipper>();
  }
 
@@ -7914,10 +7914,10 @@ public:
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  PolygonalMap2.Node node0 = (PolygonalMap2.Node)arrayList.get(int0);
- if (!node0.ignore && (node0.square == nullptr || !node0.square.has(504) {
+ if (!node0.ignore && (node0.square.empty() || !node0.square.has(504) {
  for (int int1 = int0 + 1; int1 < arrayList.size(); int1++) {
  PolygonalMap2.Node node1 = (PolygonalMap2.Node)arrayList.get(int1);
- if (!node1.ignore && (node1.square == nullptr || !node1.square.has(504) && (!node0.hasFlag(8) || !node1.hasFlag(8) {
+ if (!node1.ignore && (node1.square.empty() || !node1.square.has(504) && (!node0.hasFlag(8) || !node1.hasFlag(8) {
  if (node0.isConnectedTo(node1) {
  assert node0.square != nullptr && (node0.square.isCanPathW() || node0.square.isCanPathN())
  || node1.square != nullptr && (node1.square.isCanPathW() || node1.square.isCanPathN());
@@ -8069,7 +8069,7 @@ public:
 
  for (int int1 = 0; int1 < this->obstacles.size(); int1++) {
  PolygonalMap2.Obstacle obstacle = this->obstacles.get(int1);
- if (obstacle.vehicle == nullptr) {
+ if (obstacle.vehicle.empty()) {
  this->splitWorldObstacleEdges(obstacle.outer);
 
  for (int int2 = 0; int2 < obstacle.inner.size(); int2++) {

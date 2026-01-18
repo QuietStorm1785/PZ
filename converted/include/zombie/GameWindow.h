@@ -258,7 +258,7 @@ public:
  for (int int0 = 0; int0 < JoypadManager.instance.JoypadList.size(); int0++) {
  JoypadManager.Joypad joypad = JoypadManager.instance.JoypadList.get(int0);
  if (joypad.isAPressed()) {
- if (ActivatedJoyPad == nullptr) {
+ if (ActivatedJoyPad.empty()) {
  ActivatedJoyPad = joypad;
  }
 
@@ -731,7 +731,7 @@ public:
 
  for (int int0 = texturePacks.size() - 1; int0 >= 0; int0--) {
  GameWindow.TexturePack texturePack0 = texturePacks.get(int0);
- if (texturePack0.modID == nullptr) {
+ if (texturePack0.modID.empty()) {
  texturePackTextures.putAll(texturePack0.textures);
  }
  }
@@ -1038,7 +1038,7 @@ public:
  }
 
  static void WriteString(DataOutputStream output, const std::string& str) {
- if (str == nullptr) {
+ if (str.empty()) {
  output.writeInt(0);
  } else {
  output.writeInt(str.length());
@@ -1117,7 +1117,7 @@ public:
  CharsetDecoder cd;
 
  int encode(const std::string& string) {
- if (this->chars == nullptr || this->chars.length < string.length()) {
+ if (this->chars.empty() || this->chars.length < string.length()) {
  int int0 = (string.length() + 128 - 1) / 128 * 128;
  this->chars = new char[int0];
  this->charBuffer = CharBuffer.wrap(this->chars);
@@ -1126,14 +1126,14 @@ public:
  string.getChars(0, string.length(), this->chars, 0);
  this->charBuffer.limit(string.length());
  this->charBuffer.position(0);
- if (this->ce == nullptr) {
+ if (this->ce.empty()) {
  this->ce = StandardCharsets.UTF_8.newEncoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
  }
 
  this->ce.reset();
  int int1 = (int)((double)string.length() * this->ce.maxBytesPerChar());
  int1 = (int1 + 128 - 1) / 128 * 128;
- if (this->byteBuffer == nullptr || this->byteBuffer.capacity() < int1) {
+ if (this->byteBuffer.empty() || this->byteBuffer.capacity() < int1) {
  this->byteBuffer = ByteBuffer.allocate(int1);
  }
 
@@ -1143,13 +1143,13 @@ public:
  }
 
  std::string decode(int int1) {
- if (this->cd == nullptr) {
+ if (this->cd.empty()) {
  this->cd = StandardCharsets.UTF_8.newDecoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
  }
 
  this->cd.reset();
  int int0 = (int)((double)int1 * this->cd.maxCharsPerByte());
- if (this->chars == nullptr || this->chars.length < int0) {
+ if (this->chars.empty() || this->chars.length < int0) {
  int int2 = (int0 + 128 - 1) / 128 * 128;
  this->chars = new char[int2];
  this->charBuffer = CharBuffer.wrap(this->chars);
@@ -1177,7 +1177,7 @@ public:
  return "";
  } else {
  int int0 = (short0 + 128 - 1) / 128 * 128;
- if (this->byteBuffer == nullptr || this->byteBuffer.capacity() < int0) {
+ if (this->byteBuffer.empty() || this->byteBuffer.capacity() < int0) {
  this->byteBuffer = ByteBuffer.allocate(int0);
  }
 

@@ -274,7 +274,7 @@ public:
  float0 = float1 * this->getMaxDuration();
  }
 
- if (this->m_transitionIn.m_data == nullptr) {
+ if (this->m_transitionIn.m_data.empty()) {
  return 0.0F - float0;
  } else {
  float float2 = this->getTransitionInBlendOutTime();
@@ -301,12 +301,12 @@ public:
  }
 
  float getBlendInTime() {
- if (this->m_transitionIn.m_data == nullptr) {
+ if (this->m_transitionIn.m_data.empty()) {
  return this->m_sourceNode.m_BlendTime;
  } else if (this->m_transitionIn.m_track != nullptr && this->m_transitionIn.m_data.m_blendOutTime != Float.POSITIVE_INFINITY) {
  return this->m_transitionIn.m_data.m_blendOutTime;
  } else {
- if (this->m_transitionIn.m_track == nullptr) {
+ if (this->m_transitionIn.m_track.empty()) {
  if (this->m_transitionIn.m_data.m_blendInTime != Float.POSITIVE_INFINITY) {
  return this->m_transitionIn.m_data.m_blendInTime;
  }
@@ -321,7 +321,7 @@ public:
  }
 
  float getBlendOutTime() {
- if (this->m_transitionOut == nullptr) {
+ if (this->m_transitionOut.empty()) {
  return this->m_sourceNode.getBlendOutTime();
  } else if (!StringUtils.isNullOrWhitespace(this->m_transitionOut.m_AnimName) && this->m_transitionOut.m_blendInTime != Float.POSITIVE_INFINITY) {
  return this->m_transitionOut.m_blendInTime;

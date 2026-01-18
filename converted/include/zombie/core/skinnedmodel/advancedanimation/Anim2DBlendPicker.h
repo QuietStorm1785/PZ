@@ -33,21 +33,21 @@ public:
 
  for (Anim2DBlendTriangle anim2DBlendTriangle : this->m_tris) {
  Anim2DBlendPicker.Counter counter1 = hashMap.putIfAbsent(new Anim2DBlendPicker.Edge(anim2DBlendTriangle.node1, anim2DBlendTriangle.node2), counter0);
- if (counter1 == nullptr) {
+ if (counter1.empty()) {
  counter1 = counter0;
  counter0 = new Anim2DBlendPicker.Counter();
  }
 
  counter1.Increment();
  counter1 = hashMap.putIfAbsent(new Anim2DBlendPicker.Edge(anim2DBlendTriangle.node2, anim2DBlendTriangle.node3), counter0);
- if (counter1 == nullptr) {
+ if (counter1.empty()) {
  counter1 = counter0;
  counter0 = new Anim2DBlendPicker.Counter();
  }
 
  counter1.Increment();
  counter1 = hashMap.putIfAbsent(new Anim2DBlendPicker.Edge(anim2DBlendTriangle.node3, anim2DBlendTriangle.node1), counter0);
- if (counter1 == nullptr) {
+ if (counter1.empty()) {
  counter1 = counter0;
  counter0 = new Anim2DBlendPicker.Counter();
  }

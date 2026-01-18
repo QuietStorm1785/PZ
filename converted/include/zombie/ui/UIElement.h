@@ -856,7 +856,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean1 == nullptr) {
+ if (boolean1.empty()) {
  return Boolean.TRUE;
  }
 
@@ -873,7 +873,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean2 == nullptr) {
+ if (boolean2.empty()) {
  return Boolean.TRUE;
  }
 
@@ -905,7 +905,7 @@ public:
  BoxedStaticValues.toDouble(double1 - this->xScroll),
  BoxedStaticValues.toDouble(double0 - this->yScroll)
  );
- if (boolean0 == nullptr) {
+ if (boolean0.empty()) {
  return Boolean.TRUE;
  }
 
@@ -1048,7 +1048,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean1 == nullptr) {
+ if (boolean1.empty()) {
  return Boolean.TRUE;
  }
 
@@ -1065,7 +1065,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean2 == nullptr) {
+ if (boolean2.empty()) {
  return Boolean.TRUE;
  }
 
@@ -1109,7 +1109,7 @@ public:
 
  for (int int0 = this->getControls().size() - 1; int0 >= 0; int0--) {
  UIElement uIElement1 = this->getControls().get(int0);
- if (uIElement1 == nullptr) {
+ if (uIElement1.empty()) {
  this->getControls().remove(int0);
  } else {
  uIElement1.onResize();
@@ -1167,7 +1167,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean1 == nullptr) {
+ if (boolean1.empty()) {
  return Boolean.TRUE;
  }
 
@@ -1184,7 +1184,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean2 == nullptr) {
+ if (boolean2.empty()) {
  return Boolean.TRUE;
  }
 
@@ -1237,7 +1237,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean1 == nullptr) {
+ if (boolean1.empty()) {
  return Boolean.TRUE;
  }
 
@@ -1254,7 +1254,7 @@ public:
  BoxedStaticValues.toDouble(_x - this->xScroll),
  BoxedStaticValues.toDouble(_y - this->yScroll)
  );
- if (boolean2 == nullptr) {
+ if (boolean2.empty()) {
  return Boolean.TRUE;
  }
 
@@ -1276,7 +1276,7 @@ public:
  void render() {
  if (this->enabled) {
  if (this->isVisible()) {
- if (this->Parent == nullptr || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
+ if (this->Parent.empty() || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
  if (this->Parent != nullptr && !this->Parent.bRenderClippedChildren) {
  double double0 = this->Parent.getAbsoluteY();
  double double1 = this->getAbsoluteY();
@@ -1797,7 +1797,7 @@ public:
  double double1 = screenY - this->getAbsoluteY();
  if (double0 < 0.0 || double0 >= this->getWidth() || double1 < 0.0 || double1 >= int0) {
  return Boolean.FALSE;
- } else if (this->Parent == nullptr) {
+ } else if (this->Parent.empty()) {
  std::vector arrayList = UIManager.getUI();
 
  for (int int1 = arrayList.size() - 1; int1 >= 0; int1--) {
@@ -1856,7 +1856,7 @@ public:
 
  bool isKeyConsumed(int key) {
  void* object = this->tryGetTableValue("isKeyConsumed");
- if (object == nullptr) {
+ if (object.empty()) {
  return false;
  } else {
  bool boolean0 = LuaManager.caller.pcallBoolean(UIManager.getDefaultThread(), object, this->getTable(), BoxedStaticValues.toDouble(key);

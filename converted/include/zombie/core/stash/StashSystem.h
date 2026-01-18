@@ -56,7 +56,7 @@ public:
  private static ArrayList<String> alreadyReadMap = std::make_unique<ArrayList<>>();
 
  static void init() {
- if (possibleStashes == nullptr) {
+ if (possibleStashes.empty()) {
  initAllStashes();
  buildingsToDo = std::make_unique<ArrayList<>>();
  possibleTrap.add("Base.FlameTrapSensorV1");
@@ -152,7 +152,7 @@ public:
 
  if ("Map" == stash.type) {
  MapItem mapItem = Type.tryCastTo(item, MapItem.class);
- if (mapItem == nullptr) {
+ if (mapItem.empty()) {
  throw IllegalArgumentException(item + " is not a MapItem");
  }
 
@@ -232,7 +232,7 @@ public:
  * Fetch our list of building in which we'll spawn stash, if this building correspond, we do the necessary stuff
  */
  static void doBuildingStash(BuildingDef def) {
- if (buildingsToDo == nullptr) {
+ if (buildingsToDo.empty()) {
  init();
  }
 
@@ -264,7 +264,7 @@ public:
  && itemPickerRoom0.Containers.containsKey(object.getContainer().getType())) {
  ItemPickerJava.ItemPickerRoom itemPickerRoom1 = ItemPickerJava.rooms.get(square.getRoom().getName());
  bool boolean0 = false;
- if (itemPickerRoom1 == nullptr || !itemPickerRoom1.Containers.containsKey(object.getContainer().getType())) {
+ if (itemPickerRoom1.empty() || !itemPickerRoom1.Containers.containsKey(object.getContainer().getType())) {
  object.getContainer().clear();
  boolean0 = true;
  }
@@ -330,13 +330,13 @@ public:
  if (square0 != nullptr) {
  if (stashContainer.containerItem != nullptr && !stashContainer.containerItem.empty()) {
  ItemPickerJava.ItemPickerRoom itemPickerRoom = ItemPickerJava.rooms.get(stash.spawnTable);
- if (itemPickerRoom == nullptr) {
+ if (itemPickerRoom.empty()) {
  DebugLog.log("Container distribution " + stash.spawnTable + " not found");
  return;
  }
 
  InventoryItem item = InventoryItemFactory.CreateItem(stashContainer.containerItem);
- if (item == nullptr) {
+ if (item.empty()) {
  DebugLog.General.error("Item " + stashContainer.containerItem + " Doesn't exist.");
  return;
  }

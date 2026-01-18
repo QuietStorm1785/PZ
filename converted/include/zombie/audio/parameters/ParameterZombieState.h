@@ -25,7 +25,7 @@ public:
  }
 
  float calculateCurrentValue() {
- if (this->zombie.target == nullptr) {
+ if (this->zombie.target.empty()) {
  if (this->state == ParameterZombieState.State.SearchTarget) {
  this->setState(ParameterZombieState.State.Idle);
  }

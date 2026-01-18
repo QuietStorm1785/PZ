@@ -34,7 +34,7 @@ public:
  IsoPlayer choosePlayer() {
  if (this->m_playerIndex != -1) {
  IsoPlayer player0 = IsoPlayer.players[this->m_playerIndex];
- if (player0 == nullptr) {
+ if (player0.empty()) {
  this->m_playerIndex = -1;
  }
  }

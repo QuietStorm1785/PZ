@@ -38,7 +38,7 @@ public:
  }
 
  SkinningBone getBone() {
- if (this->m_bone == nullptr) {
+ if (this->m_bone.empty()) {
  this->initBone();
  }
 
@@ -46,7 +46,7 @@ public:
  }
 
  void initBone() {
- if (this->m_skinningData == nullptr) {
+ if (this->m_skinningData.empty()) {
  this->m_bone = nullptr;
  } else {
  this->m_bone = this->m_skinningData.getBone(this->boneName);

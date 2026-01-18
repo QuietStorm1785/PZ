@@ -66,7 +66,7 @@ public:
  }
 
  bool shouldBeInGroup(IsoZombie zombie0) {
- if (zombie0 == nullptr) {
+ if (zombie0.empty()) {
  return false;
  } else if (SandboxOptions.instance.zombieConfig.RallyGroupSize.getValue() <= 1) {
  return false;
@@ -86,7 +86,7 @@ public:
  return false;
  } else {
  IsoGridSquare square = zombie0.getSquare();
- IsoMetaGrid.Zone zone = square == nullptr ? nullptr : square.getZone();
+ IsoMetaGrid.Zone zone = square.empty() ? nullptr : square.getZone();
  return zone = = nullptr || !"Forest".equals(zone.getType()) && !"DeepForest".equals(zone.getType());
  }
  }
@@ -98,9 +98,9 @@ public:
  zombie0.group.remove(zombie0);
  }
  } else if (this->tickCount == 0.0F) {
- if (zombie0.group == nullptr) {
+ if (zombie0.group.empty()) {
  ZombieGroup zombieGroup0 = this->findNearestGroup(zombie0.getX(), zombie0.getY(), zombie0.getZ());
- if (zombieGroup0 == nullptr) {
+ if (zombieGroup0.empty()) {
  zombieGroup0 = this->freeGroups.empty() ? std::make_unique<ZombieGroup>() : this->freeGroups.pop().reset();
  zombieGroup0.add(zombie0);
  this->groups.add(zombieGroup0);

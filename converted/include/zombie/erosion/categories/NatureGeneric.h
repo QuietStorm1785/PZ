@@ -261,7 +261,7 @@ public:
 
  int getGroundGrassType(IsoGridSquare square) {
  IsoObject object = square.getFloor();
- if (object == nullptr) {
+ if (object.empty()) {
  return 0;
  } else {
  IsoSprite sprite = object.getSprite();

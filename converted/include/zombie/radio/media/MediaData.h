@@ -37,11 +37,11 @@ public:
  this->id = _id;
  this->spawning = _spawning;
  if (Core.bDebug) {
- if (_itemDisplayName == nullptr) {
+ if (_itemDisplayName.empty()) {
  throw RuntimeException("ItemDisplayName may not be nullptr.");
  }
 
- if (_id == nullptr) {
+ if (_id.empty()) {
  throw RuntimeException("Id may not be nullptr.");
  }
  }
@@ -149,7 +149,7 @@ public:
  }
 
  uint8_t getMediaType() {
- if (this->category == nullptr) {
+ if (this->category.empty()) {
  DebugLog.log("Warning MediaData has no category set, mediadata = " + (this->itemDisplayName != nullptr ? this->itemDisplayName : "unknown"));
  }
 

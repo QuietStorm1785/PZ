@@ -114,7 +114,7 @@ public:
  int integer = animationPlayer.getSkinningData().BoneIndices.get("Translation_Data");
 
  for (int int0 = 0; int0 < animationPlayer.modelTransforms.length; int0++) {
- if (integer == nullptr || int0 != integer) {
+ if (integer.empty() || int0 != integer) {
  int int1 = animationPlayer.getSkinningData().SkeletonHierarchy.get(int0);
  if (int1 >= 0) {
  this->initSkeleton(animationPlayer.modelTransforms, int0);

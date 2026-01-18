@@ -59,7 +59,7 @@ public:
  }
  }
 
- if (connection == nullptr) {
+ if (connection.empty()) {
  try {
  connection = PZSQLUtils.getConnection(file1.getAbsolutePath());
  } catch (Exception exception1) {

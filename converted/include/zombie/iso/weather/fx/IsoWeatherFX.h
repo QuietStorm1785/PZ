@@ -111,11 +111,11 @@ public:
  this->cloudParticles.SetParticlesStrength(1.0F);
  this->particleRectangles.add(int0, this->cloudParticles);
  ID_CLOUD = int0++;
- if (this->texFogCircle == nullptr) {
+ if (this->texFogCircle.empty()) {
  this->texFogCircle = Texture.getSharedTexture("media/textures/weather/fogcircle_tex.png", 35);
  }
 
- if (this->texFogWhite == nullptr) {
+ if (this->texFogWhite.empty()) {
  this->texFogWhite = Texture.getSharedTexture("media/textures/weather/fogwhite_tex.png", 35);
  }
 
@@ -482,7 +482,7 @@ public:
  SpriteRenderer.instance.glBind(this->texFogWhite.getID());
  IndieGL.glTexParameteri(3553, 10241, 9728);
  IndieGL.glTexParameteri(3553, 10240, 9728);
- if (s_shader == nullptr) {
+ if (s_shader.empty()) {
  RenderThread.invokeOnRenderContext(() -> s_shader = ShaderManager.instance.getOrCreateShader("fogCircle", false);
  }
 

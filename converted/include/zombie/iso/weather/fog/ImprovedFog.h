@@ -307,7 +307,7 @@ public:
 
  static void update() {
  updateKeys();
- if (noiseTexture == nullptr) {
+ if (noiseTexture.empty()) {
  noiseTexture = Texture.getSharedTexture("media/textures/weather/fognew/fog_noise.png");
  }
 
@@ -447,7 +447,7 @@ public:
  int int2 = vector2i.y + minY;
  int int3 = int1 + int2;
  if (int3 != lastRow) {
- if (lastRow >= 0 && (!renderEndOnly || squareMax == nullptr) {
+ if (lastRow >= 0 && (!renderEndOnly || squareMax.empty())) {
  endFogRectangle(lastIterPos.x, lastIterPos.y, zLayer);
  }
 
@@ -461,10 +461,10 @@ public:
  }
 
  if (boolean0) {
- if (!renderEndOnly || squareMax == nullptr) {
+ if (!renderEndOnly || squareMax.empty()) {
  startFogRectangle(int1, int2, zLayer);
  }
- } else if (!renderEndOnly || squareMax == nullptr) {
+ } else if (!renderEndOnly || squareMax.empty()) {
  endFogRectangle(lastIterPos.x, lastIterPos.y, zLayer);
  }
 

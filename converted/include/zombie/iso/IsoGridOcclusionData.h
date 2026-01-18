@@ -147,7 +147,7 @@ public:
  IsoGridSquare square0 = IsoWorld.instance.CurrentCell.getGridSquare(int0, int2, int4);
  if (square0 != nullptr) {
  IsoBuilding building = square0.getBuilding();
- if (building == nullptr) {
+ if (building.empty()) {
  building = square0.roofHideBuilding;
  }
 
@@ -155,11 +155,11 @@ public:
  tHashSet.add(building);
  }
 
- for (int int6 = int4 - 1; int6 >= 0 && building == nullptr; int6--) {
+ for (int int6 = int4 - 1; int6 >= 0 && building.empty(); int6--) {
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare(int0, int2, int6);
  if (square1 != nullptr) {
  building = square1.getBuilding();
- if (building == nullptr) {
+ if (building.empty()) {
  building = square1.roofHideBuilding;
  }
 
@@ -169,7 +169,7 @@ public:
  }
  }
 
- if (building == nullptr && !boolean0 && square0.getZ() != 0 && square0.getPlayerBuiltFloor() != nullptr) {
+ if (building.empty() && !boolean0 && square0.getZ() != 0 && square0.getPlayerBuiltFloor() != nullptr) {
  boolean0 = true;
  }
  }

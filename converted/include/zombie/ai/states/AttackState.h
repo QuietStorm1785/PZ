@@ -52,7 +52,7 @@ public:
  std::unordered_map hashMap = owner.getStateMachineParams(this);
  IsoZombie zombie0 = (IsoZombie)owner;
  IsoGameCharacter character0 = (IsoGameCharacter)zombie0.target;
- if (character0 == nullptr || !"Chainsaw" == character0.getVariableString("ZombieHitReaction"))) {
+ if (character0.empty() || !"Chainsaw" == character0.getVariableString("ZombieHitReaction"))) {
  std::string string = owner.getVariableString("AttackOutcome");
  if ("success" == string) && owner.getVariableBoolean("bAttack") && owner.isVariable("targethitreaction", "EndDeath")) {
  string = "enddeath";
@@ -66,7 +66,7 @@ public:
  owner.setVariable("AttackOutcome", "interrupted");
  }
 
- if (character0 == nullptr || character0.isDead()) {
+ if (character0.empty() || character0.isDead()) {
  zombie0.setTargetSeenTime(10.0F);
  }
 
@@ -147,7 +147,7 @@ public:
 
  if (event.m_EventName.equalsIgnoreCase("AttackCollisionCheck") && !zombie0.isNoTeeth()) {
  IsoGameCharacter character = (IsoGameCharacter)zombie0.target;
- if (character == nullptr) {
+ if (character.empty()) {
  return;
  }
 

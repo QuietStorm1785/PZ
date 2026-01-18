@@ -160,7 +160,7 @@ public:
  float6 = 1.0F;
  clothing0 = (Clothing)item2;
  ItemVisual itemVisual0 = clothing0.getVisual();
- if (itemVisual0 == nullptr) {
+ if (itemVisual0.empty()) {
  break;
  }
 
@@ -341,7 +341,7 @@ public:
  item1 = this->clothing[int2].get(int3);
  if (item1 instanceof Clothing clothing0) {
  ItemVisual itemVisual = clothing0.getVisual();
- if (itemVisual == nullptr) {
+ if (itemVisual.empty()) {
  break;
  }
 

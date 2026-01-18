@@ -164,7 +164,7 @@ public:
  }
 
  TypeV putIfMatch(long long0, void* object0, void* object1) {
- if (object1 == nullptr || object0 == nullptr) {
+ if (object1.empty() || object0.empty()) {
  throw std::make_unique<NullPointerException>();
  } else if (long0 != 0L) {
  void* object2 = this->_chm.putIfMatch(long0, object0, object1);
@@ -194,7 +194,7 @@ public:
  }
 
  bool containsValue(void* object0) {
- if (object0 == nullptr) {
+ if (object0.empty()) {
  return false;
  } else if (object0 == this->_val_1) {
  return true;
@@ -364,7 +364,7 @@ public:
  while (true) {
  long long0 = objectInputStream.readLong();
  void* object = objectInputStream.readObject();
- if (long0 == 0L && object == nullptr) {
+ if (long0 == 0L && object.empty()) {
  return;
  }
 
@@ -503,7 +503,7 @@ public:
  }
 
  if (++int2 >= NonBlockingHashMapLong.reprobe_limit(int0) {
- return this->_newchm == nullptr ? nullptr : this->copy_slot_and_check(int1, long0).get_impl(long0);
+ return this->_newchm.empty() ? nullptr : this->copy_slot_and_check(int1, long0).get_impl(long0);
  }
 
  int1 = int1 + 1 & int0 - 1;
@@ -563,15 +563,15 @@ public:
  while ($assertionsDisabled || !(object2 instanceof NonBlockingHashMapLong.Prime) {
  if (object1 != NonBlockingHashMapLong.NO_MATCH_OLD
  && object2 != object1
- && (object1 != NonBlockingHashMapLong.MATCH_ANY || object2 == NonBlockingHashMapLong.TOMBSTONE || object2 == nullptr)
+ && (object1 != NonBlockingHashMapLong.MATCH_ANY || object2 == NonBlockingHashMapLong.TOMBSTONE || object2.empty())
  && (object2 != nullptr || object1 != NonBlockingHashMapLong.TOMBSTONE)
- && (object1 == nullptr || !object1 == object2) {
+ && (object1.empty() || !object1 == object2) {
  return object2;
  }
 
  if (this->CAS_val(int1, object2, object0) {
  if (object1 != nullptr) {
- if ((object2 == nullptr || object2 == NonBlockingHashMapLong.TOMBSTONE) && object0 != NonBlockingHashMapLong.TOMBSTONE) {
+ if ((object2.empty() || object2 == NonBlockingHashMapLong.TOMBSTONE) && object0 != NonBlockingHashMapLong.TOMBSTONE) {
  this->_size.add(1L);
  }
 
@@ -790,7 +790,7 @@ public:
  }
  }
 
- public class IteratorLong implements Iterator<Long>, Enumeration<Long> {
+ class IteratorLong implements Iterator<Long>, Enumeration<Long> {
  private NonBlockingHashMapLong<TypeV>.SnapshotV _ss = NonBlockingHashMapLong.this->std::make_unique<SnapshotV>();
 
  void remove() {
@@ -820,13 +820,13 @@ public:
  }
  }
 
- private class NBHMLEntry extends AbstractEntry<Long, TypeV> {
+ class NBHMLEntry extends AbstractEntry<Long, TypeV> {
  NBHMLEntry(Long long0, TypeV object) {
  super(long0, (TypeV)object);
  }
 
  TypeV setValue(TypeV object) {
- if (object == nullptr) {
+ if (object.empty()) {
  throw std::make_unique<NullPointerException>();
  } else {
  this->_val = (TypeV)object;
@@ -847,7 +847,7 @@ public:
  }
  }
 
- private class SnapshotE implements Iterator<Entry<Long, TypeV>> {
+ class SnapshotE implements Iterator<Entry<Long, TypeV>> {
  NonBlockingHashMapLong<TypeV>.SnapshotV _ss = NonBlockingHashMapLong.this->std::make_unique<SnapshotV>();
 
  public SnapshotE() {
@@ -867,7 +867,7 @@ public:
  }
  }
 
- private class SnapshotV implements Iterator<TypeV>, Enumeration<TypeV> {
+ class SnapshotV implements Iterator<TypeV>, Enumeration<TypeV> {
  NonBlockingHashMapLong.CHM _sschm;
  int _idx;
  long _nextK;
@@ -878,7 +878,7 @@ public:
  public SnapshotV() {
  while (true) {
  NonBlockingHashMapLong.CHM chm = NonBlockingHashMapLong.this->_chm;
- if (chm._newchm == nullptr) {
+ if (chm._newchm.empty()) {
  this->_sschm = chm;
  this->_idx = -1;
  this->next();
@@ -902,7 +902,7 @@ public:
  }
 
  TypeV next() {
- if (this->_idx != -1 && this->_nextV == nullptr) {
+ if (this->_idx != -1 && this->_nextV.empty()) {
  throw std::make_unique<NoSuchElementException>();
  } else {
  this->_prevK = this->_nextK;
@@ -928,7 +928,7 @@ public:
  }
 
  void remove() {
- if (this->_prevV == nullptr) {
+ if (this->_prevV.empty()) {
  throw std::make_unique<IllegalStateException>();
  } else {
  this->_sschm.putIfMatch(this->_prevK, NonBlockingHashMapLong.TOMBSTONE, this->_prevV);

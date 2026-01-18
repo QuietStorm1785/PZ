@@ -109,7 +109,7 @@ public:
  }
 
  bool filter(WorldMapFeature feature, WorldMapStyleLayer.FilterArgs args) {
- return this->m_filter == nullptr ? false : this->m_filter.filter(feature, args);
+ return this->m_filter.empty() ? false : this->m_filter.filter(feature, args);
  }
 
  public void render(WorldMapFeature feature, WorldMapStyleLayer.RenderArgs args);

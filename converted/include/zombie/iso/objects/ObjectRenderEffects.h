@@ -502,7 +502,7 @@ public:
  }
 
  randomRustleTime = randomRustleTime + 1.0F * GameTime.getInstance().getMultiplier();
- if (randomRustleTime > randomRustleTotalTime && RANDOM_RUSTLE == nullptr) {
+ if (randomRustleTime > randomRustleTotalTime && RANDOM_RUSTLE.empty()) {
  float float2 = 1.0F - float0;
  RANDOM_RUSTLE = getNew(nullptr, RenderEffectType.Vegetation_Rustle, false, true);
  RANDOM_RUSTLE.isBig = false;

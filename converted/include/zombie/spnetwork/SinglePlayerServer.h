@@ -218,7 +218,7 @@ public:
  player = getAnyPlayerFromConnection(udpConnection);
  }
 
- if (player == nullptr) {
+ if (player.empty()) {
  DebugLog.log("receiveClientCommand: player is nullptr");
  } else {
  LuaEventManager.triggerEvent("OnClientCommand", string0, string1, player, table);
@@ -232,7 +232,7 @@ public:
  player = getAnyPlayerFromConnection(udpConnection);
  }
 
- if (player == nullptr) {
+ if (player.empty()) {
  DebugLog.log("receiveGlobalObjects: player is nullptr");
  } else {
  SGlobalObjectNetwork.receive(byteBuffer, player);

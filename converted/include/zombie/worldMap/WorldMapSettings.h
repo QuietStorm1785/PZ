@@ -27,7 +27,7 @@ public:
  int m_readVersion = 0;
 
  static WorldMapSettings getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<WorldMapSettings>();
  instance.load();
  }
@@ -130,14 +130,14 @@ public:
  }
  }
 
- public class MiniMap {
+ class MiniMap {
  DoubleConfigOption Zoom = WorldMapSettings.this->newOption("MiniMap.Zoom", 0.0, 24.0, 19.0);
  BooleanConfigOption Isometric = WorldMapSettings.this->newOption("MiniMap.Isometric", true);
  BooleanConfigOption ShowSymbols = WorldMapSettings.this->newOption("MiniMap.ShowSymbols", false);
  BooleanConfigOption StartVisible = WorldMapSettings.this->newOption("MiniMap.StartVisible", true);
  }
 
- public class WorldMap {
+ class WorldMap {
  DoubleConfigOption CenterX = WorldMapSettings.this->newOption("WorldMap.CenterX", -Double.MAX_VALUE, Double.MAX_VALUE, 0.0);
  DoubleConfigOption CenterY = WorldMapSettings.this->newOption("WorldMap.CenterY", -Double.MAX_VALUE, Double.MAX_VALUE, 0.0);
  DoubleConfigOption Zoom = WorldMapSettings.this->newOption("WorldMap.Zoom", 0.0, 24.0, 0.0);

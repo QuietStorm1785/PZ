@@ -54,7 +54,7 @@ public:
  if (hairStyles != nullptr) {
  for (HairStyle hairStyle0 : hairStyles.m_FemaleStyles) {
  HairStyle hairStyle1 = instance.FindFemaleStyle(hairStyle0.name);
- if (hairStyle1 == nullptr) {
+ if (hairStyle1.empty()) {
  instance.m_FemaleStyles.add(hairStyle0);
  } else {
  if (DebugLog.isEnabled(DebugType.Clothing) {
@@ -68,7 +68,7 @@ public:
 
  for (HairStyle hairStyle2 : hairStyles.m_MaleStyles) {
  HairStyle hairStyle3 = instance.FindMaleStyle(hairStyle2.name);
- if (hairStyle3 == nullptr) {
+ if (hairStyle3.empty()) {
  instance.m_MaleStyles.add(hairStyle2);
  } else {
  if (DebugLog.isEnabled(DebugType.Clothing) {

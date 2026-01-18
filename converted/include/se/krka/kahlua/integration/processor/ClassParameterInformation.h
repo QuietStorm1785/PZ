@@ -35,7 +35,7 @@ public:
 
  public ClassParameterInformation(Class<?> clazz) {
  Package _package = clazz.getPackage();
- this->packageName = _package == nullptr ? nullptr : _package.getName();
+ this->packageName = _package.empty() ? nullptr : _package.getName();
  this->simpleClassName = clazz.getSimpleName();
 
  for (Constructor constructor : clazz.getConstructors()) {
@@ -62,7 +62,7 @@ public:
  static ClassParameterInformation getFromStream(Class<?> clazz) {
  std::string string = getFileName(clazz);
  InputStream inputStream = clazz.getResourceAsStream(string);
- if (inputStream == nullptr) {
+ if (inputStream.empty()) {
  return nullptr;
  } else {
  ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);

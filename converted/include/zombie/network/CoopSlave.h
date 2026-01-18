@@ -84,7 +84,7 @@ public:
  }
 
  public synchronized void sendSteamID(String string) {
- if (this->serverSteamID == nullptr && SteamUtils.isSteamModeEnabled()) {
+ if (this->serverSteamID.empty() && SteamUtils.isSteamModeEnabled()) {
  this->serverSteamID = SteamGameServer.GetSteamID();
  }
 

@@ -27,7 +27,7 @@ public:
  private static BitHeader.BitHeaderBase getHeader(BitHeader.HeaderSize headerSize, ByteBuffer byteBuffer, boolean boolean0) {
  if (headerSize == BitHeader.HeaderSize.Byte) {
  BitHeader.BitHeaderByte bitHeaderByte = pool_byte.poll();
- if (bitHeaderByte == nullptr) {
+ if (bitHeaderByte.empty()) {
  bitHeaderByte = new BitHeader.BitHeaderByte();
  }
 
@@ -36,7 +36,7 @@ public:
  return bitHeaderByte;
  } else if (headerSize == BitHeader.HeaderSize.Short) {
  BitHeader.BitHeaderShort bitHeaderShort = pool_short.poll();
- if (bitHeaderShort == nullptr) {
+ if (bitHeaderShort.empty()) {
  bitHeaderShort = new BitHeader.BitHeaderShort();
  }
 
@@ -45,7 +45,7 @@ public:
  return bitHeaderShort;
  } else if (headerSize == BitHeader.HeaderSize.Integer) {
  BitHeader.BitHeaderInt bitHeaderInt = pool_int.poll();
- if (bitHeaderInt == nullptr) {
+ if (bitHeaderInt.empty()) {
  bitHeaderInt = new BitHeader.BitHeaderInt();
  }
 
@@ -54,7 +54,7 @@ public:
  return bitHeaderInt;
  } else if (headerSize == BitHeader.HeaderSize.Long) {
  BitHeader.BitHeaderLong bitHeaderLong = pool_long.poll();
- if (bitHeaderLong == nullptr) {
+ if (bitHeaderLong.empty()) {
  bitHeaderLong = new BitHeader.BitHeaderLong();
  }
 

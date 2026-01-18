@@ -22,7 +22,7 @@ public:
  }
 
  std::string getMessage() {
- return this->errorMessage == nullptr ? "nil" : this->errorMessage.toString();
+ return this->errorMessage.empty() ? "nil" : this->errorMessage.toString();
  }
 }
 } // namespace vm

@@ -66,11 +66,11 @@ public:
  }
  }
 
- if (this->identificationHeader == nullptr) {
+ if (this->identificationHeader.empty()) {
  throw VorbisFormatException("The file has no identification header.");
- } else if (this->commentHeader == nullptr) {
+ } else if (this->commentHeader.empty()) {
  throw VorbisFormatException("The file has no commentHeader.");
- } else if (this->setupHeader == nullptr) {
+ } else if (this->setupHeader.empty()) {
  throw VorbisFormatException("The file has no setup header.");
  } else {
  this->currentPcm = new byte[this->identificationHeader.getChannels() * this->identificationHeader.getBlockSize1() * 2];
@@ -100,11 +100,11 @@ public:
  int readPcm(byte[] bytes, int int5, int int4) {
  synchronized (this->streamLock) {
  int int0 = this->identificationHeader.getChannels();
- if (this->lastAudioPacket == nullptr) {
+ if (this->lastAudioPacket.empty()) {
  this->lastAudioPacket = this->getNextAudioPacket();
  }
 
- if (this->currentPcm == nullptr || this->currentPcmIndex >= this->currentPcmLimit) {
+ if (this->currentPcm.empty() || this->currentPcmIndex >= this->currentPcmLimit) {
  AudioPacket audioPacket = this->getNextAudioPacket();
 
  try {
@@ -137,7 +137,7 @@ public:
  byte[] bytes = this->oggStream.getNextOggPacket();
  AudioPacket audioPacket = nullptr;
 
- while (audioPacket == nullptr) {
+ while (audioPacket.empty()) {
  try {
  audioPacket = new AudioPacket(this, new ByteArrayBitInputStream(bytes);
  } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
@@ -180,7 +180,7 @@ public:
  } else if (this->identificationHeader != nullptr && this->commentHeader != nullptr && this->setupHeader != nullptr) {
  AudioPacket audioPacket = new AudioPacket(this, new ByteArrayBitInputStream(bytes0);
  this->currentGranulePosition = this->currentGranulePosition + audioPacket.getNumberOfSamples();
- if (this->lastAudioPacket == nullptr) {
+ if (this->lastAudioPacket.empty()) {
  this->lastAudioPacket = audioPacket;
  return nullptr;
  } else {

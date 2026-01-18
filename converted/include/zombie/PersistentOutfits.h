@@ -88,7 +88,7 @@ public:
  void initOutfit(const std::string& string, bool boolean0, bool boolean1, PersistentOutfits.IOutfitter iOutfitter) {
  TreeMap treeMap = boolean0 ? this->m_outfitToFemale : this->m_outfitToMale;
  PersistentOutfits.Data data = this->m_outfitToData.get(string);
- if (data == nullptr) {
+ if (data.empty()) {
  data = new PersistentOutfits.Data();
  data.m_index = (short)this->m_all.size();
  data.m_outfitName = string;
@@ -142,7 +142,7 @@ public:
 
  int pickOutfitFemale(const std::string& string) {
  PersistentOutfits.Data data = this->m_outfitToFemale.get(string);
- if (data == nullptr) {
+ if (data.empty()) {
  return 0;
  } else {
  short short0 = (short)data.m_index;
@@ -153,7 +153,7 @@ public:
 
  int pickOutfitMale(const std::string& string) {
  PersistentOutfits.Data data = this->m_outfitToMale.get(string);
- if (data == nullptr) {
+ if (data.empty()) {
  return 0;
  } else {
  short short0 = (short)data.m_index;

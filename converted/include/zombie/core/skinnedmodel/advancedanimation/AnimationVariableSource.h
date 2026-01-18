@@ -24,7 +24,7 @@ public:
  * Returns the specified variable slot. Or NULL if not found.
  */
  IAnimationVariableSlot getVariable(AnimationVariableHandle handle) {
- if (handle == nullptr) {
+ if (handle.empty()) {
  return nullptr;
  } else {
  int int0 = handle.getVariableIndex();
@@ -32,7 +32,7 @@ public:
  return nullptr;
  } else if (this->m_cachedGameVariableSlots != nullptr && int0 < this->m_cachedGameVariableSlots.length) {
  IAnimationVariableSlot iAnimationVariableSlot0 = this->m_cachedGameVariableSlots[int0];
- if (iAnimationVariableSlot0 == nullptr) {
+ if (iAnimationVariableSlot0.empty()) {
  this->m_cachedGameVariableSlots[int0] = this->m_GameVariables.get(handle.getVariableName());
  iAnimationVariableSlot0 = this->m_cachedGameVariableSlots[int0];
  }
@@ -40,7 +40,7 @@ public:
  return iAnimationVariableSlot0;
  } else {
  IAnimationVariableSlot iAnimationVariableSlot1 = this->m_GameVariables.get(handle.getVariableName());
- if (iAnimationVariableSlot1 == nullptr) {
+ if (iAnimationVariableSlot1.empty()) {
  return nullptr;
  } else {
  IAnimationVariableSlot[] iAnimationVariableSlots0 = new IAnimationVariableSlot[int0 + 1];
@@ -80,7 +80,7 @@ public:
  } else {
  std::string string = key.trim();
  void* object = this->m_GameVariables.get(string);
- if (object == nullptr) {
+ if (object.empty()) {
  object = new AnimationVariableGenericSlot(string.toLowerCase());
  this->setVariable((IAnimationVariableSlot)object);
  }

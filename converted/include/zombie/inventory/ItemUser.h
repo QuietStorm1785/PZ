@@ -102,14 +102,14 @@ public:
  static void CreateItem(const std::string& string, ArrayList<InventoryItem> arrayList) {
  arrayList.clear();
  Item item0 = ScriptManager.instance.FindItem(string);
- if (item0 == nullptr) {
+ if (item0.empty()) {
  DebugLog.General.warn("ERROR: ItemUses.CreateItem: can't find " + string);
  } else {
  int int0 = item0.getCount();
 
  for (int int1 = 0; int1 < int0; int1++) {
  InventoryItem item1 = InventoryItemFactory.CreateItem(string);
- if (item1 == nullptr) {
+ if (item1.empty()) {
  return;
  }
 

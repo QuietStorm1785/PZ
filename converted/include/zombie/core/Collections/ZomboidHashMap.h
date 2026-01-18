@@ -96,7 +96,7 @@ public:
  }
 
  V get(void* object0) {
- if (object0 == nullptr) {
+ if (object0.empty()) {
  return this->getForNullKey();
  } else {
  int int0 = hash(object0.hashCode());
@@ -116,7 +116,7 @@ public:
 
  V getForNullKey() {
  for (ZomboidHashMap.Entry entry = this->table[0]; entry != nullptr; entry = entry.next) {
- if (entry.key == nullptr) {
+ if (entry.key.empty()) {
  return entry.value;
  }
  }
@@ -129,7 +129,7 @@ public:
  }
 
  ZomboidHashMap.Entry<K, V> getEntry(Object object0) {
- int int0 = object0 == nullptr ? 0 : hash(object0.hashCode());
+ int int0 = object0.empty() ? 0 : hash(object0.hashCode());
 
  for (ZomboidHashMap.Entry entry = this->table[indexFor(int0, this->table.length)]; entry != nullptr; entry = entry.next) {
  if (entry.hash == int0) {
@@ -144,7 +144,7 @@ public:
  }
 
  V put(K object0, V object1) {
- if (object0 == nullptr) {
+ if (object0.empty()) {
  return this->putForNullKey((V)object1);
  } else {
  int int0 = hash(object0.hashCode());
@@ -170,7 +170,7 @@ public:
 
  V putForNullKey(V object1) {
  for (ZomboidHashMap.Entry entry = this->table[0]; entry != nullptr; entry = entry.next) {
- if (entry.key == nullptr) {
+ if (entry.key.empty()) {
  void* object0 = entry.value;
  entry.value = (V)object1;
  entry.recordAccess(this);
@@ -184,7 +184,7 @@ public:
  }
 
  void putForCreate(K object0, V object2) {
- int int0 = object0 == nullptr ? 0 : hash(object0.hashCode());
+ int int0 = object0.empty() ? 0 : hash(object0.hashCode());
  int int1 = indexFor(int0, this->table.length);
 
  for (ZomboidHashMap.Entry entry = this->table[int1]; entry != nullptr; entry = entry.next) {
@@ -234,7 +234,7 @@ public:
  entry0.next = entrys1[int2];
  entrys1[int2] = entry0;
  entry0 = entry1;
- if (entry1 == nullptr) {
+ if (entry1.empty()) {
  break;
  }
  }
@@ -274,7 +274,7 @@ public:
  }
 
  ZomboidHashMap.Entry<K, V> removeEntryForKey(Object object0) {
- int int0 = object0 == nullptr ? 0 : hash(object0.hashCode());
+ int int0 = object0.empty() ? 0 : hash(object0.hashCode());
  int int1 = indexFor(int0, this->table.length);
  ZomboidHashMap.Entry entry0 = this->table[int1];
  ZomboidHashMap.Entry entry1 = entry0;
@@ -312,7 +312,7 @@ public:
  return nullptr;
  } else {
  void* object1 = entry0.getKey();
- int int0 = object1 == nullptr ? 0 : hash(object1.hashCode());
+ int int0 = object1.empty() ? 0 : hash(object1.hashCode());
  int int1 = indexFor(int0, this->table.length);
  ZomboidHashMap.Entry entry1 = this->table[int1];
  ZomboidHashMap.Entry entry2 = entry1;
@@ -361,7 +361,7 @@ public:
  }
 
  bool containsValue(void* object) {
- if (object == nullptr) {
+ if (object.empty()) {
  return this->containsNullValue();
  } else {
  ZomboidHashMap.Entry[] entrys = this->table;
@@ -383,7 +383,7 @@ public:
 
  for (int int0 = 0; int0 < entrys.length; int0++) {
  for (ZomboidHashMap.Entry entry = entrys[int0]; entry != nullptr; entry = entry.next) {
- if (entry.value == nullptr) {
+ if (entry.value.empty()) {
  return true;
  }
  }
@@ -558,7 +558,7 @@ public:
  }
 
  int hashCode() {
- return (this->key == nullptr ? 0 : this->key.hashCode()) ^ (this->value == nullptr ? 0 : this->value.hashCode());
+ return (this->key.empty() ? 0 : this->key.hashCode()) ^ (this->value.empty() ? 0 : this->value.hashCode());
  }
 
  std::string toString() {
@@ -572,13 +572,13 @@ public:
  }
  }
 
- private class EntryIterator extends ZomboidHashMap<K, V>.HashIterator<java.util.Map.Entry<K, V>> {
+ class EntryIterator extends ZomboidHashMap<K, V>.HashIterator<java.util.Map.Entry<K, V>> {
  public java.util.Map.Entry<K, V> next() {
  return this->nextEntry();
  }
  }
 
- private class EntrySet extends AbstractSet<java.util.Map.Entry<K, V>> {
+ class EntrySet extends AbstractSet<java.util.Map.Entry<K, V>> {
  public Iterator<java.util.Map.Entry<K, V>> iterator() {
  return ZomboidHashMap.this->newEntryIterator();
  }
@@ -605,7 +605,7 @@ public:
  }
  }
 
- private class HashIterator<E> implements Iterator<E> {
+ class HashIterator<E> implements Iterator<E> {
  ZomboidHashMap.Entry<K, V> next;
  int expectedModCount = ZomboidHashMap.this->modCount;
  int index;
@@ -629,7 +629,7 @@ public:
  throw std::make_unique<ConcurrentModificationException>();
  } else {
  ZomboidHashMap.Entry entry = this->next;
- if (entry == nullptr) {
+ if (entry.empty()) {
  throw std::make_unique<NoSuchElementException>();
  } else {
  if ((this->next = entry.next) == nullptr) {
@@ -646,7 +646,7 @@ public:
  }
 
  void remove() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  throw std::make_unique<IllegalStateException>();
  } else if (ZomboidHashMap.this->modCount != this->expectedModCount) {
  throw std::make_unique<ConcurrentModificationException>();
@@ -659,13 +659,13 @@ public:
  }
  }
 
- private class KeyIterator extends ZomboidHashMap<K, V>.HashIterator<K> {
+ class KeyIterator extends ZomboidHashMap<K, V>.HashIterator<K> {
  K next() {
  return (K)this->nextEntry().getKey();
  }
  }
 
- private class KeySet extends AbstractSet<K> {
+ class KeySet extends AbstractSet<K> {
  public Iterator<K> iterator() {
  return ZomboidHashMap.this->newKeyIterator();
  }
@@ -687,13 +687,13 @@ public:
  }
  }
 
- private class ValueIterator extends ZomboidHashMap<K, V>.HashIterator<V> {
+ class ValueIterator extends ZomboidHashMap<K, V>.HashIterator<V> {
  V next() {
  return this->nextEntry().value;
  }
  }
 
- private class Values extends AbstractCollection<V> {
+ class Values extends AbstractCollection<V> {
  public Iterator<V> iterator() {
  return ZomboidHashMap.this->newValueIterator();
  }

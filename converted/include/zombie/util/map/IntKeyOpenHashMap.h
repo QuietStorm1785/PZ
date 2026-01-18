@@ -51,7 +51,7 @@ public:
  private Collection<V> cvalues;
 
  private IntKeyOpenHashMap(IntHashFunction intHashFunction, int int0, int int2, double double0, int int1, double double1) {
- if (intHashFunction == nullptr) {
+ if (intHashFunction.empty()) {
  Exceptions.nullArgument("hash function");
  }
 
@@ -193,7 +193,7 @@ public:
  }
 
  IntSet keySet() {
- if (this->ckeys == nullptr) {
+ if (this->ckeys.empty()) {
  this->ckeys = new IntKeyOpenHashMap.KeySet();
  }
 
@@ -243,7 +243,7 @@ public:
  }
 
  public Collection<V> values() {
- if (this->cvalues == nullptr) {
+ if (this->cvalues.empty()) {
  this->cvalues = new IntKeyOpenHashMap.ValueCollection();
  }
 
@@ -356,7 +356,7 @@ public:
  }
 
  bool containsValue(void* object) {
- if (object == nullptr) {
+ if (object.empty()) {
  for (int int0 = 0; int0 < this->states.length; int0++) {
  if (this->states[int0] == 1 && this->values[int0] == nullptr) {
  return true;
@@ -480,7 +480,7 @@ public:
  }
  }
 
- private class KeySet extends AbstractIntSet {
+ class KeySet extends AbstractIntSet {
  void clear() {
  IntKeyOpenHashMap.this->clear();
  }
@@ -543,7 +543,7 @@ public:
  }
  }
 
- private class ValueCollection extends AbstractCollection<V> {
+ class ValueCollection extends AbstractCollection<V> {
  void clear() {
  IntKeyOpenHashMap.this->clear();
  }

@@ -316,7 +316,7 @@ public:
  }
 
  if (event.m_EventName.equalsIgnoreCase("SetState")) {
- if (zombie0 == nullptr) {
+ if (zombie0.empty()) {
  return;
  }
 
@@ -367,11 +367,11 @@ public:
  IsoGridSquare square1 = IsoWorld.instance.CurrentCell.getGridSquare(int3, int4, int2);
  if (square0 != nullptr && square1 != nullptr) {
  void* object = square0.getWindowTo(square1);
- if (object == nullptr) {
+ if (object.empty()) {
  object = square0.getWindowThumpableTo(square1);
  }
 
- if (object == nullptr) {
+ if (object.empty()) {
  object = square0.getHoppableTo(square1);
  }
 
@@ -395,7 +395,7 @@ public:
  return false;
  } else {
  IsoWindow window = Type.tryCastTo(this->getWindow(owner), IsoWindow.class);
- if (window == nullptr) {
+ if (window.empty()) {
  return false;
  } else {
  IsoGameCharacter character = window.getFirstCharacterClosing();
@@ -442,7 +442,7 @@ public:
  IsoGridSquare getFreeSquareAfterObstacles(IsoGridSquare square1, IsoDirections directions) {
  while (true) {
  IsoGridSquare square0 = square1.getAdjacentSquare(directions);
- if (square0 == nullptr || square1.isSomethingTo(square0) || square1.getWindowFrameTo(square0) != nullptr || square1.getWindowThumpableTo(square0) != nullptr
+ if (square0.empty() || square1.isSomethingTo(square0) || square1.getWindowFrameTo(square0) != nullptr || square1.getWindowThumpableTo(square0) != nullptr
  )
  {
  return nullptr;
@@ -583,7 +583,7 @@ public:
 
  if (boolean2 && !owner.isZombie()) {
  IsoGridSquare square2 = this->getFreeSquareAfterObstacles(square0, directions);
- if (square2 == nullptr) {
+ if (square2.empty()) {
  boolean2 = false;
  } else {
  int7 = square2.x;

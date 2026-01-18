@@ -1310,7 +1310,7 @@ public:
  }
 
  std::string getSoundByID(const std::string& ID) {
- return this->SoundMap == nullptr ? nullptr : this->SoundMap.getOrDefault(ID, nullptr);
+ return this->SoundMap.empty() ? nullptr : this->SoundMap.getOrDefault(ID, nullptr);
  }
 
  std::string getSkillTrained() {
@@ -1372,7 +1372,7 @@ public:
  }
 
  std::string getReplaceType(const std::string& key) {
- return this->ReplaceTypesMap == nullptr ? nullptr : this->ReplaceTypesMap.get(key);
+ return this->ReplaceTypesMap.empty() ? nullptr : this->ReplaceTypesMap.get(key);
  }
 
  bool hasReplaceType(const std::string& key) {
@@ -1775,7 +1775,7 @@ public:
  for (auto& string1 : strings0) this->DoParam(string1);
  }
 
- if (this->DisplayName == nullptr) {
+ if (this->DisplayName.empty()) {
  this->DisplayName = this->getFullName();
  this->Hidden = true;
  }
@@ -2292,7 +2292,7 @@ public:
  this->Icon = string1;
  this->ItemName = "Item_" + this->Icon;
  this->NormalTexture = Texture.trygetTexture(this->ItemName);
- if (this->NormalTexture == nullptr) {
+ if (this->NormalTexture.empty()) {
  this->NormalTexture = Texture.getSharedTexture("media/inventory/Question_On.png");
  }
 
@@ -2302,7 +2302,7 @@ public:
  if (this->type == Item.Type.Food) {
  Texture texture0 = Texture.trygetTexture(this->ItemName + "Rotten");
  std::string string2 = this->WorldTextureName.replace(".png", "Rotten.png");
- if (texture0 == nullptr) {
+ if (texture0.empty()) {
  texture0 = Texture.trygetTexture(this->ItemName + "Spoiled");
  string2 = string2.replace("Rotten.png", "Spoiled.png");
  }
@@ -2313,7 +2313,7 @@ public:
  this->SpecialWorldTextureNames.add(this->WorldTextureName.replace(".png", "Cooked.png"));
  Texture texture1 = Texture.trygetTexture(this->ItemName + "Overdone");
  std::string string3 = this->WorldTextureName.replace(".png", "Overdone.png");
- if (texture1 == nullptr) {
+ if (texture1.empty()) {
  texture1 = Texture.trygetTexture(this->ItemName + "Burnt");
  string3 = string3.replace("Overdone.png", "Burnt.png");
  }
@@ -2384,7 +2384,7 @@ public:
  std::string string4 = strings2[0].trim();
  std::string string5 = strings2[1].trim();
  if (!string4.empty() && !string5.empty()) {
- if (this->ReplaceTypesMap == nullptr) {
+ if (this->ReplaceTypesMap.empty()) {
  this->ReplaceTypesMap = std::make_unique<HashMap<>>();
  }
 
@@ -2400,7 +2400,7 @@ public:
  std::string string7 = strings4[0].trim();
  std::string string8 = strings4[1].trim();
  if (!string7.empty() && !string8.empty()) {
- if (this->ReplaceTypesMap == nullptr) {
+ if (this->ReplaceTypesMap.empty()) {
  this->ReplaceTypesMap = std::make_unique<HashMap<>>();
  }
 
@@ -2476,7 +2476,7 @@ public:
  } else if (string0.trim().equalsIgnoreCase("jamGunChance")) {
  this->jamGunChance = Float.parseFloat(string1);
  } else if (string0.trim().equalsIgnoreCase("modelWeaponPart")) {
- if (this->modelWeaponPart == nullptr) {
+ if (this->modelWeaponPart.empty()) {
  this->modelWeaponPart = std::make_unique<ArrayList<>>();
  }
 
@@ -2492,7 +2492,7 @@ public:
  }
  }
 
- if (modelWeaponPart0 == nullptr) {
+ if (modelWeaponPart0.empty()) {
  modelWeaponPart0 = std::make_unique<ModelWeaponPart>();
  }
 
@@ -2695,7 +2695,7 @@ public:
  } else if (string0.trim().equalsIgnoreCase("SoundMap")) {
  String[] strings10 = string1.split("\\s+");
  if (strings10.length == 2 && !strings10[0].trim().empty()) {
- if (this->SoundMap == nullptr) {
+ if (this->SoundMap.empty()) {
  this->SoundMap = std::make_unique<HashMap<>>();
  }
 
@@ -3053,7 +3053,7 @@ public:
  }
 
  itemRecipe.cooked = boolean0;
- if (evolvedRecipe0 == nullptr) {
+ if (evolvedRecipe0.empty()) {
  evolvedRecipe0 = new EvolvedRecipe((String)object);
  ScriptManager.instance.ModuleMap.get("Base").EvolvedRecipeMap.add(evolvedRecipe0);
  }
@@ -3110,14 +3110,14 @@ public:
  this->LuaCreate = string1.trim();
  } else if (string0.trim().equalsIgnoreCase("SoundParameter")) {
  String[] strings17 = string1.split("\\s+");
- if (this->soundParameterMap == nullptr) {
+ if (this->soundParameterMap.empty()) {
  this->soundParameterMap = std::make_unique<HashMap<>>();
  }
 
  this->soundParameterMap.put(strings17[0].trim(), strings17[1].trim());
  } else {
  DebugLog.log("adding unknown item param \"" + string0.trim() + "\" = \"" + string1.trim() + "\"");
- if (this->DefaultModData == nullptr) {
+ if (this->DefaultModData.empty()) {
  this->DefaultModData = LuaManager.platform.newTable();
  }
 
@@ -3275,7 +3275,7 @@ public:
 
  void setModID(const std::string& modid) {
  if (GameClient.bClient) {
- if (this->modID == nullptr) {
+ if (this->modID.empty()) {
  this->modID = modid;
  } else if (!modid == this->modID) && Core.bDebug) {
  WorldDictionary.DebugPrintItem(this);
@@ -3305,7 +3305,7 @@ public:
  }
 
  std::string getSoundParameter(const std::string& parameterName) {
- return this->soundParameterMap == nullptr ? nullptr : this->soundParameterMap.get(parameterName);
+ return this->soundParameterMap.empty() ? nullptr : this->soundParameterMap.get(parameterName);
  }
 
  public static enum Type {

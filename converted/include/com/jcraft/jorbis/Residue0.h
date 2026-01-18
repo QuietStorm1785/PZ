@@ -88,7 +88,7 @@ public:
  int int2 = infoResidue0.end - infoResidue0.begin;
  int int3 = int2 / int0;
  int int4 = (int3 + int1 - 1) / int1;
- if (_2inverse_partword == nullptr || _2inverse_partword.length < int4) {
+ if (_2inverse_partword.empty() || _2inverse_partword.length < int4) {
  _2inverse_partword = new int[int4][];
  }
 

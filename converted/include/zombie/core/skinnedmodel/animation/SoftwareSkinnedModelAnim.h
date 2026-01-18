@@ -75,7 +75,7 @@ public:
  this->vertCount = softwareModelMesh.verticesUnskinned.length;
  this->elementCount = softwareModelMesh.indicesUnskinned.length;
  Vbo vbo = new Vbo();
- if (boneTransforms == nullptr) {
+ if (boneTransforms.empty()) {
  boneTransforms = new Matrix4f[skinningData.BindPose.size()];
  worldTransforms = new Matrix4f[skinningData.BindPose.size()];
  skinTransforms = new Matrix4f[skinningData.BindPose.size()];

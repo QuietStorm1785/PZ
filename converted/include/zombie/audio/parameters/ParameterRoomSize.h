@@ -25,7 +25,7 @@ public:
 
  float calculateCurrentValue() {
  IsoGameCharacter character = this->getCharacter();
- if (character == nullptr) {
+ if (character.empty()) {
  return 0.0F;
  } else {
  RoomDef roomDef = character.getCurrentRoomDef();
@@ -43,7 +43,7 @@ public:
 
  for (int int0 = 0; int0 < IsoPlayer.numPlayers; int0++) {
  IsoPlayer player1 = IsoPlayer.players[int0];
- if (player1 != nullptr && (player0 == nullptr || player0.isDead() && player1.isAlive() || player0.Traits.Deaf.isSet() && !player1.Traits.Deaf.isSet())) {
+ if (player1 != nullptr && (player0.empty() || player0.isDead() && player1.isAlive() || player0.Traits.Deaf.isSet() && !player1.Traits.Deaf.isSet())) {
  player0 = player1;
  }
  }

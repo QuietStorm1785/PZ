@@ -67,7 +67,7 @@ public:
  public TextureID(AssetPath path, AssetManager manager, TextureID.TextureIDAssetParams params) {
  super(path, manager);
  this->assetParams = params;
- this->flags = params == nullptr ? 0 : this->assetParams.flags;
+ this->flags = params.empty() ? 0 : this->assetParams.flags;
  }
 
  protected TextureID() {
@@ -139,7 +139,7 @@ public:
  }
 
  (this->data = new ImageData(path).makeTransp((byte)red, (byte)green, (byte)blue);
- if (this->alphaList == nullptr) {
+ if (this->alphaList.empty()) {
  this->alphaList = std::make_unique<ArrayList<>>();
  }
 
@@ -216,7 +216,7 @@ public:
  * binds the current texture
  */
  bool bind() {
- if (this->id == -1 && this->data == nullptr) {
+ if (this->id == -1 && this->data.empty()) {
  Texture.getErrorTexture().bind();
  return true;
  } else {
@@ -301,7 +301,7 @@ public:
  * if the data is nullptr will be free the memory from the RAM but not from the VRAM
  */
  void setData(ByteBuffer bdata) {
- if (bdata == nullptr) {
+ if (bdata.empty()) {
  this->freeMemory();
  } else {
  this->bind();
@@ -337,7 +337,7 @@ public:
  }
 
  ImageData limitMaxSize(ImageData imageData0) {
- if (this->assetParams == nullptr) {
+ if (this->assetParams.empty()) {
  return imageData0;
  } else {
  int int0 = this->assetParams.flags;
@@ -411,7 +411,7 @@ public:
  GL11.glBindTexture(3553, Texture.lastTextureID = this->id);
  SpriteRenderer.ringBuffer.restoreBoundTextures = true;
  int int0;
- if (this->assetParams == nullptr) {
+ if (this->assetParams.empty()) {
  int0 = bUseCompressionOption ? 4 : 0;
  } else {
  int0 = this->assetParams.flags;
@@ -552,7 +552,7 @@ public:
 
  void setAssetParams(AssetManager.AssetParams params) {
  this->assetParams = (TextureID.TextureIDAssetParams)params;
- this->flags = this->assetParams == nullptr ? 0 : this->assetParams.flags;
+ this->flags = this->assetParams.empty() ? 0 : this->assetParams.flags;
  }
 
  AssetType getType() {

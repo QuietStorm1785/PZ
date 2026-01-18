@@ -90,7 +90,7 @@ public:
  }
 
  void setDDPixelFormat(DDPixelFormat dDPixelFormat) {
- if (dDPixelFormat == nullptr) {
+ if (dDPixelFormat.empty()) {
  throw NullPointerException("DDPixelFormat can't be nullptr. DDSurfaceDesc2 needs a valid DDPixelFormat.");
  } else {
  this->pixelFormat = dDPixelFormat;
@@ -102,7 +102,7 @@ public:
  }
 
  void setDDSCaps2(DDSCaps2 dDSCaps2) {
- if (dDSCaps2 == nullptr) {
+ if (dDSCaps2.empty()) {
  throw NullPointerException("DDSCaps can't be nullptr. DDSurfaceDesc2 needs a valid DDSCaps2.");
  } else {
  this->caps2 = dDSCaps2;

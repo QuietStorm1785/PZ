@@ -93,7 +93,7 @@ public:
 
  float addBlood(const std::string& tex, const std::string& mask, float intensity, int category) {
  TextureCombinerCommand textureCombinerCommand = this->getFirstFromCategory(category);
- if (textureCombinerCommand == nullptr) {
+ if (textureCombinerCommand.empty()) {
  this->addOverlay(tex, mask, intensity, category);
  return intensity;
  } else {
@@ -119,7 +119,7 @@ public:
 
  float addDirt(const std::string& tex, const std::string& mask, float intensity, int category) {
  TextureCombinerCommand textureCombinerCommand = this->getFirstFromCategory(category);
- if (textureCombinerCommand == nullptr) {
+ if (textureCombinerCommand.empty()) {
  this->addDirtOverlay(tex, mask, intensity, category);
  return intensity;
  } else {

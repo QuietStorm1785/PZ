@@ -34,7 +34,7 @@ public:
  this->m_item = item;
  this->m_modelInstance = modelInstance;
  HandWeapon weapon = Type.tryCastTo(item, HandWeapon.class);
- this->m_bloodLevel = weapon == nullptr ? 0.0F : weapon.getBloodLevel();
+ this->m_bloodLevel = weapon.empty() ? 0.0F : weapon.getBloodLevel();
  this->setDirty();
  }
 
@@ -62,10 +62,10 @@ public:
  }
 
  ModelInstanceTextureInitializer.RenderData renderData = this->m_renderData[int0];
- if (renderData.m_textureCreator == nullptr) {
+ if (renderData.m_textureCreator.empty()) {
  renderData.m_changeNumber = this->m_changeNumberMain;
  renderData.m_textureCreator = EquippedTextureCreator.alloc();
- if (this->m_item == nullptr) {
+ if (this->m_item.empty()) {
  renderData.m_textureCreator.init(this->m_modelInstance, this->m_bloodLevel);
  } else {
  renderData.m_textureCreator.init(this->m_modelInstance, this->m_item);
@@ -116,10 +116,10 @@ public:
  bool isRendered() {
  int int0 = SpriteRenderer.instance.getRenderStateIndex();
  ModelInstanceTextureInitializer.RenderData renderData = this->m_renderData[int0];
- if (renderData == nullptr) {
+ if (renderData.empty()) {
  return true;
  } else {
- return renderData.m_textureCreator == nullptr ? true : renderData.m_bRendered;
+ return renderData.m_textureCreator.empty() ? true : renderData.m_bRendered;
  }
  }
 

@@ -609,9 +609,9 @@ public:
  ._m20(Math.fma(double0, double15, Math.fma(double3, double16, double6 * double17)
  ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17)
  ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17)
- ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30))
- ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31))
- ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32))
+ ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)
+ ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)
+ ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)
  ._properties(this->properties & matrix4x3dc.properties() & 16);
  }
 
@@ -660,9 +660,9 @@ public:
  ._m20(Math.fma(double0, double15, Math.fma(double3, double16, double6 * double17)
  ._m21(Math.fma(double1, double15, Math.fma(double4, double16, double7 * double17)
  ._m22(Math.fma(double2, double15, Math.fma(double5, double16, double8 * double17)
- ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30))
- ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31))
- ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32))
+ ._m30(Math.fma(double0, double18, Math.fma(double3, double19, Math.fma(double6, double20, this->m30)
+ ._m31(Math.fma(double1, double18, Math.fma(double4, double19, Math.fma(double7, double20, this->m31)
+ ._m32(Math.fma(double2, double18, Math.fma(double5, double19, Math.fma(double8, double20, this->m32)
  ._properties(this->properties & matrix4x3fc.properties() & 16);
  }
 
@@ -4525,7 +4525,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (!(arg0 instanceof Matrix4x3d matrix4x3d) {
  return false;
@@ -4559,7 +4559,7 @@ public:
  bool equals(Matrix4x3dc arg0, double arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (!(arg0 instanceof Matrix4x3d) {
  return false;

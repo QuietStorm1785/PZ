@@ -375,7 +375,7 @@ public:
  }
  }
 
- if (string0 == nullptr || string0.isBlank()) {
+ if (string0.empty() || string0.isBlank()) {
  error(-1, "Invalid scenarios file name");
  System.exit(0);
  }
@@ -536,7 +536,7 @@ public:
  FakeClientManager.log(this->player.movement.id, String.format("%s >> %s", this->state, statex);
  if (FakeClientManager.Client.State.RUN == statex) {
  this->player.movement.connect(this->player.OnlineID);
- if (this->player.teleportLimiter == nullptr) {
+ if (this->player.teleportLimiter.empty()) {
  this->player.teleportLimiter = new UpdateLimit(this->player.movement.teleportDelay);
  }
 
@@ -687,7 +687,7 @@ public:
  }
 
  void putUTF(ByteBuffer byteBuffer, const std::string& string) {
- if (string == nullptr) {
+ if (string.empty()) {
  byteBuffer.putShort((short)0);
  } else {
  byte[] bytes = string.getBytes();
@@ -1532,7 +1532,7 @@ public:
 
  static void logUserPacket(int int0, short short0) {
  PacketTypes.PacketType packetType = PacketTypes.packetTypes.get(short0);
- std::string string = packetType == nullptr ? "unknown user packet" : packetType.name();
+ std::string string = packetType.empty() ? "unknown user packet" : packetType.name();
  FakeClientManager.trace(int0, String.format("## %s (%d)", string, short0);
  }
 
@@ -1850,7 +1850,7 @@ public:
  void aiNormalMovement() {
  float float0 = this->getDistance(this->movement.speed);
  FakeClientManager.PlayerManager.RemotePlayer remotePlayer = this->getNearestPlayer();
- if (remotePlayer == nullptr) {
+ if (remotePlayer.empty()) {
  this->aiRunAwayFromZombiesMovement();
  } else {
  float float1 = IsoUtils.DistanceToSquared(this->x, this->y, remotePlayer.x, remotePlayer.y);
@@ -1879,7 +1879,7 @@ public:
  float2 = float3;
  }
 
- if (float1 > 25.0F || zombie0 == nullptr) {
+ if (float1 > 25.0F || zombie0.empty()) {
  this->direction.set(remotePlayer.x - this->x, remotePlayer.y - this->y);
  float float4 = this->direction.normalize();
  if (float4 > 4.0F) {
@@ -2031,7 +2031,7 @@ public:
  playerPacketx.parse(byteBuffer, nullptr);
  synchronized (this->players) {
  FakeClientManager.PlayerManager.RemotePlayer remotePlayer = this->players.get(playerPacketx.id);
- if (remotePlayer == nullptr) {
+ if (remotePlayer.empty()) {
  remotePlayer = new FakeClientManager.PlayerManager.RemotePlayer(playerPacketx.id);
  this->players.put(Integer.valueOf(playerPacketx.id), remotePlayer);
  FakeClientManager.trace(this->player.movement.id, String.format("New player %s", remotePlayer.OnlineID);
@@ -2053,7 +2053,7 @@ public:
  FakeClientManager.trace(this->player.movement.id, String.format("Remove player %s", short0);
  }
 
- private class RemotePlayer {
+ class RemotePlayer {
  float x;
  float y;
  float z;
@@ -2090,7 +2090,7 @@ public:
  CharsetDecoder cd;
 
  int encode(const std::string& string) {
- if (this->chars == nullptr || this->chars.length < string.length()) {
+ if (this->chars.empty() || this->chars.length < string.length()) {
  int int0 = (string.length() + 128 - 1) / 128 * 128;
  this->chars = new char[int0];
  this->charBuffer = CharBuffer.wrap(this->chars);
@@ -2099,14 +2099,14 @@ public:
  string.getChars(0, string.length(), this->chars, 0);
  this->charBuffer.limit(string.length());
  this->charBuffer.position(0);
- if (this->ce == nullptr) {
+ if (this->ce.empty()) {
  this->ce = StandardCharsets.UTF_8.newEncoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
  }
 
  this->ce.reset();
  int int1 = (int)((double)string.length() * this->ce.maxBytesPerChar());
  int1 = (int1 + 128 - 1) / 128 * 128;
- if (this->byteBuffer == nullptr || this->byteBuffer.capacity() < int1) {
+ if (this->byteBuffer.empty() || this->byteBuffer.capacity() < int1) {
  this->byteBuffer = ByteBuffer.allocate(int1);
  }
 
@@ -2116,13 +2116,13 @@ public:
  }
 
  std::string decode(int int1) {
- if (this->cd == nullptr) {
+ if (this->cd.empty()) {
  this->cd = StandardCharsets.UTF_8.newDecoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
  }
 
  this->cd.reset();
  int int0 = (int)((double)int1 * this->cd.maxCharsPerByte());
- if (this->chars == nullptr || this->chars.length < int0) {
+ if (this->chars.empty() || this->chars.length < int0) {
  int int2 = (int0 + 128 - 1) / 128 * 128;
  this->chars = new char[int2];
  this->charBuffer = CharBuffer.wrap(this->chars);
@@ -2150,7 +2150,7 @@ public:
  return "";
  } else {
  int int0 = (short0 + 128 - 1) / 128 * 128;
- if (this->byteBuffer == nullptr || this->byteBuffer.capacity() < int0) {
+ if (this->byteBuffer.empty() || this->byteBuffer.capacity() < int0) {
  this->byteBuffer = ByteBuffer.allocate(int0);
  }
 
@@ -2254,8 +2254,8 @@ public:
  ZombiePacket zombiePacketx = this->zombiePacket;
  zombiePacketx.parse(byteBuffer, nullptr);
  FakeClientManager.Zombie zombie0 = this->zombies.get(Integer.valueOf(zombiePacketx.id);
- if (!this->authoriseZombies.contains(zombiePacketx.id) || zombie0 == nullptr) {
- if (zombie0 == nullptr) {
+ if (!this->authoriseZombies.contains(zombiePacketx.id) || zombie0.empty()) {
+ if (zombie0.empty()) {
  zombie0 = new FakeClientManager.Zombie(zombiePacketx.id);
  this->zombies4Add.add(zombie0);
  FakeClientManager.trace(this->player.movement.id, String.format("New zombie %s", zombie0.OnlineID);

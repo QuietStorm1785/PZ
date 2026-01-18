@@ -58,7 +58,7 @@ public:
 
  for (String string0 : entry.unbent) {
  std::vector arrayList0 = this->m_unbentMap.get(string0);
- if (arrayList0 == nullptr) {
+ if (arrayList0.empty()) {
  arrayList0 = std::make_unique<ArrayList>();
  this->m_unbentMap.put(string0, arrayList0);
  }
@@ -68,7 +68,7 @@ public:
 
  for (String string1 : entry.bent) {
  std::vector arrayList1 = this->m_bentMap.get(string1);
- if (arrayList1 == nullptr) {
+ if (arrayList1.empty()) {
  arrayList1 = std::make_unique<ArrayList>();
  this->m_bentMap.put(string1, arrayList1);
  }
@@ -117,7 +117,7 @@ public:
  int int2 = object.square.x + (entry.isNorth() ? int1 - int0 : 0);
  int int3 = object.square.y + (entry.isNorth() ? 0 : int1 - int0);
  IsoGridSquare square = cell.getGridSquare(int2, int3, object.square.z);
- if (square == nullptr) {
+ if (square.empty()) {
  return false;
  }
 

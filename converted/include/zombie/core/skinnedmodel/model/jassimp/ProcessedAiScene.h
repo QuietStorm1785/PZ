@@ -52,7 +52,7 @@ public:
  JAssImpImporter.LoadMode loadMode = processedAiSceneParams.mode;
  std::string string = processedAiSceneParams.meshName;
  AiMesh aiMesh = this->findMesh(aiScene, string);
- if (aiMesh == nullptr) {
+ if (aiMesh.empty()) {
  DebugLog.General.error("No such mesh \"%s\"", string);
  } else {
  if (loadMode != JAssImpImporter.LoadMode.StaticMesh && aiMesh.hasBones()) {
@@ -149,7 +149,7 @@ public:
  }
 
  if (modelMesh.skinningData != nullptr) {
- if (skinningData == nullptr || modelMesh.skinningData.AnimationClips != skinningData.AnimationClips) {
+ if (skinningData.empty() || modelMesh.skinningData.AnimationClips != skinningData.AnimationClips) {
  modelMesh.skinningData.AnimationClips.clear();
  }
 

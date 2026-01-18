@@ -30,7 +30,7 @@ public:
  if (!GameServer.bServer) {
  this->display = _display;
  this->name = _name;
- if (this->texture == nullptr) {
+ if (this->texture.empty()) {
  this->texture = Texture.getSharedTexture(_texture);
  this->highlight = Texture.getSharedTexture(_highlight);
  }
@@ -48,7 +48,7 @@ public:
  this->highlight = Texture.getSharedTexture(_highlight);
  this->handler = _handler;
  this->name = _name;
- if (this->texture == nullptr) {
+ if (this->texture.empty()) {
  this->texture = Texture.getSharedTexture(_texture);
  this->highlight = Texture.getSharedTexture(_highlight);
  }
@@ -67,7 +67,7 @@ public:
  this->texture = Texture.getSharedTexture(_texture);
  this->highlight = Texture.getSharedTexture(_highlight);
  this->name = _name;
- if (this->texture == nullptr) {
+ if (this->texture.empty()) {
  this->texture = Texture.getSharedTexture(_texture);
  this->highlight = Texture.getSharedTexture(_highlight);
  }
@@ -86,7 +86,7 @@ public:
  this->overicon = Texture.getSharedTexture(_overicon);
  this->handler = _handler;
  this->name = _name;
- if (this->texture == nullptr) {
+ if (this->texture.empty()) {
  this->texture = Texture.getSharedTexture(_texture);
  this->highlight = Texture.getSharedTexture(_highlight);
  }

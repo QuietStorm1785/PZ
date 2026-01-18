@@ -93,7 +93,7 @@ public:
 
  public ArrayList<InventoryItem> getItemsCanBeUse(IsoGameCharacter chr, InventoryItem _baseItem, ArrayList<ItemContainer> containers) {
  int int0 = chr.getPerkLevel(PerkFactory.Perks.Cooking);
- if (containers == nullptr) {
+ if (containers.empty()) {
  containers = std::make_unique<ArrayList>();
  }
 
@@ -454,7 +454,7 @@ public:
 
  void useSpice(Food food1, Food food0, float float1, int int0) {
  if (!this->isSpiceAdded(food0, food1) {
- if (food0.spices == nullptr) {
+ if (food0.spices.empty()) {
  food0.spices = std::make_unique<ArrayList<>>();
  }
 

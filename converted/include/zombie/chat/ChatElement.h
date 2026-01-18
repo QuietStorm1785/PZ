@@ -52,7 +52,7 @@ public:
  this->setMaxChatLines(numberoflines);
  this->setMaxCharsPerLine(75);
  this->talkerType = talkertype != nullptr ? talkertype : this->talkerType;
- if (backdropTexture == nullptr) {
+ if (backdropTexture.empty()) {
  backdropTexture = new NineGridTexture("NineGridBlack", 5);
  }
  }
@@ -89,7 +89,7 @@ public:
  }
 
  void setTalkerType(const std::string& type) {
- this->talkerType = type == nullptr ? "" : type;
+ this->talkerType = type.empty() ? "" : type;
  }
 
  std::string getSayLine() {
@@ -113,7 +113,7 @@ public:
  }
 
  float getDistance(IsoPlayer player) {
- if (player == nullptr) {
+ if (player.empty()) {
  return -1.0F;
  } else {
  return this->useEuclidean
@@ -123,7 +123,7 @@ public:
  }
 
  bool playerWithinBounds(IsoPlayer player, float float0) {
- return player == nullptr
+ return player.empty()
  ? false
  : player.getX() > this->owner.getX() - float0
  && player.getX() < this->owner.getX() + float0

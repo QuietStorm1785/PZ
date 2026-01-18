@@ -122,7 +122,7 @@ public:
 
  void setDeadBody(DeadCharacterPacket packet) {
  this->deadBody = packet;
- DebugLog.Death.trace(packet == nullptr ? "processed" : "postpone");
+ DebugLog.Death.trace(packet.empty() ? "processed" : "postpone");
  }
 
  bool isSetDeadBody() {
@@ -175,7 +175,7 @@ public:
  void setVehicleHit(VehicleHitPacket packet) {
  this->vehicleHit = packet;
  this->timestamp = (float)TimeUnit.NANOSECONDS.toMillis(GameTime.getServerTime());
- DebugLog.Damage.noise(packet == nullptr ? "processed" : "postpone");
+ DebugLog.Damage.noise(packet.empty() ? "processed" : "postpone");
  }
 
  bool isSetVehicleHit() {
@@ -184,7 +184,7 @@ public:
 
  void resetVehicleHitTimeout() {
  this->timestamp = (float)(TimeUnit.NANOSECONDS.toMillis(GameTime.getServerTime()) - 500L);
- if (this->vehicleHit == nullptr) {
+ if (this->vehicleHit.empty()) {
  DebugLog.Damage.noise("VehicleHit is not set");
  }
  }

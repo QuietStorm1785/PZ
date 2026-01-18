@@ -40,7 +40,7 @@ public:
  std::string Command() {
  std::string string;
  if (this->getCommandArgsCount() == 0) {
- if (this->connection == nullptr) {
+ if (this->connection.empty()) {
  return "Pass a username";
  }
 
@@ -50,7 +50,7 @@ public:
  }
 
  IsoPlayer player = GameServer.getPlayerByUserNameForCommand(string);
- if (player == nullptr) {
+ if (player.empty()) {
  return "User \"" + string + "\" not found";
  } else {
  int int0 = PZMath.fastfloor(player.getX());

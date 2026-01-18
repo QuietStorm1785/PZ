@@ -123,7 +123,7 @@ public:
  }
 
  void setUsingLungeState(ZombiePacket zombiePacket, long long0) {
- if (this->zombie.target == nullptr) {
+ if (this->zombie.target.empty()) {
  this->setUsingExtrapolation(zombiePacket, (int)long0);
  } else {
  float float0 = IsoUtils.DistanceTo(this->zombie.target.x, this->zombie.target.y, this->zombie.x, this->zombie.y);

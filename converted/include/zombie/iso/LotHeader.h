@@ -54,7 +54,7 @@ public:
  room.def = roomDef;
  room.layer = roomDef.level;
  IsoWorld.instance.CurrentCell.getRoomList().add(room);
- if (roomDef.building == nullptr) {
+ if (roomDef.building.empty()) {
  roomDef.building = std::make_unique<BuildingDef>();
  roomDef.building.ID = this->Buildings.size();
  roomDef.building.rooms.add(roomDef);

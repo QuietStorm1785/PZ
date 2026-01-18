@@ -51,7 +51,7 @@ public:
 
  std::string Command() {
  int int0 = 1;
- if (this->argsName == "add item to me") && this->connection == nullptr) {
+ if (this->argsName == "add item to me") && this->connection.empty()) {
  return "Pass username";
  } else {
  if (this->getCommandArgsCount() > 1) {
@@ -64,14 +64,14 @@ public:
  std::string string0;
  if (this->argsName == "add item to player")) {
  IsoPlayer player0 = GameServer.getPlayerByUserNameForCommand(this->getCommandArg(0);
- if (player0 == nullptr) {
+ if (player0.empty()) {
  return "No such user";
  }
 
  string0 = player0.getDisplayName();
  } else {
  IsoPlayer player1 = GameServer.getPlayerByRealUserName(this->getExecutorUsername());
- if (player1 == nullptr) {
+ if (player1.empty()) {
  return "No such user";
  }
 
@@ -86,7 +86,7 @@ public:
  }
 
  Item item = ScriptManager.instance.FindItem(string1);
- if (item == nullptr) {
+ if (item.empty()) {
  return "Item " + string1 + " doesn't exist.";
  } else {
  IsoPlayer player2 = GameServer.getPlayerByUserNameForCommand(string0);

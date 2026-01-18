@@ -415,7 +415,7 @@ public:
  && (square.getIsoWorldRegion() == playerFxMask.curIsoWorldRegion || playerFxMask.curConnectedRegions.contains(square.getIsoWorldRegion()));
  }
 
- if (square == nullptr && playerFxMask.curIsoWorldRegion != nullptr) {
+ if (square.empty() && playerFxMask.curIsoWorldRegion != nullptr) {
  IWorldRegion iWorldRegion = IsoRegions.getIsoWorldRegion(int0, int1, int2);
  return iWorldRegion != nullptr
  && iWorldRegion.isFogMask()
@@ -473,7 +473,7 @@ public:
  while (dmiter.next(vector2i) {
  if (vector2i != nullptr) {
  IsoGridSquare square = chunkMap.getGridSquare(vector2i.x + int6, vector2i.y + int4, int1);
- if (square == nullptr) {
+ if (square.empty()) {
  addMaskLocation(nullptr, vector2i.x + int6, vector2i.y + int4, int1);
  } else {
  IsoChunk chunk = square.getChunk();
@@ -534,7 +534,7 @@ public:
  if (DebugOptions.instance.Weather.Fx.getValue()) {
  if (!GameServer.bServer) {
  if (IsoWeatherFX.instance != nullptr) {
- if (LuaManager.thread == nullptr || !LuaManager.thread.bStep) {
+ if (LuaManager.thread.empty() || !LuaManager.thread.bStep) {
  if (DEBUG_KEYS && Core.bDebug) {
  updateDebugKeys();
  }
@@ -947,12 +947,12 @@ public:
  this->DIAMOND_ITER_DONE = false;
  this->requiresUpdate = false;
  if (this->player != nullptr) {
- if (this->isFirstSquare || this->plrSquare == nullptr || this->plrSquare != this->player.getSquare()) {
+ if (this->isFirstSquare || this->plrSquare.empty() || this->plrSquare != this->player.getSquare()) {
  this->plrSquare = this->player.getSquare();
  this->maskPointer = 0;
  this->DISABLED_MASKS = 0;
  this->requiresUpdate = true;
- if (this->firstSquare == nullptr) {
+ if (this->firstSquare.empty()) {
  this->firstSquare = this->plrSquare;
  }
 
@@ -985,7 +985,7 @@ public:
  }
  }
 
- if (IsoWeatherFX.instance == nullptr) {
+ if (IsoWeatherFX.instance.empty()) {
  this->hasMaskToDraw = false;
  } else {
  this->hasMaskToDraw = true;
@@ -994,7 +994,7 @@ public:
  this->player.getSquare() == nullptr
  || this->player.getSquare().getBuilding() == nullptr && this->player.getSquare().Is(IsoFlagType.exterior)
  )
- && (this->curIsoWorldRegion == nullptr || !this->curIsoWorldRegion.isFogMask())) {
+ && (this->curIsoWorldRegion.empty() || !this->curIsoWorldRegion.isFogMask())) {
  this->hasMaskToDraw = false;
  } else {
  this->hasMaskToDraw = true;
@@ -1015,7 +1015,7 @@ public:
  }
 
  WeatherFxMask weatherFxMask0 = this->getMask(int0, int1, int2);
- if (weatherFxMask0 == nullptr) {
+ if (weatherFxMask0.empty()) {
  WeatherFxMask weatherFxMask1 = this->getFreeMask();
  weatherFxMask1.x = int0;
  weatherFxMask1.y = int1;
@@ -1041,7 +1041,7 @@ public:
  weatherFxMask2.enabled = boolean0;
  } else {
  weatherFxMask0.enabled = weatherFxMask0.enabled ? weatherFxMask0.enabled : boolean0;
- if (boolean0 && square != nullptr && weatherFxMask0.gs == nullptr) {
+ if (boolean0 && square != nullptr && weatherFxMask0.gs.empty()) {
  weatherFxMask0.gs = square;
  }
  }

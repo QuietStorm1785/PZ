@@ -440,7 +440,7 @@ public:
  this->hasPlate = false;
  } else {
  this->hasPlate = true;
- if (this->plate == nullptr) {
+ if (this->plate.empty()) {
  int int0 = Rand.Next(0, 4);
  switch (int0) {
  case 0:

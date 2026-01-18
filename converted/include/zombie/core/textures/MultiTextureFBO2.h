@@ -131,7 +131,7 @@ public:
 
  void create(int xres, int yres) {
  if (this->bZoomEnabled) {
- if (this->zoomLevels == nullptr) {
+ if (this->zoomLevels.empty()) {
  this->zoomLevels = this->zoomLevelsDefault;
  }
 
@@ -196,7 +196,7 @@ public:
  }
 
  bool shouldAutoZoomIn() {
- if (IsoCamera.CamCharacter == nullptr) {
+ if (IsoCamera.CamCharacter.empty()) {
  return false;
  } else {
  IsoGridSquare square = IsoCamera.CamCharacter.getCurrentSquare();
@@ -204,7 +204,7 @@ public:
  return true;
  } else {
  IsoPlayer player = Type.tryCastTo(IsoCamera.CamCharacter, IsoPlayer.class);
- if (player == nullptr) {
+ if (player.empty()) {
  return false;
  } else if (player.isRunning() || player.isSprinting()) {
  return false;

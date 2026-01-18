@@ -57,7 +57,7 @@ public:
  }
 
  std::string getDescription() {
- return super.getDescription() + "\n\tPlayer [ player " + (this->player == nullptr ? "?" : "\"" + this->player.getUsername() + "\"") + " ]";
+ return super.getDescription() + "\n\tPlayer [ player " + (this->player.empty() ? "?" : "\"" + this->player.getUsername() + "\"") + " ]";
  }
 
  IsoPlayer getCharacter() {

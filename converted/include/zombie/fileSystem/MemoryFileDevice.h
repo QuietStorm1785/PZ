@@ -52,7 +52,7 @@ public:
  }
 
  bool open(const std::string& string, int int0) {
- assert this->m_buffer == nullptr;
+ assert this->m_buffer.empty();
 
  this->m_write = (int0 & 2) != 0;
  if (this->m_file != nullptr) {

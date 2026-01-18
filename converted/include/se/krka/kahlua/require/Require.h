@@ -39,10 +39,10 @@ public:
  std::unordered_map map = (Map)luaCallFrame.getThread().tableget(table, this);
  std::string string0 = KahluaUtil.getStringArg(luaCallFrame, 1, "require");
  Require.Result result = (Require.Result)map.get(string0);
- if (result == nullptr) {
+ if (result.empty()) {
  this->setState(map, string0, Require.Result.LOADING);
  Reader reader = this->luaSourceProvider.getLuaSource(string0);
- if (reader == nullptr) {
+ if (reader.empty()) {
  this->error(map, string0, "Does not exist: " + string0);
  }
 

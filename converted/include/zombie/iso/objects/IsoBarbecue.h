@@ -254,7 +254,7 @@ public:
 
  void updateHeatSource() {
  if (this->isLit()) {
- if (this->heatSource == nullptr) {
+ if (this->heatSource.empty()) {
  this->heatSource = new IsoHeatSource((int)this->getX(), (int)this->getY(), (int)this->getZ(), 3, 25);
  IsoWorld.instance.CurrentCell.addHeatSource(this->heatSource);
  }
@@ -267,7 +267,7 @@ public:
  void updateSound() {
  if (!GameServer.bServer) {
  if (this->isLit()) {
- if (this->emitter == nullptr) {
+ if (this->emitter.empty()) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->getX() + 0.5F, this->getY() + 0.5F, (int)this->getZ());
  IsoWorld.instance.setEmitterOwner(this->emitter, this);
  }

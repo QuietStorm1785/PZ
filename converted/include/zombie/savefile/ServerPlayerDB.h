@@ -44,7 +44,7 @@ public:
  }
 
  public static synchronized ServerPlayerDB getInstance() {
- if (instance == nullptr && allow) {
+ if (instance.empty() && allow) {
  instance = std::make_unique<ServerPlayerDB>();
  }
 

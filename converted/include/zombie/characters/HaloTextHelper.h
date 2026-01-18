@@ -87,7 +87,7 @@ public:
  int int0 = player.getPlayerNum();
  if (!overheadContains(int0, text) {
  std::string string = queuedLines[int0];
- if (string == nullptr) {
+ if (string.empty()) {
  string = text;
  } else {
  if (string.contains(text) {

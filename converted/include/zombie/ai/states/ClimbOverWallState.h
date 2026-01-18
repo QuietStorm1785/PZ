@@ -118,7 +118,7 @@ public:
  void animEvent(IsoGameCharacter owner, AnimEvent event) {
  if (event.m_EventName.equalsIgnoreCase("PlayFenceSound")) {
  IsoObject object = this->getFence(owner);
- if (object == nullptr) {
+ if (object.empty()) {
  return;
  }
 

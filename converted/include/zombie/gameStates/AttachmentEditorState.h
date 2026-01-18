@@ -42,7 +42,7 @@ public:
 
  void enter() {
  instance = this;
- if (this->m_luaEnv == nullptr) {
+ if (this->m_luaEnv.empty()) {
  this->m_luaEnv = new EditVehicleState.LuaEnvironment(LuaManager.platform, LuaManager.converterManager, LuaManager.env);
  }
 
@@ -175,7 +175,7 @@ public:
  switch (byte0) {
  case 0:
  ModelScript modelScript = ScriptManager.instance.getModelScript((String)arg0);
- if (modelScript == nullptr) {
+ if (modelScript.empty()) {
  throw NullPointerException("model script \"" + arg0 + "\" not found");
  }
 
@@ -271,7 +271,7 @@ public:
  for (int int1 = 0; int1 < modelScript.getAttachmentCount(); int1++) {
  ModelAttachment modelAttachment = modelScript.getAttachment(int1);
  ScriptParser.Block block2 = block0.getBlock("attachment", modelAttachment.getId());
- if (block2 == nullptr) {
+ if (block2.empty()) {
  block2 = new ScriptParser.Block();
  block2.type = "attachment";
  block2.id = modelAttachment.getId();

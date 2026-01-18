@@ -21,7 +21,7 @@ public:
  }
 
  private static <T extends Annotation> T getAnnotation(Class<?> clazz0, String string, Class<?>[] clazzs, Class<T> clazz1) {
- if (clazz0 == nullptr) {
+ if (clazz0.empty()) {
  return nullptr;
  } else {
  try {

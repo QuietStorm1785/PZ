@@ -136,7 +136,7 @@ public:
  }
  }
 
- private class CollectionToLuaConverter<T extends Iterable> implements JavaToLuaConverter<T> {
+ class CollectionToLuaConverter<T extends Iterable> implements JavaToLuaConverter<T> {
  private Class<T> clazz;
  const KahluaConverterManager manager;
 

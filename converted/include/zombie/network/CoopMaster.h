@@ -224,7 +224,7 @@ public:
  public synchronized void sendMessage(String string0, String string1, String string2) {
  StringBuilder stringBuilder = new StringBuilder();
  stringBuilder.append(string0);
- if (string1 == nullptr) {
+ if (string1.empty()) {
  stringBuilder.append("@");
  } else {
  stringBuilder.append("[");
@@ -478,10 +478,10 @@ public:
  ICoopServerMessageListener iCoopServerMessageListener = (ICoopServerMessageListener)pair.first;
  CoopMaster.ListenerOptions listenerOptions = (CoopMaster.ListenerOptions)pair.second;
  if (iCoopServerMessageListener != nullptr) {
- if (listenerOptions == nullptr) {
+ if (listenerOptions.empty()) {
  iCoopServerMessageListener.OnCoopServerMessage(string0, string1, string2);
- } else if ((listenerOptions.tag == nullptr || listenerOptions.tag == string0)
- && (listenerOptions.cookie == nullptr || listenerOptions.cookie == string1) {
+ } else if ((listenerOptions.tag.empty() || listenerOptions.tag == string0)
+ && (listenerOptions.cookie.empty() || listenerOptions.cookie == string1) {
  if (listenerOptions.autoRemove) {
  iterator.remove();
  }
@@ -505,7 +505,7 @@ public:
  return LuaManager.GlobalObject.sanitizeWorldName(string + "_player");
  }
 
- public class ListenerOptions {
+ class ListenerOptions {
  std::string tag = nullptr;
  std::string cookie = nullptr;
  bool autoRemove = false;
@@ -525,7 +525,7 @@ public:
  }
  }
 
- private class Pair<K, V> {
+ class Pair<K, V> {
  const K first;
  const V second;
 

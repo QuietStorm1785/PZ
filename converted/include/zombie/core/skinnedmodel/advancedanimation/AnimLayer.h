@@ -60,7 +60,7 @@ public:
  }
 
  std::string getCurrentStateName() {
- return this->m_State == nullptr ? nullptr : this->m_State.m_Name;
+ return this->m_State.empty() ? nullptr : this->m_State.m_Name;
  }
 
  bool hasState() {
@@ -68,7 +68,7 @@ public:
  }
 
  bool isStateless() {
- return this->m_State == nullptr;
+ return this->m_State.empty();
  }
 
  bool isSubLayer() {
@@ -80,7 +80,7 @@ public:
  }
 
  AnimationMultiTrack getAnimationTrack() {
- if (this->m_Character == nullptr) {
+ if (this->m_Character.empty()) {
  return nullptr;
  } else {
  AnimationPlayer animationPlayer = this->m_Character.getAnimationPlayer();
@@ -137,7 +137,7 @@ public:
  }
 
  void invokeAnimEvent(AnimEvent animEvent) {
- if (this->m_AnimEventsCallback == nullptr) {
+ if (this->m_AnimEventsCallback.empty()) {
  DebugLog.Animation.warn("invokeAnimEvent. No listener. %s", animEvent.toDetailsString());
  } else {
  this->m_AnimEventsCallback.OnAnimEvent(this, animEvent);
@@ -189,8 +189,8 @@ public:
 
  bool TransitionTo(AnimState newState, bool force) {
  AnimationMultiTrack animationMultiTrack = this->getAnimationTrack();
- if (animationMultiTrack == nullptr) {
- if (this->m_Character == nullptr) {
+ if (animationMultiTrack.empty()) {
+ if (this->m_Character.empty()) {
  DebugLog.General.error("AnimationTrack is nullptr. Character is nullptr.");
  this->m_State = nullptr;
  return false;
@@ -206,7 +206,7 @@ public:
  return true;
  } else {
  if (DebugOptions.instance.Animation.AnimLayer.LogStateChanges.getValue()) {
- std::string string0 = this->m_parentLayer == nullptr ? "" : AnimState.getStateName(this->m_parentLayer.m_State) + " | ";
+ std::string string0 = this->m_parentLayer.empty() ? "" : AnimState.getStateName(this->m_parentLayer.m_State) + " | ";
  std::string string1 = String.format("State: %s%s => %s", string0, AnimState.getStateName(this->m_State), AnimState.getStateName(newState);
  DebugLog.General.debugln(string1);
  if (this->m_Character instanceof IsoGameCharacter) {
@@ -408,7 +408,7 @@ public:
  startAnimTrackParameters.priority = liveAnimNode1.getPriority();
  animationTrack = this->startAnimTrack(animTransition.m_AnimName, startAnimTrackParameters);
  startAnimTrackParameters.release();
- if (animationTrack == nullptr) {
+ if (animationTrack.empty()) {
  if (DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation
  .println(
@@ -452,7 +452,7 @@ public:
  }
  }
 
- if (liveAnimNode0 == nullptr && this->isSubLayer()) {
+ if (liveAnimNode0.empty() && this->isSubLayer()) {
  liveAnimNode0 = this->m_parentLayer.findTransitionToNewNode(newNode, true);
  }
 
@@ -645,7 +645,7 @@ public:
  return nullptr;
  } else {
  AnimationTrack animationTrack = animationPlayer.play(string, startAnimTrackParameters.isLooped);
- if (animationTrack == nullptr) {
+ if (animationTrack.empty()) {
  return nullptr;
  } else {
  SkinningData skinningData = animationPlayer.getSkinningData();
@@ -657,7 +657,7 @@ public:
  }
 
  SkinningBone skinningBone = skinningData.getBone(startAnimTrackParameters.deferredBoneName);
- if (skinningBone == nullptr) {
+ if (skinningBone.empty()) {
  DebugLog.Animation.error("Deferred bone not found: \"%s\"", startAnimTrackParameters.deferredBoneName);
  }
 
@@ -714,7 +714,7 @@ public:
  AnimationTrack animationTrack1 = liveAnimNode.getPlayingTrackAt(int0);
  if (animationTrack1.SyncTrackingEnabled
  && animationTrack1.hasClip()
- && (animationTrack0 == nullptr || animationTrack1.BlendDelta > animationTrack0.BlendDelta) {
+ && (animationTrack0.empty() || animationTrack1.BlendDelta > animationTrack0.BlendDelta) {
  animationTrack0 = animationTrack1;
  }
  }

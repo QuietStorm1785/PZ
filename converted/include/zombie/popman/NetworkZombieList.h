@@ -20,7 +20,7 @@ public:
  void* lock = new Object();
 
  public NetworkZombieList.NetworkZombie getNetworkZombie(UdpConnection udpConnection) {
- if (udpConnection == nullptr) {
+ if (udpConnection.empty()) {
  return nullptr;
  } else {
  for (NetworkZombieList.NetworkZombie networkZombie0 : this->networkZombies) {

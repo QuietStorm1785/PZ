@@ -195,9 +195,9 @@ public:
  void render() {
  Core core = Core.getInstance();
  MultiTextureFBO2 multiTextureFBO2 = core.OffscreenBuffer;
- if (multiTextureFBO2.Current == nullptr) {
+ if (multiTextureFBO2.Current.empty()) {
  Core.getInstance().TakeScreenshot(256, 256, 1029);
- } else if (core.RenderShader == nullptr) {
+ } else if (core.RenderShader.empty()) {
  Core.getInstance().getOffscreenBuffer().startDrawing(false, false);
  Core.getInstance().TakeScreenshot(256, 256, TextureFBO.getFuncs().GL_COLOR_ATTACHMENT0());
  Core.getInstance().getOffscreenBuffer().endDrawing();

@@ -112,7 +112,7 @@ public:
  int int0 = this->currentCoroutine.getTop();
  int int1 = int0 - arg0 - 1;
  void* object = this->currentCoroutine.objectStack[int1];
- if (object == nullptr) {
+ if (object.empty()) {
  throw RuntimeException("tried to call nil");
  } else {
  try {
@@ -529,7 +529,7 @@ public:
  } else {
  std::string string9 = meta_ops[int2];
  void* object35 = this->getBinMetaOp(object30, object31, string9);
- if (object35 == nullptr) {
+ if (object35.empty()) {
  this->doStacktraceProper(luaCallFrame0);
  std::string string10 = "unknown";
  if (luaClosure0.debugName != nullptr) {
@@ -601,7 +601,7 @@ public:
  object10 = KahluaUtil.toDouble((long)string3.length());
  } else {
  void* object11 = this->getMetaOp(object9, "__len");
- if (object11 == nullptr) {
+ if (object11.empty()) {
  this->doStacktraceProper(luaCallFrame0);
  }
 
@@ -649,7 +649,7 @@ public:
  if (int59 <= int60) {
  string8 = (String)luaCallFrame0.get(int60);
  void* object29 = this->getBinMetaOp(string8, object27, "__concat");
- if (object29 == nullptr) {
+ if (object29.empty()) {
  KahluaUtil.fail("__concat not defined for operands: " + string8 + " and " + object27);
  }
 
@@ -711,7 +711,7 @@ public:
  bool boolean6 = false;
  std::string string7 = meta_ops[int2];
  void* object24 = this->getCompMetaOp(object22, object23, string7);
- if (object24 == nullptr && int2 == 25) {
+ if (object24.empty() && int2 == 25) {
  object24 = this->getCompMetaOp(object22, object23, "__lt");
  void* object25 = object22;
  object22 = object23;
@@ -719,10 +719,10 @@ public:
  boolean6 = true;
  }
 
- if (object24 == nullptr && int2 == 23) {
+ if (object24.empty() && int2 == 23) {
  boolean5 = BaseLib.luaEquals(object22, object23);
  } else {
- if (object24 == nullptr) {
+ if (object24.empty()) {
  this->doStacktraceProper(luaCallFrame0);
  KahluaUtil.fail(string7 + " not defined for operand");
  }
@@ -778,12 +778,12 @@ public:
  int int105 = int104 + int100 + 1;
  int int106 = int104 + int100;
  void* object40 = luaCallFrame0.get(int100);
- if (object40 == nullptr) {
+ if (object40.empty()) {
  bool boolean17 = false;
  object40 = luaCallFrame0.get(int100);
  }
 
- if (object40 == nullptr) {
+ if (object40.empty()) {
  this->doStacktraceProper(luaCallFrame0);
  if (luaCallFrame0.getClosure().debugName != nullptr) {
  KahluaUtil.fail("Object tried to call nil in " + luaCallFrame0.getClosure().debugName);
@@ -795,7 +795,7 @@ public:
  }
 
  void* object41 = this->prepareMetatableCall(object40);
- if (object41 == nullptr) {
+ if (object41.empty()) {
  KahluaUtil.fail("Object " + object40 + " did not have __call metatable set");
  }
 
@@ -861,7 +861,7 @@ public:
  }
 
  void* object20 = this->prepareMetatableCall(object19);
- if (object20 == nullptr) {
+ if (object20.empty()) {
  KahluaUtil.fail("Object did not have __call metatable set");
  }
 
@@ -940,7 +940,7 @@ public:
  Coroutine.yieldHelper(luaCallFrame0, luaCallFrame0, int98);
  coroutine3.popCallFrame();
  luaCallFrame0 = this->currentCoroutine.currentCallFrame();
- if (luaCallFrame0 == nullptr || luaCallFrame0.isJava()) {
+ if (luaCallFrame0.empty() || luaCallFrame0.isJava()) {
  return;
  }
  } else {
@@ -1061,7 +1061,7 @@ public:
 
  do {
  luaCallFrame0 = this->currentCoroutine.currentCallFrame();
- if (luaCallFrame0 == nullptr) {
+ if (luaCallFrame0.empty()) {
  Coroutine coroutine4 = this->currentCoroutine.getParent();
  if (coroutine4 != nullptr) {
  LuaCallFrame luaCallFrame3 = coroutine4.currentCallFrame();
@@ -1276,7 +1276,7 @@ public:
 
  void* call(void* object0, Object[] objects) {
  int int0 = this->currentCoroutine.getTop();
- int int1 = objects == nullptr ? 0 : objects.length;
+ int int1 = objects.empty() ? 0 : objects.length;
  this->currentCoroutine.setTop(int0 + 1 + int1);
  this->currentCoroutine.objectStack[int0] = object0;
 
@@ -1308,7 +1308,7 @@ public:
  }
 
  void* object2 = this->getMetaOp(object0, "__index");
- if (object2 == nullptr) {
+ if (object2.empty()) {
  if (boolean0) {
  return nullptr;
  }
@@ -1343,13 +1343,13 @@ public:
  }
 
  object1 = this->getMetaOp(object0, "__newindex");
- if (object1 == nullptr) {
+ if (object1.empty()) {
  table.rawset(arg1, arg2);
  return;
  }
  } else {
  object1 = this->getMetaOp(object0, "__newindex");
- if (object1 == nullptr) {
+ if (object1.empty()) {
  this->doStacktraceProper(this->currentCoroutine.currentCallFrame());
  }
 
@@ -1377,13 +1377,13 @@ public:
  }
 
  void* getmetatable(void* arg0, bool arg1) {
- if (arg0 == nullptr) {
+ if (arg0.empty()) {
  return nullptr;
  } else {
  KahluaTable table0 = nullptr;
  if (arg0 instanceof KahluaTable table1) {
  table0 = table1.getMetatable();
- } else if (table0 == nullptr) {
+ } else if (table0.empty()) {
  KahluaTable table2 = KahluaUtil.getClassMetatables(this->platform, this->getEnvironment());
  table0 = (KahluaTable)this->tableget(table2, arg0.getClass());
  }
@@ -1400,7 +1400,7 @@ public:
  }
 
  public Object[] pcall(Object object0, Object[] objects) {
- int int0 = objects == nullptr ? 0 : objects.length;
+ int int0 = objects.empty() ? 0 : objects.length;
  Coroutine coroutine = this->currentCoroutine;
  int int1 = coroutine.getTop();
  coroutine.setTop(int1 + 1 + int0);
@@ -1424,7 +1424,7 @@ public:
  }
 
  void pcallvoid(void* arg0, Object[] arg1) {
- int int0 = arg1 == nullptr ? 0 : arg1.length;
+ int int0 = arg1.empty() ? 0 : arg1.length;
  Coroutine coroutine = this->currentCoroutine;
  int int1 = coroutine.getTop();
  coroutine.setTop(int1 + 1 + int0);
@@ -1547,7 +1547,7 @@ public:
  }
 
  bool pcallBoolean(void* arg0, Object[] arg1) {
- int int0 = arg1 == nullptr ? 0 : arg1.length;
+ int int0 = arg1.empty() ? 0 : arg1.length;
  Coroutine coroutine = this->currentCoroutine;
  int int1 = coroutine.getTop();
  coroutine.setTop(int1 + 1 + int0);

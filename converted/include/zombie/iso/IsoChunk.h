@@ -178,7 +178,7 @@ public:
 
  for (int int1 = 0; int1 < int0; int1++) {
  WorldSoundManager.WorldSound worldSound = this->SoundList.get(int1);
- if (worldSound == nullptr || worldSound.life <= 0) {
+ if (worldSound.empty() || worldSound.life <= 0) {
  this->SoundList.remove(int1);
  int1--;
  int0--;
@@ -263,7 +263,7 @@ public:
  int int3 = Rand.Next(10);
  object = this->getGridSquare(int2, int3, 0);
  int1++;
- } while (int1 < 100 && (object == nullptr || !RandomizedBuildingBase.is2x2AreaClear((IsoGridSquare)object);
+ } while (int1 < 100 && (object.empty() || !RandomizedBuildingBase.is2x2AreaClear((IsoGridSquare)object);
 
  if (int1 == 100) {
  return;
@@ -365,7 +365,7 @@ public:
  IsoGridSquare square2 = IsoWorld.instance
  .CurrentCell
  .getGridSquare((double)(vehicle.x - vehicle.getScript().getExtents().x), (double)vehicle.y, (double)vehicle.z);
- if (square2 == nullptr) {
+ if (square2.empty()) {
  return;
  }
 
@@ -376,7 +376,7 @@ public:
  IsoGridSquare square3 = IsoWorld.instance
  .CurrentCell
  .getGridSquare((double)(vehicle.x + vehicle.getScript().getExtents().x), (double)vehicle.y, (double)vehicle.z);
- if (square3 == nullptr) {
+ if (square3.empty()) {
  return;
  }
 
@@ -389,7 +389,7 @@ public:
  IsoGridSquare square0 = IsoWorld.instance
  .CurrentCell
  .getGridSquare((double)vehicle.x, (double)(vehicle.y - vehicle.getScript().getExtents().z), (double)vehicle.z);
- if (square0 == nullptr) {
+ if (square0.empty()) {
  return;
  }
 
@@ -400,7 +400,7 @@ public:
  IsoGridSquare square1 = IsoWorld.instance
  .CurrentCell
  .getGridSquare((double)vehicle.x, (double)(vehicle.y + vehicle.getScript().getExtents().z), (double)vehicle.z);
- if (square1 == nullptr) {
+ if (square1.empty()) {
  return;
  }
 
@@ -746,7 +746,7 @@ public:
  IsoGridSquare square = this->getGridSquare((int)float3, (int)float2, 0);
  if (square != nullptr) {
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string);
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  float2 += byte1;
  break;
@@ -905,7 +905,7 @@ public:
  float float2 = int1 + vector.y / vector.getLength() * float0;
  if (float1 >= this->wx * 10 && float2 >= this->wy * 10 && float1 < (this->wx + 1) * 10 && float2 < (this->wy + 1) * 10) {
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string);
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  return;
  }
@@ -1054,7 +1054,7 @@ public:
  }
 
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string);
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  } else {
  BaseVehicle vehicle = new BaseVehicle(IsoWorld.instance.CurrentCell);
@@ -1116,7 +1116,7 @@ public:
 
  std::string string = vehicleTypeDefinition.vehicleType;
  VehicleScript vehicleScript = ScriptManager.instance.getVehicle(string);
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  DebugLog.log("no such vehicle script \"" + string + "\" in IsoChunk.RandomizeModel");
  return false;
  } else {
@@ -1159,7 +1159,7 @@ public:
  IsoGridSquare square = this->getGridSquare(int3, int2, 0);
  if (square != nullptr) {
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string);
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  break;
  }
@@ -1226,7 +1226,7 @@ public:
  IsoGridSquare square = this->getGridSquare(int3, int2, 0);
  if (square != nullptr) {
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string);
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  break;
  }
@@ -1293,7 +1293,7 @@ public:
  IsoGridSquare square = this->getGridSquare(int3, int2, 0);
  if (square != nullptr) {
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string);
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  break;
  }
@@ -1360,7 +1360,7 @@ public:
  IsoGridSquare square = this->getGridSquare(int3, int2, 0);
  if (square != nullptr) {
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string);
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  break;
  }
@@ -1461,7 +1461,7 @@ public:
  IsoGridSquare square = this->getGridSquare((int)float1 - this->wx * 10, (int)float0 - this->wy * 10, 0);
  if (square != nullptr) {
  VehicleType vehicleType = VehicleType.getRandomVehicleType(string + "W");
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  System.out.println("Can't find car: " + string);
  } else {
  uint8_t byte0 = 80;
@@ -1522,7 +1522,7 @@ public:
  }
 
  IsoMetaCell metaCell = IsoWorld.instance.getMetaGrid().getCellData(this->wx / 30, this->wy / 30);
- std::vector arrayList = metaCell == nullptr ? nullptr : metaCell.vehicleZones;
+ std::vector arrayList = metaCell.empty() ? nullptr : metaCell.vehicleZones;
 
  for (int int0 = 0; arrayList != nullptr && int0 < arrayList.size(); int0++) {
  IsoMetaGrid.VehicleZone vehicleZone = (IsoMetaGrid.VehicleZone)arrayList.get(int0);
@@ -1704,7 +1704,7 @@ public:
 
  static bool FileExists(int _wx, int _wy) {
  File file = ChunkMapFilenames.instance.getFilename(_wx, _wy);
- if (file == nullptr) {
+ if (file.empty()) {
  file = ZomboidFileSystem.instance.getFileInCurrentSave(prefix + _wx + "_" + _wy + ".bin");
  }
 
@@ -1792,11 +1792,11 @@ public:
  if (square.hasTypes.isSet(IsoObjectType.tree) {
  std::string string0 = square.getProperties().Val("tree");
  std::string string1 = square.getProperties().Val("WindType");
- if (string0 == nullptr) {
+ if (string0.empty()) {
  physicsShapess[int4++] = IsoChunk.PhysicsShapes.Tree;
  }
 
- if (string0 != nullptr && !string0 == "1") && (string1 == nullptr || !string1 == "2") || !string0 == "2") && !string0 == "1"))) {
+ if (string0 != nullptr && !string0 == "1") && (string1.empty() || !string1 == "2") || !string0 == "2") && !string0 == "1"))) {
  physicsShapess[int4++] = IsoChunk.PhysicsShapes.Tree;
  }
  } else if (!propertyContainer.Is(IsoFlagType.solid)
@@ -1892,7 +1892,7 @@ public:
  return this->LoadFromBuffer(_wx, _wy, fromServer);
  } else {
  File file = ChunkMapFilenames.instance.getFilename(_wx, _wy);
- if (file == nullptr) {
+ if (file.empty()) {
  file = ZomboidFileSystem.instance.getFileInCurrentSave(prefix + _wx + "_" + _wy + ".bin");
  }
 
@@ -1950,7 +1950,7 @@ public:
  for (int int1 = -1; int1 <= 1; int1++) {
  if ((int0 != 0 || int1 != 0) && int3 + int0 >= 0 && int3 + int0 < 10 && int2 + int1 >= 0 && int2 + int1 < 10) {
  IsoGridSquare square = this->getGridSquare(int3 + int0, int2 + int1, int4);
- if (square == nullptr) {
+ if (square.empty()) {
  square = IsoGridSquare.getNew(cell, nullptr, this->wx * 10 + int3 + int0, this->wy * 10 + int2 + int1, int4);
  this->setSquare(int3 + int0, int2 + int1, int4, square);
  }
@@ -1966,7 +1966,7 @@ public:
  for (int int1 = 0; int1 < 10; int1++) {
  for (int int2 = 0; int2 < 10; int2++) {
  IsoGridSquare square0 = this->getGridSquare(int2, int1, int0);
- if (square0 == nullptr && int0 == 0) {
+ if (square0.empty() && int0 == 0) {
  square0 = IsoGridSquare.getNew(IsoWorld.instance.CurrentCell, nullptr, this->wx * 10 + int2, this->wy * 10 + int1, int0);
  this->setSquare(int2, int1, int0, square0);
  }
@@ -1985,7 +1985,7 @@ public:
 
  for (int int3 = int0 - 1; int3 > 0; int3--) {
  IsoGridSquare square1 = this->getGridSquare(int2, int1, int3);
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square1 = IsoGridSquare.getNew(cell, nullptr, this->wx * 10 + int2, this->wy * 10 + int1, int3);
  this->setSquare(int2, int1, int3, square1);
  this->ensureSurroundNotNull(int2, int1, int3);
@@ -1999,7 +1999,7 @@ public:
  }
  }
 
- assert chunkGetter.chunk == nullptr;
+ assert chunkGetter.chunk.empty();
 
  chunkGetter.chunk = this;
 
@@ -2079,7 +2079,7 @@ public:
  if (int3 == 0) {
  switch (directions) {
  case E:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.e = nullptr;
  } else {
  square0.e = square0.testPathFindAdjacent(nullptr, 1, 0, 0) ? nullptr : square1;
@@ -2087,7 +2087,7 @@ public:
  }
  break;
  case W:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.w = nullptr;
  } else {
  square0.w = square0.testPathFindAdjacent(nullptr, -1, 0, 0) ? nullptr : square1;
@@ -2095,7 +2095,7 @@ public:
  }
  break;
  case N:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.n = nullptr;
  } else {
  square0.n = square0.testPathFindAdjacent(nullptr, 0, -1, 0) ? nullptr : square1;
@@ -2103,7 +2103,7 @@ public:
  }
  break;
  case S:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.s = nullptr;
  } else {
  square0.s = square0.testPathFindAdjacent(nullptr, 0, 1, 0) ? nullptr : square1;
@@ -2111,7 +2111,7 @@ public:
  }
  break;
  case NW:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.nw = nullptr;
  } else {
  square0.nw = square0.testPathFindAdjacent(nullptr, -1, -1, 0) ? nullptr : square1;
@@ -2119,7 +2119,7 @@ public:
  }
  break;
  case NE:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.ne = nullptr;
  } else {
  square0.ne = square0.testPathFindAdjacent(nullptr, 1, -1, 0) ? nullptr : square1;
@@ -2127,7 +2127,7 @@ public:
  }
  break;
  case SE:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.se = nullptr;
  } else {
  square0.se = square0.testPathFindAdjacent(nullptr, 1, 1, 0) ? nullptr : square1;
@@ -2135,7 +2135,7 @@ public:
  }
  break;
  case SW:
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square0.sw = nullptr;
  } else {
  square0.sw = square0.testPathFindAdjacent(nullptr, -1, 1, 0) ? nullptr : square1;
@@ -2151,7 +2151,7 @@ public:
  for (int int0 = int1 - 1; int0 <= int1 + 1; int0++) {
  if (int0 >= 0 && int0 < 10) {
  IsoGridSquare square = this->getGridSquare(int0, int2, int3);
- if (square == nullptr) {
+ if (square.empty()) {
  square = IsoGridSquare.getNew(cell, nullptr, this->wx * 10 + int0, this->wy * 10 + int2, int3);
  cell.ConnectNewSquare(square, false);
  }
@@ -2165,7 +2165,7 @@ public:
  for (int int0 = int1 - 1; int0 <= int1 + 1; int0++) {
  if (int0 >= 0 && int0 < 10) {
  IsoGridSquare square = this->getGridSquare(int2, int0, int3);
- if (square == nullptr) {
+ if (square.empty()) {
  square = IsoGridSquare.getNew(cell, nullptr, this->wx * 10 + int2, this->wy * 10 + int0, int3);
  cell.ConnectNewSquare(square, false);
  }
@@ -2176,7 +2176,7 @@ public:
  void EnsureSurroundNotNull(int int0, int int1, int int2) {
  IsoCell cell = IsoWorld.instance.CurrentCell;
  IsoGridSquare square = this->getGridSquare(int0, int1, int2);
- if (square == nullptr) {
+ if (square.empty()) {
  square = IsoGridSquare.getNew(cell, nullptr, this->wx * 10 + int0, this->wy * 10 + int1, int2);
  cell.ConnectNewSquare(square, false);
  }
@@ -2479,7 +2479,7 @@ public:
 
  for (int int3 = int2 - 1; int3 > 0; int3--) {
  IsoGridSquare square1 = this->getGridSquare(int0, int1, int3);
- if (square1 == nullptr) {
+ if (square1.empty()) {
  square1 = IsoGridSquare.getNew(cell, nullptr, this->wx * 10 + int0, this->wy * 10 + int1, int3);
  cell.ConnectNewSquare(square1, false);
  }
@@ -2802,7 +2802,7 @@ public:
  }
 
  static ByteBuffer ensureCapacity(ByteBuffer byteBuffer, int int0) {
- if (byteBuffer == nullptr || byteBuffer.capacity() < int0) {
+ if (byteBuffer.empty() || byteBuffer.capacity() < int0) {
  byteBuffer = ByteBuffer.allocate(bufferSize(int0);
  }
 
@@ -2810,7 +2810,7 @@ public:
  }
 
  static ByteBuffer ensureCapacity(ByteBuffer byteBuffer0) {
- if (byteBuffer0 == nullptr) {
+ if (byteBuffer0.empty()) {
  return ByteBuffer.allocate(65536);
  } else if (byteBuffer0.capacity() - byteBuffer0.position() < 65536) {
  ByteBuffer byteBuffer1 = ensureCapacity(nullptr, byteBuffer0.position() + 65536);
@@ -2829,7 +2829,7 @@ public:
 
  try {
  ByteBuffer byteBuffer;
- if (bb == nullptr) {
+ if (bb.empty()) {
  SliceBufferLoad = SafeRead(prefix, this->wx, this->wy, SliceBufferLoad);
  byteBuffer = SliceBufferLoad;
  } else {
@@ -2910,7 +2910,7 @@ public:
  }
 
  if (boolean1) {
- if (square0 == nullptr) {
+ if (square0.empty()) {
  if (IsoGridSquare.loadGridSquareCache != nullptr) {
  square0 = IsoGridSquare.getNew(
  IsoGridSquare.loadGridSquareCache, IsoWorld.instance.CurrentCell, nullptr, int7 + this->wx * 10, int8 + this->wy * 10, int9
@@ -2928,7 +2928,7 @@ public:
  roomDef = metaGrid.getEmptyOutsideAt(square0.x, square0.y, square0.z);
  if (roomDef != nullptr) {
  IsoRoom room = this->getRoom(roomDef.ID);
- square0.roofHideBuilding = room == nullptr ? nullptr : room.building;
+ square0.roofHideBuilding = room.empty() ? nullptr : room.building;
  }
  }
 
@@ -2966,7 +2966,7 @@ public:
 
  if (int2 >= 127) {
  short short0 = byteBuffer.getShort();
- if (short0 > 0 && this->generatorsTouchingThisChunk == nullptr) {
+ if (short0 > 0 && this->generatorsTouchingThisChunk.empty()) {
  this->generatorsTouchingThisChunk = std::make_unique<ArrayList<>>();
  }
 
@@ -3097,7 +3097,7 @@ public:
  if (vehicle.sqlID == -1) {
  assert false;
 
- if (vehicle.square == nullptr) {
+ if (vehicle.square.empty()) {
  float float0 = 5.0E-4F;
  int int2 = this->wx * 10;
  int int3 = this->wy * 10;
@@ -3410,7 +3410,7 @@ public:
 
  try {
  File file = ChunkMapFilenames.instance.getFilename(_wx, _wy);
- if (file == nullptr) {
+ if (file.empty()) {
  file = ZomboidFileSystem.instance.getFileInCurrentSave(_prefix + _wx + "_" + _wy + ".bin");
  }
 
@@ -3497,7 +3497,7 @@ public:
 
  bb = ensureCapacity(bb);
  this->getErosionData().save(bb);
- if (this->generatorsTouchingThisChunk == nullptr) {
+ if (this->generatorsTouchingThisChunk.empty()) {
  bb.putShort((short)0);
  } else {
  bb.putShort((short)this->generatorsTouchingThisChunk.size());
@@ -3674,7 +3674,7 @@ public:
  }
 
  public ErosionData.Chunk getErosionData() {
- if (this->erosion == nullptr) {
+ if (this->erosion.empty()) {
  this->erosion = new ErosionData.Chunk();
  }
 
@@ -3687,7 +3687,7 @@ public:
  }
 
  static int Fix2x(IsoGridSquare square, int spriteID) {
- if (square == nullptr || square.chunk == nullptr) {
+ if (square.empty() || square.chunk.empty()) {
  return spriteID;
  } else if (square.chunk.bFixed2x) {
  return spriteID;
@@ -4083,7 +4083,7 @@ public:
  }
 
  std::string string = Fix2xMap.get(tileName);
- if (string == nullptr) {
+ if (string.empty()) {
  return tileName;
  } else if ("randBush" == string) {
  int int17 = 64 + Rand.Next(16);
@@ -4097,7 +4097,7 @@ public:
  }
 
  void addGeneratorPos(int x, int y, int z) {
- if (this->generatorsTouchingThisChunk == nullptr) {
+ if (this->generatorsTouchingThisChunk.empty()) {
  this->generatorsTouchingThisChunk = std::make_unique<ArrayList<>>();
  }
 
@@ -4125,7 +4125,7 @@ public:
  }
 
  bool isGeneratorPoweringSquare(int x, int y, int z) {
- if (this->generatorsTouchingThisChunk == nullptr) {
+ if (this->generatorsTouchingThisChunk.empty()) {
  return false;
  } else {
  for (int int0 = 0; int0 < this->generatorsTouchingThisChunk.size(); int0++) {
@@ -4146,7 +4146,7 @@ public:
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(location.x, location.y, location.z);
  if (square != nullptr) {
  IsoGenerator generator = square.getGenerator();
- if (generator == nullptr || !generator.isActivated()) {
+ if (generator.empty() || !generator.isActivated()) {
  this->generatorsTouchingThisChunk.remove(int0);
  int0--;
  }

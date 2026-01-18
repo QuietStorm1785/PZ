@@ -444,7 +444,7 @@ public:
  RenderThread.invokeOnRenderContext(() -> {
  if (!SafeModeForced) {
  try {
- if (this->RenderShader == nullptr) {
+ if (this->RenderShader.empty()) {
  this->RenderShader = new WeatherShader("screen");
  }
 
@@ -468,11 +468,11 @@ public:
 
  void initShaders() {
  try {
- if (this->RenderShader == nullptr && !SafeMode && !SafeModeForced) {
+ if (this->RenderShader.empty() && !SafeMode && !SafeModeForced) {
  RenderThread.invokeOnRenderContext(() -> this->RenderShader = new WeatherShader("screen"));
  }
 
- if (this->RenderShader == nullptr || !this->RenderShader.isCompiled()) {
+ if (this->RenderShader.empty() || !this->RenderShader.isCompiled()) {
  this->RenderShader = nullptr;
  }
  } catch (Exception exception) {
@@ -485,7 +485,7 @@ public:
  }
 
  static std::string getGLVersion() {
- if (glVersion == nullptr) {
+ if (glVersion.empty()) {
  getOpenGLVersions();
  }
 
@@ -584,7 +584,7 @@ public:
  ByteBuffer byteBuffer = MemoryUtil.memAlloc(int0 * int1 * byte2);
  GL11.glReadPixels(byte0, byte1, int0, int1, 6407, 5121, byteBuffer);
  int[] ints = new int[int0 * int1];
- if (string == nullptr) {
+ if (string.empty()) {
  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
  string = "screenshot_" + simpleDateFormat.format(Calendar.getInstance().getTime()) + ".png";
  }
@@ -692,7 +692,7 @@ public:
  }
  }
 
- if (UIManager.useUIFBO && UIManager.UIFBO == nullptr) {
+ if (UIManager.useUIFBO && UIManager.UIFBO.empty()) {
  UIManager.CreateFBO(width, height);
  }
 
@@ -741,7 +741,7 @@ public:
  }
 
  int getOffscreenWidth(int playerIndex) {
- if (this->OffscreenBuffer == nullptr) {
+ if (this->OffscreenBuffer.empty()) {
  return IsoPlayer.numPlayers > 1 ? this->getScreenWidth() / 2 : this->getScreenWidth();
  } else {
  return this->OffscreenBuffer.getWidth(playerIndex);
@@ -749,7 +749,7 @@ public:
  }
 
  int getOffscreenHeight(int playerIndex) {
- if (this->OffscreenBuffer == nullptr) {
+ if (this->OffscreenBuffer.empty()) {
  return IsoPlayer.numPlayers > 2 ? this->getScreenHeight() / 2 : this->getScreenHeight();
  } else {
  return this->OffscreenBuffer.getHeight(playerIndex);
@@ -1166,7 +1166,7 @@ public:
  }
  }
 
- if (OptionLanguageName == nullptr) {
+ if (OptionLanguageName.empty()) {
  OptionLanguageName = System.getProperty("user.language").toUpperCase();
  }
 
@@ -1524,8 +1524,8 @@ public:
  DisplayMode displayMode1 = nullptr;
 
  for (auto& displayMode2 : displayModes) if (displayMode2.getWidth() == _width && displayMode2.getHeight() == _height && displayMode2.isFullscreenCapable()) {
- if ((displayMode0 == nullptr || displayMode2.getFrequency() >= int2)
- && (displayMode0 == nullptr || displayMode2.getBitsPerPixel() > displayMode0.getBitsPerPixel())) {
+ if ((displayMode0.empty() || displayMode2.getFrequency() >= int2)
+ && (displayMode0.empty() || displayMode2.getBitsPerPixel() > displayMode0.getBitsPerPixel())) {
  displayMode0 = displayMode2;
  int2 = displayMode2.getFrequency();
  }
@@ -1539,7 +1539,7 @@ public:
 
  if (displayMode2.isFullscreenCapable()
  && (
- displayMode1 == nullptr
+ displayMode1.empty()
  || Math.abs(displayMode2.getWidth() - _width) < Math.abs(displayMode1.getWidth() - _width)
  || displayMode2.getWidth() == displayMode1.getWidth() && displayMode2.getFrequency() > int2
  )) {
@@ -1549,12 +1549,12 @@ public:
  }
  }
 
- if (displayMode0 == nullptr && displayMode1 != nullptr) {
+ if (displayMode0.empty() && displayMode1 != nullptr) {
  displayMode0 = displayMode1;
  }
  }
 
- if (displayMode0 == nullptr) {
+ if (displayMode0.empty()) {
  DebugLog.log("Failed to find value mode: " + _width + "x" + _height + " fs=" + fullscreen);
  return;
  }
@@ -1599,7 +1599,7 @@ public:
  }
 
  bool isDoingTextEntry() {
- if (CurrentTextEntryBox == nullptr) {
+ if (CurrentTextEntryBox.empty()) {
  return false;
  } else {
  return !CurrentTextEntryBox.IsEditable ? false : CurrentTextEntryBox.DoingTextEntry;
@@ -2014,7 +2014,7 @@ public:
  }
 
  void StartFrame() {
- if (LuaManager.thread == nullptr || !LuaManager.thread.bStep) {
+ if (LuaManager.thread.empty() || !LuaManager.thread.bStep) {
  if (this->RenderShader != nullptr && this->OffscreenBuffer.Current != nullptr) {
  this->RenderShader.setTexture(this->OffscreenBuffer.getTexture(0);
  }
@@ -2323,7 +2323,7 @@ public:
  }
 
  void RenderOffScreenBuffer() {
- if (LuaManager.thread == nullptr || !LuaManager.thread.bStep) {
+ if (LuaManager.thread.empty() || !LuaManager.thread.bStep) {
  if (this->OffscreenBuffer.Current != nullptr) {
  IndieGL.disableStencilTest();
  IndieGL.glDoStartFrame(width, height, 1.0F, -1);
@@ -2335,7 +2335,7 @@ public:
  }
 
  void StartFrameText(int nPlayer) {
- if (LuaManager.thread == nullptr || !LuaManager.thread.bStep) {
+ if (LuaManager.thread.empty() || !LuaManager.thread.bStep) {
  IndieGL.glDoStartFrame(IsoCamera.getScreenWidth(nPlayer), IsoCamera.getScreenHeight(nPlayer), 1.0F, nPlayer, true);
  this->frameStage = 2;
  }
@@ -2383,7 +2383,7 @@ public:
  }
 
  int getKey(const std::string& keyName) {
- if (this->keyMaps == nullptr) {
+ if (this->keyMaps.empty()) {
  return 0;
  } else {
  return this->keyMaps.get(keyName) != nullptr ? this->keyMaps.get(keyName) : 0;
@@ -2391,7 +2391,7 @@ public:
  }
 
  void addKeyBinding(const std::string& keyName, int key) {
- if (this->keyMaps == nullptr) {
+ if (this->keyMaps.empty()) {
  this->keyMaps = std::make_unique<HashMap<>>();
  }
 
@@ -2929,7 +2929,7 @@ public:
  }
 
  void setOptionZoomLevels1x(const std::string& levels) {
- OptionZoomLevels1x = levels == nullptr ? "" : levels;
+ OptionZoomLevels1x = levels.empty() ? "" : levels;
  }
 
  std::string getOptionZoomLevels2x() {
@@ -2937,7 +2937,7 @@ public:
  }
 
  void setOptionZoomLevels2x(const std::string& levels) {
- OptionZoomLevels2x = levels == nullptr ? "" : levels;
+ OptionZoomLevels2x = levels.empty() ? "" : levels;
  }
 
  public ArrayList<Integer> getDefaultZoomLevels() {
@@ -3446,7 +3446,7 @@ public:
  }
 
  ColorInfo getMpTextColor() {
- if (this->mpTextColor == nullptr) {
+ if (this->mpTextColor.empty()) {
  this->mpTextColor = new ColorInfo((Rand.Next(135) + 120) / 255.0F, (Rand.Next(135) + 120) / 255.0F, (Rand.Next(135) + 120) / 255.0F, 1.0F);
  }
 

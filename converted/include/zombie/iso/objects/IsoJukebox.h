@@ -59,7 +59,7 @@ public:
  void SetPlaying(bool ShouldPlay) {
  if (this->IsPlaying != ShouldPlay) {
  this->IsPlaying = ShouldPlay;
- if (this->IsPlaying && this->JukeboxTrack == nullptr) {
+ if (this->IsPlaying && this->JukeboxTrack.empty()) {
  std::string string = nullptr;
  switch (Rand.Next(4) {
  case 0:
@@ -82,7 +82,7 @@ public:
 
  bool onMouseLeftClick(int x, int y) {
  IsoPlayer player = IsoPlayer.getInstance();
- if (player == nullptr || player.isDead()) {
+ if (player.empty() || player.isDead()) {
  return false;
  } else if (IsoPlayer.getInstance().getCurrentSquare() == nullptr) {
  return false;

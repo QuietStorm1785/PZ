@@ -83,7 +83,7 @@ public:
 
  ModelAttachment LoadAttachment(ScriptParser.Block block) {
  ModelAttachment modelAttachment = this->getAttachmentById(block.id);
- if (modelAttachment == nullptr) {
+ if (modelAttachment.empty()) {
  modelAttachment = new ModelAttachment(block.id);
  this->m_attachments.add(modelAttachment);
  }
@@ -217,7 +217,7 @@ public:
  if (!StringUtils.isNullOrWhitespace(string0) {
  if (!reported.contains(string0) {
  ModelScript modelScript = ScriptManager.instance.getModelScript(string0);
- if (modelScript == nullptr) {
+ if (modelScript.empty()) {
  reported.add(string0);
  DebugLog.Script.warn("no such model \"" + string0 + "\" for " + string1);
  } else {

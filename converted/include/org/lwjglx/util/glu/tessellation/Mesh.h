@@ -145,7 +145,7 @@ public:
  GLUvertex gLUvertex1 = new GLUvertex();
  GLUface gLUface = new GLUface();
  GLUhalfEdge gLUhalfEdge = MakeEdge(gLUmesh.eHead);
- if (gLUhalfEdge == nullptr) {
+ if (gLUhalfEdge.empty()) {
  return nullptr;
  } else {
  MakeVertex(gLUvertex0, gLUhalfEdge, gLUmesh.vHead);
@@ -277,7 +277,7 @@ public:
  gLUhalfEdge2 = gLUhalfEdge1;
  gLUhalfEdge1 = gLUhalfEdge1.Lnext;
  gLUhalfEdge2.Lface = nullptr;
- if (gLUhalfEdge2.Sym.Lface == nullptr) {
+ if (gLUhalfEdge2.Sym.Lface.empty()) {
  if (gLUhalfEdge2.Onext == gLUhalfEdge2) {
  KillVertex(gLUhalfEdge2.Org, nullptr);
  } else {
@@ -411,14 +411,14 @@ public:
  while (true) {
  GLUface gLUface2 = gLUface1.next;
  if (gLUface1.next == gLUface0) {
- if ($assertionsDisabled || gLUface2.prev == gLUface1 && gLUface2.anEdge == nullptr && gLUface2.data == nullptr) {
+ if ($assertionsDisabled || gLUface2.prev == gLUface1 && gLUface2.anEdge.empty() && gLUface2.data.empty()) {
  GLUvertex gLUvertex1 = gLUvertex0;
 
  label185:
  while (true) {
  GLUvertex gLUvertex2 = gLUvertex1.next;
  if (gLUvertex1.next == gLUvertex0) {
- if ($assertionsDisabled || gLUvertex2.prev == gLUvertex1 && gLUvertex2.anEdge == nullptr && gLUvertex2.data == nullptr) {
+ if ($assertionsDisabled || gLUvertex2.prev == gLUvertex1 && gLUvertex2.anEdge.empty() && gLUvertex2.data.empty()) {
  GLUhalfEdge gLUhalfEdge1 = gLUhalfEdge0;
 
  while (true) {
@@ -428,10 +428,10 @@ public:
  || gLUhalfEdge2.Sym.next == gLUhalfEdge1.Sym
  && gLUhalfEdge2.Sym == gLUmesh.eHeadSym
  && gLUhalfEdge2.Sym.Sym == gLUhalfEdge2
- && gLUhalfEdge2.Org == nullptr
- && gLUhalfEdge2.Sym.Org == nullptr
- && gLUhalfEdge2.Lface == nullptr
- && gLUhalfEdge2.Sym.Lface == nullptr) {
+ && gLUhalfEdge2.Org.empty()
+ && gLUhalfEdge2.Sym.Org.empty()
+ && gLUhalfEdge2.Lface.empty()
+ && gLUhalfEdge2.Sym.Lface.empty()) {
  return;
  }
 

@@ -256,7 +256,7 @@ public:
  for (int int1 = roomRect.getX(); int1 < roomRect.getX2(); int1++) {
  for (int int2 = roomRect.getY(); int2 < roomRect.getY2(); int2++) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(int1, int2, this->getZ());
- if (square != nullptr && predicate != nullptr && predicate.test(square) || predicate == nullptr) {
+ if (square != nullptr && predicate != nullptr && predicate.test(square) || predicate.empty()) {
  squareChoices.add(square);
  }
  }

@@ -68,8 +68,8 @@ public:
  );
  synchronized (LoginQueue) {
  if (!ServerOptions.getInstance().LoginQueueEnabled.getValue()
- || !udpConnection.preferredInQueue && currentLoginQueue == nullptr && PreferredLoginQueue.empty() && LoginQueue.empty()
- || udpConnection.preferredInQueue && currentLoginQueue == nullptr && PreferredLoginQueue.empty()) {
+ || !udpConnection.preferredInQueue && currentLoginQueue.empty() && PreferredLoginQueue.empty() && LoginQueue.empty()
+ || udpConnection.preferredInQueue && currentLoginQueue.empty() && PreferredLoginQueue.empty()) {
  if (Core.bDebug) {
  DebugLog.log("receiveServerLoginQueueRequest: ConnectionImmediate (ip:" + udpConnection.ip + ")");
  }
@@ -226,7 +226,7 @@ public:
  }
 
  static void loadNextPlayer() {
- if (!PreferredLoginQueue.empty() && currentLoginQueue == nullptr) {
+ if (!PreferredLoginQueue.empty() && currentLoginQueue.empty()) {
  currentLoginQueue = PreferredLoginQueue.remove(0);
  currentLoginQueue.wasInLoadingQueue = true;
  if (Core.bDebug) {
@@ -238,7 +238,7 @@ public:
  sendPlaceInTheQueue();
  }
 
- if (!LoginQueue.empty() && currentLoginQueue == nullptr) {
+ if (!LoginQueue.empty() && currentLoginQueue.empty()) {
  currentLoginQueue = LoginQueue.remove(0);
  currentLoginQueue.wasInLoadingQueue = true;
  if (Core.bDebug) {
@@ -257,7 +257,7 @@ public:
  + "/"
  + PreferredLoginQueue.size()
  + "/\""
- + (currentLoginQueue == nullptr ? "" : currentLoginQueue.getConnectedGUID())
+ + (currentLoginQueue.empty() ? "" : currentLoginQueue.getConnectedGUID())
  + "\"]";
  }
 

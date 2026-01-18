@@ -43,7 +43,7 @@ public:
  return 0L;
  } else {
  GameSound gameSound = GameSounds.getSound(file);
- if (gameSound == nullptr) {
+ if (gameSound.empty()) {
  return 0L;
  } else {
  GameSoundClip gameSoundClip = gameSound.getRandomClip();

@@ -96,7 +96,7 @@ public:
  void chunkLoaded(int wx, int wy) {
  if (this->hasObjectsInChunk(wx, wy) {
  void* object = this->modData.rawget("OnChunkLoaded");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("OnChunkLoaded method undefined for system '" + this->name + "'");
  } else {
  double double0 = BoxedStaticValues.toDouble(wx);
@@ -112,7 +112,7 @@ public:
 
  void receiveClientCommand(const std::string& command, IsoPlayer playerObj, KahluaTable args) {
  void* object = this->modData.rawget("OnClientCommand");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("OnClientCommand method undefined for system '" + this->name + "'");
  } else {
  LuaManager.caller.pcall(LuaManager.thread, object, this->modData, command, playerObj, args);
@@ -120,7 +120,7 @@ public:
  }
 
  void addGlobalObjectOnClient(SGlobalObject globalObject) {
- if (globalObject == nullptr) {
+ if (globalObject.empty()) {
  throw IllegalArgumentException("globalObject is nullptr");
  } else if (globalObject.system != this) {
  throw IllegalArgumentException("object not in this system");
@@ -130,7 +130,7 @@ public:
  }
 
  void removeGlobalObjectOnClient(SGlobalObject globalObject) {
- if (globalObject == nullptr) {
+ if (globalObject.empty()) {
  throw IllegalArgumentException("globalObject is nullptr");
  } else if (globalObject.system != this) {
  throw IllegalArgumentException("object not in this system");
@@ -140,7 +140,7 @@ public:
  }
 
  void updateGlobalObjectOnClient(SGlobalObject globalObject) {
- if (globalObject == nullptr) {
+ if (globalObject.empty()) {
  throw IllegalArgumentException("globalObject is nullptr");
  } else if (globalObject.system != this) {
  throw IllegalArgumentException("object not in this system");
@@ -155,7 +155,7 @@ public:
 
  KahluaTable getInitialStateForClient() {
  void* object = this->modData.rawget("getInitialStateForClient");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("getInitialStateForClient method undefined for system '" + this->name + "'");
  } else {
  Object[] objects = LuaManager.caller.pcall(LuaManager.thread, object, this->modData);
@@ -167,7 +167,7 @@ public:
  GlobalObject globalObject = this->getObjectAt(isoObject.getSquare().x, isoObject.getSquare().y, isoObject.getSquare().z);
  if (globalObject != nullptr) {
  void* object = this->modData.rawget("OnIsoObjectChangedItself");
- if (object == nullptr) {
+ if (object.empty()) {
  throw IllegalStateException("OnIsoObjectChangedItself method undefined for system '" + this->name + "'");
  } else {
  LuaManager.caller.pcall(LuaManager.thread, object, this->modData, isoObject);
@@ -199,7 +199,7 @@ public:
  }
 
  void save(ByteBuffer bb) {
- if (tempTable == nullptr) {
+ if (tempTable.empty()) {
  tempTable = LuaManager.platform.newTable();
  }
 

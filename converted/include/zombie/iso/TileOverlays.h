@@ -90,7 +90,7 @@ public:
  }
 
  TileOverlays.TileOverlayEntry tileOverlayEntry = tileOverlay.pickRandom(string1, square);
- if (tileOverlayEntry == nullptr) {
+ if (tileOverlayEntry.empty()) {
  tileOverlayEntry = tileOverlay.pickRandom("other", square);
  }
 
@@ -115,7 +115,7 @@ public:
  }
 
  if (!StringUtils.isNullOrWhitespace(string0) {
- if (obj.AttachedAnimSprite == nullptr) {
+ if (obj.AttachedAnimSprite.empty()) {
  obj.AttachedAnimSprite = new ArrayList<>(4);
  }
 

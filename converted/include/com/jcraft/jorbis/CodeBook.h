@@ -374,7 +374,7 @@ public:
  this->dim = staticCodeBook.dim;
  this->valuelist = staticCodeBook.unquantize();
  this->decode_tree = this->make_decode_tree();
- if (this->decode_tree == nullptr) {
+ if (this->decode_tree.empty()) {
  this->clear();
  return -1;
  } else {
@@ -388,7 +388,7 @@ public:
  int[] ints0 = decodeAux.ptr0 = new int[this->entries * 2];
  int[] ints1 = decodeAux.ptr1 = new int[this->entries * 2];
  int[] ints2 = make_words(this->c.lengthlist, this->c.entries);
- if (ints2 == nullptr) {
+ if (ints2.empty()) {
  return nullptr;
  } else {
  decodeAux.aux = this->entries * 2;

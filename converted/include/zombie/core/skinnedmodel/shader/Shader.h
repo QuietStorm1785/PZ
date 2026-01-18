@@ -297,7 +297,7 @@ public:
 
  void setMatrixPalette(Matrix4f[] matrix4fs) {
  if (!this->bStatic) {
- if (floatBuffer == nullptr) {
+ if (floatBuffer.empty()) {
  floatBuffer = BufferUtils.createFloatBuffer(1024);
  }
 
@@ -323,7 +323,7 @@ public:
 
  void setMatrixPalette(org.joml.Matrix4f[] matrix4fs) {
  if (!this->bStatic) {
- if (floatBuffer == nullptr) {
+ if (floatBuffer.empty()) {
  floatBuffer = BufferUtils.createFloatBuffer(1024);
  }
 
@@ -561,7 +561,7 @@ public:
  }
 
  void setTransformMatrix(Matrix4f matrix4f, bool transpose) {
- if (floatBuffer == nullptr) {
+ if (floatBuffer.empty()) {
  floatBuffer = BufferUtils.createFloatBuffer(1024);
  }
 

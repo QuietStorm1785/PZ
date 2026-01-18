@@ -88,7 +88,7 @@ public:
  }
 
  static bool playerWithinBounds(float float2, float float0, IsoObject object, float float1) {
- return object == nullptr
+ return object.empty()
  ? false
  : object.getX() > float2 - float1 && object.getX() < float2 + float1 && object.getY() > float0 - float1 && object.getY() < float0 + float1;
  }
@@ -116,7 +116,7 @@ public:
  }
  }
 
- if (udpConnection0 == nullptr) {
+ if (udpConnection0.empty()) {
  DebugLog.log("Connection with PlayerID ='" + short0 + "' not found!");
  }
 
@@ -126,7 +126,7 @@ public:
  static UdpConnection findConnection(const std::string& string) {
  UdpConnection udpConnection0 = nullptr;
  if (GameServer.udpEngine != nullptr) {
- for (int int0 = 0; int0 < GameServer.udpEngine.connections.size() && udpConnection0 == nullptr; int0++) {
+ for (int int0 = 0; int0 < GameServer.udpEngine.connections.size() && udpConnection0.empty(); int0++) {
  UdpConnection udpConnection1 = GameServer.udpEngine.connections.get(int0);
 
  for (int int1 = 0; int1 < udpConnection1.players.length; int1++) {
@@ -138,7 +138,7 @@ public:
  }
  }
 
- if (udpConnection0 == nullptr) {
+ if (udpConnection0.empty()) {
  DebugLog.log("Player with nickname = '" + string + "' not found!");
  }
 
@@ -160,7 +160,7 @@ public:
  }
  }
 
- if (player == nullptr) {
+ if (player.empty()) {
  DebugLog.log("Player with PlayerID ='" + int2 + "' not found!");
  }
 
@@ -179,7 +179,7 @@ public:
  player = GameServer.getPlayerByUserName(string);
  }
 
- if (player == nullptr) {
+ if (player.empty()) {
  DebugLog.log("Player with nickname = '" + string + "' not found!");
  }
 

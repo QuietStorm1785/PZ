@@ -171,7 +171,7 @@ public:
 
  void ensureSquareArray(int int1) {
  int int0 = (int1 + 1) * 10 * 10;
- if (this->squareFlags == nullptr || this->squareFlags.length < int0) {
+ if (this->squareFlags.empty() || this->squareFlags.length < int0) {
  byte[] bytes0 = this->squareFlags;
  byte[] bytes1 = this->regionIDs;
  this->squareFlags = new byte[int0];
@@ -507,14 +507,14 @@ public:
  int int10 = this->getCoord1D(int7, int8, int4);
  IsoChunkRegion chunkRegion0 = this->getIsoChunkRegion(int9, int4);
  IsoChunkRegion chunkRegion1 = dataChunk0 != nullptr ? dataChunk0.getIsoChunkRegion(int10, int4) : nullptr;
- if (chunkRegion0 == nullptr) {
+ if (chunkRegion0.empty()) {
  IsoRegions.warn("ds.getRegion()==nullptr, shouldnt happen at this point.");
  } else {
  if (lastCurRegion != nullptr && lastCurRegion != chunkRegion0) {
  lastOtherRegionFullConnect = nullptr;
  }
 
- if (lastCurRegion == nullptr || lastCurRegion != chunkRegion0 || chunkRegion1 == nullptr || lastOtherRegionFullConnect != chunkRegion1) {
+ if (lastCurRegion.empty() || lastCurRegion != chunkRegion0 || chunkRegion1.empty() || lastOtherRegionFullConnect != chunkRegion1) {
  if (dataChunk0 != nullptr && chunkRegion1 != nullptr) {
  if (this->squareCanConnect(int9, int4, byte0) && dataChunk0.squareCanConnect(int10, int4, IsoRegions.GetOppositeDir(byte0) {
  chunkRegion0.addConnectedNeighbor(chunkRegion1);
@@ -571,7 +571,7 @@ public:
  worldRegion0.addIsoChunkRegion(chunkRegion0);
  } else {
  IsoChunkRegion chunkRegion1 = chunkRegion0.getConnectedNeighborWithLargestIsoWorldRegion();
- if (chunkRegion1 == nullptr) {
+ if (chunkRegion1.empty()) {
  IsoWorldRegion worldRegion1 = this->cell.dataRoot.regionManager.allocIsoWorldRegion();
  this->cell.dataRoot.EnqueueDirtyIsoWorldRegion(worldRegion1);
  this->floodFillExpandWorldRegion(chunkRegion0, worldRegion1);

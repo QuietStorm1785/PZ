@@ -44,7 +44,7 @@ public:
  }
 
  public static synchronized ClientPlayerDB getInstance() {
- if (instance == nullptr && allow) {
+ if (instance.empty() && allow) {
  instance = std::make_unique<ClientPlayerDB>();
  }
 
@@ -229,7 +229,7 @@ public:
  && this->networkProfile.username == GameClient.username)
  && this->networkProfile.server == GameClient.ip) {
  return this->networkProfile.playerCount > 0;
- } else if (GameClient.connection == nullptr) {
+ } else if (GameClient.connection.empty()) {
  return false;
  } else {
  if (this->networkProfile != nullptr) {
@@ -358,7 +358,7 @@ public:
  return 2;
  }
 
- private class NetworkCharacterProfile {
+ class NetworkCharacterProfile {
  bool isLoaded = false;
  byte[][] character;
  std::string username;

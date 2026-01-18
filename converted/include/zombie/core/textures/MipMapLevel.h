@@ -50,7 +50,7 @@ public:
  }
 
  ByteBuffer getBuffer() {
- return this->data == nullptr ? nullptr : this->data.getBuffer();
+ return this->data.empty() ? nullptr : this->data.getBuffer();
  }
 
  int getDataSize() {

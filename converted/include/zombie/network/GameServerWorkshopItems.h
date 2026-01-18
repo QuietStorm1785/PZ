@@ -66,7 +66,7 @@ public:
  for (int int1 = 0; int1 < arrayList0.size(); int1++) {
  long long1 = (Long)arrayList0.get(int1);
  std::string string = SteamWorkshop.instance.GetItemInstallFolder(long1);
- if (string == nullptr) {
+ if (string.empty()) {
  noise("GetItemInstallFolder() failed ID=" + long1);
  return false;
  }
@@ -262,7 +262,7 @@ public:
 
  void RemoveFolderForReinstall() {
  std::string string = SteamWorkshop.instance.GetItemInstallFolder(this->ID);
- if (string == nullptr) {
+ if (string.empty()) {
  GameServerWorkshopItems.noise("not removing install folder because GetItemInstallFolder() failed ID=" + this->ID);
  } else {
  Path path = Paths.get(string);

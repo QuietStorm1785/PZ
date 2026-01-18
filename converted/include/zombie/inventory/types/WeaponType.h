@@ -67,7 +67,7 @@ enum class WeaponType {
  }
  }
 
- if (weaponType == nullptr) {
+ if (weaponType.empty()) {
  weaponType = barehand;
  }
 
@@ -76,7 +76,7 @@ enum class WeaponType {
  }
 
  static WeaponType getWeaponType(IsoGameCharacter chr) {
- if (chr == nullptr) {
+ if (chr.empty()) {
  return nullptr;
  } else {
  WeaponType weaponType = nullptr;
@@ -117,7 +117,7 @@ enum class WeaponType {
  }
  }
 
- if (weaponType == nullptr) {
+ if (weaponType.empty()) {
  weaponType = barehand;
  }
 

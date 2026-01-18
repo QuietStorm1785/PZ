@@ -61,7 +61,7 @@ public:
  object = this->rawget(arg0);
  }
 
- if (arg1 == nullptr) {
+ if (arg1.empty()) {
  if (Core.bDebug && LuaManager.thread != nullptr && LuaManager.thread.hasDataBreakpoint(this, arg0) && object != nullptr) {
  UIManager.debugBreakpoint(LuaManager.thread.currentfile, LuaManager.thread.lastLine);
  }
@@ -86,7 +86,7 @@ public:
  void* rawget(void* arg0) {
  if (this->reloadReplace != nullptr) {
  return this->reloadReplace.rawget(arg0);
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return nullptr;
  } else {
  if (Core.bDebug && LuaManager.thread != nullptr && LuaManager.thread.hasReadDataBreakpoint(this, arg0) {

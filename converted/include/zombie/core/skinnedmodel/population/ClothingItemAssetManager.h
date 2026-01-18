@@ -61,7 +61,7 @@ public:
  }
 
  private ArrayList<String> fixPaths(ArrayList<String> arrayList) {
- if (arrayList == nullptr) {
+ if (arrayList.empty()) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {

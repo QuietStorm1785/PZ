@@ -925,7 +925,7 @@ public:
  if (!this->isDestroyed()) {
  if (thumper instanceof IsoGameCharacter) {
  Thumpable thumpable = this->getThumpableFor((IsoGameCharacter)thumper);
- if (thumpable == nullptr) {
+ if (thumpable.empty()) {
  return;
  }
 
@@ -1203,7 +1203,7 @@ public:
  bool isExterior() {
  IsoGridSquare square0 = this->getSquare();
  IsoGridSquare square1 = this->getOppositeSquare();
- if (square1 == nullptr) {
+ if (square1.empty()) {
  return false;
  } else {
  return square0.Is(IsoFlagType.exterior) && square1.getBuilding() != nullptr && square1.getBuilding().getDef() != nullptr
@@ -1215,7 +1215,7 @@ public:
  bool isHoppable() {
  if (this->IsOpen()) {
  return false;
- } else if (this->closedSprite == nullptr) {
+ } else if (this->closedSprite.empty()) {
  return false;
  } else {
  PropertyContainer propertyContainer = this->closedSprite.getProperties();
@@ -1224,10 +1224,10 @@ public:
  }
 
  bool canClimbOver(IsoGameCharacter chr) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return false;
  } else {
- return !this->isHoppable() ? false : chr == nullptr || IsoWindow.canClimbThroughHelper(chr, this->getSquare(), this->getOppositeSquare(), this->north);
+ return !this->isHoppable() ? false : chr.empty() || IsoWindow.canClimbThroughHelper(chr, this->getSquare(), this->getOppositeSquare(), this->north);
  }
  }
 
@@ -1379,7 +1379,7 @@ public:
  }
 
  void syncIsoObject(bool bRemote, uint8_t val, UdpConnection source, ByteBuffer bb) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  System.out.println("ERROR: " + this->getClass().getSimpleName() + " square is nullptr");
  } else if (this->getObjectIndex() == -1) {
  System.out
@@ -1441,7 +1441,7 @@ public:
  this->lockedByKey = boolean2;
  if (GameServer.bServer) {
  for (UdpConnection udpConnection1 : GameServer.udpEngine.connections) {
- if (source != nullptr && udpConnection1.getConnectedGUID() != source.getConnectedGUID() || source == nullptr) {
+ if (source != nullptr && udpConnection1.getConnectedGUID() != source.getConnectedGUID() || source.empty()) {
  ByteBufferWriter byteBufferWriter2 = udpConnection1.startPacket();
  PacketTypes.PacketType.SyncIsoObject.doPacket(byteBufferWriter2);
  this->syncIsoObjectSend(byteBufferWriter2);
@@ -1503,7 +1503,7 @@ public:
 
  bool isBarricaded() {
  IsoBarricade barricade = this->getBarricadeOnSameSquare();
- if (barricade == nullptr) {
+ if (barricade.empty()) {
  barricade = this->getBarricadeOnOppositeSquare();
  }
 
@@ -1535,7 +1535,7 @@ public:
  }
 
  Vector2 getFacingPosition(Vector2 pos) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return pos.set(0.0F, 0.0F);
  } else {
  return this->north ? pos.set(this->getX() + 0.5F, this->getY()) : pos.set(this->getX(), this->getY() + 0.5F);
@@ -1543,7 +1543,7 @@ public:
  }
 
  Vector2 getFacingPositionAlt(Vector2 pos) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return pos.set(0.0F, 0.0F);
  } else {
  switch (this->getSpriteEdge(false) {
@@ -2005,9 +2005,9 @@ public:
  if (square0 != nullptr && square1 != nullptr) {
  BuildingDef buildingDef0 = square0.getBuilding() == nullptr ? nullptr : square0.getBuilding().getDef();
  BuildingDef buildingDef1 = square1.getBuilding() == nullptr ? nullptr : square1.getBuilding().getDef();
- if (buildingDef0 == nullptr && buildingDef1 != nullptr) {
+ if (buildingDef0.empty() && buildingDef1 != nullptr) {
  this->setKeyId(buildingDef1.getKeyId());
- } else if (buildingDef0 != nullptr && buildingDef1 == nullptr) {
+ } else if (buildingDef0 != nullptr && buildingDef1.empty()) {
  this->setKeyId(buildingDef0.getKeyId());
  } else if (this->getProperties().Is("forceLocked") && buildingDef0 != nullptr) {
  this->setKeyId(buildingDef0.getKeyId());
@@ -2029,7 +2029,7 @@ public:
  }
 
  void initCurtainSprites() {
- if (this->curtainN == nullptr) {
+ if (this->curtainN.empty()) {
  this->curtainW = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  this->curtainW.LoadFramesNoDirPageSimple("fixtures_windows_curtains_01_16");
  this->curtainW.def.setScale(0.8F, 0.8F);
@@ -2354,11 +2354,11 @@ public:
  static bool isDoorObstructed(IsoObject object) {
  IsoDoor door = object instanceof IsoDoor ? (IsoDoor)object : nullptr;
  IsoThumpable thumpable = object instanceof IsoThumpable ? (IsoThumpable)object : nullptr;
- if (door == nullptr && thumpable == nullptr) {
+ if (door.empty() && thumpable.empty()) {
  return false;
  } else {
  IsoGridSquare square = object.getSquare();
- if (square == nullptr) {
+ if (square.empty()) {
  return false;
  } else if (!square.isSolid() && !square.isSolidTrans() && !square.Has(IsoObjectType.tree) {
  int int0 = (square.x - 1) / 10;
@@ -2396,7 +2396,7 @@ public:
  ;
  }
 
- bool boolean0 = door == nullptr ? thumpable.open : door.open;
+ bool boolean0 = door.empty() ? thumpable.open : door.open;
  IsoObject object0 = getDoubleDoorObject(oneOfFour, 1);
  IsoObject object1 = getDoubleDoorObject(oneOfFour, 2);
  IsoObject object2 = getDoubleDoorObject(oneOfFour, 3);
@@ -2433,8 +2433,8 @@ public:
  if (int0 != -1) {
  IsoDoor door0 = object instanceof IsoDoor ? (IsoDoor)object : nullptr;
  IsoThumpable thumpable0 = object instanceof IsoThumpable ? (IsoThumpable)object : nullptr;
- bool boolean0 = door0 == nullptr ? thumpable0.north : door0.north;
- bool boolean1 = door0 == nullptr ? thumpable0.open : door0.open;
+ bool boolean0 = door0.empty() ? thumpable0.north : door0.north;
+ bool boolean1 = door0.empty() ? thumpable0.open : door0.open;
  int int1 = -1;
  if (door0 != nullptr) {
  door0.open = !boolean1;
@@ -2495,7 +2495,7 @@ public:
  square.RemoveTileObject(object);
  PolygonalMap2.instance.squareChanged(square);
  square = IsoWorld.instance.CurrentCell.getGridSquare(int5, int6, square.getZ());
- if (square == nullptr) {
+ if (square.empty()) {
  return;
  }
 
@@ -2540,10 +2540,10 @@ public:
  if (int0 >= 1 && int0 <= 8) {
  IsoDoor door = oneOfFour instanceof IsoDoor ? (IsoDoor)oneOfFour : nullptr;
  IsoThumpable thumpable = oneOfFour instanceof IsoThumpable ? (IsoThumpable)oneOfFour : nullptr;
- if (door == nullptr && thumpable == nullptr) {
+ if (door.empty() && thumpable.empty()) {
  return -1;
  } else {
- bool boolean0 = door == nullptr ? thumpable.open : door.open;
+ bool boolean0 = door.empty() ? thumpable.open : door.open;
  if (!boolean0) {
  return int0;
  } else {
@@ -2568,8 +2568,8 @@ public:
  } else {
  IsoDoor door = oneOfFour instanceof IsoDoor ? (IsoDoor)oneOfFour : nullptr;
  IsoThumpable thumpable = oneOfFour instanceof IsoThumpable ? (IsoThumpable)oneOfFour : nullptr;
- bool boolean0 = door == nullptr ? thumpable.north : door.north;
- bool boolean1 = door == nullptr ? thumpable.open : door.open;
+ bool boolean0 = door.empty() ? thumpable.north : door.north;
+ bool boolean1 = door.empty() ? thumpable.open : door.open;
  IsoGridSquare square = oneOfFour.getSquare();
  int[] ints0;
  int[] ints1;
@@ -2594,7 +2594,7 @@ public:
  int int3 = int1 + ints0[index - 1];
  int int4 = int2 + ints1[index - 1];
  square = IsoWorld.instance.CurrentCell.getGridSquare(int3, int4, square.getZ());
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  std::vector arrayList = square.getSpecialObjects();
@@ -2628,8 +2628,8 @@ public:
  } else {
  IsoDoor door = oneOfFour instanceof IsoDoor ? (IsoDoor)oneOfFour : nullptr;
  IsoThumpable thumpable = oneOfFour instanceof IsoThumpable ? (IsoThumpable)oneOfFour : nullptr;
- bool boolean0 = door == nullptr ? thumpable.north : door.north;
- bool boolean1 = door == nullptr ? thumpable.open : door.open;
+ bool boolean0 = door.empty() ? thumpable.north : door.north;
+ bool boolean1 = door.empty() ? thumpable.open : door.open;
  IsoGridSquare square0 = oneOfFour.getSquare();
  int[] ints0;
  int[] ints1;
@@ -2787,10 +2787,10 @@ public:
  if (int0 >= 1 && int0 <= 6) {
  IsoDoor door = oneOfThree instanceof IsoDoor ? (IsoDoor)oneOfThree : nullptr;
  IsoThumpable thumpable = oneOfThree instanceof IsoThumpable ? (IsoThumpable)oneOfThree : nullptr;
- if (door == nullptr && thumpable == nullptr) {
+ if (door.empty() && thumpable.empty()) {
  return -1;
  } else {
- bool boolean0 = door == nullptr ? thumpable.open : door.open;
+ bool boolean0 = door.empty() ? thumpable.open : door.open;
  if (!boolean0) {
  return int0;
  } else {
@@ -2817,12 +2817,12 @@ public:
  } else {
  IsoDoor door = oneOfThree instanceof IsoDoor ? (IsoDoor)oneOfThree : nullptr;
  IsoThumpable thumpable = oneOfThree instanceof IsoThumpable ? (IsoThumpable)oneOfThree : nullptr;
- bool boolean0 = door == nullptr ? thumpable.north : door.north;
+ bool boolean0 = door.empty() ? thumpable.north : door.north;
  IsoGridSquare square = oneOfThree.getSquare();
  int int1 = square.x - (boolean0 ? 1 : 0);
  int int2 = square.y + (boolean0 ? 0 : 1);
  square = IsoWorld.instance.CurrentCell.getGridSquare(int1, int2, square.getZ());
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  std::vector arrayList = square.getSpecialObjects();
@@ -2858,12 +2858,12 @@ public:
  } else {
  IsoDoor door = oneOfThree instanceof IsoDoor ? (IsoDoor)oneOfThree : nullptr;
  IsoThumpable thumpable = oneOfThree instanceof IsoThumpable ? (IsoThumpable)oneOfThree : nullptr;
- bool boolean0 = door == nullptr ? thumpable.north : door.north;
+ bool boolean0 = door.empty() ? thumpable.north : door.north;
  IsoGridSquare square = oneOfThree.getSquare();
  int int1 = square.x + (boolean0 ? 1 : 0);
  int int2 = square.y - (boolean0 ? 0 : 1);
  square = IsoWorld.instance.CurrentCell.getGridSquare(int1, int2, square.getZ());
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  std::vector arrayList = square.getSpecialObjects();
@@ -2912,7 +2912,7 @@ public:
  if (int0 != -1) {
  IsoDoor door = object instanceof IsoDoor ? (IsoDoor)object : nullptr;
  IsoThumpable thumpable = object instanceof IsoThumpable ? (IsoThumpable)object : nullptr;
- bool boolean0 = door == nullptr ? thumpable.open : door.open;
+ bool boolean0 = door.empty() ? thumpable.open : door.open;
  if (door != nullptr) {
  door.open = !boolean0;
  door.setLockedByKey(false);
@@ -2960,8 +2960,8 @@ public:
  } else {
  IsoDoor door = object0 instanceof IsoDoor ? (IsoDoor)object0 : nullptr;
  IsoThumpable thumpable = object0 instanceof IsoThumpable ? (IsoThumpable)object0 : nullptr;
- bool boolean0 = door == nullptr ? thumpable.north : door.north;
- bool boolean1 = door == nullptr ? thumpable.open : door.open;
+ bool boolean0 = door.empty() ? thumpable.north : door.north;
+ bool boolean1 = door.empty() ? thumpable.open : door.open;
  if (!boolean1) {
  return false;
  } else {
@@ -3100,7 +3100,7 @@ public:
  }
 
  std::string getSoundPrefix() {
- if (this->closedSprite == nullptr) {
+ if (this->closedSprite.empty()) {
  return "WoodDoor";
  } else {
  PropertyContainer propertyContainer = this->closedSprite.getProperties();

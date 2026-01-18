@@ -60,7 +60,7 @@ public:
  this->sandboxOptions.loadServerZombiesFile(this->name);
  SpawnRegions spawnRegionsx = new SpawnRegions();
  this->spawnRegions = spawnRegionsx.loadRegionsFile(ServerSettingsManager.instance.getNameInSettingsFolder(this->name + "_spawnregions.lua"));
- if (this->spawnRegions == nullptr) {
+ if (this->spawnRegions.empty()) {
  this->spawnRegions = spawnRegionsx.getDefaultServerRegions();
  }
 
@@ -69,7 +69,7 @@ public:
  }
 
  bool saveFiles() {
- if (this->serverOptions == nullptr) {
+ if (this->serverOptions.empty()) {
  return false;
  } else {
  this->serverOptions.saveServerTextFile(this->name);

@@ -500,7 +500,7 @@ public:
  int int6 = Rand.Next(1, hashMap.size() + 1);
  std::string string = nullptr;
 
- while (string == nullptr) {
+ while (string.empty()) {
  string = (String)hashMap.get(int6);
  if (arrayList1.contains(string) {
  string = nullptr;
@@ -604,7 +604,7 @@ public:
  int int6 = Rand.Next(1, hashMap.size() + 1);
  std::string string = nullptr;
 
- while (string == nullptr) {
+ while (string.empty()) {
  string = (String)hashMap.get(int6);
  if (arrayList1.contains(string) {
  string = nullptr;

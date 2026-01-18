@@ -220,7 +220,7 @@ public:
 
  ModelInstance newAdditionalModelInstance(const std::string& meshName, const std::string& tex, IsoGameCharacter chr, AnimationPlayer animPlayer, const std::string& shaderName) {
  Model model = this->tryGetLoadedModel(meshName, tex, false, shaderName, false);
- if (model == nullptr) {
+ if (model.empty()) {
  bool boolean0 = false;
  instance.loadAdditionalModel(meshName, tex, boolean0, shaderName);
  }
@@ -254,7 +254,7 @@ public:
  std::string string = ZomboidFileSystem.instance.getAnimName(uri1, file2);
  this->loadAnim(string, modelMesh, modAnimations);
  boolean0 = true;
- if (!NoOpenGL && RenderThread.RenderThread == nullptr) {
+ if (!NoOpenGL && RenderThread.RenderThread.empty()) {
  Display.processMessages();
  }
  }
@@ -1045,7 +1045,7 @@ public:
  for (IsoLightSource lightSource : this->m_lights) {
  if (lightSource.bActive
  && lightSource.life != 0
- && (lightSource.localToBuilding == nullptr || movingObject.getCurrentBuilding() == lightSource.localToBuilding)
+ && (lightSource.localToBuilding.empty() || movingObject.getCurrentBuilding() == lightSource.localToBuilding)
  && !(IsoUtils.DistanceTo(movingObject.x, movingObject.y, lightSource.x + 0.5F, lightSource.y + 0.5F) >= lightSource.radius)
  && LosUtil.lineClear(
  IsoWorld.instance.CurrentCell,
@@ -1127,7 +1127,7 @@ public:
  VehicleScript vehicleScript = vehicle.getScript();
  std::string string = vehicle.getScript().getModel().file;
  Model model0 = this->getLoadedModel(string);
- if (model0 == nullptr) {
+ if (model0.empty()) {
  DebugLog.Animation.error("Failed to find vehicle model: %s", string);
  } else {
  if (DebugLog.isEnabled(DebugType.Animation) {
@@ -1167,7 +1167,7 @@ public:
  for (int int0 = 0; int0 < vehicle.models.size(); int0++) {
  BaseVehicle.ModelInfo modelInfo = vehicle.models.get(int0);
  Model model1 = this->getLoadedModel(modelInfo.scriptModel.file);
- if (model1 == nullptr) {
+ if (model1.empty()) {
  DebugLog.Animation.error("vehicle.models[%d] not found: %s", int0, modelInfo.scriptModel.file);
  } else {
  VehicleSubModelInstance vehicleSubModelInstance = new VehicleSubModelInstance();
@@ -1178,7 +1178,7 @@ public:
  vehicleSubModelInstance.parent = vehicleModelInstance;
  vehicleModelInstance.sub.add(vehicleSubModelInstance);
  vehicleSubModelInstance.modelInfo = modelInfo;
- if (vehicleSubModelInstance.tex == nullptr) {
+ if (vehicleSubModelInstance.tex.empty()) {
  vehicleSubModelInstance.tex = vehicleModelInstance.tex;
  }
 
@@ -1197,7 +1197,7 @@ public:
 
  ModelInstance addStatic(ModelManager.ModelSlot slot, const std::string& meshName, const std::string& texName, const std::string& boneName, const std::string& shaderName) {
  ModelInstance modelInstance = this->newStaticInstance(slot, meshName, texName, boneName, shaderName);
- if (modelInstance == nullptr) {
+ if (modelInstance.empty()) {
  return nullptr;
  } else {
  slot.sub.add(modelInstance);
@@ -1213,10 +1213,10 @@ public:
  }
 
  Model model = this->tryGetLoadedModel(meshName, texName, true, shaderName, false);
- if (model == nullptr && meshName != nullptr) {
+ if (model.empty() && meshName != nullptr) {
  this->loadStaticModel(meshName, texName, shaderName);
  model = this->getLoadedModel(meshName, texName, true, shaderName);
- if (model == nullptr) {
+ if (model.empty()) {
  if (DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.error("Model not found. model:" + meshName + " tex:" + texName);
  }
@@ -1225,7 +1225,7 @@ public:
  }
  }
 
- if (meshName == nullptr) {
+ if (meshName.empty()) {
  model = this->tryGetLoadedModel("vehicles_wheel02", "vehicles/vehicle_wheel02", true, "vehiclewheel", false);
  }
 
@@ -1303,10 +1303,10 @@ public:
  }
 
  Model model = this->tryGetLoadedModel(string0, string1, true, string2, false);
- if (model == nullptr && string0 != nullptr) {
+ if (model.empty() && string0 != nullptr) {
  this->loadStaticModel(string0, string1, string2);
  model = this->getLoadedModel(string0, string1, true, string2);
- if (model == nullptr) {
+ if (model.empty()) {
  if (DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.error("Model not found. model:" + string0 + " tex:" + string1);
  }
@@ -1315,11 +1315,11 @@ public:
  }
  }
 
- if (string0 == nullptr) {
+ if (string0.empty()) {
  model = this->tryGetLoadedModel("vehicles_wheel02", "vehicles/vehicle_wheel02", true, "vehiclewheel", false);
  }
 
- if (model == nullptr) {
+ if (model.empty()) {
  return nullptr;
  } else {
  ModelInstance modelInstance = this->m_modelInstancePool.alloc();
@@ -1418,10 +1418,10 @@ public:
  modelScript.loadedModel = model0;
  return model0;
  } else {
- AnimationsMesh animationsMesh = modelScript.animationsMesh == nullptr
+ AnimationsMesh animationsMesh = modelScript.animationsMesh.empty()
  ? nullptr
  : ScriptManager.instance.getAnimationsMesh(modelScript.animationsMesh);
- ModelMesh modelMesh = animationsMesh == nullptr ? nullptr : animationsMesh.modelMesh;
+ ModelMesh modelMesh = animationsMesh.empty() ? nullptr : animationsMesh.modelMesh;
  model0 = modelScript.bStatic
  ? this->loadModelInternal(modelScript.getMeshName(), modelScript.getTextureName(), modelScript.getShaderName(), nullptr, true)
  : this->loadModelInternal(modelScript.getMeshName(), modelScript.getTextureName(), modelScript.getShaderName(), modelMesh, false);
@@ -1461,7 +1461,7 @@ public:
  }
  }
 
- if (model2 == nullptr && DebugLog.isEnabled(DebugType.Animation) {
+ if (model2.empty() && DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.error("ModelManager.getLoadedModel> Model missing for key=\"" + string0 + "\"");
  }
 
@@ -1477,11 +1477,11 @@ public:
 
  Model tryGetLoadedModel(const std::string& meshName, const std::string& tex, bool isStatic, const std::string& shaderName, bool logError) {
  std::string string = this->createModelKey(meshName, tex, isStatic, shaderName);
- if (string == nullptr) {
+ if (string.empty()) {
  return nullptr;
  } else {
  Model model = this->m_modelMap.get(string);
- if (model == nullptr && logError && DebugLog.isEnabled(DebugType.Animation) {
+ if (model.empty() && logError && DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.error("ModelManager.getLoadedModel> Model missing for key=\"" + string + "\"");
  }
 
@@ -1508,7 +1508,7 @@ public:
 
  std::string createModelKey(const std::string& string0, const std::string& string2, bool boolean0, const std::string& string1) {
  builder.delete(0, builder.length());
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return nullptr;
  } else {
  if (!toLowerKeyRoot.containsKey(string0) {
@@ -1545,7 +1545,7 @@ public:
  }
 
  std::string createModelKey2(const std::string& string0, const std::string& string3, bool boolean0, const std::string& string1) {
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return nullptr;
  } else {
  if (StringUtils.isNullOrWhitespace(string1) {
@@ -1592,7 +1592,7 @@ public:
  }
 
  std::string animAssetToString(AnimationAsset animationAsset) {
- if (animationAsset == nullptr) {
+ if (animationAsset.empty()) {
  return "nullptr";
  } else {
  AssetPath assetPath = animationAsset.getPath();
@@ -1607,7 +1607,7 @@ public:
 
  AnimationAsset getAnimationAssetRequired(const std::string& string) {
  AnimationAsset animationAsset = this->getAnimationAsset(string);
- if (animationAsset == nullptr) {
+ if (animationAsset.empty()) {
  throw NullPointerException("Required Animation Asset not found: " + string);
  } else {
  return animationAsset;
@@ -1627,7 +1627,7 @@ public:
  }
 
  ModelInstance newInstance(Model model, IsoGameCharacter chr, AnimationPlayer player) {
- if (model == nullptr) {
+ if (model.empty()) {
  System.err.println("ModelManager.newInstance> Model is nullptr.");
  return nullptr;
  } else {
@@ -1657,7 +1657,7 @@ public:
  DebugLog.General.printf("reloading model %s\n", string);
  ModelMesh.MeshAssetParams meshAssetParams = new ModelMesh.MeshAssetParams();
  meshAssetParams.animationsMesh = nullptr;
- if (model.Mesh.vb == nullptr) {
+ if (model.Mesh.vb.empty()) {
  meshAssetParams.bStatic = string.contains(";isStatic=true");
  } else {
  meshAssetParams.bStatic = model.Mesh.vb.bStatic;
@@ -1720,7 +1720,7 @@ public:
  if (modAnimations.isActive()) {
  for (AnimationAsset animationAsset0 : modAnimations.m_animationAssetList) {
  AnimationAsset animationAsset1 = this->m_animationAssets.get(animationAsset0.modelManagerKey);
- if (animationAsset1 == nullptr || animationAsset1 == animationAsset0 || animationAsset1.modAnimations.m_priority <= modAnimations.m_priority) {
+ if (animationAsset1.empty() || animationAsset1 == animationAsset0 || animationAsset1.modAnimations.m_priority <= modAnimations.m_priority) {
  this->m_animationAssets.put(animationAsset0.modelManagerKey, animationAsset0);
  if (animationAsset0.isReady()) {
  animationAsset0.skinningData.AnimationClips.putAll(animationAsset0.AnimationClips);
@@ -1734,7 +1734,7 @@ public:
  void animationAssetLoaded(AnimationAsset animationAsset) {
  if (animationAsset.modAnimations.isActive()) {
  AnimationAsset _animationAsset = this->m_animationAssets.get(animationAsset.modelManagerKey);
- if (_animationAsset == nullptr
+ if (_animationAsset.empty()
  || _animationAsset == animationAsset
  || _animationAsset.modAnimations.m_priority <= animationAsset.modAnimations.m_priority) {
  this->m_animationAssets.put(animationAsset.modelManagerKey, animationAsset);
@@ -1750,7 +1750,7 @@ public:
  meshAssetParams.bStatic = false;
  meshAssetParams.animationsMesh = nullptr;
  animationsMesh0.modelMesh = (ModelMesh)MeshAssetManager.instance.getAssetTable().get(animationsMesh0.meshFile);
- if (animationsMesh0.modelMesh == nullptr) {
+ if (animationsMesh0.modelMesh.empty()) {
  animationsMesh0.modelMesh = (ModelMesh)MeshAssetManager.instance.load(new AssetPath(animationsMesh0.meshFile), meshAssetParams);
  }
 
@@ -1856,7 +1856,7 @@ public:
  string = ZomboidFileSystem.instance.normalizeFolderPath(string);
 
  try {
- return this->m_dirSecondary == nullptr
+ return this->m_dirSecondary.empty()
  ? string.startsWith(this->m_dirAbsolute)
  : string.startsWith(this->m_dirAbsolute) || string.startsWith(this->m_dirSecondaryAbsolute);
  } catch (Exception exception) {

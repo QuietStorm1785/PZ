@@ -162,7 +162,7 @@ public:
  IsoGridSquare square0 = IsoWorld.instance
  .CurrentCell
  .getGridSquare((double)worldSoundEmitter.x, (double)worldSoundEmitter.y, (double)worldSoundEmitter.z);
- if (square0 == nullptr) {
+ if (square0.empty()) {
  worldSoundEmitter.fmodEmitter.stopAll();
  SoundManager.instance.unregisterEmitter(worldSoundEmitter.fmodEmitter);
  this->worldEmitters.remove(worldSoundEmitter);
@@ -462,7 +462,7 @@ public:
  worldSoundEmitter.y = y;
  worldSoundEmitter.z = z;
  worldSoundEmitter.daytime = nullptr;
- if (worldSoundEmitter.fmodEmitter == nullptr) {
+ if (worldSoundEmitter.fmodEmitter.empty()) {
  worldSoundEmitter.fmodEmitter = std::make_unique<FMODSoundEmitter>();
  }
 
@@ -482,7 +482,7 @@ public:
  worldSoundEmitter.x = x;
  worldSoundEmitter.y = y;
  worldSoundEmitter.z = z;
- if (worldSoundEmitter.fmodEmitter == nullptr) {
+ if (worldSoundEmitter.fmodEmitter.empty()) {
  worldSoundEmitter.fmodEmitter = std::make_unique<FMODSoundEmitter>();
  }
 
@@ -508,7 +508,7 @@ public:
  }
 
  if (this->electricityShutOffState == 1 && !boolean0) {
- if (this->electricityShutOffEmitter == nullptr) {
+ if (this->electricityShutOffEmitter.empty()) {
  this->electricityShutOffEmitter = std::make_unique<FMODSoundEmitter>();
  }
 
@@ -516,7 +516,7 @@ public:
  Vector2f vector2f = new Vector2f();
  this->getListenerPos(vector2f);
  BuildingDef buildingDef = this->getNearestBuilding(vector2f.x, vector2f.y, vector2f);
- if (buildingDef == nullptr) {
+ if (buildingDef.empty()) {
  this->electricityShutOffEmitter.setPos(-1000.0F, -1000.0F, 0.0F);
  } else {
  this->electricityShutOffEmitter.setPos(vector2f.x, vector2f.y, 0.0F);
@@ -594,7 +594,7 @@ public:
 
  for (int int0 = 0; int0 < IsoPlayer.numPlayers; int0++) {
  IsoPlayer player1 = IsoPlayer.players[int0];
- if (player1 != nullptr && (player0 == nullptr || player0.isDead() && player1.isAlive() || player0.Traits.Deaf.isSet() && !player1.Traits.Deaf.isSet())) {
+ if (player1 != nullptr && (player0.empty() || player0.isDead() && player1.isAlive() || player0.Traits.Deaf.isSet() && !player1.Traits.Deaf.isSet())) {
  player0 = player1;
  vector2f.set(player1.getX(), player1.getY());
  }

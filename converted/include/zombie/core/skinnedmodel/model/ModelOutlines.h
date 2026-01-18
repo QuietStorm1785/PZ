@@ -74,7 +74,7 @@ public:
  this->m_fboC = nullptr;
  }
 
- if (this->m_fboA == nullptr) {
+ if (this->m_fboA.empty()) {
  Texture texture0 = new Texture(Core.width, Core.height, 16);
  this->m_fboA = new TextureFBO(texture0, false);
  Texture texture1 = new Texture(Core.width, Core.height, 16);
@@ -102,7 +102,7 @@ public:
  void endFrame(int int0) {
  if (this->m_dirty) {
  this->m_playerIndex = int0;
- if (this->m_thickenHShader == nullptr) {
+ if (this->m_thickenHShader.empty()) {
  this->m_thickenHShader = ShaderProgram.createShaderProgram("aim_outline_h", false, true);
  this->m_thickenVShader = ShaderProgram.createShaderProgram("aim_outline_v", false, true);
  this->m_blitShader = ShaderProgram.createShaderProgram("aim_outline_blit", false, true);

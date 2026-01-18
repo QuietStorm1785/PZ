@@ -60,7 +60,7 @@ public:
  }
 
  int getNumChildren() {
- return this->childIDs == nullptr ? 0 : this->childIDs.length;
+ return this->childIDs.empty() ? 0 : this->childIDs.length;
  }
 
  long getChildID(int index) {

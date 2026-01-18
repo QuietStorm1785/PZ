@@ -281,7 +281,7 @@ public:
 
  void loadRootInfo(Node node0) {
  this->print(">>> Loading root info...");
- if (node0 == nullptr) {
+ if (node0.empty()) {
  this->print(" -> root info not found, default version = " + this->radioVersion);
  this->radioFileSettings.put("Version", this->radioVersion);
  } else {

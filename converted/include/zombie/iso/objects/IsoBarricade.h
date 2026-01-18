@@ -420,7 +420,7 @@ public:
  }
 
  Vector2 getFacingPosition(Vector2 pos) {
- if (this->square == nullptr) {
+ if (this->square.empty()) {
  return pos.set(0.0F, 0.0F);
  } else if (this->dir == IsoDirections.N) {
  return pos.set(this->getX() + 0.5F, this->getY());
@@ -649,7 +649,7 @@ public:
  }
 
  static IsoBarricade GetBarricadeOnSquare(IsoGridSquare square, IsoDirections dir) {
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < square.getSpecialObjects().size(); int0++) {
@@ -751,7 +751,7 @@ public:
  }
 
  static IsoBarricade AddBarricadeToObject(BarricadeAble to, IsoGameCharacter chr) {
- if (to == nullptr || to.getSquare() == nullptr || chr == nullptr) {
+ if (to.empty() || to.getSquare() == nullptr || chr.empty()) {
  return nullptr;
  } else if (to.getNorth()) {
  bool boolean0 = chr.getY() < to.getSquare().getY();

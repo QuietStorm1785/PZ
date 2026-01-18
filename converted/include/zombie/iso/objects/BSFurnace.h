@@ -213,7 +213,7 @@ public:
  }
 
  void updateLight() {
- if (this->fireStarted && this->LightSource == nullptr) {
+ if (this->fireStarted && this->LightSource.empty()) {
  this->LightSource = new IsoLightSource(this->square.getX(), this->square.getY(), this->square.getZ(), 0.61F, 0.165F, 0.0F, 7);
  IsoWorld.instance.CurrentCell.addLamppost(this->LightSource);
  } else if (this->LightSource != nullptr) {

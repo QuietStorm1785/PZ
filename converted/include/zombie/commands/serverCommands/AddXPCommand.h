@@ -43,7 +43,7 @@ public:
  std::string string0 = this->getCommandArg(0);
  std::string string1 = this->getCommandArg(1);
  IsoPlayer player0 = GameServer.getPlayerByUserNameForCommand(string0);
- if (player0 == nullptr) {
+ if (player0.empty()) {
  return "No such user";
  } else {
  std::string string2 = player0.getDisplayName();
@@ -55,7 +55,7 @@ public:
  } else {
  object = strings[0].trim();
  if (PerkFactory.Perks.FromString((String)object) == PerkFactory.Perks.MAX) {
- std::string string3 = this->connection == nullptr ? "\n" : " LINE ";
+ std::string string3 = this->connection.empty() ? "\n" : " LINE ";
  StringBuilder stringBuilder = new StringBuilder();
 
  for (int int1 = 0; int1 < PerkFactory.PerkList.size(); int1++) {

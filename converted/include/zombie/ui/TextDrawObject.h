@@ -275,7 +275,7 @@ public:
  }
 
  bool isNullOrZeroLength() {
- return this->original == nullptr || this->original.length() == 0;
+ return this->original.empty() || this->original.length() == 0;
  }
 
  float getInternalClock() {
@@ -473,7 +473,7 @@ public:
  this->currentElement.isTextImage = true;
  } else if (this->allowImages) {
  this->currentElement.tex = Texture.getSharedTexture("Item_" + this->currentElement.text);
- if (this->currentElement.tex == nullptr) {
+ if (this->currentElement.tex.empty()) {
  this->currentElement.tex = Texture.getSharedTexture("media/ui/Container_" + this->currentElement.text);
  }
 
@@ -483,7 +483,7 @@ public:
  }
  }
 
- if (this->allowAnyImage && this->currentElement.tex == nullptr) {
+ if (this->allowAnyImage && this->currentElement.tex.empty()) {
  this->currentElement.tex = Texture.getSharedTexture(this->currentElement.text);
  if (this->currentElement.tex != nullptr) {
  this->currentElement.isTextImage = false;
@@ -551,7 +551,7 @@ public:
  }
 
  void setDefaultFontInternal(UIFont uIFont) {
- if (this->defaultFont == nullptr || !uIFont == this->defaultFontEnum) {
+ if (this->defaultFont.empty() || !uIFont == this->defaultFontEnum) {
  this->defaultFontEnum = uIFont;
  this->defaultFont = TextManager.instance.getFontFromEnum(uIFont);
  }
@@ -566,7 +566,7 @@ public:
  }
 
  void ReadString(UIFont font, const std::string& str, int maxLineWidth) {
- if (str == nullptr) {
+ if (str.empty()) {
  str = "";
  }
 

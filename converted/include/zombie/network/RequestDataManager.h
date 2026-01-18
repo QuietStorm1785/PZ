@@ -29,7 +29,7 @@ public:
  }
 
  static RequestDataManager getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<RequestDataManager>();
  }
 
@@ -104,7 +104,7 @@ public:
  }
  }
 
- if (requestData == nullptr) {
+ if (requestData.empty()) {
  requestData = new RequestDataManager.RequestData(requestID, int1, 0L);
  this->requests.add(requestData);
  }

@@ -46,7 +46,7 @@ public:
  int expandAt;
 
  private IntOpenHashSet(IntHashFunction intHashFunction, int int0, int int2, double double0, int int1, double double1) {
- if (intHashFunction == nullptr) {
+ if (intHashFunction.empty()) {
  Exceptions.nullArgument("hash function");
  }
 
@@ -359,7 +359,7 @@ public:
  }
 
  public int[] toArray(int[] ints) {
- if (ints == nullptr || ints.length < this->size) {
+ if (ints.empty() || ints.length < this->size) {
  ints = new int[this->size];
  }
 

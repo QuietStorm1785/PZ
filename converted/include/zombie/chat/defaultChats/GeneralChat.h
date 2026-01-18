@@ -75,7 +75,7 @@ public:
  GameServer.discordBot.sendMessage(chatMessage.getAuthor(), chatMessage.getText());
 
  for (short short1 : this->members) {
- if (player == nullptr || player.getOnlineID() != short1) {
+ if (player.empty() || player.getOnlineID() != short1) {
  this->sendMessageToPlayer(short1, chatMessage);
  }
  }

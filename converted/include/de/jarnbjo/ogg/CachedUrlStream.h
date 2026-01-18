@@ -37,7 +37,7 @@ public:
 
  public CachedUrlStream(URL url, RandomAccessFile randomAccessFile) {
  this->source = url.openConnection();
- if (randomAccessFile == nullptr) {
+ if (randomAccessFile.empty()) {
  int int0 = this->source.getContentLength();
  if (int0 == -1) {
  throw IOException("The URLConncetion's content length must be set when operating with a in-memory cache.");
@@ -109,7 +109,7 @@ public:
  return true;
  }
 
- public class LoaderThread implements Runnable {
+ class LoaderThread implements Runnable {
  InputStream source;
  RandomAccessFile drain;
  private byte[] memoryCache;
@@ -161,7 +161,7 @@ public:
  }
 
  LogicalOggStreamImpl logicalOggStreamImpl = (LogicalOggStreamImpl)CachedUrlStream.this->getLogicalStream(oggPage.getStreamSerialNumber());
- if (logicalOggStreamImpl == nullptr) {
+ if (logicalOggStreamImpl.empty()) {
  logicalOggStreamImpl = new LogicalOggStreamImpl(CachedUrlStream.this, oggPage.getStreamSerialNumber());
  CachedUrlStream.this->logicalStreams.put(new Integer(oggPage.getStreamSerialNumber()), logicalOggStreamImpl);
  logicalOggStreamImpl.checkFormat(oggPage);

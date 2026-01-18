@@ -72,7 +72,7 @@ public:
  void setDataChunk(DataChunk dataChunk) {
  int int0 = IsoRegions.hash(dataChunk.getChunkX() / 30, dataChunk.getChunkY() / 30);
  DataCell dataCell = this->cellMap.get(int0);
- if (dataCell == nullptr) {
+ if (dataCell.empty()) {
  dataCell = this->addCell(dataChunk.getChunkX() / 30, dataChunk.getChunkY() / 30, int0);
  }
 
@@ -302,17 +302,17 @@ public:
  this->chunk = nullptr;
  this->square = -1;
  this->ensureSquare(createSquare);
- if (this->chunk == nullptr && createChunk) {
+ if (this->chunk.empty() && createChunk) {
  this->ensureChunk(createChunk);
  }
  }
 
  void ensureCell(bool boolean0) {
- if (this->cell == nullptr) {
+ if (this->cell.empty()) {
  this->cell = this->root.getCell(this->cellID);
  }
 
- if (this->cell == nullptr && boolean0) {
+ if (this->cell.empty() && boolean0) {
  this->cell = this->root.addCell(this->cellx, this->celly, this->cellID);
  }
  }
@@ -320,11 +320,11 @@ public:
  void ensureChunk(bool boolean0) {
  this->ensureCell(boolean0);
  if (this->cell != nullptr) {
- if (this->chunk == nullptr) {
+ if (this->chunk.empty()) {
  this->chunk = this->cell.getChunk(this->chunkID);
  }
 
- if (this->chunk == nullptr && boolean0) {
+ if (this->chunk.empty() && boolean0) {
  this->chunk = this->cell.addChunk(this->chunkx, this->chunky, this->chunkID);
  }
  }

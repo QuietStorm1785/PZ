@@ -35,7 +35,7 @@ public:
 
  std::string Command() {
  std::string string0 = this->getCommandArg(0);
- if (this->connection == nullptr) {
+ if (this->connection.empty()) {
  ChatServer.getInstance().sendServerAlertMessageToServerChat(string0);
  } else {
  std::string string1 = this->getExecutorUsername();

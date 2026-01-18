@@ -116,7 +116,7 @@ public:
  }
  }
 
- private class SyncData {
+ class SyncData {
  int x;
  int y;
  int z;

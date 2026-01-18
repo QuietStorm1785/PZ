@@ -503,7 +503,7 @@ public:
  int fetch_headers(Info info, Comment comment, int[] ints, Page page1) {
  Page page0 = new Page();
  Packet packet = new Packet();
- if (page1 == nullptr) {
+ if (page1.empty()) {
  int int0 = this->get_next_page(page0, 8500L);
  if (int0 == -128) {
  return -128;

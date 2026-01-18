@@ -59,7 +59,7 @@ public:
  int int2 = this->toInt(this->hasSelf);
  if (this->hasSelf) {
  void* object0 = int3 <= 0 ? nullptr : luaCallFrame.get(0);
- if (object0 == nullptr || !this->clazz.isInstance(object0) {
+ if (object0.empty() || !this->clazz.isInstance(object0) {
  methodArguments.fail(this->syntaxErrorMessage(this->name + ": Expected a method call but got a function call."));
  return methodArguments;
  }
@@ -95,7 +95,7 @@ public:
  object2 = this->convert(object1, clazzx);
  }
 
- if (object1 != nullptr && object2 == nullptr) {
+ if (object1 != nullptr && object2.empty()) {
  methodArguments.fail("");
  return methodArguments;
  }
@@ -117,7 +117,7 @@ public:
  int int12 = int1 + int11 - int2;
  void* object4 = this->convert(object3, this->varargType);
  objects[int11] = object4;
- if (object3 != nullptr && object4 == nullptr) {
+ if (object3 != nullptr && object4.empty()) {
  methodArguments.fail("");
  return methodArguments;
  }
@@ -229,7 +229,7 @@ public:
  int int0 = 0;
  if (this->hasSelf) {
  void* object0 = int1 <= 0 ? nullptr : luaCallFrame.get(0);
- if (object0 == nullptr || !this->clazz.isInstance(object0) {
+ if (object0.empty() || !this->clazz.isInstance(object0) {
  return false;
  }
 
@@ -255,7 +255,7 @@ public:
  int int0 = 0;
  if (this->hasSelf) {
  void* object0 = int1 <= 0 ? nullptr : luaCallFrame.get(0);
- if (object0 == nullptr || !this->clazz.isInstance(object0) {
+ if (object0.empty() || !this->clazz.isInstance(object0) {
  return false;
  }
 
@@ -270,7 +270,7 @@ public:
  Class clazzx = this->parameterTypes[int2];
  if (!clazzx.isInstance(object1) {
  if (clazzx.isPrimitive()) {
- if (object1 == nullptr) {
+ if (object1.empty()) {
  return false;
  }
 

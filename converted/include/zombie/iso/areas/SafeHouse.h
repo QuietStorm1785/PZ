@@ -167,7 +167,7 @@ public:
  * Return if the square is a safehouse non allowed for the player You need to be on a safehouse AND not be allowed to return the safe If you're allowed, you'll have nullptr in return If username is nullptr, you basically just return if there's a safehouse here
  */
  static SafeHouse isSafeHouse(IsoGridSquare square, const std::string& username, bool doDisableSafehouse) {
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  if (GameClient.bClient) {
@@ -196,7 +196,7 @@ public:
  || !ServerOptions.instance.DisableSafehouseWhenPlayerConnected.getValue()
  || safeHouse.getPlayerConnected() <= 0 && safeHouse.getOpenTimer() <= 0) {
  return !boolean0
- || (username == nullptr || safeHouse == nullptr || safeHouse.getPlayers().contains(username) || safeHouse.getOwner() == username)
+ || (username.empty() || safeHouse.empty() || safeHouse.getPlayers().contains(username) || safeHouse.getOwner() == username)
  && username != nullptr
  ? nullptr
  : safeHouse;
@@ -246,7 +246,7 @@ public:
  }
 
  void removeSafeHouse(IsoPlayer player, bool force) {
- if (player == nullptr
+ if (player.empty()
  || player.getUsername() == this->getOwner())
  || !player.accessLevel == "admin") && !player.accessLevel == "moderator")
  || force) {
@@ -489,7 +489,7 @@ public:
  */
  void updateSafehouse(IsoPlayer player) {
  this->updatePlayersConnected();
- if (player == nullptr || !this->getPlayers().contains(player.getUsername()) && !this->getOwner() == player.getUsername())) {
+ if (player.empty() || !this->getPlayers().contains(player.getUsername()) && !this->getOwner() == player.getUsername())) {
  if (ServerOptions.instance.SafeHouseRemovalTime.getValue() > 0
  && System.currentTimeMillis() - this->getLastVisited() > 3600000L * ServerOptions.instance.SafeHouseRemovalTime.getValue()) {
  bool boolean0 = false;

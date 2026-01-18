@@ -41,7 +41,7 @@ public:
  }
 
  VoiceManagerData voiceManagerData1 = data.get(short0);
- if (voiceManagerData1 == nullptr) {
+ if (voiceManagerData1.empty()) {
  voiceManagerData1 = new VoiceManagerData(short0);
  data.set(short0, voiceManagerData1);
  }

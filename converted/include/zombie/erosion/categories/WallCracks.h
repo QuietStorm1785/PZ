@@ -67,7 +67,7 @@ public:
  } else if (object0 != nullptr) {
  byte0 = 1;
  } else {
- if (object1 == nullptr) {
+ if (object1.empty()) {
  return false;
  }
 

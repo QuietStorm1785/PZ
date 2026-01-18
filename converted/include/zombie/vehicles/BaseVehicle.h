@@ -660,7 +660,7 @@ public:
  }
  }
 
- if (this->script == nullptr) {
+ if (this->script.empty()) {
  this->setScript(this->scriptName);
  }
 
@@ -927,13 +927,13 @@ public:
  }
 
  bool canLockDoor(VehiclePart part, IsoGameCharacter chr) {
- if (part == nullptr) {
+ if (part.empty()) {
  return false;
- } else if (chr == nullptr) {
+ } else if (chr.empty()) {
  return false;
  } else {
  VehicleDoor vehicleDoor = part.getDoor();
- if (vehicleDoor == nullptr) {
+ if (vehicleDoor.empty()) {
  return false;
  } else if (vehicleDoor.lockBroken) {
  return false;
@@ -948,7 +948,7 @@ public:
  if (_part != nullptr && _part.getInventoryItem() == nullptr) {
  return true;
  } else {
- VehicleWindow vehicleWindow = _part == nullptr ? nullptr : _part.getWindow();
+ VehicleWindow vehicleWindow = _part.empty() ? nullptr : _part.getWindow();
  return vehicleWindow != nullptr && (vehicleWindow.isOpen() || vehicleWindow.isDestroyed());
  }
  }
@@ -956,13 +956,13 @@ public:
  }
 
  bool canUnlockDoor(VehiclePart part, IsoGameCharacter chr) {
- if (part == nullptr) {
+ if (part.empty()) {
  return false;
- } else if (chr == nullptr) {
+ } else if (chr.empty()) {
  return false;
  } else {
  VehicleDoor vehicleDoor = part.getDoor();
- if (vehicleDoor == nullptr) {
+ if (vehicleDoor.empty()) {
  return false;
  } else if (vehicleDoor.lockBroken) {
  return false;
@@ -977,7 +977,7 @@ public:
  if (_part != nullptr && _part.getInventoryItem() == nullptr) {
  return true;
  } else {
- VehicleWindow vehicleWindow = _part == nullptr ? nullptr : _part.getWindow();
+ VehicleWindow vehicleWindow = _part.empty() ? nullptr : _part.getWindow();
  return vehicleWindow != nullptr && (vehicleWindow.isOpen() || vehicleWindow.isDestroyed());
  }
  }
@@ -1007,14 +1007,14 @@ public:
  std::vector arrayList = part.getItemType();
  if (part.bCreated && arrayList != nullptr && !arrayList.empty() && part.getInventoryItem() == nullptr && part.getTable("install") == nullptr) {
  part.bCreated = false;
- } else if ((arrayList == nullptr || arrayList.empty()) && part.getInventoryItem() != nullptr) {
+ } else if ((arrayList.empty() || arrayList.empty()) && part.getInventoryItem() != nullptr) {
  part.item = nullptr;
  }
 
  if (!part.bCreated) {
  part.bCreated = true;
  std::string string = part.getLuaFunction("create");
- if (string == nullptr) {
+ if (string.empty()) {
  part.setRandomCondition(nullptr);
  } else {
  this->callLuaVoid(string, this, part);
@@ -1095,7 +1095,7 @@ public:
  }
  }
 
- if (vehicleShadow == nullptr) {
+ if (vehicleShadow.empty()) {
  int int0 = 0;
  int0 |= TextureID.bUseCompression ? 4 : 0;
  vehicleShadow = Texture.getSharedTexture("media/vehicleShadow.png", int0);
@@ -1113,7 +1113,7 @@ public:
  this->scriptName = name;
  bool boolean0 = this->script != nullptr;
  this->script = ScriptManager.instance.getVehicle(this->scriptName);
- if (this->script == nullptr) {
+ if (this->script.empty()) {
  std::vector arrayList0 = ScriptManager.instance.getAllVehicleScripts();
  if (!arrayList0.empty()) {
  std::vector arrayList1 = new ArrayList();
@@ -1175,14 +1175,14 @@ public:
  }
  }
 
- if (part1 == nullptr) {
+ if (part1.empty()) {
  part1 = new VehiclePart(this);
  }
 
  part1.setScriptPart(part0);
  part1.category = part0.category;
  part1.specificItem = part0.specificItem;
- if (part0.container != nullptr && part0.container.contentType == nullptr) {
+ if (part0.container != nullptr && part0.container.contentType.empty()) {
  if (part1.getItemContainer() == nullptr) {
  ItemContainer container = new ItemContainer(part0.id, nullptr, this);
  part1.setItemContainer(container);
@@ -1194,16 +1194,16 @@ public:
  part1.setItemContainer(nullptr);
  }
 
- if (part0.door == nullptr) {
+ if (part0.door.empty()) {
  part1.door = nullptr;
- } else if (part1.door == nullptr) {
+ } else if (part1.door.empty()) {
  part1.door = new VehicleDoor(part1);
  part1.door.init(part0.door);
  }
 
- if (part0.window == nullptr) {
+ if (part0.window.empty()) {
  part1.window = nullptr;
- } else if (part1.window == nullptr) {
+ } else if (part1.window.empty()) {
  part1.window = new VehicleWindow(part1);
  part1.window.init(part0.window);
  } else {
@@ -1504,7 +1504,7 @@ public:
 
  public VehicleScript.Anim getPassengerAnim(int seat, String id) {
  VehicleScript.Passenger passenger = this->getScriptPassenger(seat);
- if (passenger == nullptr) {
+ if (passenger.empty()) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < passenger.anims.size(); int0++) {
@@ -1601,7 +1601,7 @@ public:
 
  modelInfo.m_track = nullptr;
  SkinningData skinningData = animationPlayer.getSkinningData();
- if (skinningData == nullptr || skinningData.AnimationClips.containsKey(anim.anim) {
+ if (skinningData.empty() || skinningData.AnimationClips.containsKey(anim.anim) {
  AnimationTrack animationTrack = animationPlayer.play(anim.anim, anim.bLoop);
  modelInfo.m_track = animationTrack;
  if (animationTrack != nullptr) {
@@ -1682,7 +1682,7 @@ public:
  this->passengers[seat].offset.set(position.offset);
  } else {
  Vector3f vector3f = TL_vector3f_pool.get().alloc();
- if (position.area == nullptr) {
+ if (position.area.empty()) {
  this->getPassengerPositionWorldPos(position, vector3f);
  } else {
  VehicleScript.Area area = this->script.getAreaById(position.area);
@@ -1735,7 +1735,7 @@ public:
 
  public VehicleScript.Passenger.SwitchSeat getPassengerSwitchSeat(int seat, int index) {
  VehicleScript.Passenger passenger = this->getScriptPassenger(seat);
- if (passenger == nullptr) {
+ if (passenger.empty()) {
  return nullptr;
  } else {
  return index >= 0 && index < passenger.switchSeats.size() ? passenger.switchSeats.get(index) : nullptr;
@@ -1744,7 +1744,7 @@ public:
 
  private VehicleScript.Passenger.SwitchSeat getSwitchSeat(int int0, int int2) {
  VehicleScript.Passenger passenger = this->getScriptPassenger(int0);
- if (passenger == nullptr) {
+ if (passenger.empty()) {
  return nullptr;
  } else {
  for (int int1 = 0; int1 < passenger.switchSeats.size(); int1++) {
@@ -1783,7 +1783,7 @@ public:
  if (int0 != -1) {
  this->clearPassenger(int0);
  VehicleScript.Position position = this->getPassengerPosition(seatTo, "inside");
- if (position == nullptr) {
+ if (position.empty()) {
  Vector3f vector3f = TL_vector3f_pool.get().alloc();
  vector3f.set(0.0F, 0.0F, 0.0F);
  this->setPassenger(seatTo, chr, vector3f);
@@ -1823,7 +1823,7 @@ public:
  return -1;
  } else {
  VehicleScript vehicleScript = this->getScript();
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  return -1;
  } else {
  Vector3f vector3f0 = TL_vector3f_pool.get().alloc();
@@ -1906,7 +1906,7 @@ public:
  return nullptr;
  } else {
  VehicleScript vehicleScript = this->getScript();
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  return nullptr;
  } else {
  Vector3f vector3f0 = vehicleScript.getExtents();
@@ -2034,7 +2034,7 @@ public:
  VehiclesDB2.instance.updateVehicleAndTrailer(this);
  }
 
- if (chr == nullptr) {
+ if (chr.empty()) {
  return false;
  } else if (chr.getVehicle() != nullptr && !chr.getVehicle().exit(chr) {
  return false;
@@ -2065,7 +2065,7 @@ public:
  }
 
  bool enterRSync(int seat, IsoGameCharacter chr, BaseVehicle v) {
- if (chr == nullptr) {
+ if (chr.empty()) {
  return false;
  } else {
  VehicleScript.Position position = this->getPassengerPosition(seat, "inside");
@@ -2092,7 +2092,7 @@ public:
  VehiclesDB2.instance.updateVehicleAndTrailer(this);
  }
 
- if (chr == nullptr) {
+ if (chr.empty()) {
  return false;
  } else {
  int int0 = this->getSeat(chr);
@@ -2121,7 +2121,7 @@ public:
  }
 
  bool exitRSync(IsoGameCharacter chr) {
- if (chr == nullptr) {
+ if (chr.empty()) {
  return false;
  } else {
  int int0 = this->getSeat(chr);
@@ -2390,7 +2390,7 @@ public:
  this->addKeyToGloveBox();
  } else {
  VehicleType vehicleType = VehicleType.getTypeFromName(this->getVehicleType());
- int int0 = vehicleType == nullptr ? 70 : vehicleType.getChanceToSpawnKey();
+ int int0 = vehicleType.empty() ? 70 : vehicleType.getChanceToSpawnKey();
  if (Rand.Next(100) <= int0) {
  this->addKeyToWorld();
  }
@@ -2496,7 +2496,7 @@ public:
  for (int int7 = 0; int7 < this->brekingObjectsList.size(); int7++) {
  IsoObject object1 = this->brekingObjectsList.get(int7);
  Vector2 vector2 = this->testCollisionWithObject(object1, 1.0F, vector0);
- if (vector2 == nullptr || !object1.getSquare().getObjects().contains(object1) {
+ if (vector2.empty() || !object1.getSquare().getObjects().contains(object1) {
  this->brekingObjectsList.remove(object1);
  object1.UnCollision(this);
  } else if (float1 < object1.GetVehicleSlowFactor(this) {
@@ -2589,24 +2589,24 @@ public:
  }
  }
 
- if (vector1 == nullptr && object instanceof IsoWindow) {
+ if (vector1.empty() && object instanceof IsoWindow) {
  vector1 = this->testCollisionWithObject(object, 1.0F, vector0);
  }
 
- if (vector1 == nullptr
+ if (vector1.empty()
  && object.sprite != nullptr
  && (object.sprite.getProperties().Is("HitByCar") || object.sprite.getProperties().Is("CarSlowFactor"))) {
  vector1 = this->testCollisionWithObject(object, 1.0F, vector0);
  }
 
- if (vector1 == nullptr) {
+ if (vector1.empty()) {
  IsoGridSquare square1 = this->getCell().getGridSquare((double)(this->x + int2), (double)(this->y + int1), 1.0);
  if (square1 != nullptr && square1.getHasTypes().isSet(IsoObjectType.lightswitch) {
  vector1 = this->testCollisionWithObject(object, 1.0F, vector0);
  }
  }
 
- if (vector1 == nullptr) {
+ if (vector1.empty()) {
  IsoGridSquare square2 = this->getCell().getGridSquare((double)(this->x + int2), (double)(this->y + int1), 0.0);
  if (square2 != nullptr && square2.getHasTypes().isSet(IsoObjectType.lightswitch) {
  vector1 = this->testCollisionWithObject(object, 1.0F, vector0);
@@ -2632,7 +2632,7 @@ public:
  DebugLog.Vehicle.debugln("vehicle update() not in cell.vehicles list id=%d x=%f y=%f %s", this->VehicleID, this->x, this->y, this);
  this->getCell().getRemoveList().add(this);
  } else {
- if (this->chunk == nullptr) {
+ if (this->chunk.empty()) {
  DebugLog.Vehicle.debugln("vehicle update() chunk=nullptr id=%d x=%f y=%f", this->VehicleID, this->x, this->y);
  } else if (!this->chunk.vehicles.contains(this) {
  DebugLog.Vehicle.debugln("vehicle update() not in chunk.vehicles list id=%d x=%f y=%f", this->VehicleID, this->x, this->y);
@@ -2714,7 +2714,7 @@ public:
  }
  }
 
- if (this->physics != nullptr && this->vehicleTowingID != -1 && this->vehicleTowing == nullptr) {
+ if (this->physics != nullptr && this->vehicleTowingID != -1 && this->vehicleTowing.empty()) {
  this->tryReconnectToTowedVehicle();
  }
 
@@ -2854,7 +2854,7 @@ public:
  this->setY(this->jniTransform.origin.z + WorldSimulation.instance.offsetY);
  this->setZ(0.0F);
  IsoGridSquare square = this->getCell().getGridSquare((double)this->x, (double)this->y, (double)this->z);
- if (square == nullptr && !this->chunk.refs.empty()) {
+ if (square.empty() && !this->chunk.refs.empty()) {
  float float4 = 5.0E-4F;
  int int8 = this->chunk.wx * 10;
  int int9 = this->chunk.wy * 10;
@@ -2965,7 +2965,7 @@ public:
  this->updateWorldLights();
 
  for (int int13 = 0; int13 < IsoPlayer.numPlayers; int13++) {
- if (this->current == nullptr || !this->current.lighting[int13].bCanSee()) {
+ if (this->current.empty() || !this->current.lighting[int13].bCanSee()) {
  this->setTargetAlpha(int13, 0.0F);
  }
 
@@ -3251,7 +3251,7 @@ public:
 
  void postupdate() {
  this->current = this->getCell().getGridSquare((int)this->x, (int)this->y, 0);
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  for (int int0 = (int)this->z; int0 >= 0; int0--) {
  this->current = this->getCell().getGridSquare((int)this->x, (int)this->y, int0);
  if (this->current != nullptr) {
@@ -3675,7 +3675,7 @@ public:
  }
 
  bool isAtRest() {
- if (this->physics == nullptr) {
+ if (this->physics.empty()) {
  return true;
  } else {
  float float0 = this->jniLinearVelocity.y;
@@ -3808,7 +3808,7 @@ public:
  void updatePhysicsNetwork() {
  if (this->limitPhysicSend.Check()) {
  VehicleManager.instance.sendPhysic(this);
- if (this->limitPhysicPositionSent == nullptr) {
+ if (this->limitPhysicPositionSent.empty()) {
  this->limitPhysicPositionSent = std::make_unique<Vector2>();
  } else if (IsoUtils.DistanceToSquared(this->limitPhysicPositionSent.x, this->limitPhysicPositionSent.y, this->x, this->y) > 0.001F) {
  this->limitPhysicSend.setUpdatePeriod(150L);
@@ -3836,7 +3836,7 @@ public:
  if (this->getController() != nullptr) {
  if (this->isOperational()) {
  IsoPlayer player = Type.tryCastTo(this->getDriver(), IsoPlayer.class);
- if (player == nullptr || !player.isBlockMovement()) {
+ if (player.empty() || !player.isBlockMovement()) {
  this->getController().updateControls();
  }
  }
@@ -4020,7 +4020,7 @@ public:
  part.damage(Rand.Next(Math.max(1, int0 - 5), int0 + 5);
  }
 
- if (part == nullptr || part.getInventoryItem() == nullptr || part.getCondition() < 25) {
+ if (part.empty() || part.getInventoryItem() == nullptr || part.getCondition() < 25) {
  part = this->getPartById("Engine");
  if (part != nullptr) {
  part.damage(Rand.Next(Math.max(1, int0 - 3), int0 + 3);
@@ -4178,7 +4178,7 @@ public:
  }
 
  Vector2 testCollisionWithCharacter(IsoGameCharacter chr, float circleRadius, Vector2 out) {
- if (this->physics == nullptr) {
+ if (this->physics.empty()) {
  return nullptr;
  } else {
  Vector3f vector3f0 = this->script.getExtents();
@@ -4269,7 +4269,7 @@ public:
  }
 
  int testCollisionWithProneCharacter(IsoMovingObject chr, float angleX, float angleY, bool doSound) {
- if (this->physics == nullptr) {
+ if (this->physics.empty()) {
  return 0;
  } else if (GameServer.bServer) {
  return 0;
@@ -4358,9 +4358,9 @@ public:
  }
 
  Vector2 testCollisionWithObject(IsoObject obj, float circleRadius, Vector2 out) {
- if (this->physics == nullptr) {
+ if (this->physics.empty()) {
  return nullptr;
- } else if (obj.square == nullptr) {
+ } else if (obj.square.empty()) {
  return nullptr;
  } else {
  float float0 = this->getObjectX(obj);
@@ -4442,12 +4442,12 @@ public:
 
  bool testCollisionWithVehicle(BaseVehicle obj) {
  VehicleScript vehicleScript0 = this->script;
- if (vehicleScript0 == nullptr) {
+ if (vehicleScript0.empty()) {
  vehicleScript0 = ScriptManager.instance.getVehicle(this->scriptName);
  }
 
  VehicleScript vehicleScript1 = obj.script;
- if (vehicleScript1 == nullptr) {
+ if (vehicleScript1.empty()) {
  vehicleScript1 = ScriptManager.instance.getVehicle(obj.scriptName);
  }
 
@@ -4618,7 +4618,7 @@ public:
  }
 
  bool blocked(int x, int y, int z) {
- if (this->removedFromWorld || this->current == nullptr || this->getController() == nullptr) {
+ if (this->removedFromWorld || this->current.empty() || this->getController() == nullptr) {
  return false;
  } else if (this->getController() == nullptr) {
  return false;
@@ -5574,7 +5574,7 @@ public:
  }
 
  Vector2 areaPositionWorld(VehicleScript.Area area, Vector2 out) {
- if (area == nullptr) {
+ if (area.empty()) {
  return nullptr;
  } else {
  Vector3f vector3f = this->getWorldPos(area.x, 0.0F, area.y, TL_vector3f_pool.get().alloc());
@@ -6076,7 +6076,7 @@ public:
  float float6 = IsoUtils.XToScreenExact(this->x, this->y, 0.0F, 0);
  float float7 = IsoUtils.YToScreenExact(this->x, this->y, 0.0F, 0);
  IsoPlayer player = GameClient.IDToPlayerMap.get(this->netPlayerId);
- std::string string = (player == nullptr ? "@server" : player.getUsername()) + " ( " + this->netPlayerId + " )";
+ std::string string = (player.empty() ? "@server" : player.getUsername()) + " ( " + this->netPlayerId + " )";
  float float8;
  TextManager.instance
  .DrawString(
@@ -6154,7 +6154,7 @@ public:
  if (area != nullptr) {
  Vector2 vector0 = TL_vector2_pool.get().alloc();
  Vector2 vector1 = this->areaPositionWorld(area, vector0);
- if (vector1 == nullptr) {
+ if (vector1.empty()) {
  TL_vector2_pool.get().release(vector0);
  } else {
  Vector3f vector3f = this->getForwardVector(TL_vector3f_pool.get().alloc());
@@ -6484,7 +6484,7 @@ public:
  }
 
  BaseSoundEmitter getEmitter() {
- if (this->emitter == nullptr) {
+ if (this->emitter.empty()) {
  if (!Core.SoundDisabled && !GameServer.bServer) {
  FMODSoundEmitter fMODSoundEmitter = new FMODSoundEmitter();
  fMODSoundEmitter.parameterUpdater = this;
@@ -6545,7 +6545,7 @@ public:
  }
  }
 
- if (player0 == nullptr) {
+ if (player0.empty()) {
  if (this->emitter != nullptr) {
  this->emitter.setPos(this->x, this->y, this->z);
  if (!this->emitter.empty()) {
@@ -6588,7 +6588,7 @@ public:
  this->startTime = this->startTime - GameTime.instance.getMultiplier();
  if (this->getController() != nullptr) {
  if (!GameServer.bServer) {
- if (this->emitter == nullptr) {
+ if (this->emitter.empty()) {
  if (this->engineState != BaseVehicle.engineStateTypes.Running) {
  return;
  }
@@ -6662,7 +6662,7 @@ public:
  }
 
  std::string string = part.getLuaFunction("update");
- if (string == nullptr) {
+ if (string.empty()) {
  return false;
  } else {
  float float0 = (float)GameTime.getInstance().getWorldAgeHours();
@@ -6960,7 +6960,7 @@ public:
  }
 
  VehiclePart getPartById(const std::string& id) {
- if (id == nullptr) {
+ if (id.empty()) {
  return nullptr;
  } else {
  for (int int0 = 0; int0 < this->parts.size(); int0++) {
@@ -7085,12 +7085,12 @@ public:
  bool isInArea(const std::string& areaId, IsoGameCharacter chr) {
  if (areaId != nullptr && this->getScript() != nullptr) {
  VehicleScript.Area area = this->getScript().getAreaById(areaId);
- if (area == nullptr) {
+ if (area.empty()) {
  return false;
  } else {
  Vector2 vector0 = TL_vector2_pool.get().alloc();
  Vector2 vector1 = this->areaPositionLocal(area, vector0);
- if (vector1 == nullptr) {
+ if (vector1.empty()) {
  TL_vector2_pool.get().release(vector0);
  return false;
  } else {
@@ -7150,13 +7150,13 @@ public:
 
  bool canAccessContainer(int partIndex, IsoGameCharacter chr) {
  VehiclePart part0 = this->getPartByIndex(partIndex);
- if (part0 == nullptr) {
+ if (part0.empty()) {
  return false;
  } else {
  VehicleScript.Part part1 = part0.getScriptPart();
- if (part1 == nullptr) {
+ if (part1.empty()) {
  return false;
- } else if (part1.container == nullptr) {
+ } else if (part1.container.empty()) {
  return false;
  } else if (part0.isInventoryItemUninstalled() && part1.container.capacity == 0) {
  return false;
@@ -7401,7 +7401,7 @@ public:
  }
 
  if (!keysOnContact && this->keysInIgnition && !GameServer.bServer) {
- if (this->currentKey == nullptr) {
+ if (this->currentKey.empty()) {
  this->currentKey = this->createVehicleKey();
  }
 
@@ -7496,7 +7496,7 @@ public:
  vehicleDistribution = ItemPickerJava.VehicleDistributions.get(string);
  }
 
- if (vehicleDistribution == nullptr) {
+ if (vehicleDistribution.empty()) {
  for (int int0 = 0; int0 < this->parts.size(); int0++) {
  VehiclePart part0 = this->parts.get(int0);
  if (part0.getItemContainer() != nullptr) {
@@ -7751,7 +7751,7 @@ public:
  IsoObject object = this->getCurrentSquare().getFloor();
  if (object != nullptr && object.getSprite() != nullptr) {
  std::string string = object.getSprite().getName();
- return string == nullptr
+ return string.empty()
  ? false
  : !string.contains("carpentry_02") && !string.contains("blends_street") && !string.contains("floors_exterior_street");
  } else {
@@ -8173,7 +8173,7 @@ public:
 
  void hitVehicle(IsoGameCharacter attacker, HandWeapon weapon) {
  float float0 = 1.0F;
- if (weapon == nullptr) {
+ if (weapon.empty()) {
  weapon = (HandWeapon)InventoryItemFactory.CreateItem("Base.BareHands");
  }
 
@@ -8224,7 +8224,7 @@ public:
 
  bool isTrunkLocked() {
  VehiclePart part = this->getPartById("TrunkDoor");
- if (part == nullptr) {
+ if (part.empty()) {
  part = this->getPartById("DoorRear");
  }
 
@@ -8233,7 +8233,7 @@ public:
 
  void setTrunkLocked(bool locked) {
  VehiclePart part = this->getPartById("TrunkDoor");
- if (part == nullptr) {
+ if (part.empty()) {
  part = this->getPartById("DoorRear");
  }
 
@@ -8441,7 +8441,7 @@ public:
  this->m_animPlayer = Pool.tryRelease(this->m_animPlayer);
  }
 
- if (this->m_animPlayer == nullptr) {
+ if (this->m_animPlayer.empty()) {
  this->m_animPlayer = AnimationPlayer.alloc(model);
  }
 
@@ -8509,7 +8509,7 @@ public:
 
  void setVehicleTowing(BaseVehicle vehicleB, const std::string& attachmentA, const std::string& attachmentB) {
  this->vehicleTowing = vehicleB;
- this->vehicleTowingID = this->vehicleTowing == nullptr ? -1 : this->vehicleTowing.getSqlId();
+ this->vehicleTowingID = this->vehicleTowing.empty() ? -1 : this->vehicleTowing.getSqlId();
  this->towAttachmentSelf = attachmentA;
  this->towAttachmentOther = attachmentB;
  this->towConstraintZOffset = 0.0F;
@@ -8517,7 +8517,7 @@ public:
 
  void setVehicleTowedBy(BaseVehicle vehicleA, const std::string& attachmentA, const std::string& attachmentB) {
  this->vehicleTowedBy = vehicleA;
- this->vehicleTowedByID = this->vehicleTowedBy == nullptr ? -1 : this->vehicleTowedBy.getSqlId();
+ this->vehicleTowedByID = this->vehicleTowedBy.empty() ? -1 : this->vehicleTowedBy.getSqlId();
  this->towAttachmentSelf = attachmentB;
  this->towAttachmentOther = attachmentA;
  this->towConstraintZOffset = 0.0F;
@@ -8533,7 +8533,7 @@ public:
 
  bool attachmentExist(const std::string& attachmentName) {
  VehicleScript vehicleScript = this->getScript();
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  return false;
  } else {
  ModelAttachment modelAttachment = vehicleScript.getAttachmentById(attachmentName);
@@ -8543,11 +8543,11 @@ public:
 
  Vector3f getAttachmentLocalPos(const std::string& attachmentName, Vector3f v) {
  VehicleScript vehicleScript = this->getScript();
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  return nullptr;
  } else {
  ModelAttachment modelAttachment = vehicleScript.getAttachmentById(attachmentName);
- if (modelAttachment == nullptr) {
+ if (modelAttachment.empty()) {
  return nullptr;
  } else {
  v.set(modelAttachment.getOffset());
@@ -8585,7 +8585,7 @@ public:
 
  Vector3f getPlayerTrailerLocalPos(const std::string& attachmentName, bool left, Vector3f v) {
  ModelAttachment modelAttachment = this->getScript().getAttachmentById(attachmentName);
- if (modelAttachment == nullptr) {
+ if (modelAttachment.empty()) {
  return nullptr;
  } else {
  Vector3f vector3f0 = this->getScript().getExtents();
@@ -8603,7 +8603,7 @@ public:
 
  Vector3f getPlayerTrailerWorldPos(const std::string& attachmentName, bool left, Vector3f v) {
  v = this->getPlayerTrailerLocalPos(attachmentName, left, v);
- if (v == nullptr) {
+ if (v.empty()) {
  return nullptr;
  } else {
  this->getWorldPos(v, v);
@@ -8651,7 +8651,7 @@ public:
  }
 
  void addPointConstraint(IsoPlayer player, BaseVehicle vehicleB, const std::string& attachmentA, const std::string& attachmentB, bool remote) {
- if (vehicleB == nullptr
+ if (vehicleB.empty()
  || player != nullptr
  && (
  IsoUtils.DistanceToSquared(player.x, player.y, this->x, this->y) > 100.0F
@@ -8782,7 +8782,7 @@ public:
  }
 
  bool canAttachTrailer(BaseVehicle vehicleB, const std::string& attachmentA, const std::string& attachmentB, bool reconnect) {
- if (this == vehicleB || this->physics == nullptr || this->constraintTowing != -1) {
+ if (this == vehicleB || this->physics.empty() || this->constraintTowing != -1) {
  return false;
  } else if (vehicleB != nullptr && vehicleB.physics != nullptr && vehicleB.constraintTowing == -1) {
  BaseVehicle.Vector3fObjectPool vector3fObjectPool = TL_vector3f_pool.get();
@@ -8822,7 +8822,7 @@ public:
  }
  }
  }
- } else if (this->vehicleTowing == nullptr) {
+ } else if (this->vehicleTowing.empty()) {
  if (this->vehicleTowingID != -1) {
  BaseVehicle vehicle2 = nullptr;
  std::vector arrayList = IsoWorld.instance.CurrentCell.getVehicles();
@@ -8877,9 +8877,9 @@ public:
  }
 
  VehicleEngineRPM getVehicleEngineRPM() {
- if (this->vehicleEngineRPM == nullptr) {
+ if (this->vehicleEngineRPM.empty()) {
  this->vehicleEngineRPM = ScriptManager.instance.getVehicleEngineRPM(this->getScript().getEngineRPMType());
- if (this->vehicleEngineRPM == nullptr) {
+ if (this->vehicleEngineRPM.empty()) {
  DebugLog.General.warn("unknown vehicleEngineRPM \"%s\"", this->getScript().getEngineRPMType());
  this->vehicleEngineRPM = std::make_unique<VehicleEngineRPM>();
  }
@@ -9208,7 +9208,7 @@ public:
  this->m_animPlayer = Pool.tryRelease(this->m_animPlayer);
  }
 
- if (this->m_animPlayer == nullptr) {
+ if (this->m_animPlayer.empty()) {
  this->m_animPlayer = AnimationPlayer.alloc(model);
  }
 

@@ -53,7 +53,7 @@ public:
  WorldMapStyleLayer.RGBAf.s_pool.release(rGBAf);
  } else {
  Texture texture = this->evalTexture(renderArgs, this->m_texture);
- if (texture == nullptr) {
+ if (texture.empty()) {
  WorldMapStyleLayer.RGBAf.s_pool.release(rGBAf);
  } else {
  if (this->m_tile) {

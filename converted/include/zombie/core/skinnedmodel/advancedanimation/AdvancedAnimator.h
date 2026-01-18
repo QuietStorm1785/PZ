@@ -59,7 +59,7 @@ public:
  }
 
  static bool isAnimSetFilePath(const std::string& string0) {
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return false;
  } else if (!string0.endsWith(".xml")) {
  return false;
@@ -80,7 +80,7 @@ public:
  }
 
  static bool isActionGroupFilePath(const std::string& string0) {
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return false;
  } else if (!string0.endsWith(".xml")) {
  return false;
@@ -207,7 +207,7 @@ public:
  }
 
  std::string getCurrentStateName() {
- return this->m_rootLayer == nullptr ? nullptr : this->m_rootLayer.getCurrentStateName();
+ return this->m_rootLayer.empty() ? nullptr : this->m_rootLayer.getCurrentStateName();
  }
 
  bool containsState(const std::string& stateName) {
@@ -219,7 +219,7 @@ public:
  }
 
  void SetState(const std::string& stateName, List<String> subStateNames) {
- if (this->animSet == nullptr) {
+ if (this->animSet.empty()) {
  DebugLog.Animation.error("(" + stateName + ") Cannot set state. AnimSet is nullptr.");
  } else {
  if (!this->animSet.containsState(stateName) {
@@ -429,7 +429,7 @@ public:
  * Returns TRUE if any Actuve Live nodes are an Idle animation. This is useful when determining if the character is currently Idle.
  */
  bool containsAnyIdleNodes() {
- if (this->m_rootLayer == nullptr) {
+ if (this->m_rootLayer.empty()) {
  return false;
  } else {
  bool boolean0 = false;

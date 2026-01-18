@@ -102,7 +102,7 @@ public:
  bool read(byte[] bytes, long long0) {
  if (this->m_use_fallthrough) {
  return this->m_fallthrough.read(bytes, long0);
- } else if (this->m_file == nullptr) {
+ } else if (this->m_file.empty()) {
  return false;
  } else {
  try {
@@ -117,7 +117,7 @@ public:
  bool write(byte[] bytes, long long0) {
  if (this->m_use_fallthrough) {
  return this->m_fallthrough.write(bytes, long0);
- } else if (this->m_file == nullptr) {
+ } else if (this->m_file.empty()) {
  return false;
  } else {
  try {
@@ -137,7 +137,7 @@ public:
  long size() {
  if (this->m_use_fallthrough) {
  return this->m_fallthrough.size();
- } else if (this->m_file == nullptr) {
+ } else if (this->m_file.empty()) {
  return 0L;
  } else {
  try {
@@ -152,7 +152,7 @@ public:
  bool seek(FileSeekMode fileSeekMode, long long0) {
  if (this->m_use_fallthrough) {
  return this->m_fallthrough.seek(fileSeekMode, long0);
- } else if (this->m_file == nullptr) {
+ } else if (this->m_file.empty()) {
  return false;
  } else {
  try {
@@ -171,7 +171,7 @@ public:
  long pos() {
  if (this->m_use_fallthrough) {
  return this->m_fallthrough.pos();
- } else if (this->m_file == nullptr) {
+ } else if (this->m_file.empty()) {
  return 0L;
  } else {
  try {

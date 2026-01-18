@@ -259,7 +259,7 @@ public:
  byteBuffer.put((byte)(vehicle0.isKeysInIgnition() ? 1 : 0);
  byteBuffer.put((byte)(vehicle0.isKeyIsOnDoor() ? 1 : 0);
  InventoryItem item0 = vehicle0.getCurrentKey();
- if (item0 == nullptr) {
+ if (item0.empty()) {
  byteBuffer.put((byte)0);
  } else {
  byteBuffer.put((byte)1);
@@ -338,7 +338,7 @@ public:
  if ((part3.updateFlags & 128) != 0) {
  byteBuffer.put((byte)int11);
  InventoryItem item2 = part3.getInventoryItem();
- if (item2 == nullptr) {
+ if (item2.empty()) {
  byteBuffer.put((byte)0);
  } else {
  byteBuffer.put((byte)1);
@@ -441,11 +441,11 @@ public:
  uint8_t byte4 = byteBuffer.get();
  DebugLog.Vehicle.trace("Vehicle enter vid=%d pid=%d seat=%d", short10, short11, Integer.valueOf(byte4);
  BaseVehicle vehicle6 = this->IDToVehicle.get(short10);
- if (vehicle6 == nullptr) {
+ if (vehicle6.empty()) {
  DebugLog.Vehicle.warn("Vehicle vid=%d not found", short10);
  } else {
  IsoPlayer player1 = GameServer.IDToPlayerMap.get(short11);
- if (player1 == nullptr) {
+ if (player1.empty()) {
  DebugLog.Vehicle.warn("Player pid=%d not found", short11);
  } else {
  IsoPlayer player2 = Type.tryCastTo(vehicle6.getCharacter(byte4), IsoPlayer.class);
@@ -468,11 +468,11 @@ public:
  uint8_t byte1 = byteBuffer.get();
  DebugLog.Vehicle.trace("Vehicle exit vid=%d pid=%d seat=%d", short2, short3, Integer.valueOf(byte1);
  BaseVehicle vehicle1 = this->IDToVehicle.get(short2);
- if (vehicle1 == nullptr) {
+ if (vehicle1.empty()) {
  DebugLog.Vehicle.warn("Vehicle vid=%d not found", short2);
  } else {
  IsoPlayer player0 = GameServer.IDToPlayerMap.get(short3);
- if (player0 == nullptr) {
+ if (player0.empty()) {
  DebugLog.Vehicle.warn("Player pid=%d not found", short3);
  } else {
  vehicle1.exit(player0);
@@ -491,11 +491,11 @@ public:
  uint8_t byte6 = byteBuffer.get();
  DebugLog.Vehicle.trace("Vehicle switch seat vid=%d pid=%d seats=%d=>%d", short12, short13, Integer.valueOf(byte5), Integer.valueOf(byte6);
  BaseVehicle vehicle7 = this->IDToVehicle.get(short12);
- if (vehicle7 == nullptr) {
+ if (vehicle7.empty()) {
  DebugLog.Vehicle.warn("Vehicle vid=%d not found", short12);
  } else {
  IsoPlayer player3 = GameServer.IDToPlayerMap.get(short13);
- if (player3 == nullptr) {
+ if (player3.empty()) {
  DebugLog.Vehicle.warn("Player pid=%d not found", short13);
  } else {
  IsoPlayer player4 = Type.tryCastTo(vehicle7.getCharacter(byte6), IsoPlayer.class);
@@ -805,7 +805,7 @@ public:
  }
  }
 
- DebugLog.Vehicle.trace("added vehicle id=%d %s", vehicle1.VehicleID, square == nullptr ? " (delayed)" : "");
+ DebugLog.Vehicle.trace("added vehicle id=%d %s", vehicle1.VehicleID, square.empty() ? " (delayed)" : "");
  }
  }
 
@@ -820,11 +820,11 @@ public:
  VehicleCache.vehicleUpdate(short0, float0, float1, 0.0F);
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare((double)float0, (double)float1, 0.0);
  BaseVehicle vehicle = this->IDToVehicle.get(short0);
- if (vehicle == nullptr && square == nullptr) {
+ if (vehicle.empty() && square.empty()) {
  if (byteBuffer.limit() > byteBuffer.position() + short2) {
  byteBuffer.position(byteBuffer.position() + short2);
  }
- } else if (vehicle != nullptr && square == nullptr) {
+ } else if (vehicle != nullptr && square.empty()) {
  bool boolean0 = true;
 
  for (int int0 = 0; int0 < IsoPlayer.numPlayers; int0++) {
@@ -847,7 +847,7 @@ public:
  } else if ((short1 & 1) != 0) {
  DebugLog.Vehicle.trace("Vehicle vid=%d full update received", short0);
  this->clientReceiveUpdateFull(byteBuffer, short0, float0, float1, float2);
- if (vehicle == nullptr) {
+ if (vehicle.empty()) {
  vehicle = this->IDToVehicle.get(short0);
  }
 
@@ -884,7 +884,7 @@ public:
  if (int3 >= 0) {
  this->vehiclesWaitUpdates.removeAt(int3);
  }
- } else if (vehicle == nullptr && square != nullptr) {
+ } else if (vehicle.empty() && square != nullptr) {
  this->sendRequestGetFull(short0, PacketTypes.PacketType.Vehicles);
  if (byteBuffer.limit() > byteBuffer.position() + short2) {
  byteBuffer.position(byteBuffer.position() + short2);
@@ -1164,11 +1164,11 @@ public:
  uint8_t byte6 = byteBuffer.get();
  DebugLog.Vehicle.trace("Vehicle enter vid=%d pid=%d seat=%d", short15, short16, Integer.valueOf(byte6);
  BaseVehicle vehicle10 = this->IDToVehicle.get(short15);
- if (vehicle10 == nullptr) {
+ if (vehicle10.empty()) {
  DebugLog.Vehicle.warn("Vehicle vid=%d not found", short15);
  } else {
  IsoPlayer player3 = GameClient.IDToPlayerMap.get(short16);
- if (player3 == nullptr) {
+ if (player3.empty()) {
  DebugLog.Vehicle.warn("Player pid=%d not found", short16);
  } else {
  IsoPlayer player4 = Type.tryCastTo(vehicle10.getCharacter(byte6), IsoPlayer.class);
@@ -1186,11 +1186,11 @@ public:
  uint8_t byte1 = byteBuffer.get();
  DebugLog.Vehicle.trace("Vehicle exit vid=%d pid=%d seat=%d", short1, short2, Integer.valueOf(byte1);
  BaseVehicle vehicle1 = this->IDToVehicle.get(short1);
- if (vehicle1 == nullptr) {
+ if (vehicle1.empty()) {
  DebugLog.Vehicle.warn("Vehicle vid=%d not found", short1);
  } else {
  IsoPlayer player0 = GameClient.IDToPlayerMap.get(short2);
- if (player0 == nullptr) {
+ if (player0.empty()) {
  DebugLog.Vehicle.warn("Player pid=%d not found", short2);
  } else {
  vehicle1.exitRSync(player0);
@@ -1204,11 +1204,11 @@ public:
  uint8_t byte5 = byteBuffer.get();
  DebugLog.Vehicle.trace("Vehicle switch seat vid=%d pid=%d seats=%d=>%d", short13, short14, Integer.valueOf(byte4), Integer.valueOf(byte5);
  BaseVehicle vehicle9 = this->IDToVehicle.get(short13);
- if (vehicle9 == nullptr) {
+ if (vehicle9.empty()) {
  DebugLog.Vehicle.warn("Vehicle vid=%d not found", short13);
  } else {
  IsoPlayer player1 = GameClient.IDToPlayerMap.get(short14);
- if (player1 == nullptr) {
+ if (player1.empty()) {
  DebugLog.Vehicle.warn("Player pid=%d not found", short14);
  } else {
  IsoPlayer player2 = Type.tryCastTo(vehicle9.getCharacter(byte5), IsoPlayer.class);
@@ -1221,7 +1221,7 @@ public:
  }
  break;
  case 5:
- if (this->tempVehicle == nullptr || this->tempVehicle.getCell() != IsoWorld.instance.CurrentCell) {
+ if (this->tempVehicle.empty() || this->tempVehicle.getCell() != IsoWorld.instance.CurrentCell) {
  this->tempVehicle = new BaseVehicle(IsoWorld.instance.CurrentCell);
  }
 
@@ -1344,7 +1344,7 @@ public:
  }
 
  void sendCollide(BaseVehicle vehicle, IsoGameCharacter character, bool boolean0) {
- short short0 = character == nullptr ? -1 : ((IsoPlayer)character).OnlineID;
+ short short0 = character.empty() ? -1 : ((IsoPlayer)character).OnlineID;
  ByteBufferWriter byteBufferWriter = GameClient.connection.startPacket();
  PacketTypes.PacketType.Vehicles.doPacket(byteBufferWriter);
  byteBufferWriter.bb.put((byte)15);
@@ -1443,7 +1443,7 @@ public:
  void sendAddImpulse(BaseVehicle vehicle, Vector3f vector3f0, Vector3f vector3f1) {
  UdpConnection udpConnection0 = nullptr;
 
- for (int int0 = 0; int0 < GameServer.udpEngine.connections.size() && udpConnection0 == nullptr; int0++) {
+ for (int int0 = 0; int0 < GameServer.udpEngine.connections.size() && udpConnection0.empty(); int0++) {
  UdpConnection udpConnection1 = GameServer.udpEngine.connections.get(int0);
 
  for (int int1 = 0; int1 < udpConnection1.players.length; int1++) {
@@ -1560,8 +1560,8 @@ public:
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.Vehicles.doPacket(byteBufferWriter);
  byteBufferWriter.bb.put((byte)18);
- byteBufferWriter.bb.putShort(vehicle0 == nullptr ? -1 : vehicle0.VehicleID);
- byteBufferWriter.bb.putShort(vehicle1 == nullptr ? -1 : vehicle1.VehicleID);
+ byteBufferWriter.bb.putShort(vehicle0.empty() ? -1 : vehicle0.VehicleID);
+ byteBufferWriter.bb.putShort(vehicle1.empty() ? -1 : vehicle1.VehicleID);
  PacketTypes.PacketType.Vehicles.send(udpConnection);
  }
 

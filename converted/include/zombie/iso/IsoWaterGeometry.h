@@ -45,7 +45,7 @@ public:
  this->IsExternal = _square.getProperties().Is(IsoFlagType.exterior) ? 1.0F : 0.0F;
  int int0 = IsoWaterFlow.getShore(_square.x, _square.y);
  IsoObject object = _square.getFloor();
- std::string string = object == nullptr ? nullptr : object.getSprite().getName();
+ std::string string = object.empty() ? nullptr : object.getSprite().getName();
  if (_square.getProperties().Is(IsoFlagType.water) {
  this->hasWater = true;
 
@@ -65,14 +65,14 @@ public:
  IsoGridSquare square5 = _square.getAdjacentSquare(IsoDirections.SE);
  IsoGridSquare square6 = _square.getAdjacentSquare(IsoDirections.E);
  IsoGridSquare square7 = _square.getAdjacentSquare(IsoDirections.NE);
- if (square2 == nullptr
- || square1 == nullptr
- || square0 == nullptr
- || square3 == nullptr
- || square4 == nullptr
- || square5 == nullptr
- || square6 == nullptr
- || square7 == nullptr) {
+ if (square2.empty()
+ || square1.empty()
+ || square0.empty()
+ || square3.empty()
+ || square4.empty()
+ || square5.empty()
+ || square6.empty()
+ || square7.empty()) {
  return nullptr;
  }
 

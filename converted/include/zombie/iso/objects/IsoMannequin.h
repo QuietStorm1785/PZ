@@ -159,7 +159,7 @@ public:
  this->wornItems.clear();
  this->initMannequinScript();
  this->initModelScript();
- if (this->outfit == nullptr) {
+ if (this->outfit.empty()) {
  Outfit outfitx = OutfitManager.instance.GetRandomNonProfessionalOutfit(this->bFemale);
  this->humanVisual.dressInNamedOutfit(outfitx.m_Name, this->itemVisuals);
  } else if (!"none".equalsIgnoreCase(this->outfit) {
@@ -238,7 +238,7 @@ public:
  this->humanVisual.load(input, WorldVersion);
  this->textureName = this->humanVisual.getSkinTexture();
  this->wornItems.clear();
- if (this->container == nullptr) {
+ if (this->container.empty()) {
  this->container = new ItemContainer("mannequin", this->getSquare(), this);
  this->container.setExplored(true);
  }
@@ -327,7 +327,7 @@ public:
  this->mannequinScript = ScriptManager.instance.getMannequinScript(this->mannequinScriptName);
  }
 
- if (this->mannequinScript == nullptr) {
+ if (this->mannequinScript.empty()) {
  this->modelScriptName = this->bFemale ? "FemaleBody" : "MaleBody";
  this->textureName = this->bFemale ? "F_Mannequin_White" : "M_Mannequin_White";
  this->animSet = "mannequin";
@@ -336,17 +336,17 @@ public:
  } else {
  this->bFemale = this->mannequinScript.isFemale();
  this->modelScriptName = this->mannequinScript.getModelScriptName();
- if (this->textureName == nullptr) {
+ if (this->textureName.empty()) {
  this->textureName = this->mannequinScript.getTexture();
  }
 
  this->animSet = this->mannequinScript.getAnimSet();
  this->animState = this->mannequinScript.getAnimState();
- if (this->pose == nullptr) {
+ if (this->pose.empty()) {
  this->pose = this->mannequinScript.getPose();
  }
 
- if (this->outfit == nullptr) {
+ if (this->outfit.empty()) {
  this->outfit = this->mannequinScript.getOutfit();
  }
  }
@@ -363,12 +363,12 @@ public:
 
  void validatePose() {
  AnimationSet animationSet = AnimationSet.GetAnimationSet(this->animSet, false);
- if (animationSet == nullptr) {
+ if (animationSet.empty()) {
  DebugLog.General.warn("ERROR: mannequin AnimSet \"%s\" doesn't exist", this->animSet);
  this->pose = "Invalid";
  } else {
  AnimState animStatex = animationSet.GetState(this->animState);
- if (animStatex == nullptr) {
+ if (animStatex.empty()) {
  DebugLog.General.warn("ERROR: mannequin AnimSet \"%s\" state \"%s\" doesn't exist", this->animSet, this->animState);
  this->pose = "Invalid";
  } else {
@@ -378,7 +378,7 @@ public:
  }
  }
 
- if (animStatex.m_Nodes == nullptr) {
+ if (animStatex.m_Nodes.empty()) {
  DebugLog.General.warn("ERROR: mannequin AnimSet \"%s\" state \"%s\" node \"%s\" doesn't exist", this->animSet, this->animState, this->pose);
  this->pose = "Invalid";
  } else {
@@ -413,7 +413,7 @@ public:
  perPlayerx.atlasTex = nullptr;
  }
 
- if (perPlayerx.atlasTex == nullptr) {
+ if (perPlayerx.atlasTex.empty()) {
  perPlayerx.atlasTex = DeadBodyAtlas.instance.getBodyTexture(this);
  DeadBodyAtlas.instance.render();
  }
@@ -503,7 +503,7 @@ public:
  this->getPropertiesFromZone();
  this->initMannequinScript();
  this->initModelScript();
- if (this->outfit == nullptr) {
+ if (this->outfit.empty()) {
  Outfit outfitx = OutfitManager.instance.GetRandomNonProfessionalOutfit(this->bFemale);
  this->humanVisual.dressInNamedOutfit(outfitx.m_Name, this->itemVisuals);
  } else if (!"none".equalsIgnoreCase(this->outfit) {
@@ -636,7 +636,7 @@ public:
  }
 
  if (this->bAnimate) {
- if (this->animatedModel == nullptr) {
+ if (this->animatedModel.empty()) {
  this->animatedModel = std::make_unique<AnimatedModel>();
  this->drawers = new IsoMannequin.Drawer[3];
 
@@ -655,7 +655,7 @@ public:
  }
 
  void createInventory(ItemVisuals itemVisualsx) {
- if (this->container == nullptr) {
+ if (this->container.empty()) {
  this->container = new ItemContainer("mannequin", this->getSquare(), this);
  this->container.setExplored(true);
  }
@@ -701,7 +701,7 @@ public:
  void checkClothing(InventoryItem removedItem) {
  for (int int0 = 0; int0 < this->wornItems.size(); int0++) {
  InventoryItem item = this->wornItems.getItemByIndex(int0);
- if (this->container == nullptr || this->container.getItems().indexOf(item) == -1) {
+ if (this->container.empty() || this->container.getItems().indexOf(item) == -1) {
  this->wornItems.remove(item);
  this->syncModel();
  int0--;
@@ -720,7 +720,7 @@ public:
  void getCustomSettingsFromItem(InventoryItem item) {
  if (item instanceof Moveable) {
  ByteBuffer byteBuffer = item.getByteData();
- if (byteBuffer == nullptr) {
+ if (byteBuffer.empty()) {
  return;
  }
 
@@ -777,7 +777,7 @@ public:
  static void renderMoveableItem(Moveable item, int x, int y, int z, IsoDirections dir) {
  int int0 = IsoCamera.frameState.playerIndex;
  IsoMannequin.StaticPerPlayer staticPerPlayerx = staticPerPlayer[int0];
- if (staticPerPlayerx == nullptr) {
+ if (staticPerPlayerx.empty()) {
  staticPerPlayerx = staticPerPlayer[int0] = new IsoMannequin.StaticPerPlayer(int0);
  }
 
@@ -790,14 +790,14 @@ public:
 
  static IsoDirections getDirectionFromItem(Moveable item, int playerIndex) {
  IsoMannequin.StaticPerPlayer staticPerPlayerx = staticPerPlayer[playerIndex];
- if (staticPerPlayerx == nullptr) {
+ if (staticPerPlayerx.empty()) {
  staticPerPlayerx = staticPerPlayer[playerIndex] = new IsoMannequin.StaticPerPlayer(playerIndex);
  }
 
  return staticPerPlayerx.getDirectionFromItem(item);
  }
 
- private class Drawer extends TextureDraw.GenericDrawer {
+ class Drawer extends TextureDraw.GenericDrawer {
  float x;
  float y;
  float z;
@@ -925,19 +925,19 @@ public:
  }
 
  bool checkItem(Moveable moveable) {
- if (moveable == nullptr) {
+ if (moveable.empty()) {
  return false;
  } else {
  std::string string = moveable.getWorldSprite();
  IsoSprite sprite = IsoSpriteManager.instance.getSprite(string);
- if (sprite == nullptr || !IsoMannequin.isMannequinSprite(sprite) {
+ if (sprite.empty() || !IsoMannequin.isMannequinSprite(sprite) {
  return false;
  } else if (moveable.getByteData() == nullptr) {
  Thread thread = Thread.currentThread();
  if (thread != GameWindow.GameThread && thread != GameLoadingState.loader && thread == GameServer.MainThread) {
  return false;
  } else {
- if (this->_mannequin == nullptr || this->_mannequin.getCell() != IsoWorld.instance.CurrentCell) {
+ if (this->_mannequin.empty() || this->_mannequin.getCell() != IsoWorld.instance.CurrentCell) {
  this->_mannequin = new IsoMannequin(IsoWorld.instance.CurrentCell);
  }
 
@@ -960,7 +960,7 @@ public:
  }
  }
  } else {
- if (this->_mannequin == nullptr || this->_mannequin.getCell() != IsoWorld.instance.CurrentCell) {
+ if (this->_mannequin.empty() || this->_mannequin.getCell() != IsoWorld.instance.CurrentCell) {
  this->_mannequin = new IsoMannequin(IsoWorld.instance.CurrentCell);
  }
 

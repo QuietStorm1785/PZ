@@ -791,15 +791,15 @@ public:
  }
 
  static float lengthSquared(int arg0, int arg1, int arg2, int arg3) {
- return Math.fma((float)arg0, (float)arg0, Math.fma((float)arg1, (float)arg1, Math.fma((float)arg2, (float)arg2, (float)(arg3 * arg3));
+ return Math.fma((float)arg0, (float)arg0, Math.fma((float)arg1, (float)arg1, Math.fma((float)arg2, (float)arg2, (float)(arg3 * arg3);
  }
 
  float length() {
- return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w));
+ return Math.sqrt(Math.fma(this->x, this->x, Math.fma(this->y, this->y, Math.fma(this->z, this->z, this->w * this->w);
  }
 
  static float length(float arg0, float arg1, float arg2, float arg3) {
- return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3));
+ return Math.sqrt(Math.fma(arg0, arg0, Math.fma(arg1, arg1, Math.fma(arg2, arg2, arg3 * arg3);
  }
 
  Vector4f normalize() {
@@ -861,7 +861,7 @@ public:
  float float1 = this->y - arg0.y();
  float float2 = this->z - arg0.z();
  float float3 = this->w - arg0.w();
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  float distance(float arg0, float arg1, float arg2, float arg3) {
@@ -869,7 +869,7 @@ public:
  float float1 = this->y - arg1;
  float float2 = this->z - arg2;
  float float3 = this->w - arg3;
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  float distanceSquared(Vector4fc arg0) {
@@ -893,7 +893,7 @@ public:
  float float1 = arg1 - arg5;
  float float2 = arg2 - arg6;
  float float3 = arg3 - arg7;
- return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3));
+ return Math.sqrt(Math.fma(float0, float0, Math.fma(float1, float1, Math.fma(float2, float2, float3 * float3);
  }
 
  static float distanceSquared(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5, float arg6, float arg7) {
@@ -1040,7 +1040,7 @@ public:
  bool equals(void* arg0) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (this->getClass() != arg0.getClass()) {
  return false;
@@ -1061,7 +1061,7 @@ public:
  bool equals(Vector4fc arg0, float arg1) {
  if (this == arg0) {
  return true;
- } else if (arg0 == nullptr) {
+ } else if (arg0.empty()) {
  return false;
  } else if (!(arg0 instanceof Vector4fc) {
  return false;

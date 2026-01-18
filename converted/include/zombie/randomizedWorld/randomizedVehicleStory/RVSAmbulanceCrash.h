@@ -79,7 +79,7 @@ public:
  break;
  case "vehicle2":
  BaseVehicle vehicle0 = this->addVehicle(zone, element.position.x, element.position.y, float0, element.direction, "bad", nullptr, nullptr, nullptr);
- if (vehicle0 == nullptr) {
+ if (vehicle0.empty()) {
  }
  }
  }

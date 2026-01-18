@@ -58,7 +58,7 @@ public:
  if (type == AnimCondition.Type.OR) {
  return false;
  } else {
- if (this->m_variableHandle == nullptr) {
+ if (this->m_variableHandle.empty()) {
  this->m_variableHandle = AnimationVariableHandle.alloc(this->m_Name);
  }
 

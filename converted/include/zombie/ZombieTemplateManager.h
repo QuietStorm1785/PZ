@@ -18,7 +18,7 @@ public:
  return nullptr;
  }
 
- public class BodyOverlay {
+ class BodyOverlay {
  BodyPartType location;
  public ZombieTemplateManager.OverlayType type;
  }
@@ -29,7 +29,7 @@ public:
  BloodHeavy;
  }
 
- public class ZombieTemplate {
+ class ZombieTemplate {
  Texture tex;
  }
 }

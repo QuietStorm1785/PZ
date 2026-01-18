@@ -30,11 +30,11 @@ public:
 
  DeadBodyAtlas.BodyTexture getTexture(String string0, String string1, IsoDirections directions, int int0) {
  CharacterTextures.CTAnimSet cTAnimSet = this->getAnimSet(string0);
- if (cTAnimSet == nullptr) {
+ if (cTAnimSet.empty()) {
  return nullptr;
  } else {
  CharacterTextures.CTState cTState = cTAnimSet.getState(string1);
- if (cTState == nullptr) {
+ if (cTState.empty()) {
  return nullptr;
  } else {
  CharacterTextures.CTEntry cTEntry = cTState.getEntry(directions, int0);
@@ -45,7 +45,7 @@ public:
 
  void addTexture(const std::string& string0, const std::string& string1, IsoDirections directions, int int0, DeadBodyAtlas.BodyTexture bodyTexture) {
  CharacterTextures.CTAnimSet cTAnimSet = this->getAnimSet(string0);
- if (cTAnimSet == nullptr) {
+ if (cTAnimSet.empty()) {
  cTAnimSet = new CharacterTextures.CTAnimSet();
  cTAnimSet.m_name = string0;
  this->m_animSets.add(cTAnimSet);
@@ -75,7 +75,7 @@ public:
 
  void addEntry(const std::string& string, IsoDirections directions, int int0, DeadBodyAtlas.BodyTexture bodyTexture) {
  CharacterTextures.CTState cTState = this->getState(string);
- if (cTState == nullptr) {
+ if (cTState.empty()) {
  cTState = new CharacterTextures.CTState();
  cTState.m_name = string;
  this->m_states.add(cTState);

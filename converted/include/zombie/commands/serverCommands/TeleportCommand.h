@@ -66,7 +66,7 @@ public:
  }
 
  std::string TeleportMeToUser() {
- if (this->connection == nullptr) {
+ if (this->connection.empty()) {
  return "Need player to teleport to, ex /teleport user1 user2";
  } else {
  IsoPlayer player = GameServer.getPlayerByUserNameForCommand(this->username1);
@@ -97,15 +97,15 @@ public:
  } else {
  IsoPlayer player0 = GameServer.getPlayerByUserNameForCommand(this->username1);
  IsoPlayer player1 = GameServer.getPlayerByUserNameForCommand(this->username2);
- if (player0 == nullptr) {
+ if (player0.empty()) {
  return "Can't find player " + this->username1;
- } else if (player1 == nullptr) {
+ } else if (player1.empty()) {
  return "Can't find player " + this->username2;
  } else {
  this->username1 = player0.getDisplayName();
  this->username2 = player1.getDisplayName();
  UdpConnection udpConnection = GameServer.getConnectionFromPlayer(player0);
- if (udpConnection == nullptr) {
+ if (udpConnection.empty()) {
  return "No connection for player " + this->username1;
  } else {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();

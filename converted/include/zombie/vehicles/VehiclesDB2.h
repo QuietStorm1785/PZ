@@ -58,7 +58,7 @@ public:
  }
 
  void Reset() {
- assert WorldStreamer.instance.worldStreamer == nullptr;
+ assert WorldStreamer.instance.worldStreamer.empty();
 
  this->updateWorldStreamer();
 
@@ -395,7 +395,7 @@ public:
 
  vehicleBuffer0.m_bb.rewind();
  VehiclesDB2.VehicleBuffer vehicleBuffer1 = this->m_IDToVehicle.get(vehicleBuffer0.m_id);
- if (vehicleBuffer1 == nullptr) {
+ if (vehicleBuffer1.empty()) {
  vehicleBuffer1 = new VehiclesDB2.VehicleBuffer();
  vehicleBuffer1.m_id = vehicleBuffer0.m_id;
  this->m_IDToVehicle.put(vehicleBuffer0.m_id, vehicleBuffer1);
@@ -460,14 +460,14 @@ public:
  this->m_wx = int0;
  this->m_wy = int1;
  this->m_vehicles.clear();
- if (this->m_dummySquare == nullptr) {
+ if (this->m_dummySquare.empty()) {
  this->m_dummySquare = IsoGridSquare.getNew(IsoWorld.instance.CurrentCell, nullptr, 0, 0, 0);
  }
  }
 
  void processMain() {
  IsoChunk chunk = ServerMap.instance.getChunk(this->m_wx, this->m_wy);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  this->m_vehicles.clear();
  } else if (chunk.m_loadVehiclesObject != this) {
  this->m_vehicles.clear();
@@ -780,7 +780,7 @@ public:
  }
  }
 
- if (this->m_conn == nullptr) {
+ if (this->m_conn.empty()) {
  try {
  this->m_conn = PZSQLUtils.getConnection(file1.getAbsolutePath());
  } catch (Exception exception1) {

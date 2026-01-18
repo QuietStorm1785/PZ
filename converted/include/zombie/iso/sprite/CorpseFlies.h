@@ -30,7 +30,7 @@ public:
  static int FRAME = 0;
 
  static void render(int int1, int int2, int int5) {
- if (TEXTURE == nullptr) {
+ if (TEXTURE.empty()) {
  TEXTURE = Texture.getSharedTexture("media/textures/CorpseFlies.png");
  }
 

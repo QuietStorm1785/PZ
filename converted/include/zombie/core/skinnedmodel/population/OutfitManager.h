@@ -72,7 +72,7 @@ public:
  if (outfitManager0 != nullptr) {
  for (Outfit outfit0 : outfitManager0.m_MaleOutfits) {
  Outfit outfit1 = this->FindMaleOutfit(outfit0.m_Name);
- if (outfit1 == nullptr) {
+ if (outfit1.empty()) {
  this->m_MaleOutfits.add(outfit0);
  } else {
  if (DebugLog.isEnabled(DebugType.Clothing) {
@@ -87,7 +87,7 @@ public:
 
  for (Outfit outfit2 : outfitManager0.m_FemaleOutfits) {
  Outfit outfit3 = this->FindFemaleOutfit(outfit2.m_Name);
- if (outfit3 == nullptr) {
+ if (outfit3.empty()) {
  this->m_FemaleOutfits.add(outfit2);
  } else {
  if (DebugLog.isEnabled(DebugType.Clothing) {
@@ -306,11 +306,11 @@ public:
 
  ClothingItem getClothingItem(const std::string& string1) {
  std::string string0 = ZomboidFileSystem.instance.getFilePathFromGuid(string1);
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return nullptr;
  } else {
  OutfitManager.ClothingItemEntry clothingItemEntry0 = this->m_cachedClothingItems.get(string1);
- if (clothingItemEntry0 == nullptr) {
+ if (clothingItemEntry0.empty()) {
  clothingItemEntry0 = new OutfitManager.ClothingItemEntry();
  clothingItemEntry0.m_filePath = string0;
  clothingItemEntry0.m_guid = string1;
@@ -333,7 +333,7 @@ public:
  return nullptr;
  }
 
- if (clothingItemEntry0.m_fileWatcher == nullptr) {
+ if (clothingItemEntry0.m_fileWatcher.empty()) {
  OutfitManager.ClothingItemEntry clothingItemEntry1 = clothingItemEntry0;
  std::string string3 = clothingItemEntry1.m_filePath;
  string3 = ZomboidFileSystem.instance.getString(string3);

@@ -44,7 +44,7 @@ public:
  int read(BitInputStream bitInputStream) {
  HuffmanNode huffmanNode0 = this;
 
- while (huffmanNode0.value == nullptr) {
+ while (huffmanNode0.value.empty()) {
  huffmanNode0 = bitInputStream.getBit() ? huffmanNode0.o1 : huffmanNode0.o0;
  }
 
@@ -52,11 +52,11 @@ public:
  }
 
  HuffmanNode get0() {
- return this->o0 == nullptr ? this->set0(new HuffmanNode(this) : this->o0;
+ return this->o0.empty() ? this->set0(new HuffmanNode(this) : this->o0;
  }
 
  HuffmanNode get1() {
- return this->o1 == nullptr ? this->set1(new HuffmanNode(this) : this->o1;
+ return this->o1.empty() ? this->set1(new HuffmanNode(this) : this->o1;
  }
 
  int getValue() {
@@ -92,10 +92,10 @@ public:
  if (this->isFull()) {
  return false;
  } else if (int0 == 1) {
- if (this->o0 == nullptr) {
+ if (this->o0.empty()) {
  this->set0(new HuffmanNode(this, int1);
  return true;
- } else if (this->o1 == nullptr) {
+ } else if (this->o1.empty()) {
  this->set1(new HuffmanNode(this, int1);
  return true;
  } else {

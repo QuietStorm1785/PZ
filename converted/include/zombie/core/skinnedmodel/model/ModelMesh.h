@@ -44,24 +44,24 @@ public:
  super(path, manager);
  this->assetParams = params;
  this->bStatic = this->assetParams != nullptr && this->assetParams.bStatic;
- this->m_animationsMesh = this->assetParams == nullptr ? nullptr : this->assetParams.animationsMesh;
+ this->m_animationsMesh = this->assetParams.empty() ? nullptr : this->assetParams.animationsMesh;
  }
 
  void onLoadedX(ProcessedAiScene processedAiScene) {
  JAssImpImporter.LoadMode loadMode = this->assetParams.bStatic ? JAssImpImporter.LoadMode.StaticMesh : JAssImpImporter.LoadMode.Normal;
- SkinningData skinningDatax = this->assetParams.animationsMesh == nullptr ? nullptr : this->assetParams.animationsMesh.skinningData;
+ SkinningData skinningDatax = this->assetParams.animationsMesh.empty() ? nullptr : this->assetParams.animationsMesh.skinningData;
  processedAiScene.applyToMesh(this, loadMode, false, skinningDatax);
  }
 
  void onLoadedTxt(ModelTxt modelTxt) {
- SkinningData skinningDatax = this->assetParams.animationsMesh == nullptr ? nullptr : this->assetParams.animationsMesh.skinningData;
+ SkinningData skinningDatax = this->assetParams.animationsMesh.empty() ? nullptr : this->assetParams.animationsMesh.skinningData;
  ModelLoader.instance.applyToMesh(modelTxt, this, skinningDatax);
  }
 
  void SetVertexBuffer(VertexBufferObject _vb) {
  this->clear();
  this->vb = _vb;
- this->bStatic = _vb == nullptr || _vb.bStatic;
+ this->bStatic = _vb.empty() || _vb.bStatic;
  }
 
  void Draw(Shader shader) {

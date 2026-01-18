@@ -49,7 +49,7 @@ public:
  void render() {
  if (this->isVisible()) {
  super.render();
- if (this->Parent == nullptr || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
+ if (this->Parent.empty() || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
  if (this->bDoExt) {
  long long0 = System.currentTimeMillis();
  if (this->nextExt < 0L) {
@@ -134,7 +134,7 @@ public:
  this->xOffset = newXOffset;
  }
 
- private class Drawer extends TextureDraw.GenericDrawer {
+ class Drawer extends TextureDraw.GenericDrawer {
  int absX;
  int absY;
  float m_animPlayerAngle;

@@ -175,7 +175,7 @@ public:
  void loadOrKeepRelevent(int int0, int int1) {
  if (this->isValidCell(int0, int1) {
  ServerMap.ServerCell serverCell = this->getCell(int0, int1);
- if (serverCell == nullptr) {
+ if (serverCell.empty()) {
  serverCell = new ServerMap.ServerCell();
  serverCell.WX = int0 + this->getMinX();
  serverCell.WY = int1 + this->getMinY();
@@ -207,7 +207,7 @@ public:
  }
 
  void characterIn(IsoPlayer player) {
- while (this->grid == nullptr) {
+ while (this->grid.empty()) {
  try {
  Thread.sleep(1000L);
  } catch (InterruptedException interruptedException) {
@@ -229,7 +229,7 @@ public:
  }
 
  void characterIn(int int1, int int3, int int7) {
- while (this->grid == nullptr) {
+ while (this->grid.empty()) {
  try {
  Thread.sleep(1000L);
  } catch (InterruptedException interruptedException) {
@@ -274,7 +274,7 @@ public:
  }
 
  void loadMapChunk(int int1, int int3) {
- while (this->grid == nullptr) {
+ while (this->grid.empty()) {
  try {
  Thread.sleep(1000L);
  } catch (InterruptedException interruptedException) {
@@ -483,7 +483,7 @@ public:
  int int2 = int0;
  int int3 = int1;
  ServerMap.ServerCell serverCell = this->getCell(int0, int1);
- if (serverCell == nullptr) {
+ if (serverCell.empty()) {
  throw RuntimeException("Cannot find a random square.");
  } else {
  int0 = (int0 + this->getMinX()) * 50;
@@ -494,10 +494,10 @@ public:
  do {
  square = this->getGridSquare(Rand.Next(int0, int0 + 50), Rand.Next(int1, int1 + 50), 0);
  int4--;
- if (square == nullptr) {
+ if (square.empty()) {
  this->loadOrKeepRelevent(int2, int3);
  }
- } while (square == nullptr && int4 > 0);
+ } while (square.empty() && int4 > 0);
 
  return square;
  }
@@ -724,7 +724,7 @@ public:
  int1 -= this->getMinY();
  if (this->isValidCell(int0, int1) {
  ServerMap.ServerCell serverCell = this->getCell(int0, int1);
- if (serverCell == nullptr) {
+ if (serverCell.empty()) {
  serverCell = new ServerMap.ServerCell();
  serverCell.bLoaded = true;
  this->cellMap[int1 * this->width + int0] = serverCell;

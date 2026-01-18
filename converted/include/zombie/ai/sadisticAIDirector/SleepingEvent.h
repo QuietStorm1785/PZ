@@ -231,7 +231,7 @@ public:
  }
 
  IsoBarricade barricade0 = window.getBarricadeOnOppositeSquare();
- if (barricade0 == nullptr) {
+ if (barricade0.empty()) {
  barricade0 = window.getBarricadeOnSameSquare();
  }
 
@@ -255,7 +255,7 @@ public:
  }
 
  IsoBarricade barricade1 = window.getBarricadeOnOppositeSquare();
- if (barricade1 == nullptr) {
+ if (barricade1.empty()) {
  barricade1 = window.getBarricadeOnSameSquare();
  }
 
@@ -383,7 +383,7 @@ public:
  }
 
  IsoBarricade barricade = sleepingEventData.weakestWindow.getBarricadeOnOppositeSquare();
- if (barricade == nullptr) {
+ if (barricade.empty()) {
  barricade = sleepingEventData.weakestWindow.getBarricadeOnSameSquare();
  }
 

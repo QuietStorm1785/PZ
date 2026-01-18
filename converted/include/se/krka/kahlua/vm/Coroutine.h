@@ -226,7 +226,7 @@ public:
  return nullptr;
  } else {
  LuaCallFrame luaCallFrame = this->callFrameStack[this->callFrameTop - 1];
- if (luaCallFrame == nullptr) {
+ if (luaCallFrame.empty()) {
  luaCallFrame = new LuaCallFrame(this);
  this->callFrameStack[this->callFrameTop - 1] = luaCallFrame;
  }
@@ -272,7 +272,7 @@ public:
  void cleanCallFrames(LuaCallFrame arg0) {
  while (true) {
  LuaCallFrame luaCallFrame = this->currentCallFrame();
- if (luaCallFrame == nullptr || luaCallFrame == arg0) {
+ if (luaCallFrame.empty() || luaCallFrame == arg0) {
  return;
  }
 
@@ -310,7 +310,7 @@ public:
  }
 
  std::string getStatus() {
- if (this->parent == nullptr) {
+ if (this->parent.empty()) {
  return this->isDead() ? "dead" : "suspended";
  } else {
  return "normal";
@@ -346,7 +346,7 @@ public:
  KahluaUtil.luaAssert(coroutine0 == kahluaThread.currentCoroutine, "Internal error, must yield current thread");
  coroutine0.destroy();
  LuaCallFrame luaCallFrame = coroutine1.currentCallFrame();
- if (luaCallFrame == nullptr) {
+ if (luaCallFrame.empty()) {
  coroutine1.setTop(arg2 + 1);
  coroutine1.objectStack[0] = Boolean.TRUE;
 

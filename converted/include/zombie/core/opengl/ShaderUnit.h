@@ -51,10 +51,10 @@ public:
  int int0 = getGlType(this->m_unitType);
  std::vector arrayList = new ArrayList();
  std::string string0 = this->loadShaderFile(this->m_fileName, arrayList);
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return false;
  } else {
- for (auto& string1 : arrayList) if (this->m_parentProgram == nullptr) {
+ for (auto& string1 : arrayList) if (this->m_parentProgram.empty()) {
  DebugLog.Shader.error(this->getFileName() + "> Cannot include additional shader file. Parent program is nullptr. " + string1);
  break;
  }
@@ -152,7 +152,7 @@ public:
  std::string loadShaderFile(const std::string& string1, ArrayList<String> arrayList) {
  arrayList.clear();
  std::string string0 = this->preProcessShaderFile(string1, arrayList);
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return nullptr;
  } else {
  int int0 = string0.indexOf("#");

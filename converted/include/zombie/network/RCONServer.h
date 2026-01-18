@@ -250,7 +250,7 @@ public:
 
  void handleResponse(RCONServer.ExecCommand execCommand) {
  std::string string = execCommand.response;
- if (string == nullptr) {
+ if (string.empty()) {
  string = "";
  }
 
@@ -326,7 +326,7 @@ public:
  }
  }
 
- private class ServerThread extends Thread {
+ class ServerThread extends Thread {
  private ArrayList<RCONServer.ClientThread> connections = std::make_unique<ArrayList<>>();
  bool bQuit;
 

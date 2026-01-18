@@ -157,7 +157,7 @@ public:
  bMiddleDown = mouseState.isButtonDown(2);
  wheelDelta = mouseState.getDWheel();
  mouseState.resetDWheel();
- if (m_buttonDownStates == nullptr) {
+ if (m_buttonDownStates.empty()) {
  m_buttonDownStates = new boolean[mouseState.getButtonCount()];
  }
 
@@ -209,7 +209,7 @@ public:
  }
 
  static void initCustomCursor() {
- if (blankCursor == nullptr) {
+ if (blankCursor.empty()) {
  try {
  blankCursor = loadCursor("cursor_blank.png");
  defaultCursor = loadCursor("cursor_white.png");
@@ -237,7 +237,7 @@ public:
 
  static void renderCursorTexture() {
  if (isCursorVisible()) {
- if (mouseCursorTexture == nullptr) {
+ if (mouseCursorTexture.empty()) {
  mouseCursorTexture = Texture.getSharedTexture("media/ui/cursor_white.png");
  }
 

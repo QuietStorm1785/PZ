@@ -640,7 +640,7 @@ public:
  }
  }
 
- if (this->def == nullptr) {
+ if (this->def.empty()) {
  this->def = IsoSpriteInstance.get(this->sprite);
  }
 
@@ -775,7 +775,7 @@ public:
  }
 
  Vector2 getDeferredMovement(Vector2 out_result) {
- if (this->m_animPlayer == nullptr) {
+ if (this->m_animPlayer.empty()) {
  out_result.set(0.0F, 0.0F);
  return out_result;
  } else {
@@ -785,11 +785,11 @@ public:
  }
 
  float getDeferredAngleDelta() {
- return this->m_animPlayer == nullptr ? 0.0F : this->m_animPlayer.getDeferredAngleDelta() * (180.0F / (float)Math.PI);
+ return this->m_animPlayer.empty() ? 0.0F : this->m_animPlayer.getDeferredAngleDelta() * (180.0F / (float)Math.PI);
  }
 
  float getDeferredRotationWeight() {
- return this->m_animPlayer == nullptr ? 0.0F : this->m_animPlayer.getDeferredRotationWeight();
+ return this->m_animPlayer.empty() ? 0.0F : this->m_animPlayer.getDeferredRotationWeight();
  }
 
  bool isStrafing() {
@@ -797,7 +797,7 @@ public:
  }
 
  AnimationTrack dbgGetAnimTrack(int layerIdx, int trackIdx) {
- if (this->m_animPlayer == nullptr) {
+ if (this->m_animPlayer.empty()) {
  return nullptr;
  } else {
  AnimationPlayer animationPlayer = this->m_animPlayer;
@@ -910,12 +910,12 @@ public:
  return false;
  } else {
  IsoGridSquare square = this->getCurrentSquare();
- if (square == nullptr) {
+ if (square.empty()) {
  return false;
  } else {
  if (square.Has(IsoObjectType.tree) {
  IsoTree tree = square.getTree();
- if (tree == nullptr || ignoreBush && tree.getSize() > 2 || !ignoreBush) {
+ if (tree.empty() || ignoreBush && tree.getSize() > 2 || !ignoreBush) {
  return true;
  }
  }
@@ -1070,7 +1070,7 @@ public:
  this->m_animPlayer = Pool.tryRelease(this->m_animPlayer);
  }
 
- if (this->m_animPlayer == nullptr) {
+ if (this->m_animPlayer.empty()) {
  this->m_animPlayer = AnimationPlayer.alloc(model);
  this->onAnimPlayerCreated(this->m_animPlayer);
  if (boolean0) {
@@ -1112,10 +1112,10 @@ public:
  }
 
  ModelInstance getModelInstance() {
- if (this->legsSprite == nullptr) {
+ if (this->legsSprite.empty()) {
  return nullptr;
  } else {
- return this->legsSprite.modelSlot == nullptr ? nullptr : this->legsSprite.modelSlot.model;
+ return this->legsSprite.modelSlot.empty() ? nullptr : this->legsSprite.modelSlot.model;
  }
  }
 
@@ -1163,7 +1163,7 @@ public:
  outfit = OutfitManager.instance.FindFemaleOutfit(string0);
  }
 
- if (outfit == nullptr) {
+ if (outfit.empty()) {
  DebugLog.Clothing.error("Could not find outfit: " + string0);
  return;
  }
@@ -1336,8 +1336,8 @@ public:
 
  Outfit getRandomDefaultOutfit() {
  IsoGridSquare square = this->getCurrentSquare();
- IsoRoom room = square == nullptr ? nullptr : square.getRoom();
- std::string string = room == nullptr ? nullptr : room.getName();
+ IsoRoom room = square.empty() ? nullptr : square.getRoom();
+ std::string string = room.empty() ? nullptr : room.getName();
  return ZombiesZoneDefinition.getRandomDefaultOutfit(this->isFemale(), string);
  }
 
@@ -2441,7 +2441,7 @@ public:
  }
 
  BodyDamage getBodyDamageRemote() {
- if (this->BodyDamageRemote == nullptr) {
+ if (this->BodyDamageRemote.empty()) {
  this->BodyDamageRemote = new BodyDamage(nullptr);
  }
 
@@ -2633,7 +2633,7 @@ public:
  }
 
  bool isPrimaryEquipped(const std::string& item) {
- return this->leftHandItem == nullptr ? false : this->leftHandItem.getFullType() == item) || this->leftHandItem.getType() == item);
+ return this->leftHandItem.empty() ? false : this->leftHandItem.getFullType() == item) || this->leftHandItem.getType() == item);
  }
 
  /**
@@ -2760,7 +2760,7 @@ public:
  }
 
  BodyLocationGroup getBodyLocationGroup() {
- return this->wornItems == nullptr ? nullptr : this->wornItems.getBodyLocationGroup();
+ return this->wornItems.empty() ? nullptr : this->wornItems.getBodyLocationGroup();
  }
 
  void onWornItemsChanged() {
@@ -2825,7 +2825,7 @@ public:
  }
 
  AttachedLocationGroup getAttachedLocationGroup() {
- return this->attachedItems == nullptr ? nullptr : this->attachedItems.getGroup();
+ return this->attachedItems.empty() ? nullptr : this->attachedItems.getGroup();
  }
 
  ClothingWetness getClothingWetness() {
@@ -3673,7 +3673,7 @@ public:
  }
 
  IsoBuilding getCurrentBuilding() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  return nullptr;
  } else {
  return this->current.getRoom() == nullptr ? nullptr : this->current.getRoom().building;
@@ -3681,7 +3681,7 @@ public:
  }
 
  BuildingDef getCurrentBuildingDef() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  return nullptr;
  } else if (this->current.getRoom() == nullptr) {
  return nullptr;
@@ -3691,7 +3691,7 @@ public:
  }
 
  RoomDef getCurrentRoomDef() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  return nullptr;
  } else {
  return this->current.getRoom() != nullptr ? this->current.getRoom().def : nullptr;
@@ -4637,7 +4637,7 @@ public:
 
  void save(ByteBuffer output, bool IS_DEBUG_SAVE) {
  super.save(output, IS_DEBUG_SAVE);
- if (this->descriptor == nullptr) {
+ if (this->descriptor.empty()) {
  output.put((byte)0);
  } else {
  output.put((byte)1);
@@ -4905,7 +4905,7 @@ public:
  player.networkAI.footstepSoundRadius = 0;
  }
 
- if (player == nullptr || !player.isGhostMode() || DebugOptions.instance.Character.Debug.PlaySoundWhenInvisible.getValue()) {
+ if (player.empty() || !player.isGhostMode() || DebugOptions.instance.Character.Debug.PlaySoundWhenInvisible.getValue()) {
  if (this->getCurrentSquare() != nullptr) {
  if (!(volume <= 0.0F) {
  volume *= 1.4F;
@@ -4963,7 +4963,7 @@ public:
 
  bool Eat(InventoryItem info, float percentage) {
  Food food = Type.tryCastTo(info, Food.class);
- if (food == nullptr) {
+ if (food.empty()) {
  return false;
  } else {
  percentage = PZMath.clamp(percentage, 0.0F, 1.0F);
@@ -5069,7 +5069,7 @@ public:
  float float7 = 0.0F;
  if (food.isCustomWeight()) {
  std::string string1 = food.getReplaceOnUseFullType();
- Item item1 = string1 == nullptr ? nullptr : ScriptManager.instance.getItem(string1);
+ Item item1 = string1.empty() ? nullptr : ScriptManager.instance.getItem(string1);
  if (item1 != nullptr) {
  float7 = item1.getActualWeight();
  }
@@ -5133,7 +5133,7 @@ public:
  }
 
  std::string getPrimaryHandType() {
- return this->leftHandItem == nullptr ? nullptr : this->leftHandItem.getType();
+ return this->leftHandItem.empty() ? nullptr : this->leftHandItem.getType();
  }
 
  float getGlobalMovementMod(bool bDoNoises) {
@@ -5151,11 +5151,11 @@ public:
  }
 
  std::string getSecondaryHandType() {
- return this->rightHandItem == nullptr ? nullptr : this->rightHandItem.getType();
+ return this->rightHandItem.empty() ? nullptr : this->rightHandItem.getType();
  }
 
  bool HasItem(const std::string& string) {
- return string == nullptr
+ return string.empty()
  ? true
  : string == this->getSecondaryHandType()) || string == this->getPrimaryHandType()) || this->inventory.contains(string);
  }
@@ -5459,7 +5459,7 @@ public:
  * This use some prediction on the zombie, if he's lunging toward the player attacking it we gonna add more range to our weapon, to avoid playing the "miss" animation
  */
  bool IsAttackRange(HandWeapon we, IsoMovingObject obj, Vector3 bonePos, bool extraRange) {
- if (we == nullptr) {
+ if (we.empty()) {
  return false;
  } else {
  float float0 = Math.abs(obj.getZ() - this->getZ());
@@ -5571,7 +5571,7 @@ public:
  this->useHandWeapon = (HandWeapon)item;
  }
 
- if (this->useHandWeapon == nullptr) {
+ if (this->useHandWeapon.empty()) {
  return true;
  } else if (this->useHandWeapon.getCondition() <= 0) {
  this->useHandWeapon = nullptr;
@@ -5675,7 +5675,7 @@ public:
  }
 
  IsoSpriteInstance getSpriteDef() {
- if (this->def == nullptr) {
+ if (this->def.empty()) {
  this->def = std::make_unique<IsoSpriteInstance>();
  }
 
@@ -5687,7 +5687,7 @@ public:
  if (!this->isSeatedInVehicle() || this->getVehicle().showPassenger(this) {
  if (!this->isSpriteInvisible()) {
  if (!this->isAlphaZero()) {
- if (!this->bUseParts && this->def == nullptr) {
+ if (!this->bUseParts && this->def.empty()) {
  this->def = new IsoSpriteInstance(this->sprite);
  }
 
@@ -5986,7 +5986,7 @@ public:
  }
 
  bool isMaskClicked(int x, int y, bool flip) {
- if (this->sprite == nullptr) {
+ if (this->sprite.empty()) {
  return false;
  } else {
  return !this->bUseParts ? super.isMaskClicked(x, y, flip) : this->legsSprite.isMaskClicked(this->dir, x, y, flip);
@@ -6084,7 +6084,7 @@ public:
  this->sleepSpeechCnt++;
  if (this->sleepSpeechCnt > 250 * PerformanceSettings.getLockFPS() / 30.0F) {
  this->sleepSpeechCnt = 0;
- if (sleepText == nullptr) {
+ if (sleepText.empty()) {
  sleepText = "ZzzZZZzzzz";
  ChatElement.addNoLogText(sleepText);
  }
@@ -6219,7 +6219,7 @@ public:
  this->updateUserName();
  }
 
- if (this->haloNote == nullptr) {
+ if (this->haloNote.empty()) {
  this->haloNote = std::make_unique<TextDrawObject>();
  this->haloNote.setDefaultFont(UIFont.Small);
  this->haloNote.setDefaultColors(0, 255, 0);
@@ -7291,7 +7291,7 @@ public:
  void radioEquipedCheck() {
  if (this->leftHandItem != this->leftHandCache) {
  this->leftHandCache = this->leftHandItem;
- if (this->leftHandItem != nullptr && (this->equipedRadio == nullptr || this->equipedRadio != this->rightHandItem) && this->leftHandItem instanceof Radio) {
+ if (this->leftHandItem != nullptr && (this->equipedRadio.empty() || this->equipedRadio != this->rightHandItem) && this->leftHandItem instanceof Radio) {
  this->equipedRadio = (Radio)this->leftHandItem;
  } else if (this->equipedRadio != nullptr && this->equipedRadio != this->rightHandItem) {
  if (this->equipedRadio.getDeviceData() != nullptr) {
@@ -7321,7 +7321,7 @@ public:
  IsoPlayer player = (IsoPlayer)this;
  if (player.IsAiming()) {
  HandWeapon weapon = Type.tryCastTo(this->getPrimaryHandItem(), HandWeapon.class);
- if (weapon == nullptr) {
+ if (weapon.empty()) {
  weapon = player.bareHands;
  }
 
@@ -7538,7 +7538,7 @@ public:
  vector.setLength(weapon.getMaxRange());
  this->attackTargetSquare = this->getCell()
  .getGridSquare((double)(this->getX() + vector.getX()), (double)(this->getY() + vector.getY()), (double)this->getZ());
- if (this->attackTargetSquare == nullptr) {
+ if (this->attackTargetSquare.empty()) {
  this->attackTargetSquare = this->getCell().getGridSquare((double)(this->getX() + vector.getX()), (double)(this->getY() + vector.getY()), 0.0);
  }
  }
@@ -7761,7 +7761,7 @@ public:
  }
 
  bool isClosingWindow(IsoWindow window) {
- if (window == nullptr) {
+ if (window.empty()) {
  return false;
  } else {
  return !this->isCurrentState(CloseWindowState.instance()) ? false : CloseWindowState.instance().getWindow(this) == window;
@@ -7769,7 +7769,7 @@ public:
  }
 
  bool isClimbingThroughWindow(IsoWindow window) {
- if (window == nullptr) {
+ if (window.empty()) {
  return false;
  } else if (!this->isCurrentState(ClimbThroughWindowState.instance())) {
  return false;
@@ -7803,7 +7803,7 @@ public:
  }
 
  bool canClimbSheetRope(IsoGridSquare sq) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return false;
  } else {
  int int0 = sq.getZ();
@@ -7837,7 +7837,7 @@ public:
  }
 
  bool canClimbDownSheetRope(IsoGridSquare sq) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return false;
  } else {
  int int0 = sq.getZ();
@@ -7901,7 +7901,7 @@ public:
  }
 
  bool isAboveTopOfStairs() {
- if (this->z != 0.0F && !(this->z - (int)this->z > 0.01) && (this->current == nullptr || !this->current.TreatAsSolidFloor())) {
+ if (this->z != 0.0F && !(this->z - (int)this->z > 0.01) && (this->current.empty() || !this->current.TreatAsSolidFloor())) {
  IsoGridSquare square = this->getCell().getGridSquare((double)this->x, (double)this->y, (double)(this->z - 1.0F);
  return square != nullptr && (square.Has(IsoObjectType.stairsTN) || square.Has(IsoObjectType.stairsTW);
  } else {
@@ -7950,7 +7950,7 @@ public:
 
  this->updateAlpha();
  if (this->isNPC) {
- if (this->GameCharacterAIBrain == nullptr) {
+ if (this->GameCharacterAIBrain.empty()) {
  this->GameCharacterAIBrain = new GameCharacterAIBrain(this);
  }
 
@@ -8327,7 +8327,7 @@ public:
  int0++;
  }
 
- float float0 = this->square == nullptr ? 0.0F : this->square.getPuddlesInGround();
+ float float0 = this->square.empty() ? 0.0F : this->square.getPuddlesInGround();
  if (this->isMoving() && float0 > 0.09F && Rand.NextBool(Rand.AdjustForFramerate(1500) {
  int0++;
  }
@@ -8337,7 +8337,7 @@ public:
  }
 
  IsoPlayer player = Type.tryCastTo(this, IsoPlayer.class);
- if (player != nullptr && player.isPlayerMoving() || player == nullptr && this->isMoving()) {
+ if (player != nullptr && player.isPlayerMoving() || player.empty() && this->isMoving()) {
  int0 = 0;
  if (float0 > 0.09F && Rand.NextBool(Rand.AdjustForFramerate(1500) {
  int0++;
@@ -8569,7 +8569,7 @@ public:
  }
 
  float getHeightAboveFloor() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  return 1.0F;
  } else {
  if (this->current.HasStairs()) {
@@ -8910,7 +8910,7 @@ public:
  }
 
  InventoryItem item1 = this->getWornItems().getItem("Shoes");
- if (item1 == nullptr || item1.getCondition() == 0) {
+ if (item1.empty() || item1.getCondition() == 0) {
  this->runSpeedModifier *= 0.85F;
  this->walkSpeedModifier *= 0.85F;
  }
@@ -8923,7 +8923,7 @@ public:
 
  for (int int0 = 0; int0 < sq.getObjects().size(); int0++) {
  IsoObject object1 = sq.getObjects().get(int0);
- if (object1.sprite != nullptr && object1.sprite.getProperties().Is(IsoFlagType.solidfloor) && object0 == nullptr) {
+ if (object1.sprite != nullptr && object1.sprite.getProperties().Is(IsoFlagType.solidfloor) && object0.empty()) {
  object0 = object1;
  }
  }
@@ -8932,7 +8932,7 @@ public:
  && object0.sprite != nullptr
  && (object0.sprite.getProperties().Is(IsoFlagType.vegitation) || object0.sprite.getProperties().Is(IsoFlagType.solidfloor) {
  IsoSprite sprite = IsoSprite.getSprite(IsoSpriteManager.instance, id, 0);
- if (sprite == nullptr) {
+ if (sprite.empty()) {
  return;
  }
 
@@ -9705,7 +9705,7 @@ public:
  if (!this->isZombie()) {
  synchronized (this->lightInfo) {
  this->lightInfo.square = this->movingSq;
- if (this->lightInfo.square == nullptr) {
+ if (this->lightInfo.square.empty()) {
  this->lightInfo.square = this->getCell().getGridSquare((int)this->x, (int)this->y, (int)this->z);
  }
 
@@ -10326,7 +10326,7 @@ public:
 
  bool isRecipeKnown(const std::string& name) {
  Recipe recipe = ScriptManager.instance.getRecipe(name);
- if (recipe == nullptr) {
+ if (recipe.empty()) {
  return DebugOptions.instance.CheatRecipeKnowAll.getValue() ? true : this->getKnownRecipes().contains(name);
  } else {
  return this->isRecipeKnown(recipe);
@@ -10422,7 +10422,7 @@ public:
  }
 
  int compareMovePriority(IsoGameCharacter other) {
- if (other == nullptr) {
+ if (other.empty()) {
  return 1;
  } else if (this->isZombieThumping() && !other.isZombieThumping()) {
  return 1;
@@ -10999,7 +10999,7 @@ public:
  }
 
  ActionStateSnapshot playbackRecordCurrentStateSnapshot() {
- return this->actionContext == nullptr ? nullptr : this->actionContext.getPlaybackStateSnapshot();
+ return this->actionContext.empty() ? nullptr : this->actionContext.getPlaybackStateSnapshot();
  }
 
  std::string GetVariable(const std::string& key) {
@@ -11022,7 +11022,7 @@ public:
  try {
  this->stateMachine.activeStateChanged++;
  State state = this->m_stateUpdateLookup.get(sender.getCurrentStateName().toLowerCase());
- if (state == nullptr) {
+ if (state.empty()) {
  state = this->defaultState;
  }
 
@@ -11165,7 +11165,7 @@ public:
 
  void addBasicPatch(BloodBodyPartType part) {
  if (this instanceof IHumanVisual) {
- if (part == nullptr) {
+ if (part.empty()) {
  part = BloodBodyPartType.FromIndex(Rand.Next(0, BloodBodyPartType.MAX.index()));
  }
 
@@ -11188,7 +11188,7 @@ public:
  if (!(this instanceof IHumanVisual) {
  return false;
  } else {
- if (part == nullptr) {
+ if (part.empty()) {
  part = BloodBodyPartType.FromIndex(OutfitRNG.Next(0, BloodBodyPartType.MAX.index()));
  }
 
@@ -11209,12 +11209,12 @@ public:
 
  void addDirt(BloodBodyPartType part, int nbr, bool allLayers) {
  HumanVisual humanVisual = ((IHumanVisual)this).getHumanVisual();
- if (nbr == nullptr) {
+ if (nbr.empty()) {
  nbr = OutfitRNG.Next(5, 10);
  }
 
  bool boolean0 = false;
- if (part == nullptr) {
+ if (part.empty()) {
  boolean0 = true;
  }
 
@@ -11238,7 +11238,7 @@ public:
  HumanVisual humanVisual = ((IHumanVisual)this).getHumanVisual();
  int int0 = 1;
  bool boolean0 = false;
- if (part == nullptr) {
+ if (part.empty()) {
  boolean0 = true;
  }
 
@@ -11298,9 +11298,9 @@ public:
  std::vector arrayList1 = BloodClothingType.getCoveredParts(arrayList0);
  if (arrayList1 != nullptr) {
  InventoryItem item1 = itemVisual.getInventoryItem();
- if (item1 == nullptr) {
+ if (item1.empty()) {
  item1 = InventoryItemFactory.CreateItem(itemVisual.getItemType());
- if (item1 == nullptr) {
+ if (item1.empty()) {
  continue;
  }
  }
@@ -11565,7 +11565,7 @@ public:
  int getSurroundingAttackingZombies() {
  movingStatic.clear();
  IsoGridSquare square = this->getCurrentSquare();
- if (square == nullptr) {
+ if (square.empty()) {
  return 0;
  } else {
  movingStatic.addAll(square.getMovingObjects());
@@ -11794,19 +11794,19 @@ public:
 
  ItemVisual addBodyVisualFromClothingItemName(const std::string& string1) {
  IHumanVisual iHumanVisual = Type.tryCastTo(this, IHumanVisual.class);
- if (iHumanVisual == nullptr) {
+ if (iHumanVisual.empty()) {
  return nullptr;
  } else {
  std::string string0 = ScriptManager.instance.getItemTypeForClothingItem(string1);
- if (string0 == nullptr) {
+ if (string0.empty()) {
  return nullptr;
  } else {
  Item item = ScriptManager.instance.getItem(string0);
- if (item == nullptr) {
+ if (item.empty()) {
  return nullptr;
  } else {
  ClothingItem clothingItem = item.getClothingItemAsset();
- if (clothingItem == nullptr) {
+ if (clothingItem.empty()) {
  return nullptr;
  } else {
  ClothingItemReference clothingItemReference = new ClothingItemReference();
@@ -11830,7 +11830,7 @@ public:
 
  bool isDuplicateBodyVisual(ItemVisual itemVisual1) {
  IHumanVisual iHumanVisual = Type.tryCastTo(this, IHumanVisual.class);
- if (iHumanVisual == nullptr) {
+ if (iHumanVisual.empty()) {
  return false;
  } else {
  ItemVisuals itemVisuals = iHumanVisual.getHumanVisual().getBodyVisuals();
@@ -11879,7 +11879,7 @@ public:
  }
 
  void setNPC(bool newvalue) {
- if (newvalue && this->GameCharacterAIBrain == nullptr) {
+ if (newvalue && this->GameCharacterAIBrain.empty()) {
  this->GameCharacterAIBrain = new GameCharacterAIBrain(this);
  }
 
@@ -12181,7 +12181,7 @@ public:
  }
 
  bool isHeavyItem(InventoryItem item) {
- if (item == nullptr) {
+ if (item.empty()) {
  return false;
  } else if (item instanceof InventoryContainer) {
  return true;
@@ -12228,7 +12228,7 @@ public:
  }
 
  SleepingEventData getOrCreateSleepingEventData() {
- if (this->m_sleepingEventData == nullptr) {
+ if (this->m_sleepingEventData.empty()) {
  this->m_sleepingEventData = std::make_unique<SleepingEventData>();
  }
 
@@ -12426,7 +12426,7 @@ public:
  try {
  std::vector arrayList = this->getInventory().save(b);
  WornItems wornItemsx = this->getWornItems();
- if (wornItemsx == nullptr) {
+ if (wornItemsx.empty()) {
  uint8_t byte0 = 0;
  b.put((byte)byte0);
  } else {
@@ -12446,7 +12446,7 @@ public:
  }
 
  AttachedItems attachedItemsx = this->getAttachedItems();
- if (attachedItemsx == nullptr) {
+ if (attachedItemsx.empty()) {
  bool boolean0 = false;
  b.put((byte)0);
  } else {
@@ -12571,7 +12571,7 @@ public:
  return false;
  } else if (!this->isAlive()) {
  return false;
- } else if (testVehicle == nullptr) {
+ } else if (testVehicle.empty()) {
  return false;
  } else if (!testVehicle.shouldCollideWithCharacters()) {
  return false;
@@ -12674,7 +12674,7 @@ public:
  float calcHitDir(IsoGameCharacter wielder, HandWeapon weapon, Vector2 out) {
  float float0 = this->getNextAnimationTranslationLength();
  out.set(this->getX() - wielder.getX(), this->getY() - wielder.getY()).normalize();
- if (float0 == nullptr) {
+ if (float0.empty()) {
  out.setLength(this->getHitForce() * 0.1F);
  out.scale(weapon.getPushBackMod());
  out.rotate(weapon.HitAngleMod);
@@ -12712,7 +12712,7 @@ public:
 
  std::string getBloodBandageType(const std::string& string1) {
  std::string string0 = this->bandageTypeMap.get(string1);
- if (string0 == nullptr) {
+ if (string0.empty()) {
  this->bandageTypeMap.put(string1, string0 = string1 + "_Blood");
  }
 
@@ -12832,7 +12832,7 @@ public:
  Hand;
  }
 
- public class CharacterTraits extends TraitCollection {
+ class CharacterTraits extends TraitCollection {
  public TraitCollection.TraitSlot Obese = this->getTraitSlot("Obese");
  public TraitCollection.TraitSlot Athletic = this->getTraitSlot("Athletic");
  public TraitCollection.TraitSlot Overweight = this->getTraitSlot("Overweight");
@@ -13004,7 +13004,7 @@ public:
  }
  }
 
- public class PerkInfo {
+ class PerkInfo {
  int level = 0;
  public PerkFactory.Perk perk;
 
@@ -13078,7 +13078,7 @@ public:
  }
  }
 
- public class XP {
+ class XP {
  int level = 0;
  int lastlevel = 0;
  float TotalXP = 0.0F;
@@ -13127,7 +13127,7 @@ public:
 
  void addXpMultiplier(PerkFactory.Perk perks, float multiplier, int minLevel, int maxLevel) {
  IsoGameCharacter.XPMultiplier xPMultiplier = this->XPMapMultiplier.get(perks);
- if (xPMultiplier == nullptr) {
+ if (xPMultiplier.empty()) {
  xPMultiplier = new IsoGameCharacter.XPMultiplier();
  }
 
@@ -13349,7 +13349,7 @@ public:
  }
 
  void savePerk(ByteBuffer byteBuffer, PerkFactory.Perk perk) {
- GameWindow.WriteStringUTF(byteBuffer, perk == nullptr ? "" : perk.getId());
+ GameWindow.WriteStringUTF(byteBuffer, perk.empty() ? "" : perk.getId());
  }
 
  private PerkFactory.Perk loadPerk(ByteBuffer byteBuffer, int int0) throws IOException {

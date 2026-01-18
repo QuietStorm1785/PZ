@@ -30,7 +30,7 @@ public:
 
  public static ParameterVehicleHitLocation.HitLocation calculateLocation(BaseVehicle vehicle, float x, float y, float z) {
  VehicleScript vehicleScript = vehicle.getScript();
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  return ParameterVehicleHitLocation.HitLocation.Front;
  } else {
  Vector3f vector3f0 = vehicle.getLocalPos(x, y, z, BaseVehicle.TL_vector3f_pool.get().alloc());

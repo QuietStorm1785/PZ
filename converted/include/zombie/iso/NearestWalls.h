@@ -128,7 +128,7 @@ public:
  } else {
  for (int int4 = 1; int4 <= 3; int4++) {
  IsoChunk chunk1 = IsoWorld.instance.CurrentCell.getChunk(chunk0.wx + int4 * byte1, chunk0.wy + int4 * byte2);
- if (chunk1 == nullptr) {
+ if (chunk1.empty()) {
  break;
  }
 
@@ -153,7 +153,7 @@ public:
  } else {
  for (int int4 = 1; int4 <= 3; int4++) {
  IsoChunk chunk1 = IsoWorld.instance.CurrentCell.getChunk(chunk0.wx + int4 * byte1, chunk0.wy + int4 * byte2);
- if (chunk1 == nullptr) {
+ if (chunk1.empty()) {
  break;
  }
 
@@ -178,7 +178,7 @@ public:
  } else {
  for (int int4 = 1; int4 <= 3; int4++) {
  IsoChunk chunk1 = IsoWorld.instance.CurrentCell.getChunk(chunk0.wx + int4 * byte1, chunk0.wy + int4 * byte2);
- if (chunk1 == nullptr) {
+ if (chunk1.empty()) {
  break;
  }
 
@@ -203,7 +203,7 @@ public:
  } else {
  for (int int4 = 1; int4 <= 3; int4++) {
  IsoChunk chunk1 = IsoWorld.instance.CurrentCell.getChunk(chunk0.wx + int4 * byte1, chunk0.wy + int4 * byte2);
- if (chunk1 == nullptr) {
+ if (chunk1.empty()) {
  break;
  }
 
@@ -269,7 +269,7 @@ public:
  }
 
  static int ClosestWallDistance(IsoChunk chunk, int int3, int int2, int int1) {
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  return 127;
  } else {
  NearestWalls.ChunkData chunkData = chunk.nearestWalls;

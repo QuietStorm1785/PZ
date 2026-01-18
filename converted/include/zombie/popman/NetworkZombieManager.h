@@ -46,7 +46,7 @@ public:
  }
 
  int getUnauthorizedZombieCount() {
- return (int)IsoWorld.instance.CurrentCell.getZombieList().stream().filter(zombie0 -> zombie0.authOwner == nullptr).count();
+ return (int)IsoWorld.instance.CurrentCell.getZombieList().stream().filter(zombie0 -> zombie0.authOwner.empty()).count();
  }
 
  static bool canSpotted(IsoZombie zombie0) {
@@ -56,7 +56,7 @@ public:
  return false;
  } else {
  State state = zombie0.getCurrentState();
- return state == nullptr
+ return state.empty()
  || state == ZombieIdleState.instance()
  || state == ZombieEatBodyState.instance()
  || state == ZombieSittingState.instance()
@@ -66,9 +66,9 @@ public:
 
  void updateAuth(IsoZombie zombie0) {
  if (GameServer.bServer) {
- if (System.currentTimeMillis() - zombie0.lastChangeOwner >= 2000L || zombie0.authOwner == nullptr) {
+ if (System.currentTimeMillis() - zombie0.lastChangeOwner >= 2000L || zombie0.authOwner.empty()) {
  if (SystemDisabler.zombiesSwitchOwnershipEachUpdate && GameServer.getPlayerCount() > 1) {
- if (zombie0.authOwner == nullptr) {
+ if (zombie0.authOwner.empty()) {
  for (int int0 = 0; int0 < GameServer.udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = GameServer.udpEngine.connections.get(int0);
  if (udpConnection0 != nullptr) {
@@ -121,7 +121,7 @@ public:
  for (IsoPlayer player1 : udpConnection4.players) {
  if (player1 != nullptr && player1.isAlive()) {
  float float2 = player1.getRelevantAndDistance(zombie0.x, zombie0.y, udpConnection4.ReleventRange - 2);
- if (!Float.isInfinite(float2) && (udpConnection3 == nullptr || float1 > float2 * 1.618034F) {
+ if (!Float.isInfinite(float2) && (udpConnection3.empty() || float1 > float2 * 1.618034F) {
  udpConnection3 = udpConnection4;
  float1 = float2;
  player0 = player1;
@@ -137,7 +137,7 @@ public:
  );
  }
 
- if (udpConnection3 == nullptr && zombie0.isReanimatedPlayer()) {
+ if (udpConnection3.empty() && zombie0.isReanimatedPlayer()) {
  for (int int4 = 0; int4 < GameServer.udpEngine.connections.size(); int4++) {
  UdpConnection udpConnection5 = GameServer.udpEngine.connections.get(int4);
  if (udpConnection5 != udpConnection3) {
@@ -169,7 +169,7 @@ public:
 
  void moveZombie(IsoZombie zombie0, UdpConnection udpConnection, IsoPlayer player) {
  if (zombie0.isDead()) {
- if (zombie0.authOwner == nullptr && zombie0.authOwnerPlayer == nullptr) {
+ if (zombie0.authOwner.empty() && zombie0.authOwnerPlayer.empty()) {
  zombie0.becomeCorpse();
  } else {
  synchronized (this->owns.lock) {
@@ -184,7 +184,7 @@ public:
  if (Core.bDebug) {
  DebugLog.log(
  DebugType.Ownership,
- String.format("Zombie (%d) owner (\"%s\" / nullptr): zombie is dead", zombie0.getOnlineID(), player == nullptr ? "" : player.getUsername())
+ String.format("Zombie (%d) owner (\"%s\" / nullptr): zombie is dead", zombie0.getOnlineID(), player.empty() ? "" : player.getUsername())
  );
  }
  } else {
@@ -198,7 +198,7 @@ public:
  if (Core.bDebug) {
  DebugLog.log(
  DebugType.Ownership,
- String.format("Zombie (%d) owner (\"%s\"): zombie owner is driver", zombie0.getOnlineID(), player == nullptr ? "" : player.getUsername())
+ String.format("Zombie (%d) owner (\"%s\"): zombie owner is driver", zombie0.getOnlineID(), player.empty() ? "" : player.getUsername())
  );
  }
  }

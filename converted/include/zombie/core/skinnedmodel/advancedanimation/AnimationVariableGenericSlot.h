@@ -36,7 +36,7 @@ public:
  }
 
  void setValue(const std::string& string) {
- if (this->m_valueSlot == nullptr || !this->m_valueSlot.canConvertFrom(string) {
+ if (this->m_valueSlot.empty() || !this->m_valueSlot.canConvertFrom(string) {
  this->m_valueSlot = new AnimationVariableSlotString(this->getKey());
  this->setType(this->m_valueSlot.getType());
  }
@@ -45,7 +45,7 @@ public:
  }
 
  void setValue(float float0) {
- if (this->m_valueSlot == nullptr || this->m_type != AnimationVariableType.Float) {
+ if (this->m_valueSlot.empty() || this->m_type != AnimationVariableType.Float) {
  this->m_valueSlot = new AnimationVariableSlotFloat(this->getKey());
  this->setType(this->m_valueSlot.getType());
  }
@@ -54,7 +54,7 @@ public:
  }
 
  void setValue(bool boolean0) {
- if (this->m_valueSlot == nullptr || this->m_type != AnimationVariableType.Boolean) {
+ if (this->m_valueSlot.empty() || this->m_type != AnimationVariableType.Boolean) {
  this->m_valueSlot = new AnimationVariableSlotBool(this->getKey());
  this->setType(this->m_valueSlot.getType());
  }

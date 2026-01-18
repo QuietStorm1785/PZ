@@ -30,7 +30,7 @@ public:
  IsoCursor.IsoCursorShader m_shader = nullptr;
 
  static IsoCursor getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<IsoCursor>();
  }
 

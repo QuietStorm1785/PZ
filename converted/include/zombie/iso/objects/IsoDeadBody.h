@@ -545,7 +545,7 @@ public:
  GameWindow.WriteString(output, wornItem.getLocation());
  output.putShort((short)arrayList.indexOf(wornItem.getItem()));
  });
- if (this->attachedItems == nullptr) {
+ if (this->attachedItems.empty()) {
  output.put((byte)0);
  } else {
  if (this->attachedItems.size() > 127) {
@@ -628,7 +628,7 @@ public:
  this->offsetY = 0.0F;
  bool boolean0 = this->isHighlighted();
  if (ModelManager.instance.bDebugEnableModels && ModelManager.instance.isCreated()) {
- if (this->atlasTex == nullptr) {
+ if (this->atlasTex.empty()) {
  this->atlasTex = DeadBodyAtlas.instance.getBodyTexture(this);
  DeadBodyAtlas.instance.render();
  }
@@ -805,7 +805,7 @@ public:
  float float18 = IsoUtils.YToScreenExact(float8, float10, z, 0);
  float float19 = IsoUtils.XToScreenExact(float7, float9, z, 0);
  float float20 = IsoUtils.YToScreenExact(float7, float9, z, 0);
- if (DropShadow == nullptr) {
+ if (DropShadow.empty()) {
  DropShadow = Texture.getSharedTexture("media/textures/NewShadow.png");
  }
 
@@ -879,7 +879,7 @@ public:
  void checkClothing(InventoryItem removedItem) {
  for (int int0 = 0; int0 < this->wornItems.size(); int0++) {
  InventoryItem item0 = this->wornItems.getItemByIndex(int0);
- if (this->container == nullptr || this->container.getItems().indexOf(item0) == -1) {
+ if (this->container.empty() || this->container.getItems().indexOf(item0) == -1) {
  this->wornItems.remove(item0);
  this->atlasTex = nullptr;
  int0--;
@@ -898,7 +898,7 @@ public:
 
  for (int int1 = 0; int1 < this->attachedItems.size(); int1++) {
  InventoryItem item1 = this->attachedItems.getItemByIndex(int1);
- if (this->container == nullptr || this->container.getItems().indexOf(item1) == -1) {
+ if (this->container.empty() || this->container.getItems().indexOf(item1) == -1) {
  this->attachedItems.remove(item1);
  this->atlasTex = nullptr;
  int1--;
@@ -1159,7 +1159,7 @@ public:
  bool isPlayerNearby(IsoPlayer playerx, bool boolean0) {
  if (!boolean0) {
  return false;
- } else if (playerx == nullptr || playerx.isDead()) {
+ } else if (playerx.empty() || playerx.isDead()) {
  return false;
  } else if (playerx.isGhostMode() || playerx.isInvisible()) {
  return false;
@@ -1220,7 +1220,7 @@ public:
  }
 
  void update() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  this->current = IsoWorld.instance.CurrentCell.getGridSquare((double)this->x, (double)this->y, (double)this->z);
  }
 
@@ -1247,7 +1247,7 @@ public:
  survivorDesc.setFemale(this->isFemale());
  IsoZombie zombie0 = new IsoZombie(IsoWorld.instance.CurrentCell, survivorDesc, -1);
  zombie0.setPersistentOutfitID(this->m_persistentOutfitID);
- if (this->container == nullptr) {
+ if (this->container.empty()) {
  this->container = std::make_unique<ItemContainer>();
  }
 

@@ -58,7 +58,7 @@ public:
  std::string Command() {
  std::string string0 = this->getCommandArg(0);
  VehicleScript vehicleScript = ScriptManager.instance.getVehicle(string0);
- if (vehicleScript == nullptr) {
+ if (vehicleScript.empty()) {
  return "Unknown vehicle script \"" + string0 + "\"";
  } else {
  string0 = vehicleScript.getModule().getName() + "." + vehicleScript.getName();
@@ -68,7 +68,7 @@ public:
  if (this->argsName == "Script And Player")) {
  std::string string1 = this->getCommandArg(1);
  IsoPlayer player0 = GameServer.getPlayerByUserNameForCommand(string1);
- if (player0 == nullptr) {
+ if (player0.empty()) {
  return "User \"" + string1 + "\" not found";
  }
 
@@ -80,13 +80,13 @@ public:
  int1 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(2);
  int2 = PZMath.fastfloor(Float.parseFloat(this->getCommandArg(3);
  } else {
- if (this->connection == nullptr) {
+ if (this->connection.empty()) {
  return "Pass a username or coordinate";
  }
 
  std::string string2 = this->getExecutorUsername();
  IsoPlayer player1 = GameServer.getPlayerByUserNameForCommand(string2);
- if (player1 == nullptr) {
+ if (player1.empty()) {
  return "User \"" + string2 + "\" not found";
  }
 
@@ -99,7 +99,7 @@ public:
  return "Z coordinate must be 0 for now";
  } else {
  IsoGridSquare square = ServerMap.instance.getGridSquare(int0, int1, int2);
- if (square == nullptr) {
+ if (square.empty()) {
  return "Invalid location " + int0 + "," + int1 + "," + int2;
  } else {
  BaseVehicle vehicle = new BaseVehicle(IsoWorld.instance.CurrentCell);

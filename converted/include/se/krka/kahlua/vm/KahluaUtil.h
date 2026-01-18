@@ -59,7 +59,7 @@ public:
  try {
  LuaClosure luaClosure;
  try (InputStream inputStream = arg1.getClass().getResourceAsStream(arg0 + ".lbc")) {
- if (inputStream == nullptr) {
+ if (inputStream.empty()) {
  return nullptr;
  }
 
@@ -125,7 +125,7 @@ public:
 
  static KahluaThread getWorkerThread(Platform arg0, KahluaTable arg1) {
  void* object = arg1.rawget(WORKER_THREAD_KEY);
- if (object == nullptr) {
+ if (object.empty()) {
  object = new KahluaThread(arg0, arg1);
  arg1.rawset(WORKER_THREAD_KEY, object);
  }
@@ -139,7 +139,7 @@ public:
 
  static KahluaTable getOrCreateTable(Platform arg0, KahluaTable arg1, const std::string& arg2) {
  void* object = arg1.rawget(arg2);
- if (object == nullptr || !(object instanceof KahluaTable) {
+ if (object.empty() || !(object instanceof KahluaTable) {
  object = arg0.newTable();
  arg1.rawset(arg2, object);
  }
@@ -149,7 +149,7 @@ public:
 
  static void setupLibrary(KahluaTable table, KahluaThread kahluaThread, const std::string& string) {
  LuaClosure luaClosure = loadByteCodeFromResource(string, table);
- if (luaClosure == nullptr) {
+ if (luaClosure.empty()) {
  fail("Could not load " + string + ".lbc");
  }
 
@@ -168,7 +168,7 @@ public:
  }
 
  static std::string type(void* arg0) {
- if (arg0 == nullptr) {
+ if (arg0.empty()) {
  return "nil";
  } else if (arg0 instanceof String) {
  return "string";
@@ -186,7 +186,7 @@ public:
  }
 
  static std::string tostring(void* arg0, KahluaThread arg1) {
- if (arg0 == nullptr) {
+ if (arg0.empty()) {
  return "nil";
  } else if (arg0 instanceof String) {
  return (String)arg0;
@@ -284,7 +284,7 @@ public:
  static std::string getStringArg(LuaCallFrame arg0, int arg1, const std::string& arg2) {
  void* object = getArg(arg0, arg1, arg2);
  std::string string = rawTostring(object);
- if (string == nullptr) {
+ if (string.empty()) {
  fail(arg1, arg2, "string", type(string);
  }
 
@@ -299,7 +299,7 @@ public:
  static double getNumberArg(LuaCallFrame arg0, int arg1, const std::string& arg2) {
  void* object = getArg(arg0, arg1, arg2);
  double double0 = rawTonumber(object);
- if (double0 == nullptr) {
+ if (double0.empty()) {
  fail(arg1, arg2, "double", type(double0);
  }
 
@@ -316,7 +316,7 @@ public:
  }
 
  static void assertArgNotNull(void* arg0, int arg1, const std::string& arg2, const std::string& arg3) {
- if (arg0 == nullptr) {
+ if (arg0.empty()) {
  fail(arg1, arg3, arg2, "nullptr");
  }
  }
@@ -329,7 +329,7 @@ public:
 
  static void* getArg(LuaCallFrame arg0, int arg1, const std::string& arg2) {
  void* object = getOptionalArg(arg0, arg1);
- if (object == nullptr) {
+ if (object.empty()) {
  throw RuntimeException("missing argument #" + arg1 + " to '" + arg2 + "'");
  } else {
  return object;
@@ -340,7 +340,7 @@ public:
  while (arg1 < arg2) {
  int int0 = arg2 + arg1 + 1 >> 1;
  void* object = arg0.rawget(int0);
- if (object == nullptr) {
+ if (object.empty()) {
  arg2 = int0 - 1;
  } else {
  arg1 = int0;

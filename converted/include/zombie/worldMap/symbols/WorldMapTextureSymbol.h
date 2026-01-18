@@ -37,9 +37,9 @@ public:
  }
 
  void checkTexture() {
- if (this->m_texture == nullptr) {
+ if (this->m_texture.empty()) {
  MapSymbolDefinitions.MapSymbolDefinition mapSymbolDefinition = MapSymbolDefinitions.getInstance().getSymbolById(this->getSymbolID());
- if (mapSymbolDefinition == nullptr) {
+ if (mapSymbolDefinition.empty()) {
  this->m_width = 18.0F;
  this->m_height = 18.0F;
  } else {
@@ -48,7 +48,7 @@ public:
  this->m_height = mapSymbolDefinition.getHeight();
  }
 
- if (this->m_texture == nullptr) {
+ if (this->m_texture.empty()) {
  this->m_texture = Texture.getErrorTexture();
  }
  }

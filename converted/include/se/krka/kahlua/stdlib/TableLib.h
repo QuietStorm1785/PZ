@@ -213,7 +213,7 @@ public:
  int int1 = table.len();
 
  for (int int2 = int0; int2 < int1; int2++) {
- kahluaThread.tableSet(table, KahluaUtil.toDouble((long)int2), kahluaThread.tableget(table, KahluaUtil.toDouble((long)(int2 + 1));
+ kahluaThread.tableSet(table, KahluaUtil.toDouble((long)int2), kahluaThread.tableget(table, KahluaUtil.toDouble((long)(int2 + 1);
  }
 
  kahluaThread.tableSet(table, KahluaUtil.toDouble((long)int1), nullptr);

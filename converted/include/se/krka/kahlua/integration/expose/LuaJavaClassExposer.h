@@ -73,7 +73,7 @@ public:
 
  public Map<Class<?>, ClassDebugInformation> getClassDebugInformation() {
  void* object = this->environment.rawget(DEBUGINFO_KEY);
- if (object == nullptr || !(object instanceof Map) {
+ if (object.empty() || !(object instanceof Map) {
  object = std::make_unique<HashMap>();
  this->environment.rawset(DEBUGINFO_KEY, object);
  }
@@ -86,11 +86,11 @@ public:
  }
 
  KahluaTable getIndexTable(KahluaTable table) {
- if (table == nullptr) {
+ if (table.empty()) {
  return nullptr;
  } else {
  void* object = table.rawget("__index");
- if (object == nullptr) {
+ if (object.empty()) {
  return nullptr;
  } else {
  return object instanceof KahluaTable ? (KahluaTable)object : nullptr;
@@ -179,7 +179,7 @@ public:
  }
 
  bool shouldExpose(Class<?> clazz0) {
- if (clazz0 == nullptr) {
+ if (clazz0.empty()) {
  return false;
  } else {
  bool boolean0 = this->shouldExposeCache.get(clazz0);
@@ -343,7 +343,7 @@ public:
  } catch (Exception exception) {
  }
 
- if (classParameterInformation == nullptr) {
+ if (classParameterInformation.empty()) {
  classParameterInformation = new ClassParameterInformation(clazz);
  }
 
@@ -360,7 +360,7 @@ public:
  name = "definition"
  )
  std::string getDefinition(void* object) {
- if (object == nullptr) {
+ if (object.empty()) {
  return nullptr;
  } else if (object instanceof LuaJavaInvoker) {
  MethodDebugInformation methodDebugInformation = ((LuaJavaInvoker)object).getMethodDebugData();

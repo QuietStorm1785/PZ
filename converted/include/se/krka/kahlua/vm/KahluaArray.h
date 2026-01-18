@@ -105,7 +105,7 @@ public:
  }
 
  if (int0 >= this->len) {
- if (object == nullptr) {
+ if (object.empty()) {
  if (int0 == this->len) {
  this->data[int0 - 1] = object;
  this->recalculateLen = true;
@@ -148,7 +148,7 @@ public:
 
  void* next(void* object) {
  int int0;
- if (object == nullptr) {
+ if (object.empty()) {
  int0 = 0;
  } else {
  int0 = this->getKeyIndex(object);

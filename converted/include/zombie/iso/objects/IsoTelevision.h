@@ -103,7 +103,7 @@ public:
 
  void updateLightSource() {
  this->tickIsLightUpdate = false;
- if (this->lightSource == nullptr) {
+ if (this->lightSource.empty()) {
  this->lightSource = new IsoLightSource(this->square.getX(), this->square.getY(), this->square.getZ(), 0.0F, 0.0F, 1.0F, this->lightSourceRadius);
  this->lightWasRemoved = true;
  }

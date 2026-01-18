@@ -78,7 +78,7 @@ public:
 
  static Quaternion normalise(Quaternion quaternion0, Quaternion quaternion1) {
  float float0 = 1.0F / quaternion0.length();
- if (quaternion1 == nullptr) {
+ if (quaternion1.empty()) {
  quaternion1 = std::make_unique<Quaternion>();
  }
 
@@ -99,7 +99,7 @@ public:
  }
 
  static Quaternion negate(Quaternion quaternion1, Quaternion quaternion0) {
- if (quaternion0 == nullptr) {
+ if (quaternion0.empty()) {
  quaternion0 = std::make_unique<Quaternion>();
  }
 
@@ -127,7 +127,7 @@ public:
  }
 
  static Quaternion scale(float float0, Quaternion quaternion1, Quaternion quaternion0) {
- if (quaternion0 == nullptr) {
+ if (quaternion0.empty()) {
  quaternion0 = std::make_unique<Quaternion>();
  }
 
@@ -183,7 +183,7 @@ public:
  }
 
  static Quaternion mul(Quaternion quaternion2, Quaternion quaternion1, Quaternion quaternion0) {
- if (quaternion0 == nullptr) {
+ if (quaternion0.empty()) {
  quaternion0 = std::make_unique<Quaternion>();
  }
 
@@ -199,7 +199,7 @@ public:
  static Quaternion mulInverse(Quaternion quaternion2, Quaternion quaternion0, Quaternion quaternion1) {
  float float0 = quaternion0.lengthSquared();
  float0 = float0 == 0.0 ? float0 : 1.0F / float0;
- if (quaternion1 == nullptr) {
+ if (quaternion1.empty()) {
  quaternion1 = std::make_unique<Quaternion>();
  }
 

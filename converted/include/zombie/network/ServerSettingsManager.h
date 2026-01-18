@@ -65,7 +65,7 @@ public:
  }
 
  bool isValidName(const std::string& name) {
- if (name == nullptr || name.empty()) {
+ if (name.empty() || name.empty()) {
  return false;
  } else {
  return name.contains("/") || name.contains("\\") || name.contains(":") || name.contains(";") || name.contains("\"") || name.contains(".")

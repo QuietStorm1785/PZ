@@ -109,7 +109,7 @@ public:
  }
 
  int getInt(HuffmanNode huffmanNode) {
- while (huffmanNode.value == nullptr) {
+ while (huffmanNode.value.empty()) {
  if (this->bitIndex > 7) {
  this->bitIndex = 0;
  this->currentByte = this->source[++this->byteIndex];

@@ -72,7 +72,7 @@ public:
 
  KahluaTable getOrCreate(const std::string& string) {
  KahluaTable table = this->get(string);
- if (table == nullptr) {
+ if (table.empty()) {
  table = this->create(string);
  }
 
@@ -192,7 +192,7 @@ public:
  void receiveRequest(ByteBuffer byteBuffer0, UdpConnection udpConnection1) {
  std::string string = GameWindow.ReadString(byteBuffer0);
  KahluaTable table = this->get(string);
- if (table == nullptr) {
+ if (table.empty()) {
  DebugLog.log("GlobalModData -> received request for non-existing table, table: " + string);
  }
 
@@ -226,7 +226,7 @@ public:
  }
 
  static ByteBuffer ensureCapacity(ByteBuffer byteBuffer0) {
- if (byteBuffer0 == nullptr) {
+ if (byteBuffer0.empty()) {
  LAST_BLOCK_SIZE = 1048576;
  return ByteBuffer.allocate(LAST_BLOCK_SIZE);
  } else {

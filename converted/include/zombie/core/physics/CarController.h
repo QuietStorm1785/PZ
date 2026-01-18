@@ -977,7 +977,7 @@ public:
  return true;
  } else {
  BaseVehicle vehicle = this->vehicleObject.getVehicleTowedBy();
- if (vehicle == nullptr) {
+ if (vehicle.empty()) {
  float float0 = this->vehicleObject.isEngineRunning() ? this->EngineForce : 0.0F;
  return Math.abs(float0) > 0.01F;
  } else {

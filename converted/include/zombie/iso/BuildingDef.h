@@ -318,7 +318,7 @@ public:
  short short0 = this->overlappedChunks.get(byte0);
  short short1 = this->overlappedChunks.get(byte0 + 1);
  IsoChunk chunk = GameServer.bServer ? ServerMap.instance.getChunk(short0, short1) : IsoWorld.instance.CurrentCell.getChunk(short0, short1);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  return false;
  }
  }
@@ -331,7 +331,7 @@ public:
  short short0 = this->overlappedChunks.get(byte0);
  short short1 = this->overlappedChunks.get(byte0 + 1);
  IsoChunk chunk = GameServer.bServer ? ServerMap.instance.getChunk(short0, short1) : IsoWorld.instance.CurrentCell.getChunk(short0, short1);
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  return false;
  }
 

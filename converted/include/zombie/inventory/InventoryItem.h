@@ -235,7 +235,7 @@ public:
  }
 
  IsoGameCharacter getEquipParent() {
- return this->equipParent == nullptr || this->equipParent.getPrimaryHandItem() != this && this->equipParent.getSecondaryHandItem() != this
+ return this->equipParent.empty() || this->equipParent.getPrimaryHandItem() != this && this->equipParent.getSecondaryHandItem() != this
  ? nullptr
  : this->equipParent;
  }
@@ -277,7 +277,7 @@ public:
  }
 
  KahluaTable getModData() {
- if (this->table == nullptr) {
+ if (this->table.empty()) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -294,7 +294,7 @@ public:
  }
 
  tempBuffer.flip();
- if (this->byteData == nullptr || this->byteData.capacity() < tempBuffer.limit() - 2 + 8) {
+ if (this->byteData.empty() || this->byteData.capacity() < tempBuffer.limit() - 2 + 8) {
  this->byteData = ByteBuffer.allocate(tempBuffer.limit() - 2 + 8);
  }
 
@@ -337,7 +337,7 @@ public:
  public InventoryItem(const std::string& _module, const std::string& _name, const std::string& _type, const std::string& tex) {
  this->col = Color.white;
  this->texture = Texture.trygetTexture(tex);
- if (this->texture == nullptr) {
+ if (this->texture.empty()) {
  this->texture = Texture.getSharedTexture("media/inventory/Question_On.png");
  }
 
@@ -392,11 +392,11 @@ public:
  bool ModDataMatches(InventoryItem item) {
  KahluaTable table0 = item.getModData();
  KahluaTable table1 = item.getModData();
- if (table0 == nullptr && table1 == nullptr) {
+ if (table0.empty() && table1.empty()) {
  return true;
- } else if (table0 == nullptr) {
+ } else if (table0.empty()) {
  return false;
- } else if (table1 == nullptr) {
+ } else if (table1.empty()) {
  return false;
  } else if (table0.len() != table1.len()) {
  return false;
@@ -568,7 +568,7 @@ public:
 
  if (this->gunType != nullptr) {
  Item item2 = ScriptManager.instance.FindItem(this->getGunType());
- if (item2 == nullptr) {
+ if (item2.empty()) {
  item2 = ScriptManager.instance.FindItem(this->getModule() + "." + this->ammoType);
  }
 
@@ -867,7 +867,7 @@ public:
  IsoGridSquare square1 = worldInventoryObject1.getSquare();
  if (square1 != nullptr && square1.isOutside()) {
  InventoryItem item2 = InventoryItemFactory.CreateItem(this->getReplaceType("WaterSource"));
- if (item2 == nullptr) {
+ if (item2.empty()) {
  this->rainFactorZero = true;
  return;
  }
@@ -1165,7 +1165,7 @@ public:
  if (input.position() >= int1 + int0) {
  input.position(int1 + int0);
  DebugLog.log(
- "InventoryItem.loadItem() item == nullptr, resetting buffer position to '"
+ "InventoryItem.loadItem() item.empty(), resetting buffer position to '"
  + (int1 + int0)
  + "'. itemtype: "
  + WorldDictionary.getItemTypeDebugString(short0)
@@ -1176,7 +1176,7 @@ public:
  input.get();
  }
 
- DebugLog.log("InventoryItem.loadItem() item == nullptr, skipped bytes. itemtype: " + WorldDictionary.getItemTypeDebugString(short0);
+ DebugLog.log("InventoryItem.loadItem() item.empty(), skipped bytes. itemtype: " + WorldDictionary.getItemTypeDebugString(short0);
  }
 
  return nullptr;
@@ -1254,7 +1254,7 @@ public:
  if (bitHeaderRead0.hasFlags(64) {
  BitHeaderRead bitHeaderRead1 = BitHeader.allocRead(BitHeader.HeaderSize.Integer, input);
  if (bitHeaderRead1.hasFlags(1) {
- if (this->table == nullptr) {
+ if (this->table.empty()) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -1439,7 +1439,7 @@ public:
  return false;
  } else {
  ItemContainer containerx = this->getOutermostContainer();
- if (containerx == nullptr) {
+ if (containerx.empty()) {
  return false;
  } else {
  return containerx.getParent() instanceof IsoPlayer ? ((IsoPlayer)containerx.getParent()).isLocalPlayer() : false;
@@ -1488,7 +1488,7 @@ public:
  ItemVisual getVisual() {
  ClothingItem clothingItem = this->getClothingItem();
  if (clothingItem != nullptr && clothingItem.isReady()) {
- if (this->visual == nullptr) {
+ if (this->visual.empty()) {
  this->visual = std::make_unique<ItemVisual>();
  this->visual.setItemType(this->getFullType());
  this->visual.pickUninitializedValues(clothingItem);
@@ -1533,7 +1533,7 @@ public:
 
  if (!StringUtils.isNullOrWhitespace(string) {
  this->texture = Texture.trygetTexture("Item_" + string);
- if (this->texture == nullptr) {
+ if (this->texture.empty()) {
  this->texture = Texture.getSharedTexture("media/inventory/Question_On.png");
  }
  }
@@ -2421,7 +2421,7 @@ public:
  }
 
  void addExtraItem(const std::string& _type) {
- if (this->extraItems == nullptr) {
+ if (this->extraItems.empty()) {
  this->extraItems = std::make_unique<ArrayList<>>();
  }
 
@@ -3085,7 +3085,7 @@ public:
  }
 
  std::vector arrayList = BloodClothingType.getCoveredParts(this->getBloodClothingType());
- if (arrayList == nullptr) {
+ if (arrayList.empty()) {
  return false;
  }
 
@@ -3114,7 +3114,7 @@ public:
  }
 
  std::vector arrayList = BloodClothingType.getCoveredParts(this->getBloodClothingType());
- if (arrayList == nullptr) {
+ if (arrayList.empty()) {
  return false;
  }
 

@@ -35,7 +35,7 @@ public:
  Iterator iterator = ServerOptions.instance.getPublicOptions().iterator();
  void* object = nullptr;
  std::string string0 = " <LINE> ";
- if (this->connection == nullptr) {
+ if (this->connection.empty()) {
  string0 = "\n";
  }
 

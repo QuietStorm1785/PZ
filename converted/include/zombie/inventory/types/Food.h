@@ -121,7 +121,7 @@ public:
  this->textureCooked = Texture.trygetTexture(texName + "Cooked");
  this->textureBurnt = Texture.trygetTexture(texName + "Overdone");
  std::string string0 = "Overdone.png";
- if (this->textureBurnt == nullptr) {
+ if (this->textureBurnt.empty()) {
  this->textureBurnt = Texture.trygetTexture(texName + "Burnt");
  if (this->textureBurnt != nullptr) {
  string0 = "Burnt.png";
@@ -129,7 +129,7 @@ public:
  }
 
  std::string string1 = "Rotten.png";
- if (this->texturerotten == nullptr) {
+ if (this->texturerotten.empty()) {
  this->texturerotten = Texture.trygetTexture(texName + "Spoiled");
  if (this->texturerotten != nullptr) {
  string1 = "Spoiled.png";
@@ -137,15 +137,15 @@ public:
  }
 
  Texture.WarnFailFindTexture = true;
- if (this->texturerotten == nullptr) {
+ if (this->texturerotten.empty()) {
  this->texturerotten = this->texture;
  }
 
- if (this->textureCooked == nullptr) {
+ if (this->textureCooked.empty()) {
  this->textureCooked = this->texture;
  }
 
- if (this->textureBurnt == nullptr) {
+ if (this->textureBurnt.empty()) {
  this->textureBurnt = this->texture;
  }
 
@@ -177,15 +177,15 @@ public:
  }
 
  Texture.WarnFailFindTexture = true;
- if (this->texturerotten == nullptr) {
+ if (this->texturerotten.empty()) {
  this->texturerotten = this->texture;
  }
 
- if (this->textureCooked == nullptr) {
+ if (this->textureCooked.empty()) {
  this->textureCooked = this->texture;
  }
 
- if (this->textureBurnt == nullptr) {
+ if (this->textureBurnt.empty()) {
  this->textureBurnt = this->texture;
  }
 
@@ -414,7 +414,7 @@ public:
 
  void updateTemperature() {
  ItemContainer container = this->getOutermostContainer();
- float float0 = container == nullptr ? 1.0F : container.getTemprature();
+ float float0 = container.empty() ? 1.0F : container.getTemprature();
  if (this->Heat > float0) {
  this->Heat = this->Heat - 0.001F * GameTime.instance.getMultiplier();
  if (this->Heat < Math.max(0.2F, float0) {
@@ -433,12 +433,12 @@ public:
  void updateRotting(ItemContainer container) {
  if (this->OffAgeMax != 1.0E9) {
  if (!GameClient.bClient || this->isInLocalPlayerInventory()) {
- if (!GameServer.bServer || this->container == nullptr || this->getOutermostContainer() == this->container) {
+ if (!GameServer.bServer || this->container.empty() || this->getOutermostContainer() == this->container) {
  if (this->replaceOnRotten != nullptr && !this->replaceOnRotten.empty()) {
  this->updateAge();
  if (this->isRotten()) {
  InventoryItem item = InventoryItemFactory.CreateItem(this->getModule() + "." + this->replaceOnRotten, this);
- if (item == nullptr) {
+ if (item.empty()) {
  DebugLog.General.warn("ReplaceOnRotten = " + this->replaceOnRotten + " doesn't exist for " + this->getFullType());
  this->destroyThisItem();
  return;
@@ -1078,7 +1078,7 @@ public:
  if (this->container != nullptr || this->getWorldItem() != nullptr && this->getWorldItem().getSquare() != nullptr) {
  if (this->IsCookable) {
  return false;
- } else if (this->container == nullptr || this->Heat == this->container.getTemprature() && !this->container.isTemperatureChanging()) {
+ } else if (this->container.empty() || this->Heat == this->container.getTemprature() && !this->container.isTemperatureChanging()) {
  if (this->isTaintedWater() && this->container != nullptr && this->container.getTemprature() > 1.0F) {
  return false;
  } else {
@@ -1662,7 +1662,7 @@ public:
 
  void setSpices(ArrayList<String> _spices) {
  if (_spices != nullptr && !_spices.empty()) {
- if (this->spices == nullptr) {
+ if (this->spices.empty()) {
  this->spices = new ArrayList<>(_spices);
  } else {
  this->spices.clear();

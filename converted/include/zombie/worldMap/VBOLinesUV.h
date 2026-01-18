@@ -72,7 +72,7 @@ public:
  this->startRun(textureID);
  }
 
- if (this->m_elements == nullptr) {
+ if (this->m_elements.empty()) {
  this->create();
  }
 
@@ -201,7 +201,7 @@ public:
  }
 
  bool isFull() {
- if (this->m_elements == nullptr) {
+ if (this->m_elements.empty()) {
  return false;
  } else {
  return this->m_mode == 4 && this->m_elements.position() % 108 == 0 && this->m_elements.position() + 108 > 4608
@@ -221,7 +221,7 @@ public:
  }
 
  bool hasRoomFor(int int0) {
- return this->m_elements == nullptr || this->m_elements.position() / 36 + int0 <= 128;
+ return this->m_elements.empty() || this->m_elements.position() / 36 + int0 <= 128;
  }
 
  void flush() {
@@ -303,7 +303,7 @@ public:
 
  void startRun(TextureID textureID) {
  VBOLinesUV.Run run = this->m_runPool.alloc();
- run.start = this->m_elements == nullptr ? 0 : this->m_elements.position() / 36;
+ run.start = this->m_elements.empty() ? 0 : this->m_elements.position() / 36;
  run.count = 0;
  run.textureID = textureID;
  this->m_runs.add(run);

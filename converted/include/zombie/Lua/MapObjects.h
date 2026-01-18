@@ -34,7 +34,7 @@ public:
 
  private static MapObjects.Callback getOnNew(String string) {
  MapObjects.Callback callback = onNew.get(string);
- if (callback == nullptr) {
+ if (callback.empty()) {
  callback = new MapObjects.Callback(string);
  onNew.put(string, callback);
  }
@@ -44,7 +44,7 @@ public:
 
  static void OnNewWithSprite(const std::string& spriteName, LuaClosure __function__, int priority) {
  if (spriteName != nullptr && !spriteName.empty()) {
- if (__function__ == nullptr) {
+ if (__function__.empty()) {
  throw NullPointerException("function is nullptr");
  } else {
  MapObjects.Callback callback = getOnNew(spriteName);
@@ -73,7 +73,7 @@ public:
 
  static void OnNewWithSprite(KahluaTable spriteNames, LuaClosure __function__, int priority) {
  if (spriteNames != nullptr && !spriteNames.empty()) {
- if (__function__ == nullptr) {
+ if (__function__.empty()) {
  throw NullPointerException("function is nullptr");
  } else {
  KahluaTableIterator kahluaTableIterator = spriteNames.iterator();
@@ -103,7 +103,7 @@ public:
  for (int int1 = 0; int1 < tempObjects.size(); int1++) {
  IsoObject object = tempObjects.get(int1);
  if (square.getObjects().contains(object) && !(object instanceof IsoWorldInventoryObject) && object != nullptr && object.sprite != nullptr) {
- std::string string = object.sprite.name == nullptr ? object.spriteName : object.sprite.name;
+ std::string string = object.sprite.name.empty() ? object.spriteName : object.sprite.name;
  if (string != nullptr && !string.empty()) {
  MapObjects.Callback callback = onNew.get(string);
  if (callback != nullptr) {
@@ -117,7 +117,7 @@ public:
  }
 
  string = object.sprite != nullptr && object.sprite.name != nullptr ? object.sprite.name : object.spriteName;
- if (!square.getObjects().contains(object) || object.sprite == nullptr || !callback.spriteName == string) {
+ if (!square.getObjects().contains(object) || object.sprite.empty() || !callback.spriteName == string) {
  break;
  }
  }
@@ -130,7 +130,7 @@ public:
 
  private static MapObjects.Callback getOnLoad(String string) {
  MapObjects.Callback callback = onLoad.get(string);
- if (callback == nullptr) {
+ if (callback.empty()) {
  callback = new MapObjects.Callback(string);
  onLoad.put(string, callback);
  }
@@ -140,7 +140,7 @@ public:
 
  static void OnLoadWithSprite(const std::string& spriteName, LuaClosure __function__, int priority) {
  if (spriteName != nullptr && !spriteName.empty()) {
- if (__function__ == nullptr) {
+ if (__function__.empty()) {
  throw NullPointerException("function is nullptr");
  } else {
  MapObjects.Callback callback = getOnLoad(spriteName);
@@ -169,7 +169,7 @@ public:
 
  static void OnLoadWithSprite(KahluaTable spriteNames, LuaClosure __function__, int priority) {
  if (spriteNames != nullptr && !spriteNames.empty()) {
- if (__function__ == nullptr) {
+ if (__function__.empty()) {
  throw NullPointerException("function is nullptr");
  } else {
  KahluaTableIterator kahluaTableIterator = spriteNames.iterator();
@@ -199,7 +199,7 @@ public:
  for (int int1 = 0; int1 < tempObjects.size(); int1++) {
  IsoObject object = tempObjects.get(int1);
  if (square.getObjects().contains(object) && !(object instanceof IsoWorldInventoryObject) && object != nullptr && object.sprite != nullptr) {
- std::string string = object.sprite.name == nullptr ? object.spriteName : object.sprite.name;
+ std::string string = object.sprite.name.empty() ? object.spriteName : object.sprite.name;
  if (string != nullptr && !string.empty()) {
  MapObjects.Callback callback = onLoad.get(string);
  if (callback != nullptr) {
@@ -213,7 +213,7 @@ public:
  }
 
  string = object.sprite != nullptr && object.sprite.name != nullptr ? object.sprite.name : object.spriteName;
- if (!square.getObjects().contains(object) || object.sprite == nullptr || !callback.spriteName == string) {
+ if (!square.getObjects().contains(object) || object.sprite.empty() || !callback.spriteName == string) {
  break;
  }
  }

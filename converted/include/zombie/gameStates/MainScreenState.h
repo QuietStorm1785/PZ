@@ -670,7 +670,7 @@ public:
  }
  }
 
- public class Credit {
+ class Credit {
  int disappearDelay = 200;
  Texture name;
  float nameAlpha;

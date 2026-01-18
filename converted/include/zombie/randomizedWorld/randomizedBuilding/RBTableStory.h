@@ -60,7 +60,7 @@ public:
 
  for (int int0 = 0; int0 < allStories.size(); int0++) {
  RBTableStory.StoryDef storyDef0 = allStories.get(int0);
- if (storyDef0.rooms == nullptr || storyDef0.rooms.contains(this->table1.getSquare().getRoom().getName())) {
+ if (storyDef0.rooms.empty() || storyDef0.rooms.contains(this->table1.getSquare().getRoom().getName())) {
  arrayList.add(storyDef0);
  }
  }
@@ -178,7 +178,7 @@ public:
  }
  }
 
- public class StoryDef {
+ class StoryDef {
  public ArrayList<RBTableStory.StorySpawnItem> items = nullptr;
  bool addBlood = false;
  public ArrayList<String> rooms = nullptr;
@@ -193,7 +193,7 @@ public:
  }
  }
 
- public class StorySpawnItem {
+ class StorySpawnItem {
  LinkedHashMap<String, Integer> eitherObject = nullptr;
  std::string object = nullptr;
  int chanceToSpawn = nullptr;

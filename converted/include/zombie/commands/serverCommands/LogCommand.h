@@ -74,8 +74,8 @@ public:
  } else {
  return Translator.getText(
  "UI_ServerOptionDesc_SetLogLevel",
- debugType == nullptr ? "\"type\"" : debugType.name().toLowerCase(),
- logSeverity == nullptr ? "\"severity\"" : logSeverity.name().toLowerCase()
+ debugType.empty() ? "\"type\"" : debugType.name().toLowerCase(),
+ logSeverity.empty() ? "\"severity\"" : logSeverity.name().toLowerCase()
  );
  }
  }

@@ -31,7 +31,7 @@ public:
  }
 
  static ByteBuffer ensureCapacity(ByteBuffer byteBuffer, int int0) {
- if (byteBuffer == nullptr || byteBuffer.capacity() < int0) {
+ if (byteBuffer.empty() || byteBuffer.capacity() < int0) {
  byteBuffer = ByteBuffer.allocate(bufferSize(int0);
  }
 
@@ -39,7 +39,7 @@ public:
  }
 
  static ByteBuffer ensureCapacity(ByteBuffer byteBuffer0) {
- if (byteBuffer0 == nullptr) {
+ if (byteBuffer0.empty()) {
  return ByteBuffer.allocate(1024);
  } else if (byteBuffer0.capacity() - byteBuffer0.position() < 1024) {
  ByteBuffer byteBuffer1 = ensureCapacity(nullptr, byteBuffer0.position() + 1024);
@@ -163,7 +163,7 @@ public:
  perCallData.savedItems.add(item);
  int int5 = 1;
  int int6 = int4 + 1;
- if (character == nullptr || !character.isEquipped(item) {
+ if (character.empty() || !character.isEquipped(item) {
  setCompareItem(perThreadData, item);
 
  while (int4 + 1 < arrayList2.size() && areItemsIdentical(perThreadData, item, (InventoryItem)arrayList2.get(int4 + 1) {
@@ -221,7 +221,7 @@ public:
 
  int int3 = byteBuffer.position();
  InventoryItem item = InventoryItem.loadItem(byteBuffer, int2);
- if (item == nullptr) {
+ if (item.empty()) {
  int int4 = int1 > 1 ? (int1 - 1) * 4 : 0;
  byteBuffer.position(byteBuffer.position() + int4);
 
@@ -304,7 +304,7 @@ public:
  ByteBuffer itemCompareBuffer = ByteBuffer.allocate(1024);
 
  CompressIdenticalItems.PerCallData allocSaveVars() {
- if (this->saveVars == nullptr) {
+ if (this->saveVars.empty()) {
  return new CompressIdenticalItems.PerCallData();
  } else {
  CompressIdenticalItems.PerCallData perCallData = this->saveVars;

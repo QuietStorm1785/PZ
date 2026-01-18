@@ -28,7 +28,7 @@ public:
  }
 
  void add(E object) {
- if (object == nullptr) {
+ if (object.empty()) {
  throw std::make_unique<NullPointerException>();
  } else {
  if (this->size() == this->numElements) {
@@ -42,7 +42,7 @@ public:
 
  E removeFirst() {
  void* object = this->elements[this->front];
- if (object == nullptr) {
+ if (object.empty()) {
  throw std::make_unique<NoSuchElementException>();
  } else {
  this->elements[this->front] = nullptr;
@@ -54,7 +54,7 @@ public:
  E remove(int int1) {
  int int0 = this->front + int1 & this->elements.length - 1;
  void* object = this->elements[int0];
- if (object == nullptr) {
+ if (object.empty()) {
  throw std::make_unique<NoSuchElementException>();
  } else {
  int int2 = int0;
@@ -74,7 +74,7 @@ public:
  E get(int int1) {
  int int0 = this->front + int1 & this->elements.length - 1;
  void* object = this->elements[int0];
- if (object == nullptr) {
+ if (object.empty()) {
  throw std::make_unique<NoSuchElementException>();
  } else {
  return (E)object;

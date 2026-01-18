@@ -75,7 +75,7 @@ public:
  zombie0.getPathFindBehavior2().pathToCharacter(character);
  if (character.getVehicle() != nullptr && zombie0.DistToSquared(zombie0.target) < 16.0F) {
  Vector3f vector3f = character.getVehicle().chooseBestAttackPosition(character, zombie0, this->worldPos);
- if (vector3f == nullptr) {
+ if (vector3f.empty()) {
  zombie0.setVariable("bMoving", false);
  return;
  }
@@ -95,7 +95,7 @@ public:
  }
 
  if (owner.getPathTargetX() == (int)owner.getX() && owner.getPathTargetY() == (int)owner.getY()) {
- if (zombie0.target == nullptr) {
+ if (zombie0.target.empty()) {
  zombie0.setVariable("bPathfind", false);
  zombie0.setVariable("bMoving", false);
  return;

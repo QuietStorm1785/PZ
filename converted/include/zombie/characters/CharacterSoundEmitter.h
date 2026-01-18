@@ -66,7 +66,7 @@ public:
  return 0L;
  } else {
  FMODVoice fMODVoice = FMODSoundBank.instance.getVoice(file);
- if (fMODVoice == nullptr) {
+ if (fMODVoice.empty()) {
  return this->vocals.playSoundImpl(file, false, nullptr);
  } else {
  float float0 = fMODVoice.priority;

@@ -78,7 +78,7 @@ public:
  }
 
  void writeLine() {
- if (this->m_headerDirty || this->m_outHeader == nullptr) {
+ if (this->m_headerDirty || this->m_outHeader.empty()) {
  this->m_headerDirty = false;
  this->writeHeader();
  }
@@ -127,14 +127,14 @@ public:
  }
 
  void writeData() {
- if (this->m_outValues == nullptr) {
+ if (this->m_outValues.empty()) {
  this->openValuesFile(false);
  }
 
  StringBuilder stringBuilder = this->m_lineBuffer;
  stringBuilder.setLength(0);
  this->writeData(stringBuilder);
- if (this->m_previousLine == nullptr || !this->m_previousLine.contentEquals(stringBuilder) {
+ if (this->m_previousLine.empty() || !this->m_previousLine.contentEquals(stringBuilder) {
  this->m_outValues.print(this->m_frameNumber);
  this->m_outValues.println(stringBuilder);
  this->m_previousLine = stringBuilder.toString();

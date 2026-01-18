@@ -450,7 +450,7 @@ public:
  return ScriptManager.instance.getModelScript(_name);
  } else {
  ModelScript modelScript = this->ModelScriptMap.get(_name);
- if (modelScript == nullptr) {
+ if (modelScript.empty()) {
  for (int int0 = 0; int0 < this->Imports.size(); int0++) {
  std::string string = this->Imports.get(int0);
  ScriptModule scriptModule = ScriptManager.instance.getModule(string);

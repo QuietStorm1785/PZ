@@ -350,7 +350,7 @@ public:
  }
 
  static Matrix4f convertMatrix(org.joml.Matrix4f src, Matrix4f dst) {
- if (dst == nullptr) {
+ if (dst.empty()) {
  dst = std::make_unique<Matrix4f>();
  }
 
@@ -374,7 +374,7 @@ public:
  }
 
  public static org.joml.Matrix4f convertMatrix(Matrix4f src, org.joml.Matrix4f dst) {
- if (dst == nullptr) {
+ if (dst.empty()) {
  dst = new org.joml.Matrix4f();
  }
 

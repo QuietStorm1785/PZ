@@ -35,7 +35,7 @@ public:
  void setObject(IsoObject objectx) {
  this->object = objectx;
  this->isProcessed = true;
- if (this->object == nullptr) {
+ if (this->object.empty()) {
  this->objectType = 0;
  this->objectId = 0;
  } else {
@@ -56,7 +56,7 @@ public:
 
  if (this->objectType == 1) {
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare(this->squareX, this->squareY, this->squareZ);
- if (square == nullptr) {
+ if (square.empty()) {
  this->object = nullptr;
  } else {
  this->object = square.getObjects().get(this->objectId);

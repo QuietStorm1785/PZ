@@ -776,7 +776,7 @@ public:
  }
  }
 
- public class DirectionArrow {
+ class DirectionArrow {
  static const bool doDebug = false;
  private WorldMarkers.DirectionArrow.DebugStuff debugStuff;
  int ID;
@@ -813,7 +813,7 @@ public:
  }
 
  void setTexture(const std::string& texname) {
- if (texname == nullptr) {
+ if (texname.empty()) {
  texname = "dir_arrow_up";
  }
 
@@ -943,7 +943,7 @@ public:
  this->renderHeight = _renderHeight;
  }
 
- private class DebugStuff {
+ class DebugStuff {
  float centerX;
  float centerY;
  float endX;
@@ -998,7 +998,7 @@ public:
  }
 
  void init(const std::string& texid, const std::string& overlay, int _x, int _y, int _z, float _size) {
- if (texid == nullptr) {
+ if (texid.empty()) {
  texid = "circle_center";
  }
 
@@ -1242,7 +1242,7 @@ public:
  }
 
  void setTexture(const std::string& texname) {
- if (texname == nullptr) {
+ if (texname.empty()) {
  texname = "arrow_triangle";
  }
 

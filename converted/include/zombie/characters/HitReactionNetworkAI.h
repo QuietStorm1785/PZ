@@ -88,7 +88,7 @@ public:
  this->startDirection.set(this->character.getForwardDirection());
  this->startAngle = this->character.getAnimAngleRadians();
  Vector2 vector = new Vector2().set(this->finalPosition.x - this->startPosition.x, this->finalPosition.y - this->startPosition.y);
- if (angle == nullptr) {
+ if (angle.empty()) {
  vector.normalize();
  angle = vector.dot(this->character.getForwardDirection());
  PZMath.lerp(this->finalDirection, vector, this->character.getForwardDirection(), Math.abs(angle);

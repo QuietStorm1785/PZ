@@ -98,7 +98,7 @@ public:
  }
  }
 
- if (this->deviceData == nullptr) {
+ if (this->deviceData.empty()) {
  this->deviceData = new DeviceData(this);
  }
 
@@ -147,7 +147,7 @@ public:
  }
 
  void setDeviceData(DeviceData data) {
- if (data == nullptr) {
+ if (data.empty()) {
  data = new DeviceData(this);
  }
 
@@ -164,7 +164,7 @@ public:
  }
 
  void setTalkerType(const std::string& type) {
- this->talkerType = type == nullptr ? "" : type;
+ this->talkerType = type.empty() ? "" : type;
  this->chatElement.setTalkerType(this->talkerType);
  }
 
@@ -240,7 +240,7 @@ public:
  }
 
  bool playerWithinBounds(IsoPlayer player, float float0) {
- return player == nullptr
+ return player.empty()
  ? false
  : (player.getX() > this->getX() - float0 || player.getX() < this->getX() + float0)
  && (player.getY() > this->getY() - float0 || player.getY() < this->getY() + float0);
@@ -287,7 +287,7 @@ public:
 
  void load(ByteBuffer input, int WorldVersion, bool IS_DEBUG_SAVE) {
  super.load(input, WorldVersion, IS_DEBUG_SAVE);
- if (this->deviceData == nullptr) {
+ if (this->deviceData.empty()) {
  this->deviceData = new DeviceData(this);
  }
 

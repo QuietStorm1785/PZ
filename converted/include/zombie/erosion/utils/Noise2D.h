@@ -328,7 +328,7 @@ public:
  }
  }
 
- private class Layer {
+ class Layer {
  float freq;
  float amp;
  public int[] p = new int[512];

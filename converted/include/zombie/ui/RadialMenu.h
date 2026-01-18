@@ -293,7 +293,7 @@ public:
  Texture texture;
 
  bool isEmpty() {
- return this->text == nullptr && this->texture == nullptr;
+ return this->text.empty() && this->texture.empty();
  }
  }
 }

@@ -110,7 +110,7 @@ public:
  MPStatistic.getInstance().RecalcThreadTasks.Processed();
  }
 
- private class GetSquare implements IsoGridSquare.GetSquare {
+ class GetSquare implements IsoGridSquare.GetSquare {
  ServerMap.ServerCell cell;
 
  IsoGridSquare getGridSquare(int int0, int int1, int int2) {
@@ -148,7 +148,7 @@ public:
  for (int int3 = -1; int3 <= 1; int3++) {
  if ((int2 != 0 || int3 != 0) && this->contains(int6 + int2, int5 + int3, int4) {
  IsoGridSquare square = this->getGridSquare(int0 + int6 + int2, int1 + int5 + int3, int4);
- if (square == nullptr) {
+ if (square.empty()) {
  square = IsoGridSquare.getNew(IsoWorld.instance.CurrentCell, nullptr, int0 + int6 + int2, int1 + int5 + int3, int4);
  int int7 = (int6 + int2) / 10;
  int int8 = (int5 + int3) / 10;
@@ -164,7 +164,7 @@ public:
  }
  }
 
- private class LoaderThread extends Thread {
+ class LoaderThread extends Thread {
  private LinkedBlockingQueue<ServerMap.ServerCell> toThread = std::make_unique<LinkedBlockingQueue<>>();
  private LinkedBlockingQueue<ServerMap.ServerCell> fromThread = std::make_unique<LinkedBlockingQueue<>>();
  ArrayDeque<IsoGridSquare> isoGridSquareCache = std::make_unique<ArrayDeque<>>();
@@ -199,7 +199,7 @@ public:
  int int3 = serverCell.WY * 5 + int1;
  if (IsoWorld.instance.MetaGrid.isValidChunk(int2, int3) {
  IsoChunk chunk = IsoChunkMap.chunkStore.poll();
- if (chunk == nullptr) {
+ if (chunk.empty()) {
  chunk = new IsoChunk(nullptr);
  } else {
  MPStatistics.decreaseStoredChunk();
@@ -254,7 +254,7 @@ public:
  }
  }
 
- private class QuitThreadTask implements ServerChunkLoader.SaveTask {
+ class QuitThreadTask implements ServerChunkLoader.SaveTask {
  void save() {
  ServerChunkLoader.this->threadSave.quit = true;
  }
@@ -271,7 +271,7 @@ public:
  }
  }
 
- private class RecalcAllThread extends Thread {
+ class RecalcAllThread extends Thread {
  private LinkedBlockingQueue<ServerMap.ServerCell> toThread = std::make_unique<LinkedBlockingQueue<>>();
  private LinkedBlockingQueue<ServerMap.ServerCell> fromThread = std::make_unique<LinkedBlockingQueue<>>();
  private ServerChunkLoader.GetSquare serverCellGetSquare = ServerChunkLoader.this->std::make_unique<GetSquare>();
@@ -326,7 +326,7 @@ public:
  for (int int10 = 0; int10 <= chunk1.maxLevel; int10++) {
  IsoGridSquare square0 = chunk1.squares[int10][int9];
  if (int10 == 0) {
- if (square0 == nullptr) {
+ if (square0.empty()) {
  int int11 = chunk1.wx * 10 + int9 % 10;
  int int12 = chunk1.wy * 10 + int9 / 10;
  square0 = IsoGridSquare.getNew(IsoWorld.instance.CurrentCell, nullptr, int11, int12, int10);
@@ -427,7 +427,7 @@ public:
  }
  }
 
- private class SaveChunkThread extends Thread {
+ class SaveChunkThread extends Thread {
  private LinkedBlockingQueue<ServerChunkLoader.SaveTask> toThread = std::make_unique<LinkedBlockingQueue<>>();
  private LinkedBlockingQueue<ServerChunkLoader.SaveTask> fromThread = std::make_unique<LinkedBlockingQueue<>>();
  bool quit = false;
@@ -531,7 +531,7 @@ public:
  }
  }
 
- private class SaveGameTimeTask implements ServerChunkLoader.SaveTask {
+ class SaveGameTimeTask implements ServerChunkLoader.SaveTask {
  private byte[] bytes;
 
  public SaveGameTimeTask(GameTime gameTime) {
@@ -574,7 +574,7 @@ public:
  }
  }
 
- private class SaveLoadedTask implements ServerChunkLoader.SaveTask {
+ class SaveLoadedTask implements ServerChunkLoader.SaveTask {
  const ClientChunkRequest ccr;
  private ClientChunkRequest.Chunk chunk;
 
@@ -616,7 +616,7 @@ public:
  int wy();
  }
 
- private class SaveUnloadedTask implements ServerChunkLoader.SaveTask {
+ class SaveUnloadedTask implements ServerChunkLoader.SaveTask {
  const IsoChunk chunk;
 
  public SaveUnloadedTask(IsoChunk chunkx) {

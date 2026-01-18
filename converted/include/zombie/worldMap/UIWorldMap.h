@@ -74,7 +74,7 @@ public:
 
  void render() {
  if (this->isVisible()) {
- if (this->Parent == nullptr || this->Parent.getMaxDrawHeight() == -1.0 || !(this->Parent.getMaxDrawHeight() <= this->getY())) {
+ if (this->Parent.empty() || this->Parent.getMaxDrawHeight() == -1.0 || !(this->Parent.getMaxDrawHeight() <= this->getY())) {
  this->DrawTextureScaledColor(
  nullptr,
  0.0,

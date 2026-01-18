@@ -128,7 +128,7 @@ public:
  }
 
  KahluaTable getMeta() {
- if (this->metaTable == nullptr) {
+ if (this->metaTable.empty()) {
  this->metaTable = (KahluaTable)LuaManager.caller.pcall(LuaManager.thread, LuaManager.env.rawget("createMetaSurvivor"), this)[1];
  }
 
@@ -210,7 +210,7 @@ public:
  }
 
  void savePerk(ByteBuffer byteBuffer, PerkFactory.Perk perk) {
- GameWindow.WriteStringUTF(byteBuffer, perk == nullptr ? "" : perk.getId());
+ GameWindow.WriteStringUTF(byteBuffer, perk.empty() ? "" : perk.getId());
  }
 
  private PerkFactory.Perk loadPerk(ByteBuffer byteBuffer, int int0) throws IOException {

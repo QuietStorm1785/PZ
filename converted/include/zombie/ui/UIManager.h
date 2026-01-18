@@ -159,7 +159,7 @@ public:
  if (Core.SafeMode) {
  useUIFBO = false;
  } else {
- if (useUIFBO && (UIFBO == nullptr || UIFBO.getTexture().getWidth() != width || UIFBO.getTexture().getHeight() != height) {
+ if (useUIFBO && (UIFBO.empty() || UIFBO.getTexture().getWidth() != width || UIFBO.getTexture().getHeight() != height) {
  if (UIFBO != nullptr) {
  RenderThread.invokeOnRenderContext(() -> UIFBO.destroy());
  }
@@ -1500,7 +1500,7 @@ public:
  }
 
  static KahluaThread getDefaultThread() {
- if (defaultthread == nullptr) {
+ if (defaultthread.empty()) {
  defaultthread = LuaManager.thread;
  }
 
@@ -1543,7 +1543,7 @@ public:
  }
 
  IsoObject object = nullptr;
- if (uIElement0 == nullptr && getPicked() != nullptr) {
+ if (uIElement0.empty() && getPicked() != nullptr) {
  object = getPicked().tile;
  if (object != getLastPicked() && toolTip != nullptr) {
  toolTip.targetAlpha = 0.0F;
@@ -1561,7 +1561,7 @@ public:
  }
 
  setLastPicked(object);
- if (toolTip != nullptr && (object == nullptr || toolTip.alpha <= 0.0F && toolTip.targetAlpha <= 0.0F) {
+ if (toolTip != nullptr && (object.empty() || toolTip.alpha <= 0.0F && toolTip.targetAlpha <= 0.0F) {
  toolTip.hide();
  }
  }

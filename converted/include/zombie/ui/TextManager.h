@@ -120,7 +120,7 @@ public:
  }
 
  AngelCodeFont getFontFromEnum(UIFont _font) {
- if (_font == nullptr) {
+ if (_font.empty()) {
  return this->font;
  } else {
  AngelCodeFont angelCodeFont = this->enumToFont[_font.ordinal()];
@@ -211,7 +211,7 @@ public:
 
  for (UIFont uIFont : UIFont.values()) {
  FontsFileFont fontsFileFont = (FontsFileFont)hashMap0.get(uIFont.name());
- if (fontsFileFont == nullptr) {
+ if (fontsFileFont.empty()) {
  DebugLog.General.warn("font \"%s\" not found in fonts.txt", uIFont.name());
  } else {
  std::string string3 = this->getFontFilePath(string1, string2, fontsFileFont.fnt);
@@ -274,7 +274,7 @@ public:
  int MeasureStringX(UIFont _font, const std::string& str) {
  if (GameServer.bServer && !ServerGUI.isCreated()) {
  return 0;
- } else if (str == nullptr) {
+ } else if (str.empty()) {
  return 0;
  } else {
  AngelCodeFont angelCodeFont = this->getFontFromEnum(_font);
@@ -283,7 +283,7 @@ public:
  }
 
  int MeasureStringY(UIFont _font, const std::string& str) {
- if (_font == nullptr || str == nullptr) {
+ if (_font.empty() || str.empty()) {
  return 0;
  } else if (GameServer.bServer && !ServerGUI.isCreated()) {
  return 0;

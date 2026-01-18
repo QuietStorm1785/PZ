@@ -519,7 +519,7 @@ public:
  Audio PlaySound(const std::string& name, bool loop, float maxGain) {
  if (GameServer.bServer) {
  return nullptr;
- } else if (IsoWorld.instance == nullptr) {
+ } else if (IsoWorld.instance.empty()) {
  return nullptr;
  } else {
  BaseSoundEmitter baseSoundEmitter = IsoWorld.instance.getFreeEmitter();

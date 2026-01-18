@@ -24,7 +24,7 @@ public:
 
  StacktraceCounter getOrCreateChild(StacktraceElement stacktraceElement) {
  StacktraceCounter stacktraceCounter0 = this->children.get(stacktraceElement);
- if (stacktraceCounter0 == nullptr) {
+ if (stacktraceCounter0.empty()) {
  stacktraceCounter0 = std::make_unique<StacktraceCounter>();
  this->children.put(stacktraceElement, stacktraceCounter0);
  }

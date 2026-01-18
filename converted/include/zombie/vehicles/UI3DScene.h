@@ -434,7 +434,7 @@ public:
  case "getCharacterAnimationDuration":
  UI3DScene.SceneCharacter sceneCharacter2 = this->getSceneObjectById((String)arg0, UI3DScene.SceneCharacter.class, true);
  AnimationPlayer animationPlayer1 = sceneCharacter2.m_animatedModel.getAnimationPlayer();
- if (animationPlayer1 == nullptr) {
+ if (animationPlayer1.empty()) {
  return nullptr;
  } else {
  AnimationMultiTrack animationMultiTrack1 = animationPlayer1.getMultiTrack();
@@ -447,7 +447,7 @@ public:
  case "getCharacterAnimationTime":
  UI3DScene.SceneCharacter sceneCharacter1 = this->getSceneObjectById((String)arg0, UI3DScene.SceneCharacter.class, true);
  AnimationPlayer animationPlayer0 = sceneCharacter1.m_animatedModel.getAnimationPlayer();
- if (animationPlayer0 == nullptr) {
+ if (animationPlayer0.empty()) {
  return nullptr;
  } else {
  AnimationMultiTrack animationMultiTrack0 = animationPlayer0.getMultiTrack();
@@ -473,7 +473,7 @@ public:
  return sceneObject6.m_autoRotate ? Boolean.TRUE : Boolean.FALSE;
  case "getObjectParent":
  UI3DScene.SceneObject sceneObject5 = this->getSceneObjectById((String)arg0, true);
- return sceneObject5.m_parent == nullptr ? nullptr : sceneObject5.m_parent.m_id;
+ return sceneObject5.m_parent.empty() ? nullptr : sceneObject5.m_parent.m_id;
  case "getObjectParentAttachment":
  UI3DScene.SceneObject sceneObject0 = this->getSceneObjectById((String)arg0, true);
  return sceneObject0.m_parentAttachment;
@@ -660,11 +660,11 @@ public:
  throw IllegalStateException("scene object \"" + arg0 + "\" exists");
  } else {
  ModelScript modelScript = ScriptManager.instance.getModelScript((String)arg1);
- if (modelScript == nullptr) {
+ if (modelScript.empty()) {
  throw NullPointerException("model script \"" + arg1 + "\" not found");
  } else {
  Model model = ModelManager.instance.getLoadedModel((String)arg1);
- if (model == nullptr) {
+ if (model.empty()) {
  throw NullPointerException("model \"" + arg1 + "\" not found");
  }
 
@@ -676,7 +676,7 @@ public:
  case "dragGizmo":
  float float0 = ((Double)arg0).floatValue();
  float float1 = ((Double)arg1).floatValue();
- if (this->m_gizmo == nullptr) {
+ if (this->m_gizmo.empty()) {
  throw NullPointerException("gizmo is nullptr");
  }
 
@@ -692,18 +692,18 @@ public:
  case "getCharacterAnimationKeyframeTimes":
  UI3DScene.SceneCharacter sceneCharacter14 = this->getSceneObjectById((String)arg0, UI3DScene.SceneCharacter.class, true);
  AnimationPlayer animationPlayer1 = sceneCharacter14.m_animatedModel.getAnimationPlayer();
- if (animationPlayer1 == nullptr) {
+ if (animationPlayer1.empty()) {
  return nullptr;
  } else {
  AnimationMultiTrack animationMultiTrack2 = animationPlayer1.getMultiTrack();
  if (animationMultiTrack2 != nullptr && !animationMultiTrack2.getTracks().empty()) {
  AnimationTrack animationTrack = animationMultiTrack2.getTracks().get(0);
  AnimationClip animationClip = animationTrack.getClip();
- if (animationClip == nullptr) {
+ if (animationClip.empty()) {
  return nullptr;
  }
 
- if (arg1 == nullptr) {
+ if (arg1.empty()) {
  arg1 = std::make_unique<ArrayList>();
  }
 
@@ -727,7 +727,7 @@ public:
  case "removeAttachment":
  UI3DScene.SceneModel sceneModel3 = this->getSceneObjectById((String)arg0, UI3DScene.SceneModel.class, true);
  ModelAttachment modelAttachment0 = sceneModel3.m_modelScript.getAttachmentById((String)arg1);
- if (modelAttachment0 == nullptr) {
+ if (modelAttachment0.empty()) {
  throw IllegalArgumentException("model script \"" + arg0 + "\" attachment \"" + arg1 + "\" not found");
  }
 
@@ -744,7 +744,7 @@ public:
  case "setCharacterAnimationClip":
  UI3DScene.SceneCharacter sceneCharacter13 = this->getSceneObjectById((String)arg0, UI3DScene.SceneCharacter.class, true);
  AnimationSet animationSet = AnimationSet.GetAnimationSet(sceneCharacter13.m_animatedModel.GetAnimSetName(), false);
- if (animationSet == nullptr) {
+ if (animationSet.empty()) {
  return nullptr;
  } else {
  AnimState animState = animationSet.GetState(sceneCharacter13.m_animatedModel.getState());
@@ -771,7 +771,7 @@ public:
  UI3DScene.SceneCharacter sceneCharacter11 = this->getSceneObjectById((String)arg0, UI3DScene.SceneCharacter.class, true);
  sceneCharacter11.m_animatedModel.setTrackTime(((Double)arg1).floatValue());
  AnimationPlayer animationPlayer0 = sceneCharacter11.m_animatedModel.getAnimationPlayer();
- if (animationPlayer0 == nullptr) {
+ if (animationPlayer0.empty()) {
  return nullptr;
  } else {
  AnimationMultiTrack animationMultiTrack0 = animationPlayer0.getMultiTrack();
@@ -895,7 +895,7 @@ public:
  case "testGizmoAxis":
  int int2 = ((Double)arg0).intValue();
  int int3 = ((Double)arg1).intValue();
- if (this->m_gizmo == nullptr) {
+ if (this->m_gizmo.empty()) {
  return "None";
  }
 
@@ -1011,7 +1011,7 @@ public:
  UI3DScene.SceneCharacter sceneCharacter = this->getSceneObjectById((String)arg0, UI3DScene.SceneCharacter.class, true);
  UI3DScene.SceneVehicle sceneVehicle = this->getSceneObjectById((String)arg1, UI3DScene.SceneVehicle.class, true);
  VehicleScript.Passenger passenger = sceneVehicle.m_script.getPassengerById((String)arg2);
- if (passenger == nullptr) {
+ if (passenger.empty()) {
  return nullptr;
  }
 
@@ -1750,7 +1750,7 @@ public:
  }
  }
 
- private class CharacterSceneModelCamera extends UI3DScene.SceneModelCamera {
+ class CharacterSceneModelCamera extends UI3DScene.SceneModelCamera {
  void Begin() {
  UI3DScene.StateData stateData = UI3DScene.this->stateDataRender();
  GL11.glViewport(
@@ -1779,7 +1779,7 @@ public:
  float radius = 1.0F;
  }
 
- private class Gizmo {
+ class Gizmo {
  float LENGTH = 0.5F;
  float THICKNESS = 0.05F;
  bool m_visible = false;
@@ -1860,7 +1860,7 @@ public:
  YZ;
  }
 
- private class GridPlaneDrawer extends TextureDraw.GenericDrawer {
+ class GridPlaneDrawer extends TextureDraw.GenericDrawer {
  const UI3DScene m_scene;
 
  GridPlaneDrawer(UI3DScene uI3DScene1) {
@@ -2049,7 +2049,7 @@ public:
  }
  }
 
- private class OverlaysDrawer extends TextureDraw.GenericDrawer {
+ class OverlaysDrawer extends TextureDraw.GenericDrawer {
  void init() {
  UI3DScene.StateData stateData = UI3DScene.this->stateDataMain();
  UI3DScene.s_aabbPool.release(stateData.m_aabb);
@@ -2202,7 +2202,7 @@ public:
  }
  }
 
- private class RotateGizmo extends UI3DScene.Gizmo {
+ class RotateGizmo extends UI3DScene.Gizmo {
  UI3DScene.Axis m_trackAxis = UI3DScene.Axis.None;
  UI3DScene.Circle m_trackCircle = new UI3DScene.Circle();
  const Matrix4f m_startXfrm = new Matrix4f();
@@ -2534,7 +2534,7 @@ public:
  }
  }
 
- private class ScaleGizmo extends UI3DScene.Gizmo {
+ class ScaleGizmo extends UI3DScene.Gizmo {
  const Matrix4f m_startXfrm = new Matrix4f();
  const Matrix4f m_startInvXfrm = new Matrix4f();
  const Vector3f m_startPos = new Vector3f();
@@ -2774,11 +2774,11 @@ public:
  matrix4f0.identity();
  bool boolean0 = this->m_animatedModel.isFemale();
  ModelScript modelScript = ScriptManager.instance.getModelScript(boolean0 ? "FemaleBody" : "MaleBody");
- if (modelScript == nullptr) {
+ if (modelScript.empty()) {
  return matrix4f0;
  } else {
  ModelAttachment modelAttachment = modelScript.getAttachmentById(string);
- if (modelAttachment == nullptr) {
+ if (modelAttachment.empty()) {
  return matrix4f0;
  } else {
  matrix4f0.translation(modelAttachment.getOffset());
@@ -2838,7 +2838,7 @@ public:
  }
 
  std::string pickBone(float float1, float float0) {
- if (this->m_animatedModel.getAnimationPlayer().modelTransforms == nullptr) {
+ if (this->m_animatedModel.getAnimationPlayer().modelTransforms.empty()) {
  return "";
  } else {
  float0 = this->m_scene.screenHeight() - float0;
@@ -2864,11 +2864,11 @@ public:
 
  Matrix4f getBoneMatrix(const std::string& string, Matrix4f matrix4f) {
  matrix4f.identity();
- if (this->m_animatedModel.getAnimationPlayer().modelTransforms == nullptr) {
+ if (this->m_animatedModel.getAnimationPlayer().modelTransforms.empty()) {
  return matrix4f;
  } else {
  SkinningBone skinningBone = this->m_animatedModel.getAnimationPlayer().getSkinningData().getBone(string);
- if (skinningBone == nullptr) {
+ if (skinningBone.empty()) {
  return matrix4f;
  } else {
  matrix4f = PZMath.convertMatrix(this->m_animatedModel.getAnimationPlayer().modelTransforms[skinningBone.Index], matrix4f);
@@ -2922,7 +2922,7 @@ public:
  Matrix4f getAttachmentTransform(const std::string& string, Matrix4f matrix4f) {
  matrix4f.identity();
  ModelAttachment modelAttachment = this->m_modelScript.getAttachmentById(string);
- if (modelAttachment == nullptr) {
+ if (modelAttachment.empty()) {
  return matrix4f;
  } else {
  matrix4f.translation(modelAttachment.getOffset());
@@ -2933,7 +2933,7 @@ public:
  }
  }
 
- private class SceneModelCamera extends ModelCamera {
+ class SceneModelCamera extends ModelCamera {
  UI3DScene.SceneObjectRenderData m_renderData;
  }
 
@@ -3031,13 +3031,13 @@ public:
  }
 
  UI3DScene.SceneObjectRenderData renderMain() {
- if (this->m_script == nullptr) {
+ if (this->m_script.empty()) {
  this->m_model = nullptr;
  return nullptr;
  } else {
  std::string string = this->m_script.getModel().file;
  this->m_model = ModelManager.instance.getLoadedModel(string);
- if (this->m_model == nullptr) {
+ if (this->m_model.empty()) {
  return nullptr;
  } else {
  if (this->m_script.getSkinCount() > 0) {
@@ -3112,7 +3112,7 @@ public:
  Local;
  }
 
- private class TranslateGizmo extends UI3DScene.Gizmo {
+ class TranslateGizmo extends UI3DScene.Gizmo {
  const Matrix4f m_startXfrm = new Matrix4f();
  const Matrix4f m_startInvXfrm = new Matrix4f();
  const Vector3f m_startPos = new Vector3f();
@@ -3588,7 +3588,7 @@ public:
  }
  }
 
- private class VehicleSceneModelCamera extends UI3DScene.SceneModelCamera {
+ class VehicleSceneModelCamera extends UI3DScene.SceneModelCamera {
  void Begin() {
  UI3DScene.StateData stateData = UI3DScene.this->stateDataRender();
  GL11.glViewport(

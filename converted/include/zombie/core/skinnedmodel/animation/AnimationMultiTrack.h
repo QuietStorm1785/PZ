@@ -59,7 +59,7 @@ public:
  }
 
  int getIndexOfTrack(AnimationTrack track) {
- if (track == nullptr) {
+ if (track.empty()) {
  return -1;
  } else {
  int int0 = -1;
@@ -80,7 +80,7 @@ public:
  for (int int0 = 0; int0 < this->m_tracks.size(); int0++) {
  AnimationTrack animationTrack = this->m_tracks.get(int0);
  animationTrack.Update(time);
- if (animationTrack.CurrentClip == nullptr) {
+ if (animationTrack.CurrentClip.empty()) {
  this->removeTrackAt(int0);
  int0--;
  }

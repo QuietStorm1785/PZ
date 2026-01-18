@@ -36,7 +36,7 @@ public:
  this->m_x = movingObject.x;
  this->m_y = movingObject.y;
  this->m_z = movingObject.z;
- if (character == nullptr) {
+ if (character.empty()) {
  this->m_angle = 0.0F;
  this->m_bInVehicle = false;
  this->m_bUseWorldIso = !BaseVehicle.RENDER_TO_TEXTURE;

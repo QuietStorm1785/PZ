@@ -53,7 +53,7 @@ public:
  stages.add(stage);
  }
 
- public class Stage {
+ class Stage {
  std::string name;
  public ArrayList<String> previousStage = std::make_unique<ArrayList<>>();
  std::string recipeName;

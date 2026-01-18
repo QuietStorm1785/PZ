@@ -81,7 +81,7 @@ public:
  }
 
  private ActionContextEvents.Event allocEvent() {
- if (this->m_eventPool == nullptr) {
+ if (this->m_eventPool.empty()) {
  return new ActionContextEvents.Event();
  } else {
  ActionContextEvents.Event event = this->m_eventPool;
@@ -91,7 +91,7 @@ public:
  }
 
  void releaseEvent(ActionContextEvents.Event event1, ActionContextEvents.Event event0) {
- if (event0 == nullptr) {
+ if (event0.empty()) {
  assert event1 = = this->m_firstEvent;
 
  this->m_firstEvent = event1.next;

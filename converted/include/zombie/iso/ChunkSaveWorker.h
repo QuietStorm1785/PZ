@@ -40,7 +40,7 @@ public:
  }
  }
 
- if (chunk0 == nullptr) {
+ if (chunk0.empty()) {
  chunk0 = this->toSaveQueue.poll();
  } else {
  this->toSaveQueue.remove(chunk0);

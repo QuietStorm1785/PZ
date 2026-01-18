@@ -152,7 +152,7 @@ public:
 
  static std::string getHelp(Class clazz) {
  CommandHelp commandHelp = getAnnotation(CommandHelp.class, clazz);
- if (commandHelp == nullptr) {
+ if (commandHelp.empty()) {
  return nullptr;
  } else if (commandHelp.shouldTranslated()) {
  std::string string = commandHelp.helpText();
@@ -235,7 +235,7 @@ public:
  }
 
  bool isCommandComeFromServerConsole() {
- return this->connection == nullptr;
+ return this->connection.empty();
  }
 
  RequiredRight getRequiredRights() {

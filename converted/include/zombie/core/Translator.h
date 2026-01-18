@@ -466,7 +466,7 @@ public:
  }
 
  static std::string getTextInternal(const std::string& string1, bool boolean0) {
- if (ui == nullptr) {
+ if (ui.empty()) {
  loadFiles();
  }
 
@@ -502,7 +502,7 @@ public:
  }
 
  std::string string2 = Core.bDebug && DebugOptions.instance.TranslationPrefix.getValue() ? "*" : nullptr;
- if (string0 == nullptr) {
+ if (string0.empty()) {
  if (boolean0) {
  return nullptr;
  }
@@ -597,7 +597,7 @@ public:
 
  static std::string getTextOrNull(const std::string& desc, void* arg1, void* arg2) {
  std::string string = getTextOrNull(desc);
- if (string == nullptr) {
+ if (string.empty()) {
  return nullptr;
  } else {
  string = subst(string, "%1", arg1);
@@ -607,7 +607,7 @@ public:
 
  static std::string getTextOrNull(const std::string& desc, void* arg1, void* arg2, void* arg3) {
  std::string string = getTextOrNull(desc);
- if (string == nullptr) {
+ if (string.empty()) {
  return nullptr;
  } else {
  string = subst(string, "%1", arg1);
@@ -618,7 +618,7 @@ public:
 
  static std::string getTextOrNull(const std::string& desc, void* arg1, void* arg2, void* arg3, void* arg4) {
  std::string string = getTextOrNull(desc);
- if (string == nullptr) {
+ if (string.empty()) {
  return nullptr;
  } else {
  string = subst(string, "%1", arg1);
@@ -637,7 +637,7 @@ public:
  }
 
  static void setLanguage(Language newlanguage) {
- if (newlanguage == nullptr) {
+ if (newlanguage.empty()) {
  newlanguage = getDefaultLanguage();
  }
 
@@ -650,18 +650,18 @@ public:
  }
 
  static Language getLanguage() {
- if (language == nullptr) {
+ if (language.empty()) {
  std::string string = Core.getInstance().getOptionLanguageName();
  if (!StringUtils.isNullOrWhitespace(string) {
  language = Languages.instance.getByName(string);
  }
  }
 
- if (language == nullptr) {
+ if (language.empty()) {
  language = Languages.instance.getByName(System.getProperty("user.language").toUpperCase());
  }
 
- if (language == nullptr) {
+ if (language.empty()) {
  language = getDefaultLanguage();
  }
 
@@ -673,7 +673,7 @@ public:
  }
 
  public static ArrayList<Language> getAvailableLanguage() {
- if (availableLanguage == nullptr) {
+ if (availableLanguage.empty()) {
  availableLanguage = std::make_unique<ArrayList<>>();
 
  for (int int0 = 0; int0 < Languages.instance.getNumLanguages(); int0++) {
@@ -687,7 +687,7 @@ public:
  static std::string getDisplayItemName(const std::string& trim) {
  void* object = nullptr;
  object = items.get(trim.replaceAll(" ", "_").replaceAll("-", "_"));
- return (String)(object == nullptr ? trim : object);
+ return (String)(object.empty() ? trim : object);
  }
 
  static std::string getItemNameFromFullType(const std::string& fullType) {
@@ -695,13 +695,13 @@ public:
  throw IllegalArgumentException("fullType must contain \".\" i.e. module.type");
  } else {
  std::string string = itemName.get(fullType);
- if (string == nullptr) {
+ if (string.empty()) {
  if (debug && getLanguage() != getDefaultLanguage() && !debugItem.contains(fullType) {
  debugItem.add(fullType);
  }
 
  Item item = ScriptManager.instance.getItem(fullType);
- if (item == nullptr) {
+ if (item.empty()) {
  string = fullType;
  } else {
  string = item.getDisplayName();
@@ -729,13 +729,13 @@ public:
  throw IllegalArgumentException("fullType must contain \".\" i.e. module.type");
  } else {
  std::string string = itemEvolvedRecipeName.get(fullType);
- if (string == nullptr) {
+ if (string.empty()) {
  if (debug && getLanguage() != getDefaultLanguage() && !debugItemEvolvedRecipeName.contains(fullType) {
  debugItemEvolvedRecipeName.add(fullType);
  }
 
  Item item = ScriptManager.instance.getItem(fullType);
- if (item == nullptr) {
+ if (item.empty()) {
  string = fullType;
  } else {
  string = item.getDisplayName();
@@ -751,7 +751,7 @@ public:
  static std::string getMoveableDisplayName(const std::string& name) {
  std::string string0 = name.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("'", "").replaceAll("\\.", "");
  std::string string1 = moveables.get(string0);
- if (string1 == nullptr) {
+ if (string1.empty()) {
  return Core.bDebug && DebugOptions.instance.TranslationPrefix.getValue() ? "!" + name : name;
  } else {
  return Core.bDebug && DebugOptions.instance.TranslationPrefix.getValue() ? "*" + string1 : string1;
@@ -761,7 +761,7 @@ public:
  static std::string getMoveableDisplayNameOrNull(const std::string& name) {
  std::string string0 = name.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("'", "").replaceAll("\\.", "");
  std::string string1 = moveables.get(string0);
- if (string1 == nullptr) {
+ if (string1.empty()) {
  return nullptr;
  } else {
  return Core.bDebug && DebugOptions.instance.TranslationPrefix.getValue() ? "*" + string1 : string1;
@@ -770,7 +770,7 @@ public:
 
  static std::string getMultiStageBuild(const std::string& name) {
  std::string string = multiStageBuild.get("MultiStageBuild_" + name);
- if (string == nullptr) {
+ if (string.empty()) {
  if (debug && getLanguage() != getDefaultLanguage() && !debugMultiStageBuild.contains(name) {
  debugMultiStageBuild.add(name);
  }
@@ -866,7 +866,7 @@ public:
  }
 
  public static ArrayList<String> getAzertyMap() {
- if (azertyLanguages == nullptr) {
+ if (azertyLanguages.empty()) {
  azertyLanguages = std::make_unique<ArrayList<>>();
  azertyLanguages.add("FR");
  }
@@ -880,7 +880,7 @@ public:
  }
 
  static std::string getTextMediaEN(const std::string& desc) {
- if (ui == nullptr) {
+ if (ui.empty()) {
  loadFiles();
  }
 
@@ -890,7 +890,7 @@ public:
  }
 
  std::string string1 = Core.bDebug && DebugOptions.instance.TranslationPrefix.getValue() ? "*" : nullptr;
- if (string0 == nullptr) {
+ if (string0.empty()) {
  if (!missing.contains(desc) && Core.bDebug) {
  if (Core.bDebug) {
  DebugLog.log("ERROR: Missing translation \"" + desc + "\"");

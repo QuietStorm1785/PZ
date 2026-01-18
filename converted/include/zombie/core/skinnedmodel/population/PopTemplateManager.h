@@ -95,7 +95,7 @@ public:
  modelInstance = ModelManager.instance.newAdditionalModelInstance(string0, string1, character, modelSlot.model.AnimPlayer, string3);
  }
 
- if (modelInstance == nullptr) {
+ if (modelInstance.empty()) {
  return nullptr;
  } else {
  this->postProcessNewItemInstance(modelInstance, modelSlot, immutableColor);
@@ -192,7 +192,7 @@ public:
  for (int int0 = itemVisuals.size() - 1; int0 >= 0; int0--) {
  ItemVisual itemVisual0 = itemVisuals.get(int0);
  ClothingItem clothingItem0 = itemVisual0.getClothingItem();
- if (clothingItem0 == nullptr) {
+ if (clothingItem0.empty()) {
  if (DebugLog.isEnabled(DebugType.Clothing) {
  DebugLog.Clothing.warn("ClothingItem not found for ItemVisual:" + itemVisual0);
  }
@@ -204,7 +204,7 @@ public:
  for (int int1 = humanVisual.getBodyVisuals().size() - 1; int1 >= 0; int1--) {
  ItemVisual itemVisual1 = humanVisual.getBodyVisuals().get(int1);
  ClothingItem clothingItem1 = itemVisual1.getClothingItem();
- if (clothingItem1 == nullptr) {
+ if (clothingItem1.empty()) {
  if (DebugLog.isEnabled(DebugType.Clothing) {
  DebugLog.Clothing.warn("ClothingItem not found for ItemVisual:" + itemVisual1);
  }

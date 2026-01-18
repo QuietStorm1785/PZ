@@ -198,7 +198,7 @@ enum class BodyPartType {
  }
 
  static int ToIndex(BodyPartType BPT) {
- if (BPT == nullptr) {
+ if (BPT.empty()) {
  return 0;
  } else {
  switch (BPT) {
@@ -365,7 +365,7 @@ enum class BodyPartType {
  }
 
  static float GetSkinSurface(BodyPartType bodyPartType) {
- if (bodyPartType == nullptr) {
+ if (bodyPartType.empty()) {
  return 0.001F;
  } else {
  switch (bodyPartType) {
@@ -405,7 +405,7 @@ enum class BodyPartType {
  }
 
  static float GetDistToCore(BodyPartType bodyPartType) {
- if (bodyPartType == nullptr) {
+ if (bodyPartType.empty()) {
  return 0.0F;
  } else {
  switch (bodyPartType) {
@@ -445,7 +445,7 @@ enum class BodyPartType {
  }
 
  static float GetUmbrellaMod(BodyPartType bodyPartType) {
- if (bodyPartType == nullptr) {
+ if (bodyPartType.empty()) {
  return 1.0F;
  } else {
  switch (bodyPartType) {
@@ -484,7 +484,7 @@ enum class BodyPartType {
  }
 
  static float GetMaxActionPenalty(BodyPartType bodyPartType) {
- if (bodyPartType == nullptr) {
+ if (bodyPartType.empty()) {
  return 0.0F;
  } else {
  switch (bodyPartType) {
@@ -524,7 +524,7 @@ enum class BodyPartType {
  }
 
  static float GetMaxMovementPenalty(BodyPartType bodyPartType) {
- if (bodyPartType == nullptr) {
+ if (bodyPartType.empty()) {
  return 0.0F;
  } else {
  switch (bodyPartType) {

@@ -47,7 +47,7 @@ public:
  }
 
  void addChild(AttachedModelName child) {
- if (this->children == nullptr) {
+ if (this->children.empty()) {
  this->children = std::make_unique<ArrayList<>>();
  }
 
@@ -55,7 +55,7 @@ public:
  }
 
  int getChildCount() {
- return this->children == nullptr ? 0 : this->children.size();
+ return this->children.empty() ? 0 : this->children.size();
  }
 
  AttachedModelName getChildByIndex(int index) {

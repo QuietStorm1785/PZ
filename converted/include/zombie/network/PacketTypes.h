@@ -90,7 +90,7 @@ public:
 
  static bool isAuthorized(UdpConnection udpConnection, PacketTypes.PacketType packetType) {
  bool boolean0 = (udpConnection.accessLevel & packetType.requiredAccessLevel) != 0;
- if ((!boolean0 || packetType.serverProcess == nullptr) && (!Core.bDebug || SystemDisabler.doKickInDebug) {
+ if ((!boolean0 || packetType.serverProcess.empty()) && (!Core.bDebug || SystemDisabler.doKickInDebug) {
  DebugLog.Multiplayer
  .warn(
  String.format(
@@ -597,7 +597,7 @@ public:
 
  bool onGameLoadingDealWithNetData(ByteBuffer bb) {
  DebugLog.Packet.noise("type=%s", this->name());
- if (this->gameLoadingDealWithNetData == nullptr) {
+ if (this->gameLoadingDealWithNetData.empty()) {
  DebugLog.Network.noise("Delay processing packet of type %s while loading game", this->name());
  return false;
  } else {

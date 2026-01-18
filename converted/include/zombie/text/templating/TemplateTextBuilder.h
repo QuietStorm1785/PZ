@@ -62,7 +62,7 @@ public:
  }
  }
 
- if (string3 == nullptr) {
+ if (string3.empty()) {
  string3 = "missing_" + string2;
  }
 

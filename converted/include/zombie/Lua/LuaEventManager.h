@@ -43,7 +43,7 @@ public:
 
  static Event checkEvent(const std::string& string) {
  Event event = EventMap.get(string);
- if (event == nullptr) {
+ if (event.empty()) {
  DebugLog.log("LuaEventManager: adding unknown event \"" + string + "\"");
  event = AddEvent(string);
  }

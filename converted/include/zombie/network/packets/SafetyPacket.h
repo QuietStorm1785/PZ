@@ -74,7 +74,7 @@ public:
 
  std::string getDescription() {
  return INetworkPacket.super.getDescription()
- + (this->player == nullptr ? ":" : ": \"" + this->player.getUsername() + "\"")
+ + (this->player.empty() ? ":" : ": \"" + this->player.getUsername() + "\"")
  + " id="
  + this->id
  + " "

@@ -48,7 +48,7 @@ public:
  }
 
  bool isReadOnly() {
- return this->m_callbackSet == nullptr;
+ return this->m_callbackSet.empty();
  }
 
  void clear() {

@@ -69,10 +69,10 @@ public:
  IsoDirections dir,
  String specificContainer
  ) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return nullptr;
  } else {
- if (dir == nullptr) {
+ if (dir.empty()) {
  dir = IsoDirections.getRandom();
  }
 
@@ -97,7 +97,7 @@ public:
  }
 
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare((double)vehicleX, (double)vehicleY, (double)vehicleZ);
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  IsoChunk chunk = square.getChunk();
@@ -112,7 +112,7 @@ public:
  vehicle.setSkinIndex(skinIndex);
  }
  } else {
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  return nullptr;
  }
 
@@ -162,10 +162,10 @@ public:
  IsoDirections dir,
  String specificContainer
  ) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return nullptr;
  } else {
- if (dir == nullptr) {
+ if (dir.empty()) {
  dir = IsoDirections.getRandom();
  }
 
@@ -191,7 +191,7 @@ public:
  }
 
  IsoGridSquare square = IsoWorld.instance.CurrentCell.getGridSquare((double)vehicleX, (double)vehicleY, (double)vehicleZ);
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  IsoChunk chunk = square.getChunk();
@@ -206,7 +206,7 @@ public:
  vehicle.setSkinIndex(skinIndex);
  }
  } else {
- if (vehicleType == nullptr) {
+ if (vehicleType.empty()) {
  return nullptr;
  }
 
@@ -265,7 +265,7 @@ public:
  */
  public ArrayList<IsoZombie> addZombiesOnVehicle(int totalZombies, String outfit, Integer femaleChance, BaseVehicle vehicle) {
  std::vector arrayList = new ArrayList();
- if (vehicle == nullptr) {
+ if (vehicle.empty()) {
  return arrayList;
  } else {
  int int0 = 100;
@@ -301,7 +301,7 @@ public:
  static IsoDeadBody createRandomDeadBody(RoomDef room, int blood) {
  if (IsoWorld.getZombiesDisabled()) {
  return nullptr;
- } else if (room == nullptr) {
+ } else if (room.empty()) {
  return nullptr;
  } else {
  IsoGridSquare square = getRandomSquareForCorpse(room);
@@ -313,7 +313,7 @@ public:
  std::vector arrayList = new ArrayList();
  if (IsoWorld.getZombiesDisabled()) {
  return arrayList;
- } else if (square == nullptr) {
+ } else if (square.empty()) {
  return arrayList;
  } else {
  for (int int0 = 0; int0 < totalZombies; int0++) {
@@ -352,10 +352,10 @@ public:
  }
 
  static IsoDeadBody createRandomDeadBody(IsoGridSquare sq, IsoDirections dir, int blood, int crawlerChance, const std::string& outfit) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return nullptr;
  } else {
- bool boolean0 = dir == nullptr;
+ bool boolean0 = dir.empty();
  if (boolean0) {
  dir = IsoDirections.getRandom();
  }
@@ -373,14 +373,14 @@ public:
  return nullptr;
  } else {
  IsoGridSquare square = IsoCell.getInstance().getGridSquare((double)x, (double)y, (double)z);
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  IsoDirections directions = IsoDirections.fromAngle(direction);
  VirtualZombieManager.instance.choices.clear();
  VirtualZombieManager.instance.choices.add(square);
  IsoZombie zombie0 = VirtualZombieManager.instance.createRealZombieAlways(directions.index(), false);
- if (zombie0 == nullptr) {
+ if (zombie0.empty()) {
  return nullptr;
  } else {
  if (outfit != nullptr) {
@@ -496,7 +496,7 @@ public:
 
  static IsoGameCharacter createRandomZombieForCorpse(RoomDef room) {
  IsoGridSquare square = getRandomSquareForCorpse(room);
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  IsoGameCharacter character = createRandomZombie(square.getX(), square.getY(), square.getZ());
@@ -647,7 +647,7 @@ public:
  */
  RoomDef getLivingRoomOrKitchen(BuildingDef bDef) {
  RoomDef roomDef = this->getRoom(bDef, "livingroom");
- if (roomDef == nullptr) {
+ if (roomDef.empty()) {
  roomDef = this->getRoom(bDef, "kitchen");
  }
 
@@ -655,7 +655,7 @@ public:
  }
 
  static bool canSpawnAt(IsoGridSquare square) {
- if (square == nullptr) {
+ if (square.empty()) {
  return false;
  } else {
  return square.HasStairs() ? false : VirtualZombieManager.instance.canSpawnAt(square.x, square.y, square.z);
@@ -669,7 +669,7 @@ public:
  static IsoGridSquare getRandomSquareForCorpse(RoomDef roomDef) {
  IsoGridSquare square0 = roomDef.getRandomSquare(RandomizedWorldBase::is2x2AreaClear);
  IsoGridSquare square1 = roomDef.getRandomSquare(RandomizedWorldBase::is2x1or1x2AreaClear);
- if (square0 == nullptr || square1 != nullptr && Rand.Next(4) == 0) {
+ if (square0.empty() || square1 != nullptr && Rand.Next(4) == 0) {
  square0 = square1;
  }
 
@@ -787,7 +787,7 @@ public:
  */
  HandWeapon addWeapon(const std::string& type, bool addRandomBullets) {
  HandWeapon weapon = (HandWeapon)InventoryItemFactory.CreateItem(type);
- if (weapon == nullptr) {
+ if (weapon.empty()) {
  return nullptr;
  } else {
  if (weapon.isRanged() && addRandomBullets) {
@@ -803,17 +803,17 @@ public:
  }
 
  IsoDeadBody createSkeletonCorpse(RoomDef room) {
- if (room == nullptr) {
+ if (room.empty()) {
  return nullptr;
  } else {
  IsoGridSquare square = room.getRandomSquare(RandomizedWorldBase::is2x1or1x2AreaClear);
- if (square == nullptr) {
+ if (square.empty()) {
  return nullptr;
  } else {
  VirtualZombieManager.instance.choices.clear();
  VirtualZombieManager.instance.choices.add(square);
  IsoZombie zombie0 = VirtualZombieManager.instance.createRealZombieAlways(Rand.Next(8), false);
- if (zombie0 == nullptr) {
+ if (zombie0.empty()) {
  return nullptr;
  } else {
  ZombieSpawnRecorder.instance.record(zombie0, this->getClass().getSimpleName());
@@ -879,7 +879,7 @@ public:
  }
 
  IsoObject addTileObject(IsoGridSquare sq, const std::string& spriteName) {
- if (sq == nullptr) {
+ if (sq.empty()) {
  return nullptr;
  } else {
  IsoObject object = IsoObject.getNew(sq, spriteName, nullptr, false);

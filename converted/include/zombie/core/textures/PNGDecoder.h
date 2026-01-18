@@ -67,7 +67,7 @@ public:
  this->openChunk();
  switch (this->chunkType) {
  case 1229209940:
- if (this->colorType == 3 && this->palette == nullptr) {
+ if (this->colorType == 3 && this->palette.empty()) {
  throw IOException("Missing PLTE chunk");
  }
 
@@ -113,7 +113,7 @@ public:
  throw UnsupportedOperationException("image has an alpha channel");
  } else {
  byte[] bytes = this->palette;
- if (bytes == nullptr) {
+ if (bytes.empty()) {
  this->transPixel = new byte[]{0, byte0, 0, byte1, 0, byte2};
  } else {
  this->paletteA = new byte[bytes.length / 3];
@@ -777,7 +777,7 @@ public:
  this->readChunk(this->transPixel, 0, 6);
  break;
  case 3:
- if (this->palette == nullptr) {
+ if (this->palette.empty()) {
  throw IOException("tRNS chunk without PLTE chunk");
  }
 

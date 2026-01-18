@@ -35,7 +35,7 @@ public:
  static ActionGroup getActionGroup(const std::string& name) {
  name = name.toLowerCase();
  ActionGroup actionGroup = actionGroupMap.get(name);
- if (actionGroup == nullptr && !actionGroupMap.containsKey(name) {
+ if (actionGroup.empty() && !actionGroupMap.containsKey(name) {
  actionGroup = std::make_unique<ActionGroup>();
  actionGroupMap.put(name, actionGroup);
 
@@ -160,7 +160,7 @@ public:
  }
 
  ActionState get(const std::string& state) {
- if (this->stateLookup == nullptr) {
+ if (this->stateLookup.empty()) {
  this->rebuildLookup();
  }
 
@@ -168,13 +168,13 @@ public:
  }
 
  ActionState getOrCreate(const std::string& string) {
- if (this->stateLookup == nullptr) {
+ if (this->stateLookup.empty()) {
  this->rebuildLookup();
  }
 
  string = string.toLowerCase();
  ActionState actionState = this->stateLookup.get(string);
- if (actionState == nullptr) {
+ if (actionState.empty()) {
  actionState = new ActionState(string);
  this->states.add(actionState);
  this->stateLookup.put(string, actionState);
@@ -189,7 +189,7 @@ public:
  actionState = this->get(this->initialState);
  }
 
- if (actionState == nullptr && this->states.size() > 0) {
+ if (actionState.empty() && this->states.size() > 0) {
  actionState = this->states.get(0);
  }
 

@@ -40,7 +40,7 @@ public:
  character.getEmitter()
  .setParameterValue(long0, parameterCharacterMovementSpeed.getParameterDescription(), parameterCharacterMovementSpeed.calculateCurrentValue());
  std::string string = character.getVariableString("TripObstacleType");
- if (string == nullptr) {
+ if (string.empty()) {
  string = "zombie";
  }
 

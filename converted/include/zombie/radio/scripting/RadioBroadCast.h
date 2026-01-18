@@ -91,7 +91,7 @@ public:
  radioLine = this->lines.get(this->lineCount);
  }
 
- if (!doChildren || radioLine != nullptr || this->postSegment == nullptr) {
+ if (!doChildren || radioLine != nullptr || this->postSegment.empty()) {
  this->lineCount++;
  return radioLine;
  } else if (!this->hasDonePostPause) {

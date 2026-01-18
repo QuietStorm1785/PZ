@@ -49,7 +49,7 @@ public:
  }
 
  void add_tag(const std::string& string1, const std::string& string0) {
- if (string0 == nullptr) {
+ if (string0.empty()) {
  string0 = "";
  }
 

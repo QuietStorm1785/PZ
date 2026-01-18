@@ -109,7 +109,7 @@ public:
  for (int int5 = -5; int5 < 5; int5++) {
  for (int int6 = -5; int6 < 5; int6++) {
  IsoGridSquare square1 = cell.getGridSquare(square0.x + int2 + int5, square0.y + int1 + int6, 0);
- if (square1 == nullptr || !square1.getProperties().Is(IsoFlagType.water) {
+ if (square1.empty() || !square1.getProperties().Is(IsoFlagType.water) {
  float8 = (float)Math.min((double)float8, Math.max(0.0, Math.sqrt(int5 * int5 + int6 * int6) / 4.0);
  }
  }

@@ -56,7 +56,7 @@ public:
 
  IsoPlayer player = GameServer.getPlayerByUserNameForCommand(string0);
  if (player != nullptr) {
- if (player.replay == nullptr) {
+ if (player.replay.empty()) {
  player.replay = new ReplayManager(player);
  }
 

@@ -22,7 +22,7 @@ public:
  private ArrayList<String> m_definitions = std::make_unique<ArrayList<>>();
 
  static MapDefinitions getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<MapDefinitions>();
  }
 

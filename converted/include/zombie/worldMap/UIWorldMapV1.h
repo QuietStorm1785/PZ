@@ -60,7 +60,7 @@ public:
  }
 
  WorldMapMarkersV1 getMarkersAPI() {
- if (this->m_markersV1 == nullptr) {
+ if (this->m_markersV1.empty()) {
  this->m_markersV1 = new WorldMapMarkersV1(this->m_ui);
  }
 
@@ -68,7 +68,7 @@ public:
  }
 
  WorldMapStyleV1 getStyleAPI() {
- if (this->m_styleV1 == nullptr) {
+ if (this->m_styleV1.empty()) {
  this->m_styleV1 = new WorldMapStyleV1(this->m_ui);
  }
 
@@ -76,7 +76,7 @@ public:
  }
 
  WorldMapSymbolsV1 getSymbolsAPI() {
- if (this->m_symbolsV1 == nullptr) {
+ if (this->m_symbolsV1.empty()) {
  this->m_symbolsV1 = new WorldMapSymbolsV1(this->m_ui, this->m_symbols);
  }
 

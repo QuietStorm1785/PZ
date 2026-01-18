@@ -383,7 +383,7 @@ public:
  }
 
  void update() {
- if (this->container == nullptr || SandboxOptions.instance.ClothingDegradation.getValue() == 1) {
+ if (this->container.empty() || SandboxOptions.instance.ClothingDegradation.getValue() == 1) {
  ;
  }
  }
@@ -447,7 +447,7 @@ public:
 
  private Clothing.WetDryState getWetDryState() {
  if (this->getWorldItem() == nullptr) {
- if (this->container == nullptr) {
+ if (this->container.empty()) {
  return Clothing.WetDryState.Invalid;
  } else if (this->container.parent instanceof IsoDeadBody deadBody) {
  if (deadBody.getSquare() == nullptr) {
@@ -482,7 +482,7 @@ public:
 
  return Clothing.WetDryState.Wetter;
  }
- } else if (this->container.parent == nullptr) {
+ } else if (this->container.parent.empty()) {
  return Clothing.WetDryState.Dryer;
  } else if (this->container.parent instanceof IsoClothingDryer && ((IsoClothingDryer)this->container.parent).isActivated()) {
  return Clothing.WetDryState.Invalid;
@@ -521,7 +521,7 @@ public:
  }
 
  bool CanStack(InventoryItem item) {
- return this->ModDataMatches(item) && this->palette == nullptr && ((Clothing)item).palette == nullptr || this->palette == ((Clothing)item).palette);
+ return this->ModDataMatches(item) && this->palette.empty() && ((Clothing)item).palette.empty() || this->palette == ((Clothing)item).palette);
  }
 
  static Clothing CreateFromSprite(const std::string& Sprite) {
@@ -606,7 +606,7 @@ public:
  uint8_t byte1 = input.get();
  Clothing.ClothingPatch clothingPatch = new Clothing.ClothingPatch();
  clothingPatch.load(input, WorldVersion);
- if (this->patches == nullptr) {
+ if (this->patches.empty()) {
  this->patches = std::make_unique<HashMap<>>();
  }
 
@@ -638,7 +638,7 @@ public:
  * @return the palette
  */
  std::string getPalette() {
- return this->palette == nullptr ? "Trousers_White" : this->palette;
+ return this->palette.empty() ? "Trousers_White" : this->palette;
  }
 
  /**
@@ -957,7 +957,7 @@ public:
  this->getVisual().setLeatherPatch(part);
  }
 
- if (this->patches == nullptr) {
+ if (this->patches.empty()) {
  this->patches = std::make_unique<HashMap<>>();
  }
 
@@ -1018,7 +1018,7 @@ public:
  return this->container.parent instanceof IsoGameCharacter && ((IsoGameCharacter)this->container.parent).getWornItems().contains(this);
  }
 
- public class ClothingPatch {
+ class ClothingPatch {
  int tailorLvl = 0;
  int fabricType = 0;
  int scratchDefense = 0;

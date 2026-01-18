@@ -91,7 +91,7 @@ public:
  for (int int0 = _itemVisuals.size() - 1; int0 >= 0; int0--) {
  ItemVisual itemVisual0 = _itemVisuals.get(int0);
  ClothingItem clothingItem0 = itemVisual0.getClothingItem();
- if (clothingItem0 == nullptr) {
+ if (clothingItem0.empty()) {
  if (boolean0) {
  DebugLog.Clothing.warn("ClothingItem not found for ItemVisual:" + itemVisual0);
  }
@@ -101,7 +101,7 @@ public:
  }
  } else if (!PopTemplateManager.instance.isItemModelHidden(bodyLocationGroup, _itemVisuals, itemVisual0) {
  ModelInstance modelInstance0 = this->findModelInstance(chrModelInstance.sub, itemVisual0);
- if (modelInstance0 == nullptr) {
+ if (modelInstance0.empty()) {
  std::string string1 = clothingItem0.getModel(humanVisual.isFemale());
  if (!StringUtils.isNullOrWhitespace(string1) {
  if (boolean0) {
@@ -219,7 +219,7 @@ public:
  for (int int5 = humanVisual.getBodyVisuals().size() - 1; int5 >= 0; int5--) {
  ItemVisual itemVisual1 = humanVisual.getBodyVisuals().get(int5);
  ClothingItem clothingItem1 = itemVisual1.getClothingItem();
- if (clothingItem1 == nullptr) {
+ if (clothingItem1.empty()) {
  if (boolean0) {
  DebugLog.Clothing.warn("ClothingItem not found for ItemVisual:" + itemVisual1);
  }
@@ -229,7 +229,7 @@ public:
  }
  } else {
  ModelInstance modelInstance1 = this->findModelInstance(chrModelInstance.sub, itemVisual1);
- if (modelInstance1 == nullptr) {
+ if (modelInstance1.empty()) {
  std::string string8 = clothingItem1.getModel(humanVisual.isFemale());
  if (!StringUtils.isNullOrWhitespace(string8) {
  if (boolean0) {
@@ -257,7 +257,7 @@ public:
  }
 
  void addClothingItem(ModelInstance modelInstance, ItemVisual itemVisual, ClothingItem clothingItem, CharacterMask characterMask, const std::string& string1) {
- std::string string0 = modelInstance == nullptr ? itemVisual.getBaseTexture(clothingItem) : itemVisual.getTextureChoice(clothingItem);
+ std::string string0 = modelInstance.empty() ? itemVisual.getBaseTexture(clothingItem) : itemVisual.getTextureChoice(clothingItem);
  ImmutableColor immutableColor = itemVisual.getTint(clothingItem);
  float float0 = itemVisual.getHue(clothingItem);
  ModelInstanceTextureCreator.ItemData itemDatax = ModelInstanceTextureCreator.ItemData.pool.alloc();
@@ -398,7 +398,7 @@ public:
  itemSmartTexturex.result = nullptr;
  }
 
- if (itemDatax.modelInstance == nullptr) {
+ if (itemDatax.modelInstance.empty()) {
  this->applyItemTexture(itemDatax, texture1, characterSmartTexturex);
  } else {
  if (!(itemDatax.modelInstance.tex instanceof ItemSmartTexture) {
@@ -571,7 +571,7 @@ public:
  }
 
  bool isItemSmartTextureRequired(ModelInstanceTextureCreator.ItemData itemDatax) {
- if (itemDatax.modelInstance == nullptr) {
+ if (itemDatax.modelInstance.empty()) {
  return true;
  } else if (itemDatax.modelInstance.tex instanceof ItemSmartTexture) {
  return true;
@@ -599,7 +599,7 @@ public:
 
  void postRender() {
  if (!this->bRendered) {
- if (this->chrData.modelInstance.character == nullptr) {
+ if (this->chrData.modelInstance.character.empty()) {
  bool boolean0 = true;
  } else {
  bool boolean1 = true;

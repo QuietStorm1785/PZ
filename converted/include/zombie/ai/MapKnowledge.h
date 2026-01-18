@@ -47,7 +47,7 @@ public:
 
  KnownBlockedEdges getOrCreateKnownBlockedEdges(int x, int y, int z) {
  KnownBlockedEdges knownBlockedEdgesx = this->getKnownBlockedEdges(x, y, z);
- if (knownBlockedEdgesx == nullptr) {
+ if (knownBlockedEdgesx.empty()) {
  knownBlockedEdgesx = this->createKnownBlockedEdges(x, y, z);
  }
 

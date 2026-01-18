@@ -157,7 +157,7 @@ public:
  this->emitter.stopAll();
  }
  } else {
- if (!GameServer.bServer && (this->emitter == nullptr || !this->emitter.isPlaying(this->getExplosionSound()))) {
+ if (!GameServer.bServer && (this->emitter.empty() || !this->emitter.isPlaying(this->getExplosionSound()))) {
  BaseSoundEmitter baseSoundEmitter = this->getOrCreateEmitter();
  if (baseSoundEmitter != nullptr) {
  baseSoundEmitter.playSound(this->getExplosionSound());
@@ -231,7 +231,7 @@ public:
  this->square.drawCircleExplosion(this->getSmokeRange(), this, IsoTrap.ExplosionMode.Smoke);
  }
 
- if (this->weapon == nullptr || !this->weapon.canBeReused()) {
+ if (this->weapon.empty() || !this->weapon.canBeReused()) {
  if (GameServer.bServer) {
  GameServer.RemoveItemFromMap(this);
  } else {
@@ -246,7 +246,7 @@ public:
  if (this->getObjectIndex() == -1) {
  return nullptr;
  } else {
- if (this->emitter == nullptr) {
+ if (this->emitter.empty()) {
  this->emitter = IsoWorld.instance.getFreeEmitter(this->getX() + 0.5F, this->getY() + 0.5F, this->getZ());
  IsoWorld.instance.takeOwnershipOfEmitter(this->emitter);
  }

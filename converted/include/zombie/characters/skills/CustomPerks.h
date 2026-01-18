@@ -46,7 +46,7 @@ public:
 
  for (CustomPerk customPerk0 : this->m_perks) {
  PerkFactory.Perk perk0 = PerkFactory.Perks.FromString(customPerk0.m_id);
- if (perk0 == nullptr || perk0 == PerkFactory.Perks.None || perk0 == PerkFactory.Perks.MAX) {
+ if (perk0.empty() || perk0 == PerkFactory.Perks.None || perk0 == PerkFactory.Perks.MAX) {
  perk0 = new PerkFactory.Perk(customPerk0.m_id);
  perk0.setCustom();
  }
@@ -55,7 +55,7 @@ public:
  for (CustomPerk customPerk1 : this->m_perks) {
  PerkFactory.Perk perk1 = PerkFactory.Perks.FromString(customPerk1.m_id);
  PerkFactory.Perk perk2 = PerkFactory.Perks.FromString(customPerk1.m_parent);
- if (perk2 == nullptr || perk2 == PerkFactory.Perks.None || perk2 == PerkFactory.Perks.MAX) {
+ if (perk2.empty() || perk2 == PerkFactory.Perks.None || perk2 == PerkFactory.Perks.MAX) {
  perk2 = PerkFactory.Perks.None;
  }
 
@@ -134,7 +134,7 @@ public:
  }
 
  CustomPerk customPerk = this->parsePerk(block1);
- if (customPerk == nullptr) {
+ if (customPerk.empty()) {
  DebugLog.General.warn("failed to parse custom perk \"%s\"", block1.id);
  } else {
  this->m_perks.add(customPerk);

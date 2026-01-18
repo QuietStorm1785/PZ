@@ -33,7 +33,7 @@ public:
  }
 
  static RadioScriptManager getInstance() {
- if (instance == nullptr) {
+ if (instance.empty()) {
  instance = std::make_unique<RadioScriptManager>();
  }
 
@@ -103,7 +103,7 @@ public:
  }
 
  void AddChannel(RadioChannel channel, bool overwrite) {
- if (channel == nullptr || !overwrite && this->channels.containsKey(channel.GetFrequency())) {
+ if (channel.empty() || !overwrite && this->channels.containsKey(channel.GetFrequency())) {
  std::string string0 = channel != nullptr ? channel.GetName() : "nullptr";
  DebugLog.log(DebugType.Radio, "Error adding radiochannel (" + string0 + "), channel is nullptr or frequency key already exists");
  } else {

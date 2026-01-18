@@ -43,7 +43,7 @@ public:
  byteBuffer.get();
  if (livingCharacter != nullptr) {
  this->item = livingCharacter.getPrimaryHandItem();
- if (this->item == nullptr || this->item.getRegistry_id() != this->ID) {
+ if (this->item.empty() || this->item.getRegistry_id() != this->ID) {
  this->item = InventoryItemFactory.CreateItem(this->ID);
  }
 
@@ -73,7 +73,7 @@ public:
  }
 
  void write(ByteBufferWriter byteBufferWriter) {
- if (this->item == nullptr) {
+ if (this->item.empty()) {
  byteBufferWriter.putByte((byte)0);
  } else {
  byteBufferWriter.putByte((byte)1);
@@ -91,7 +91,7 @@ public:
  }
 
  std::string getDescription() {
- return super.getDescription() + "\n\tWeapon [ weapon=" + (this->weapon == nullptr ? "?" : "\"" + this->weapon.getDisplayName() + "\"") + " ]";
+ return super.getDescription() + "\n\tWeapon [ weapon=" + (this->weapon.empty() ? "?" : "\"" + this->weapon.getDisplayName() + "\"") + " ]";
  }
 
  HandWeapon getWeapon() {

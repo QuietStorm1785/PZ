@@ -195,7 +195,7 @@ public:
  }
 
  IsoBuilding getBuilding() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  return nullptr;
  } else {
  IsoRoom room = this->current.getRoom();
@@ -333,7 +333,7 @@ public:
  }
 
  static Vector2 getVectorFromDirection(Vector2 moveForwardVec, IsoDirections dir) {
- if (moveForwardVec == nullptr) {
+ if (moveForwardVec.empty()) {
  DebugLog.General.warn("Supplied vector2 is nullptr. Cannot be processed. Using fail-safe fallback.");
  moveForwardVec = std::make_unique<Vector2>();
  }
@@ -433,7 +433,7 @@ public:
  }
 
  IsoBuilding getCurrentBuilding() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  return nullptr;
  } else {
  return this->current.getRoom() == nullptr ? nullptr : this->current.getRoom().building;
@@ -492,7 +492,7 @@ public:
  this->z = this->lz = input.getFloat();
  this->dir = IsoDirections.fromIndex(input.getInt());
  if (input.get() != 0) {
- if (this->table == nullptr) {
+ if (this->table.empty()) {
  this->table = LuaManager.platform.newTable();
  }
 
@@ -675,7 +675,7 @@ public:
 
  this->impulsex = 0.0F;
  this->impulsey = 0.0F;
- if (zombie0 == nullptr
+ if (zombie0.empty()
  || (int)this->z != 0
  || this->getCurrentBuilding() != nullptr
  || this->isInLoadedArea((int)this->nx, (int)this->ny)
@@ -683,7 +683,7 @@ public:
  float float0 = this->nx;
  float float1 = this->ny;
  this->collidedWithVehicle = false;
- if (character != nullptr && !this->isOnFloor() && character.getVehicle() == nullptr && this->isCollidable() && (player == nullptr || !player.isNoClip())) {
+ if (character != nullptr && !this->isOnFloor() && character.getVehicle() == nullptr && this->isCollidable() && (player.empty() || !player.isNoClip())) {
  int int0 = (int)this->x;
  int int1 = (int)this->y;
  int int2 = (int)this->nx;
@@ -812,7 +812,7 @@ public:
  this->y += float8;
  this->doStairs();
  this->current = this->getCell().getGridSquare((int)this->x, (int)this->y, (int)this->z);
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  for (int int5 = (int)this->z; int5 >= 0; int5--) {
  this->current = this->getCell().getGridSquare((int)this->x, (int)this->y, int5);
  if (this->current != nullptr) {
@@ -820,7 +820,7 @@ public:
  }
  }
 
- if (this->current == nullptr && this->last != nullptr) {
+ if (this->current.empty() && this->last != nullptr) {
  this->current = this->last;
  this->x = this->nx = this->scriptnx = this->current.getX() + 0.5F;
  this->y = this->ny = this->scriptny = this->current.getY() + 0.5F;
@@ -849,7 +849,7 @@ public:
  }
 
  void ensureOnTile() {
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  if (!(this instanceof IsoPlayer) {
  if (this instanceof IsoSurvivor) {
  IsoWorld.instance.CurrentCell.Remove(this);
@@ -866,7 +866,7 @@ public:
  boolean0 = false;
  }
 
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  this->current = this->getCell().getGridSquare((int)this->x, (int)this->y, (int)this->z);
  return;
  }
@@ -893,7 +893,7 @@ public:
  }
 
  void update() {
- if (this->def == nullptr) {
+ if (this->def.empty()) {
  this->def = IsoSpriteInstance.get(this->sprite);
  }
 
@@ -915,11 +915,11 @@ public:
  }
 
  int compareToY(IsoMovingObject other) {
- if (this->sprite == nullptr && other.sprite == nullptr) {
+ if (this->sprite.empty() && other.sprite.empty()) {
  return 0;
- } else if (this->sprite != nullptr && other.sprite == nullptr) {
+ } else if (this->sprite != nullptr && other.sprite.empty()) {
  return -1;
- } else if (this->sprite == nullptr) {
+ } else if (this->sprite.empty()) {
  return 1;
  } else {
  float float0 = IsoUtils.YToScreen(this->x, this->y, this->z, 0);
@@ -948,7 +948,7 @@ public:
  bool isSolidForSeparate() {
  if (this instanceof IsoZombieGiblets) {
  return false;
- } else if (this->current == nullptr) {
+ } else if (this->current.empty()) {
  return false;
  } else {
  return !this->solid ? false : !this->isOnFloor();
@@ -993,7 +993,7 @@ public:
  vector.x = this->nx - movingObject1.nx;
  vector.y = this->ny - movingObject1.ny;
  float float2 = vector.getLength();
- if (character0 == nullptr || character1 == nullptr && !(movingObject1 instanceof BaseVehicle) {
+ if (character0.empty() || character1.empty() && !(movingObject1 instanceof BaseVehicle) {
  if (float2 < float1) {
  CollisionManager.instance.AddContact(this, movingObject1);
  }
@@ -1039,7 +1039,7 @@ public:
  || (System.currentTimeMillis() - player0.getLastBump()) / 100L < 15L
  || player0.isSprinting()
  )
- && (player1 == nullptr || !player1.isNPC());
+ && (player1.empty() || !player1.isNPC());
  if (boolean1) {
  character0.bumpNbr++;
  int int3 = 10 - character0.bumpNbr * 3;
@@ -1239,7 +1239,7 @@ public:
  this->current = this->getCell().getGridSquare((int)this->nx, (int)this->ny, (int)this->z);
  }
 
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  return false;
  }
 
@@ -1262,7 +1262,7 @@ public:
  int int4 = this->current.getY() - this->last.getY();
  int int5 = this->current.getZ() - this->last.getZ();
  bool boolean0 = false;
- if (this->last.testCollideAdjacent(this, int3, int4, int5) || this->current == nullptr) {
+ if (this->last.testCollideAdjacent(this, int3, int4, int5) || this->current.empty()) {
  boolean0 = true;
  }
 
@@ -1304,7 +1304,7 @@ public:
  return true;
  }
 
- if (this->current == nullptr) {
+ if (this->current.empty()) {
  if (this->nx < this->lx) {
  this->collidedW = true;
  }
@@ -1527,7 +1527,7 @@ public:
  square1 = this->current.getAdjacentSquare(IsoDirections.E);
  }
 
- if (square1 == nullptr) {
+ if (square1.empty()) {
  return false;
  } else {
  bool boolean0 = false;
@@ -2183,7 +2183,7 @@ public:
  IsoPlayer player = Type.tryCastTo(movingObject0, IsoPlayer.class);
  if (player != nullptr) {
  HandWeapon weapon = Type.tryCastTo(player.getPrimaryHandItem(), HandWeapon.class);
- if (weapon == nullptr || player.bDoShove || player.isForceShove()) {
+ if (weapon.empty() || player.bDoShove || player.isForceShove()) {
  weapon = player.bareHands;
  }
 

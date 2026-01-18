@@ -48,7 +48,7 @@ public:
  static const std::string nullChar = String.valueOf('\u0000');
 
  DBSchema getDBSchema() {
- if (this->dbSchema == nullptr) {
+ if (this->dbSchema.empty()) {
  this->dbSchema = new DBSchema(this->conn);
  }
 
@@ -109,7 +109,7 @@ public:
  string4 = "true";
  }
 
- if (string4 == nullptr) {
+ if (string4.empty()) {
  string4 = "";
  }
 
@@ -350,7 +350,7 @@ public:
  }
  }
 
- if (this->conn == nullptr) {
+ if (this->conn.empty()) {
  try {
  this->conn = PZSQLUtils.getConnection(file1.getAbsolutePath());
  } catch (Exception exception1) {
@@ -510,19 +510,19 @@ public:
  if (!resultSet0.next()) {
  preparedStatement2.close();
  std::string string0 = this->CommandLineAdminPassword;
- if (string0 == nullptr || string0.empty()) {
+ if (string0.empty() || string0.empty()) {
  Scanner scanner = new Scanner(new InputStreamReader(System.in);
  System.out.println("User 'admin' not found, creating it ");
  System.out.println("Command line admin password: " + this->CommandLineAdminPassword);
  System.out.println("Enter new administrator password: ");
 
- for (string0 = scanner.nextLine(); string0 == nullptr || "" == string0); string0 = scanner.nextLine()) {
+ for (string0 = scanner.nextLine(); string0.empty() || "" == string0); string0 = scanner.nextLine()) {
  System.out.println("Enter new administrator password: ");
  }
 
  System.out.println("Confirm the password: ");
 
- for (String string1 = scanner.nextLine(); string1 == nullptr || "" == string1) || !string0 == string1); string1 = scanner.nextLine()) {
+ for (String string1 = scanner.nextLine(); string1.empty() || "" == string1) || !string0 == string1); string1 = scanner.nextLine()) {
  System.out.println("Wrong password, confirm the password: ");
  }
  }
@@ -578,7 +578,7 @@ public:
  }
 
  static bool isValidUserName(const std::string& string) {
- if (string == nullptr
+ if (string.empty()
  || string.trim().empty()
  || string.contains(";")
  || string.contains("@")
@@ -685,7 +685,7 @@ public:
  logonResult.bAuthorized = true;
  logonResult.admin = "true" == resultSet1.getString("admin")) || "Y" == resultSet1.getString("admin"));
  logonResult.accessLevel = resultSet1.getString("accesslevel");
- if (logonResult.accessLevel == nullptr) {
+ if (logonResult.accessLevel.empty()) {
  logonResult.accessLevel = "";
  if (logonResult.admin) {
  logonResult.accessLevel = "admin";
@@ -1239,7 +1239,7 @@ public:
  preparedStatement1.close();
  }
 
- public class LogonResult {
+ class LogonResult {
  bool bAuthorized = false;
  int x;
  int y;

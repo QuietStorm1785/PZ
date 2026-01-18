@@ -41,7 +41,7 @@ public:
  void render() {
  if (this->enabled) {
  if (this->isVisible()) {
- if (this->Parent == nullptr || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
+ if (this->Parent.empty() || this->Parent.maxDrawHeight == -1 || !(this->Parent.maxDrawHeight <= this->y) {
  if (this->radialTexture != nullptr) {
  float float0 = (float)(this->x + this->xScroll + this->getAbsoluteX() + this->radialTexture.offsetX);
  float float1 = (float)(this->y + this->yScroll + this->getAbsoluteY() + this->radialTexture.offsetY);

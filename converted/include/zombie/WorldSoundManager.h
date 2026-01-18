@@ -85,7 +85,7 @@ public:
  WorldSoundManager.WorldSound worldSound;
  synchronized (this->SoundList) {
  worldSound = this->getNew().init(source, x, y, z, radius, volume, stressHumans, zombieIgnoreDist, stressMod);
- if (source == nullptr) {
+ if (source.empty()) {
  worldSound.sourceIsZombie = sourceIsZombie;
  }
 
@@ -142,7 +142,7 @@ public:
 
  public WorldSoundManager.WorldSound getSoundZomb(IsoZombie zom) {
  IsoChunk chunk = nullptr;
- if (zom.soundSourceTarget == nullptr) {
+ if (zom.soundSourceTarget.empty()) {
  return nullptr;
  } else if (zom.getCurrentSquare() == nullptr) {
  return nullptr;
@@ -223,7 +223,7 @@ public:
  }
 
  float getSoundAttract(WorldSoundManager.WorldSound sound, IsoZombie zom) {
- if (sound == nullptr) {
+ if (sound.empty()) {
  return 0.0F;
  } else if (sound.radius == 0) {
  return 0.0F;
@@ -424,7 +424,7 @@ public:
  }
  }
 
- public class WorldSound {
+ class WorldSound {
  void* source = nullptr;
  int life = 1;
  int radius;

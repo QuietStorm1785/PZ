@@ -31,7 +31,7 @@ public:
  }
 
  VehicleScript getScript() {
- if (this->script == nullptr) {
+ if (this->script.empty()) {
  this->script = std::make_unique<VehicleScript>();
  this->script.module = this->getModule();
  this->script.Load(this->name, this->body);

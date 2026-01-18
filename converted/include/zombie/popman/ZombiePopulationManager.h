@@ -376,7 +376,7 @@ public:
  }
 
  void updateRealZombieCount() {
- if (this->realZombieCount == nullptr || this->realZombieCount.length != this->width * this->height) {
+ if (this->realZombieCount.empty() || this->realZombieCount.length != this->width * this->height) {
  this->realZombieCount = new short[this->width * this->height];
  this->realZombieCount2 = new short[this->width * this->height * 2];
  }

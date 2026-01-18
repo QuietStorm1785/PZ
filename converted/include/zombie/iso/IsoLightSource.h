@@ -99,7 +99,7 @@ public:
  for (int int1 = this->y - this->radius; int1 < this->y + this->radius; int1++) {
  for (int int2 = 0; int2 < 8; int2++) {
  square = IsoWorld.instance.CurrentCell.getGridSquare(int0, int1, int2);
- if (square != nullptr && (this->localToBuilding == nullptr || this->localToBuilding == square.getBuilding())) {
+ if (square != nullptr && (this->localToBuilding.empty() || this->localToBuilding == square.getBuilding())) {
  LosUtil.TestResults testResults = LosUtil.lineClear(
  square.getCell(), this->x, this->y, this->z, square.getX(), square.getY(), square.getZ(), false
  );

@@ -81,9 +81,9 @@ public:
  return "[ player="
  + this->id
  + " \""
- + (this->player == nullptr ? "?" : this->player.getUsername())
+ + (this->player.empty() ? "?" : this->player.getUsername())
  + "\" | name=\""
- + (this->event == nullptr ? "?" : this->event.name())
+ + (this->event.empty() ? "?" : this->event.name())
  + "\" | pos=( "
  + this->x
  + " ; "

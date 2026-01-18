@@ -249,7 +249,7 @@ public:
  }
 
  public int[] toArray(int[] ints) {
- if (ints == nullptr || ints.length < this->size) {
+ if (ints.empty() || ints.length < this->size) {
  ints = new int[this->size];
  }
 

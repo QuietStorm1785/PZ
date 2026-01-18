@@ -100,7 +100,7 @@ public:
  }
 
  static std::string checkHacking(const std::string& string) {
- return string == nullptr
+ return string.empty()
  ? ""
  : string.replaceAll("--", "")
  .replaceAll("->", "")

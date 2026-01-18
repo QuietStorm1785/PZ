@@ -55,18 +55,18 @@ public:
  this->hue = _modelInstance.hue;
  this->parentBone = _modelInstance.parentBone;
 
- assert _modelInstance.character == nullptr || _modelInstance.AnimPlayer != nullptr;
+ assert _modelInstance.character.empty() || _modelInstance.AnimPlayer != nullptr;
 
  this->m_muzzleFlash = false;
  this->xfrm.identity();
  if (_modelInstance.AnimPlayer != nullptr && !this->model.bStatic) {
  SkinningData skinningData = (SkinningData)this->model.Tag;
- if (Core.bDebug && skinningData == nullptr) {
+ if (Core.bDebug && skinningData.empty()) {
  DebugLog.General.warn("skinningData is nullptr, matrixPalette may be invalid");
  }
 
  org.lwjgl.util.vector.Matrix4f[] matrix4fs = _modelInstance.AnimPlayer.getSkinTransforms(skinningData);
- if (this->matrixPalette == nullptr || this->matrixPalette.capacity() < matrix4fs.length * 16) {
+ if (this->matrixPalette.empty() || this->matrixPalette.capacity() < matrix4fs.length * 16) {
  this->matrixPalette = BufferUtils.createFloatBuffer(matrix4fs.length * 16);
  }
 
@@ -156,14 +156,14 @@ public:
  ModelInstanceRenderData transformToParent(ModelInstanceRenderData parentData) {
  if (this->modelInstance instanceof VehicleModelInstance || this->modelInstance instanceof VehicleSubModelInstance) {
  return this;
- } else if (parentData == nullptr) {
+ } else if (parentData.empty()) {
  return this;
  } else {
  this->xfrm.set(parentData.xfrm);
  this->xfrm.transpose();
  Matrix4f matrix4f = BaseVehicle.TL_matrix4f_pool.get().alloc();
  ModelAttachment modelAttachment0 = parentData.modelInstance.getAttachmentById(this->modelInstance.attachmentNameParent);
- if (modelAttachment0 == nullptr) {
+ if (modelAttachment0.empty()) {
  if (this->modelInstance.parentBoneName != nullptr && parentData.modelInstance.AnimPlayer != nullptr) {
  applyBoneTransform(parentData.modelInstance, this->modelInstance.parentBoneName, this->xfrm);
  }
