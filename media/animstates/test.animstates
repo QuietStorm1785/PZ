@@ -1,9 +1,0 @@
-<AnimStates>
-    <AnimState>
-        <AllowChangeAngle>false</AllowChangeAngle>
-        <MoveCancel>false</MoveCancel>
-        <Commands>
-
-        </Commands>
-    </AnimState>
-</AnimStates>
