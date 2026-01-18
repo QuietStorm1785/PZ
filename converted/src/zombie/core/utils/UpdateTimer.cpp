@@ -4,24 +4,23 @@ namespace zombie {
 namespace core {
 namespace utils {
 
-public
-UpdateTimer::UpdateTimer() {
-  // TODO: Implement UpdateTimer
-  return nullptr;
+public UpdateTimer::UpdateTimer() {
+ // TODO: Implement UpdateTimer
+ return nullptr;
 }
 
 void UpdateTimer::reset(long _time) {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 bool UpdateTimer::check() {
-  // TODO: Implement check
-  return false;
+ // TODO: Implement check
+ return false;
 }
 
 long UpdateTimer::getTime() {
-  // TODO: Implement getTime
-  return 0;
+ // TODO: Implement getTime
+ return 0;
 }
 
 } // namespace utils

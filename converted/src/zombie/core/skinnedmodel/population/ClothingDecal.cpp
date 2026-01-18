@@ -6,8 +6,8 @@ namespace skinnedmodel {
 namespace population {
 
 bool ClothingDecal::isValid() {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 } // namespace population

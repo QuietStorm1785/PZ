@@ -1,70 +1,61 @@
 #pragma once
-#include "zombie/util/list/PZArrayUtil.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/util/list/PZArrayUtil.h"
 
 namespace zombie {
 namespace core {
 namespace profiling {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class PerformanceProfileProbeList {
 public:
-  const std::string m_prefix;
-  final Probe[] layers;
+ const std::string m_prefix;
+ Probe[] layers;
 
-public
-  static PerformanceProfileProbeList<PerformanceProfileProbe>
-  construct(String string, int int0) {
-    return new PerformanceProfileProbeList<>(string, int0,
-                                             PerformanceProfileProbe.class,
-                                             PerformanceProfileProbe::new);
-  }
+ public static PerformanceProfileProbeList<PerformanceProfileProbe> construct(String string, int int0) {
+ return new PerformanceProfileProbeList<>(string, int0, PerformanceProfileProbe.class, PerformanceProfileProbe::new);
+ }
 
-public
-  static<Probe extends PerformanceProfileProbe>
-      PerformanceProfileProbeList<Probe>
-      construct(String string, int int0, Class<Probe> clazz,
-                PerformanceProfileProbeList.Constructor<Probe> constructor) {
-    return new PerformanceProfileProbeList<>(string, int0, clazz, constructor);
-  }
+ public static <Probe extends PerformanceProfileProbe> PerformanceProfileProbeList<Probe> construct(
+ String string, int int0, Class<Probe> clazz, PerformanceProfileProbeList.Constructor<Probe> constructor
+ ) {
+ return new PerformanceProfileProbeList<>(string, int0, clazz, constructor);
+ }
 
-protected
-  PerformanceProfileProbeList(
-      const std::string &string, int int0, Class<Probe> clazz,
-      PerformanceProfileProbeList.Constructor<Probe> constructor) {
-    this.m_prefix = string;
-    this.layers = (Probe[])PZArrayUtil.newInstance(clazz, int0 + 1);
+ protected PerformanceProfileProbeList(const std::string& string, int int0, Class<Probe> clazz, PerformanceProfileProbeList.Constructor<Probe> constructor) {
+ this->m_prefix = string;
+ this->layers = (Probe[])PZArrayUtil.newInstance(clazz, int0 + 1);
 
-    for (int int1 = 0; int1 < int0; int1++) {
-      this.layers[int1] = (Probe)constructor.get(string + "_" + int1);
-    }
+ for (int int1 = 0; int1 < int0; int1++) {
+ this->layers[int1] = (Probe)constructor.get(string + "_" + int1);
+ }
 
-    this.layers[int0] = (Probe)constructor.get(string + "_etc");
-  }
+ this->layers[int0] = (Probe)constructor.get(string + "_etc");
+ }
 
-  int count() { return this.layers.length; }
+ int count() {
+ return this->layers.length;
+ }
 
-  Probe at(int int0) {
-    return int0 < this.count() ? this.layers[int0]
-                               : this.layers[this.count() - 1];
-  }
+ Probe at(int int0) {
+ return int0 < this->count() ? this->layers[int0] : this->layers[this->count() - 1];
+ }
 
-  Probe start(int int0) {
-    PerformanceProfileProbe performanceProfileProbe = this.at(int0);
-    performanceProfileProbe.start();
-    return (Probe)performanceProfileProbe;
-  }
+ Probe start(int int0) {
+ PerformanceProfileProbe performanceProfileProbe = this->at(int0);
+ performanceProfileProbe.start();
+ return (Probe)performanceProfileProbe;
+ }
 
-public
-  interface Constructor<Probe extends PerformanceProfileProbe> {
-    Probe get(const std::string &var1);
-  }
+ public interface Constructor<Probe extends PerformanceProfileProbe> {
+ Probe get(const std::string& var1);
+ }
 }
 } // namespace profiling
 } // namespace core

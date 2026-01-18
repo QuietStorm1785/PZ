@@ -5,53 +5,53 @@ namespace core {
 namespace skinnedmodel {
 namespace animation {
 
-AnimationTrack AnimationMultiTrack::findTrack(const std::string &trackName) {
-  // TODO: Implement findTrack
-  return nullptr;
+AnimationTrack AnimationMultiTrack::findTrack(const std::string& trackName) {
+ // TODO: Implement findTrack
+ return nullptr;
 }
 
 void AnimationMultiTrack::addTrack(AnimationTrack track) {
-  // TODO: Implement addTrack
+ // TODO: Implement addTrack
 }
 
 void AnimationMultiTrack::removeTrack(AnimationTrack track) {
-  // TODO: Implement removeTrack
+ // TODO: Implement removeTrack
 }
 
 void AnimationMultiTrack::removeTracks(List<AnimationTrack> tracks) {
-  // TODO: Implement removeTracks
+ // TODO: Implement removeTracks
 }
 
 void AnimationMultiTrack::removeTrackAt(int indexOf) {
-  // TODO: Implement removeTrackAt
+ // TODO: Implement removeTrackAt
 }
 
 int AnimationMultiTrack::getIndexOfTrack(AnimationTrack track) {
-  // TODO: Implement getIndexOfTrack
-  return 0;
+ // TODO: Implement getIndexOfTrack
+ return 0;
 }
 
 void AnimationMultiTrack::Update(float time) {
-  // TODO: Implement Update
+ // TODO: Implement Update
 }
 
 float AnimationMultiTrack::getDuration() {
-  // TODO: Implement getDuration
-  return 0;
+ // TODO: Implement getDuration
+ return 0;
 }
 
 void AnimationMultiTrack::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 int AnimationMultiTrack::getTrackCount() {
-  // TODO: Implement getTrackCount
-  return 0;
+ // TODO: Implement getTrackCount
+ return 0;
 }
 
 AnimationTrack AnimationMultiTrack::getTrackAt(int i) {
-  // TODO: Implement getTrackAt
-  return nullptr;
+ // TODO: Implement getTrackAt
+ return nullptr;
 }
 
 } // namespace animation

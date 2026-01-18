@@ -5,28 +5,27 @@ namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
 void RDSZombieLockedBathroom::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 bool RDSZombieLockedBathroom::isDoorToRoom(IsoDoor door, RoomDef roomDef) {
-  // TODO: Implement isDoorToRoom
-  return false;
+ // TODO: Implement isDoorToRoom
+ return false;
 }
 
 bool RDSZombieLockedBathroom::checkIsBathroom(IsoGridSquare square) {
-  // TODO: Implement checkIsBathroom
-  return false;
+ // TODO: Implement checkIsBathroom
+ return false;
 }
 
 IsoDeadBody RDSZombieLockedBathroom::addDeadBodyTheOtherSide(IsoDoor door) {
-  // TODO: Implement addDeadBodyTheOtherSide
-  return nullptr;
+ // TODO: Implement addDeadBodyTheOtherSide
+ return nullptr;
 }
 
-public
-RDSZombieLockedBathroom::RDSZombieLockedBathroom() {
-  // TODO: Implement RDSZombieLockedBathroom
-  return nullptr;
+public RDSZombieLockedBathroom::RDSZombieLockedBathroom() {
+ // TODO: Implement RDSZombieLockedBathroom
+ return nullptr;
 }
 
 } // namespace randomizedDeadSurvivor

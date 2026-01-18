@@ -5,23 +5,22 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 
 void RBHairSalon::randomizeBuilding(BuildingDef def) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 bool RBHairSalon::roomValid(IsoGridSquare sq) {
-  // TODO: Implement roomValid
-  return false;
+ // TODO: Implement roomValid
+ return false;
 }
 
 bool RBHairSalon::isValid(BuildingDef def, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
-public
-RBHairSalon::RBHairSalon() {
-  // TODO: Implement RBHairSalon
-  return nullptr;
+public RBHairSalon::RBHairSalon() {
+ // TODO: Implement RBHairSalon
+ return nullptr;
 }
 
 } // namespace randomizedBuilding

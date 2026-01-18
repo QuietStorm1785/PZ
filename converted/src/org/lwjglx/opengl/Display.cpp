@@ -5,213 +5,212 @@ namespace lwjglx {
 namespace opengl {
 
 void Display::create(PixelFormat pixelFormat) {
-  // TODO: Implement create
+ // TODO: Implement create
 }
 
 void Display::create() {
-  // TODO: Implement create
+ // TODO: Implement create
 }
 
 bool Display::isCreated() {
-  // TODO: Implement isCreated
-  return false;
+ // TODO: Implement isCreated
+ return false;
 }
 
 bool Display::isActive() {
-  // TODO: Implement isActive
-  return false;
+ // TODO: Implement isActive
+ return false;
 }
 
 bool Display::isVisible() {
-  // TODO: Implement isVisible
-  return false;
+ // TODO: Implement isVisible
+ return false;
 }
 
 void Display::setLocation(int var0, int var1) {
-  // TODO: Implement setLocation
+ // TODO: Implement setLocation
 }
 
 void Display::setVSyncEnabled(bool boolean0) {
-  // TODO: Implement setVSyncEnabled
+ // TODO: Implement setVSyncEnabled
 }
 
 long Display::getWindow() {
-  // TODO: Implement getWindow
-  return 0;
+ // TODO: Implement getWindow
+ return 0;
 }
 
 void Display::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void Display::update(bool boolean0) {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void Display::updateMouseCursor() {
-  // TODO: Implement updateMouseCursor
+ // TODO: Implement updateMouseCursor
 }
 
 void Display::processMessages() {
-  // TODO: Implement processMessages
+ // TODO: Implement processMessages
 }
 
 void Display::swapBuffers() {
-  // TODO: Implement swapBuffers
+ // TODO: Implement swapBuffers
 }
 
 void Display::destroy() {
-  // TODO: Implement destroy
+ // TODO: Implement destroy
 }
 
 void Display::setDisplayModeAndFullscreen(DisplayMode displayMode) {
-  // TODO: Implement setDisplayModeAndFullscreen
+ // TODO: Implement setDisplayModeAndFullscreen
 }
 
 void Display::setFullscreen(bool boolean0) {
-  // TODO: Implement setFullscreen
+ // TODO: Implement setFullscreen
 }
 
 bool Display::isFullscreen() {
-  // TODO: Implement isFullscreen
-  return false;
+ // TODO: Implement isFullscreen
+ return false;
 }
 
 void Display::setBorderlessWindow(bool boolean0) {
-  // TODO: Implement setBorderlessWindow
+ // TODO: Implement setBorderlessWindow
 }
 
 bool Display::isBorderlessWindow() {
-  // TODO: Implement isBorderlessWindow
-  return false;
+ // TODO: Implement isBorderlessWindow
+ return false;
 }
 
 void Display::setDisplayMode(DisplayMode displayMode) {
-  // TODO: Implement setDisplayMode
+ // TODO: Implement setDisplayMode
 }
 
-void Display::setDisplayModeAndFullscreenInternal(DisplayMode displayMode1,
-                                                  bool boolean1) {
-  // TODO: Implement setDisplayModeAndFullscreenInternal
+void Display::setDisplayModeAndFullscreenInternal(DisplayMode displayMode1, bool boolean1) {
+ // TODO: Implement setDisplayModeAndFullscreenInternal
 }
 
 void Display::calcWindowPos(bool boolean0) {
-  // TODO: Implement calcWindowPos
+ // TODO: Implement calcWindowPos
 }
 
 DisplayMode Display::getDisplayMode() {
-  // TODO: Implement getDisplayMode
-  return nullptr;
+ // TODO: Implement getDisplayMode
+ return nullptr;
 }
 
 DisplayMode Display::getDesktopDisplayMode() {
-  // TODO: Implement getDesktopDisplayMode
-  return nullptr;
+ // TODO: Implement getDesktopDisplayMode
+ return nullptr;
 }
 
 bool Display::wasResized() {
-  // TODO: Implement wasResized
-  return false;
+ // TODO: Implement wasResized
+ return false;
 }
 
 int Display::getX() {
-  // TODO: Implement getX
-  return 0;
+ // TODO: Implement getX
+ return 0;
 }
 
 int Display::getY() {
-  // TODO: Implement getY
-  return 0;
+ // TODO: Implement getY
+ return 0;
 }
 
 int Display::getWidth() {
-  // TODO: Implement getWidth
-  return 0;
+ // TODO: Implement getWidth
+ return 0;
 }
 
 int Display::getHeight() {
-  // TODO: Implement getHeight
-  return 0;
+ // TODO: Implement getHeight
+ return 0;
 }
 
 int Display::getFramebufferWidth() {
-  // TODO: Implement getFramebufferWidth
-  return 0;
+ // TODO: Implement getFramebufferWidth
+ return 0;
 }
 
 int Display::getFramebufferHeight() {
-  // TODO: Implement getFramebufferHeight
-  return 0;
+ // TODO: Implement getFramebufferHeight
+ return 0;
 }
 
-void Display::setTitle(const std::string &string) {
-  // TODO: Implement setTitle
+void Display::setTitle(const std::string& string) {
+ // TODO: Implement setTitle
 }
 
 bool Display::isCloseRequested() {
-  // TODO: Implement isCloseRequested
-  return false;
+ // TODO: Implement isCloseRequested
+ return false;
 }
 
 bool Display::isDirty() {
-  // TODO: Implement isDirty
-  return false;
+ // TODO: Implement isDirty
+ return false;
 }
 
 void Display::setInitialBackground(float var0, float var1, float var2) {
-  // TODO: Implement setInitialBackground
+ // TODO: Implement setInitialBackground
 }
 
 void Display::setIcon(Buffer buffer) {
-  // TODO: Implement setIcon
+ // TODO: Implement setIcon
 }
 
 void Display::setResizable(bool boolean0) {
-  // TODO: Implement setResizable
+ // TODO: Implement setResizable
 }
 
 bool Display::isResizable() {
-  // TODO: Implement isResizable
-  return false;
+ // TODO: Implement isResizable
+ return false;
 }
 
 void Display::setParent(Canvas var0) {
-  // TODO: Implement setParent
+ // TODO: Implement setParent
 }
 
 void Display::releaseContext() {
-  // TODO: Implement releaseContext
+ // TODO: Implement releaseContext
 }
 
 bool Display::isCurrent() {
-  // TODO: Implement isCurrent
-  return false;
+ // TODO: Implement isCurrent
+ return false;
 }
 
 void Display::makeCurrent() {
-  // TODO: Implement makeCurrent
+ // TODO: Implement makeCurrent
 }
 
 std::string Display::getAdapter() {
-  // TODO: Implement getAdapter
-  return "";
+ // TODO: Implement getAdapter
+ return "";
 }
 
 std::string Display::getVersion() {
-  // TODO: Implement getVersion
-  return "";
+ // TODO: Implement getVersion
+ return "";
 }
 
 void Display::sync(int int0) {
-  // TODO: Implement sync
+ // TODO: Implement sync
 }
 
 void Display::initCallbacks() {
-  // TODO: Implement initCallbacks
+ // TODO: Implement initCallbacks
 }
 
 void Display::releaseCallbacks() {
-  // TODO: Implement releaseCallbacks
+ // TODO: Implement releaseCallbacks
 }
 
 } // namespace opengl

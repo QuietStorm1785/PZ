@@ -5,7 +5,7 @@ namespace core {
 namespace opengl {
 
 void IShaderProgramListener::callback(ShaderProgram sender) {
-  // TODO: Implement callback
+ // TODO: Implement callback
 }
 
 } // namespace opengl

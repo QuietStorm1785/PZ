@@ -4,22 +4,19 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterFootstepMaterial::ParameterFootstepMaterial(
-    IsoGameCharacter _character) {
-  // TODO: Implement ParameterFootstepMaterial
-  return nullptr;
+public ParameterFootstepMaterial::ParameterFootstepMaterial(IsoGameCharacter _character) {
+ // TODO: Implement ParameterFootstepMaterial
+ return nullptr;
 }
 
 float ParameterFootstepMaterial::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
-private
-ParameterFootstepMaterial::FootstepMaterial(int int1) {
-  // TODO: Implement FootstepMaterial
-  return nullptr;
+private ParameterFootstepMaterial::FootstepMaterial(int int1) {
+ // TODO: Implement FootstepMaterial
+ return nullptr;
 }
 
 } // namespace parameters

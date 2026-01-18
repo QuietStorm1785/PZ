@@ -3,10 +3,9 @@
 namespace zombie {
 namespace iso {
 
-public
-ParticlesArray::ParticlesArray() {
-  // TODO: Implement ParticlesArray
-  return nullptr;
+public ParticlesArray::ParticlesArray() {
+ // TODO: Implement ParticlesArray
+ return nullptr;
 }
 
 } // namespace iso

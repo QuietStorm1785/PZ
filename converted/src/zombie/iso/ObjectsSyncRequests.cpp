@@ -3,76 +3,72 @@
 namespace zombie {
 namespace iso {
 
-public
-ObjectsSyncRequests::ObjectsSyncRequests(bool boolean0) {
-  // TODO: Implement ObjectsSyncRequests
-  return nullptr;
+public ObjectsSyncRequests::ObjectsSyncRequests(bool boolean0) {
+ // TODO: Implement ObjectsSyncRequests
+ return nullptr;
 }
 
-int ObjectsSyncRequests::getObjectInsertIndex(long[] longs1, long[] longs0,
-                                              long long0) {
-  // TODO: Implement getObjectInsertIndex
-  return 0;
+int ObjectsSyncRequests::getObjectInsertIndex(long[] longs1, long[] longs0, long long0) {
+ // TODO: Implement getObjectInsertIndex
+ return 0;
 }
 
 void ObjectsSyncRequests::putRequestSyncIsoChunk(IsoChunk chunk) {
-  // TODO: Implement putRequestSyncIsoChunk
+ // TODO: Implement putRequestSyncIsoChunk
 }
 
 void ObjectsSyncRequests::putRequestSyncItemContainer(ItemContainer container) {
-  // TODO: Implement putRequestSyncItemContainer
+ // TODO: Implement putRequestSyncItemContainer
 }
 
 void ObjectsSyncRequests::putRequestSyncIsoGridSquare(IsoGridSquare square) {
-  // TODO: Implement putRequestSyncIsoGridSquare
+ // TODO: Implement putRequestSyncIsoGridSquare
 }
 
 void ObjectsSyncRequests::sendRequests(UdpConnection udpConnection) {
-  // TODO: Implement sendRequests
+ // TODO: Implement sendRequests
 }
 
 void ObjectsSyncRequests::receiveSyncIsoChunk(int int2, int int1) {
-  // TODO: Implement receiveSyncIsoChunk
+ // TODO: Implement receiveSyncIsoChunk
 }
 
-void ObjectsSyncRequests::receiveSyncIsoGridSquare(int int3, int int2,
-                                                   int int1) {
-  // TODO: Implement receiveSyncIsoGridSquare
+void ObjectsSyncRequests::receiveSyncIsoGridSquare(int int3, int int2, int int1) {
+ // TODO: Implement receiveSyncIsoGridSquare
 }
 
-void ObjectsSyncRequests::receiveSyncIsoObject(int int3, int int2, int int1,
-                                               long long0) {
-  // TODO: Implement receiveSyncIsoObject
+void ObjectsSyncRequests::receiveSyncIsoObject(int int3, int int2, int int1, long long0) {
+ // TODO: Implement receiveSyncIsoObject
 }
 
 void ObjectsSyncRequests::receiveGridSquareHashes(ByteBuffer byteBuffer) {
-  // TODO: Implement receiveGridSquareHashes
+ // TODO: Implement receiveGridSquareHashes
 }
 
 void ObjectsSyncRequests::receiveGridSquareObjectHashes(ByteBuffer byteBuffer) {
-  // TODO: Implement receiveGridSquareObjectHashes
+ // TODO: Implement receiveGridSquareObjectHashes
 }
 
 void ObjectsSyncRequests::receiveObject(ByteBuffer byteBuffer) {
-  // TODO: Implement receiveObject
+ // TODO: Implement receiveObject
 }
 
 void ObjectsSyncRequests::serverSendRequests(UdpEngine udpEngine) {
-  // TODO: Implement serverSendRequests
+ // TODO: Implement serverSendRequests
 }
 
 void ObjectsSyncRequests::serverSendRequests(UdpConnection udpConnection) {
-  // TODO: Implement serverSendRequests
+ // TODO: Implement serverSendRequests
 }
 
 int ObjectsSyncRequests::hashCode() {
-  // TODO: Implement hashCode
-  return 0;
+ // TODO: Implement hashCode
+ return 0;
 }
 
 int ObjectsSyncRequests::hashCode() {
-  // TODO: Implement hashCode
-  return 0;
+ // TODO: Implement hashCode
+ return 0;
 }
 
 } // namespace iso

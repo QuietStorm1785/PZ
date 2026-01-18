@@ -5,11 +5,11 @@ namespace core {
 namespace logger {
 
 void ExceptionLogger::showPopup() {
-  // TODO: Implement showPopup
+ // TODO: Implement showPopup
 }
 
 void ExceptionLogger::render() {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 } // namespace logger

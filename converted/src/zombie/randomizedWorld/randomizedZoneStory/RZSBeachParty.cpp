@@ -4,14 +4,13 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedZoneStory {
 
-public
-RZSBeachParty::RZSBeachParty() {
-  // TODO: Implement RZSBeachParty
-  return nullptr;
+public RZSBeachParty::RZSBeachParty() {
+ // TODO: Implement RZSBeachParty
+ return nullptr;
 }
 
 void RZSBeachParty::randomizeZoneStory(IsoMetaGrid.Zone zone) {
-  // TODO: Implement randomizeZoneStory
+ // TODO: Implement randomizeZoneStory
 }
 
 } // namespace randomizedZoneStory

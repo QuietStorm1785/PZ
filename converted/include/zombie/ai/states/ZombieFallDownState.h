@@ -1,48 +1,51 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/ai/State.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/core/skinnedmodel/advancedanimation/AnimEvent.h"
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace ai {
 namespace states {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class ZombieFallDownState : public State {
 public:
-  static const ZombieFallDownState _instance = new ZombieFallDownState();
+ static const ZombieFallDownState _instance = new ZombieFallDownState();
 
-  static ZombieFallDownState instance() { return _instance; }
+ static ZombieFallDownState instance() {
+ return _instance;
+ }
 
-  void enter(IsoGameCharacter owner) {
-    owner.blockTurning = true;
-    owner.setHitReaction("");
-  }
+ void enter(IsoGameCharacter owner) {
+ owner.blockTurning = true;
+ owner.setHitReaction("");
+ }
 
-  void execute(IsoGameCharacter owner) {}
+ void execute(IsoGameCharacter owner) {
+ }
 
-  void exit(IsoGameCharacter owner) {
-    owner.blockTurning = false;
-    owner.setOnFloor(true);
-  }
+ void exit(IsoGameCharacter owner) {
+ owner.blockTurning = false;
+ owner.setOnFloor(true);
+ }
 
-  void animEvent(IsoGameCharacter owner, AnimEvent event) {
-    if (event.m_EventName.equalsIgnoreCase("FallOnFront")) {
-      owner.setFallOnFront(Boolean.parseBoolean(event.m_ParameterValue));
-    }
+ void animEvent(IsoGameCharacter owner, AnimEvent event) {
+ if (event.m_EventName.equalsIgnoreCase("FallOnFront")) {
+ owner.setFallOnFront(Boolean.parseBoolean(event.m_ParameterValue);
+ }
 
-    if (event.m_EventName.equalsIgnoreCase("PlayDeathSound")) {
-      owner.setDoDeathSound(false);
-      owner.playDeadSound();
-    }
-  }
+ if (event.m_EventName.equalsIgnoreCase("PlayDeathSound")) {
+ owner.setDoDeathSound(false);
+ owner.playDeadSound();
+ }
+ }
 }
 } // namespace states
 } // namespace ai

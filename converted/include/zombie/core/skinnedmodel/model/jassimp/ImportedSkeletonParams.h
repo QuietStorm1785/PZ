@@ -1,34 +1,33 @@
 #pragma once
-#include "jassimp/AiMesh.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "jassimp/AiMesh.h"
 
 namespace zombie {
 namespace core {
 namespace skinnedmodel {
 namespace model {
 namespace jassimp {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class ImportedSkeletonParams : public ProcessedAiSceneParams {
 public:
-  AiMesh mesh = nullptr;
+ AiMesh mesh = nullptr;
 
-  ImportedSkeletonParams() {}
+ ImportedSkeletonParams() {
+ }
 
-  static ImportedSkeletonParams
-  create(ProcessedAiSceneParams processedAiSceneParams, AiMesh aiMesh) {
-    ImportedSkeletonParams importedSkeletonParams =
-        new ImportedSkeletonParams();
-    importedSkeletonParams.set(processedAiSceneParams);
-    importedSkeletonParams.mesh = aiMesh;
-    return importedSkeletonParams;
-  }
+ static ImportedSkeletonParams create(ProcessedAiSceneParams processedAiSceneParams, AiMesh aiMesh) {
+ ImportedSkeletonParams importedSkeletonParams = new ImportedSkeletonParams();
+ importedSkeletonParams.set(processedAiSceneParams);
+ importedSkeletonParams.mesh = aiMesh;
+ return importedSkeletonParams;
+ }
 }
 } // namespace jassimp
 } // namespace model

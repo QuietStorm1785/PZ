@@ -6,7 +6,7 @@ namespace util {
 namespace glu {
 
 void Sphere::draw(float float3, int int1, int int0) {
-  // TODO: Implement draw
+ // TODO: Implement draw
 }
 
 } // namespace glu

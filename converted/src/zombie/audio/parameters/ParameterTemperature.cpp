@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterTemperature::ParameterTemperature() {
-  // TODO: Implement ParameterTemperature
-  return nullptr;
+public ParameterTemperature::ParameterTemperature() {
+ // TODO: Implement ParameterTemperature
+ return nullptr;
 }
 
 float ParameterTemperature::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

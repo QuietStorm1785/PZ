@@ -3,8 +3,8 @@
 namespace zombie {
 
 int CollisionMatrixPrototypes::ToBitMatrix(boolean[][][] booleans) {
-  // TODO: Implement ToBitMatrix
-  return 0;
+ // TODO: Implement ToBitMatrix
+ return 0;
 }
 
 } // namespace zombie

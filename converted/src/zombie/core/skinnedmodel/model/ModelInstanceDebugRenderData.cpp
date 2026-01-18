@@ -6,29 +6,25 @@ namespace skinnedmodel {
 namespace model {
 
 ModelInstanceDebugRenderData ModelInstanceDebugRenderData::alloc() {
-  // TODO: Implement alloc
-  return nullptr;
+ // TODO: Implement alloc
+ return nullptr;
 }
 
-ModelInstanceDebugRenderData
-ModelInstanceDebugRenderData::init(ModelSlotRenderData slotData,
-                                   ModelInstanceRenderData instData) {
-  // TODO: Implement init
-  return nullptr;
+ModelInstanceDebugRenderData ModelInstanceDebugRenderData::init(ModelSlotRenderData slotData, ModelInstanceRenderData instData) {
+ // TODO: Implement init
+ return nullptr;
 }
 
 void ModelInstanceDebugRenderData::render() {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
-void ModelInstanceDebugRenderData::initAttachments(
-    ModelSlotRenderData modelSlotRenderData,
-    ModelInstanceRenderData modelInstanceRenderData) {
-  // TODO: Implement initAttachments
+void ModelInstanceDebugRenderData::initAttachments(ModelSlotRenderData modelSlotRenderData, ModelInstanceRenderData modelInstanceRenderData) {
+ // TODO: Implement initAttachments
 }
 
 void ModelInstanceDebugRenderData::renderAttachments() {
-  // TODO: Implement renderAttachments
+ // TODO: Implement renderAttachments
 }
 
 } // namespace model

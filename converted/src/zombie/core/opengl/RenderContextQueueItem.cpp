@@ -4,51 +4,49 @@ namespace zombie {
 namespace core {
 namespace opengl {
 
-private
-RenderContextQueueItem::RenderContextQueueItem() {
-  // TODO: Implement RenderContextQueueItem
-  return nullptr;
+private RenderContextQueueItem::RenderContextQueueItem() {
+ // TODO: Implement RenderContextQueueItem
+ return nullptr;
 }
 
 RenderContextQueueItem RenderContextQueueItem::alloc(Runnable runnable) {
-  // TODO: Implement alloc
-  return nullptr;
+ // TODO: Implement alloc
+ return nullptr;
 }
 
 void RenderContextQueueItem::resetInternal() {
-  // TODO: Implement resetInternal
+ // TODO: Implement resetInternal
 }
 
-void RenderContextQueueItem::waitUntilFinished(
-    BooleanSupplier booleanSupplier) {
-  // TODO: Implement waitUntilFinished
+void RenderContextQueueItem::waitUntilFinished(BooleanSupplier booleanSupplier) {
+ // TODO: Implement waitUntilFinished
 }
 
 bool RenderContextQueueItem::isFinished() {
-  // TODO: Implement isFinished
-  return false;
+ // TODO: Implement isFinished
+ return false;
 }
 
 void RenderContextQueueItem::setWaiting() {
-  // TODO: Implement setWaiting
+ // TODO: Implement setWaiting
 }
 
 bool RenderContextQueueItem::isWaiting() {
-  // TODO: Implement isWaiting
-  return false;
+ // TODO: Implement isWaiting
+ return false;
 }
 
 void RenderContextQueueItem::invoke() {
-  // TODO: Implement invoke
+ // TODO: Implement invoke
 }
 
 std::exception RenderContextQueueItem::getThrown() {
-  // TODO: Implement getThrown
-  return nullptr;
+ // TODO: Implement getThrown
+ return nullptr;
 }
 
 void RenderContextQueueItem::notifyWaitingListeners() {
-  // TODO: Implement notifyWaitingListeners
+ // TODO: Implement notifyWaitingListeners
 }
 
 } // namespace opengl

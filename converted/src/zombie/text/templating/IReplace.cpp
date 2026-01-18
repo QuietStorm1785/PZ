@@ -5,8 +5,8 @@ namespace text {
 namespace templating {
 
 std::string IReplace::getString() {
-  // TODO: Implement getString
-  return "";
+ // TODO: Implement getString
+ return "";
 }
 
 } // namespace templating

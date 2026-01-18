@@ -5,11 +5,11 @@ namespace iso {
 namespace weather {
 
 void ClimateHistory::init(ClimateManager climateManager) {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 void ClimateHistory::updateDayChange(ClimateManager climateManager) {
-  // TODO: Implement updateDayChange
+ // TODO: Implement updateDayChange
 }
 
 } // namespace weather

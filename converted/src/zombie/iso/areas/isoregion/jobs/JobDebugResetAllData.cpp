@@ -6,10 +6,9 @@ namespace areas {
 namespace isoregion {
 namespace jobs {
 
-protected
-JobDebugResetAllData::JobDebugResetAllData() {
-  // TODO: Implement JobDebugResetAllData
-  return nullptr;
+protected JobDebugResetAllData::JobDebugResetAllData() {
+ // TODO: Implement JobDebugResetAllData
+ return nullptr;
 }
 
 } // namespace jobs

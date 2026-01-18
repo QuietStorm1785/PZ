@@ -5,47 +5,44 @@ namespace ai {
 namespace states {
 
 ThumpState ThumpState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ThumpState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ThumpState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ThumpState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void ThumpState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
-IsoPlayer ThumpState::findPlayer(int int4, int int5, int int1, int int2,
-                                 int int6) {
-  // TODO: Implement findPlayer
-  return nullptr;
+IsoPlayer ThumpState::findPlayer(int int4, int int5, int int1, int int2, int int6) {
+ // TODO: Implement findPlayer
+ return nullptr;
 }
 
-bool ThumpState::lungeThroughDoor(IsoZombie zombie0, IsoGridSquare square1,
-                                  IsoGridSquare square0) {
-  // TODO: Implement lungeThroughDoor
-  return false;
+bool ThumpState::lungeThroughDoor(IsoZombie zombie0, IsoGridSquare square1, IsoGridSquare square0) {
+ // TODO: Implement lungeThroughDoor
+ return false;
 }
 
 int ThumpState::getFastForwardDamageMultiplier() {
-  // TODO: Implement getFastForwardDamageMultiplier
-  return 0;
+ // TODO: Implement getFastForwardDamageMultiplier
+ return 0;
 }
 
-bool ThumpState::isThumpTargetValid(IsoGameCharacter character,
-                                    Thumpable thumpable) {
-  // TODO: Implement isThumpTargetValid
-  return false;
+bool ThumpState::isThumpTargetValid(IsoGameCharacter character, Thumpable thumpable) {
+ // TODO: Implement isThumpTargetValid
+ return false;
 }
 
 } // namespace states

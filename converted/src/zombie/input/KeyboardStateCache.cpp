@@ -4,21 +4,21 @@ namespace zombie {
 namespace input {
 
 void KeyboardStateCache::poll() {
-  // TODO: Implement poll
+ // TODO: Implement poll
 }
 
 void KeyboardStateCache::swap() {
-  // TODO: Implement swap
+ // TODO: Implement swap
 }
 
 KeyboardState KeyboardStateCache::getState() {
-  // TODO: Implement getState
-  return nullptr;
+ // TODO: Implement getState
+ return nullptr;
 }
 
 KeyboardState KeyboardStateCache::getStatePolling() {
-  // TODO: Implement getStatePolling
-  return nullptr;
+ // TODO: Implement getStatePolling
+ return nullptr;
 }
 
 } // namespace input

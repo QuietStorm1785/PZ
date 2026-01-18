@@ -3,13 +3,13 @@
 namespace zombie {
 namespace network {
 
-long MD5Checksum::createChecksum(const std::string &string) {
-  // TODO: Implement createChecksum
-  return 0;
+long MD5Checksum::createChecksum(const std::string& string) {
+ // TODO: Implement createChecksum
+ return 0;
 }
 
 void MD5Checksum::main(String[] var0) {
-  // TODO: Implement main
+ // TODO: Implement main
 }
 
 } // namespace network

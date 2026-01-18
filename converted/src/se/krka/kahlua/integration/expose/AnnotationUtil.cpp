@@ -7,13 +7,13 @@ namespace integration {
 namespace expose {
 
 return AnnotationUtil::getAnnotation() {
-  // TODO: Implement getAnnotation
-  return nullptr;
+ // TODO: Implement getAnnotation
+ return nullptr;
 }
 
 return AnnotationUtil::getAnnotation() {
-  // TODO: Implement getAnnotation
-  return nullptr;
+ // TODO: Implement getAnnotation
+ return nullptr;
 }
 
 } // namespace expose

@@ -4,30 +4,30 @@ namespace zombie {
 namespace vehicles {
 
 int LightbarLightsMode::get() {
-  // TODO: Implement get
-  return 0;
+ // TODO: Implement get
+ return 0;
 }
 
 void LightbarLightsMode::set(int v) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void LightbarLightsMode::start() {
-  // TODO: Implement start
+ // TODO: Implement start
 }
 
 void LightbarLightsMode::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 int LightbarLightsMode::getLightTexIndex() {
-  // TODO: Implement getLightTexIndex
-  return 0;
+ // TODO: Implement getLightTexIndex
+ return 0;
 }
 
 bool LightbarLightsMode::isEnable() {
-  // TODO: Implement isEnable
-  return false;
+ // TODO: Implement isEnable
+ return false;
 }
 
 } // namespace vehicles

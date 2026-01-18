@@ -4,42 +4,40 @@ namespace zombie {
 namespace radio {
 namespace StorySounds {
 
-public
-EventSound::EventSound() {
-  // TODO: Implement EventSound
-  return nullptr;
+public EventSound::EventSound() {
+ // TODO: Implement EventSound
+ return nullptr;
 }
 
-public
-EventSound::EventSound(const std::string &_name) {
-  // TODO: Implement EventSound
-  return nullptr;
+public EventSound::EventSound(const std::string& _name) {
+ // TODO: Implement EventSound
+ return nullptr;
 }
 
 std::string EventSound::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
-void EventSound::setName(const std::string &_name) {
-  // TODO: Implement setName
+void EventSound::setName(const std::string& _name) {
+ // TODO: Implement setName
 }
 
 Color EventSound::getColor() {
-  // TODO: Implement getColor
-  return nullptr;
+ // TODO: Implement getColor
+ return nullptr;
 }
 
 void EventSound::setColor(Color _color) {
-  // TODO: Implement setColor
+ // TODO: Implement setColor
 }
 
 void EventSound::setDataPoints(ArrayList<DataPoint> _dataPoints) {
-  // TODO: Implement setDataPoints
+ // TODO: Implement setDataPoints
 }
 
 void EventSound::setStorySounds(ArrayList<StorySound> _storySounds) {
-  // TODO: Implement setStorySounds
+ // TODO: Implement setStorySounds
 }
 
 } // namespace StorySounds

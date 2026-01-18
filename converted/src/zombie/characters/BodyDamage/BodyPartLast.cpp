@@ -5,27 +5,27 @@ namespace characters {
 namespace BodyDamage {
 
 bool BodyPartLast::bandaged() {
-  // TODO: Implement bandaged
-  return false;
+ // TODO: Implement bandaged
+ return false;
 }
 
 bool BodyPartLast::bitten() {
-  // TODO: Implement bitten
-  return false;
+ // TODO: Implement bitten
+ return false;
 }
 
 bool BodyPartLast::scratched() {
-  // TODO: Implement scratched
-  return false;
+ // TODO: Implement scratched
+ return false;
 }
 
 bool BodyPartLast::isCut() {
-  // TODO: Implement isCut
-  return false;
+ // TODO: Implement isCut
+ return false;
 }
 
 void BodyPartLast::copy(BodyPart other) {
-  // TODO: Implement copy
+ // TODO: Implement copy
 }
 
 } // namespace BodyDamage

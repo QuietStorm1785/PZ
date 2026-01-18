@@ -3,10 +3,9 @@
 namespace zombie {
 namespace sandbox {
 
-CustomStringSandboxOption
-CustomStringSandboxOption::parse(ScriptParser.Block block) {
-  // TODO: Implement parse
-  return nullptr;
+CustomStringSandboxOption CustomStringSandboxOption::parse(ScriptParser.Block block) {
+ // TODO: Implement parse
+ return nullptr;
 }
 
 } // namespace sandbox

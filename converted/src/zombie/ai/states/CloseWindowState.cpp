@@ -5,47 +5,46 @@ namespace ai {
 namespace states {
 
 CloseWindowState CloseWindowState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void CloseWindowState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void CloseWindowState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void CloseWindowState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void CloseWindowState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 bool CloseWindowState::isDoingActionThatCanBeCancelled() {
-  // TODO: Implement isDoingActionThatCanBeCancelled
-  return false;
+ // TODO: Implement isDoingActionThatCanBeCancelled
+ return false;
 }
 
-void CloseWindowState::onAttemptFinished(IsoGameCharacter character,
-                                         IsoWindow window) {
-  // TODO: Implement onAttemptFinished
+void CloseWindowState::onAttemptFinished(IsoGameCharacter character, IsoWindow window) {
+ // TODO: Implement onAttemptFinished
 }
 
 void CloseWindowState::onSuccess(IsoGameCharacter character, IsoWindow window) {
-  // TODO: Implement onSuccess
+ // TODO: Implement onSuccess
 }
 
 void CloseWindowState::exert(IsoGameCharacter character) {
-  // TODO: Implement exert
+ // TODO: Implement exert
 }
 
 IsoWindow CloseWindowState::getWindow(IsoGameCharacter owner) {
-  // TODO: Implement getWindow
-  return nullptr;
+ // TODO: Implement getWindow
+ return nullptr;
 }
 
 } // namespace states

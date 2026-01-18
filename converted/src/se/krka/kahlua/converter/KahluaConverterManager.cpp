@@ -5,32 +5,32 @@ namespace krka {
 namespace kahlua {
 namespace converter {
 
-void *KahluaConverterManager::fromJavaToLua(void *var1) {
-  // TODO: Implement fromJavaToLua
-  return nullptr;
+void* KahluaConverterManager::fromJavaToLua(void* var1) {
+ // TODO: Implement fromJavaToLua
+ return nullptr;
 }
 
 void KahluaConverterManager::addLuaConverter(LuaToJavaConverter arg0) {
-  // TODO: Implement addLuaConverter
+ // TODO: Implement addLuaConverter
 }
 
 void KahluaConverterManager::addJavaConverter(JavaToLuaConverter arg0) {
-  // TODO: Implement addJavaConverter
+ // TODO: Implement addJavaConverter
 }
 
-void *KahluaConverterManager::fromJavaToLua(void *arg0) {
-  // TODO: Implement fromJavaToLua
-  return nullptr;
+void* KahluaConverterManager::fromJavaToLua(void* arg0) {
+ // TODO: Implement fromJavaToLua
+ return nullptr;
 }
 
 JavaToLuaConverter KahluaConverterManager::getJavaCache(Class clazz) {
-  // TODO: Implement getJavaCache
-  return nullptr;
+ // TODO: Implement getJavaCache
+ return nullptr;
 }
 
 JavaToLuaConverter KahluaConverterManager::createJavaCache(Class clazz0) {
-  // TODO: Implement createJavaCache
-  return nullptr;
+ // TODO: Implement createJavaCache
+ return nullptr;
 }
 
 } // namespace converter

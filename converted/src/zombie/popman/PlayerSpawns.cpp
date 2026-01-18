@@ -4,27 +4,26 @@ namespace zombie {
 namespace popman {
 
 void PlayerSpawns::addSpawn(int int0, int int1, int int2) {
-  // TODO: Implement addSpawn
+ // TODO: Implement addSpawn
 }
 
 void PlayerSpawns::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 bool PlayerSpawns::allowZombie(IsoGridSquare square) {
-  // TODO: Implement allowZombie
-  return false;
+ // TODO: Implement allowZombie
+ return false;
 }
 
-public
-PlayerSpawns::PlayerSpawn(int int0, int int1, int int2) {
-  // TODO: Implement PlayerSpawn
-  return nullptr;
+public PlayerSpawns::PlayerSpawn(int int0, int int1, int int2) {
+ // TODO: Implement PlayerSpawn
+ return nullptr;
 }
 
 bool PlayerSpawns::allowZombie(IsoGridSquare square) {
-  // TODO: Implement allowZombie
-  return false;
+ // TODO: Implement allowZombie
+ return false;
 }
 
 } // namespace popman

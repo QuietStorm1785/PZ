@@ -6,11 +6,11 @@ namespace kahlua {
 namespace profiler {
 
 void BufferedProfiler::getSample(Sample sample) {
-  // TODO: Implement getSample
+ // TODO: Implement getSample
 }
 
 void BufferedProfiler::sendTo(Profiler profiler) {
-  // TODO: Implement sendTo
+ // TODO: Implement sendTo
 }
 
 } // namespace profiler

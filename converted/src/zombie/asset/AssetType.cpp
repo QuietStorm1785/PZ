@@ -3,10 +3,9 @@
 namespace zombie {
 namespace asset {
 
-public
-AssetType::AssetType(const std::string &typeName) {
-  // TODO: Implement AssetType
-  return nullptr;
+public AssetType::AssetType(const std::string& typeName) {
+ // TODO: Implement AssetType
+ return nullptr;
 }
 
 } // namespace asset

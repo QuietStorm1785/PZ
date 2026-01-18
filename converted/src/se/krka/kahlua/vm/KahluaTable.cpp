@@ -6,75 +6,75 @@ namespace kahlua {
 namespace vm {
 
 void KahluaTable::setMetatable(KahluaTable var1) {
-  // TODO: Implement setMetatable
+ // TODO: Implement setMetatable
 }
 
 KahluaTable KahluaTable::getMetatable() {
-  // TODO: Implement getMetatable
-  return nullptr;
+ // TODO: Implement getMetatable
+ return nullptr;
 }
 
-void KahluaTable::rawset(void *var1, void *var2) {
-  // TODO: Implement rawset
+void KahluaTable::rawset(void* var1, void* var2) {
+ // TODO: Implement rawset
 }
 
-void *KahluaTable::rawget(void *var1) {
-  // TODO: Implement rawget
-  return nullptr;
+void* KahluaTable::rawget(void* var1) {
+ // TODO: Implement rawget
+ return nullptr;
 }
 
-void KahluaTable::rawset(int var1, void *var2) {
-  // TODO: Implement rawset
+void KahluaTable::rawset(int var1, void* var2) {
+ // TODO: Implement rawset
 }
 
-void *KahluaTable::rawget(int var1) {
-  // TODO: Implement rawget
-  return nullptr;
+void* KahluaTable::rawget(int var1) {
+ // TODO: Implement rawget
+ return nullptr;
 }
 
 int KahluaTable::len() {
-  // TODO: Implement len
-  return 0;
+ // TODO: Implement len
+ return 0;
 }
 
 KahluaTableIterator KahluaTable::iterator() {
-  // TODO: Implement iterator
-  return nullptr;
+ // TODO: Implement iterator
+ return nullptr;
 }
 
 bool KahluaTable::isEmpty() {
-  // TODO: Implement isEmpty
-  return false;
+ // TODO: Implement isEmpty
+ return false;
 }
 
 void KahluaTable::wipe() {
-  // TODO: Implement wipe
+ // TODO: Implement wipe
 }
 
 int KahluaTable::size() {
-  // TODO: Implement size
-  return 0;
+ // TODO: Implement size
+ return 0;
 }
 
 void KahluaTable::save(ByteBuffer var1) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void KahluaTable::load(ByteBuffer var1, int var2) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void KahluaTable::save(DataOutputStream var1) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void KahluaTable::load(DataInputStream var1, int var2) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
-std::string KahluaTable::getString(const std::string &var1) {
-  // TODO: Implement getString
-  return "";
+std::string KahluaTable::getString(const std::string& var1) {
+ // TODO: Implement getString
+ return "";
 }
 
 } // namespace vm

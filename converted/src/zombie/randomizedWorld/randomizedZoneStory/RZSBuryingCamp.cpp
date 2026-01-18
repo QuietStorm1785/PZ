@@ -4,14 +4,13 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedZoneStory {
 
-public
-RZSBuryingCamp::RZSBuryingCamp() {
-  // TODO: Implement RZSBuryingCamp
-  return nullptr;
+public RZSBuryingCamp::RZSBuryingCamp() {
+ // TODO: Implement RZSBuryingCamp
+ return nullptr;
 }
 
 void RZSBuryingCamp::randomizeZoneStory(IsoMetaGrid.Zone zone) {
-  // TODO: Implement randomizeZoneStory
+ // TODO: Implement randomizeZoneStory
 }
 
 } // namespace randomizedZoneStory

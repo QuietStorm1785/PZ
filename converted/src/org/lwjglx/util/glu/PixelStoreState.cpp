@@ -6,11 +6,11 @@ namespace util {
 namespace glu {
 
 void PixelStoreState::load() {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void PixelStoreState::save() {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 } // namespace glu

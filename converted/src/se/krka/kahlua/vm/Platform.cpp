@@ -6,22 +6,22 @@ namespace kahlua {
 namespace vm {
 
 double Platform::pow(double arg0, double arg1) {
-  // TODO: Implement pow
-  return 0;
+ // TODO: Implement pow
+ return 0;
 }
 
 KahluaTable Platform::newTable() {
-  // TODO: Implement newTable
-  return nullptr;
+ // TODO: Implement newTable
+ return nullptr;
 }
 
 KahluaTable Platform::newEnvironment() {
-  // TODO: Implement newEnvironment
-  return nullptr;
+ // TODO: Implement newEnvironment
+ return nullptr;
 }
 
 void Platform::setupEnvironment(KahluaTable arg0) {
-  // TODO: Implement setupEnvironment
+ // TODO: Implement setupEnvironment
 }
 
 } // namespace vm

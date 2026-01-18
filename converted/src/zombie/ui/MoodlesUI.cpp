@@ -3,49 +3,48 @@
 namespace zombie {
 namespace ui {
 
-public
-MoodlesUI::MoodlesUI() {
-  // TODO: Implement MoodlesUI
-  return nullptr;
+public MoodlesUI::MoodlesUI() {
+ // TODO: Implement MoodlesUI
+ return nullptr;
 }
 
 bool MoodlesUI::CurrentlyAnimating() {
-  // TODO: Implement CurrentlyAnimating
-  return false;
+ // TODO: Implement CurrentlyAnimating
+ return false;
 }
 
 void MoodlesUI::Nest(UIElement el, int t, int r, int b, int l) {
-  // TODO: Implement Nest
+ // TODO: Implement Nest
 }
 
 bool MoodlesUI::onMouseMove(double dx, double dy) {
-  // TODO: Implement onMouseMove
-  return false;
+ // TODO: Implement onMouseMove
+ return false;
 }
 
 void MoodlesUI::onMouseMoveOutside(double dx, double dy) {
-  // TODO: Implement onMouseMoveOutside
+ // TODO: Implement onMouseMoveOutside
 }
 
 void MoodlesUI::render() {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 void MoodlesUI::wiggle(MoodleType Moodle) {
-  // TODO: Implement wiggle
+ // TODO: Implement wiggle
 }
 
 void MoodlesUI::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void MoodlesUI::setCharacter(IsoGameCharacter chr) {
-  // TODO: Implement setCharacter
+ // TODO: Implement setCharacter
 }
 
 MoodlesUI MoodlesUI::getInstance() {
-  // TODO: Implement getInstance
-  return nullptr;
+ // TODO: Implement getInstance
+ return nullptr;
 }
 
 } // namespace ui

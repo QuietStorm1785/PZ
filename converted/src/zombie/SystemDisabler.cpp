@@ -3,73 +3,73 @@
 namespace zombie {
 
 void SystemDisabler::setDoCharacterStats(bool bDo) {
-  // TODO: Implement setDoCharacterStats
+ // TODO: Implement setDoCharacterStats
 }
 
 void SystemDisabler::setDoZombieCreation(bool bDo) {
-  // TODO: Implement setDoZombieCreation
+ // TODO: Implement setDoZombieCreation
 }
 
 void SystemDisabler::setDoSurvivorCreation(bool bDo) {
-  // TODO: Implement setDoSurvivorCreation
+ // TODO: Implement setDoSurvivorCreation
 }
 
 void SystemDisabler::setDoPlayerCreation(bool bDo) {
-  // TODO: Implement setDoPlayerCreation
+ // TODO: Implement setDoPlayerCreation
 }
 
 void SystemDisabler::setOverridePOVCharacters(bool bDo) {
-  // TODO: Implement setOverridePOVCharacters
+ // TODO: Implement setOverridePOVCharacters
 }
 
 void SystemDisabler::setVehiclesEverywhere(bool bDo) {
-  // TODO: Implement setVehiclesEverywhere
+ // TODO: Implement setVehiclesEverywhere
 }
 
 void SystemDisabler::setWorldSyncEnable(bool bDo) {
-  // TODO: Implement setWorldSyncEnable
+ // TODO: Implement setWorldSyncEnable
 }
 
 void SystemDisabler::setObjectStateSyncEnable(bool bDo) {
-  // TODO: Implement setObjectStateSyncEnable
+ // TODO: Implement setObjectStateSyncEnable
 }
 
 bool SystemDisabler::getAllowDebugConnections() {
-  // TODO: Implement getAllowDebugConnections
-  return false;
+ // TODO: Implement getAllowDebugConnections
+ return false;
 }
 
 bool SystemDisabler::getOverrideServerConnectDebugCheck() {
-  // TODO: Implement getOverrideServerConnectDebugCheck
-  return false;
+ // TODO: Implement getOverrideServerConnectDebugCheck
+ return false;
 }
 
 bool SystemDisabler::getdoHighFriction() {
-  // TODO: Implement getdoHighFriction
-  return false;
+ // TODO: Implement getdoHighFriction
+ return false;
 }
 
 bool SystemDisabler::getdoVehicleLowRider() {
-  // TODO: Implement getdoVehicleLowRider
-  return false;
+ // TODO: Implement getdoVehicleLowRider
+ return false;
 }
 
 bool SystemDisabler::getDoMainLoopDealWithNetData() {
-  // TODO: Implement getDoMainLoopDealWithNetData
-  return false;
+ // TODO: Implement getDoMainLoopDealWithNetData
+ return false;
 }
 
 void SystemDisabler::setEnableAdvancedSoundOptions(bool enable) {
-  // TODO: Implement setEnableAdvancedSoundOptions
+ // TODO: Implement setEnableAdvancedSoundOptions
 }
 
 bool SystemDisabler::getEnableAdvancedSoundOptions() {
-  // TODO: Implement getEnableAdvancedSoundOptions
-  return false;
+ // TODO: Implement getEnableAdvancedSoundOptions
+ return false;
 }
 
 void SystemDisabler::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 } // namespace zombie

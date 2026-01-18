@@ -4,8 +4,8 @@ namespace zombie {
 namespace interfaces {
 
 Mask IMaskerable::getMask() {
-  // TODO: Implement getMask
-  return nullptr;
+ // TODO: Implement getMask
+ return nullptr;
 }
 
 } // namespace interfaces

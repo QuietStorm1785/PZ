@@ -3,7 +3,9 @@
 namespace zombie {
 namespace core {
 namespace skinnedmodel {
-namespace visual {} // namespace visual
+namespace visual {
+
+} // namespace visual
 } // namespace skinnedmodel
 } // namespace core
 } // namespace zombie

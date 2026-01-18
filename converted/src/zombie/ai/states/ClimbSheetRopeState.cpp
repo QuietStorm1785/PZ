@@ -5,25 +5,25 @@ namespace ai {
 namespace states {
 
 ClimbSheetRopeState ClimbSheetRopeState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ClimbSheetRopeState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ClimbSheetRopeState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ClimbSheetRopeState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 float ClimbSheetRopeState::getClimbSheetRopeSpeed(IsoGameCharacter owner) {
-  // TODO: Implement getClimbSheetRopeSpeed
-  return 0;
+ // TODO: Implement getClimbSheetRopeSpeed
+ return 0;
 }
 
 } // namespace states

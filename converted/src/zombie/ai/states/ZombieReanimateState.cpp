@@ -5,24 +5,24 @@ namespace ai {
 namespace states {
 
 ZombieReanimateState ZombieReanimateState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ZombieReanimateState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ZombieReanimateState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ZombieReanimateState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void ZombieReanimateState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 } // namespace states

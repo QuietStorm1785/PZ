@@ -3,8 +3,8 @@
 namespace zombie {
 namespace fileSystem {
 
-void IFileTask2Callback::onFileTaskFinished(IFile file, void *result) {
-  // TODO: Implement onFileTaskFinished
+void IFileTask2Callback::onFileTaskFinished(IFile file, void* result) {
+ // TODO: Implement onFileTaskFinished
 }
 
 } // namespace fileSystem

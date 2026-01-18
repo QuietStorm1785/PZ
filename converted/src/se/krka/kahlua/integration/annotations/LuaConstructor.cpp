@@ -7,8 +7,8 @@ namespace integration {
 namespace annotations {
 
 std::string LuaConstructor::name() {
-  // TODO: Implement name
-  return "";
+ // TODO: Implement name
+ return "";
 }
 
 } // namespace annotations

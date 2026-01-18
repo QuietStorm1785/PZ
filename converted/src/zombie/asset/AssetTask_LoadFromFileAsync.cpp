@@ -4,16 +4,15 @@ namespace zombie {
 namespace asset {
 
 void AssetTask_LoadFromFileAsync::execute() {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void AssetTask_LoadFromFileAsync::cancel() {
-  // TODO: Implement cancel
+ // TODO: Implement cancel
 }
 
-void AssetTask_LoadFromFileAsync::onFileTaskFinished(IFile iFile,
-                                                     void *object) {
-  // TODO: Implement onFileTaskFinished
+void AssetTask_LoadFromFileAsync::onFileTaskFinished(IFile iFile, void* object) {
+ // TODO: Implement onFileTaskFinished
 }
 
 } // namespace asset

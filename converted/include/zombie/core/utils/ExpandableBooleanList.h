@@ -1,79 +1,81 @@
 #pragma once
-#include <algorithm>
-#include <cstdint>
-#include <fstream>
-#include <iostream>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include <algorithm>
+#include <fstream>
+#include <iostream>
 
 namespace zombie {
 namespace core {
 namespace utils {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class ExpandableBooleanList {
 public:
-  static const long serialVersionUID = 1L;
-  int width;
-  int bitWidth;
-private
-  int[] value;
+ static const long serialVersionUID = 1L;
+ int width;
+ int bitWidth;
+ private int[] value;
 
-public
-  ExpandableBooleanList(int int0) {
-    this.bitWidth = int0;
-    this.width = int0 / 32 + (int0 % 32 != 0 ? 1 : 0);
-    this.value = new int[this.width];
-  }
+ public ExpandableBooleanList(int int0) {
+ this->bitWidth = int0;
+ this->width = int0 / 32 + (int0 % 32 != 0 ? 1 : 0);
+ this->value = new int[this->width];
+ }
 
-  ExpandableBooleanList clone() {
-    ExpandableBooleanList expandableBooleanList0 =
-        new ExpandableBooleanList(this.bitWidth);
-    System.arraycopy(this.value, 0, expandableBooleanList0.value, 0,
-                     this.value.length);
-    return expandableBooleanList0;
-  }
+ ExpandableBooleanList clone() {
+ ExpandableBooleanList expandableBooleanList0 = new ExpandableBooleanList(this->bitWidth);
+ System.arraycopy(this->value, 0, expandableBooleanList0.value, 0, this->value.length);
+ return expandableBooleanList0;
+ }
 
-  void clear() { Arrays.fill(this.value, 0); }
+ void clear() {
+ Arrays.fill(this->value, 0);
+ }
 
-  void fill() { Arrays.fill(this.value, -1); }
+ void fill() {
+ Arrays.fill(this->value, -1);
+ }
 
-  bool getValue(int int0) {
-    if (int0 >= 0 && int0 < this.bitWidth) {
-      int int1 = int0 >> 5;
-      int int2 = 1 << (int0 & 31);
-      int int3 = this.value[int1];
-      return (int3 & int2) != 0;
-    } else {
-      return false;
-    }
-  }
+ bool getValue(int int0) {
+ if (int0 >= 0 && int0 < this->bitWidth) {
+ int int1 = int0 >> 5;
+ int int2 = 1 << (int0 & 31);
+ int int3 = this->value[int1];
+ return (int3 & int2) != 0;
+ } else {
+ return false;
+ }
+ }
 
-  void setValue(int int0, bool boolean0) {
-    if (int0 >= 0) {
-      if (int0 >= this.bitWidth) {
-        int[] ints = this.value;
-        this.bitWidth = Math.max(this.bitWidth * 2, int0 + 1);
-        this.width = this.bitWidth / 32 + (this.width % 32 != 0 ? 1 : 0);
-        this.value = new int[this.width];
-        System.arraycopy(ints, 0, this.value, 0, ints.length);
-      }
+ void setValue(int int0, bool boolean0) {
+ if (int0 >= 0) {
+ if (int0 >= this->bitWidth) {
+ int[] ints = this->value;
+ this->bitWidth = Math.max(this->bitWidth * 2, int0 + 1);
+ this->width = this->bitWidth / 32 + (this->width % 32 != 0 ? 1 : 0);
+ this->value = new int[this->width];
+ System.arraycopy(ints, 0, this->value, 0, ints.length);
+ }
 
-      int int1 = int0 >> 5;
-      int int2 = 1 << (int0 & 31);
-      if (boolean0) {
-        this.value[int1] = this.value[int1] | int2;
-      } else {
-        this.value[int1] = this.value[int1] & ~int2;
-      }
-    }
-  }
+ int int1 = int0 >> 5;
+ int int2 = 1 << (int0 & 31);
+ if (boolean0) {
+ this->value[int1] = this->value[int1] | int2;
+ } else {
+ this->value[int1] = this->value[int1] & ~int2;
+ }
+ }
+ }
 
-  int getWidth() { return this.width; }
+ int getWidth() {
+ return this->width;
+ }
 }
 } // namespace utils
 } // namespace core

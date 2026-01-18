@@ -5,11 +5,11 @@ namespace core {
 namespace opengl {
 
 void ParticleModelCamera::Begin() {
-  // TODO: Implement Begin
+ // TODO: Implement Begin
 }
 
 void ParticleModelCamera::End() {
-  // TODO: Implement End
+ // TODO: Implement End
 }
 
 } // namespace opengl

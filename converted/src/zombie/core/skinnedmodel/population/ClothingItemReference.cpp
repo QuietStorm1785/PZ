@@ -5,31 +5,31 @@ namespace core {
 namespace skinnedmodel {
 namespace population {
 
-void ClothingItemReference::setModID(const std::string &modID) {
-  // TODO: Implement setModID
+void ClothingItemReference::setModID(const std::string& modID) {
+ // TODO: Implement setModID
 }
 
 ClothingItem ClothingItemReference::getClothingItem() {
-  // TODO: Implement getClothingItem
-  return nullptr;
+ // TODO: Implement getClothingItem
+ return nullptr;
 }
 
 void ClothingItemReference::randomize() {
-  // TODO: Implement randomize
+ // TODO: Implement randomize
 }
 
 ClothingItemReference ClothingItemReference::pickRandomItemInternal() {
-  // TODO: Implement pickRandomItemInternal
-  return nullptr;
+ // TODO: Implement pickRandomItemInternal
+ return nullptr;
 }
 
 ClothingItemReference ClothingItemReference::clone() {
-  // TODO: Implement clone
-  return nullptr;
+ // TODO: Implement clone
+ return nullptr;
 }
 
 void ClothingItemReference::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 } // namespace population

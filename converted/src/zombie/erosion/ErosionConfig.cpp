@@ -4,39 +4,39 @@ namespace zombie {
 namespace erosion {
 
 void ErosionConfig::save(ByteBuffer bb) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void ErosionConfig::load(ByteBuffer bb) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
-void ErosionConfig::writeFile(const std::string &_file) {
-  // TODO: Implement writeFile
+void ErosionConfig::writeFile(const std::string& _file) {
+ // TODO: Implement writeFile
 }
 
-bool ErosionConfig::readFile(const std::string &_file) {
-  // TODO: Implement readFile
-  return false;
+bool ErosionConfig::readFile(const std::string& _file) {
+ // TODO: Implement readFile
+ return false;
 }
 
 void ErosionConfig::consolePrint() {
-  // TODO: Implement consolePrint
+ // TODO: Implement consolePrint
 }
 
 bool ErosionConfig::getEnabled() {
-  // TODO: Implement getEnabled
-  return false;
+ // TODO: Implement getEnabled
+ return false;
 }
 
 int ErosionConfig::getStartDay() {
-  // TODO: Implement getStartDay
-  return 0;
+ // TODO: Implement getStartDay
+ return 0;
 }
 
 int ErosionConfig::getStartMonth() {
-  // TODO: Implement getStartMonth
-  return 0;
+ // TODO: Implement getStartMonth
+ return 0;
 }
 
 } // namespace erosion

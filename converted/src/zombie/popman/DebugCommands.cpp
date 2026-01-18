@@ -4,15 +4,15 @@ namespace zombie {
 namespace popman {
 
 void DebugCommands::SpawnTimeToZero(int int0, int int1) {
-  // TODO: Implement SpawnTimeToZero
+ // TODO: Implement SpawnTimeToZero
 }
 
 void DebugCommands::ClearZombies(int int0, int int1) {
-  // TODO: Implement ClearZombies
+ // TODO: Implement ClearZombies
 }
 
 void DebugCommands::SpawnNow(int int0, int int1) {
-  // TODO: Implement SpawnNow
+ // TODO: Implement SpawnNow
 }
 
 } // namespace popman

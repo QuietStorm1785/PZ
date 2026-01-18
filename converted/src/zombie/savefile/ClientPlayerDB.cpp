@@ -4,78 +4,76 @@ namespace zombie {
 namespace savefile {
 
 void ClientPlayerDB::setAllow(bool boolean0) {
-  // TODO: Implement setAllow
+ // TODO: Implement setAllow
 }
 
 bool ClientPlayerDB::isAllow() {
-  // TODO: Implement isAllow
-  return false;
+ // TODO: Implement isAllow
+ return false;
 }
 
 bool ClientPlayerDB::isAvailable() {
-  // TODO: Implement isAvailable
-  return false;
+ // TODO: Implement isAvailable
+ return false;
 }
 
 void ClientPlayerDB::updateMain() {
-  // TODO: Implement updateMain
+ // TODO: Implement updateMain
 }
 
 void ClientPlayerDB::close() {
-  // TODO: Implement close
+ // TODO: Implement close
 }
 
 void ClientPlayerDB::saveNetworkPlayersToDB() {
-  // TODO: Implement saveNetworkPlayersToDB
+ // TODO: Implement saveNetworkPlayersToDB
 }
 
-void ClientPlayerDB::clientLoadNetworkCharacter(ByteBuffer byteBuffer,
-                                                UdpConnection var2) {
-  // TODO: Implement clientLoadNetworkCharacter
+void ClientPlayerDB::clientLoadNetworkCharacter(ByteBuffer byteBuffer, UdpConnection var2) {
+ // TODO: Implement clientLoadNetworkCharacter
 }
 
 bool ClientPlayerDB::isClientLoadNetworkCharacterCompleted() {
-  // TODO: Implement isClientLoadNetworkCharacterCompleted
-  return false;
+ // TODO: Implement isClientLoadNetworkCharacterCompleted
+ return false;
 }
 
 void ClientPlayerDB::clientSendNetworkPlayerInt(IsoPlayer player) {
-  // TODO: Implement clientSendNetworkPlayerInt
+ // TODO: Implement clientSendNetworkPlayerInt
 }
 
 bool ClientPlayerDB::isAliveMainNetworkPlayer() {
-  // TODO: Implement isAliveMainNetworkPlayer
-  return false;
+ // TODO: Implement isAliveMainNetworkPlayer
+ return false;
 }
 
 bool ClientPlayerDB::clientLoadNetworkPlayer() {
-  // TODO: Implement clientLoadNetworkPlayer
-  return false;
+ // TODO: Implement clientLoadNetworkPlayer
+ return false;
 }
 
 bool ClientPlayerDB::loadNetworkPlayer() {
-  // TODO: Implement loadNetworkPlayer
-  return false;
+ // TODO: Implement loadNetworkPlayer
+ return false;
 }
 
 bool ClientPlayerDB::loadNetworkPlayerInfo(int int0) {
-  // TODO: Implement loadNetworkPlayerInfo
-  return false;
+ // TODO: Implement loadNetworkPlayerInfo
+ return false;
 }
 
 void ClientPlayerDB::forgetPlayer(int int0) {
-  // TODO: Implement forgetPlayer
+ // TODO: Implement forgetPlayer
 }
 
 int ClientPlayerDB::getNextServerPlayerIndex() {
-  // TODO: Implement getNextServerPlayerIndex
-  return 0;
+ // TODO: Implement getNextServerPlayerIndex
+ return 0;
 }
 
-public
-ClientPlayerDB::NetworkCharacterProfile() {
-  // TODO: Implement NetworkCharacterProfile
-  return nullptr;
+public ClientPlayerDB::NetworkCharacterProfile() {
+ // TODO: Implement NetworkCharacterProfile
+ return nullptr;
 }
 
 } // namespace savefile

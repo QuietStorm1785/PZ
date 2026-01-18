@@ -1,27 +1,27 @@
 #pragma once
-#include <cstdint>
-#include <filesystem>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include <filesystem>
 
 namespace org {
 namespace lwjglx {
 namespace util {
 namespace vector {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class ReadableVector {
 public:
-  virtual ~ReadableVector() = default;
-  float length();
+ virtual ~ReadableVector() = default;
+ float length();
 
-  float lengthSquared();
+ float lengthSquared();
 
-  Vector store(FloatBuffer var1);
+ Vector store(FloatBuffer var1);
 }
 } // namespace vector
 } // namespace util

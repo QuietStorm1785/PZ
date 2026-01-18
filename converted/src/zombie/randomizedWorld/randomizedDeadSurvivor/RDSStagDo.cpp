@@ -4,19 +4,18 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
-public
-RDSStagDo::RDSStagDo() {
-  // TODO: Implement RDSStagDo
-  return nullptr;
+public RDSStagDo::RDSStagDo() {
+ // TODO: Implement RDSStagDo
+ return nullptr;
 }
 
 bool RDSStagDo::isValid(BuildingDef def, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 void RDSStagDo::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 } // namespace randomizedDeadSurvivor

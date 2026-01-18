@@ -5,35 +5,35 @@ namespace core {
 namespace Styles {
 
 void Style::setupState() {
-  // TODO: Implement setupState
+ // TODO: Implement setupState
 }
 
 void Style::resetState() {
-  // TODO: Implement resetState
+ // TODO: Implement resetState
 }
 
 int Style::getStyleID() {
-  // TODO: Implement getStyleID
-  return 0;
+ // TODO: Implement getStyleID
+ return 0;
 }
 
 AlphaOp Style::getAlphaOp() {
-  // TODO: Implement getAlphaOp
-  return nullptr;
+ // TODO: Implement getAlphaOp
+ return nullptr;
 }
 
 bool Style::getRenderSprite() {
-  // TODO: Implement getRenderSprite
-  return false;
+ // TODO: Implement getRenderSprite
+ return false;
 }
 
 GeometryData Style::build() {
-  // TODO: Implement build
-  return nullptr;
+ // TODO: Implement build
+ return nullptr;
 }
 
 void Style::render(int vertexOffset, int indexOffset) {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 } // namespace Styles

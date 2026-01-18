@@ -3,14 +3,13 @@
 namespace fmod {
 namespace fmod {
 
-public
-DummySoundListener::DummySoundListener(int int0) {
-  // TODO: Implement DummySoundListener
-  return nullptr;
+public DummySoundListener::DummySoundListener(int int0) {
+ // TODO: Implement DummySoundListener
+ return nullptr;
 }
 
 void DummySoundListener::tick() {
-  // TODO: Implement tick
+ // TODO: Implement tick
 }
 
 } // namespace fmod

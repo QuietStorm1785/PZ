@@ -2,6 +2,8 @@
 
 namespace zombie {
 namespace characters {
-namespace action {} // namespace action
+namespace action {
+
+} // namespace action
 } // namespace characters
 } // namespace zombie

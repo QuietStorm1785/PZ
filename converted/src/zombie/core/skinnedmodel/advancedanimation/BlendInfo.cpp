@@ -6,22 +6,21 @@ namespace skinnedmodel {
 namespace advancedanimation {
 
 std::string BlendInfo::GetDebug() {
-  // TODO: Implement GetDebug
-  return "";
+ // TODO: Implement GetDebug
+ return "";
 }
 
-public
-BlendInfo::BlendInstance(BlendInfo blendInfo) {
-  // TODO: Implement BlendInstance
-  return nullptr;
+public BlendInfo::BlendInstance(BlendInfo blendInfo) {
+ // TODO: Implement BlendInstance
+ return nullptr;
 }
 
 void BlendInfo::set(float float0) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void BlendInfo::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 } // namespace advancedanimation

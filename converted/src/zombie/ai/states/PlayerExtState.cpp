@@ -5,24 +5,24 @@ namespace ai {
 namespace states {
 
 PlayerExtState PlayerExtState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void PlayerExtState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void PlayerExtState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void PlayerExtState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void PlayerExtState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 } // namespace states

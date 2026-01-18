@@ -5,25 +5,25 @@ namespace network {
 namespace packets {
 
 void PlayerPacket::parse(ByteBuffer byteBuffer, UdpConnection udpConnection) {
-  // TODO: Implement parse
+ // TODO: Implement parse
 }
 
 void PlayerPacket::write(ByteBufferWriter byteBufferWriter) {
-  // TODO: Implement write
+ // TODO: Implement write
 }
 
 int PlayerPacket::getPacketSizeBytes() {
-  // TODO: Implement getPacketSizeBytes
-  return 0;
+ // TODO: Implement getPacketSizeBytes
+ return 0;
 }
 
 bool PlayerPacket::set(IsoPlayer player) {
-  // TODO: Implement set
-  return false;
+ // TODO: Implement set
+ return false;
 }
 
 void PlayerPacket::copy(PlayerPacket playerPacket0) {
-  // TODO: Implement copy
+ // TODO: Implement copy
 }
 
 } // namespace packets

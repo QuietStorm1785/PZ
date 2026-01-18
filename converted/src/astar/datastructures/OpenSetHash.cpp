@@ -3,42 +3,41 @@
 namespace astar {
 namespace datastructures {
 
-public
-OpenSetHash::OpenSetHash(Comparator<ISearchNode> comparator) {
-  // TODO: Implement OpenSetHash
-  return nullptr;
+public OpenSetHash::OpenSetHash(Comparator<ISearchNode> comparator) {
+ // TODO: Implement OpenSetHash
+ return nullptr;
 }
 
 void OpenSetHash::add(ISearchNode iSearchNode) {
-  // TODO: Implement add
+ // TODO: Implement add
 }
 
 void OpenSetHash::remove(ISearchNode iSearchNode) {
-  // TODO: Implement remove
+ // TODO: Implement remove
 }
 
 ISearchNode OpenSetHash::poll() {
-  // TODO: Implement poll
-  return nullptr;
+ // TODO: Implement poll
+ return nullptr;
 }
 
 ISearchNode OpenSetHash::getNode(ISearchNode iSearchNode) {
-  // TODO: Implement getNode
-  return nullptr;
+ // TODO: Implement getNode
+ return nullptr;
 }
 
 int OpenSetHash::size() {
-  // TODO: Implement size
-  return 0;
+ // TODO: Implement size
+ return 0;
 }
 
 std::string OpenSetHash::toString() {
-  // TODO: Implement toString
-  return "";
+ // TODO: Implement toString
+ return "";
 }
 
 void OpenSetHash::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace datastructures

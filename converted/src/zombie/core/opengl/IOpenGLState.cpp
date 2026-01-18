@@ -5,20 +5,20 @@ namespace core {
 namespace opengl {
 
 void IOpenGLState::set(T value) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void IOpenGLState::setCurrentValue(T value) {
-  // TODO: Implement setCurrentValue
+ // TODO: Implement setCurrentValue
 }
 
 void IOpenGLState::setDirty() {
-  // TODO: Implement setDirty
+ // TODO: Implement setDirty
 }
 
 T IOpenGLState::getCurrentValue() {
-  // TODO: Implement getCurrentValue
-  return nullptr;
+ // TODO: Implement getCurrentValue
+ return nullptr;
 }
 
 } // namespace opengl

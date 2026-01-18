@@ -5,24 +5,23 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-AnimState AnimState::Parse(const std::string &name,
-                           const std::string &statePath) {
-  // TODO: Implement Parse
-  return nullptr;
+AnimState AnimState::Parse(const std::string& name, const std::string& statePath) {
+ // TODO: Implement Parse
+ return nullptr;
 }
 
 std::string AnimState::toString() {
-  // TODO: Implement toString
-  return "";
+ // TODO: Implement toString
+ return "";
 }
 
 std::string AnimState::getStateName(AnimState state) {
-  // TODO: Implement getStateName
-  return "";
+ // TODO: Implement getStateName
+ return "";
 }
 
 void AnimState::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace advancedanimation

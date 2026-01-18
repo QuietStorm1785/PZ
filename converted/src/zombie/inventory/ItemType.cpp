@@ -3,20 +3,19 @@
 namespace zombie {
 namespace inventory {
 
-private
-ItemType::ItemType(int int1) {
-  // TODO: Implement ItemType
-  return nullptr;
+private ItemType::ItemType(int int1) {
+ // TODO: Implement ItemType
+ return nullptr;
 }
 
 int ItemType::index() {
-  // TODO: Implement index
-  return 0;
+ // TODO: Implement index
+ return 0;
 }
 
 ItemType ItemType::fromIndex(int value) {
-  // TODO: Implement fromIndex
-  return nullptr;
+ // TODO: Implement fromIndex
+ return nullptr;
 }
 
 } // namespace inventory

@@ -6,19 +6,18 @@ namespace areas {
 namespace isoregion {
 namespace jobs {
 
-protected
-JobApplyChanges::JobApplyChanges() {
-  // TODO: Implement JobApplyChanges
-  return nullptr;
+protected JobApplyChanges::JobApplyChanges() {
+ // TODO: Implement JobApplyChanges
+ return nullptr;
 }
 
 void JobApplyChanges::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 bool JobApplyChanges::isSaveToDisk() {
-  // TODO: Implement isSaveToDisk
-  return false;
+ // TODO: Implement isSaveToDisk
+ return false;
 }
 
 } // namespace jobs

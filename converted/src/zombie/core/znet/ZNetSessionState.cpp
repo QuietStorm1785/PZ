@@ -5,8 +5,8 @@ namespace core {
 namespace znet {
 
 std::string ZNetSessionState::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 } // namespace znet

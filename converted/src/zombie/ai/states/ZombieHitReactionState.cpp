@@ -5,25 +5,24 @@ namespace ai {
 namespace states {
 
 ZombieHitReactionState ZombieHitReactionState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ZombieHitReactionState::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ZombieHitReactionState::execute(IsoGameCharacter character) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ZombieHitReactionState::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
-void ZombieHitReactionState::animEvent(IsoGameCharacter character,
-                                       AnimEvent animEvent) {
-  // TODO: Implement animEvent
+void ZombieHitReactionState::animEvent(IsoGameCharacter character, AnimEvent animEvent) {
+ // TODO: Implement animEvent
 }
 
 } // namespace states

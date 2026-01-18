@@ -4,8 +4,8 @@ namespace zombie {
 namespace network {
 
 IsoObject WorldItemTypes::createFromBuffer(ByteBuffer byteBuffer) {
-  // TODO: Implement createFromBuffer
-  return nullptr;
+ // TODO: Implement createFromBuffer
+ return nullptr;
 }
 
 } // namespace network

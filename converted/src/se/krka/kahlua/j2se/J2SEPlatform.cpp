@@ -6,32 +6,32 @@ namespace kahlua {
 namespace j2se {
 
 J2SEPlatform J2SEPlatform::getInstance() {
-  // TODO: Implement getInstance
-  return nullptr;
+ // TODO: Implement getInstance
+ return nullptr;
 }
 
 double J2SEPlatform::pow(double arg0, double arg1) {
-  // TODO: Implement pow
-  return 0;
+ // TODO: Implement pow
+ return 0;
 }
 
 KahluaTable J2SEPlatform::newTable() {
-  // TODO: Implement newTable
-  return nullptr;
+ // TODO: Implement newTable
+ return nullptr;
 }
 
 KahluaTable J2SEPlatform::newEnvironment() {
-  // TODO: Implement newEnvironment
-  return nullptr;
+ // TODO: Implement newEnvironment
+ return nullptr;
 }
 
 void J2SEPlatform::setupEnvironment(KahluaTable arg0) {
-  // TODO: Implement setupEnvironment
+ // TODO: Implement setupEnvironment
 }
 
 KahluaThread J2SEPlatform::setupWorkerThread(KahluaTable table) {
-  // TODO: Implement setupWorkerThread
-  return nullptr;
+ // TODO: Implement setupWorkerThread
+ return nullptr;
 }
 
 } // namespace j2se

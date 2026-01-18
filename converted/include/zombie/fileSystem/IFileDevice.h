@@ -1,30 +1,30 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
 #include <cstdint>
 #include <fstream>
 #include <iostream>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace fileSystem {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class IFileDevice {
 public:
-  virtual ~IFileDevice() = default;
-  IFile createFile(IFile child);
+ virtual ~IFileDevice() = default;
+ IFile createFile(IFile child);
 
-  void destroyFile(IFile file);
+ void destroyFile(IFile file);
 
-  InputStream createStream(const std::string &path, InputStream child);
+ InputStream createStream(const std::string& path, InputStream child);
 
-  void destroyStream(InputStream stream);
+ void destroyStream(InputStream stream);
 
-  std::string name();
+ std::string name();
 }
 } // namespace fileSystem
 } // namespace zombie

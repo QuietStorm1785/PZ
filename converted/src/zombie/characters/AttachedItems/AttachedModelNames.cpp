@@ -5,30 +5,30 @@ namespace characters {
 namespace AttachedItems {
 
 AttachedLocationGroup AttachedModelNames::getGroup() {
-  // TODO: Implement getGroup
-  return nullptr;
+ // TODO: Implement getGroup
+ return nullptr;
 }
 
 void AttachedModelNames::copyFrom(AttachedModelNames other) {
-  // TODO: Implement copyFrom
+ // TODO: Implement copyFrom
 }
 
 void AttachedModelNames::initFrom(AttachedItems attachedItems) {
-  // TODO: Implement initFrom
+ // TODO: Implement initFrom
 }
 
 int AttachedModelNames::size() {
-  // TODO: Implement size
-  return 0;
+ // TODO: Implement size
+ return 0;
 }
 
 AttachedModelName AttachedModelNames::get(int index) {
-  // TODO: Implement get
-  return nullptr;
+ // TODO: Implement get
+ return nullptr;
 }
 
 void AttachedModelNames::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace AttachedItems

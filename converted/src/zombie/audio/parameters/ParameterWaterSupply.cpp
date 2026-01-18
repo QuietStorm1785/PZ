@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterWaterSupply::ParameterWaterSupply() {
-  // TODO: Implement ParameterWaterSupply
-  return nullptr;
+public ParameterWaterSupply::ParameterWaterSupply() {
+ // TODO: Implement ParameterWaterSupply
+ return nullptr;
 }
 
 float ParameterWaterSupply::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

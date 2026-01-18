@@ -4,21 +4,21 @@ namespace zombie {
 namespace characters {
 
 void SurvivorGroup::addMember(SurvivorDesc member) {
-  // TODO: Implement addMember
+ // TODO: Implement addMember
 }
 
 void SurvivorGroup::removeMember(SurvivorDesc member) {
-  // TODO: Implement removeMember
+ // TODO: Implement removeMember
 }
 
 SurvivorDesc SurvivorGroup::getLeader() {
-  // TODO: Implement getLeader
-  return nullptr;
+ // TODO: Implement getLeader
+ return nullptr;
 }
 
 bool SurvivorGroup::isLeader(SurvivorDesc member) {
-  // TODO: Implement isLeader
-  return false;
+ // TODO: Implement isLeader
+ return false;
 }
 
 } // namespace characters

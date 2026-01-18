@@ -5,18 +5,17 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 
 void RBBurnt::randomizeBuilding(BuildingDef def) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 bool RBBurnt::isValid(BuildingDef def, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
-public
-RBBurnt::RBBurnt() {
-  // TODO: Implement RBBurnt
-  return nullptr;
+public RBBurnt::RBBurnt() {
+ // TODO: Implement RBBurnt
+ return nullptr;
 }
 
 } // namespace randomizedBuilding

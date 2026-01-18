@@ -5,8 +5,8 @@ namespace ai {
 namespace states {
 
 PathFindState2 PathFindState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 } // namespace states

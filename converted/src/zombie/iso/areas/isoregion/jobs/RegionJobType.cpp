@@ -4,7 +4,9 @@ namespace zombie {
 namespace iso {
 namespace areas {
 namespace isoregion {
-namespace jobs {} // namespace jobs
+namespace jobs {
+
+} // namespace jobs
 } // namespace isoregion
 } // namespace areas
 } // namespace iso

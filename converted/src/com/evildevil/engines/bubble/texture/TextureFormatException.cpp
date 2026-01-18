@@ -6,16 +6,14 @@ namespace engines {
 namespace bubble {
 namespace texture {
 
-public
-TextureFormatException::TextureFormatException() {
-  // TODO: Implement TextureFormatException
-  return nullptr;
+public TextureFormatException::TextureFormatException() {
+ // TODO: Implement TextureFormatException
+ return nullptr;
 }
 
-public
-TextureFormatException::TextureFormatException(const std::string &string) {
-  // TODO: Implement TextureFormatException
-  return nullptr;
+public TextureFormatException::TextureFormatException(const std::string& string) {
+ // TODO: Implement TextureFormatException
+ return nullptr;
 }
 
 } // namespace texture

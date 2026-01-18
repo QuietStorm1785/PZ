@@ -1,79 +1,67 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/erosion/ErosionMain.h"
 #include "zombie/iso/sprite/IsoSprite.h"
 #include "zombie/iso/sprite/IsoSpriteInstance.h"
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace erosion {
 namespace obj {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class ErosionObjOverlaySprites {
 public:
-  std::string name;
-  int stages;
-private
-  ErosionObjOverlaySprites.Stage[] sprites;
+ std::string name;
+ int stages;
+ private ErosionObjOverlaySprites.Stage[] sprites;
 
-public
-  ErosionObjOverlaySprites(int int0, const std::string &string) {
-    this.name = string;
-    this.stages = int0;
-    this.sprites = new ErosionObjOverlaySprites.Stage[this.stages];
+ public ErosionObjOverlaySprites(int int0, const std::string& string) {
+ this->name = string;
+ this->stages = int0;
+ this->sprites = new ErosionObjOverlaySprites.Stage[this->stages];
 
-    for (int int1 = 0; int1 < this.stages; int1++) {
-      this.sprites[int1] = new ErosionObjOverlaySprites.Stage();
-    }
-  }
+ for (int int1 = 0; int1 < this->stages; int1++) {
+ this->sprites[int1] = new ErosionObjOverlaySprites.Stage();
+ }
+ }
 
-  IsoSprite getSprite(int int1, int int0) {
-    return this.sprites[int1].seasons[int0].getSprite();
-  }
+ IsoSprite getSprite(int int1, int int0) {
+ return this->sprites[int1].seasons[int0].getSprite();
+ }
 
-  IsoSpriteInstance getSpriteInstance(int int1, int int0) {
-    return this.sprites[int1].seasons[int0].getInstance();
-  }
+ IsoSpriteInstance getSpriteInstance(int int1, int int0) {
+ return this->sprites[int1].seasons[int0].getInstance();
+ }
 
-  void setSprite(int int1, const std::string &string, int int0) {
-    this.sprites[int1].seasons[int0] =
-        new ErosionObjOverlaySprites.Sprite(string);
-  }
+ void setSprite(int int1, const std::string& string, int int0) {
+ this->sprites[int1].seasons[int0] = new ErosionObjOverlaySprites.Sprite(string);
+ }
 
-private
-  static final class Sprite {
-    const std::string sprite;
+ private static class Sprite {
+ const std::string sprite;
 
-  public
-    Sprite(const std::string &string) { this.sprite = string; }
+ public Sprite(const std::string& string) {
+ this->sprite = string;
+ }
 
-    IsoSprite getSprite() {
-      return this.sprite != nullptr
-                 ? ErosionMain.getInstance().getSpriteManager().getSprite(
-                       this.sprite)
-                 : nullptr;
-    }
+ IsoSprite getSprite() {
+ return this->sprite != nullptr ? ErosionMain.getInstance().getSpriteManager().getSprite(this->sprite) : nullptr;
+ }
 
-    IsoSpriteInstance getInstance() {
-      return this.sprite != nullptr ? ErosionMain.getInstance()
-                                          .getSpriteManager()
-                                          .getSprite(this.sprite)
-                                          .newInstance()
-                                    : nullptr;
-    }
-  }
+ IsoSpriteInstance getInstance() {
+ return this->sprite != nullptr ? ErosionMain.getInstance().getSpriteManager().getSprite(this->sprite).newInstance() : nullptr;
+ }
+ }
 
-  private static class Stage {
-  public
-    ErosionObjOverlaySprites.Sprite[] seasons =
-        new ErosionObjOverlaySprites.Sprite[6];
-  }
+ private static class Stage {
+ public ErosionObjOverlaySprites.Sprite[] seasons = new ErosionObjOverlaySprites.Sprite[6];
+ }
 }
 } // namespace obj
 } // namespace erosion

@@ -1,29 +1,28 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace com {
 namespace sixlegs {
 namespace png {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class TextChunk {
 public:
-  virtual ~TextChunk() = default;
-  std::string getKeyword();
+ virtual ~TextChunk() = default;
+ std::string getKeyword();
 
-  std::string getTranslatedKeyword();
+ std::string getTranslatedKeyword();
 
-  std::string getLanguage();
+ std::string getLanguage();
 
-  std::string getText();
+ std::string getText();
 
-  int getType();
+ int getType();
 }
 } // namespace png
 } // namespace sixlegs

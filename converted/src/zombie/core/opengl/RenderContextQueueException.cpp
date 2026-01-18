@@ -4,11 +4,9 @@ namespace zombie {
 namespace core {
 namespace opengl {
 
-public
-RenderContextQueueException::RenderContextQueueException(
-    std::exception throwable) {
-  // TODO: Implement RenderContextQueueException
-  return nullptr;
+public RenderContextQueueException::RenderContextQueueException(std::exception throwable) {
+ // TODO: Implement RenderContextQueueException
+ return nullptr;
 }
 
 } // namespace opengl

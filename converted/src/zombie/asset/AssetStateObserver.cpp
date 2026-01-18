@@ -3,9 +3,8 @@
 namespace zombie {
 namespace asset {
 
-void AssetStateObserver::onStateChanged(Asset.State oldState,
-                                        Asset.State newState, Asset asset) {
-  // TODO: Implement onStateChanged
+void AssetStateObserver::onStateChanged(Asset.State oldState, Asset.State newState, Asset asset) {
+ // TODO: Implement onStateChanged
 }
 
 } // namespace asset

@@ -1,31 +1,31 @@
 #pragma once
-#include "zombie/core/textures/TextureDraw.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/core/textures/TextureDraw.h"
 
 namespace zombie {
 namespace iso {
 namespace sprite {
 namespace shapers {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class WallShaperN : public WallShaper {
 public:
-  static const WallShaperN instance = new WallShaperN();
+ static const WallShaperN instance = new WallShaperN();
 
-  void accept(TextureDraw textureDraw) {
-    super.accept(textureDraw);
-    textureDraw.x0 = textureDraw.x0 * 0.5F + textureDraw.x1 * 0.5F;
-    textureDraw.x3 = textureDraw.x2 * 0.5F + textureDraw.x3 * 0.5F;
-    textureDraw.u0 = textureDraw.u0 * 0.5F + textureDraw.u1 * 0.5F;
-    textureDraw.u3 = textureDraw.u2 * 0.5F + textureDraw.u3 * 0.5F;
-    WallPaddingShaper.instance.accept(textureDraw);
-  }
+ void accept(TextureDraw textureDraw) {
+ super.accept(textureDraw);
+ textureDraw.x0 = textureDraw.x0 * 0.5F + textureDraw.x1 * 0.5F;
+ textureDraw.x3 = textureDraw.x2 * 0.5F + textureDraw.x3 * 0.5F;
+ textureDraw.u0 = textureDraw.u0 * 0.5F + textureDraw.u1 * 0.5F;
+ textureDraw.u3 = textureDraw.u2 * 0.5F + textureDraw.u3 * 0.5F;
+ WallPaddingShaper.instance.accept(textureDraw);
+ }
 }
 } // namespace shapers
 } // namespace sprite

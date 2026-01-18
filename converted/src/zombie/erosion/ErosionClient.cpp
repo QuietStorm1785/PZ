@@ -3,19 +3,18 @@
 namespace zombie {
 namespace erosion {
 
-public
-ErosionClient::ErosionClient(IsoSpriteManager spriteManager, bool var2) {
-  // TODO: Implement ErosionClient
-  return nullptr;
+public ErosionClient::ErosionClient(IsoSpriteManager spriteManager, bool var2) {
+ // TODO: Implement ErosionClient
+ return nullptr;
 }
 
 new ErosionClient::ErosionIceQueen() {
-  // TODO: Implement ErosionIceQueen
-  return nullptr;
+ // TODO: Implement ErosionIceQueen
+ return nullptr;
 }
 
 void ErosionClient::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 } // namespace erosion

@@ -5,20 +5,20 @@ namespace ai {
 namespace states {
 
 ZombieEatBodyState ZombieEatBodyState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ZombieEatBodyState::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ZombieEatBodyState::execute(IsoGameCharacter character) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ZombieEatBodyState::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 } // namespace states

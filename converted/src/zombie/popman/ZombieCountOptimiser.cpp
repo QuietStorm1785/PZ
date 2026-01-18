@@ -4,11 +4,11 @@ namespace zombie {
 namespace popman {
 
 void ZombieCountOptimiser::startCount() {
-  // TODO: Implement startCount
+ // TODO: Implement startCount
 }
 
 void ZombieCountOptimiser::incrementZombie(IsoZombie zombie0) {
-  // TODO: Implement incrementZombie
+ // TODO: Implement incrementZombie
 }
 
 } // namespace popman

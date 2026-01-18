@@ -4,52 +4,48 @@ namespace zombie {
 namespace core {
 namespace textures {
 
-public
-Pcx::Pcx(const std::string &var1) {
-  // TODO: Implement Pcx
-  return nullptr;
+public Pcx::Pcx(const std::string& var1) {
+ // TODO: Implement Pcx
+ return nullptr;
 }
 
-public
-Pcx::Pcx(URL var1) {
-  // TODO: Implement Pcx
-  return nullptr;
+public Pcx::Pcx(URL var1) {
+ // TODO: Implement Pcx
+ return nullptr;
 }
 
-public
-Pcx::Pcx(const std::string &var1, int[] var2) {
-  // TODO: Implement Pcx
-  return nullptr;
+public Pcx::Pcx(const std::string& var1, int[] var2) {
+ // TODO: Implement Pcx
+ return nullptr;
 }
 
-public
-Pcx::Pcx(const std::string &var1, const std::string &var2) {
-  // TODO: Implement Pcx
-  return nullptr;
+public Pcx::Pcx(const std::string& var1, const std::string& var2) {
+ // TODO: Implement Pcx
+ return nullptr;
 }
 
 Image Pcx::getImage() {
-  // TODO: Implement getImage
-  return nullptr;
+ // TODO: Implement getImage
+ return nullptr;
 }
 
 int Pcx::loadPCX(URL url) {
-  // TODO: Implement loadPCX
-  return 0;
+ // TODO: Implement loadPCX
+ return 0;
 }
 
-int Pcx::loadPCXminusPal(const std::string &string) {
-  // TODO: Implement loadPCXminusPal
-  return 0;
+int Pcx::loadPCXminusPal(const std::string& string) {
+ // TODO: Implement loadPCXminusPal
+ return 0;
 }
 
-int Pcx::loadPCXpal(const std::string &string) {
-  // TODO: Implement loadPCXpal
-  return 0;
+int Pcx::loadPCXpal(const std::string& string) {
+ // TODO: Implement loadPCXpal
+ return 0;
 }
 
 void Pcx::loadPCXpal(int[] ints) {
-  // TODO: Implement loadPCXpal
+ // TODO: Implement loadPCXpal
 }
 
 } // namespace textures

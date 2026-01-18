@@ -4,31 +4,30 @@ namespace zombie {
 namespace characters {
 namespace CharacterTimedActions {
 
-public
-LuaTimedAction::LuaTimedAction(KahluaTable _table, IsoGameCharacter chr) {
-  // TODO: Implement LuaTimedAction
-  return nullptr;
+public LuaTimedAction::LuaTimedAction(KahluaTable _table, IsoGameCharacter chr) {
+ // TODO: Implement LuaTimedAction
+ return nullptr;
 }
 
 void LuaTimedAction::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 bool LuaTimedAction::valid() {
-  // TODO: Implement valid
-  return false;
+ // TODO: Implement valid
+ return false;
 }
 
 void LuaTimedAction::start() {
-  // TODO: Implement start
+ // TODO: Implement start
 }
 
 void LuaTimedAction::stop() {
-  // TODO: Implement stop
+ // TODO: Implement stop
 }
 
 void LuaTimedAction::perform() {
-  // TODO: Implement perform
+ // TODO: Implement perform
 }
 
 } // namespace CharacterTimedActions

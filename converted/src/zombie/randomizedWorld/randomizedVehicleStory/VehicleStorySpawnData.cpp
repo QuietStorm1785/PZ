@@ -5,8 +5,8 @@ namespace randomizedWorld {
 namespace randomizedVehicleStory {
 
 bool VehicleStorySpawnData::isValid(IsoMetaGrid.Zone zone, IsoChunk chunk) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 } // namespace randomizedVehicleStory

@@ -5,25 +5,24 @@ namespace ai {
 namespace states {
 
 PlayerHitReactionState PlayerHitReactionState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void PlayerHitReactionState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void PlayerHitReactionState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void PlayerHitReactionState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
-void PlayerHitReactionState::animEvent(IsoGameCharacter owner,
-                                       AnimEvent event) {
-  // TODO: Implement animEvent
+void PlayerHitReactionState::animEvent(IsoGameCharacter owner, AnimEvent event) {
+ // TODO: Implement animEvent
 }
 
 } // namespace states

@@ -3,18 +3,17 @@
 namespace zombie {
 namespace characters {
 
-public
-ZombieFootstepManager::ZombieFootstepManager() {
-  // TODO: Implement ZombieFootstepManager
-  return nullptr;
+public ZombieFootstepManager::ZombieFootstepManager() {
+ // TODO: Implement ZombieFootstepManager
+ return nullptr;
 }
 
 void ZombieFootstepManager::playSound(IsoZombie zombie0) {
-  // TODO: Implement playSound
+ // TODO: Implement playSound
 }
 
 void ZombieFootstepManager::postUpdate() {
-  // TODO: Implement postUpdate
+ // TODO: Implement postUpdate
 }
 
 } // namespace characters

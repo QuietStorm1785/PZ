@@ -1,42 +1,44 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace core {
 namespace Styles {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 /**
  * Really basic geometry data which is used by
  */
 class GeometryData {
 public:
-  const FloatList vertexData;
-  const ShortList indexData;
+ const FloatList vertexData;
+ const ShortList indexData;
 
-  /**
-   * C'tor
-   */
-public
-  GeometryData(FloatList _vertexData, ShortList _indexData) {
-    this.vertexData = _vertexData;
-    this.indexData = _indexData;
-  }
+ /**
+ * C'tor
+ */
+ public GeometryData(FloatList _vertexData, ShortList _indexData) {
+ this->vertexData = _vertexData;
+ this->indexData = _indexData;
+ }
 
-  void clear() {
-    this.vertexData.clear();
-    this.indexData.clear();
-  }
+ void clear() {
+ this->vertexData.clear();
+ this->indexData.clear();
+ }
 
-  FloatList getVertexData() { return this.vertexData; }
+ FloatList getVertexData() {
+ return this->vertexData;
+ }
 
-  ShortList getIndexData() { return this.indexData; }
+ ShortList getIndexData() {
+ return this->indexData;
+ }
 }
 } // namespace Styles
 } // namespace core

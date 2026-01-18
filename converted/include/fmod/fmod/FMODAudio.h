@@ -1,37 +1,49 @@
 #pragma once
-#include "zombie/audio/BaseSoundEmitter.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/audio/BaseSoundEmitter.h"
 
 namespace fmod {
 namespace fmod {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class FMODAudio {
 public:
-  BaseSoundEmitter emitter;
+ BaseSoundEmitter emitter;
 
-public
-  FMODAudio(BaseSoundEmitter arg0) { this.emitter = arg0; }
+ public FMODAudio(BaseSoundEmitter arg0) {
+ this->emitter = arg0;
+ }
 
-  bool isPlaying() { return !this.emitter.isEmpty(); }
+ bool isPlaying() {
+ return !this->emitter.empty();
+ }
 
-  void setVolume(float arg0) { this.emitter.setVolumeAll(arg0); }
+ void setVolume(float arg0) {
+ this->emitter.setVolumeAll(arg0);
+ }
 
-  void start() {}
+ void start() {
+ }
 
-  void pause() {}
+ void pause() {
+ }
 
-  void stop() { this.emitter.stopAll(); }
+ void stop() {
+ this->emitter.stopAll();
+ }
 
-  void setName(const std::string &arg0) {}
+ void setName(const std::string& arg0) {
+ }
 
-  std::string getName() { return null; }
+ std::string getName() {
+ return nullptr;
+ }
 }
 } // namespace fmod
 } // namespace fmod

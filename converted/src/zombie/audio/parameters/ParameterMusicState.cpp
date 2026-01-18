@@ -4,25 +4,23 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterMusicState::ParameterMusicState() {
-  // TODO: Implement ParameterMusicState
-  return nullptr;
+public ParameterMusicState::ParameterMusicState() {
+ // TODO: Implement ParameterMusicState
+ return nullptr;
 }
 
 float ParameterMusicState::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 void ParameterMusicState::setState(ParameterMusicState.State _state) {
-  // TODO: Implement setState
+ // TODO: Implement setState
 }
 
-private
-ParameterMusicState::State(int int1) {
-  // TODO: Implement State
-  return nullptr;
+private ParameterMusicState::State(int int1) {
+ // TODO: Implement State
+ return nullptr;
 }
 
 } // namespace parameters

@@ -5,14 +5,13 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 namespace TableStories {
 
-public
-RBTSSewing::RBTSSewing() {
-  // TODO: Implement RBTSSewing
-  return nullptr;
+public RBTSSewing::RBTSSewing() {
+ // TODO: Implement RBTSSewing
+ return nullptr;
 }
 
 void RBTSSewing::randomizeBuilding(BuildingDef var1) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 } // namespace TableStories

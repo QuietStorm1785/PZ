@@ -5,7 +5,7 @@ namespace jcraft {
 namespace jorbis {
 
 void PsyInfo::free() {
-  // TODO: Implement free
+ // TODO: Implement free
 }
 
 } // namespace jorbis

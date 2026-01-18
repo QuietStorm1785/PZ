@@ -4,7 +4,7 @@ namespace zombie {
 namespace util {
 
 void PooledObjectArrayObject::onReleased() {
-  // TODO: Implement onReleased
+ // TODO: Implement onReleased
 }
 
 } // namespace util

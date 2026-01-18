@@ -4,12 +4,12 @@ namespace zombie {
 namespace interfaces {
 
 void IDestroyable::destroy() {
-  // TODO: Implement destroy
+ // TODO: Implement destroy
 }
 
 bool IDestroyable::isDestroyed() {
-  // TODO: Implement isDestroyed
-  return false;
+ // TODO: Implement isDestroyed
+ return false;
 }
 
 } // namespace interfaces

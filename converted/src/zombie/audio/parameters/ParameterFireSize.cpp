@@ -4,19 +4,18 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterFireSize::ParameterFireSize() {
-  // TODO: Implement ParameterFireSize
-  return nullptr;
+public ParameterFireSize::ParameterFireSize() {
+ // TODO: Implement ParameterFireSize
+ return nullptr;
 }
 
 float ParameterFireSize::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 void ParameterFireSize::setSize(int _size) {
-  // TODO: Implement setSize
+ // TODO: Implement setSize
 }
 
 } // namespace parameters

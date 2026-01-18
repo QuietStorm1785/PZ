@@ -4,11 +4,11 @@ namespace zombie {
 namespace vehicles {
 
 void VehicleModelCamera::Begin() {
-  // TODO: Implement Begin
+ // TODO: Implement Begin
 }
 
 void VehicleModelCamera::End() {
-  // TODO: Implement End
+ // TODO: Implement End
 }
 
 } // namespace vehicles

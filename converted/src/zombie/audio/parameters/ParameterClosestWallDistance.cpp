@@ -4,20 +4,19 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterClosestWallDistance::ParameterClosestWallDistance() {
-  // TODO: Implement ParameterClosestWallDistance
-  return nullptr;
+public ParameterClosestWallDistance::ParameterClosestWallDistance() {
+ // TODO: Implement ParameterClosestWallDistance
+ return nullptr;
 }
 
 float ParameterClosestWallDistance::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 IsoGameCharacter ParameterClosestWallDistance::getCharacter() {
-  // TODO: Implement getCharacter
-  return nullptr;
+ // TODO: Implement getCharacter
+ return nullptr;
 }
 
 } // namespace parameters

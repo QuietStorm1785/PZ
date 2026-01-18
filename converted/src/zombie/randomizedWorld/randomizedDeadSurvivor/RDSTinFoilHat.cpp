@@ -4,14 +4,13 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
-public
-RDSTinFoilHat::RDSTinFoilHat() {
-  // TODO: Implement RDSTinFoilHat
-  return nullptr;
+public RDSTinFoilHat::RDSTinFoilHat() {
+ // TODO: Implement RDSTinFoilHat
+ return nullptr;
 }
 
 void RDSTinFoilHat::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 } // namespace randomizedDeadSurvivor

@@ -1,52 +1,49 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
 #include <cstdint>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace org {
 namespace lwjglx {
 namespace util {
 namespace vector {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class Vector {
 public:
-protected
-  Vector() {}
+ protected Vector() {
+ }
 
-  float length() { return (float)Math.sqrt(this.lengthSquared()); }
+ float length() {
+ return (float)Math.sqrt(this->lengthSquared());
+ }
 
-public
-  abstract float lengthSquared();
+ public float lengthSquared();
 
-public
-  abstract Vector load(FloatBuffer var1);
+ public Vector load(FloatBuffer var1);
 
-public
-  abstract Vector negate();
+ public Vector negate();
 
-  Vector normalise() {
-    float float0 = this.length();
-    if (float0 != 0.0F) {
-      float float1 = 1.0F / float0;
-      return this.scale(float1);
-    } else {
-      throw new IllegalStateException("Zero length vector");
-    }
-  }
+ Vector normalise() {
+ float float0 = this->length();
+ if (float0 != 0.0F) {
+ float float1 = 1.0F / float0;
+ return this->scale(float1);
+ } else {
+ throw IllegalStateException("Zero length vector");
+ }
+ }
 
-public
-  abstract Vector store(FloatBuffer var1);
+ public Vector store(FloatBuffer var1);
 
-public
-  abstract Vector scale(float var1);
+ public Vector scale(float var1);
 }
 } // namespace vector
 } // namespace util

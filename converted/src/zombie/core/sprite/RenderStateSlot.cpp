@@ -4,20 +4,19 @@ namespace zombie {
 namespace core {
 namespace sprite {
 
-private
-RenderStateSlot::RenderStateSlot(int int1) {
-  // TODO: Implement RenderStateSlot
-  return nullptr;
+private RenderStateSlot::RenderStateSlot(int int1) {
+ // TODO: Implement RenderStateSlot
+ return nullptr;
 }
 
 int RenderStateSlot::index() {
-  // TODO: Implement index
-  return 0;
+ // TODO: Implement index
+ return 0;
 }
 
 int RenderStateSlot::count() {
-  // TODO: Implement count
-  return 0;
+ // TODO: Implement count
+ return 0;
 }
 
 } // namespace sprite

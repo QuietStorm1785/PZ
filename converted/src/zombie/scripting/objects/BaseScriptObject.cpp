@@ -4,13 +4,13 @@ namespace zombie {
 namespace scripting {
 namespace objects {
 
-void BaseScriptObject::Load(const std::string &var1, String[] var2) {
-  // TODO: Implement Load
+void BaseScriptObject::Load(const std::string& var1, String[] var2) {
+ // TODO: Implement Load
 }
 
 ScriptModule BaseScriptObject::getModule() {
-  // TODO: Implement getModule
-  return nullptr;
+ // TODO: Implement getModule
+ return nullptr;
 }
 
 } // namespace objects

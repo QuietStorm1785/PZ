@@ -6,12 +6,12 @@ namespace skinnedmodel {
 namespace population {
 
 std::string ClothingDecalGroup::getRandomDecal() {
-  // TODO: Implement getRandomDecal
-  return "";
+ // TODO: Implement getRandomDecal
+ return "";
 }
 
 void ClothingDecalGroup::getDecals(ArrayList<String> arrayList) {
-  // TODO: Implement getDecals
+ // TODO: Implement getDecals
 }
 
 } // namespace population

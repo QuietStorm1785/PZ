@@ -5,52 +5,50 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-public
-AnimationVariableSlotFloat::AnimationVariableSlotFloat(
-    const std::string &string) {
-  // TODO: Implement AnimationVariableSlotFloat
-  return nullptr;
+public AnimationVariableSlotFloat::AnimationVariableSlotFloat(const std::string& string) {
+ // TODO: Implement AnimationVariableSlotFloat
+ return nullptr;
 }
 
 std::string AnimationVariableSlotFloat::getValueString() {
-  // TODO: Implement getValueString
-  return "";
+ // TODO: Implement getValueString
+ return "";
 }
 
 float AnimationVariableSlotFloat::getValueFloat() {
-  // TODO: Implement getValueFloat
-  return 0;
+ // TODO: Implement getValueFloat
+ return 0;
 }
 
 bool AnimationVariableSlotFloat::getValueBool() {
-  // TODO: Implement getValueBool
-  return false;
+ // TODO: Implement getValueBool
+ return false;
 }
 
-void AnimationVariableSlotFloat::setValue(const std::string &string) {
-  // TODO: Implement setValue
+void AnimationVariableSlotFloat::setValue(const std::string& string) {
+ // TODO: Implement setValue
 }
 
 void AnimationVariableSlotFloat::setValue(float float0) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 void AnimationVariableSlotFloat::setValue(bool boolean0) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 AnimationVariableType AnimationVariableSlotFloat::getType() {
-  // TODO: Implement getType
-  return nullptr;
+ // TODO: Implement getType
+ return nullptr;
 }
 
-bool AnimationVariableSlotFloat::canConvertFrom(const std::string &string) {
-  // TODO: Implement canConvertFrom
-  return false;
+bool AnimationVariableSlotFloat::canConvertFrom(const std::string& string) {
+ // TODO: Implement canConvertFrom
+ return false;
 }
 
 void AnimationVariableSlotFloat::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace advancedanimation

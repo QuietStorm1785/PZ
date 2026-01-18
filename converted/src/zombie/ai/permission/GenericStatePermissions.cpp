@@ -5,21 +5,21 @@ namespace ai {
 namespace permission {
 
 void GenericStatePermissions::setDeferredMovementAllowed(bool boolean0) {
-  // TODO: Implement setDeferredMovementAllowed
+ // TODO: Implement setDeferredMovementAllowed
 }
 
 bool GenericStatePermissions::isDeferredMovementAllowed(IsoGameCharacter var1) {
-  // TODO: Implement isDeferredMovementAllowed
-  return false;
+ // TODO: Implement isDeferredMovementAllowed
+ return false;
 }
 
 void GenericStatePermissions::setPlayerInputAllowed(bool boolean0) {
-  // TODO: Implement setPlayerInputAllowed
+ // TODO: Implement setPlayerInputAllowed
 }
 
 bool GenericStatePermissions::isPlayerInputAllowed(IsoGameCharacter var1) {
-  // TODO: Implement isPlayerInputAllowed
-  return false;
+ // TODO: Implement isPlayerInputAllowed
+ return false;
 }
 
 } // namespace permission

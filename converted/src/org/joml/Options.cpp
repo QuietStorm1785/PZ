@@ -3,20 +3,19 @@
 namespace org {
 namespace joml {
 
-private
-Options::Options() {
-  // TODO: Implement Options
-  return nullptr;
+private Options::Options() {
+ // TODO: Implement Options
+ return nullptr;
 }
 
 NumberFormat Options::decimalFormat() {
-  // TODO: Implement decimalFormat
-  return nullptr;
+ // TODO: Implement decimalFormat
+ return nullptr;
 }
 
-bool Options::hasOption(const std::string &string) {
-  // TODO: Implement hasOption
-  return false;
+bool Options::hasOption(const std::string& string) {
+ // TODO: Implement hasOption
+ return false;
 }
 
 } // namespace joml

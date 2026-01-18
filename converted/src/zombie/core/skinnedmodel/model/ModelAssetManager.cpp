@@ -6,17 +6,16 @@ namespace skinnedmodel {
 namespace model {
 
 void ModelAssetManager::startLoading(Asset var1) {
-  // TODO: Implement startLoading
+ // TODO: Implement startLoading
 }
 
-Asset ModelAssetManager::createAsset(AssetPath assetPath,
-                                     AssetManager.AssetParams assetParams) {
-  // TODO: Implement createAsset
-  return {};
+Asset ModelAssetManager::createAsset(AssetPath assetPath, AssetManager.AssetParams assetParams) {
+ // TODO: Implement createAsset
+ return {};
 }
 
 void ModelAssetManager::destroyAsset(Asset var1) {
-  // TODO: Implement destroyAsset
+ // TODO: Implement destroyAsset
 }
 
 } // namespace model

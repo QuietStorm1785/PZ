@@ -1,57 +1,56 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace org {
 namespace lwjglx {
 namespace util {
 namespace glu {
 namespace tessellation {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class PriorityQ {
 public:
-  static const int INIT_SIZE = 32;
+ static const int INIT_SIZE = 32;
 
-  static bool LEQ(PriorityQ.Leq var0, void *object1, void *object0) {
-    return Geom.VertLeq((GLUvertex)object1, (GLUvertex)object0);
-  }
+ static bool LEQ(PriorityQ.Leq var0, void* object1, void* object0) {
+ return Geom.VertLeq((GLUvertex)object1, (GLUvertex)object0);
+ }
 
-  static PriorityQ pqNewPriorityQ(PriorityQ.Leq leq) {
-    return new PriorityQSort(leq);
-  }
+ static PriorityQ pqNewPriorityQ(PriorityQ.Leq leq) {
+ return new PriorityQSort(leq);
+ }
 
-  abstract void pqDeletePriorityQ();
+ void pqDeletePriorityQ();
 
-  abstract boolean pqInit();
+ boolean pqInit();
 
-  abstract int pqInsert(Object var1);
+ int pqInsert(Object var1);
 
-  abstract Object pqExtractMin();
+ Object pqExtractMin();
 
-  abstract void pqDelete(int var1);
+ void pqDelete(int var1);
 
-  abstract Object pqMinimum();
+ Object pqMinimum();
 
-  abstract boolean pqIsEmpty();
+ boolean pqIsEmpty();
 
-public
-  interface Leq { bool leq(void *var1, void *var2); }
+ public interface Leq {
+ bool leq(void* var1, void* var2);
+ }
 
-public
-  static class PQhandleElem {
-    void *key;
-    int node;
-  }
+ public static class PQhandleElem {
+ void* key;
+ int node;
+ }
 
-  public static class PQnode {
-    int handle;
-  }
+ public static class PQnode {
+ int handle;
+ }
 }
 } // namespace tessellation
 } // namespace glu

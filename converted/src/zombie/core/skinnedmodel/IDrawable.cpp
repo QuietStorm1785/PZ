@@ -5,7 +5,7 @@ namespace core {
 namespace skinnedmodel {
 
 void IDrawable::Draw() {
-  // TODO: Implement Draw
+ // TODO: Implement Draw
 }
 
 } // namespace skinnedmodel

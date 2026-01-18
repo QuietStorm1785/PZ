@@ -5,32 +5,30 @@ namespace core {
 namespace skinnedmodel {
 namespace model {
 
-public
-AnimationAsset::AnimationAsset(AssetPath path, AssetManager manager,
-                               AnimationAsset.AnimationAssetParams params) {
-  // TODO: Implement AnimationAsset
-  return nullptr;
+public AnimationAsset::AnimationAsset(AssetPath path, AssetManager manager, AnimationAsset.AnimationAssetParams params) {
+ // TODO: Implement AnimationAsset
+ return nullptr;
 }
 
 void AnimationAsset::onLoadedX(ProcessedAiScene processedAiScene) {
-  // TODO: Implement onLoadedX
+ // TODO: Implement onLoadedX
 }
 
 void AnimationAsset::onLoadedTxt(ModelTxt modelTxt) {
-  // TODO: Implement onLoadedTxt
+ // TODO: Implement onLoadedTxt
 }
 
 void AnimationAsset::onBeforeReady() {
-  // TODO: Implement onBeforeReady
+ // TODO: Implement onBeforeReady
 }
 
 void AnimationAsset::setAssetParams(AssetManager.AssetParams params) {
-  // TODO: Implement setAssetParams
+ // TODO: Implement setAssetParams
 }
 
 AssetType AnimationAsset::getType() {
-  // TODO: Implement getType
-  return {};
+ // TODO: Implement getType
+ return {};
 }
 
 } // namespace model

@@ -4,21 +4,21 @@ namespace astar {
 namespace datastructures {
 
 bool IClosedSet::contains(ISearchNode var1) {
-  // TODO: Implement contains
-  return false;
+ // TODO: Implement contains
+ return false;
 }
 
 void IClosedSet::add(ISearchNode var1) {
-  // TODO: Implement add
+ // TODO: Implement add
 }
 
 ISearchNode IClosedSet::min() {
-  // TODO: Implement min
-  return nullptr;
+ // TODO: Implement min
+ return nullptr;
 }
 
 void IClosedSet::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace datastructures

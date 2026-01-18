@@ -1,4 +1,10 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "org/joml/Vector2f.h"
 #include "org/joml/Vector4f.h"
 #include "org/lwjgl/opengl/ARBShaderObjects.h"
@@ -15,297 +21,299 @@
 #include "zombie/interfaces/ITexture.h"
 #include "zombie/iso/weather/ClimateManager.h"
 #include <algorithm>
-#include <cstdint>
 #include <filesystem>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace iso {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class IsoWater {
 public:
-  Shader Effect;
-  float WaterTime;
-  float WaterWindAngle;
-  float WaterWindIntensity;
-  float WaterRainIntensity;
-  Vector2f WaterParamWindINT;
-  Texture texBottom;
-  int apiId;
-  static IsoWater instance;
-  static bool isShaderEnable = false;
-private
-  final IsoWater.RenderData[][] renderData = new IsoWater.RenderData[3][4];
-private
-  final IsoWater.RenderData[][] renderDataShore = new IsoWater.RenderData[3][4];
-  static const int BYTES_PER_FLOAT = 4;
-  static const int FLOATS_PER_VERTEX = 7;
-  static const int BYTES_PER_VERTEX = 28;
-  static const int VERTICES_PER_SQUARE = 4;
-  const Vector4f shaderOffset = new Vector4f();
+ Shader Effect;
+ float WaterTime;
+ float WaterWindAngle;
+ float WaterWindIntensity;
+ float WaterRainIntensity;
+ Vector2f WaterParamWindINT;
+ Texture texBottom;
+ int apiId;
+ static IsoWater instance;
+ static bool isShaderEnable = false;
+ private IsoWater.RenderData[][] renderData = new IsoWater.RenderData[3][4];
+ private IsoWater.RenderData[][] renderDataShore = new IsoWater.RenderData[3][4];
+ static const int BYTES_PER_FLOAT = 4;
+ static const int FLOATS_PER_VERTEX = 7;
+ static const int BYTES_PER_VERTEX = 28;
+ static const int VERTICES_PER_SQUARE = 4;
+ const Vector4f shaderOffset = new Vector4f();
 
-public
-  static synchronized IsoWater getInstance() {
-    if (instance == nullptr) {
-      instance = std::make_unique<IsoWater>();
-    }
+ public static synchronized IsoWater getInstance() {
+ if (instance.empty()) {
+ instance = std::make_unique<IsoWater>();
+ }
 
-    return instance;
-  }
+ return instance;
+ }
 
-  bool getShaderEnable() { return isShaderEnable; }
+ bool getShaderEnable() {
+ return isShaderEnable;
+ }
 
-public
-  IsoWater() {
-    this.texBottom =
-        Texture.getSharedTexture("media/textures/river_bottom.png");
-    RenderThread.invokeOnRenderContext(()->{
-      if (GL.getCapabilities().OpenGL30) {
-        this.apiId = 1;
-      }
+ public IsoWater() {
+ this->texBottom = Texture.getSharedTexture("media/textures/river_bottom.png");
+ RenderThread.invokeOnRenderContext(() -> {
+ if (GL.getCapabilities().OpenGL30) {
+ this->apiId = 1;
+ }
 
-      if (GL.getCapabilities().GL_ARB_framebuffer_object) {
-        this.apiId = 2;
-      }
+ if (GL.getCapabilities().GL_ARB_framebuffer_object) {
+ this->apiId = 2;
+ }
 
-      if (GL.getCapabilities().GL_EXT_framebuffer_object) {
-        this.apiId = 3;
-      }
-    });
+ if (GL.getCapabilities().GL_EXT_framebuffer_object) {
+ this->apiId = 3;
+ }
+ });
 
-    for (int int0 = 0; int0 < this.renderData.length; int0++) {
-      for (int int1 = 0; int1 < 4; int1++) {
-        this.renderData[int0][int1] = new IsoWater.RenderData();
-        this.renderDataShore[int0][int1] = new IsoWater.RenderData();
-      }
-    }
+ for (int int0 = 0; int0 < this->renderData.length; int0++) {
+ for (int int1 = 0; int1 < 4; int1++) {
+ this->renderData[int0][int1] = new IsoWater.RenderData();
+ this->renderDataShore[int0][int1] = new IsoWater.RenderData();
+ }
+ }
 
-    this.applyWaterQuality();
-    this.WaterParamWindINT = new Vector2f(0.0F);
-  }
+ this->applyWaterQuality();
+ this->WaterParamWindINT = new Vector2f(0.0F);
+ }
 
-  void applyWaterQuality() {
-    if (PerformanceSettings.WaterQuality == 2) {
-      isShaderEnable = false;
-    }
+ void applyWaterQuality() {
+ if (PerformanceSettings.WaterQuality == 2) {
+ isShaderEnable = false;
+ }
 
-    if (PerformanceSettings.WaterQuality == 1) {
-      isShaderEnable = true;
-      RenderThread.invokeOnRenderContext(()->{
-        ARBShaderObjects.glUseProgramObjectARB(0);
-        this.Effect = new WaterShader("water");
-        ARBShaderObjects.glUseProgramObjectARB(0);
-      });
-    }
+ if (PerformanceSettings.WaterQuality == 1) {
+ isShaderEnable = true;
+ RenderThread.invokeOnRenderContext(() -> {
+ ARBShaderObjects.glUseProgramObjectARB(0);
+ this->Effect = new WaterShader("water");
+ ARBShaderObjects.glUseProgramObjectARB(0);
+ });
+ }
 
-    if (PerformanceSettings.WaterQuality == 0) {
-      isShaderEnable = true;
-      RenderThread.invokeOnRenderContext(()->{
-        this.Effect = new WaterShader("water_hq");
-        this.Effect.Start();
-        this.Effect.End();
-      });
-    }
-  }
+ if (PerformanceSettings.WaterQuality == 0) {
+ isShaderEnable = true;
+ RenderThread.invokeOnRenderContext(() -> {
+ this->Effect = new WaterShader("water_hq");
+ this->Effect.Start();
+ this->Effect.End();
+ });
+ }
+ }
 
-  void render(ArrayList<IsoGridSquare> arrayList, bool boolean0) {
-    if (this.getShaderEnable()) {
-      int int0 = IsoCamera.frameState.playerIndex;
-      int int1 = SpriteRenderer.instance.getMainStateIndex();
-      IsoWater.RenderData renderData0 = this.renderData[int1][int0];
-      IsoWater.RenderData renderData1 = this.renderDataShore[int1][int0];
-      if (boolean0) {
-        if (renderData1.numSquares > 0) {
-          SpriteRenderer.instance.drawWater(this.Effect, int0, this.apiId,
-                                            true);
-        }
-      } else {
-        renderData0.clear();
-        renderData1.clear();
+ void render(ArrayList<IsoGridSquare> arrayList, bool boolean0) {
+ if (this->getShaderEnable()) {
+ int int0 = IsoCamera.frameState.playerIndex;
+ int int1 = SpriteRenderer.instance.getMainStateIndex();
+ IsoWater.RenderData renderData0 = this->renderData[int1][int0];
+ IsoWater.RenderData renderData1 = this->renderDataShore[int1][int0];
+ if (boolean0) {
+ if (renderData1.numSquares > 0) {
+ SpriteRenderer.instance.drawWater(this->Effect, int0, this->apiId, true);
+ }
+ } else {
+ renderData0.clear();
+ renderData1.clear();
 
-        for (int int2 = 0; int2 < arrayList.size(); int2++) {
-          IsoGridSquare square = (IsoGridSquare)arrayList.get(int2);
-          if (square.chunk == nullptr ||
-              !square.chunk.bLightingNeverDone[int0]) {
-            IsoWaterGeometry waterGeometry = square.getWater();
-            if (waterGeometry != nullptr) {
-              if (waterGeometry.bShore) {
-                renderData1.addSquare(waterGeometry);
-              } else if (waterGeometry.hasWater) {
-                renderData0.addSquare(waterGeometry);
-              }
-            }
-          }
-        }
+ for (int int2 = 0; int2 < arrayList.size(); int2++) {
+ IsoGridSquare square = (IsoGridSquare)arrayList.get(int2);
+ if (square.chunk.empty() || !square.chunk.bLightingNeverDone[int0]) {
+ IsoWaterGeometry waterGeometry = square.getWater();
+ if (waterGeometry != nullptr) {
+ if (waterGeometry.bShore) {
+ renderData1.addSquare(waterGeometry);
+ } else if (waterGeometry.hasWater) {
+ renderData0.addSquare(waterGeometry);
+ }
+ }
+ }
+ }
 
-        if (renderData0.numSquares != 0) {
-          SpriteRenderer.instance.drawWater(this.Effect, int0, this.apiId,
-                                            false);
-        }
-      }
-    }
-  }
+ if (renderData0.numSquares != 0) {
+ SpriteRenderer.instance.drawWater(this->Effect, int0, this->apiId, false);
+ }
+ }
+ }
+ }
 
-  void waterProjection() {
-    int int0 = SpriteRenderer.instance.getRenderingPlayerIndex();
-    PlayerCamera playerCamera =
-        SpriteRenderer.instance.getRenderingPlayerCamera(int0);
-    GL11.glOrtho(playerCamera.getOffX(),
-                 playerCamera.getOffX() + playerCamera.OffscreenWidth,
-                 playerCamera.getOffY() + playerCamera.OffscreenHeight,
-                 playerCamera.getOffY(), -1.0, 1.0);
-  }
+ void waterProjection() {
+ int int0 = SpriteRenderer.instance.getRenderingPlayerIndex();
+ PlayerCamera playerCamera = SpriteRenderer.instance.getRenderingPlayerCamera(int0);
+ GL11.glOrtho(
+ playerCamera.getOffX(),
+ playerCamera.getOffX() + playerCamera.OffscreenWidth,
+ playerCamera.getOffY() + playerCamera.OffscreenHeight,
+ playerCamera.getOffY(),
+ -1.0,
+ 1.0
+ );
+ }
 
-  void waterGeometry(bool boolean0) {
-    long long0 = System.nanoTime();
-    int int0 = SpriteRenderer.instance.getRenderStateIndex();
-    int int1 = SpriteRenderer.instance.getRenderingPlayerIndex();
-    IsoWater.RenderData renderDatax = boolean0
-                                          ? this.renderDataShore[int0][int1]
-                                          : this.renderData[int0][int1];
-    int int2 = 0;
-    int int3 = renderDatax.numSquares;
+ void waterGeometry(bool boolean0) {
+ long long0 = System.nanoTime();
+ int int0 = SpriteRenderer.instance.getRenderStateIndex();
+ int int1 = SpriteRenderer.instance.getRenderingPlayerIndex();
+ IsoWater.RenderData renderDatax = boolean0 ? this->renderDataShore[int0][int1] : this->renderData[int0][int1];
+ int int2 = 0;
+ int int3 = renderDatax.numSquares;
 
-    while (int3 > 0) {
-      int int4 = this.renderSome(int2, int3, boolean0);
-      int2 += int4;
-      int3 -= int4;
-    }
+ while (int3 > 0) {
+ int int4 = this->renderSome(int2, int3, boolean0);
+ int2 += int4;
+ int3 -= int4;
+ }
 
-    long long1 = System.nanoTime();
-    SpriteRenderer.ringBuffer.restoreVBOs = true;
-  }
+ long long1 = System.nanoTime();
+ SpriteRenderer.ringBuffer.restoreVBOs = true;
+ }
 
-  int renderSome(int int4, int int3, bool boolean0) {
-    IsoPuddles.VBOs.next();
-    FloatBuffer floatBuffer = IsoPuddles.VBOs.vertices;
-    ShortBuffer shortBuffer = IsoPuddles.VBOs.indices;
-    GL13.glActiveTexture(33985);
-    GL13.glClientActiveTexture(33985);
-    GL11.glTexCoordPointer(2, 5126, 28, 8L);
-    GL11.glEnableClientState(32888);
-    GL13.glActiveTexture(33984);
-    GL13.glClientActiveTexture(33984);
-    GL11.glTexCoordPointer(2, 5126, 28, 0L);
-    GL11.glColorPointer(4, 5121, 28, 24L);
-    GL11.glVertexPointer(2, 5126, 28, 16L);
-    int int0 = SpriteRenderer.instance.getRenderStateIndex();
-    int int1 = SpriteRenderer.instance.getRenderingPlayerIndex();
-    IsoWater.RenderData renderDatax = boolean0
-                                          ? this.renderDataShore[int0][int1]
-                                          : this.renderData[int0][int1];
-    int int2 = Math.min(int3 * 4, IsoPuddles.VBOs.bufferSizeVertices);
-    floatBuffer.put(renderDatax.data, int4 * 4 * 7, int2 * 7);
-    uint8_t byte0 = 0;
-    uint8_t byte1 = 0;
+ int renderSome(int int4, int int3, bool boolean0) {
+ IsoPuddles.VBOs.next();
+ FloatBuffer floatBuffer = IsoPuddles.VBOs.vertices;
+ ShortBuffer shortBuffer = IsoPuddles.VBOs.indices;
+ GL13.glActiveTexture(33985);
+ GL13.glClientActiveTexture(33985);
+ GL11.glTexCoordPointer(2, 5126, 28, 8L);
+ GL11.glEnableClientState(32888);
+ GL13.glActiveTexture(33984);
+ GL13.glClientActiveTexture(33984);
+ GL11.glTexCoordPointer(2, 5126, 28, 0L);
+ GL11.glColorPointer(4, 5121, 28, 24L);
+ GL11.glVertexPointer(2, 5126, 28, 16L);
+ int int0 = SpriteRenderer.instance.getRenderStateIndex();
+ int int1 = SpriteRenderer.instance.getRenderingPlayerIndex();
+ IsoWater.RenderData renderDatax = boolean0 ? this->renderDataShore[int0][int1] : this->renderData[int0][int1];
+ int int2 = Math.min(int3 * 4, IsoPuddles.VBOs.bufferSizeVertices);
+ floatBuffer.put(renderDatax.data, int4 * 4 * 7, int2 * 7);
+ uint8_t byte0 = 0;
+ uint8_t byte1 = 0;
 
-    for (int int5 = 0; int5 < int2 / 4; int5++) {
-      shortBuffer.put(byte0);
-      shortBuffer.put((short)(byte0 + 1));
-      shortBuffer.put((short)(byte0 + 2));
-      shortBuffer.put(byte0);
-      shortBuffer.put((short)(byte0 + 2));
-      shortBuffer.put((short)(byte0 + 3));
-      byte0 += 4;
-      byte1 += 6;
-    }
+ for (int int5 = 0; int5 < int2 / 4; int5++) {
+ shortBuffer.put(byte0);
+ shortBuffer.put((short)(byte0 + 1);
+ shortBuffer.put((short)(byte0 + 2);
+ shortBuffer.put(byte0);
+ shortBuffer.put((short)(byte0 + 2);
+ shortBuffer.put((short)(byte0 + 3);
+ byte0 += 4;
+ byte1 += 6;
+ }
 
-    IsoPuddles.VBOs.unmap();
-    uint8_t byte2 = 0;
-    uint8_t byte3 = 0;
-    GL12.glDrawRangeElements(4, byte2, byte2 + byte0, byte1 - byte3, 5123,
-                             byte3 * 2);
-    return int2 / 4;
-  }
+ IsoPuddles.VBOs.unmap();
+ uint8_t byte2 = 0;
+ uint8_t byte3 = 0;
+ GL12.glDrawRangeElements(4, byte2, byte2 + byte0, byte1 - byte3, 5123, byte3 * 2);
+ return int2 / 4;
+ }
 
-  ITexture getTextureBottom() { return this.texBottom; }
+ ITexture getTextureBottom() {
+ return this->texBottom;
+ }
 
-  float getShaderTime() { return this.WaterTime; }
+ float getShaderTime() {
+ return this->WaterTime;
+ }
 
-  float getRainIntensity() { return this.WaterRainIntensity; }
+ float getRainIntensity() {
+ return this->WaterRainIntensity;
+ }
 
-  void update(ClimateManager climateManager) {
-    this.WaterWindAngle = climateManager.getCorrectedWindAngleIntensity();
-    this.WaterWindIntensity = climateManager.getWindIntensity() * 5.0F;
-    this.WaterRainIntensity = climateManager.getRainIntensity();
-    float float0 = GameTime.getInstance().getMultiplier();
-    this.WaterTime += 0.0166F * float0;
-    this.WaterParamWindINT.add(
-        (float)Math.sin(this.WaterWindAngle * 6.0F) * this.WaterWindIntensity *
-            0.05F * (float0 / 1.6F),
-        (float)Math.cos(this.WaterWindAngle * 6.0F) * this.WaterWindIntensity *
-            0.15F * (float0 / 1.6F));
-  }
+ void update(ClimateManager climateManager) {
+ this->WaterWindAngle = climateManager.getCorrectedWindAngleIntensity();
+ this->WaterWindIntensity = climateManager.getWindIntensity() * 5.0F;
+ this->WaterRainIntensity = climateManager.getRainIntensity();
+ float float0 = GameTime.getInstance().getMultiplier();
+ this->WaterTime += 0.0166F * float0;
+ this->WaterParamWindINT
+ .add(
+ (float)Math.sin(this->WaterWindAngle * 6.0F) * this->WaterWindIntensity * 0.05F * (float0 / 1.6F),
+ (float)Math.cos(this->WaterWindAngle * 6.0F) * this->WaterWindIntensity * 0.15F * (float0 / 1.6F)
+ );
+ }
 
-  float getWaterWindX() { return this.WaterParamWindINT.x; }
+ float getWaterWindX() {
+ return this->WaterParamWindINT.x;
+ }
 
-  float getWaterWindY() { return this.WaterParamWindINT.y; }
+ float getWaterWindY() {
+ return this->WaterParamWindINT.y;
+ }
 
-  float getWaterWindSpeed() { return this.WaterWindIntensity * 2.0F; }
+ float getWaterWindSpeed() {
+ return this->WaterWindIntensity * 2.0F;
+ }
 
-  Vector4f getShaderOffset() {
-    int int0 = SpriteRenderer.instance.getRenderingPlayerIndex();
-    PlayerCamera playerCamera =
-        SpriteRenderer.instance.getRenderingPlayerCamera(int0);
-    return this.shaderOffset.set(
-        playerCamera.getOffX() -
-            IsoCamera.getOffscreenLeft(int0) * playerCamera.zoom,
-        playerCamera.getOffY() +
-            IsoCamera.getOffscreenTop(int0) * playerCamera.zoom,
-        (float)playerCamera.OffscreenWidth,
-        (float)playerCamera.OffscreenHeight);
-  }
+ Vector4f getShaderOffset() {
+ int int0 = SpriteRenderer.instance.getRenderingPlayerIndex();
+ PlayerCamera playerCamera = SpriteRenderer.instance.getRenderingPlayerCamera(int0);
+ return this->shaderOffset
+ .set(
+ playerCamera.getOffX() - IsoCamera.getOffscreenLeft(int0) * playerCamera.zoom,
+ playerCamera.getOffY() + IsoCamera.getOffscreenTop(int0) * playerCamera.zoom,
+ (float)playerCamera.OffscreenWidth,
+ (float)playerCamera.OffscreenHeight
+ );
+ }
 
-  void FBOStart() { int int0 = IsoCamera.frameState.playerIndex; }
+ void FBOStart() {
+ int int0 = IsoCamera.frameState.playerIndex;
+ }
 
-  void FBOEnd() { int int0 = IsoCamera.frameState.playerIndex; }
+ void FBOEnd() {
+ int int0 = IsoCamera.frameState.playerIndex;
+ }
 
-private
-  static final class RenderData {
-    int numSquares;
-    int capacity = 512;
-    float[] data;
+ private static class RenderData {
+ int numSquares;
+ int capacity = 512;
+ float[] data;
 
-    void clear() { this.numSquares = 0; }
+ void clear() {
+ this->numSquares = 0;
+ }
 
-    void addSquare(IsoWaterGeometry waterGeometry) {
-      int int0 = IsoCamera.frameState.playerIndex;
-      uint8_t byte0 = 4;
-      if (this.data == nullptr) {
-        this.data = new float[this.capacity * byte0 * 7];
-      }
+ void addSquare(IsoWaterGeometry waterGeometry) {
+ int int0 = IsoCamera.frameState.playerIndex;
+ uint8_t byte0 = 4;
+ if (this->data.empty()) {
+ this->data = new float[this->capacity * byte0 * 7];
+ }
 
-      if (this.numSquares + 1 > this.capacity) {
-        this.capacity += 128;
-        this.data = Arrays.copyOf(this.data, this.capacity * byte0 * 7);
-      }
+ if (this->numSquares + 1 > this->capacity) {
+ this->capacity += 128;
+ this->data = Arrays.copyOf(this->data, this->capacity * byte0 * 7);
+ }
 
-      int int1 = this.numSquares * byte0 * 7;
+ int int1 = this->numSquares * byte0 * 7;
 
-      for (int int2 = 0; int2 < 4; int2++) {
-        this.data[int1++] = waterGeometry.depth[int2];
-        this.data[int1++] = waterGeometry.flow[int2];
-        this.data[int1++] = waterGeometry.speed[int2];
-        this.data[int1++] = waterGeometry.IsExternal;
-        this.data[int1++] = waterGeometry.x[int2];
-        this.data[int1++] = waterGeometry.y[int2];
-        if (waterGeometry.square != nullptr) {
-          int int3 = waterGeometry.square.getVertLight((4 - int2) % 4, int0);
-          this.data[int1++] = Float.intBitsToFloat(int3);
-        } else {
-          int1++;
-        }
-      }
+ for (int int2 = 0; int2 < 4; int2++) {
+ this->data[int1++] = waterGeometry.depth[int2];
+ this->data[int1++] = waterGeometry.flow[int2];
+ this->data[int1++] = waterGeometry.speed[int2];
+ this->data[int1++] = waterGeometry.IsExternal;
+ this->data[int1++] = waterGeometry.x[int2];
+ this->data[int1++] = waterGeometry.y[int2];
+ if (waterGeometry.square != nullptr) {
+ int int3 = waterGeometry.square.getVertLight((4 - int2) % 4, int0);
+ this->data[int1++] = Float.intBitsToFloat(int3);
+ } else {
+ int1++;
+ }
+ }
 
-      this.numSquares++;
-    }
-  }
+ this->numSquares++;
+ }
+ }
 }
 } // namespace iso
 } // namespace zombie

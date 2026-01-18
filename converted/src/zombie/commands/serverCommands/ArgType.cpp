@@ -2,6 +2,8 @@
 
 namespace zombie {
 namespace commands {
-namespace serverCommands {} // namespace serverCommands
+namespace serverCommands {
+
+} // namespace serverCommands
 } // namespace commands
 } // namespace zombie

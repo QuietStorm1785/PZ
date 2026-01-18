@@ -5,9 +5,8 @@ namespace iso {
 namespace areas {
 namespace isoregion {
 
-void ChunkUpdate::writeIsoChunkIntoBuffer(IsoChunk chunk,
-                                          ByteBuffer byteBuffer) {
-  // TODO: Implement writeIsoChunkIntoBuffer
+void ChunkUpdate::writeIsoChunkIntoBuffer(IsoChunk chunk, ByteBuffer byteBuffer) {
+ // TODO: Implement writeIsoChunkIntoBuffer
 }
 
 } // namespace isoregion

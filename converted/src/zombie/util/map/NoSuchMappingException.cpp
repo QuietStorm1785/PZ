@@ -4,10 +4,9 @@ namespace zombie {
 namespace util {
 namespace map {
 
-public
-NoSuchMappingException::NoSuchMappingException(const std::string &string) {
-  // TODO: Implement NoSuchMappingException
-  return nullptr;
+public NoSuchMappingException::NoSuchMappingException(const std::string& string) {
+ // TODO: Implement NoSuchMappingException
+ return nullptr;
 }
 
 } // namespace map

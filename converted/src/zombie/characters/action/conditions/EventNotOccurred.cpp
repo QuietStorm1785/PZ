@@ -6,28 +6,28 @@ namespace action {
 namespace conditions {
 
 std::string EventNotOccurred::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 bool EventNotOccurred::load(Element element) {
-  // TODO: Implement load
-  return false;
+ // TODO: Implement load
+ return false;
 }
 
 bool EventNotOccurred::passes(ActionContext actionContext, int int0) {
-  // TODO: Implement passes
-  return false;
+ // TODO: Implement passes
+ return false;
 }
 
 IActionCondition EventNotOccurred::clone() {
-  // TODO: Implement clone
-  return nullptr;
+ // TODO: Implement clone
+ return nullptr;
 }
 
 IActionCondition EventNotOccurred::create(Element element) {
-  // TODO: Implement create
-  return nullptr;
+ // TODO: Implement create
+ return nullptr;
 }
 
 } // namespace conditions

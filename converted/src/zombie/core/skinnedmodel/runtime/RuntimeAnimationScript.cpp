@@ -5,17 +5,16 @@ namespace core {
 namespace skinnedmodel {
 namespace runtime {
 
-void RuntimeAnimationScript::Load(const std::string &name,
-                                  const std::string &totalFile) {
-  // TODO: Implement Load
+void RuntimeAnimationScript::Load(const std::string& name, const std::string& totalFile) {
+ // TODO: Implement Load
 }
 
 void RuntimeAnimationScript::exec() {
-  // TODO: Implement exec
+ // TODO: Implement exec
 }
 
 void RuntimeAnimationScript::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 } // namespace runtime

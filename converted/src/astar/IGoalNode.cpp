@@ -3,8 +3,8 @@
 namespace astar {
 
 bool IGoalNode::inGoal(ISearchNode var1) {
-  // TODO: Implement inGoal
-  return false;
+ // TODO: Implement inGoal
+ return false;
 }
 
 } // namespace astar

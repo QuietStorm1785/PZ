@@ -5,41 +5,41 @@ namespace core {
 namespace raknet {
 
 void VoiceTest::rakNetServer(int int0) {
-  // TODO: Implement rakNetServer
+ // TODO: Implement rakNetServer
 }
 
 ByteBuffer VoiceTest::rakNetServerReceive() {
-  // TODO: Implement rakNetServerReceive
-  return nullptr;
+ // TODO: Implement rakNetServerReceive
+ return nullptr;
 }
 
 void VoiceTest::rakNetServerDecode(ByteBuffer byteBuffer) {
-  // TODO: Implement rakNetServerDecode
+ // TODO: Implement rakNetServerDecode
 }
 
 void VoiceTest::rakNetClient() {
-  // TODO: Implement rakNetClient
+ // TODO: Implement rakNetClient
 }
 
 ByteBuffer VoiceTest::rakNetClientReceive() {
-  // TODO: Implement rakNetClientReceive
-  return nullptr;
+ // TODO: Implement rakNetClientReceive
+ return nullptr;
 }
 
 void VoiceTest::rakNetClientDecode(ByteBuffer byteBuffer) {
-  // TODO: Implement rakNetClientDecode
+ // TODO: Implement rakNetClientDecode
 }
 
 void VoiceTest::main(String[] var0) {
-  // TODO: Implement main
+ // TODO: Implement main
 }
 
 void VoiceTest::run() {
-  // TODO: Implement run
+ // TODO: Implement run
 }
 
 void VoiceTest::run() {
-  // TODO: Implement run
+ // TODO: Implement run
 }
 
 } // namespace raknet

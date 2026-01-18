@@ -5,34 +5,32 @@ namespace scripting {
 namespace objects {
 
 int ItemRecipe::getUse() {
-  // TODO: Implement getUse
-  return 0;
+ // TODO: Implement getUse
+ return 0;
 }
 
-public
-ItemRecipe::ItemRecipe(const std::string &_name, const std::string &_module,
-                       int _use) {
-  // TODO: Implement ItemRecipe
-  return nullptr;
+public ItemRecipe::ItemRecipe(const std::string& _name, const std::string& _module, int _use) {
+ // TODO: Implement ItemRecipe
+ return nullptr;
 }
 
 std::string ItemRecipe::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 std::string ItemRecipe::getModule() {
-  // TODO: Implement getModule
-  return "";
+ // TODO: Implement getModule
+ return "";
 }
 
-void ItemRecipe::setModule(const std::string &_module) {
-  // TODO: Implement setModule
+void ItemRecipe::setModule(const std::string& _module) {
+ // TODO: Implement setModule
 }
 
 std::string ItemRecipe::getFullType() {
-  // TODO: Implement getFullType
-  return "";
+ // TODO: Implement getFullType
+ return "";
 }
 
 } // namespace objects

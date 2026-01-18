@@ -6,55 +6,55 @@ namespace util {
 namespace glu {
 
 void GLUtessellator::gluDeleteTess() {
-  // TODO: Implement gluDeleteTess
+ // TODO: Implement gluDeleteTess
 }
 
 void GLUtessellator::gluTessProperty(int var1, double var2) {
-  // TODO: Implement gluTessProperty
+ // TODO: Implement gluTessProperty
 }
 
 void GLUtessellator::gluGetTessProperty(int var1, double[] var2, int var3) {
-  // TODO: Implement gluGetTessProperty
+ // TODO: Implement gluGetTessProperty
 }
 
 void GLUtessellator::gluTessNormal(double var1, double var3, double var5) {
-  // TODO: Implement gluTessNormal
+ // TODO: Implement gluTessNormal
 }
 
 void GLUtessellator::gluTessCallback(int var1, GLUtessellatorCallback var2) {
-  // TODO: Implement gluTessCallback
+ // TODO: Implement gluTessCallback
 }
 
-void GLUtessellator::gluTessVertex(double[] var1, int var2, void *var3) {
-  // TODO: Implement gluTessVertex
+void GLUtessellator::gluTessVertex(double[] var1, int var2, void* var3) {
+ // TODO: Implement gluTessVertex
 }
 
-void GLUtessellator::gluTessBeginPolygon(void *var1) {
-  // TODO: Implement gluTessBeginPolygon
+void GLUtessellator::gluTessBeginPolygon(void* var1) {
+ // TODO: Implement gluTessBeginPolygon
 }
 
 void GLUtessellator::gluTessBeginContour() {
-  // TODO: Implement gluTessBeginContour
+ // TODO: Implement gluTessBeginContour
 }
 
 void GLUtessellator::gluTessEndContour() {
-  // TODO: Implement gluTessEndContour
+ // TODO: Implement gluTessEndContour
 }
 
 void GLUtessellator::gluTessEndPolygon() {
-  // TODO: Implement gluTessEndPolygon
+ // TODO: Implement gluTessEndPolygon
 }
 
 void GLUtessellator::gluBeginPolygon() {
-  // TODO: Implement gluBeginPolygon
+ // TODO: Implement gluBeginPolygon
 }
 
 void GLUtessellator::gluNextContour(int var1) {
-  // TODO: Implement gluNextContour
+ // TODO: Implement gluNextContour
 }
 
 void GLUtessellator::gluEndPolygon() {
-  // TODO: Implement gluEndPolygon
+ // TODO: Implement gluEndPolygon
 }
 
 } // namespace glu

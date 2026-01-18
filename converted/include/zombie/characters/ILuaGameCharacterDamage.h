@@ -1,72 +1,70 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/characterTextures/BloodBodyPartType.h"
 #include "zombie/characters/BodyDamage/BodyDamage.h"
 #include "zombie/inventory/types/HandWeapon.h"
 #include "zombie/vehicles/BaseVehicle.h"
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace characters {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class ILuaGameCharacterDamage {
 public:
-  virtual ~ILuaGameCharacterDamage() = default;
-  BodyDamage getBodyDamage();
+ virtual ~ILuaGameCharacterDamage() = default;
+ BodyDamage getBodyDamage();
 
-  BodyDamage getBodyDamageRemote();
+ BodyDamage getBodyDamageRemote();
 
-  float getHealth();
+ float getHealth();
 
-  void setHealth(float var1);
+ void setHealth(float var1);
 
-  float Hit(BaseVehicle var1, float var2, bool var3, float var4, float var5);
+ float Hit(BaseVehicle var1, float var2, bool var3, float var4, float var5);
 
-  float Hit(HandWeapon var1, IsoGameCharacter var2, float var3, bool var4,
-            float var5);
+ float Hit(HandWeapon var1, IsoGameCharacter var2, float var3, bool var4, float var5);
 
-  float Hit(HandWeapon var1, IsoGameCharacter var2, float var3, bool var4,
-            float var5, bool var6);
+ float Hit(HandWeapon var1, IsoGameCharacter var2, float var3, bool var4, float var5, bool var6);
 
-  bool isOnFire();
+ bool isOnFire();
 
-  void StopBurning();
+ void StopBurning();
 
-  void sendStopBurning();
+ void sendStopBurning();
 
-  int getLastHitCount();
+ int getLastHitCount();
 
-  void setLastHitCount(int var1);
+ void setLastHitCount(int var1);
 
-  bool addHole(BloodBodyPartType var1);
+ bool addHole(BloodBodyPartType var1);
 
-  void addBlood(BloodBodyPartType var1, bool var2, bool var3, bool var4);
+ void addBlood(BloodBodyPartType var1, bool var2, bool var3, bool var4);
 
-  bool isBumped();
+ bool isBumped();
 
-  std::string getBumpType();
+ std::string getBumpType();
 
-  bool isOnDeathDone();
+ bool isOnDeathDone();
 
-  void setOnDeathDone(bool var1);
+ void setOnDeathDone(bool var1);
 
-  bool isOnKillDone();
+ bool isOnKillDone();
 
-  void setOnKillDone(bool var1);
+ void setOnKillDone(bool var1);
 
-  bool isDeathDragDown();
+ bool isDeathDragDown();
 
-  void setDeathDragDown(bool var1);
+ void setDeathDragDown(bool var1);
 
-  bool isPlayingDeathSound();
+ bool isPlayingDeathSound();
 
-  void setPlayingDeathSound(bool var1);
+ void setPlayingDeathSound(bool var1);
 }
 } // namespace characters
 } // namespace zombie

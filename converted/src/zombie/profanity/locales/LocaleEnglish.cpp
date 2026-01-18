@@ -4,58 +4,57 @@ namespace zombie {
 namespace profanity {
 namespace locales {
 
-public
-LocaleEnglish::LocaleEnglish(const std::string &string) {
-  // TODO: Implement LocaleEnglish
-  return nullptr;
+public LocaleEnglish::LocaleEnglish(const std::string& string) {
+ // TODO: Implement LocaleEnglish
+ return nullptr;
 }
 
 void LocaleEnglish::Init() {
-  // TODO: Implement Init
+ // TODO: Implement Init
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void LocaleEnglish::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 } // namespace locales

@@ -6,30 +6,30 @@ namespace packets {
 namespace hit {
 
 void PlayerItem::set(InventoryItem itemx) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void PlayerItem::parse(ByteBuffer byteBuffer, UdpConnection var2) {
-  // TODO: Implement parse
+ // TODO: Implement parse
 }
 
 void PlayerItem::write(ByteBufferWriter byteBufferWriter) {
-  // TODO: Implement write
+ // TODO: Implement write
 }
 
 bool PlayerItem::isConsistent() {
-  // TODO: Implement isConsistent
-  return false;
+ // TODO: Implement isConsistent
+ return false;
 }
 
 std::string PlayerItem::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 InventoryItem PlayerItem::getItem() {
-  // TODO: Implement getItem
-  return nullptr;
+ // TODO: Implement getItem
+ return nullptr;
 }
 
 } // namespace hit

@@ -5,15 +5,14 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-protected
-AnimNodeAsset::AnimNodeAsset(AssetPath assetPath, AssetManager assetManager) {
-  // TODO: Implement AnimNodeAsset
-  return nullptr;
+protected AnimNodeAsset::AnimNodeAsset(AssetPath assetPath, AssetManager assetManager) {
+ // TODO: Implement AnimNodeAsset
+ return nullptr;
 }
 
 AssetType AnimNodeAsset::getType() {
-  // TODO: Implement getType
-  return {};
+ // TODO: Implement getType
+ return {};
 }
 
 } // namespace advancedanimation

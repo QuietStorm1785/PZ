@@ -3,18 +3,17 @@
 namespace zombie {
 namespace iso {
 
-public
-PuddlesShader::PuddlesShader(const std::string &string) {
-  // TODO: Implement PuddlesShader
-  return nullptr;
+public PuddlesShader::PuddlesShader(const std::string& string) {
+ // TODO: Implement PuddlesShader
+ return nullptr;
 }
 
 void PuddlesShader::onCompileSuccess(ShaderProgram shaderProgram) {
-  // TODO: Implement onCompileSuccess
+ // TODO: Implement onCompileSuccess
 }
 
 void PuddlesShader::updatePuddlesParams(int int0, int int1) {
-  // TODO: Implement updatePuddlesParams
+ // TODO: Implement updatePuddlesParams
 }
 
 } // namespace iso

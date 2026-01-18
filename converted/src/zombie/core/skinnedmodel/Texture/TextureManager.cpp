@@ -5,13 +5,13 @@ namespace core {
 namespace skinnedmodel {
 namespace Texture {
 
-bool TextureManager::AddTexture(const std::string &string) {
-  // TODO: Implement AddTexture
-  return false;
+bool TextureManager::AddTexture(const std::string& string) {
+ // TODO: Implement AddTexture
+ return false;
 }
 
-void TextureManager::AddTexture(const std::string &string, Texture texture) {
-  // TODO: Implement AddTexture
+void TextureManager::AddTexture(const std::string& string, Texture texture) {
+ // TODO: Implement AddTexture
 }
 
 } // namespace Texture

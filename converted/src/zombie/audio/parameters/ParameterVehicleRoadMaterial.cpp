@@ -4,22 +4,19 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterVehicleRoadMaterial::ParameterVehicleRoadMaterial(
-    BaseVehicle _vehicle) {
-  // TODO: Implement ParameterVehicleRoadMaterial
-  return nullptr;
+public ParameterVehicleRoadMaterial::ParameterVehicleRoadMaterial(BaseVehicle _vehicle) {
+ // TODO: Implement ParameterVehicleRoadMaterial
+ return nullptr;
 }
 
 float ParameterVehicleRoadMaterial::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
-private
-ParameterVehicleRoadMaterial::Material(int int1) {
-  // TODO: Implement Material
-  return nullptr;
+private ParameterVehicleRoadMaterial::Material(int int1) {
+ // TODO: Implement Material
+ return nullptr;
 }
 
 } // namespace parameters

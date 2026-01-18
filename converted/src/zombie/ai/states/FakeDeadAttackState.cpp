@@ -5,24 +5,24 @@ namespace ai {
 namespace states {
 
 FakeDeadAttackState FakeDeadAttackState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void FakeDeadAttackState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void FakeDeadAttackState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void FakeDeadAttackState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void FakeDeadAttackState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 } // namespace states

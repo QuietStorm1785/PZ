@@ -5,29 +5,29 @@ namespace ai {
 namespace states {
 
 PlayerEmoteState PlayerEmoteState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void PlayerEmoteState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void PlayerEmoteState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void PlayerEmoteState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void PlayerEmoteState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 bool PlayerEmoteState::isDoingActionThatCanBeCancelled() {
-  // TODO: Implement isDoingActionThatCanBeCancelled
-  return false;
+ // TODO: Implement isDoingActionThatCanBeCancelled
+ return false;
 }
 
 } // namespace states

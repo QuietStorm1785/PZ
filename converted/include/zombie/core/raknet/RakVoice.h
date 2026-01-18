@@ -1,87 +1,61 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace core {
 namespace raknet {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class RakVoice {
 public:
-public
-  static native void RVInit(int var0);
+ public static void RVInit(int var0);
 
-public
-  static native void RVInitServer(boolean var0, int var1, int var2, int var3,
-                                  int var4, float var5, float var6,
-                                  boolean var7);
+ public static void RVInitServer(boolean var0, int var1, int var2, int var3, int var4, float var5, float var6, boolean var7);
 
-public
-  static native void RVDeinit();
+ public static void RVDeinit();
 
-public
-  static native int GetComplexity();
+ public static int GetComplexity();
 
-public
-  static native void SetComplexity(int var0);
+ public static void SetComplexity(int var0);
 
-public
-  static native void RequestVoiceChannel(long var0);
+ public static void RequestVoiceChannel(long var0);
 
-public
-  static native void CloseAllChannels();
+ public static void CloseAllChannels();
 
-public
-  static native int GetBufferSizeBytes();
+ public static int GetBufferSizeBytes();
 
-public
-  static native boolean GetServerVOIPEnable();
+ public static boolean GetServerVOIPEnable();
 
-public
-  static native int GetSampleRate();
+ public static int GetSampleRate();
 
-public
-  static native int GetSendFramePeriod();
+ public static int GetSendFramePeriod();
 
-public
-  static native int GetBuffering();
+ public static int GetBuffering();
 
-public
-  static native float GetMinDistance();
+ public static float GetMinDistance();
 
-public
-  static native float GetMaxDistance();
+ public static float GetMaxDistance();
 
-public
-  static native boolean GetIs3D();
+ public static boolean GetIs3D();
 
-public
-  static native void CloseVoiceChannel(long var0);
+ public static void CloseVoiceChannel(long var0);
 
-public
-  static native boolean ReceiveFrame(long var0, byte[] var2);
+ public static boolean ReceiveFrame(long var0, byte[] var2);
 
-public
-  static native void SendFrame(long var0, long var2, byte[] var4, long var5);
+ public static void SendFrame(long var0, long var2, byte[] var4, long var5);
 
-public
-  static native void SetLoopbackMode(boolean var0);
+ public static void SetLoopbackMode(boolean var0);
 
-public
-  static native void SetVoiceBan(long var0, boolean var2);
+ public static void SetVoiceBan(long var0, boolean var2);
 
-public
-  static native void SetChannelsRouting(long var0, boolean var2, int[] var3,
-                                        short var4);
+ public static void SetChannelsRouting(long var0, boolean var2, int[] var3, short var4);
 
-public
-  static native boolean GetChannelStatistics(long var0, long[] var2);
+ public static boolean GetChannelStatistics(long var0, long[] var2);
 }
 } // namespace raknet
 } // namespace core

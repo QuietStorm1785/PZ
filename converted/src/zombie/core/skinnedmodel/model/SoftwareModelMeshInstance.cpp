@@ -5,11 +5,9 @@ namespace core {
 namespace skinnedmodel {
 namespace model {
 
-public
-SoftwareModelMeshInstance::SoftwareModelMeshInstance(
-    const std::string &_name, SoftwareModelMesh _softwareMesh) {
-  // TODO: Implement SoftwareModelMeshInstance
-  return nullptr;
+public SoftwareModelMeshInstance::SoftwareModelMeshInstance(const std::string& _name, SoftwareModelMesh _softwareMesh) {
+ // TODO: Implement SoftwareModelMeshInstance
+ return nullptr;
 }
 
 } // namespace model

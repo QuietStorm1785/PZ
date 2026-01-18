@@ -5,43 +5,42 @@ namespace core {
 namespace utils {
 
 void BufferUtils::setTrackDirectMemoryEnabled(bool boolean0) {
-  // TODO: Implement setTrackDirectMemoryEnabled
+ // TODO: Implement setTrackDirectMemoryEnabled
 }
 
 void BufferUtils::onBufferAllocated(Buffer buffer) {
-  // TODO: Implement onBufferAllocated
+ // TODO: Implement onBufferAllocated
 }
 
 void BufferUtils::printCurrentDirectMemory(StringBuilder stringBuilder) {
-  // TODO: Implement printCurrentDirectMemory
+ // TODO: Implement printCurrentDirectMemory
 }
 
-Method BufferUtils::loadMethod(const std::string &string1,
-                               const std::string &string0) {
-  // TODO: Implement loadMethod
-  return nullptr;
+Method BufferUtils::loadMethod(const std::string& string1, const std::string& string0) {
+ // TODO: Implement loadMethod
+ return nullptr;
 }
 
 ByteBuffer BufferUtils::createByteBuffer(int int0) {
-  // TODO: Implement createByteBuffer
-  return nullptr;
+ // TODO: Implement createByteBuffer
+ return nullptr;
 }
 
 void BufferUtils::loadCleanerMethods() {
-  // TODO: Implement loadCleanerMethods
+ // TODO: Implement loadCleanerMethods
 }
 
 void BufferUtils::destroyDirectBuffer(Buffer buffer) {
-  // TODO: Implement destroyDirectBuffer
+ // TODO: Implement destroyDirectBuffer
 }
 
 public BufferUtils::BufferInfo(Class clazz, int int0, Buffer buffer, ReferenceQueue<? super) {
-  // TODO: Implement BufferInfo
-  return nullptr;
+ // TODO: Implement BufferInfo
+ return nullptr;
 }
 
 void BufferUtils::run() {
-  // TODO: Implement run
+ // TODO: Implement run
 }
 
 } // namespace utils

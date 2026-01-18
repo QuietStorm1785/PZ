@@ -6,15 +6,15 @@ namespace skinnedmodel {
 namespace model {
 
 void VehicleModelInstance::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 void VehicleModelInstance::setLights(IsoLightSource[] lightSources) {
-  // TODO: Implement setLights
+ // TODO: Implement setLights
 }
 
 void VehicleModelInstance::UpdateLights() {
-  // TODO: Implement UpdateLights
+ // TODO: Implement UpdateLights
 }
 
 } // namespace model

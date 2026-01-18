@@ -5,11 +5,11 @@ namespace core {
 namespace raknet {
 
 void TestClient::main(String[] var0) {
-  // TODO: Implement main
+ // TODO: Implement main
 }
 
 void TestClient::decode(ByteBuffer byteBuffer) {
-  // TODO: Implement decode
+ // TODO: Implement decode
 }
 
 } // namespace raknet

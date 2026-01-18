@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterTimeOfDay::ParameterTimeOfDay() {
-  // TODO: Implement ParameterTimeOfDay
-  return nullptr;
+public ParameterTimeOfDay::ParameterTimeOfDay() {
+ // TODO: Implement ParameterTimeOfDay
+ return nullptr;
 }
 
 float ParameterTimeOfDay::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

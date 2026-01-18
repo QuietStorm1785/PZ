@@ -5,65 +5,56 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-public
-AnimationVariableSlotCallbackBool::AnimationVariableSlotCallbackBool(
-    const std::string &string,
-    AnimationVariableSlotCallbackBool
-        .CallbackGetStrongTyped callbackGetStrongTyped) {
-  // TODO: Implement AnimationVariableSlotCallbackBool
-  return nullptr;
+public AnimationVariableSlotCallbackBool::AnimationVariableSlotCallbackBool(const std::string& string, AnimationVariableSlotCallbackBool.CallbackGetStrongTyped callbackGetStrongTyped) {
+ // TODO: Implement AnimationVariableSlotCallbackBool
+ return nullptr;
 }
 
-public
-AnimationVariableSlotCallbackBool::AnimationVariableSlotCallbackBool(
-    const std::string &string, bool boolean0,
-    AnimationVariableSlotCallbackBool
-        .CallbackGetStrongTyped callbackGetStrongTyped) {
-  // TODO: Implement AnimationVariableSlotCallbackBool
-  return nullptr;
+public AnimationVariableSlotCallbackBool::AnimationVariableSlotCallbackBool(const std::string& string, bool boolean0, AnimationVariableSlotCallbackBool.CallbackGetStrongTyped callbackGetStrongTyped) {
+ // TODO: Implement AnimationVariableSlotCallbackBool
+ return nullptr;
 }
 
 bool AnimationVariableSlotCallbackBool::getDefaultValue() {
-  // TODO: Implement getDefaultValue
-  return false;
+ // TODO: Implement getDefaultValue
+ return false;
 }
 
 std::string AnimationVariableSlotCallbackBool::getValueString() {
-  // TODO: Implement getValueString
-  return "";
+ // TODO: Implement getValueString
+ return "";
 }
 
 float AnimationVariableSlotCallbackBool::getValueFloat() {
-  // TODO: Implement getValueFloat
-  return 0;
+ // TODO: Implement getValueFloat
+ return 0;
 }
 
 bool AnimationVariableSlotCallbackBool::getValueBool() {
-  // TODO: Implement getValueBool
-  return false;
+ // TODO: Implement getValueBool
+ return false;
 }
 
-void AnimationVariableSlotCallbackBool::setValue(const std::string &string) {
-  // TODO: Implement setValue
+void AnimationVariableSlotCallbackBool::setValue(const std::string& string) {
+ // TODO: Implement setValue
 }
 
 void AnimationVariableSlotCallbackBool::setValue(float float0) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 void AnimationVariableSlotCallbackBool::setValue(bool boolean0) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 AnimationVariableType AnimationVariableSlotCallbackBool::getType() {
-  // TODO: Implement getType
-  return nullptr;
+ // TODO: Implement getType
+ return nullptr;
 }
 
-bool AnimationVariableSlotCallbackBool::canConvertFrom(
-    const std::string &string) {
-  // TODO: Implement canConvertFrom
-  return false;
+bool AnimationVariableSlotCallbackBool::canConvertFrom(const std::string& string) {
+ // TODO: Implement canConvertFrom
+ return false;
 }
 
 } // namespace advancedanimation

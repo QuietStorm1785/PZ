@@ -6,27 +6,24 @@ namespace kahlua {
 namespace integration {
 namespace expose {
 
-public
-MethodParameter::MethodParameter(const std::string &string0,
-                                 const std::string &string1,
-                                 const std::string &string2) {
-  // TODO: Implement MethodParameter
-  return nullptr;
+public MethodParameter::MethodParameter(const std::string& string0, const std::string& string1, const std::string& string2) {
+ // TODO: Implement MethodParameter
+ return nullptr;
 }
 
 std::string MethodParameter::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 std::string MethodParameter::getType() {
-  // TODO: Implement getType
-  return "";
+ // TODO: Implement getType
+ return "";
 }
 
 std::string MethodParameter::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 } // namespace expose

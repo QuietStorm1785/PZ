@@ -6,17 +6,17 @@ namespace objects {
 namespace interfaces {
 
 bool Activatable::Activated() {
-  // TODO: Implement Activated
-  return false;
+ // TODO: Implement Activated
+ return false;
 }
 
 void Activatable::Toggle() {
-  // TODO: Implement Toggle
+ // TODO: Implement Toggle
 }
 
 std::string Activatable::getActivatableType() {
-  // TODO: Implement getActivatableType
-  return "";
+ // TODO: Implement getActivatableType
+ return "";
 }
 
 } // namespace interfaces

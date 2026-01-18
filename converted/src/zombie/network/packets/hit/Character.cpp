@@ -6,48 +6,48 @@ namespace packets {
 namespace hit {
 
 void Character::set(IsoGameCharacter character1) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void Character::parse(ByteBuffer byteBuffer, UdpConnection udpConnection) {
-  // TODO: Implement parse
+ // TODO: Implement parse
 }
 
 void Character::write(ByteBufferWriter byteBufferWriter) {
-  // TODO: Implement write
+ // TODO: Implement write
 }
 
 bool Character::isConsistent() {
-  // TODO: Implement isConsistent
-  return false;
+ // TODO: Implement isConsistent
+ return false;
 }
 
 std::string Character::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 std::string Character::getFlagsDescription() {
-  // TODO: Implement getFlagsDescription
-  return "";
+ // TODO: Implement getFlagsDescription
+ return "";
 }
 
 void Character::process() {
-  // TODO: Implement process
+ // TODO: Implement process
 }
 
 void Character::react() {
-  // TODO: Implement react
+ // TODO: Implement react
 }
 
 float Character::getX() {
-  // TODO: Implement getX
-  return 0;
+ // TODO: Implement getX
+ return 0;
 }
 
 float Character::getY() {
-  // TODO: Implement getY
-  return 0;
+ // TODO: Implement getY
+ return 0;
 }
 
 } // namespace hit

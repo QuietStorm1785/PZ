@@ -7,13 +7,13 @@ namespace integration {
 namespace annotations {
 
 std::string LuaMethod::name() {
-  // TODO: Implement name
-  return "";
+ // TODO: Implement name
+ return "";
 }
 
 bool LuaMethod::global() {
-  // TODO: Implement global
-  return false;
+ // TODO: Implement global
+ return false;
 }
 
 } // namespace annotations

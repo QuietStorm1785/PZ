@@ -4,10 +4,9 @@ namespace zombie {
 namespace debug {
 namespace options {
 
-public
-IsoSprite::IsoSprite() {
-  // TODO: Implement IsoSprite
-  return nullptr;
+public IsoSprite::IsoSprite() {
+ // TODO: Implement IsoSprite
+ return nullptr;
 }
 
 } // namespace options

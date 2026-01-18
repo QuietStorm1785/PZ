@@ -6,43 +6,42 @@ namespace areas {
 namespace isoregion {
 namespace regions {
 
-public
-IsoRegionManager::IsoRegionManager(DataRoot _dataRoot) {
-  // TODO: Implement IsoRegionManager
-  return nullptr;
+public IsoRegionManager::IsoRegionManager(DataRoot _dataRoot) {
+ // TODO: Implement IsoRegionManager
+ return nullptr;
 }
 
 IsoWorldRegion IsoRegionManager::allocIsoWorldRegion() {
-  // TODO: Implement allocIsoWorldRegion
-  return nullptr;
+ // TODO: Implement allocIsoWorldRegion
+ return nullptr;
 }
 
 void IsoRegionManager::releaseIsoWorldRegion(IsoWorldRegion worldRegion) {
-  // TODO: Implement releaseIsoWorldRegion
+ // TODO: Implement releaseIsoWorldRegion
 }
 
 IsoChunkRegion IsoRegionManager::allocIsoChunkRegion(int zLayer) {
-  // TODO: Implement allocIsoChunkRegion
-  return nullptr;
+ // TODO: Implement allocIsoChunkRegion
+ return nullptr;
 }
 
 void IsoRegionManager::releaseIsoChunkRegion(IsoChunkRegion chunkRegion) {
-  // TODO: Implement releaseIsoChunkRegion
+ // TODO: Implement releaseIsoChunkRegion
 }
 
 Color IsoRegionManager::getColor() {
-  // TODO: Implement getColor
-  return nullptr;
+ // TODO: Implement getColor
+ return nullptr;
 }
 
 int IsoRegionManager::getWorldRegionCount() {
-  // TODO: Implement getWorldRegionCount
-  return 0;
+ // TODO: Implement getWorldRegionCount
+ return 0;
 }
 
 int IsoRegionManager::getChunkRegionCount() {
-  // TODO: Implement getChunkRegionCount
-  return 0;
+ // TODO: Implement getChunkRegionCount
+ return 0;
 }
 
 } // namespace regions

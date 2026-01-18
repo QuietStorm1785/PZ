@@ -4,13 +4,13 @@ namespace zombie {
 namespace commands {
 
 std::string CommandHelp::helpText() {
-  // TODO: Implement helpText
-  return "";
+ // TODO: Implement helpText
+ return "";
 }
 
 bool CommandHelp::shouldTranslated() {
-  // TODO: Implement shouldTranslated
-  return false;
+ // TODO: Implement shouldTranslated
+ return false;
 }
 
 } // namespace commands

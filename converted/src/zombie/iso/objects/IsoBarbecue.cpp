@@ -4,158 +4,154 @@ namespace zombie {
 namespace iso {
 namespace objects {
 
-public
-IsoBarbecue::IsoBarbecue(IsoCell cell) {
-  // TODO: Implement IsoBarbecue
-  return nullptr;
+public IsoBarbecue::IsoBarbecue(IsoCell cell) {
+ // TODO: Implement IsoBarbecue
+ return nullptr;
 }
 
-public
-IsoBarbecue::IsoBarbecue(IsoCell cell, IsoGridSquare sq, IsoSprite gid) {
-  // TODO: Implement IsoBarbecue
-  return nullptr;
+public IsoBarbecue::IsoBarbecue(IsoCell cell, IsoGridSquare sq, IsoSprite gid) {
+ // TODO: Implement IsoBarbecue
+ return nullptr;
 }
 
 std::string IsoBarbecue::getObjectName() {
-  // TODO: Implement getObjectName
-  return "";
+ // TODO: Implement getObjectName
+ return "";
 }
 
 void IsoBarbecue::load(ByteBuffer input, int WorldVersion, bool IS_DEBUG_SAVE) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void IsoBarbecue::save(ByteBuffer output, bool IS_DEBUG_SAVE) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void IsoBarbecue::setFuelAmount(int units) {
-  // TODO: Implement setFuelAmount
+ // TODO: Implement setFuelAmount
 }
 
 int IsoBarbecue::getFuelAmount() {
-  // TODO: Implement getFuelAmount
-  return 0;
+ // TODO: Implement getFuelAmount
+ return 0;
 }
 
 void IsoBarbecue::addFuel(int units) {
-  // TODO: Implement addFuel
+ // TODO: Implement addFuel
 }
 
 int IsoBarbecue::useFuel(int amount) {
-  // TODO: Implement useFuel
-  return 0;
+ // TODO: Implement useFuel
+ return 0;
 }
 
 bool IsoBarbecue::hasFuel() {
-  // TODO: Implement hasFuel
-  return false;
+ // TODO: Implement hasFuel
+ return false;
 }
 
 bool IsoBarbecue::hasPropaneTank() {
-  // TODO: Implement hasPropaneTank
-  return false;
+ // TODO: Implement hasPropaneTank
+ return false;
 }
 
 bool IsoBarbecue::isPropaneBBQ() {
-  // TODO: Implement isPropaneBBQ
-  return false;
+ // TODO: Implement isPropaneBBQ
+ return false;
 }
 
 bool IsoBarbecue::isSpriteWithPropaneTank(IsoSprite sprite) {
-  // TODO: Implement isSpriteWithPropaneTank
-  return false;
+ // TODO: Implement isSpriteWithPropaneTank
+ return false;
 }
 
 bool IsoBarbecue::isSpriteWithoutPropaneTank(IsoSprite sprite) {
-  // TODO: Implement isSpriteWithoutPropaneTank
-  return false;
+ // TODO: Implement isSpriteWithoutPropaneTank
+ return false;
 }
 
 void IsoBarbecue::setPropaneTank(InventoryItem tank) {
-  // TODO: Implement setPropaneTank
+ // TODO: Implement setPropaneTank
 }
 
 InventoryItem IsoBarbecue::removePropaneTank() {
-  // TODO: Implement removePropaneTank
-  return nullptr;
+ // TODO: Implement removePropaneTank
+ return nullptr;
 }
 
 void IsoBarbecue::setLit(bool lit) {
-  // TODO: Implement setLit
+ // TODO: Implement setLit
 }
 
 bool IsoBarbecue::isLit() {
-  // TODO: Implement isLit
-  return false;
+ // TODO: Implement isLit
+ return false;
 }
 
 bool IsoBarbecue::isSmouldering() {
-  // TODO: Implement isSmouldering
-  return false;
+ // TODO: Implement isSmouldering
+ return false;
 }
 
 void IsoBarbecue::turnOn() {
-  // TODO: Implement turnOn
+ // TODO: Implement turnOn
 }
 
 void IsoBarbecue::turnOff() {
-  // TODO: Implement turnOff
+ // TODO: Implement turnOff
 }
 
 void IsoBarbecue::toggle() {
-  // TODO: Implement toggle
+ // TODO: Implement toggle
 }
 
 void IsoBarbecue::extinguish() {
-  // TODO: Implement extinguish
+ // TODO: Implement extinguish
 }
 
 float IsoBarbecue::getTemperature() {
-  // TODO: Implement getTemperature
-  return 0;
+ // TODO: Implement getTemperature
+ return 0;
 }
 
 void IsoBarbecue::updateSprite() {
-  // TODO: Implement updateSprite
+ // TODO: Implement updateSprite
 }
 
 void IsoBarbecue::updateHeatSource() {
-  // TODO: Implement updateHeatSource
+ // TODO: Implement updateHeatSource
 }
 
 void IsoBarbecue::updateSound() {
-  // TODO: Implement updateSound
+ // TODO: Implement updateSound
 }
 
 void IsoBarbecue::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void IsoBarbecue::setSprite(IsoSprite newsprite) {
-  // TODO: Implement setSprite
+ // TODO: Implement setSprite
 }
 
 void IsoBarbecue::addToWorld() {
-  // TODO: Implement addToWorld
+ // TODO: Implement addToWorld
 }
 
 void IsoBarbecue::removeFromWorld() {
-  // TODO: Implement removeFromWorld
+ // TODO: Implement removeFromWorld
 }
 
-void IsoBarbecue::render(float x, float y, float z, ColorInfo col,
-                         bool bDoChild, bool bWallLightingPass, Shader shader) {
-  // TODO: Implement render
+void IsoBarbecue::render(float x, float y, float z, ColorInfo col, bool bDoChild, bool bWallLightingPass, Shader shader) {
+ // TODO: Implement render
 }
 
-void IsoBarbecue::saveChange(const std::string &change, KahluaTable tbl,
-                             ByteBuffer bb) {
-  // TODO: Implement saveChange
+void IsoBarbecue::saveChange(const std::string& change, KahluaTable tbl, ByteBuffer bb) {
+ // TODO: Implement saveChange
 }
 
-void IsoBarbecue::loadChange(const std::string &change, ByteBuffer bb) {
-  // TODO: Implement loadChange
+void IsoBarbecue::loadChange(const std::string& change, ByteBuffer bb) {
+ // TODO: Implement loadChange
 }
 
 } // namespace objects

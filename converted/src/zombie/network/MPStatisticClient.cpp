@@ -4,33 +4,33 @@ namespace zombie {
 namespace network {
 
 MPStatisticClient MPStatisticClient::getInstance() {
-  // TODO: Implement getInstance
-  return nullptr;
+ // TODO: Implement getInstance
+ return nullptr;
 }
 
 void MPStatisticClient::incrementZombiesTeleports() {
-  // TODO: Implement incrementZombiesTeleports
+ // TODO: Implement incrementZombiesTeleports
 }
 
 void MPStatisticClient::incrementRemotePlayersTeleports() {
-  // TODO: Implement incrementRemotePlayersTeleports
+ // TODO: Implement incrementRemotePlayersTeleports
 }
 
 float MPStatisticClient::getFPS() {
-  // TODO: Implement getFPS
-  return 0;
+ // TODO: Implement getFPS
+ return 0;
 }
 
 void MPStatisticClient::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void MPStatisticClient::send(ByteBufferWriter byteBufferWriter) {
-  // TODO: Implement send
+ // TODO: Implement send
 }
 
 void MPStatisticClient::fpsProcess() {
-  // TODO: Implement fpsProcess
+ // TODO: Implement fpsProcess
 }
 
 } // namespace network

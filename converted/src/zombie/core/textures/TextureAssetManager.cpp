@@ -5,17 +5,16 @@ namespace core {
 namespace textures {
 
 void TextureAssetManager::startLoading(Asset var1) {
-  // TODO: Implement startLoading
+ // TODO: Implement startLoading
 }
 
-Asset TextureAssetManager::createAsset(AssetPath assetPath,
-                                       AssetManager.AssetParams assetParams) {
-  // TODO: Implement createAsset
-  return {};
+Asset TextureAssetManager::createAsset(AssetPath assetPath, AssetManager.AssetParams assetParams) {
+ // TODO: Implement createAsset
+ return {};
 }
 
 void TextureAssetManager::destroyAsset(Asset var1) {
-  // TODO: Implement destroyAsset
+ // TODO: Implement destroyAsset
 }
 
 } // namespace textures

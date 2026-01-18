@@ -5,30 +5,29 @@ namespace ai {
 namespace states {
 
 PlayerSitOnGroundState PlayerSitOnGroundState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void PlayerSitOnGroundState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 bool PlayerSitOnGroundState::checkFire(IsoGameCharacter character) {
-  // TODO: Implement checkFire
-  return false;
+ // TODO: Implement checkFire
+ return false;
 }
 
 void PlayerSitOnGroundState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void PlayerSitOnGroundState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
-void PlayerSitOnGroundState::animEvent(IsoGameCharacter owner,
-                                       AnimEvent event) {
-  // TODO: Implement animEvent
+void PlayerSitOnGroundState::animEvent(IsoGameCharacter owner, AnimEvent event) {
+ // TODO: Implement animEvent
 }
 
 } // namespace states

@@ -1,32 +1,32 @@
 #pragma once
-#include "zombie/util/IntIterator.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/util/IntIterator.h"
 
 namespace zombie {
 namespace util {
 namespace list {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class IntListIterator {
 public:
-  virtual ~IntListIterator() = default;
-  void add(int var1);
+ virtual ~IntListIterator() = default;
+ void add(int var1);
 
-  bool hasPrevious();
+ bool hasPrevious();
 
-  int nextIndex();
+ int nextIndex();
 
-  int previous();
+ int previous();
 
-  int previousIndex();
+ int previousIndex();
 
-  void set(int var1);
+ void set(int var1);
 }
 } // namespace list
 } // namespace util

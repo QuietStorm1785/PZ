@@ -5,22 +5,22 @@ namespace core {
 namespace logger {
 
 void LoggerManager::backupOldLogFiles() {
-  // TODO: Implement backupOldLogFiles
+ // TODO: Implement backupOldLogFiles
 }
 
-Calendar LoggerManager::getLogFileLastModifiedTime(const std::string &string) {
-  // TODO: Implement getLogFileLastModifiedTime
-  return nullptr;
+Calendar LoggerManager::getLogFileLastModifiedTime(const std::string& string) {
+ // TODO: Implement getLogFileLastModifiedTime
+ return nullptr;
 }
 
 std::string LoggerManager::getLogsDir() {
-  // TODO: Implement getLogsDir
-  return "";
+ // TODO: Implement getLogsDir
+ return "";
 }
 
 std::string LoggerManager::getPlayerCoords(IsoPlayer player) {
-  // TODO: Implement getPlayerCoords
-  return "";
+ // TODO: Implement getPlayerCoords
+ return "";
 }
 
 } // namespace logger

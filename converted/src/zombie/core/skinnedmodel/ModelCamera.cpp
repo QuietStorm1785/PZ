@@ -2,6 +2,8 @@
 
 namespace zombie {
 namespace core {
-namespace skinnedmodel {} // namespace skinnedmodel
+namespace skinnedmodel {
+
+} // namespace skinnedmodel
 } // namespace core
 } // namespace zombie

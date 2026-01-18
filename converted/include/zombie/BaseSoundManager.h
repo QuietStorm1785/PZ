@@ -1,255 +1,165 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "fmod/fmod/Audio.h"
 #include "zombie/audio/BaseSoundEmitter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/iso/IsoGridSquare.h"
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class BaseSoundManager {
 public:
-  bool AllowMusic = true;
+ bool AllowMusic = true;
 
-public
-  abstract boolean isRemastered();
+ public boolean isRemastered();
 
-public
-  abstract void update1();
+ public void update1();
 
-public
-  abstract void update3();
+ public void update3();
 
-public
-  abstract void update2();
+ public void update2();
 
-public
-  abstract void update4();
+ public void update4();
 
-public
-  abstract void CacheSound(String file);
+ public void CacheSound(String file);
 
-public
-  abstract void StopSound(Audio SoundEffect);
+ public void StopSound(Audio SoundEffect);
 
-public
-  abstract void StopMusic();
+ public void StopMusic();
 
-public
-  abstract void Purge();
+ public void Purge();
 
-public
-  abstract void stop();
+ public void stop();
 
-protected
-  abstract boolean HasMusic(Audio var1);
+ protected boolean HasMusic(Audio var1);
 
-public
-  abstract void Update();
+ public void Update();
 
-public
-  abstract Audio Start(Audio musicTrack, float f, String PrefMusic);
+ public Audio Start(Audio musicTrack, float f, String PrefMusic);
 
-public
-  abstract Audio PrepareMusic(String name);
+ public Audio PrepareMusic(String name);
 
-public
-  abstract void PlayWorldSoundWav(String name, IsoGridSquare source,
-                                  float pitchVar, float radius, float maxGain,
-                                  int choices, boolean ignoreOutside);
+ public void PlayWorldSoundWav(String name, IsoGridSquare source, float pitchVar, float radius, float maxGain, int choices, boolean ignoreOutside);
 
-public
-  abstract Audio PlayWorldSoundWav(String name, boolean loop,
-                                   IsoGridSquare source, float pitchVar,
-                                   float radius, float maxGain,
-                                   boolean ignoreOutside);
+ public Audio PlayWorldSoundWav(String name, boolean loop, IsoGridSquare source, float pitchVar, float radius, float maxGain, boolean ignoreOutside);
 
-public
-  abstract Audio PlayWorldSoundWav(String name, IsoGridSquare source,
-                                   float pitchVar, float radius, float maxGain,
-                                   boolean ignoreOutside);
+ public Audio PlayWorldSoundWav(String name, IsoGridSquare source, float pitchVar, float radius, float maxGain, boolean ignoreOutside);
 
-public
-  abstract Audio PlayWorldSound(String name, IsoGridSquare source,
-                                float pitchVar, float radius, float maxGain,
-                                int choices, boolean ignoreOutside);
+ public Audio PlayWorldSound(String name, IsoGridSquare source, float pitchVar, float radius, float maxGain, int choices, boolean ignoreOutside);
 
-public
-  abstract Audio PlayWorldSound(String name, boolean loop, IsoGridSquare source,
-                                float pitchVar, float radius, float maxGain,
-                                boolean ignoreOutside);
+ public Audio PlayWorldSound(String name, boolean loop, IsoGridSquare source, float pitchVar, float radius, float maxGain, boolean ignoreOutside);
 
-public
-  abstract Audio PlayWorldSoundImpl(String name, boolean loop, int sx, int sy,
-                                    int sz, float pitchVar, float radius,
-                                    float maxGain, boolean ignoreOutside);
+ public Audio PlayWorldSoundImpl(
+ String name, boolean loop, int sx, int sy, int sz, float pitchVar, float radius, float maxGain, boolean ignoreOutside
+ );
 
-public
-  abstract Audio PlayWorldSound(String name, IsoGridSquare source,
-                                float pitchVar, float radius, float maxGain,
-                                boolean ignoreOutside);
+ public Audio PlayWorldSound(String name, IsoGridSquare source, float pitchVar, float radius, float maxGain, boolean ignoreOutside);
 
-public
-  abstract void update3D();
+ public void update3D();
 
-public
-  abstract Audio PlaySoundWav(String name, int variations, boolean loop,
-                              float maxGain);
+ public Audio PlaySoundWav(String name, int variations, boolean loop, float maxGain);
 
-public
-  abstract Audio PlaySoundWav(String name, boolean loop, float maxGain);
+ public Audio PlaySoundWav(String name, boolean loop, float maxGain);
 
-public
-  abstract Audio PlaySoundWav(String name, boolean loop, float maxGain,
-                              float pitchVar);
+ public Audio PlaySoundWav(String name, boolean loop, float maxGain, float pitchVar);
 
-public
-  abstract Audio PlayWorldSoundWavImpl(String name, boolean loop,
-                                       IsoGridSquare source, float pitchVar,
-                                       float radius, float maxGain,
-                                       boolean ignoreOutside);
+ public Audio PlayWorldSoundWavImpl(
+ String name, boolean loop, IsoGridSquare source, float pitchVar, float radius, float maxGain, boolean ignoreOutside
+ );
 
-public
-  abstract Audio PlayJukeboxSound(String name, boolean loop, float maxGain);
+ public Audio PlayJukeboxSound(String name, boolean loop, float maxGain);
 
-public
-  abstract Audio PlaySoundEvenSilent(String name, boolean loop, float maxGain);
+ public Audio PlaySoundEvenSilent(String name, boolean loop, float maxGain);
 
-public
-  abstract Audio PlaySound(String name, boolean loop, float maxGain);
+ public Audio PlaySound(String name, boolean loop, float maxGain);
 
-public
-  abstract Audio PlaySound(String name, boolean loop, float pitchVar,
-                           float maxGain);
+ public Audio PlaySound(String name, boolean loop, float pitchVar, float maxGain);
 
-public
-  abstract Audio PlayMusic(String n, String name, boolean loop, float maxGain);
+ public Audio PlayMusic(String n, String name, boolean loop, float maxGain);
 
-public
-  abstract void PlayAsMusic(String name, Audio musicTrack, boolean loop,
-                            float volume);
+ public void PlayAsMusic(String name, Audio musicTrack, boolean loop, float volume);
 
-public
-  abstract void setMusicState(String stateName);
+ public void setMusicState(String stateName);
 
-public
-  abstract void setMusicWakeState(IsoPlayer player, String stateName);
+ public void setMusicWakeState(IsoPlayer player, String stateName);
 
-public
-  abstract void DoMusic(String name, boolean bLoop);
+ public void DoMusic(String name, boolean bLoop);
 
-public
-  abstract float getMusicPosition();
+ public float getMusicPosition();
 
-public
-  abstract void CheckDoMusic();
+ public void CheckDoMusic();
 
-public
-  abstract void stopMusic(String name);
+ public void stopMusic(String name);
 
-public
-  abstract void playMusicNonTriggered(String name, float gain);
+ public void playMusicNonTriggered(String name, float gain);
 
-public
-  abstract void playAmbient(String name);
+ public void playAmbient(String name);
 
-public
-  abstract void playMusic(String name);
+ public void playMusic(String name);
 
-public
-  abstract boolean isPlayingMusic();
+ public boolean isPlayingMusic();
 
-public
-  abstract boolean IsMusicPlaying();
+ public boolean IsMusicPlaying();
 
-public
-  abstract String getCurrentMusicName();
+ public String getCurrentMusicName();
 
-public
-  abstract String getCurrentMusicLibrary();
+ public String getCurrentMusicLibrary();
 
-public
-  abstract void PlayAsMusic(String name, Audio musicTrack, float volume,
-                            boolean bloop);
+ public void PlayAsMusic(String name, Audio musicTrack, float volume, boolean bloop);
 
-public
-  abstract long playUISound(String name);
+ public long playUISound(String name);
 
-public
-  abstract boolean isPlayingUISound(String name);
+ public boolean isPlayingUISound(String name);
 
-public
-  abstract boolean isPlayingUISound(long eventInstance);
+ public boolean isPlayingUISound(long eventInstance);
 
-public
-  abstract void stopUISound(long eventInstance);
+ public void stopUISound(long eventInstance);
 
-public
-  abstract void FadeOutMusic(String name, int milli);
+ public void FadeOutMusic(String name, int milli);
 
-public
-  abstract Audio BlendThenStart(Audio musicTrack, float f, String PrefMusic);
+ public Audio BlendThenStart(Audio musicTrack, float f, String PrefMusic);
 
-public
-  abstract void BlendVolume(Audio audio, float targetVolume,
-                            float blendSpeedAlpha);
+ public void BlendVolume(Audio audio, float targetVolume, float blendSpeedAlpha);
 
-public
-  abstract void BlendVolume(Audio audio, float targetVolume);
+ public void BlendVolume(Audio audio, float targetVolume);
 
-public
-  abstract void setSoundVolume(float volume);
+ public void setSoundVolume(float volume);
 
-public
-  abstract float getSoundVolume();
+ public float getSoundVolume();
 
-public
-  abstract void setAmbientVolume(float volume);
+ public void setAmbientVolume(float volume);
 
-public
-  abstract float getAmbientVolume();
+ public float getAmbientVolume();
 
-public
-  abstract void setMusicVolume(float volume);
+ public void setMusicVolume(float volume);
 
-public
-  abstract float getMusicVolume();
+ public float getMusicVolume();
 
-public
-  abstract void setVehicleEngineVolume(float volume);
+ public void setVehicleEngineVolume(float volume);
 
-public
-  abstract float getVehicleEngineVolume();
+ public float getVehicleEngineVolume();
 
-public
-  abstract void playNightAmbient(String choice);
+ public void playNightAmbient(String choice);
 
-public
-  abstract ArrayList<Audio> getAmbientPieces();
+ public ArrayList<Audio> getAmbientPieces();
 
-public
-  abstract void pauseSoundAndMusic();
+ public void pauseSoundAndMusic();
 
-public
-  abstract void resumeSoundAndMusic();
+ public void resumeSoundAndMusic();
 
-public
-  abstract void debugScriptSounds();
+ public void debugScriptSounds();
 
-public
-  abstract void registerEmitter(BaseSoundEmitter emitter);
+ public void registerEmitter(BaseSoundEmitter emitter);
 
-public
-  abstract void unregisterEmitter(BaseSoundEmitter emitter);
+ public void unregisterEmitter(BaseSoundEmitter emitter);
 
-public
-  abstract boolean isListenerInRange(float x, float y, float range);
+ public boolean isListenerInRange(float x, float y, float range);
 }
 } // namespace zombie

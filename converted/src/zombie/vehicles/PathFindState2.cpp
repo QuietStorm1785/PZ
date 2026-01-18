@@ -4,24 +4,24 @@ namespace zombie {
 namespace vehicles {
 
 void PathFindState2::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void PathFindState2::execute(IsoGameCharacter character) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void PathFindState2::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void PathFindState2::animEvent(IsoGameCharacter var1, AnimEvent var2) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 bool PathFindState2::isMoving(IsoGameCharacter character) {
-  // TODO: Implement isMoving
-  return false;
+ // TODO: Implement isMoving
+ return false;
 }
 
 } // namespace vehicles

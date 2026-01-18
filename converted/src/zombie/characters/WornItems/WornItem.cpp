@@ -4,20 +4,19 @@ namespace zombie {
 namespace characters {
 namespace WornItems {
 
-public
-WornItem::WornItem(const std::string &_location, InventoryItem _item) {
-  // TODO: Implement WornItem
-  return nullptr;
+public WornItem::WornItem(const std::string& _location, InventoryItem _item) {
+ // TODO: Implement WornItem
+ return nullptr;
 }
 
 std::string WornItem::getLocation() {
-  // TODO: Implement getLocation
-  return "";
+ // TODO: Implement getLocation
+ return "";
 }
 
 InventoryItem WornItem::getItem() {
-  // TODO: Implement getItem
-  return nullptr;
+ // TODO: Implement getItem
+ return nullptr;
 }
 
 } // namespace WornItems

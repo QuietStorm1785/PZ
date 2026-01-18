@@ -5,56 +5,51 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-public
-AnimationVariableSlotCallbackString::AnimationVariableSlotCallbackString(
-    const std::string &string,
-    AnimationVariableSlotCallbackString
-        .CallbackGetStrongTyped callbackGetStrongTyped) {
-  // TODO: Implement AnimationVariableSlotCallbackString
-  return nullptr;
+public AnimationVariableSlotCallbackString::AnimationVariableSlotCallbackString(const std::string& string, AnimationVariableSlotCallbackString.CallbackGetStrongTyped callbackGetStrongTyped) {
+ // TODO: Implement AnimationVariableSlotCallbackString
+ return nullptr;
 }
 
 std::string AnimationVariableSlotCallbackString::getDefaultValue() {
-  // TODO: Implement getDefaultValue
-  return "";
+ // TODO: Implement getDefaultValue
+ return "";
 }
 
 std::string AnimationVariableSlotCallbackString::getValueString() {
-  // TODO: Implement getValueString
-  return "";
+ // TODO: Implement getValueString
+ return "";
 }
 
 float AnimationVariableSlotCallbackString::getValueFloat() {
-  // TODO: Implement getValueFloat
-  return 0;
+ // TODO: Implement getValueFloat
+ return 0;
 }
 
 bool AnimationVariableSlotCallbackString::getValueBool() {
-  // TODO: Implement getValueBool
-  return false;
+ // TODO: Implement getValueBool
+ return false;
 }
 
-void AnimationVariableSlotCallbackString::setValue(const std::string &string) {
-  // TODO: Implement setValue
+void AnimationVariableSlotCallbackString::setValue(const std::string& string) {
+ // TODO: Implement setValue
 }
 
 void AnimationVariableSlotCallbackString::setValue(float float0) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 void AnimationVariableSlotCallbackString::setValue(bool boolean0) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 AnimationVariableType AnimationVariableSlotCallbackString::getType() {
-  // TODO: Implement getType
-  return nullptr;
+ // TODO: Implement getType
+ return nullptr;
 }
 
-bool AnimationVariableSlotCallbackString::canConvertFrom(
-    const std::string &var1) {
-  // TODO: Implement canConvertFrom
-  return false;
+bool AnimationVariableSlotCallbackString::canConvertFrom(const std::string& var1) {
+ // TODO: Implement canConvertFrom
+ return false;
 }
 
 } // namespace advancedanimation

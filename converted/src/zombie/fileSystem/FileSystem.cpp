@@ -3,11 +3,9 @@
 namespace zombie {
 namespace fileSystem {
 
-public
-FileSystem::SubTexture(const std::string &packName, const std::string &pageName,
-                       TexturePackPage.SubTextureInfo info) {
-  // TODO: Implement SubTexture
-  return nullptr;
+public FileSystem::SubTexture(const std::string& packName, const std::string& pageName, TexturePackPage.SubTextureInfo info) {
+ // TODO: Implement SubTexture
+ return nullptr;
 }
 
 } // namespace fileSystem

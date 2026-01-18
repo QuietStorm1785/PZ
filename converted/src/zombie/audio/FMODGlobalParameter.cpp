@@ -3,22 +3,21 @@
 namespace zombie {
 namespace audio {
 
-public
-FMODGlobalParameter::FMODGlobalParameter(const std::string &string) {
-  // TODO: Implement FMODGlobalParameter
-  return nullptr;
+public FMODGlobalParameter::FMODGlobalParameter(const std::string& string) {
+ // TODO: Implement FMODGlobalParameter
+ return nullptr;
 }
 
 void FMODGlobalParameter::setCurrentValue(float float0) {
-  // TODO: Implement setCurrentValue
+ // TODO: Implement setCurrentValue
 }
 
 void FMODGlobalParameter::startEventInstance(long var1) {
-  // TODO: Implement startEventInstance
+ // TODO: Implement startEventInstance
 }
 
 void FMODGlobalParameter::stopEventInstance(long var1) {
-  // TODO: Implement stopEventInstance
+ // TODO: Implement stopEventInstance
 }
 
 } // namespace audio

@@ -3,18 +3,17 @@
 namespace zombie {
 namespace asset {
 
-public
-AssetTask_RunFileTask::AssetTask_RunFileTask(FileTask fileTask, Asset asset) {
-  // TODO: Implement AssetTask_RunFileTask
-  return nullptr;
+public AssetTask_RunFileTask::AssetTask_RunFileTask(FileTask fileTask, Asset asset) {
+ // TODO: Implement AssetTask_RunFileTask
+ return nullptr;
 }
 
 void AssetTask_RunFileTask::execute() {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void AssetTask_RunFileTask::cancel() {
-  // TODO: Implement cancel
+ // TODO: Implement cancel
 }
 
 } // namespace asset

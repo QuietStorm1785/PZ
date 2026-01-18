@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter CMakeFiles/zomboid_check.dir/src/zombie/core/Core.cpp.o -o zomboid_check  libprojectzomboid.a 

@@ -4,20 +4,19 @@ namespace zombie {
 namespace util {
 namespace set {
 
-protected
-AbstractIntSet::AbstractIntSet() {
-  // TODO: Implement AbstractIntSet
-  return nullptr;
+protected AbstractIntSet::AbstractIntSet() {
+ // TODO: Implement AbstractIntSet
+ return nullptr;
 }
 
-bool AbstractIntSet::equals(void *object) {
-  // TODO: Implement equals
-  return false;
+bool AbstractIntSet::equals(void* object) {
+ // TODO: Implement equals
+ return false;
 }
 
 int AbstractIntSet::hashCode() {
-  // TODO: Implement hashCode
-  return 0;
+ // TODO: Implement hashCode
+ return 0;
 }
 
 } // namespace set

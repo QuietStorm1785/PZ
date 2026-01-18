@@ -6,53 +6,53 @@ namespace packets {
 namespace hit {
 
 void Square::set(IsoGameCharacter character) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void Square::set(IsoGridSquare square0) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void Square::parse(ByteBuffer byteBuffer, UdpConnection var2) {
-  // TODO: Implement parse
+ // TODO: Implement parse
 }
 
 void Square::write(ByteBufferWriter byteBufferWriter) {
-  // TODO: Implement write
+ // TODO: Implement write
 }
 
 std::string Square::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 void Square::process(IsoGameCharacter character) {
-  // TODO: Implement process
+ // TODO: Implement process
 }
 
 float Square::getX() {
-  // TODO: Implement getX
-  return 0;
+ // TODO: Implement getX
+ return 0;
 }
 
 float Square::getY() {
-  // TODO: Implement getY
-  return 0;
+ // TODO: Implement getY
+ return 0;
 }
 
 float Square::getZ() {
-  // TODO: Implement getZ
-  return 0;
+ // TODO: Implement getZ
+ return 0;
 }
 
 IsoGridSquare Square::getSquare() {
-  // TODO: Implement getSquare
-  return nullptr;
+ // TODO: Implement getSquare
+ return nullptr;
 }
 
 bool Square::isConsistent() {
-  // TODO: Implement isConsistent
-  return false;
+ // TODO: Implement isConsistent
+ return false;
 }
 
 } // namespace hit

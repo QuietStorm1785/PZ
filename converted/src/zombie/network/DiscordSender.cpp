@@ -3,9 +3,8 @@
 namespace zombie {
 namespace network {
 
-void DiscordSender::sendMessageFromDiscord(const std::string &var1,
-                                           const std::string &var2) {
-  // TODO: Implement sendMessageFromDiscord
+void DiscordSender::sendMessageFromDiscord(const std::string& var1, const std::string& var2) {
+ // TODO: Implement sendMessageFromDiscord
 }
 
 } // namespace network

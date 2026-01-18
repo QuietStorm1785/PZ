@@ -6,23 +6,23 @@ namespace skinnedmodel {
 namespace animation {
 
 void IAnimListener::onAnimStarted(AnimationTrack track) {
-  // TODO: Implement onAnimStarted
+ // TODO: Implement onAnimStarted
 }
 
 void IAnimListener::onLoopedAnim(AnimationTrack track) {
-  // TODO: Implement onLoopedAnim
+ // TODO: Implement onLoopedAnim
 }
 
 void IAnimListener::onNonLoopedAnimFadeOut(AnimationTrack track) {
-  // TODO: Implement onNonLoopedAnimFadeOut
+ // TODO: Implement onNonLoopedAnimFadeOut
 }
 
 void IAnimListener::onNonLoopedAnimFinished(AnimationTrack track) {
-  // TODO: Implement onNonLoopedAnimFinished
+ // TODO: Implement onNonLoopedAnimFinished
 }
 
 void IAnimListener::onTrackDestroyed(AnimationTrack track) {
-  // TODO: Implement onTrackDestroyed
+ // TODO: Implement onTrackDestroyed
 }
 
 } // namespace animation

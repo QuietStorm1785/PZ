@@ -5,13 +5,13 @@ namespace util {
 namespace list {
 
 bool PZPrimitiveArrayIterable::hasNext() {
-  // TODO: Implement hasNext
-  return false;
+ // TODO: Implement hasNext
+ return false;
 }
 
 float PZPrimitiveArrayIterable::next() {
-  // TODO: Implement next
-  return 0;
+ // TODO: Implement next
+ return 0;
 }
 
 } // namespace list

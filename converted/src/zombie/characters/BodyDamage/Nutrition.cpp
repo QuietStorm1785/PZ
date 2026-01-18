@@ -4,124 +4,123 @@ namespace zombie {
 namespace characters {
 namespace BodyDamage {
 
-public
-Nutrition::Nutrition(IsoPlayer _parent) {
-  // TODO: Implement Nutrition
-  return nullptr;
+public Nutrition::Nutrition(IsoPlayer _parent) {
+ // TODO: Implement Nutrition
+ return nullptr;
 }
 
 void Nutrition::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void Nutrition::updateCalories() {
-  // TODO: Implement updateCalories
+ // TODO: Implement updateCalories
 }
 
 void Nutrition::updateWeight() {
-  // TODO: Implement updateWeight
+ // TODO: Implement updateWeight
 }
 
 void Nutrition::syncWeight() {
-  // TODO: Implement syncWeight
+ // TODO: Implement syncWeight
 }
 
 void Nutrition::save(ByteBuffer output) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void Nutrition::load(ByteBuffer input) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void Nutrition::applyWeightFromTraits() {
-  // TODO: Implement applyWeightFromTraits
+ // TODO: Implement applyWeightFromTraits
 }
 
 void Nutrition::applyTraitFromWeight() {
-  // TODO: Implement applyTraitFromWeight
+ // TODO: Implement applyTraitFromWeight
 }
 
 bool Nutrition::characterHaveWeightTrouble() {
-  // TODO: Implement characterHaveWeightTrouble
-  return false;
+ // TODO: Implement characterHaveWeightTrouble
+ return false;
 }
 
 bool Nutrition::canAddFitnessXp() {
-  // TODO: Implement canAddFitnessXp
-  return false;
+ // TODO: Implement canAddFitnessXp
+ return false;
 }
 
 float Nutrition::getCarbohydrates() {
-  // TODO: Implement getCarbohydrates
-  return 0;
+ // TODO: Implement getCarbohydrates
+ return 0;
 }
 
 void Nutrition::setCarbohydrates(float _carbohydrates) {
-  // TODO: Implement setCarbohydrates
+ // TODO: Implement setCarbohydrates
 }
 
 float Nutrition::getProteins() {
-  // TODO: Implement getProteins
-  return 0;
+ // TODO: Implement getProteins
+ return 0;
 }
 
 void Nutrition::setProteins(float _proteins) {
-  // TODO: Implement setProteins
+ // TODO: Implement setProteins
 }
 
 float Nutrition::getCalories() {
-  // TODO: Implement getCalories
-  return 0;
+ // TODO: Implement getCalories
+ return 0;
 }
 
 void Nutrition::setCalories(float _calories) {
-  // TODO: Implement setCalories
+ // TODO: Implement setCalories
 }
 
 float Nutrition::getLipids() {
-  // TODO: Implement getLipids
-  return 0;
+ // TODO: Implement getLipids
+ return 0;
 }
 
 void Nutrition::setLipids(float _lipids) {
-  // TODO: Implement setLipids
+ // TODO: Implement setLipids
 }
 
 double Nutrition::getWeight() {
-  // TODO: Implement getWeight
-  return 0;
+ // TODO: Implement getWeight
+ return 0;
 }
 
 void Nutrition::setWeight(double _weight) {
-  // TODO: Implement setWeight
+ // TODO: Implement setWeight
 }
 
 bool Nutrition::isIncWeight() {
-  // TODO: Implement isIncWeight
-  return false;
+ // TODO: Implement isIncWeight
+ return false;
 }
 
 void Nutrition::setIncWeight(bool _incWeight) {
-  // TODO: Implement setIncWeight
+ // TODO: Implement setIncWeight
 }
 
 bool Nutrition::isIncWeightLot() {
-  // TODO: Implement isIncWeightLot
-  return false;
+ // TODO: Implement isIncWeightLot
+ return false;
 }
 
 void Nutrition::setIncWeightLot(bool _incWeightLot) {
-  // TODO: Implement setIncWeightLot
+ // TODO: Implement setIncWeightLot
 }
 
 bool Nutrition::isDecWeight() {
-  // TODO: Implement isDecWeight
-  return false;
+ // TODO: Implement isDecWeight
+ return false;
 }
 
 void Nutrition::setDecWeight(bool _decWeight) {
-  // TODO: Implement setDecWeight
+ // TODO: Implement setDecWeight
 }
 
 } // namespace BodyDamage

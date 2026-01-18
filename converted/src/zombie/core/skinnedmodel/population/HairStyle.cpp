@@ -6,38 +6,38 @@ namespace skinnedmodel {
 namespace population {
 
 bool HairStyle::isValid() {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
-std::string HairStyle::getAlternate(const std::string &category) {
-  // TODO: Implement getAlternate
-  return "";
+std::string HairStyle::getAlternate(const std::string& category) {
+ // TODO: Implement getAlternate
+ return "";
 }
 
 int HairStyle::getLevel() {
-  // TODO: Implement getLevel
-  return 0;
+ // TODO: Implement getLevel
+ return 0;
 }
 
 std::string HairStyle::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 bool HairStyle::isAttachedHair() {
-  // TODO: Implement isAttachedHair
-  return false;
+ // TODO: Implement isAttachedHair
+ return false;
 }
 
 bool HairStyle::isGrowReference() {
-  // TODO: Implement isGrowReference
-  return false;
+ // TODO: Implement isGrowReference
+ return false;
 }
 
 bool HairStyle::isNoChoose() {
-  // TODO: Implement isNoChoose
-  return false;
+ // TODO: Implement isNoChoose
+ return false;
 }
 
 } // namespace population

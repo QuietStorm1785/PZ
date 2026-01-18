@@ -6,18 +6,18 @@ namespace util {
 namespace vector {
 
 float ReadableVector::length() {
-  // TODO: Implement length
-  return 0;
+ // TODO: Implement length
+ return 0;
 }
 
 float ReadableVector::lengthSquared() {
-  // TODO: Implement lengthSquared
-  return 0;
+ // TODO: Implement lengthSquared
+ return 0;
 }
 
 Vector ReadableVector::store(FloatBuffer var1) {
-  // TODO: Implement store
-  return nullptr;
+ // TODO: Implement store
+ return nullptr;
 }
 
 } // namespace vector

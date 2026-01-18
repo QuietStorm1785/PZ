@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterPlayerDistance::ParameterPlayerDistance(IsoZombie _zombie) {
-  // TODO: Implement ParameterPlayerDistance
-  return nullptr;
+public ParameterPlayerDistance::ParameterPlayerDistance(IsoZombie _zombie) {
+ // TODO: Implement ParameterPlayerDistance
+ return nullptr;
 }
 
 float ParameterPlayerDistance::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

@@ -5,33 +5,33 @@ namespace ai {
 namespace states {
 
 ZombieGetDownState ZombieGetDownState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ZombieGetDownState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ZombieGetDownState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ZombieGetDownState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void ZombieGetDownState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 bool ZombieGetDownState::isNearStartXY(IsoGameCharacter owner) {
-  // TODO: Implement isNearStartXY
-  return false;
+ // TODO: Implement isNearStartXY
+ return false;
 }
 
 void ZombieGetDownState::setParams(IsoGameCharacter owner) {
-  // TODO: Implement setParams
+ // TODO: Implement setParams
 }
 
 } // namespace states

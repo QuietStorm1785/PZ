@@ -4,36 +4,36 @@ namespace zombie {
 namespace gameStates {
 
 void GameLoadingState::enter() {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void GameLoadingState::run() {
-  // TODO: Implement run
+ // TODO: Implement run
 }
 
 void GameLoadingState::runInner() {
-  // TODO: Implement runInner
+ // TODO: Implement runInner
 }
 
 void GameLoadingState::SendDone() {
-  // TODO: Implement SendDone
+ // TODO: Implement SendDone
 }
 
 void GameLoadingState::Done() {
-  // TODO: Implement Done
+ // TODO: Implement Done
 }
 
 GameState GameLoadingState::redirectState() {
-  // TODO: Implement redirectState
-  return nullptr;
+ // TODO: Implement redirectState
+ return nullptr;
 }
 
 void GameLoadingState::exit() {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void GameLoadingState::render() {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 } // namespace gameStates

@@ -5,11 +5,11 @@ namespace core {
 namespace opengl {
 
 void IModelCamera::Begin() {
-  // TODO: Implement Begin
+ // TODO: Implement Begin
 }
 
 void IModelCamera::End() {
-  // TODO: Implement End
+ // TODO: Implement End
 }
 
 } // namespace opengl

@@ -5,77 +5,70 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 
 void RBBasic::randomizeBuilding(BuildingDef def) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 void RBBasic::doLivingRoomStuff(IsoGridSquare square) {
-  // TODO: Implement doLivingRoomStuff
+ // TODO: Implement doLivingRoomStuff
 }
 
 void RBBasic::doBedroomStuff(IsoGridSquare square) {
-  // TODO: Implement doBedroomStuff
+ // TODO: Implement doBedroomStuff
 }
 
 void RBBasic::doKitchenStuff(IsoGridSquare square) {
-  // TODO: Implement doKitchenStuff
+ // TODO: Implement doKitchenStuff
 }
 
 void RBBasic::doBathroomStuff(IsoGridSquare square) {
-  // TODO: Implement doBathroomStuff
+ // TODO: Implement doBathroomStuff
 }
 
-void RBBasic::generateKitchenStoveClutter(IsoDirections directions,
-                                          IsoObject object,
-                                          IsoGridSquare square) {
-  // TODO: Implement generateKitchenStoveClutter
+void RBBasic::generateKitchenStoveClutter(IsoDirections directions, IsoObject object, IsoGridSquare square) {
+ // TODO: Implement generateKitchenStoveClutter
 }
 
-void RBBasic::generateCounterClutter(IsoDirections directions, IsoObject object,
-                                     IsoGridSquare square, String > hashMap) {
-  // TODO: Implement generateCounterClutter
+void RBBasic::generateCounterClutter(IsoDirections directions, IsoObject object, IsoGridSquare square, String> hashMap) {
+ // TODO: Implement generateCounterClutter
 }
 
-void RBBasic::generateSinkClutter(IsoDirections directions, IsoObject object,
-                                  IsoGridSquare square, String > hashMap) {
-  // TODO: Implement generateSinkClutter
+void RBBasic::generateSinkClutter(IsoDirections directions, IsoObject object, IsoGridSquare square, String> hashMap) {
+ // TODO: Implement generateSinkClutter
 }
 
 IsoDirections RBBasic::getFacing(IsoSprite sprite) {
-  // TODO: Implement getFacing
-  return nullptr;
+ // TODO: Implement getFacing
+ return nullptr;
 }
 
 void RBBasic::checkForTableSpawn(BuildingDef buildingDef, IsoObject object) {
-  // TODO: Implement checkForTableSpawn
+ // TODO: Implement checkForTableSpawn
 }
 
 IsoObject RBBasic::checkForTable(IsoGridSquare square, IsoObject object0) {
-  // TODO: Implement checkForTable
-  return nullptr;
+ // TODO: Implement checkForTable
+ return nullptr;
 }
 
-void RBBasic::doProfessionStory(BuildingDef def,
-                                const std::string &professionChoosed) {
-  // TODO: Implement doProfessionStory
+void RBBasic::doProfessionStory(BuildingDef def, const std::string& professionChoosed) {
+ // TODO: Implement doProfessionStory
 }
 
 void RBBasic::addRandomDeadSurvivorStory(BuildingDef buildingDef) {
-  // TODO: Implement addRandomDeadSurvivorStory
+ // TODO: Implement addRandomDeadSurvivorStory
 }
 
 void RBBasic::initRDSMap(BuildingDef buildingDef) {
-  // TODO: Implement initRDSMap
+ // TODO: Implement initRDSMap
 }
 
-void RBBasic::doRandomDeadSurvivorStory(BuildingDef buildingDef,
-                                        RandomizedDeadSurvivorBase DSDef) {
-  // TODO: Implement doRandomDeadSurvivorStory
+void RBBasic::doRandomDeadSurvivorStory(BuildingDef buildingDef, RandomizedDeadSurvivorBase DSDef) {
+ // TODO: Implement doRandomDeadSurvivorStory
 }
 
-public
-RBBasic::RBBasic() {
-  // TODO: Implement RBBasic
-  return nullptr;
+public RBBasic::RBBasic() {
+ // TODO: Implement RBBasic
+ return nullptr;
 }
 
 } // namespace randomizedBuilding

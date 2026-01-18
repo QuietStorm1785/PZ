@@ -4,15 +4,15 @@ namespace zombie {
 namespace meta {
 
 void Meta::dealWithSquareSeen(IsoGridSquare square) {
-  // TODO: Implement dealWithSquareSeen
+ // TODO: Implement dealWithSquareSeen
 }
 
 void Meta::dealWithSquareSeenActual(IsoGridSquare square) {
-  // TODO: Implement dealWithSquareSeenActual
+ // TODO: Implement dealWithSquareSeenActual
 }
 
 void Meta::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 } // namespace meta

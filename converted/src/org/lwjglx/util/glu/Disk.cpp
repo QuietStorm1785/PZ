@@ -6,7 +6,7 @@ namespace util {
 namespace glu {
 
 void Disk::draw(float float3, float float2, int int0, int int1) {
-  // TODO: Implement draw
+ // TODO: Implement draw
 }
 
 } // namespace glu

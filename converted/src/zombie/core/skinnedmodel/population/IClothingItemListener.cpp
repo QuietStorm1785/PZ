@@ -5,8 +5,8 @@ namespace core {
 namespace skinnedmodel {
 namespace population {
 
-void IClothingItemListener::clothingItemChanged(const std::string &itemGuid) {
-  // TODO: Implement clothingItemChanged
+void IClothingItemListener::clothingItemChanged(const std::string& itemGuid) {
+ // TODO: Implement clothingItemChanged
 }
 
 } // namespace population

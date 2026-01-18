@@ -6,13 +6,13 @@ namespace kahlua {
 namespace profiler {
 
 std::string StacktraceElement::name() {
-  // TODO: Implement name
-  return "";
+ // TODO: Implement name
+ return "";
 }
 
 std::string StacktraceElement::type() {
-  // TODO: Implement type
-  return "";
+ // TODO: Implement type
+ return "";
 }
 
 } // namespace profiler

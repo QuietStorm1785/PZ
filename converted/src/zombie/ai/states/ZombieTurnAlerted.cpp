@@ -5,24 +5,24 @@ namespace ai {
 namespace states {
 
 ZombieTurnAlerted ZombieTurnAlerted::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ZombieTurnAlerted::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ZombieTurnAlerted::execute(IsoGameCharacter var1) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ZombieTurnAlerted::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void ZombieTurnAlerted::setParams(IsoGameCharacter character, float float0) {
-  // TODO: Implement setParams
+ // TODO: Implement setParams
 }
 
 } // namespace states

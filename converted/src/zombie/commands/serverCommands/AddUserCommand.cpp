@@ -4,18 +4,14 @@ namespace zombie {
 namespace commands {
 namespace serverCommands {
 
-public
-AddUserCommand::AddUserCommand(const std::string &string0,
-                               const std::string &string1,
-                               const std::string &string2,
-                               UdpConnection udpConnection) {
-  // TODO: Implement AddUserCommand
-  return nullptr;
+public AddUserCommand::AddUserCommand(const std::string& string0, const std::string& string1, const std::string& string2, UdpConnection udpConnection) {
+ // TODO: Implement AddUserCommand
+ return nullptr;
 }
 
 std::string AddUserCommand::Command() {
-  // TODO: Implement Command
-  return "";
+ // TODO: Implement Command
+ return "";
 }
 
 } // namespace serverCommands

@@ -6,8 +6,8 @@ namespace util {
 namespace vector {
 
 float ReadableVector3f::getZ() {
-  // TODO: Implement getZ
-  return 0;
+ // TODO: Implement getZ
+ return 0;
 }
 
 } // namespace vector

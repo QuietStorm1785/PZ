@@ -6,18 +6,17 @@ namespace kahlua {
 namespace profiler {
 
 void StacktraceCounter::addTime(long long0) {
-  // TODO: Implement addTime
+ // TODO: Implement addTime
 }
 
-StacktraceCounter
-StacktraceCounter::getOrCreateChild(StacktraceElement stacktraceElement) {
-  // TODO: Implement getOrCreateChild
-  return nullptr;
+StacktraceCounter StacktraceCounter::getOrCreateChild(StacktraceElement stacktraceElement) {
+ // TODO: Implement getOrCreateChild
+ return nullptr;
 }
 
 long StacktraceCounter::getTime() {
-  // TODO: Implement getTime
-  return 0;
+ // TODO: Implement getTime
+ return 0;
 }
 
 } // namespace profiler

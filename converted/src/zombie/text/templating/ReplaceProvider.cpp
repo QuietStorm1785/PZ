@@ -4,31 +4,31 @@ namespace zombie {
 namespace text {
 namespace templating {
 
-void ReplaceProvider::addKey(const std::string &key, final String) {
-  // TODO: Implement addKey
+void ReplaceProvider::addKey(const std::string& key, String) {
+ // TODO: Implement addKey
 }
 
 std::string ReplaceProvider::getString() {
-  // TODO: Implement getString
-  return "";
+ // TODO: Implement getString
+ return "";
 }
 
-void ReplaceProvider::addKey(const std::string &key, KahluaTableImpl table) {
-  // TODO: Implement addKey
+void ReplaceProvider::addKey(const std::string& key, KahluaTableImpl table) {
+ // TODO: Implement addKey
 }
 
-void ReplaceProvider::addReplacer(const std::string &key, IReplace replace) {
-  // TODO: Implement addReplacer
+void ReplaceProvider::addReplacer(const std::string& key, IReplace replace) {
+ // TODO: Implement addReplacer
 }
 
-bool ReplaceProvider::hasReplacer(const std::string &key) {
-  // TODO: Implement hasReplacer
-  return false;
+bool ReplaceProvider::hasReplacer(const std::string& key) {
+ // TODO: Implement hasReplacer
+ return false;
 }
 
-IReplace ReplaceProvider::getReplacer(const std::string &key) {
-  // TODO: Implement getReplacer
-  return nullptr;
+IReplace ReplaceProvider::getReplacer(const std::string& key) {
+ // TODO: Implement getReplacer
+ return nullptr;
 }
 
 } // namespace templating

@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterRainIntensity::ParameterRainIntensity() {
-  // TODO: Implement ParameterRainIntensity
-  return nullptr;
+public ParameterRainIntensity::ParameterRainIntensity() {
+ // TODO: Implement ParameterRainIntensity
+ return nullptr;
 }
 
 float ParameterRainIntensity::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

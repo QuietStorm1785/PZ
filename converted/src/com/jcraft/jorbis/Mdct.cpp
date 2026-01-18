@@ -5,15 +5,15 @@ namespace jcraft {
 namespace jorbis {
 
 void Mdct::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 void Mdct::forward(float[] var1, float[] var2) {
-  // TODO: Implement forward
+ // TODO: Implement forward
 }
 
 void Mdct::init(int int0) {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 } // namespace jorbis

@@ -7,13 +7,13 @@ namespace integration {
 namespace expose {
 
 void* IterableExposer::iter(Iterable<?> iterable) {
-  // TODO: Implement iter
-  return nullptr;
+ // TODO: Implement iter
+ return nullptr;
 }
 
 int IterableExposer::call(LuaCallFrame luaCallFrame, int var2) {
-  // TODO: Implement call
-  return 0;
+ // TODO: Implement call
+ return 0;
 }
 
 } // namespace expose

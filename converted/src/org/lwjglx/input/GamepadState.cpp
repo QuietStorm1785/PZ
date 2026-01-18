@@ -5,11 +5,11 @@ namespace lwjglx {
 namespace input {
 
 void GamepadState::set(GamepadState arg0) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void GamepadState::quit() {
-  // TODO: Implement quit
+ // TODO: Implement quit
 }
 
 } // namespace input

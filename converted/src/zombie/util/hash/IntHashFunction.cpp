@@ -5,8 +5,8 @@ namespace util {
 namespace hash {
 
 int IntHashFunction::hash(int var1) {
-  // TODO: Implement hash
-  return 0;
+ // TODO: Implement hash
+ return 0;
 }
 
 } // namespace hash

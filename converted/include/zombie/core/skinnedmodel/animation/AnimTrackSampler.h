@@ -1,33 +1,33 @@
 #pragma once
-#include "org/lwjgl/util/vector/Matrix4f.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "org/lwjgl/util/vector/Matrix4f.h"
 
 namespace zombie {
 namespace core {
 namespace skinnedmodel {
 namespace animation {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class AnimTrackSampler {
 public:
-  virtual ~AnimTrackSampler() = default;
-  float getTotalTime();
+ virtual ~AnimTrackSampler() = default;
+ float getTotalTime();
 
-  bool isLooped();
+ bool isLooped();
 
-  void moveToTime(float time);
+ void moveToTime(float time);
 
-  float getCurrentTime();
+ float getCurrentTime();
 
-  void getBoneMatrix(int boneIdx, Matrix4f out_matrix);
+ void getBoneMatrix(int boneIdx, Matrix4f out_matrix);
 
-  int getNumBones();
+ int getNumBones();
 }
 } // namespace animation
 } // namespace skinnedmodel

@@ -3,10 +3,9 @@
 namespace org {
 namespace joml {
 
-private
-RoundingMode::RoundingMode() {
-  // TODO: Implement RoundingMode
-  return nullptr;
+private RoundingMode::RoundingMode() {
+ // TODO: Implement RoundingMode
+ return nullptr;
 }
 
 } // namespace joml

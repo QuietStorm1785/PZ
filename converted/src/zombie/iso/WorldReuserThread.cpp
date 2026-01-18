@@ -4,23 +4,23 @@ namespace zombie {
 namespace iso {
 
 void WorldReuserThread::run() {
-  // TODO: Implement run
+ // TODO: Implement run
 }
 
 void WorldReuserThread::reconcileReuseObjects() {
-  // TODO: Implement reconcileReuseObjects
+ // TODO: Implement reconcileReuseObjects
 }
 
 void WorldReuserThread::testReuseChunk() {
-  // TODO: Implement testReuseChunk
+ // TODO: Implement testReuseChunk
 }
 
 void WorldReuserThread::addReuseChunk(IsoChunk chunk) {
-  // TODO: Implement addReuseChunk
+ // TODO: Implement addReuseChunk
 }
 
 void WorldReuserThread::reuseGridSquares(IsoChunk chunk) {
-  // TODO: Implement reuseGridSquares
+ // TODO: Implement reuseGridSquares
 }
 
 } // namespace iso

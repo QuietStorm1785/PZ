@@ -5,54 +5,53 @@ namespace ai {
 namespace states {
 
 OpenWindowState OpenWindowState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void OpenWindowState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void OpenWindowState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void OpenWindowState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void OpenWindowState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 bool OpenWindowState::isDoingActionThatCanBeCancelled() {
-  // TODO: Implement isDoingActionThatCanBeCancelled
-  return false;
+ // TODO: Implement isDoingActionThatCanBeCancelled
+ return false;
 }
 
-void OpenWindowState::onAttemptFinished(IsoGameCharacter character,
-                                        IsoWindow window) {
-  // TODO: Implement onAttemptFinished
+void OpenWindowState::onAttemptFinished(IsoGameCharacter character, IsoWindow window) {
+ // TODO: Implement onAttemptFinished
 }
 
 void OpenWindowState::onSuccess(IsoGameCharacter character, IsoWindow window) {
-  // TODO: Implement onSuccess
+ // TODO: Implement onSuccess
 }
 
 void OpenWindowState::exert(IsoGameCharacter character) {
-  // TODO: Implement exert
+ // TODO: Implement exert
 }
 
 void OpenWindowState::slideX(IsoGameCharacter character, float float1) {
-  // TODO: Implement slideX
+ // TODO: Implement slideX
 }
 
 void OpenWindowState::slideY(IsoGameCharacter character, float float1) {
-  // TODO: Implement slideY
+ // TODO: Implement slideY
 }
 
 void OpenWindowState::setParams(IsoGameCharacter owner, IsoWindow window) {
-  // TODO: Implement setParams
+ // TODO: Implement setParams
 }
 
 } // namespace states

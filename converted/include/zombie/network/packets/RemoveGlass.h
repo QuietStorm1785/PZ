@@ -1,4 +1,10 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/characters/BodyDamage/BodyPart.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
@@ -10,102 +16,88 @@
 #include "zombie/network/PacketValidator.h"
 #include "zombie/network/packets/hit/Player.h"
 #include "zombie/network/packets/hit/PlayerBodyPart.h"
-#include <cstdint>
 #include <filesystem>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace network {
 namespace packets {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class RemoveGlass {
 public:
-  const Player wielder = new Player();
-  const Player target = new Player();
-  PlayerBodyPart bodyPart = new PlayerBodyPart();
-  bool handPain = false;
+ const Player wielder = new Player();
+ const Player target = new Player();
+ PlayerBodyPart bodyPart = new PlayerBodyPart();
+ bool handPain = false;
 
-  void set(IsoGameCharacter character0, IsoGameCharacter character1,
-           BodyPart bodyPartx, bool boolean0) {
-    this.wielder.set(character0);
-    this.target.set(character1);
-    this.bodyPart.set(bodyPartx);
-    this.handPain = boolean0;
-  }
+ void set(IsoGameCharacter character0, IsoGameCharacter character1, BodyPart bodyPartx, bool boolean0) {
+ this->wielder.set(character0);
+ this->target.set(character1);
+ this->bodyPart.set(bodyPartx);
+ this->handPain = boolean0;
+ }
 
-  void parse(ByteBuffer byteBuffer, UdpConnection udpConnection) {
-    this.wielder.parse(byteBuffer, udpConnection);
-    this.wielder.parsePlayer(udpConnection);
-    this.target.parse(byteBuffer, udpConnection);
-    this.target.parsePlayer(nullptr);
-    this.bodyPart.parse(byteBuffer, this.target.getCharacter());
-    byteBuffer.put((byte)(this.handPain ? 1 : 0));
-  }
+ void parse(ByteBuffer byteBuffer, UdpConnection udpConnection) {
+ this->wielder.parse(byteBuffer, udpConnection);
+ this->wielder.parsePlayer(udpConnection);
+ this->target.parse(byteBuffer, udpConnection);
+ this->target.parsePlayer(nullptr);
+ this->bodyPart.parse(byteBuffer, this->target.getCharacter());
+ byteBuffer.put((byte)(this->handPain ? 1 : 0);
+ }
 
-  void write(ByteBufferWriter byteBufferWriter) {
-    this.wielder.write(byteBufferWriter);
-    this.target.write(byteBufferWriter);
-    this.bodyPart.write(byteBufferWriter);
-    this.handPain = byteBufferWriter.bb.get() == 1;
-  }
+ void write(ByteBufferWriter byteBufferWriter) {
+ this->wielder.write(byteBufferWriter);
+ this->target.write(byteBufferWriter);
+ this->bodyPart.write(byteBufferWriter);
+ this->handPain = byteBufferWriter.bb.get() == 1;
+ }
 
-  void process() {
-    int int0 =
-        this.wielder.getCharacter().getPerkLevel(PerkFactory.Perks.Doctor);
-    if (!this.wielder.getPlayer().isAccessLevel("None")) {
-      int0 = 10;
-    }
+ void process() {
+ int int0 = this->wielder.getCharacter().getPerkLevel(PerkFactory.Perks.Doctor);
+ if (!this->wielder.getPlayer().isAccessLevel("None")) {
+ int0 = 10;
+ }
 
-    if (this.wielder.getCharacter().HasTrait("Hemophobic")) {
-      this.wielder.getCharacter().getStats().setPanic(
-          this.wielder.getCharacter().getStats().getPanic() + 50.0F);
-    }
+ if (this->wielder.getCharacter().HasTrait("Hemophobic")) {
+ this->wielder.getCharacter().getStats().setPanic(this->wielder.getCharacter().getStats().getPanic() + 50.0F);
+ }
 
-    this.wielder.getCharacter().getXp().AddXP(PerkFactory.Perks.Doctor, 15.0F);
-    float float0 = 30 - int0;
-    this.bodyPart.getBodyPart().setAdditionalPain(
-        this.bodyPart.getBodyPart().getAdditionalPain() + float0);
-    if (this.handPain) {
-      this.bodyPart.getBodyPart().setAdditionalPain(
-          this.bodyPart.getBodyPart().getAdditionalPain() + 30.0F);
-    }
+ this->wielder.getCharacter().getXp().AddXP(PerkFactory.Perks.Doctor, 15.0F);
+ float float0 = 30 - int0;
+ this->bodyPart.getBodyPart().setAdditionalPain(this->bodyPart.getBodyPart().getAdditionalPain() + float0);
+ if (this->handPain) {
+ this->bodyPart.getBodyPart().setAdditionalPain(this->bodyPart.getBodyPart().getAdditionalPain() + 30.0F);
+ }
 
-    this.bodyPart.getBodyPart().setHaveGlass(false);
-  }
+ this->bodyPart.getBodyPart().setHaveGlass(false);
+ }
 
-  bool isConsistent() {
-    return this.wielder.getCharacter() != nullptr && this.wielder.getCharacter()
-        instanceof
-        IsoPlayer && this.target.getCharacter() != nullptr &&
-            this.target.getCharacter()
-            instanceof IsoPlayer && this.bodyPart.getBodyPart() != nullptr;
-  }
+ bool isConsistent() {
+ return this->wielder.getCharacter() != nullptr
+ && this->wielder.getCharacter() instanceof IsoPlayer
+ && this->target.getCharacter() != nullptr
+ && this->target.getCharacter() instanceof IsoPlayer
+ && this->bodyPart.getBodyPart() != nullptr;
+ }
 
-  bool validate(UdpConnection udpConnection) {
-    if (GameClient.bClient && !this.bodyPart.getBodyPart().haveGlass()) {
-      DebugLog.General.warn(this.getClass().getSimpleName() +
-                            ": Validate error: " + this.getDescription());
-      return false;
-    } else {
-      return PacketValidator.checkShortDistance(
-          udpConnection, this.wielder, this.target,
-          this.getClass().getSimpleName());
-    }
-  }
+ bool validate(UdpConnection udpConnection) {
+ if (GameClient.bClient && !this->bodyPart.getBodyPart().haveGlass()) {
+ DebugLog.General.warn(this->getClass().getSimpleName() + ": Validate error: " + this->getDescription());
+ return false;
+ } else {
+ return PacketValidator.checkShortDistance(udpConnection, this->wielder, this->target, this->getClass().getSimpleName());
+ }
+ }
 
-  std::string getDescription() {
-    std::string string = "\n\t" + this.getClass().getSimpleName() + " [";
-    string = string + "wielder=" + this.wielder.getDescription() + " | ";
-    string = string + "target=" + this.target.getDescription() + " | ";
-    string = string + "bodyPart=" + this.bodyPart.getDescription() + " | ";
-    return string + "handPain=" + this.handPain + "] ";
-  }
+ std::string getDescription() {
+ std::string string = "\n\t" + this->getClass().getSimpleName() + " [";
+ string = string + "wielder=" + this->wielder.getDescription() + " | ";
+ string = string + "target=" + this->target.getDescription() + " | ";
+ string = string + "bodyPart=" + this->bodyPart.getDescription() + " | ";
+ return string + "handPain=" + this->handPain + "] ";
+ }
 }
 } // namespace packets
 } // namespace network

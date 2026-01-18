@@ -4,58 +4,58 @@ namespace zombie {
 namespace input {
 
 void MouseState::poll() {
-  // TODO: Implement poll
+ // TODO: Implement poll
 }
 
 bool MouseState::wasPolled() {
-  // TODO: Implement wasPolled
-  return false;
+ // TODO: Implement wasPolled
+ return false;
 }
 
 void MouseState::set(MouseState rhs) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 void MouseState::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 bool MouseState::isCreated() {
-  // TODO: Implement isCreated
-  return false;
+ // TODO: Implement isCreated
+ return false;
 }
 
 int MouseState::getX() {
-  // TODO: Implement getX
-  return 0;
+ // TODO: Implement getX
+ return 0;
 }
 
 int MouseState::getY() {
-  // TODO: Implement getY
-  return 0;
+ // TODO: Implement getY
+ return 0;
 }
 
 int MouseState::getDWheel() {
-  // TODO: Implement getDWheel
-  return 0;
+ // TODO: Implement getDWheel
+ return 0;
 }
 
 void MouseState::resetDWheel() {
-  // TODO: Implement resetDWheel
+ // TODO: Implement resetDWheel
 }
 
 bool MouseState::isButtonDown(int button) {
-  // TODO: Implement isButtonDown
-  return false;
+ // TODO: Implement isButtonDown
+ return false;
 }
 
 int MouseState::getButtonCount() {
-  // TODO: Implement getButtonCount
-  return 0;
+ // TODO: Implement getButtonCount
+ return 0;
 }
 
 void MouseState::setCursorPosition(int new_x, int new_y) {
-  // TODO: Implement setCursorPosition
+ // TODO: Implement setCursorPosition
 }
 
 } // namespace input

@@ -4,11 +4,11 @@ namespace zombie {
 namespace worldMap {
 
 void WorldMapJNI::init() {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
-void WorldMapJNI::writeToStdErr(const std::string &string) {
-  // TODO: Implement writeToStdErr
+void WorldMapJNI::writeToStdErr(const std::string& string) {
+ // TODO: Implement writeToStdErr
 }
 
 } // namespace worldMap

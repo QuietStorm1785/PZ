@@ -4,19 +4,18 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
-public
-RDSBandPractice::RDSBandPractice() {
-  // TODO: Implement RDSBandPractice
-  return nullptr;
+public RDSBandPractice::RDSBandPractice() {
+ // TODO: Implement RDSBandPractice
+ return nullptr;
 }
 
 void RDSBandPractice::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 bool RDSBandPractice::isValid(BuildingDef def, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 } // namespace randomizedDeadSurvivor

@@ -4,21 +4,19 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterWeatherEvent::ParameterWeatherEvent() {
-  // TODO: Implement ParameterWeatherEvent
-  return nullptr;
+public ParameterWeatherEvent::ParameterWeatherEvent() {
+ // TODO: Implement ParameterWeatherEvent
+ return nullptr;
 }
 
 float ParameterWeatherEvent::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
-private
-ParameterWeatherEvent::Event(int int1) {
-  // TODO: Implement Event
-  return nullptr;
+private ParameterWeatherEvent::Event(int int1) {
+ // TODO: Implement Event
+ return nullptr;
 }
 
 } // namespace parameters

@@ -4,128 +4,126 @@ namespace zombie {
 namespace profanity {
 namespace locales {
 
-protected
-Locale::Locale(const std::string &string) {
-  // TODO: Implement Locale
-  return nullptr;
+protected Locale::Locale(const std::string& string) {
+ // TODO: Implement Locale
+ return nullptr;
 }
 
 std::string Locale::getID() {
-  // TODO: Implement getID
-  return "";
+ // TODO: Implement getID
+ return "";
 }
 
 std::string Locale::getPhoneticRules() {
-  // TODO: Implement getPhoneticRules
-  return "";
+ // TODO: Implement getPhoneticRules
+ return "";
 }
 
 int Locale::getFilterWordsCount() {
-  // TODO: Implement getFilterWordsCount
-  return 0;
+ // TODO: Implement getFilterWordsCount
+ return 0;
 }
 
-void Locale::addWhiteListWord(const std::string &string) {
-  // TODO: Implement addWhiteListWord
+void Locale::addWhiteListWord(const std::string& string) {
+ // TODO: Implement addWhiteListWord
 }
 
-void Locale::removeWhiteListWord(const std::string &string) {
-  // TODO: Implement removeWhiteListWord
+void Locale::removeWhiteListWord(const std::string& string) {
+ // TODO: Implement removeWhiteListWord
 }
 
-bool Locale::isWhiteListedWord(const std::string &string) {
-  // TODO: Implement isWhiteListedWord
-  return false;
+bool Locale::isWhiteListedWord(const std::string& string) {
+ // TODO: Implement isWhiteListedWord
+ return false;
 }
 
-void Locale::addFilterWord(const std::string &string1) {
-  // TODO: Implement addFilterWord
+void Locale::addFilterWord(const std::string& string1) {
+ // TODO: Implement addFilterWord
 }
 
-void Locale::removeFilterWord(const std::string &string1) {
-  // TODO: Implement removeFilterWord
+void Locale::removeFilterWord(const std::string& string1) {
+ // TODO: Implement removeFilterWord
 }
 
-void Locale::addFilterContains(const std::string &string) {
-  // TODO: Implement addFilterContains
+void Locale::addFilterContains(const std::string& string) {
+ // TODO: Implement addFilterContains
 }
 
-void Locale::removeFilterContains(const std::string &string) {
-  // TODO: Implement removeFilterContains
+void Locale::removeFilterContains(const std::string& string) {
+ // TODO: Implement removeFilterContains
 }
 
-void Locale::addFilterRawWord(const std::string &string) {
-  // TODO: Implement addFilterRawWord
+void Locale::addFilterRawWord(const std::string& string) {
+ // TODO: Implement addFilterRawWord
 }
 
-void Locale::removeFilterWordRaw(const std::string &string) {
-  // TODO: Implement removeFilterWordRaw
+void Locale::removeFilterWordRaw(const std::string& string) {
+ // TODO: Implement removeFilterWordRaw
 }
 
 std::string Locale::repeatString(int int0, char char0) {
-  // TODO: Implement repeatString
-  return "";
+ // TODO: Implement repeatString
+ return "";
 }
 
-bool Locale::containsIgnoreCase(const std::string &string1,
-                                const std::string &string0) {
-  // TODO: Implement containsIgnoreCase
-  return false;
+bool Locale::containsIgnoreCase(const std::string& string1, const std::string& string0) {
+ // TODO: Implement containsIgnoreCase
+ return false;
 }
 
-std::string Locale::filterWord(const std::string &string) {
-  // TODO: Implement filterWord
-  return "";
+std::string Locale::filterWord(const std::string& string) {
+ // TODO: Implement filterWord
+ return "";
 }
 
-std::string Locale::filterWord(const std::string &string0, bool boolean0) {
-  // TODO: Implement filterWord
-  return "";
+std::string Locale::filterWord(const std::string& string0, bool boolean0) {
+ // TODO: Implement filterWord
+ return "";
 }
 
-std::string Locale::validateWord(const std::string &string0, bool boolean0) {
-  // TODO: Implement validateWord
-  return "";
+std::string Locale::validateWord(const std::string& string0, bool boolean0) {
+ // TODO: Implement validateWord
+ return "";
 }
 
-std::string Locale::returnMatchSetForWord(const std::string &string1) {
-  // TODO: Implement returnMatchSetForWord
-  return "";
+std::string Locale::returnMatchSetForWord(const std::string& string1) {
+ // TODO: Implement returnMatchSetForWord
+ return "";
 }
 
-std::string Locale::returnPhonizedWord(const std::string &string) {
-  // TODO: Implement returnPhonizedWord
-  return "";
+std::string Locale::returnPhonizedWord(const std::string& string) {
+ // TODO: Implement returnPhonizedWord
+ return "";
 }
 
-std::string Locale::phonizeWord(const std::string &string) {
-  // TODO: Implement phonizeWord
-  return "";
+std::string Locale::phonizeWord(const std::string& string) {
+ // TODO: Implement phonizeWord
+ return "";
 }
 
-std::string Locale::preProcessWord(const std::string &string0) {
-  // TODO: Implement preProcessWord
-  return "";
+std::string Locale::preProcessWord(const std::string& string0) {
+ // TODO: Implement preProcessWord
+ return "";
 }
 
 void Locale::addPhonizer(Phonizer phonizer) {
-  // TODO: Implement addPhonizer
+ // TODO: Implement addPhonizer
 }
 
 void Locale::finalizeData() {
-  // TODO: Implement finalizeData
+ // TODO: Implement finalizeData
 }
 
 void Locale::loadFilterWords() {
-  // TODO: Implement loadFilterWords
+ // TODO: Implement loadFilterWords
 }
 
 void Locale::loadFilterContains() {
-  // TODO: Implement loadFilterContains
+ // TODO: Implement loadFilterContains
 }
 
 void Locale::loadWhiteListWords() {
-  // TODO: Implement loadWhiteListWords
+ // TODO: Implement loadWhiteListWords
 }
 
 } // namespace locales

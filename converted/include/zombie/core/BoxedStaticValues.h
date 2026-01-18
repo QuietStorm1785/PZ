@@ -1,47 +1,44 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace core {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class BoxedStaticValues {
 public:
-  static Double[] doubles = new Double[10000];
-  static Double[] negdoubles = new Double[10000];
-  static Double[] doublesh = new Double[10000];
-  static Double[] negdoublesh = new Double[10000];
+ static Double[] doubles = new Double[10000];
+ static Double[] negdoubles = new Double[10000];
+ static Double[] doublesh = new Double[10000];
+ static Double[] negdoublesh = new Double[10000];
 
-  static double toDouble(double double0) {
-    if (double0 >= 10000.0) {
-      return double0;
-    } else if (double0 <= -10000.0) {
-      return double0;
-    } else if ((int)Math.abs(double0) == Math.abs(double0)) {
-      return double0 < 0.0 ? negdoubles[(int)(-double0)]
-                           : doubles[(int)double0];
-    } else if ((int)Math.abs(double0) == Math.abs(double0) - 0.5) {
-      return double0 < 0.0 ? negdoublesh[(int)(-double0)]
-                           : doublesh[(int)double0];
-    } else {
-      return double0;
-    }
-  }
+ static double toDouble(double double0) {
+ if (double0 >= 10000.0) {
+ return double0;
+ } else if (double0 <= -10000.0) {
+ return double0;
+ } else if ((int)Math.abs(double0) == Math.abs(double0) {
+ return double0 < 0.0 ? negdoubles[(int)(-double0)] : doubles[(int)double0];
+ } else if ((int)Math.abs(double0) == Math.abs(double0) - 0.5) {
+ return double0 < 0.0 ? negdoublesh[(int)(-double0)] : doublesh[(int)double0];
+ } else {
+ return double0;
+ }
+ }
 
-  static {
-    for (int int0 = 0; int0 < 10000; int0++) {
-      doubles[int0] = (double)int0;
-      negdoubles[int0] = -doubles[int0];
-      doublesh[int0] = int0 + 0.5;
-      negdoublesh[int0] = -(doubles[int0] + 0.5);
-    }
-  }
+ static {
+ for (int int0 = 0; int0 < 10000; int0++) {
+ doubles[int0] = (double)int0;
+ negdoubles[int0] = -doubles[int0];
+ doublesh[int0] = int0 + 0.5;
+ negdoublesh[int0] = -(doubles[int0] + 0.5);
+ }
+ }
 }
 } // namespace core
 } // namespace zombie

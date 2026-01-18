@@ -4,22 +4,22 @@ namespace zombie {
 namespace vehicles {
 
 int LightbarSirenMode::get() {
-  // TODO: Implement get
-  return 0;
+ // TODO: Implement get
+ return 0;
 }
 
 void LightbarSirenMode::set(int v) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 bool LightbarSirenMode::isEnable() {
-  // TODO: Implement isEnable
-  return false;
+ // TODO: Implement isEnable
+ return false;
 }
 
 std::string LightbarSirenMode::getSoundName(VehicleScript.LightBar lightbar) {
-  // TODO: Implement getSoundName
-  return "";
+ // TODO: Implement getSoundName
+ return "";
 }
 
 } // namespace vehicles

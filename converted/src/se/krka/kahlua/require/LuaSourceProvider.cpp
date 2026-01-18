@@ -5,9 +5,9 @@ namespace krka {
 namespace kahlua {
 namespace require {
 
-Reader LuaSourceProvider::getLuaSource(const std::string &var1) {
-  // TODO: Implement getLuaSource
-  return nullptr;
+Reader LuaSourceProvider::getLuaSource(const std::string& var1) {
+ // TODO: Implement getLuaSource
+ return nullptr;
 }
 
 } // namespace require

@@ -4,14 +4,13 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
-public
-RDSPoliceAtHouse::RDSPoliceAtHouse() {
-  // TODO: Implement RDSPoliceAtHouse
-  return nullptr;
+public RDSPoliceAtHouse::RDSPoliceAtHouse() {
+ // TODO: Implement RDSPoliceAtHouse
+ return nullptr;
 }
 
 void RDSPoliceAtHouse::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 } // namespace randomizedDeadSurvivor

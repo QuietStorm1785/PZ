@@ -5,9 +5,9 @@ namespace krka {
 namespace kahlua {
 namespace converter {
 
-void *JavaToLuaConverter::fromJavaToLua(JavaType var1) {
-  // TODO: Implement fromJavaToLua
-  return nullptr;
+void* JavaToLuaConverter::fromJavaToLua(JavaType var1) {
+ // TODO: Implement fromJavaToLua
+ return nullptr;
 }
 
 } // namespace converter

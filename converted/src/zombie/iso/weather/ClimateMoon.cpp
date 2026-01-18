@@ -5,42 +5,42 @@ namespace iso {
 namespace weather {
 
 ClimateMoon ClimateMoon::getInstance() {
-  // TODO: Implement getInstance
-  return nullptr;
+ // TODO: Implement getInstance
+ return nullptr;
 }
 
 void ClimateMoon::updatePhase(int year, int month, int day) {
-  // TODO: Implement updatePhase
+ // TODO: Implement updatePhase
 }
 
 std::string ClimateMoon::getPhaseName() {
-  // TODO: Implement getPhaseName
-  return "";
+ // TODO: Implement getPhaseName
+ return "";
 }
 
 float ClimateMoon::getMoonFloat() {
-  // TODO: Implement getMoonFloat
-  return 0;
+ // TODO: Implement getMoonFloat
+ return 0;
 }
 
 int ClimateMoon::getCurrentMoonPhase() {
-  // TODO: Implement getCurrentMoonPhase
-  return 0;
+ // TODO: Implement getCurrentMoonPhase
+ return 0;
 }
 
 int ClimateMoon::getMoonPhase(int int3, int int0, int int2) {
-  // TODO: Implement getMoonPhase
-  return 0;
+ // TODO: Implement getMoonPhase
+ return 0;
 }
 
 int ClimateMoon::daysInMonth(int int1, int int2) {
-  // TODO: Implement daysInMonth
-  return 0;
+ // TODO: Implement daysInMonth
+ return 0;
 }
 
 bool ClimateMoon::isLeapYearP(int int0) {
-  // TODO: Implement isLeapYearP
-  return false;
+ // TODO: Implement isLeapYearP
+ return false;
 }
 
 } // namespace weather

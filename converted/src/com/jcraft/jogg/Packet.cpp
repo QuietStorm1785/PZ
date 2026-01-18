@@ -2,6 +2,8 @@
 
 namespace com {
 namespace jcraft {
-namespace jogg {} // namespace jogg
+namespace jogg {
+
+} // namespace jogg
 } // namespace jcraft
 } // namespace com

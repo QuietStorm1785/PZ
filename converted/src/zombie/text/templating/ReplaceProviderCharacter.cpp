@@ -4,30 +4,29 @@ namespace zombie {
 namespace text {
 namespace templating {
 
-public
-ReplaceProviderCharacter::ReplaceProviderCharacter(final IsoGameCharacter) {
-  // TODO: Implement ReplaceProviderCharacter
-  return nullptr;
+public ReplaceProviderCharacter::ReplaceProviderCharacter( IsoGameCharacter) {
+ // TODO: Implement ReplaceProviderCharacter
+ return nullptr;
 }
 
 new ReplaceProviderCharacter::IReplace() {
-  // TODO: Implement IReplace
-  return nullptr;
+ // TODO: Implement IReplace
+ return nullptr;
 }
 
 std::string ReplaceProviderCharacter::getString() {
-  // TODO: Implement getString
-  return "";
+ // TODO: Implement getString
+ return "";
 }
 
 new ReplaceProviderCharacter::IReplace() {
-  // TODO: Implement IReplace
-  return nullptr;
+ // TODO: Implement IReplace
+ return nullptr;
 }
 
 std::string ReplaceProviderCharacter::getString() {
-  // TODO: Implement getString
-  return "";
+ // TODO: Implement getString
+ return "";
 }
 
 } // namespace templating

@@ -4,42 +4,41 @@ namespace zombie {
 namespace core {
 namespace utils {
 
-public
-ObjectGrid::ObjectGrid(int int0, int int1) {
-  // TODO: Implement ObjectGrid
-  return nullptr;
+public ObjectGrid::ObjectGrid(int int0, int int1) {
+ // TODO: Implement ObjectGrid
+ return nullptr;
 }
 
 void ObjectGrid::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 void ObjectGrid::fill(T object) {
-  // TODO: Implement fill
+ // TODO: Implement fill
 }
 
 int ObjectGrid::getIndex(int int0, int int1) {
-  // TODO: Implement getIndex
-  return 0;
+ // TODO: Implement getIndex
+ return 0;
 }
 
 T ObjectGrid::getValue(int int1, int int2) {
-  // TODO: Implement getValue
-  return nullptr;
+ // TODO: Implement getValue
+ return nullptr;
 }
 
 void ObjectGrid::setValue(int int1, int int2, T object) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 int ObjectGrid::getWidth() {
-  // TODO: Implement getWidth
-  return 0;
+ // TODO: Implement getWidth
+ return 0;
 }
 
 int ObjectGrid::getHeight() {
-  // TODO: Implement getHeight
-  return 0;
+ // TODO: Implement getHeight
+ return 0;
 }
 
 } // namespace utils

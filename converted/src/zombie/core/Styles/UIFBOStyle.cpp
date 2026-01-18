@@ -5,22 +5,22 @@ namespace core {
 namespace Styles {
 
 void UIFBOStyle::setupState() {
-  // TODO: Implement setupState
+ // TODO: Implement setupState
 }
 
 AlphaOp UIFBOStyle::getAlphaOp() {
-  // TODO: Implement getAlphaOp
-  return nullptr;
+ // TODO: Implement getAlphaOp
+ return nullptr;
 }
 
 int UIFBOStyle::getStyleID() {
-  // TODO: Implement getStyleID
-  return 0;
+ // TODO: Implement getStyleID
+ return 0;
 }
 
 bool UIFBOStyle::getRenderSprite() {
-  // TODO: Implement getRenderSprite
-  return false;
+ // TODO: Implement getRenderSprite
+ return false;
 }
 
 } // namespace Styles

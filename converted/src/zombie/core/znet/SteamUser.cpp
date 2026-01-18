@@ -5,13 +5,13 @@ namespace core {
 namespace znet {
 
 long SteamUser::GetSteamID() {
-  // TODO: Implement GetSteamID
-  return 0;
+ // TODO: Implement GetSteamID
+ return 0;
 }
 
 std::string SteamUser::GetSteamIDString() {
-  // TODO: Implement GetSteamIDString
-  return "";
+ // TODO: Implement GetSteamIDString
+ return "";
 }
 
 } // namespace znet

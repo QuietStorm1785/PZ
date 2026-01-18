@@ -1,32 +1,31 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace fmod {
 namespace fmod {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class Audio {
 public:
-  virtual ~Audio() = default;
-  bool isPlaying();
+ virtual ~Audio() = default;
+ bool isPlaying();
 
-  void setVolume(float arg0);
+ void setVolume(float arg0);
 
-  void start();
+ void start();
 
-  void pause();
+ void pause();
 
-  void stop();
+ void stop();
 
-  void setName(const std::string &arg0);
+ void setName(const std::string& arg0);
 
-  std::string getName();
+ std::string getName();
 }
 } // namespace fmod
 } // namespace fmod

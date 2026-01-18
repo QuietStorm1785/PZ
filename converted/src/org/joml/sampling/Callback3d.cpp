@@ -5,7 +5,7 @@ namespace joml {
 namespace sampling {
 
 void Callback3d::onNewSample(float var1, float var2, float var3) {
-  // TODO: Implement onNewSample
+ // TODO: Implement onNewSample
 }
 
 } // namespace sampling

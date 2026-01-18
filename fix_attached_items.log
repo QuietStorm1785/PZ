@@ -1,0 +1,9 @@
+Found 11 AttachedItems files to fix...
+Fixed: zombie/characters/AttachedItems/AttachedLocationGroup.h
+
+AttachedItems Fixer Report:
+  Missing members added: 0
+  Java keywords removed: 1
+  null → nullptr: 4
+  Access specifiers fixed: 3
+  Missing semicolons added: 0

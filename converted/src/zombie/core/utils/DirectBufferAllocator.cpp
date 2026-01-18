@@ -5,17 +5,17 @@ namespace core {
 namespace utils {
 
 WrappedBuffer DirectBufferAllocator::allocate(int int0) {
-  // TODO: Implement allocate
-  return nullptr;
+ // TODO: Implement allocate
+ return nullptr;
 }
 
 void DirectBufferAllocator::destroyDisposed() {
-  // TODO: Implement destroyDisposed
+ // TODO: Implement destroyDisposed
 }
 
 long DirectBufferAllocator::getBytesAllocated() {
-  // TODO: Implement getBytesAllocated
-  return 0;
+ // TODO: Implement getBytesAllocated
+ return 0;
 }
 
 } // namespace utils

@@ -4,7 +4,9 @@ namespace com {
 namespace evildevil {
 namespace engines {
 namespace bubble {
-namespace texture {} // namespace texture
+namespace texture {
+
+} // namespace texture
 } // namespace bubble
 } // namespace engines
 } // namespace evildevil

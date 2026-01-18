@@ -4,19 +4,18 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedBuilding {
 
-public
-RBKateAndBaldspot::RBKateAndBaldspot() {
-  // TODO: Implement RBKateAndBaldspot
-  return nullptr;
+public RBKateAndBaldspot::RBKateAndBaldspot() {
+ // TODO: Implement RBKateAndBaldspot
+ return nullptr;
 }
 
 void RBKateAndBaldspot::randomizeBuilding(BuildingDef def) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 bool RBKateAndBaldspot::isValid(BuildingDef def, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 } // namespace randomizedBuilding

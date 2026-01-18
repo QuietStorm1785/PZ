@@ -4,36 +4,35 @@ namespace com {
 namespace sixlegs {
 namespace png {
 
-public
-RasterDestination::RasterDestination(WritableRaster writableRaster, int int0) {
-  // TODO: Implement RasterDestination
-  return nullptr;
+public RasterDestination::RasterDestination(WritableRaster writableRaster, int int0) {
+ // TODO: Implement RasterDestination
+ return nullptr;
 }
 
 void RasterDestination::setPixels(int int0, int int1, int int2, int[] ints) {
-  // TODO: Implement setPixels
+ // TODO: Implement setPixels
 }
 
 void RasterDestination::setPixel(int int0, int int1, int[] ints) {
-  // TODO: Implement setPixel
+ // TODO: Implement setPixel
 }
 
 void RasterDestination::getPixel(int int0, int int1, int[] ints) {
-  // TODO: Implement getPixel
+ // TODO: Implement getPixel
 }
 
 WritableRaster RasterDestination::getRaster() {
-  // TODO: Implement getRaster
-  return nullptr;
+ // TODO: Implement getRaster
+ return nullptr;
 }
 
 int RasterDestination::getSourceWidth() {
-  // TODO: Implement getSourceWidth
-  return 0;
+ // TODO: Implement getSourceWidth
+ return 0;
 }
 
 void RasterDestination::done() {
-  // TODO: Implement done
+ // TODO: Implement done
 }
 
 } // namespace png

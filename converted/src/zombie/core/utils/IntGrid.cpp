@@ -4,47 +4,46 @@ namespace zombie {
 namespace core {
 namespace utils {
 
-public
-IntGrid::IntGrid(int _width, int _height) {
-  // TODO: Implement IntGrid
-  return nullptr;
+public IntGrid::IntGrid(int _width, int _height) {
+ // TODO: Implement IntGrid
+ return nullptr;
 }
 
 IntGrid IntGrid::clone() {
-  // TODO: Implement clone
-  return nullptr;
+ // TODO: Implement clone
+ return nullptr;
 }
 
 void IntGrid::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 void IntGrid::fill(int newValue) {
-  // TODO: Implement fill
+ // TODO: Implement fill
 }
 
 int IntGrid::getIndex(int int0, int int1) {
-  // TODO: Implement getIndex
-  return 0;
+ // TODO: Implement getIndex
+ return 0;
 }
 
 int IntGrid::getValue(int x, int y) {
-  // TODO: Implement getValue
-  return 0;
+ // TODO: Implement getValue
+ return 0;
 }
 
 void IntGrid::setValue(int x, int y, int newValue) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 int IntGrid::getWidth() {
-  // TODO: Implement getWidth
-  return 0;
+ // TODO: Implement getWidth
+ return 0;
 }
 
 int IntGrid::getHeight() {
-  // TODO: Implement getHeight
-  return 0;
+ // TODO: Implement getHeight
+ return 0;
 }
 
 } // namespace utils

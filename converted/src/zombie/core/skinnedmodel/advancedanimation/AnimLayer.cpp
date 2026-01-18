@@ -5,222 +5,210 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-public
-AnimLayer::AnimLayer(IAnimatable character,
-                     IAnimEventCallback animEventsCallback) {
-  // TODO: Implement AnimLayer
-  return nullptr;
+public AnimLayer::AnimLayer(IAnimatable character, IAnimEventCallback animEventsCallback) {
+ // TODO: Implement AnimLayer
+ return nullptr;
 }
 
-public
-AnimLayer::AnimLayer(AnimLayer parentLayer, IAnimatable character,
-                     IAnimEventCallback animEventsCallback) {
-  // TODO: Implement AnimLayer
-  return nullptr;
+public AnimLayer::AnimLayer(AnimLayer parentLayer, IAnimatable character, IAnimEventCallback animEventsCallback) {
+ // TODO: Implement AnimLayer
+ return nullptr;
 }
 
 std::string AnimLayer::getCurrentStateName() {
-  // TODO: Implement getCurrentStateName
-  return "";
+ // TODO: Implement getCurrentStateName
+ return "";
 }
 
 bool AnimLayer::hasState() {
-  // TODO: Implement hasState
-  return false;
+ // TODO: Implement hasState
+ return false;
 }
 
 bool AnimLayer::isStateless() {
-  // TODO: Implement isStateless
-  return false;
+ // TODO: Implement isStateless
+ return false;
 }
 
 bool AnimLayer::isSubLayer() {
-  // TODO: Implement isSubLayer
-  return false;
+ // TODO: Implement isSubLayer
+ return false;
 }
 
-bool AnimLayer::isCurrentState(const std::string &stateName) {
-  // TODO: Implement isCurrentState
-  return false;
+bool AnimLayer::isCurrentState(const std::string& stateName) {
+ // TODO: Implement isCurrentState
+ return false;
 }
 
 AnimationMultiTrack AnimLayer::getAnimationTrack() {
-  // TODO: Implement getAnimationTrack
-  return nullptr;
+ // TODO: Implement getAnimationTrack
+ return nullptr;
 }
 
 IAnimationVariableSource AnimLayer::getVariableSource() {
-  // TODO: Implement getVariableSource
-  return nullptr;
+ // TODO: Implement getVariableSource
+ return nullptr;
 }
 
 LiveAnimNode AnimLayer::getCurrentSyncNode() {
-  // TODO: Implement getCurrentSyncNode
-  return nullptr;
+ // TODO: Implement getCurrentSyncNode
+ return nullptr;
 }
 
 AnimationTrack AnimLayer::getCurrentSyncTrack() {
-  // TODO: Implement getCurrentSyncTrack
-  return nullptr;
+ // TODO: Implement getCurrentSyncTrack
+ return nullptr;
 }
 
 void AnimLayer::onAnimStarted(AnimationTrack track) {
-  // TODO: Implement onAnimStarted
+ // TODO: Implement onAnimStarted
 }
 
 void AnimLayer::onLoopedAnim(AnimationTrack track) {
-  // TODO: Implement onLoopedAnim
+ // TODO: Implement onLoopedAnim
 }
 
 void AnimLayer::onNonLoopedAnimFadeOut(AnimationTrack track) {
-  // TODO: Implement onNonLoopedAnimFadeOut
+ // TODO: Implement onNonLoopedAnimFadeOut
 }
 
 void AnimLayer::onNonLoopedAnimFinished(AnimationTrack track) {
-  // TODO: Implement onNonLoopedAnimFinished
+ // TODO: Implement onNonLoopedAnimFinished
 }
 
 void AnimLayer::onTrackDestroyed(AnimationTrack track) {
-  // TODO: Implement onTrackDestroyed
+ // TODO: Implement onTrackDestroyed
 }
 
-void AnimLayer::invokeAnimEvent(AnimationTrack animationTrack,
-                                AnimEvent animEvent, bool boolean0) {
-  // TODO: Implement invokeAnimEvent
+void AnimLayer::invokeAnimEvent(AnimationTrack animationTrack, AnimEvent animEvent, bool boolean0) {
+ // TODO: Implement invokeAnimEvent
 }
 
 void AnimLayer::invokeAnimEvent(AnimEvent animEvent) {
-  // TODO: Implement invokeAnimEvent
+ // TODO: Implement invokeAnimEvent
 }
 
 std::string AnimLayer::GetDebugString() {
-  // TODO: Implement GetDebugString
-  return "";
+ // TODO: Implement GetDebugString
+ return "";
 }
 
 void AnimLayer::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 bool AnimLayer::TransitionTo(AnimState newState, bool force) {
-  // TODO: Implement TransitionTo
-  return false;
+ // TODO: Implement TransitionTo
+ return false;
 }
 
 void AnimLayer::Update() {
-  // TODO: Implement Update
+ // TODO: Implement Update
 }
 
 void AnimLayer::updateInternal() {
-  // TODO: Implement updateInternal
+ // TODO: Implement updateInternal
 }
 
-void AnimLayer::updateMaximumTwist(
-    IAnimationVariableSource iAnimationVariableSource) {
-  // TODO: Implement updateMaximumTwist
+void AnimLayer::updateMaximumTwist(IAnimationVariableSource iAnimationVariableSource) {
+ // TODO: Implement updateMaximumTwist
 }
 
 void AnimLayer::updateNodeActiveFlags() {
-  // TODO: Implement updateNodeActiveFlags
+ // TODO: Implement updateNodeActiveFlags
 }
 
 void AnimLayer::updateNewNodeTransitions() {
-  // TODO: Implement updateNewNodeTransitions
+ // TODO: Implement updateNewNodeTransitions
 }
 
 void AnimLayer::updateNewNodeTransitionsInternal() {
-  // TODO: Implement updateNewNodeTransitionsInternal
+ // TODO: Implement updateNewNodeTransitionsInternal
 }
 
-LiveAnimNode AnimLayer::findTransitionToNewNode(LiveAnimNode newNode,
-                                                bool isSubNode) {
-  // TODO: Implement findTransitionToNewNode
-  return nullptr;
+LiveAnimNode AnimLayer::findTransitionToNewNode(LiveAnimNode newNode, bool isSubNode) {
+ // TODO: Implement findTransitionToNewNode
+ return nullptr;
 }
 
 void AnimLayer::removeFadedOutNodes() {
-  // TODO: Implement removeFadedOutNodes
+ // TODO: Implement removeFadedOutNodes
 }
 
 void AnimLayer::render() {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 void AnimLayer::logBlendWeights() {
-  // TODO: Implement logBlendWeights
+ // TODO: Implement logBlendWeights
 }
 
 void AnimLayer::logCurrentState() {
-  // TODO: Implement logCurrentState
+ // TODO: Implement logCurrentState
 }
 
 void AnimLayer::removeLiveNodeAt(int int0) {
-  // TODO: Implement removeLiveNodeAt
+ // TODO: Implement removeLiveNodeAt
 }
 
-void AnimLayer::applyBlendField(LiveAnimNode liveAnimNode, float float0,
-                                float float1) {
-  // TODO: Implement applyBlendField
+void AnimLayer::applyBlendField(LiveAnimNode liveAnimNode, float float0, float float1) {
+ // TODO: Implement applyBlendField
 }
 
 void AnimLayer::getOrCreateLiveNode(AnimNode animNode) {
-  // TODO: Implement getOrCreateLiveNode
+ // TODO: Implement getOrCreateLiveNode
 }
 
 LiveAnimNode AnimLayer::findLiveNode(AnimNode animNode) {
-  // TODO: Implement findLiveNode
-  return nullptr;
+ // TODO: Implement findLiveNode
+ return nullptr;
 }
 
-void AnimLayer::startAnimTrack(const std::string &string,
-                               LiveAnimNode liveAnimNode) {
-  // TODO: Implement startAnimTrack
+void AnimLayer::startAnimTrack(const std::string& string, LiveAnimNode liveAnimNode) {
+ // TODO: Implement startAnimTrack
 }
 
-AnimationTrack AnimLayer::startAnimTrack(
-    const std::string &string,
-    AnimLayer.StartAnimTrackParameters startAnimTrackParameters) {
-  // TODO: Implement startAnimTrack
-  return nullptr;
+AnimationTrack AnimLayer::startAnimTrack(const std::string& string, AnimLayer.StartAnimTrackParameters startAnimTrackParameters) {
+ // TODO: Implement startAnimTrack
+ return nullptr;
 }
 
 int AnimLayer::getDepth() {
-  // TODO: Implement getDepth
-  return 0;
+ // TODO: Implement getDepth
+ return 0;
 }
 
 LiveAnimNode AnimLayer::getHighestLiveNode() {
-  // TODO: Implement getHighestLiveNode
-  return nullptr;
+ // TODO: Implement getHighestLiveNode
+ return nullptr;
 }
 
 AnimationTrack AnimLayer::findSyncTrack(LiveAnimNode liveAnimNode) {
-  // TODO: Implement findSyncTrack
-  return nullptr;
+ // TODO: Implement findSyncTrack
+ return nullptr;
 }
 
 std::string AnimLayer::getDebugNodeName() {
-  // TODO: Implement getDebugNodeName
-  return "";
+ // TODO: Implement getDebugNodeName
+ return "";
 }
 
 bool AnimLayer::isRecording() {
-  // TODO: Implement isRecording
-  return false;
+ // TODO: Implement isRecording
+ return false;
 }
 
 void AnimLayer::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 void AnimLayer::onReleased() {
-  // TODO: Implement onReleased
+ // TODO: Implement onReleased
 }
 
-protected
-AnimLayer::StartAnimTrackParameters() {
-  // TODO: Implement StartAnimTrackParameters
-  return nullptr;
+protected AnimLayer::StartAnimTrackParameters() {
+ // TODO: Implement StartAnimTrackParameters
+ return nullptr;
 }
 
 } // namespace advancedanimation

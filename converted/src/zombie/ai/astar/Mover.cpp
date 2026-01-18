@@ -5,13 +5,13 @@ namespace ai {
 namespace astar {
 
 int Mover::getID() {
-  // TODO: Implement getID
-  return 0;
+ // TODO: Implement getID
+ return 0;
 }
 
 int Mover::getPathFindIndex() {
-  // TODO: Implement getPathFindIndex
-  return 0;
+ // TODO: Implement getPathFindIndex
+ return 0;
 }
 
 } // namespace astar

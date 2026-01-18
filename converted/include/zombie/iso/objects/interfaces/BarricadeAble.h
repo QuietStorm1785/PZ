@@ -1,41 +1,41 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/iso/IsoGridSquare.h"
 #include "zombie/iso/objects/IsoBarricade.h"
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace iso {
 namespace objects {
 namespace interfaces {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class BarricadeAble {
 public:
-  virtual ~BarricadeAble() = default;
-  bool isBarricaded();
+ virtual ~BarricadeAble() = default;
+ bool isBarricaded();
 
-  bool isBarricadeAllowed();
+ bool isBarricadeAllowed();
 
-  IsoBarricade getBarricadeOnSameSquare();
+ IsoBarricade getBarricadeOnSameSquare();
 
-  IsoBarricade getBarricadeOnOppositeSquare();
+ IsoBarricade getBarricadeOnOppositeSquare();
 
-  IsoBarricade getBarricadeForCharacter(IsoGameCharacter chr);
+ IsoBarricade getBarricadeForCharacter(IsoGameCharacter chr);
 
-  IsoBarricade getBarricadeOppositeCharacter(IsoGameCharacter chr);
+ IsoBarricade getBarricadeOppositeCharacter(IsoGameCharacter chr);
 
-  IsoGridSquare getSquare();
+ IsoGridSquare getSquare();
 
-  IsoGridSquare getOppositeSquare();
+ IsoGridSquare getOppositeSquare();
 
-  bool getNorth();
+ bool getNorth();
 }
 } // namespace interfaces
 } // namespace objects

@@ -5,29 +5,29 @@ namespace ai {
 namespace states {
 
 SmashWindowState SmashWindowState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void SmashWindowState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void SmashWindowState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void SmashWindowState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void SmashWindowState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 bool SmashWindowState::isDoingActionThatCanBeCancelled() {
-  // TODO: Implement isDoingActionThatCanBeCancelled
-  return false;
+ // TODO: Implement isDoingActionThatCanBeCancelled
+ return false;
 }
 
 } // namespace states

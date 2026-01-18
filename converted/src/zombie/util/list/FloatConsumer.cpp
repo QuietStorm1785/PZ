@@ -5,7 +5,7 @@ namespace util {
 namespace list {
 
 void FloatConsumer::accept(float var1) {
-  // TODO: Implement accept
+ // TODO: Implement accept
 }
 
 } // namespace list

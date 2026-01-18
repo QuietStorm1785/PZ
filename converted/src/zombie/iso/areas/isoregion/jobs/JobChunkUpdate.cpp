@@ -6,92 +6,90 @@ namespace areas {
 namespace isoregion {
 namespace jobs {
 
-protected
-JobChunkUpdate::JobChunkUpdate() {
-  // TODO: Implement JobChunkUpdate
-  return nullptr;
+protected JobChunkUpdate::JobChunkUpdate() {
+ // TODO: Implement JobChunkUpdate
+ return nullptr;
 }
 
 void JobChunkUpdate::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 UdpConnection JobChunkUpdate::getTargetConn() {
-  // TODO: Implement getTargetConn
-  return nullptr;
+ // TODO: Implement getTargetConn
+ return nullptr;
 }
 
 void JobChunkUpdate::setTargetConn(UdpConnection udpConnection) {
-  // TODO: Implement setTargetConn
+ // TODO: Implement setTargetConn
 }
 
 int JobChunkUpdate::getChunkCount() {
-  // TODO: Implement getChunkCount
-  return 0;
+ // TODO: Implement getChunkCount
+ return 0;
 }
 
 ByteBuffer JobChunkUpdate::getBuffer() {
-  // TODO: Implement getBuffer
-  return nullptr;
+ // TODO: Implement getBuffer
+ return nullptr;
 }
 
 long JobChunkUpdate::getNetTimeStamp() {
-  // TODO: Implement getNetTimeStamp
-  return 0;
+ // TODO: Implement getNetTimeStamp
+ return 0;
 }
 
 void JobChunkUpdate::setNetTimeStamp(long long0) {
-  // TODO: Implement setNetTimeStamp
+ // TODO: Implement setNetTimeStamp
 }
 
 bool JobChunkUpdate::readChunksPacket(DataRoot dataRoot, List<Integer> list) {
-  // TODO: Implement readChunksPacket
-  return false;
+ // TODO: Implement readChunksPacket
+ return false;
 }
 
 bool JobChunkUpdate::saveChunksToDisk() {
-  // TODO: Implement saveChunksToDisk
-  return false;
+ // TODO: Implement saveChunksToDisk
+ return false;
 }
 
 bool JobChunkUpdate::saveChunksToNetBuffer(ByteBuffer byteBuffer) {
-  // TODO: Implement saveChunksToNetBuffer
-  return false;
+ // TODO: Implement saveChunksToNetBuffer
+ return false;
 }
 
-bool JobChunkUpdate::readChunksFromNetBuffer(ByteBuffer byteBuffer,
-                                             long long0) {
-  // TODO: Implement readChunksFromNetBuffer
-  return false;
+bool JobChunkUpdate::readChunksFromNetBuffer(ByteBuffer byteBuffer, long long0) {
+ // TODO: Implement readChunksFromNetBuffer
+ return false;
 }
 
 bool JobChunkUpdate::canAddChunk() {
-  // TODO: Implement canAddChunk
-  return false;
+ // TODO: Implement canAddChunk
+ return false;
 }
 
 int JobChunkUpdate::startBufferBlock() {
-  // TODO: Implement startBufferBlock
-  return 0;
+ // TODO: Implement startBufferBlock
+ return 0;
 }
 
 void JobChunkUpdate::endBufferBlock(int int0) {
-  // TODO: Implement endBufferBlock
+ // TODO: Implement endBufferBlock
 }
 
 bool JobChunkUpdate::addChunkFromDataChunk(DataChunk dataChunk) {
-  // TODO: Implement addChunkFromDataChunk
-  return false;
+ // TODO: Implement addChunkFromDataChunk
+ return false;
 }
 
 bool JobChunkUpdate::addChunkFromIsoChunk(IsoChunk chunk) {
-  // TODO: Implement addChunkFromIsoChunk
-  return false;
+ // TODO: Implement addChunkFromIsoChunk
+ return false;
 }
 
 bool JobChunkUpdate::addChunkFromFile(ByteBuffer byteBuffer) {
-  // TODO: Implement addChunkFromFile
-  return false;
+ // TODO: Implement addChunkFromFile
+ return false;
 }
 
 } // namespace jobs

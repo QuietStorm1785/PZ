@@ -6,7 +6,7 @@ namespace kahlua {
 namespace profiler {
 
 void Profiler::getSample(Sample var1) {
-  // TODO: Implement getSample
+ // TODO: Implement getSample
 }
 
 } // namespace profiler

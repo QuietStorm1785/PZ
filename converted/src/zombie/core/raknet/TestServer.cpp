@@ -5,16 +5,16 @@ namespace core {
 namespace raknet {
 
 void TestServer::main(String[] var0) {
-  // TODO: Implement main
+ // TODO: Implement main
 }
 
 void TestServer::decode(ByteBuffer byteBuffer) {
-  // TODO: Implement decode
+ // TODO: Implement decode
 }
 
 ByteBuffer TestServer::Receive() {
-  // TODO: Implement Receive
-  return nullptr;
+ // TODO: Implement Receive
+ return nullptr;
 }
 
 } // namespace raknet

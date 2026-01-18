@@ -5,20 +5,20 @@ namespace ai {
 namespace states {
 
 WalkTowardNetworkState WalkTowardNetworkState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void WalkTowardNetworkState::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void WalkTowardNetworkState::execute(IsoGameCharacter character) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void WalkTowardNetworkState::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 } // namespace states

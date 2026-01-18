@@ -4,14 +4,13 @@ namespace de {
 namespace jarnbjo {
 namespace vorbis {
 
-protected
-MdctFloat::MdctFloat(int int0) {
-  // TODO: Implement MdctFloat
-  return nullptr;
+protected MdctFloat::MdctFloat(int int0) {
+ // TODO: Implement MdctFloat
+ return nullptr;
 }
 
 void MdctFloat::setEqualizer(float[] floats) {
-  // TODO: Implement setEqualizer
+ // TODO: Implement setEqualizer
 }
 
 } // namespace vorbis

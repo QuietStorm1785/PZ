@@ -6,20 +6,18 @@ namespace skinnedmodel {
 namespace model {
 namespace jassimp {
 
-public
-ImportedSkinnedMesh::ImportedSkinnedMesh(ImportedSkeleton importedSkeleton,
-                                         AiMesh aiMesh) {
-  // TODO: Implement ImportedSkinnedMesh
-  return nullptr;
+public ImportedSkinnedMesh::ImportedSkinnedMesh(ImportedSkeleton importedSkeleton, AiMesh aiMesh) {
+ // TODO: Implement ImportedSkinnedMesh
+ return nullptr;
 }
 
 void ImportedSkinnedMesh::processAiScene(AiMesh aiMesh) {
-  // TODO: Implement processAiScene
+ // TODO: Implement processAiScene
 }
 
 int ImportedSkinnedMesh::getNumUVs(AiMesh aiMesh) {
-  // TODO: Implement getNumUVs
-  return 0;
+ // TODO: Implement getNumUVs
+ return 0;
 }
 
 } // namespace jassimp

@@ -2,6 +2,8 @@
 
 namespace org {
 namespace lwjglx {
-namespace opengl {} // namespace opengl
+namespace opengl {
+
+} // namespace opengl
 } // namespace lwjglx
 } // namespace org

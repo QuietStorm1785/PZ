@@ -5,30 +5,29 @@ namespace krka {
 namespace kahlua {
 namespace profiler {
 
-public
-JavaStacktraceElement::JavaStacktraceElement(JavaFunction javaFunctionx) {
-  // TODO: Implement JavaStacktraceElement
-  return nullptr;
+public JavaStacktraceElement::JavaStacktraceElement(JavaFunction javaFunctionx) {
+ // TODO: Implement JavaStacktraceElement
+ return nullptr;
 }
 
 std::string JavaStacktraceElement::name() {
-  // TODO: Implement name
-  return "";
+ // TODO: Implement name
+ return "";
 }
 
 std::string JavaStacktraceElement::type() {
-  // TODO: Implement type
-  return "";
+ // TODO: Implement type
+ return "";
 }
 
-bool JavaStacktraceElement::equals(void *object) {
-  // TODO: Implement equals
-  return false;
+bool JavaStacktraceElement::equals(void* object) {
+ // TODO: Implement equals
+ return false;
 }
 
 int JavaStacktraceElement::hashCode() {
-  // TODO: Implement hashCode
-  return 0;
+ // TODO: Implement hashCode
+ return 0;
 }
 
 } // namespace profiler

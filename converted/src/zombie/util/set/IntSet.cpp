@@ -2,6 +2,8 @@
 
 namespace zombie {
 namespace util {
-namespace set {} // namespace set
+namespace set {
+
+} // namespace set
 } // namespace util
 } // namespace zombie

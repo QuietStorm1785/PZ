@@ -5,7 +5,7 @@ namespace characters {
 namespace action {
 
 void IActionStateChanged::actionStateChanged(ActionContext sender) {
-  // TODO: Implement actionStateChanged
+ // TODO: Implement actionStateChanged
 }
 
 } // namespace action

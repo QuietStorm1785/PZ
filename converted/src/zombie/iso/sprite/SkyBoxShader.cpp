@@ -4,18 +4,17 @@ namespace zombie {
 namespace iso {
 namespace sprite {
 
-public
-SkyBoxShader::SkyBoxShader(const std::string &string) {
-  // TODO: Implement SkyBoxShader
-  return nullptr;
+public SkyBoxShader::SkyBoxShader(const std::string& string) {
+ // TODO: Implement SkyBoxShader
+ return nullptr;
 }
 
 void SkyBoxShader::startRenderThread(TextureDraw var1) {
-  // TODO: Implement startRenderThread
+ // TODO: Implement startRenderThread
 }
 
 void SkyBoxShader::onCompileSuccess(ShaderProgram var1) {
-  // TODO: Implement onCompileSuccess
+ // TODO: Implement onCompileSuccess
 }
 
 } // namespace sprite

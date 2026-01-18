@@ -5,25 +5,24 @@ namespace ai {
 namespace states {
 
 ZombieGetUpFromCrawlState ZombieGetUpFromCrawlState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ZombieGetUpFromCrawlState::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ZombieGetUpFromCrawlState::execute(IsoGameCharacter var1) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ZombieGetUpFromCrawlState::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
-void ZombieGetUpFromCrawlState::animEvent(IsoGameCharacter var1,
-                                          AnimEvent var2) {
-  // TODO: Implement animEvent
+void ZombieGetUpFromCrawlState::animEvent(IsoGameCharacter var1, AnimEvent var2) {
+ // TODO: Implement animEvent
 }
 
 } // namespace states

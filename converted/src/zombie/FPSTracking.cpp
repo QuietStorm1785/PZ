@@ -3,16 +3,16 @@
 namespace zombie {
 
 void FPSTracking::init() {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 long FPSTracking::frameStep() {
-  // TODO: Implement frameStep
-  return 0;
+ // TODO: Implement frameStep
+ return 0;
 }
 
 void FPSTracking::updateFPS(long timeDiff) {
-  // TODO: Implement updateFPS
+ // TODO: Implement updateFPS
 }
 
 } // namespace zombie

@@ -1,30 +1,30 @@
 #pragma once
-#include "zombie/iso/IsoGridSquare.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/iso/IsoGridSquare.h"
 
 namespace zombie {
 namespace chat {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 /**
  * Turbo
  */
 class ChatElementOwner {
 public:
-  virtual ~ChatElementOwner() = default;
-  float getX();
+ virtual ~ChatElementOwner() = default;
+ float getX();
 
-  float getY();
+ float getY();
 
-  float getZ();
+ float getZ();
 
-  IsoGridSquare getSquare();
+ IsoGridSquare getSquare();
 }
 } // namespace chat
 } // namespace zombie

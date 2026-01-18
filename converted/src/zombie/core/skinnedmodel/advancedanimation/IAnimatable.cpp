@@ -6,43 +6,43 @@ namespace skinnedmodel {
 namespace advancedanimation {
 
 ActionContext IAnimatable::getActionContext() {
-  // TODO: Implement getActionContext
-  return nullptr;
+ // TODO: Implement getActionContext
+ return nullptr;
 }
 
 AnimationPlayer IAnimatable::getAnimationPlayer() {
-  // TODO: Implement getAnimationPlayer
-  return nullptr;
+ // TODO: Implement getAnimationPlayer
+ return nullptr;
 }
 
 AnimationPlayerRecorder IAnimatable::getAnimationPlayerRecorder() {
-  // TODO: Implement getAnimationPlayerRecorder
-  return nullptr;
+ // TODO: Implement getAnimationPlayerRecorder
+ return nullptr;
 }
 
 bool IAnimatable::isAnimationRecorderActive() {
-  // TODO: Implement isAnimationRecorderActive
-  return false;
+ // TODO: Implement isAnimationRecorderActive
+ return false;
 }
 
 AdvancedAnimator IAnimatable::getAdvancedAnimator() {
-  // TODO: Implement getAdvancedAnimator
-  return nullptr;
+ // TODO: Implement getAdvancedAnimator
+ return nullptr;
 }
 
 ModelInstance IAnimatable::getModelInstance() {
-  // TODO: Implement getModelInstance
-  return nullptr;
+ // TODO: Implement getModelInstance
+ return nullptr;
 }
 
 std::string IAnimatable::GetAnimSetName() {
-  // TODO: Implement GetAnimSetName
-  return "";
+ // TODO: Implement GetAnimSetName
+ return "";
 }
 
 std::string IAnimatable::getUID() {
-  // TODO: Implement getUID
-  return "";
+ // TODO: Implement getUID
+ return "";
 }
 
 } // namespace advancedanimation

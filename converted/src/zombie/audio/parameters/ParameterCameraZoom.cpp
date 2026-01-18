@@ -4,20 +4,19 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterCameraZoom::ParameterCameraZoom() {
-  // TODO: Implement ParameterCameraZoom
-  return nullptr;
+public ParameterCameraZoom::ParameterCameraZoom() {
+ // TODO: Implement ParameterCameraZoom
+ return nullptr;
 }
 
 float ParameterCameraZoom::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 IsoPlayer ParameterCameraZoom::getPlayer() {
-  // TODO: Implement getPlayer
-  return nullptr;
+ // TODO: Implement getPlayer
+ return nullptr;
 }
 
 } // namespace parameters

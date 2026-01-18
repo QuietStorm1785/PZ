@@ -5,10 +5,9 @@ namespace krka {
 namespace kahlua {
 namespace profiler {
 
-public
-DebugProfiler::DebugProfiler(Writer writer) {
-  // TODO: Implement DebugProfiler
-  return nullptr;
+public DebugProfiler::DebugProfiler(Writer writer) {
+ // TODO: Implement DebugProfiler
+ return nullptr;
 }
 
 } // namespace profiler

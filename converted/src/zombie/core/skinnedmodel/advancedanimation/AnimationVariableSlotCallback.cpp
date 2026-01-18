@@ -5,40 +5,37 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-protected
-AnimationVariableSlotCallback::AnimationVariableSlotCallback(
-    const std::string &string,
-    AnimationVariableSlotCallback.CallbackGet<VariableType> callbackGet) {
-  // TODO: Implement AnimationVariableSlotCallback
-  return nullptr;
+protected AnimationVariableSlotCallback::AnimationVariableSlotCallback(const std::string& string, AnimationVariableSlotCallback.CallbackGet<VariableType> callbackGet) {
+ // TODO: Implement AnimationVariableSlotCallback
+ return nullptr;
 }
 
 VariableType AnimationVariableSlotCallback::getValue() {
-  // TODO: Implement getValue
-  return nullptr;
+ // TODO: Implement getValue
+ return nullptr;
 }
 
 bool AnimationVariableSlotCallback::trySetValue(VariableType object) {
-  // TODO: Implement trySetValue
-  return false;
+ // TODO: Implement trySetValue
+ return false;
 }
 
 bool AnimationVariableSlotCallback::isReadOnly() {
-  // TODO: Implement isReadOnly
-  return false;
+ // TODO: Implement isReadOnly
+ return false;
 }
 
 void AnimationVariableSlotCallback::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 VariableType AnimationVariableSlotCallback::call() {
-  // TODO: Implement call
-  return nullptr;
+ // TODO: Implement call
+ return nullptr;
 }
 
 void AnimationVariableSlotCallback::call(VariableType var1) {
-  // TODO: Implement call
+ // TODO: Implement call
 }
 
 } // namespace advancedanimation

@@ -5,15 +5,14 @@ namespace core {
 namespace skinnedmodel {
 namespace animation {
 
-protected
-TwistableBoneTransform::TwistableBoneTransform() {
-  // TODO: Implement TwistableBoneTransform
-  return nullptr;
+protected TwistableBoneTransform::TwistableBoneTransform() {
+ // TODO: Implement TwistableBoneTransform
+ return nullptr;
 }
 
 TwistableBoneTransform TwistableBoneTransform::alloc() {
-  // TODO: Implement alloc
-  return nullptr;
+ // TODO: Implement alloc
+ return nullptr;
 }
 
 } // namespace animation

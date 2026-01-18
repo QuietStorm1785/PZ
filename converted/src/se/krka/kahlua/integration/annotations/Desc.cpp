@@ -7,8 +7,8 @@ namespace integration {
 namespace annotations {
 
 std::string Desc::value() {
-  // TODO: Implement value
-  return "";
+ // TODO: Implement value
+ return "";
 }
 
 } // namespace annotations

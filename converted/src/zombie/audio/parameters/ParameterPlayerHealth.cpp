@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterPlayerHealth::ParameterPlayerHealth(IsoPlayer _player) {
-  // TODO: Implement ParameterPlayerHealth
-  return nullptr;
+public ParameterPlayerHealth::ParameterPlayerHealth(IsoPlayer _player) {
+ // TODO: Implement ParameterPlayerHealth
+ return nullptr;
 }
 
 float ParameterPlayerHealth::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

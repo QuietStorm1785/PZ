@@ -5,7 +5,7 @@ namespace worldMap {
 namespace styles {
 
 void WorldMapStyle::copyFrom(WorldMapStyle other) {
-  // TODO: Implement copyFrom
+ // TODO: Implement copyFrom
 }
 
 } // namespace styles

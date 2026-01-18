@@ -5,13 +5,12 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 
 void RBLooted::randomizeBuilding(BuildingDef def) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
-public
-RBLooted::RBLooted() {
-  // TODO: Implement RBLooted
-  return nullptr;
+public RBLooted::RBLooted() {
+ // TODO: Implement RBLooted
+ return nullptr;
 }
 
 } // namespace randomizedBuilding

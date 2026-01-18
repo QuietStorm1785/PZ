@@ -3,68 +3,64 @@
 namespace zombie {
 namespace network {
 
-void ConnectionDetails::write(UdpConnection udpConnection,
-                              ServerWorldDatabase.LogonResult logonResult,
-                              ByteBuffer byteBuffer) {
-  // TODO: Implement write
+void ConnectionDetails::write(UdpConnection udpConnection, ServerWorldDatabase.LogonResult logonResult, ByteBuffer byteBuffer) {
+ // TODO: Implement write
 }
 
 void ConnectionDetails::parse(ByteBuffer byteBuffer) {
-  // TODO: Implement parse
+ // TODO: Implement parse
 }
 
-void ConnectionDetails::writeServerDetails(
-    ByteBuffer byteBuffer, UdpConnection udpConnection,
-    ServerWorldDatabase.LogonResult logonResult) {
-  // TODO: Implement writeServerDetails
+void ConnectionDetails::writeServerDetails(ByteBuffer byteBuffer, UdpConnection udpConnection, ServerWorldDatabase.LogonResult logonResult) {
+ // TODO: Implement writeServerDetails
 }
 
 void ConnectionDetails::writeGameMap(ByteBuffer byteBuffer) {
-  // TODO: Implement writeGameMap
+ // TODO: Implement writeGameMap
 }
 
 void ConnectionDetails::writeWorkshopItems(ByteBuffer byteBuffer) {
-  // TODO: Implement writeWorkshopItems
+ // TODO: Implement writeWorkshopItems
 }
 
 void ConnectionDetails::writeMods(ByteBuffer byteBuffer) {
-  // TODO: Implement writeMods
+ // TODO: Implement writeMods
 }
 
 void ConnectionDetails::writeStartLocation(ByteBuffer byteBuffer) {
-  // TODO: Implement writeStartLocation
+ // TODO: Implement writeStartLocation
 }
 
 void ConnectionDetails::writeServerOptions(ByteBuffer byteBuffer) {
-  // TODO: Implement writeServerOptions
+ // TODO: Implement writeServerOptions
 }
 
 void ConnectionDetails::writeSandboxOptions(ByteBuffer byteBuffer) {
-  // TODO: Implement writeSandboxOptions
+ // TODO: Implement writeSandboxOptions
 }
 
 void ConnectionDetails::writeGameTime(ByteBuffer byteBuffer) {
-  // TODO: Implement writeGameTime
+ // TODO: Implement writeGameTime
 }
 
 void ConnectionDetails::writeErosionMain(ByteBuffer byteBuffer) {
-  // TODO: Implement writeErosionMain
+ // TODO: Implement writeErosionMain
 }
 
 void ConnectionDetails::writeGlobalObjects(ByteBuffer byteBuffer) {
-  // TODO: Implement writeGlobalObjects
+ // TODO: Implement writeGlobalObjects
 }
 
 void ConnectionDetails::writeResetID(ByteBuffer byteBuffer) {
-  // TODO: Implement writeResetID
+ // TODO: Implement writeResetID
 }
 
 void ConnectionDetails::writeBerries(ByteBuffer byteBuffer) {
-  // TODO: Implement writeBerries
+ // TODO: Implement writeBerries
 }
 
 void ConnectionDetails::writeWorldDictionary(ByteBuffer byteBuffer) {
-  // TODO: Implement writeWorldDictionary
+ // TODO: Implement writeWorldDictionary
 }
 
 } // namespace network

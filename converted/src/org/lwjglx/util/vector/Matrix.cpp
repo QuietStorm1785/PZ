@@ -5,10 +5,9 @@ namespace lwjglx {
 namespace util {
 namespace vector {
 
-protected
-Matrix::Matrix() {
-  // TODO: Implement Matrix
-  return nullptr;
+protected Matrix::Matrix() {
+ // TODO: Implement Matrix
+ return nullptr;
 }
 
 } // namespace vector

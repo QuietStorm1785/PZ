@@ -4,19 +4,18 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
-public
-RDSHouseParty::RDSHouseParty() {
-  // TODO: Implement RDSHouseParty
-  return nullptr;
+public RDSHouseParty::RDSHouseParty() {
+ // TODO: Implement RDSHouseParty
+ return nullptr;
 }
 
 bool RDSHouseParty::isValid(BuildingDef def, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 void RDSHouseParty::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 } // namespace randomizedDeadSurvivor

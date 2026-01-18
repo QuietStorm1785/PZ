@@ -1,33 +1,33 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
 #include <cstdint>
 #include <fstream>
 #include <iostream>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace de {
 namespace jarnbjo {
 namespace ogg {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class PhysicalOggStream {
 public:
-  virtual ~PhysicalOggStream() = default;
-  Collection getLogicalStreams();
+ virtual ~PhysicalOggStream() = default;
+ Collection getLogicalStreams();
 
-  OggPage getOggPage(int var1);
+ OggPage getOggPage(int var1);
 
-  bool isOpen();
+ bool isOpen();
 
-  void close();
+ void close();
 
-  void setTime(long var1);
+ void setTime(long var1);
 
-  bool isSeekable();
+ bool isSeekable();
 }
 } // namespace ogg
 } // namespace jarnbjo

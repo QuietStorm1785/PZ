@@ -5,33 +5,32 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-AnimationSet AnimationSet::GetAnimationSet(const std::string &name,
-                                           bool reload) {
-  // TODO: Implement GetAnimationSet
-  return nullptr;
+AnimationSet AnimationSet::GetAnimationSet(const std::string& name, bool reload) {
+ // TODO: Implement GetAnimationSet
+ return nullptr;
 }
 
 void AnimationSet::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
-AnimState AnimationSet::GetState(const std::string &name) {
-  // TODO: Implement GetState
-  return nullptr;
+AnimState AnimationSet::GetState(const std::string& name) {
+ // TODO: Implement GetState
+ return nullptr;
 }
 
-bool AnimationSet::containsState(const std::string &name) {
-  // TODO: Implement containsState
-  return false;
+bool AnimationSet::containsState(const std::string& name) {
+ // TODO: Implement containsState
+ return false;
 }
 
-bool AnimationSet::Load(const std::string &name) {
-  // TODO: Implement Load
-  return false;
+bool AnimationSet::Load(const std::string& name) {
+ // TODO: Implement Load
+ return false;
 }
 
 void AnimationSet::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace advancedanimation

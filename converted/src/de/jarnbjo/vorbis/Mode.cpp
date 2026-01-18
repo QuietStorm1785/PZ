@@ -4,30 +4,29 @@ namespace de {
 namespace jarnbjo {
 namespace vorbis {
 
-protected
-Mode::Mode(BitInputStream bitInputStream, SetupHeader setupHeader) {
-  // TODO: Implement Mode
-  return nullptr;
+protected Mode::Mode(BitInputStream bitInputStream, SetupHeader setupHeader) {
+ // TODO: Implement Mode
+ return nullptr;
 }
 
 bool Mode::getBlockFlag() {
-  // TODO: Implement getBlockFlag
-  return false;
+ // TODO: Implement getBlockFlag
+ return false;
 }
 
 int Mode::getWindowType() {
-  // TODO: Implement getWindowType
-  return 0;
+ // TODO: Implement getWindowType
+ return 0;
 }
 
 int Mode::getTransformType() {
-  // TODO: Implement getTransformType
-  return 0;
+ // TODO: Implement getTransformType
+ return 0;
 }
 
 int Mode::getMapping() {
-  // TODO: Implement getMapping
-  return 0;
+ // TODO: Implement getMapping
+ return 0;
 }
 
 } // namespace vorbis

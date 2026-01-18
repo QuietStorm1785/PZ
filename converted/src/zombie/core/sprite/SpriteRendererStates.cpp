@@ -5,57 +5,57 @@ namespace core {
 namespace sprite {
 
 SpriteRenderState SpriteRendererStates::getPopulating() {
-  // TODO: Implement getPopulating
-  return nullptr;
+ // TODO: Implement getPopulating
+ return nullptr;
 }
 
 GenericSpriteRenderState SpriteRendererStates::getPopulatingActiveState() {
-  // TODO: Implement getPopulatingActiveState
-  return nullptr;
+ // TODO: Implement getPopulatingActiveState
+ return nullptr;
 }
 
 void SpriteRendererStates::setPopulating(SpriteRenderState populating) {
-  // TODO: Implement setPopulating
+ // TODO: Implement setPopulating
 }
 
 SpriteRenderState SpriteRendererStates::getReady() {
-  // TODO: Implement getReady
-  return nullptr;
+ // TODO: Implement getReady
+ return nullptr;
 }
 
 void SpriteRendererStates::setReady(SpriteRenderState ready) {
-  // TODO: Implement setReady
+ // TODO: Implement setReady
 }
 
 SpriteRenderState SpriteRendererStates::getRendering() {
-  // TODO: Implement getRendering
-  return nullptr;
+ // TODO: Implement getRendering
+ return nullptr;
 }
 
 GenericSpriteRenderState SpriteRendererStates::getRenderingActiveState() {
-  // TODO: Implement getRenderingActiveState
-  return nullptr;
+ // TODO: Implement getRenderingActiveState
+ return nullptr;
 }
 
 void SpriteRendererStates::setRendering(SpriteRenderState rendering) {
-  // TODO: Implement setRendering
+ // TODO: Implement setRendering
 }
 
 SpriteRenderState SpriteRendererStates::getRendered() {
-  // TODO: Implement getRendered
-  return nullptr;
+ // TODO: Implement getRendered
+ return nullptr;
 }
 
 void SpriteRendererStates::setRendered(SpriteRenderState rendered) {
-  // TODO: Implement setRendered
+ // TODO: Implement setRendered
 }
 
 void SpriteRendererStates::movePopulatingToReady() {
-  // TODO: Implement movePopulatingToReady
+ // TODO: Implement movePopulatingToReady
 }
 
 void SpriteRendererStates::moveReadyToRendering() {
-  // TODO: Implement moveReadyToRendering
+ // TODO: Implement moveReadyToRendering
 }
 
 } // namespace sprite

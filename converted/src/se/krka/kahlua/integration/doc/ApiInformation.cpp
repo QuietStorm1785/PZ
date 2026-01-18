@@ -4,7 +4,9 @@ namespace se {
 namespace krka {
 namespace kahlua {
 namespace integration {
-namespace doc {} // namespace doc
+namespace doc {
+
+} // namespace doc
 } // namespace integration
 } // namespace kahlua
 } // namespace krka

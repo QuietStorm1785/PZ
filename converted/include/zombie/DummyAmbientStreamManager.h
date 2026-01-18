@@ -1,42 +1,49 @@
 #pragma once
-#include "zombie/iso/RoomDef.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/iso/RoomDef.h"
 
 namespace zombie {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class DummyAmbientStreamManager : public BaseAmbientStreamManager {
 public:
-  void stop() {}
+ void stop() {
+ }
 
-  void doAlarm(RoomDef var1) {}
+ void doAlarm(RoomDef var1) {
+ }
 
-  void doGunEvent() {}
+ void doGunEvent() {
+ }
 
-  void init() {}
+ void init() {
+ }
 
-  void addBlend(const std::string &var1, float var2, bool var3, bool var4,
-                bool var5, bool var6) {}
+ void addBlend(const std::string& var1, float var2, bool var3, bool var4, bool var5, bool var6) {
+ }
 
-  void addRandomAmbient() {}
+ void addRandomAmbient() {
+ }
 
-  void doOneShotAmbients() {}
+ void doOneShotAmbients() {
+ }
 
-  void update() {}
+ void update() {
+ }
 
-  void addAmbient(const std::string &var1, int var2, int var3, int var4,
-                  float var5) {}
+ void addAmbient(const std::string& var1, int var2, int var3, int var4, float var5) {
+ }
 
-  void addAmbientEmitter(float var1, float var2, int var3,
-                         const std::string &var4) {}
+ void addAmbientEmitter(float var1, float var2, int var3, const std::string& var4) {
+ }
 
-  void addDaytimeAmbientEmitter(float var1, float var2, int var3,
-                                const std::string &var4) {}
+ void addDaytimeAmbientEmitter(float var1, float var2, int var3, const std::string& var4) {
+ }
 }
 } // namespace zombie

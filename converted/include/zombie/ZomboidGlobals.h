@@ -1,150 +1,144 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "zombie/Lua/LuaManager.h"
 #include "zombie/debug/DebugLog.h"
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class ZomboidGlobals {
 public:
-  static double RunningEnduranceReduce = 0.0;
-  static double SprintingEnduranceReduce = 0.0;
-  static double ImobileEnduranceReduce = 0.0;
-  static double SittingEnduranceMultiplier = 5.0;
-  static double ThirstIncrease = 0.0;
-  static double ThirstSleepingIncrease = 0.0;
-  static double ThirstLevelToAutoDrink = 0.0;
-  static double ThirstLevelReductionOnAutoDrink = 0.0;
-  static double HungerIncrease = 0.0;
-  static double HungerIncreaseWhenWellFed = 0.0;
-  static double HungerIncreaseWhileAsleep = 0.0;
-  static double HungerIncreaseWhenExercise = 0.0;
-  static double FatigueIncrease = 0.0;
-  static double StressReduction = 0.0;
-  static double BoredomIncreaseRate = 0.0;
-  static double BoredomDecreaseRate = 0.0;
-  static double UnhappinessIncrease = 0.0;
-  static double StressFromSoundsMultiplier = 0.0;
-  static double StressFromBiteOrScratch = 0.0;
-  static double StressFromHemophobic = 0.0;
-  static double AngerDecrease = 0.0;
-  static double BroodingAngerDecreaseMultiplier = 0.0;
-  static double SleepFatigueReduction = 0.0;
-  static double WetnessIncrease = 0.0;
-  static double WetnessDecrease = 0.0;
-  static double CatchAColdIncreaseRate = 0.0;
-  static double CatchAColdDecreaseRate = 0.0;
-  static double PoisonLevelDecrease = 0.0;
-  static double PoisonHealthReduction = 0.0;
-  static double FoodSicknessDecrease = 0.0;
+ static double RunningEnduranceReduce = 0.0;
+ static double SprintingEnduranceReduce = 0.0;
+ static double ImobileEnduranceReduce = 0.0;
+ static double SittingEnduranceMultiplier = 5.0;
+ static double ThirstIncrease = 0.0;
+ static double ThirstSleepingIncrease = 0.0;
+ static double ThirstLevelToAutoDrink = 0.0;
+ static double ThirstLevelReductionOnAutoDrink = 0.0;
+ static double HungerIncrease = 0.0;
+ static double HungerIncreaseWhenWellFed = 0.0;
+ static double HungerIncreaseWhileAsleep = 0.0;
+ static double HungerIncreaseWhenExercise = 0.0;
+ static double FatigueIncrease = 0.0;
+ static double StressReduction = 0.0;
+ static double BoredomIncreaseRate = 0.0;
+ static double BoredomDecreaseRate = 0.0;
+ static double UnhappinessIncrease = 0.0;
+ static double StressFromSoundsMultiplier = 0.0;
+ static double StressFromBiteOrScratch = 0.0;
+ static double StressFromHemophobic = 0.0;
+ static double AngerDecrease = 0.0;
+ static double BroodingAngerDecreaseMultiplier = 0.0;
+ static double SleepFatigueReduction = 0.0;
+ static double WetnessIncrease = 0.0;
+ static double WetnessDecrease = 0.0;
+ static double CatchAColdIncreaseRate = 0.0;
+ static double CatchAColdDecreaseRate = 0.0;
+ static double PoisonLevelDecrease = 0.0;
+ static double PoisonHealthReduction = 0.0;
+ static double FoodSicknessDecrease = 0.0;
 
-  static void Load() {
-    KahluaTable table = (KahluaTable)LuaManager.env.rawget("ZomboidGlobals");
-    SprintingEnduranceReduce = (Double)table.rawget("SprintingEnduranceReduce");
-    RunningEnduranceReduce = (Double)table.rawget("RunningEnduranceReduce");
-    ImobileEnduranceReduce = (Double)table.rawget("ImobileEnduranceIncrease");
-    ThirstIncrease = (Double)table.rawget("ThirstIncrease");
-    ThirstSleepingIncrease = (Double)table.rawget("ThirstSleepingIncrease");
-    ThirstLevelToAutoDrink = (Double)table.rawget("ThirstLevelToAutoDrink");
-    ThirstLevelReductionOnAutoDrink =
-        (Double)table.rawget("ThirstLevelReductionOnAutoDrink");
-    HungerIncrease = (Double)table.rawget("HungerIncrease");
-    HungerIncreaseWhenWellFed =
-        (Double)table.rawget("HungerIncreaseWhenWellFed");
-    HungerIncreaseWhileAsleep =
-        (Double)table.rawget("HungerIncreaseWhileAsleep");
-    HungerIncreaseWhenExercise =
-        (Double)table.rawget("HungerIncreaseWhenExercise");
-    FatigueIncrease = (Double)table.rawget("FatigueIncrease");
-    StressReduction = (Double)table.rawget("StressDecrease");
-    BoredomIncreaseRate = (Double)table.rawget("BoredomIncrease");
-    BoredomDecreaseRate = (Double)table.rawget("BoredomDecrease");
-    UnhappinessIncrease = (Double)table.rawget("UnhappinessIncrease");
-    StressFromSoundsMultiplier =
-        (Double)table.rawget("StressFromSoundsMultiplier");
-    StressFromBiteOrScratch = (Double)table.rawget("StressFromBiteOrScratch");
-    StressFromHemophobic = (Double)table.rawget("StressFromHemophobic");
-    AngerDecrease = (Double)table.rawget("AngerDecrease");
-    BroodingAngerDecreaseMultiplier =
-        (Double)table.rawget("BroodingAngerDecreaseMultiplier");
-    SleepFatigueReduction = (Double)table.rawget("SleepFatigueReduction");
-    WetnessIncrease = (Double)table.rawget("WetnessIncrease");
-    WetnessDecrease = (Double)table.rawget("WetnessDecrease");
-    CatchAColdIncreaseRate = (Double)table.rawget("CatchAColdIncreaseRate");
-    CatchAColdDecreaseRate = (Double)table.rawget("CatchAColdDecreaseRate");
-    PoisonLevelDecrease = (Double)table.rawget("PoisonLevelDecrease");
-    PoisonHealthReduction = (Double)table.rawget("PoisonHealthReduction");
-    FoodSicknessDecrease = (Double)table.rawget("FoodSicknessDecrease");
-  }
+ static void Load() {
+ KahluaTable table = (KahluaTable)LuaManager.env.rawget("ZomboidGlobals");
+ SprintingEnduranceReduce = (Double)table.rawget("SprintingEnduranceReduce");
+ RunningEnduranceReduce = (Double)table.rawget("RunningEnduranceReduce");
+ ImobileEnduranceReduce = (Double)table.rawget("ImobileEnduranceIncrease");
+ ThirstIncrease = (Double)table.rawget("ThirstIncrease");
+ ThirstSleepingIncrease = (Double)table.rawget("ThirstSleepingIncrease");
+ ThirstLevelToAutoDrink = (Double)table.rawget("ThirstLevelToAutoDrink");
+ ThirstLevelReductionOnAutoDrink = (Double)table.rawget("ThirstLevelReductionOnAutoDrink");
+ HungerIncrease = (Double)table.rawget("HungerIncrease");
+ HungerIncreaseWhenWellFed = (Double)table.rawget("HungerIncreaseWhenWellFed");
+ HungerIncreaseWhileAsleep = (Double)table.rawget("HungerIncreaseWhileAsleep");
+ HungerIncreaseWhenExercise = (Double)table.rawget("HungerIncreaseWhenExercise");
+ FatigueIncrease = (Double)table.rawget("FatigueIncrease");
+ StressReduction = (Double)table.rawget("StressDecrease");
+ BoredomIncreaseRate = (Double)table.rawget("BoredomIncrease");
+ BoredomDecreaseRate = (Double)table.rawget("BoredomDecrease");
+ UnhappinessIncrease = (Double)table.rawget("UnhappinessIncrease");
+ StressFromSoundsMultiplier = (Double)table.rawget("StressFromSoundsMultiplier");
+ StressFromBiteOrScratch = (Double)table.rawget("StressFromBiteOrScratch");
+ StressFromHemophobic = (Double)table.rawget("StressFromHemophobic");
+ AngerDecrease = (Double)table.rawget("AngerDecrease");
+ BroodingAngerDecreaseMultiplier = (Double)table.rawget("BroodingAngerDecreaseMultiplier");
+ SleepFatigueReduction = (Double)table.rawget("SleepFatigueReduction");
+ WetnessIncrease = (Double)table.rawget("WetnessIncrease");
+ WetnessDecrease = (Double)table.rawget("WetnessDecrease");
+ CatchAColdIncreaseRate = (Double)table.rawget("CatchAColdIncreaseRate");
+ CatchAColdDecreaseRate = (Double)table.rawget("CatchAColdDecreaseRate");
+ PoisonLevelDecrease = (Double)table.rawget("PoisonLevelDecrease");
+ PoisonHealthReduction = (Double)table.rawget("PoisonHealthReduction");
+ FoodSicknessDecrease = (Double)table.rawget("FoodSicknessDecrease");
+ }
 
-  static void toLua() {
-    KahluaTable table = (KahluaTable)LuaManager.env.rawget("ZomboidGlobals");
-    if (table == nullptr) {
-      DebugLog.log("ERROR: ZomboidGlobals table undefined in Lua");
-    } else {
-      double double0 = 1.0;
-      if (SandboxOptions.instance.getFoodLootModifier() == 1) {
-        double0 = 0.0;
-      } else if (SandboxOptions.instance.getFoodLootModifier() == 2) {
-        double0 = 0.05;
-      } else if (SandboxOptions.instance.getFoodLootModifier() == 3) {
-        double0 = 0.2;
-      } else if (SandboxOptions.instance.getFoodLootModifier() == 4) {
-        double0 = 0.6;
-      } else if (SandboxOptions.instance.getFoodLootModifier() == 5) {
-        double0 = 1.0;
-      } else if (SandboxOptions.instance.getFoodLootModifier() == 6) {
-        double0 = 2.0;
-      } else if (SandboxOptions.instance.getFoodLootModifier() == 7) {
-        double0 = 4.0;
-      }
+ static void toLua() {
+ KahluaTable table = (KahluaTable)LuaManager.env.rawget("ZomboidGlobals");
+ if (table.empty()) {
+ DebugLog.log("ERROR: ZomboidGlobals table undefined in Lua");
+ } else {
+ double double0 = 1.0;
+ if (SandboxOptions.instance.getFoodLootModifier() == 1) {
+ double0 = 0.0;
+ } else if (SandboxOptions.instance.getFoodLootModifier() == 2) {
+ double0 = 0.05;
+ } else if (SandboxOptions.instance.getFoodLootModifier() == 3) {
+ double0 = 0.2;
+ } else if (SandboxOptions.instance.getFoodLootModifier() == 4) {
+ double0 = 0.6;
+ } else if (SandboxOptions.instance.getFoodLootModifier() == 5) {
+ double0 = 1.0;
+ } else if (SandboxOptions.instance.getFoodLootModifier() == 6) {
+ double0 = 2.0;
+ } else if (SandboxOptions.instance.getFoodLootModifier() == 7) {
+ double0 = 4.0;
+ }
 
-      table.rawset("FoodLootModifier", double0);
-      double double1 = 1.0;
-      if (SandboxOptions.instance.getWeaponLootModifier() == 1) {
-        double1 = 0.0;
-      } else if (SandboxOptions.instance.getWeaponLootModifier() == 2) {
-        double1 = 0.05;
-      } else if (SandboxOptions.instance.getWeaponLootModifier() == 3) {
-        double1 = 0.2;
-      } else if (SandboxOptions.instance.getWeaponLootModifier() == 4) {
-        double1 = 0.6;
-      } else if (SandboxOptions.instance.getWeaponLootModifier() == 5) {
-        double1 = 1.0;
-      } else if (SandboxOptions.instance.getWeaponLootModifier() == 6) {
-        double1 = 2.0;
-      } else if (SandboxOptions.instance.getWeaponLootModifier() == 7) {
-        double1 = 4.0;
-      }
+ table.rawset("FoodLootModifier", double0);
+ double double1 = 1.0;
+ if (SandboxOptions.instance.getWeaponLootModifier() == 1) {
+ double1 = 0.0;
+ } else if (SandboxOptions.instance.getWeaponLootModifier() == 2) {
+ double1 = 0.05;
+ } else if (SandboxOptions.instance.getWeaponLootModifier() == 3) {
+ double1 = 0.2;
+ } else if (SandboxOptions.instance.getWeaponLootModifier() == 4) {
+ double1 = 0.6;
+ } else if (SandboxOptions.instance.getWeaponLootModifier() == 5) {
+ double1 = 1.0;
+ } else if (SandboxOptions.instance.getWeaponLootModifier() == 6) {
+ double1 = 2.0;
+ } else if (SandboxOptions.instance.getWeaponLootModifier() == 7) {
+ double1 = 4.0;
+ }
 
-      table.rawset("WeaponLootModifier", double1);
-      double double2 = 1.0;
-      if (SandboxOptions.instance.getOtherLootModifier() == 1) {
-        double2 = 0.0;
-      } else if (SandboxOptions.instance.getOtherLootModifier() == 2) {
-        double2 = 0.05;
-      } else if (SandboxOptions.instance.getOtherLootModifier() == 3) {
-        double2 = 0.2;
-      } else if (SandboxOptions.instance.getOtherLootModifier() == 4) {
-        double2 = 0.6;
-      } else if (SandboxOptions.instance.getOtherLootModifier() == 5) {
-        double2 = 1.0;
-      } else if (SandboxOptions.instance.getOtherLootModifier() == 6) {
-        double2 = 2.0;
-      } else if (SandboxOptions.instance.getOtherLootModifier() == 7) {
-        double2 = 4.0;
-      }
+ table.rawset("WeaponLootModifier", double1);
+ double double2 = 1.0;
+ if (SandboxOptions.instance.getOtherLootModifier() == 1) {
+ double2 = 0.0;
+ } else if (SandboxOptions.instance.getOtherLootModifier() == 2) {
+ double2 = 0.05;
+ } else if (SandboxOptions.instance.getOtherLootModifier() == 3) {
+ double2 = 0.2;
+ } else if (SandboxOptions.instance.getOtherLootModifier() == 4) {
+ double2 = 0.6;
+ } else if (SandboxOptions.instance.getOtherLootModifier() == 5) {
+ double2 = 1.0;
+ } else if (SandboxOptions.instance.getOtherLootModifier() == 6) {
+ double2 = 2.0;
+ } else if (SandboxOptions.instance.getOtherLootModifier() == 7) {
+ double2 = 4.0;
+ }
 
-      table.rawset("OtherLootModifier", double2);
-    }
-  }
+ table.rawset("OtherLootModifier", double2);
+ }
+ }
 }
 } // namespace zombie

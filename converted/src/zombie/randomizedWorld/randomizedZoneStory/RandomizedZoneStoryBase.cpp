@@ -4,72 +4,66 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedZoneStory {
 
-bool RandomizedZoneStoryBase::isValidForStory(IsoMetaGrid.Zone zone,
-                                              bool force) {
-  // TODO: Implement isValidForStory
-  return false;
+bool RandomizedZoneStoryBase::isValidForStory(IsoMetaGrid.Zone zone, bool force) {
+ // TODO: Implement isValidForStory
+ return false;
 }
 
 void RandomizedZoneStoryBase::initAllRZSMapChance(IsoMetaGrid.Zone zone) {
-  // TODO: Implement initAllRZSMapChance
+ // TODO: Implement initAllRZSMapChance
 }
 
 bool RandomizedZoneStoryBase::isValid(IsoMetaGrid.Zone zone, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 bool RandomizedZoneStoryBase::doRandomStory(IsoMetaGrid.Zone zone) {
-  // TODO: Implement doRandomStory
-  return false;
+ // TODO: Implement doRandomStory
+ return false;
 }
 
-IsoGridSquare
-RandomizedZoneStoryBase::getRandomFreeSquare(RandomizedZoneStoryBase rzs,
-                                             IsoMetaGrid.Zone zone) {
-  // TODO: Implement getRandomFreeSquare
-  return nullptr;
+IsoGridSquare RandomizedZoneStoryBase::getRandomFreeSquare(RandomizedZoneStoryBase rzs, IsoMetaGrid.Zone zone) {
+ // TODO: Implement getRandomFreeSquare
+ return nullptr;
 }
 
-IsoGridSquare RandomizedZoneStoryBase::getRandomFreeSquareFullZone(
-    RandomizedZoneStoryBase rzs, IsoMetaGrid.Zone zone) {
-  // TODO: Implement getRandomFreeSquareFullZone
-  return nullptr;
+IsoGridSquare RandomizedZoneStoryBase::getRandomFreeSquareFullZone(RandomizedZoneStoryBase rzs, IsoMetaGrid.Zone zone) {
+ // TODO: Implement getRandomFreeSquareFullZone
+ return nullptr;
 }
 
 RandomizedZoneStoryBase RandomizedZoneStoryBase::getRandomStory() {
-  // TODO: Implement getRandomStory
-  return nullptr;
+ // TODO: Implement getRandomStory
+ return nullptr;
 }
 
-bool RandomizedZoneStoryBase::checkCanSpawnStory(IsoMetaGrid.Zone zone,
-                                                 bool var1) {
-  // TODO: Implement checkCanSpawnStory
-  return false;
+bool RandomizedZoneStoryBase::checkCanSpawnStory(IsoMetaGrid.Zone zone, bool var1) {
+ // TODO: Implement checkCanSpawnStory
+ return false;
 }
 
 void RandomizedZoneStoryBase::randomizeZoneStory(IsoMetaGrid.Zone zone) {
-  // TODO: Implement randomizeZoneStory
+ // TODO: Implement randomizeZoneStory
 }
 
 bool RandomizedZoneStoryBase::isValid() {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
-void RandomizedZoneStoryBase::cleanAreaForStory(RandomizedZoneStoryBase rzs,
-                                                IsoMetaGrid.Zone zone) {
-  // TODO: Implement cleanAreaForStory
+void RandomizedZoneStoryBase::cleanAreaForStory(RandomizedZoneStoryBase rzs, IsoMetaGrid.Zone zone) {
+ // TODO: Implement cleanAreaForStory
 }
 
 int RandomizedZoneStoryBase::getMinimumWidth() {
-  // TODO: Implement getMinimumWidth
-  return 0;
+ // TODO: Implement getMinimumWidth
+ return 0;
 }
 
 int RandomizedZoneStoryBase::getMinimumHeight() {
-  // TODO: Implement getMinimumHeight
-  return 0;
+ // TODO: Implement getMinimumHeight
+ return 0;
 }
 
 } // namespace randomizedZoneStory

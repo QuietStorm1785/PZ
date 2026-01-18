@@ -2,6 +2,8 @@
 
 namespace zombie {
 namespace core {
-namespace Collections {} // namespace Collections
+namespace Collections {
+
+} // namespace Collections
 } // namespace core
 } // namespace zombie

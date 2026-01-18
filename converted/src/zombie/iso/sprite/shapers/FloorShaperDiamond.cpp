@@ -6,7 +6,7 @@ namespace sprite {
 namespace shapers {
 
 void FloorShaperDiamond::accept(TextureDraw textureDraw) {
-  // TODO: Implement accept
+ // TODO: Implement accept
 }
 
 } // namespace shapers

@@ -5,25 +5,25 @@ namespace ai {
 namespace states {
 
 BurntToDeath BurntToDeath::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void BurntToDeath::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void BurntToDeath::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 new BurntToDeath::IsoDeadBody() {
-  // TODO: Implement IsoDeadBody
-  return nullptr;
+ // TODO: Implement IsoDeadBody
+ return nullptr;
 }
 
 void BurntToDeath::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 } // namespace states

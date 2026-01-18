@@ -4,35 +4,35 @@ namespace zombie {
 namespace iso {
 
 void LightingThread::stop() {
-  // TODO: Implement stop
+ // TODO: Implement stop
 }
 
 void LightingThread::create() {
-  // TODO: Implement create
+ // TODO: Implement create
 }
 
 void LightingThread::GameLoadingUpdate() {
-  // TODO: Implement GameLoadingUpdate
+ // TODO: Implement GameLoadingUpdate
 }
 
 void LightingThread::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void LightingThread::scrollLeft(int int0) {
-  // TODO: Implement scrollLeft
+ // TODO: Implement scrollLeft
 }
 
 void LightingThread::scrollRight(int int0) {
-  // TODO: Implement scrollRight
+ // TODO: Implement scrollRight
 }
 
 void LightingThread::scrollUp(int int0) {
-  // TODO: Implement scrollUp
+ // TODO: Implement scrollUp
 }
 
 void LightingThread::scrollDown(int int0) {
-  // TODO: Implement scrollDown
+ // TODO: Implement scrollDown
 }
 
 } // namespace iso

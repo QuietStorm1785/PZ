@@ -6,45 +6,39 @@ namespace skinnedmodel {
 namespace model {
 
 void AiSceneAssetManager::startLoading(Asset asset) {
-  // TODO: Implement startLoading
+ // TODO: Implement startLoading
 }
 
-void AiSceneAssetManager::onFileTaskFinished(AiSceneAsset aiSceneAsset,
-                                             void *object) {
-  // TODO: Implement onFileTaskFinished
+void AiSceneAssetManager::onFileTaskFinished(AiSceneAsset aiSceneAsset, void* object) {
+ // TODO: Implement onFileTaskFinished
 }
 
-Asset AiSceneAssetManager::createAsset(AssetPath assetPath,
-                                       AssetManager.AssetParams assetParams) {
-  // TODO: Implement createAsset
-  return {};
+Asset AiSceneAssetManager::createAsset(AssetPath assetPath, AssetManager.AssetParams assetParams) {
+ // TODO: Implement createAsset
+ return {};
 }
 
 void AiSceneAssetManager::destroyAsset(Asset var1) {
-  // TODO: Implement destroyAsset
+ // TODO: Implement destroyAsset
 }
 
-public
-AiSceneAssetManager::FileTask_LoadAiScene(const std::string &string,
-                                          EnumSet<AiPostProcessSteps> enumSet,
-                                          IFileTaskCallback iFileTaskCallback,
-                                          FileSystem fileSystem) {
-  // TODO: Implement FileTask_LoadAiScene
-  return nullptr;
+public AiSceneAssetManager::FileTask_LoadAiScene(const std::string& string, EnumSet<AiPostProcessSteps> enumSet, IFileTaskCallback iFileTaskCallback, FileSystem fileSystem) {
+ // TODO: Implement FileTask_LoadAiScene
+ return nullptr;
 }
 
 std::string AiSceneAssetManager::getErrorMessage() {
-  // TODO: Implement getErrorMessage
-  return "";
+ // TODO: Implement getErrorMessage
+ return "";
 }
 
 void AiSceneAssetManager::done() {
-  // TODO: Implement done
+ // TODO: Implement done
 }
 
-void *AiSceneAssetManager::call() {
-  // TODO: Implement call
-  return nullptr;
+void* AiSceneAssetManager::call() {
+ // TODO: Implement call
+ return nullptr;
 }
 
 } // namespace model

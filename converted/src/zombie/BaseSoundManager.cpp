@@ -1,3 +1,5 @@
 #include "zombie/BaseSoundManager.h"
 
-namespace zombie {} // namespace zombie
+namespace zombie {
+
+} // namespace zombie

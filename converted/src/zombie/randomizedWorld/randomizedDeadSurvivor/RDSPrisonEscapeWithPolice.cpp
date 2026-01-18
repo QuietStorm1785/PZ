@@ -4,14 +4,13 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
-public
-RDSPrisonEscapeWithPolice::RDSPrisonEscapeWithPolice() {
-  // TODO: Implement RDSPrisonEscapeWithPolice
-  return nullptr;
+public RDSPrisonEscapeWithPolice::RDSPrisonEscapeWithPolice() {
+ // TODO: Implement RDSPrisonEscapeWithPolice
+ return nullptr;
 }
 
 void RDSPrisonEscapeWithPolice::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 } // namespace randomizedDeadSurvivor

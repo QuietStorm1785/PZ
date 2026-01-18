@@ -1,24 +1,23 @@
 #pragma once
-#include "zombie/popman/ObjectPool.h"
-#include "zombie/worldMap/styles/WorldMapStyleLayer.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/popman/ObjectPool.h"
+#include "zombie/worldMap/styles/WorldMapStyleLayer.h"
 
 namespace zombie {
 namespace worldMap {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class WorldMapRenderLayer {
 public:
-  WorldMapStyleLayer m_styleLayer;
-  final ArrayList<WorldMapFeature> m_features = std::make_unique<ArrayList<>>();
-  static ObjectPool<WorldMapRenderLayer> s_pool =
-      new ObjectPool<>(WorldMapRenderLayer::new);
+ WorldMapStyleLayer m_styleLayer;
+ ArrayList<WorldMapFeature> m_features = std::make_unique<ArrayList<>>();
+ static ObjectPool<WorldMapRenderLayer> s_pool = new ObjectPool<>(WorldMapRenderLayer::new);
 }
 } // namespace worldMap
 } // namespace zombie

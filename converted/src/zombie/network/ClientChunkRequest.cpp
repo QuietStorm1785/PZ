@@ -4,28 +4,27 @@ namespace zombie {
 namespace network {
 
 void ClientChunkRequest::releaseChunk(ClientChunkRequest.Chunk chunk) {
-  // TODO: Implement releaseChunk
+ // TODO: Implement releaseChunk
 }
 
 void ClientChunkRequest::getByteBuffer(ClientChunkRequest.Chunk chunk) {
-  // TODO: Implement getByteBuffer
+ // TODO: Implement getByteBuffer
 }
 
 void ClientChunkRequest::releaseBuffer(ClientChunkRequest.Chunk chunk) {
-  // TODO: Implement releaseBuffer
+ // TODO: Implement releaseBuffer
 }
 
 void ClientChunkRequest::releaseBuffers() {
-  // TODO: Implement releaseBuffers
+ // TODO: Implement releaseBuffers
 }
 
 void ClientChunkRequest::unpack(ByteBuffer bb, UdpConnection connection) {
-  // TODO: Implement unpack
+ // TODO: Implement unpack
 }
 
-void ClientChunkRequest::unpackLargeArea(ByteBuffer bb,
-                                         UdpConnection connection) {
-  // TODO: Implement unpackLargeArea
+void ClientChunkRequest::unpackLargeArea(ByteBuffer bb, UdpConnection connection) {
+ // TODO: Implement unpackLargeArea
 }
 
 } // namespace network

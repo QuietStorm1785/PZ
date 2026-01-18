@@ -1,29 +1,28 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace util {
 namespace map {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class IntKeyMapIterator {
 public:
-  virtual ~IntKeyMapIterator() = default;
-  bool hasNext();
+ virtual ~IntKeyMapIterator() = default;
+ bool hasNext();
 
-  void next();
+ void next();
 
-  void remove();
+ void remove();
 
-  int getKey();
+ int getKey();
 
-  V getValue();
+ V getValue();
 }
 } // namespace map
 } // namespace util

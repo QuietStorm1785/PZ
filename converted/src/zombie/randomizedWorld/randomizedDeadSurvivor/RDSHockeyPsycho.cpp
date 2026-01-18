@@ -4,14 +4,13 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
-public
-RDSHockeyPsycho::RDSHockeyPsycho() {
-  // TODO: Implement RDSHockeyPsycho
-  return nullptr;
+public RDSHockeyPsycho::RDSHockeyPsycho() {
+ // TODO: Implement RDSHockeyPsycho
+ return nullptr;
 }
 
 void RDSHockeyPsycho::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
 } // namespace randomizedDeadSurvivor

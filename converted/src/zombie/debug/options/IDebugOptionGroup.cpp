@@ -5,15 +5,15 @@ namespace debug {
 namespace options {
 
 void IDebugOptionGroup::addChild(IDebugOption childOption) {
-  // TODO: Implement addChild
+ // TODO: Implement addChild
 }
 
 void IDebugOptionGroup::onChildAdded(IDebugOption newChild) {
-  // TODO: Implement onChildAdded
+ // TODO: Implement onChildAdded
 }
 
 void IDebugOptionGroup::onDescendantAdded(IDebugOption newDescendant) {
-  // TODO: Implement onDescendantAdded
+ // TODO: Implement onDescendantAdded
 }
 
 } // namespace options

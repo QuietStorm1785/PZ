@@ -6,99 +6,96 @@ namespace areas {
 namespace isoregion {
 namespace data {
 
-public
-DataRoot::DataRoot() {
-  // TODO: Implement DataRoot
-  return nullptr;
+public DataRoot::DataRoot() {
+ // TODO: Implement DataRoot
+ return nullptr;
 }
 
 void DataRoot::getAllChunks(List<DataChunk> list) {
-  // TODO: Implement getAllChunks
+ // TODO: Implement getAllChunks
 }
 
 DataCell DataRoot::getCell(int int0) {
-  // TODO: Implement getCell
-  return nullptr;
+ // TODO: Implement getCell
+ return nullptr;
 }
 
 DataCell DataRoot::addCell(int int0, int int1, int int2) {
-  // TODO: Implement addCell
-  return nullptr;
+ // TODO: Implement addCell
+ return nullptr;
 }
 
 DataChunk DataRoot::getDataChunk(int chunkx, int chunky) {
-  // TODO: Implement getDataChunk
-  return nullptr;
+ // TODO: Implement getDataChunk
+ return nullptr;
 }
 
 void DataRoot::setDataChunk(DataChunk dataChunk) {
-  // TODO: Implement setDataChunk
+ // TODO: Implement setDataChunk
 }
 
 IsoWorldRegion DataRoot::getIsoWorldRegion(int x, int y, int z) {
-  // TODO: Implement getIsoWorldRegion
-  return nullptr;
+ // TODO: Implement getIsoWorldRegion
+ return nullptr;
 }
 
 uint8_t DataRoot::getSquareFlags(int x, int y, int z) {
-  // TODO: Implement getSquareFlags
-  return 0;
+ // TODO: Implement getSquareFlags
+ return 0;
 }
 
 IsoChunkRegion DataRoot::getIsoChunkRegion(int x, int y, int z) {
-  // TODO: Implement getIsoChunkRegion
-  return nullptr;
+ // TODO: Implement getIsoChunkRegion
+ return nullptr;
 }
 
 void DataRoot::resetAllData() {
-  // TODO: Implement resetAllData
+ // TODO: Implement resetAllData
 }
 
 void DataRoot::EnqueueDirtyDataChunk(DataChunk chunk) {
-  // TODO: Implement EnqueueDirtyDataChunk
+ // TODO: Implement EnqueueDirtyDataChunk
 }
 
 void DataRoot::EnqueueDirtyIsoWorldRegion(IsoWorldRegion mr) {
-  // TODO: Implement EnqueueDirtyIsoWorldRegion
+ // TODO: Implement EnqueueDirtyIsoWorldRegion
 }
 
 void DataRoot::DequeueDirtyIsoWorldRegion(IsoWorldRegion mr) {
-  // TODO: Implement DequeueDirtyIsoWorldRegion
+ // TODO: Implement DequeueDirtyIsoWorldRegion
 }
 
 void DataRoot::updateExistingSquare(int x, int y, int z, uint8_t flags) {
-  // TODO: Implement updateExistingSquare
+ // TODO: Implement updateExistingSquare
 }
 
 void DataRoot::processDirtyChunks() {
-  // TODO: Implement processDirtyChunks
+ // TODO: Implement processDirtyChunks
 }
 
-private
-DataRoot::SelectInfo(DataRoot dataRoot) {
-  // TODO: Implement SelectInfo
-  return nullptr;
+private DataRoot::SelectInfo(DataRoot dataRoot) {
+ // TODO: Implement SelectInfo
+ return nullptr;
 }
 
 void DataRoot::reset(int _x, int _y, int _z, bool createSquare) {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
-void DataRoot::reset(int _x, int _y, int _z, bool createChunk,
-                     bool createSquare) {
-  // TODO: Implement reset
+void DataRoot::reset(int _x, int _y, int _z, bool createChunk, bool createSquare) {
+ // TODO: Implement reset
 }
 
 void DataRoot::ensureCell(bool boolean0) {
-  // TODO: Implement ensureCell
+ // TODO: Implement ensureCell
 }
 
 void DataRoot::ensureChunk(bool boolean0) {
-  // TODO: Implement ensureChunk
+ // TODO: Implement ensureChunk
 }
 
 void DataRoot::ensureSquare(bool boolean0) {
-  // TODO: Implement ensureSquare
+ // TODO: Implement ensureSquare
 }
 
 } // namespace data

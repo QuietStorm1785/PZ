@@ -1,4 +1,10 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/ai/State.h"
 #include "zombie/characters/CharacterTimedActions/BaseAction.h"
 #include "zombie/characters/Moodles/Moodles.h"
@@ -23,352 +29,342 @@
 #include "zombie/vehicles/PolygonalMap2.h"
 #include "zombie/vehicles/VehiclePart.h"
 #include <algorithm>
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace characters {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 /**
- * ILuaGameCharacter  Provides the functions expected by LUA when dealing with
- * objects of this type.
+ * ILuaGameCharacter Provides the functions expected by LUA when dealing with objects of this type.
  */
 class ILuaGameCharacter {
 public:
-  virtual ~ILuaGameCharacter() = default;
-  extends ILuaVariableSource, ILuaGameCharacterAttachedItems,
-      ILuaGameCharacterDamage, ILuaGameCharacterClothing,
-      ILuaGameCharacterHealth {
-    std::string getFullName();
+ virtual ~ILuaGameCharacter() = default;
+ extends ILuaVariableSource,
+ ILuaGameCharacterAttachedItems,
+ ILuaGameCharacterDamage,
+ ILuaGameCharacterClothing,
+ ILuaGameCharacterHealth {
+ std::string getFullName();
 
-    SurvivorDesc getDescriptor();
+ SurvivorDesc getDescriptor();
 
-    void setDescriptor(SurvivorDesc descriptor);
+ void setDescriptor(SurvivorDesc descriptor);
 
-    bool isRangedWeaponEmpty();
+ bool isRangedWeaponEmpty();
 
-    void setRangedWeaponEmpty(bool val);
+ void setRangedWeaponEmpty(bool val);
 
-    BaseVisual getVisual();
+ BaseVisual getVisual();
 
-    BaseCharacterSoundEmitter getEmitter();
+ BaseCharacterSoundEmitter getEmitter();
 
-    void resetModel();
+ void resetModel();
 
-    void resetModelNextFrame();
+ void resetModelNextFrame();
 
-    IsoSpriteInstance getSpriteDef();
+ IsoSpriteInstance getSpriteDef();
 
-    bool hasItems(const std::string &type, int count);
+ bool hasItems(const std::string& type, int count);
 
-    int getXpForLevel(int level);
+ int getXpForLevel(int level);
 
-    IsoGameCharacter.XP getXp();
+ IsoGameCharacter.XP getXp();
 
-    bool isAsleep();
+ bool isAsleep();
 
-    void setAsleep(bool Asleep);
+ void setAsleep(bool Asleep);
 
-    int getZombieKills();
+ int getZombieKills();
 
-    void setForceWakeUpTime(float ForceWakeUpTime);
+ void setForceWakeUpTime(float ForceWakeUpTime);
 
-    ItemContainer getInventory();
+ ItemContainer getInventory();
 
-    InventoryItem getPrimaryHandItem();
+ InventoryItem getPrimaryHandItem();
 
-    void setPrimaryHandItem(InventoryItem leftHandItem);
+ void setPrimaryHandItem(InventoryItem leftHandItem);
 
-    InventoryItem getSecondaryHandItem();
+ InventoryItem getSecondaryHandItem();
 
-    void setSecondaryHandItem(InventoryItem rightHandItem);
+ void setSecondaryHandItem(InventoryItem rightHandItem);
 
-    bool hasEquipped(const std::string &String);
+ bool hasEquipped(const std::string& String);
 
-    bool hasEquippedTag(const std::string &tag);
+ bool hasEquippedTag(const std::string& tag);
 
-    bool isHandItem(InventoryItem item);
+ bool isHandItem(InventoryItem item);
 
-    bool isPrimaryHandItem(InventoryItem item);
+ bool isPrimaryHandItem(InventoryItem item);
 
-    bool isSecondaryHandItem(InventoryItem item);
+ bool isSecondaryHandItem(InventoryItem item);
 
-    bool isItemInBothHands(InventoryItem item);
+ bool isItemInBothHands(InventoryItem item);
 
-    bool removeFromHands(InventoryItem item);
+ bool removeFromHands(InventoryItem item);
 
-    void setSpeakColourInfo(ColorInfo info);
+ void setSpeakColourInfo(ColorInfo info);
 
-    bool isSpeaking();
+ bool isSpeaking();
 
-    Moodles getMoodles();
+ Moodles getMoodles();
 
-    Stats getStats();
+ Stats getStats();
 
-    TraitCollection getTraits();
+ TraitCollection getTraits();
 
-    int getMaxWeight();
+ int getMaxWeight();
 
-    void PlayAnim(const std::string &string);
+ void PlayAnim(const std::string& string);
 
-    void PlayAnimWithSpeed(const std::string &string,
-                           float framesSpeedPerFrame);
+ void PlayAnimWithSpeed(const std::string& string, float framesSpeedPerFrame);
 
-    void PlayAnimUnlooped(const std::string &string);
+ void PlayAnimUnlooped(const std::string& string);
 
-    void StartTimedActionAnim(const std::string &event);
+ void StartTimedActionAnim(const std::string& event);
 
-    void StartTimedActionAnim(const std::string &event,
-                              const std::string &type);
+ void StartTimedActionAnim(const std::string& event, const std::string& type);
 
-    void StopTimedActionAnim();
+ void StopTimedActionAnim();
 
-    Stack<BaseAction> getCharacterActions();
+ Stack<BaseAction> getCharacterActions();
 
-    void StartAction(BaseAction act);
+ void StartAction(BaseAction act);
 
-    void StopAllActionQueue();
+ void StopAllActionQueue();
 
-    int getPerkLevel(PerkFactory.Perk perks);
+ int getPerkLevel(PerkFactory.Perk perks);
 
-    IsoGameCharacter.PerkInfo getPerkInfo(PerkFactory.Perk perk);
+ IsoGameCharacter.PerkInfo getPerkInfo(PerkFactory.Perk perk);
 
-    void setPerkLevelDebug(PerkFactory.Perk perks, int level);
+ void setPerkLevelDebug(PerkFactory.Perk perks, int level);
 
-    void LoseLevel(PerkFactory.Perk perk);
+ void LoseLevel(PerkFactory.Perk perk);
 
-    void LevelPerk(PerkFactory.Perk perk, bool removePick);
+ void LevelPerk(PerkFactory.Perk perk, bool removePick);
 
-    void LevelPerk(PerkFactory.Perk perk);
+ void LevelPerk(PerkFactory.Perk perk);
 
-    void ReadLiterature(Literature literature);
+ void ReadLiterature(Literature literature);
 
-    void setDir(IsoDirections directions);
+ void setDir(IsoDirections directions);
 
-    void Callout();
+ void Callout();
 
-    bool IsSpeaking();
+ bool IsSpeaking();
 
-    void Say(const std::string &line);
+ void Say(const std::string& line);
 
-    void Say(const std::string &line, float r, float g, float b, UIFont font,
-             float baseRange, const std::string &customTag);
+ void Say(const std::string& line, float r, float g, float b, UIFont font, float baseRange, const std::string& customTag);
 
-    void setHaloNote(const std::string &str);
+ void setHaloNote(const std::string& str);
 
-    void setHaloNote(const std::string &str, float dispTime);
+ void setHaloNote(const std::string& str, float dispTime);
 
-    void setHaloNote(const std::string &str, int r, int g, int b,
-                     float dispTime);
+ void setHaloNote(const std::string& str, int r, int g, int b, float dispTime);
 
-    void initSpritePartsEmpty();
+ void initSpritePartsEmpty();
 
-    bool HasTrait(const std::string &trait);
+ bool HasTrait(const std::string& trait);
 
-    void changeState(State state);
+ void changeState(State state);
 
-    bool isCurrentState(State state);
+ bool isCurrentState(State state);
 
-    State getCurrentState();
+ State getCurrentState();
 
-    void pathToLocation(int x, int y, int z);
+ void pathToLocation(int x, int y, int z);
 
-    void pathToLocationF(float x, float y, float z);
+ void pathToLocationF(float x, float y, float z);
 
-    bool CanAttack();
+ bool CanAttack();
 
-    void smashCarWindow(VehiclePart part);
+ void smashCarWindow(VehiclePart part);
 
-    void smashWindow(IsoWindow w);
+ void smashWindow(IsoWindow w);
 
-    void openWindow(IsoWindow w);
+ void openWindow(IsoWindow w);
 
-    void closeWindow(IsoWindow w);
+ void closeWindow(IsoWindow w);
 
-    void climbThroughWindow(IsoWindow w);
+ void climbThroughWindow(IsoWindow w);
 
-    void climbThroughWindow(IsoWindow w, int startingFrame);
+ void climbThroughWindow(IsoWindow w, int startingFrame);
 
-    void climbThroughWindowFrame(IsoObject obj);
+ void climbThroughWindowFrame(IsoObject obj);
 
-    void climbSheetRope();
+ void climbSheetRope();
 
-    void climbDownSheetRope();
+ void climbDownSheetRope();
 
-    bool canClimbSheetRope(IsoGridSquare sq);
+ bool canClimbSheetRope(IsoGridSquare sq);
 
-    bool canClimbDownSheetRopeInCurrentSquare();
+ bool canClimbDownSheetRopeInCurrentSquare();
 
-    bool canClimbDownSheetRope(IsoGridSquare sq);
+ bool canClimbDownSheetRope(IsoGridSquare sq);
 
-    void climbThroughWindow(IsoThumpable w);
+ void climbThroughWindow(IsoThumpable w);
 
-    void climbThroughWindow(IsoThumpable w, int startingFrame);
+ void climbThroughWindow(IsoThumpable w, int startingFrame);
 
-    void climbOverFence(IsoDirections dir);
+ void climbOverFence(IsoDirections dir);
 
-    bool isAboveTopOfStairs();
+ bool isAboveTopOfStairs();
 
-    double getHoursSurvived();
+ double getHoursSurvived();
 
-    bool isOutside();
+ bool isOutside();
 
-    bool isFemale();
+ bool isFemale();
 
-    void setFemale(bool isFemale);
+ void setFemale(bool isFemale);
 
-    bool isZombie();
+ bool isZombie();
 
-    bool isEquipped(InventoryItem item);
+ bool isEquipped(InventoryItem item);
 
-    bool isEquippedClothing(InventoryItem item);
+ bool isEquippedClothing(InventoryItem item);
 
-    bool isAttachedItem(InventoryItem item);
+ bool isAttachedItem(InventoryItem item);
 
-    void faceThisObject(IsoObject object);
+ void faceThisObject(IsoObject object);
 
-    void facePosition(int x, int y);
+ void facePosition(int x, int y);
 
-    void faceThisObjectAlt(IsoObject object);
+ void faceThisObjectAlt(IsoObject object);
 
-    int getAlreadyReadPages(const std::string &fullType);
+ int getAlreadyReadPages(const std::string& fullType);
 
-    void setAlreadyReadPages(const std::string &fullType, int pages);
+ void setAlreadyReadPages(const std::string& fullType, int pages);
 
-    Safety getSafety();
+ Safety getSafety();
 
-    void setSafety(Safety safety);
+ void setSafety(Safety safety);
 
-    float getMeleeDelay();
+ float getMeleeDelay();
 
-    void setMeleeDelay(float delay);
+ void setMeleeDelay(float delay);
 
-    float getRecoilDelay();
+ float getRecoilDelay();
 
-    void setRecoilDelay(float recoilDelay);
+ void setRecoilDelay(float recoilDelay);
 
-    int getMaintenanceMod();
+ int getMaintenanceMod();
 
-    float getHammerSoundMod();
+ float getHammerSoundMod();
 
-    float getWeldingSoundMod();
+ float getWeldingSoundMod();
 
-    bool isGodMod();
+ bool isGodMod();
 
-    void setGodMod(bool b);
+ void setGodMod(bool b);
 
-    BaseVehicle getVehicle();
+ BaseVehicle getVehicle();
 
-    void setVehicle(BaseVehicle v);
+ void setVehicle(BaseVehicle v);
 
-    float getInventoryWeight();
+ float getInventoryWeight();
 
-    List<String> getKnownRecipes();
+ List<String> getKnownRecipes();
 
-    bool isRecipeKnown(Recipe recipe);
+ bool isRecipeKnown(Recipe recipe);
 
-    bool isRecipeKnown(const std::string &name);
+ bool isRecipeKnown(const std::string& name);
 
-    void addKnownMediaLine(const std::string &guid);
+ void addKnownMediaLine(const std::string& guid);
 
-    void removeKnownMediaLine(const std::string &guid);
+ void removeKnownMediaLine(const std::string& guid);
 
-    void clearKnownMediaLines();
+ void clearKnownMediaLines();
 
-    bool isKnownMediaLine(const std::string &guid);
+ bool isKnownMediaLine(const std::string& guid);
 
-    long playSound(const std::string &file);
+ long playSound(const std::string& file);
 
-    long playSoundLocal(const std::string &file);
+ long playSoundLocal(const std::string& file);
 
-    void stopOrTriggerSound(long eventInstance);
+ void stopOrTriggerSound(long eventInstance);
 
-    void addWorldSoundUnlessInvisible(int radius, int volume,
-                                      bool bStressHumans);
+ void addWorldSoundUnlessInvisible(int radius, int volume, bool bStressHumans);
 
-    bool isKnownPoison(InventoryItem item);
+ bool isKnownPoison(InventoryItem item);
 
-    std::string getBedType();
+ std::string getBedType();
 
-    void setBedType(const std::string &bedType);
+ void setBedType(const std::string& bedType);
 
-    PolygonalMap2.Path getPath2();
+ PolygonalMap2.Path getPath2();
 
-    void setPath2(PolygonalMap2.Path path);
+ void setPath2(PolygonalMap2.Path path);
 
-    PathFindBehavior2 getPathFindBehavior2();
+ PathFindBehavior2 getPathFindBehavior2();
 
-    IsoObject getBed();
+ IsoObject getBed();
 
-    void setBed(IsoObject bed);
+ void setBed(IsoObject bed);
 
-    bool isReading();
+ bool isReading();
 
-    void setReading(bool isReading);
+ void setReading(bool isReading);
 
-    float getTimeSinceLastSmoke();
+ float getTimeSinceLastSmoke();
 
-    void setTimeSinceLastSmoke(float timeSinceLastSmoke);
+ void setTimeSinceLastSmoke(float timeSinceLastSmoke);
 
-    bool isInvisible();
+ bool isInvisible();
 
-    void setInvisible(bool b);
+ void setInvisible(bool b);
 
-    bool isDriving();
+ bool isDriving();
 
-    bool isInARoom();
+ bool isInARoom();
 
-    bool isUnlimitedCarry();
+ bool isUnlimitedCarry();
 
-    void setUnlimitedCarry(bool unlimitedCarry);
+ void setUnlimitedCarry(bool unlimitedCarry);
 
-    bool isBuildCheat();
+ bool isBuildCheat();
 
-    void setBuildCheat(bool buildCheat);
+ void setBuildCheat(bool buildCheat);
 
-    bool isFarmingCheat();
+ bool isFarmingCheat();
 
-    void setFarmingCheat(bool b);
+ void setFarmingCheat(bool b);
 
-    bool isHealthCheat();
+ bool isHealthCheat();
 
-    void setHealthCheat(bool healthCheat);
+ void setHealthCheat(bool healthCheat);
 
-    bool isMechanicsCheat();
+ bool isMechanicsCheat();
 
-    void setMechanicsCheat(bool mechanicsCheat);
+ void setMechanicsCheat(bool mechanicsCheat);
 
-    bool isMovablesCheat();
+ bool isMovablesCheat();
 
-    void setMovablesCheat(bool b);
+ void setMovablesCheat(bool b);
 
-    bool isTimedActionInstantCheat();
+ bool isTimedActionInstantCheat();
 
-    void setTimedActionInstantCheat(bool b);
+ void setTimedActionInstantCheat(bool b);
 
-    bool isTimedActionInstant();
+ bool isTimedActionInstant();
 
-    bool isShowAdminTag();
+ bool isShowAdminTag();
 
-    void setShowAdminTag(bool showAdminTag);
+ void setShowAdminTag(bool showAdminTag);
 
-    void reportEvent(const std::string &name);
+ void reportEvent(const std::string& name);
 
-    AnimatorDebugMonitor getDebugMonitor();
+ AnimatorDebugMonitor getDebugMonitor();
 
-    void setDebugMonitor(AnimatorDebugMonitor monitor);
+ void setDebugMonitor(AnimatorDebugMonitor monitor);
 
-    bool isAiming();
+ bool isAiming();
 
-    void resetBeardGrowingTime();
+ void resetBeardGrowingTime();
 
-    void resetHairGrowingTime();
-  }
+ void resetHairGrowingTime();
+}
 } // namespace characters
 } // namespace zombie

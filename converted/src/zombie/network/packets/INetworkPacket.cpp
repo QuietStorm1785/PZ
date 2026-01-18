@@ -5,11 +5,11 @@ namespace network {
 namespace packets {
 
 void INetworkPacket::parse(ByteBuffer b, UdpConnection connection) {
-  // TODO: Implement parse
+ // TODO: Implement parse
 }
 
 void INetworkPacket::write(ByteBufferWriter b) {
-  // TODO: Implement write
+ // TODO: Implement write
 }
 
 } // namespace packets

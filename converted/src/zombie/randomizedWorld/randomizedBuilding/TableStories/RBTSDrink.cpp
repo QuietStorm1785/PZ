@@ -5,19 +5,18 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 namespace TableStories {
 
-public
-RBTSDrink::RBTSDrink() {
-  // TODO: Implement RBTSDrink
-  return nullptr;
+public RBTSDrink::RBTSDrink() {
+ // TODO: Implement RBTSDrink
+ return nullptr;
 }
 
 void RBTSDrink::randomizeBuilding(BuildingDef var1) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 std::string RBTSDrink::getDrink() {
-  // TODO: Implement getDrink
-  return "";
+ // TODO: Implement getDrink
+ return "";
 }
 
 } // namespace TableStories

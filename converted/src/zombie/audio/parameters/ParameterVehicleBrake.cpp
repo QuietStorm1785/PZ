@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterVehicleBrake::ParameterVehicleBrake(BaseVehicle _vehicle) {
-  // TODO: Implement ParameterVehicleBrake
-  return nullptr;
+public ParameterVehicleBrake::ParameterVehicleBrake(BaseVehicle _vehicle) {
+ // TODO: Implement ParameterVehicleBrake
+ return nullptr;
 }
 
 float ParameterVehicleBrake::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

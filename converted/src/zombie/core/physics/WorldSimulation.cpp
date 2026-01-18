@@ -5,58 +5,57 @@ namespace core {
 namespace physics {
 
 void WorldSimulation::create() {
-  // TODO: Implement create
+ // TODO: Implement create
 }
 
 void WorldSimulation::destroy() {
-  // TODO: Implement destroy
+ // TODO: Implement destroy
 }
 
 void WorldSimulation::updatePhysic(float float0) {
-  // TODO: Implement updatePhysic
+ // TODO: Implement updatePhysic
 }
 
 void WorldSimulation::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void WorldSimulation::updateInternal() {
-  // TODO: Implement updateInternal
+ // TODO: Implement updateInternal
 }
 
-bool WorldSimulation::compareTransform(Transform transform1,
-                                       Transform transform0) {
-  // TODO: Implement compareTransform
-  return false;
+bool WorldSimulation::compareTransform(Transform transform1, Transform transform0) {
+ // TODO: Implement compareTransform
+ return false;
 }
 
 int WorldSimulation::setOwnVehiclePhysics(int int0, float[] floats) {
-  // TODO: Implement setOwnVehiclePhysics
-  return 0;
+ // TODO: Implement setOwnVehiclePhysics
+ return 0;
 }
 
 void WorldSimulation::activateChunkMap(int int0) {
-  // TODO: Implement activateChunkMap
+ // TODO: Implement activateChunkMap
 }
 
 void WorldSimulation::deactivateChunkMap(int int0) {
-  // TODO: Implement deactivateChunkMap
+ // TODO: Implement deactivateChunkMap
 }
 
 void WorldSimulation::scrollGroundLeft(int int0) {
-  // TODO: Implement scrollGroundLeft
+ // TODO: Implement scrollGroundLeft
 }
 
 void WorldSimulation::scrollGroundRight(int int0) {
-  // TODO: Implement scrollGroundRight
+ // TODO: Implement scrollGroundRight
 }
 
 void WorldSimulation::scrollGroundUp(int int0) {
-  // TODO: Implement scrollGroundUp
+ // TODO: Implement scrollGroundUp
 }
 
 void WorldSimulation::scrollGroundDown(int int0) {
-  // TODO: Implement scrollGroundDown
+ // TODO: Implement scrollGroundDown
 }
 
 } // namespace physics

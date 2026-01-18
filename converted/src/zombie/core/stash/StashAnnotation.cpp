@@ -5,7 +5,7 @@ namespace core {
 namespace stash {
 
 void StashAnnotation::fromLua(KahluaTable table) {
-  // TODO: Implement fromLua
+ // TODO: Implement fromLua
 }
 
 } // namespace stash

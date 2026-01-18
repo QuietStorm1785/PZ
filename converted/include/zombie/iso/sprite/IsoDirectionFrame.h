@@ -1,179 +1,183 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/core/textures/ColorInfo.h"
 #include "zombie/core/textures/Texture.h"
 #include "zombie/core/textures/TextureDraw.h"
 #include "zombie/iso/IsoDirections.h"
 #include "zombie/iso/objects/ObjectRenderEffects.h"
 #include <algorithm>
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace iso {
 namespace sprite {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class IsoDirectionFrame {
 public:
-public
-  final Texture[] directions = new Texture[8];
-  bool bDoFlip = true;
+ public Texture[] directions = new Texture[8];
+ bool bDoFlip = true;
 
-public
-  IsoDirectionFrame(Texture tex) { this.SetAllDirections(tex); }
+ public IsoDirectionFrame(Texture tex) {
+ this->SetAllDirections(tex);
+ }
 
-public
-  IsoDirectionFrame() {}
+ public IsoDirectionFrame() {
+ }
 
-public
-  IsoDirectionFrame(Texture nw, Texture n, Texture ne, Texture e, Texture se) {
-    this.directions[0] = n;
-    this.directions[1] = nw;
-    this.directions[2] = n;
-    this.directions[3] = ne;
-    this.directions[4] = e;
-    this.directions[5] = se;
-    this.directions[6] = e;
-    this.directions[7] = ne;
-  }
+ public IsoDirectionFrame(Texture nw, Texture n, Texture ne, Texture e, Texture se) {
+ this->directions[0] = n;
+ this->directions[1] = nw;
+ this->directions[2] = n;
+ this->directions[3] = ne;
+ this->directions[4] = e;
+ this->directions[5] = se;
+ this->directions[6] = e;
+ this->directions[7] = ne;
+ }
 
-public
-  IsoDirectionFrame(Texture n, Texture nw, Texture w, Texture sw, Texture s,
-                    Texture se, Texture e, Texture ne) {
-    if (s == nullptr) {
-      bool boolean0 = false;
-    }
+ public IsoDirectionFrame(Texture n, Texture nw, Texture w, Texture sw, Texture s, Texture se, Texture e, Texture ne) {
+ if (s.empty()) {
+ bool boolean0 = false;
+ }
 
-    this.directions[0] = n;
-    this.directions[1] = ne;
-    this.directions[2] = e;
-    this.directions[3] = se;
-    this.directions[4] = s;
-    this.directions[5] = sw;
-    this.directions[6] = w;
-    this.directions[7] = nw;
-    this.bDoFlip = false;
-  }
+ this->directions[0] = n;
+ this->directions[1] = ne;
+ this->directions[2] = e;
+ this->directions[3] = se;
+ this->directions[4] = s;
+ this->directions[5] = sw;
+ this->directions[6] = w;
+ this->directions[7] = nw;
+ this->bDoFlip = false;
+ }
 
-public
-  IsoDirectionFrame(Texture n, Texture s, Texture e, Texture w) {
-    this.directions[0] = n;
-    this.directions[1] = n;
-    this.directions[2] = w;
-    this.directions[3] = w;
-    this.directions[4] = s;
-    this.directions[5] = s;
-    this.directions[6] = e;
-    this.directions[7] = e;
-    this.bDoFlip = false;
-  }
+ public IsoDirectionFrame(Texture n, Texture s, Texture e, Texture w) {
+ this->directions[0] = n;
+ this->directions[1] = n;
+ this->directions[2] = w;
+ this->directions[3] = w;
+ this->directions[4] = s;
+ this->directions[5] = s;
+ this->directions[6] = e;
+ this->directions[7] = e;
+ this->bDoFlip = false;
+ }
 
-  Texture getTexture(IsoDirections dir) { return this.directions[dir.index()]; }
+ Texture getTexture(IsoDirections dir) {
+ return this->directions[dir.index()];
+ }
 
-  void SetAllDirections(Texture tex) {
-    this.directions[0] = tex;
-    this.directions[1] = tex;
-    this.directions[2] = tex;
-    this.directions[3] = tex;
-    this.directions[4] = tex;
-    this.directions[5] = tex;
-    this.directions[6] = tex;
-    this.directions[7] = tex;
-  }
+ void SetAllDirections(Texture tex) {
+ this->directions[0] = tex;
+ this->directions[1] = tex;
+ this->directions[2] = tex;
+ this->directions[3] = tex;
+ this->directions[4] = tex;
+ this->directions[5] = tex;
+ this->directions[6] = tex;
+ this->directions[7] = tex;
+ }
 
-  void SetDirection(Texture tex, IsoDirections dir) {
-    this.directions[dir.index()] = tex;
-  }
+ void SetDirection(Texture tex, IsoDirections dir) {
+ this->directions[dir.index()] = tex;
+ }
 
-  void render(float sx, float sy, IsoDirections dir, ColorInfo info, bool Flip,
-              Consumer<TextureDraw> texdModifier) {
-    Texture texture = this.directions[dir.index()];
-    if (texture != nullptr) {
-      if (Flip) {
-        texture.flip = !texture.flip;
-      }
+ void render(float sx, float sy, IsoDirections dir, ColorInfo info, bool Flip, Consumer<TextureDraw> texdModifier) {
+ Texture texture = this->directions[dir.index()];
+ if (texture != nullptr) {
+ if (Flip) {
+ texture.flip = !texture.flip;
+ }
 
-      if (texture != nullptr) {
-        if (!this.bDoFlip) {
-          texture.flip = false;
-        }
+ if (texture != nullptr) {
+ if (!this->bDoFlip) {
+ texture.flip = false;
+ }
 
-        texture.render(sx, sy, texture.getWidth(), texture.getHeight(), info.r,
-                       info.g, info.b, info.a, texdModifier);
-        texture.flip = false;
-      }
-    }
-  }
+ texture.render(sx, sy, texture.getWidth(), texture.getHeight(), info.r, info.g, info.b, info.a, texdModifier);
+ texture.flip = false;
+ }
+ }
+ }
 
-  void render(float float0, float float1, float float2, float float3,
-              IsoDirections directionsx, ColorInfo colorInfo, boolean boolean0,
-              Consumer<TextureDraw> consumer) {
-    Texture texture = this.directions[directionsx.index()];
-    if (texture != nullptr) {
-      if (boolean0) {
-        texture.flip = !texture.flip;
-      }
+ void render(
+ float float0,
+ float float1,
+ float float2,
+ float float3,
+ IsoDirections directionsx,
+ ColorInfo colorInfo,
+ boolean boolean0,
+ Consumer<TextureDraw> consumer
+ ) {
+ Texture texture = this->directions[directionsx.index()];
+ if (texture != nullptr) {
+ if (boolean0) {
+ texture.flip = !texture.flip;
+ }
 
-      if (!this.bDoFlip) {
-        texture.flip = false;
-      }
+ if (!this->bDoFlip) {
+ texture.flip = false;
+ }
 
-      texture.render(float0, float1, float2, float3, colorInfo.r, colorInfo.g,
-                     colorInfo.b, colorInfo.a, consumer);
-      texture.flip = false;
-    }
-  }
+ texture.render(float0, float1, float2, float3, colorInfo.r, colorInfo.g, colorInfo.b, colorInfo.a, consumer);
+ texture.flip = false;
+ }
+ }
 
-  void render(ObjectRenderEffects objectRenderEffects, float float0,
-              float float1, float float2, float float3,
-              IsoDirections directionsx, ColorInfo colorInfo, boolean boolean0,
-              Consumer<TextureDraw> consumer) {
-    Texture texture = this.directions[directionsx.index()];
-    if (texture != nullptr) {
-      if (boolean0) {
-        texture.flip = !texture.flip;
-      }
+ void render(
+ ObjectRenderEffects objectRenderEffects,
+ float float0,
+ float float1,
+ float float2,
+ float float3,
+ IsoDirections directionsx,
+ ColorInfo colorInfo,
+ boolean boolean0,
+ Consumer<TextureDraw> consumer
+ ) {
+ Texture texture = this->directions[directionsx.index()];
+ if (texture != nullptr) {
+ if (boolean0) {
+ texture.flip = !texture.flip;
+ }
 
-      if (!this.bDoFlip) {
-        texture.flip = false;
-      }
+ if (!this->bDoFlip) {
+ texture.flip = false;
+ }
 
-      texture.render(objectRenderEffects, float0, float1, float2, float3,
-                     colorInfo.r, colorInfo.g, colorInfo.b, colorInfo.a,
-                     consumer);
-      texture.flip = false;
-    }
-  }
+ texture.render(objectRenderEffects, float0, float1, float2, float3, colorInfo.r, colorInfo.g, colorInfo.b, colorInfo.a, consumer);
+ texture.flip = false;
+ }
+ }
 
-  void renderexplicit(int sx, int sy, IsoDirections dir, float scale) {
-    this.renderexplicit(sx, sy, dir, scale, nullptr);
-  }
+ void renderexplicit(int sx, int sy, IsoDirections dir, float scale) {
+ this->renderexplicit(sx, sy, dir, scale, nullptr);
+ }
 
-  void renderexplicit(int sx, int sy, IsoDirections dir, float scale,
-                      ColorInfo color) {
-    Texture texture = this.directions[dir.index()];
-    if (texture != nullptr) {
-      float float0 = 1.0F;
-      float float1 = 1.0F;
-      float float2 = 1.0F;
-      float float3 = 1.0F;
-      if (color != nullptr) {
-        float0 *= color.a;
-        float1 *= color.r;
-        float2 *= color.g;
-        float3 *= color.b;
-      }
+ void renderexplicit(int sx, int sy, IsoDirections dir, float scale, ColorInfo color) {
+ Texture texture = this->directions[dir.index()];
+ if (texture != nullptr) {
+ float float0 = 1.0F;
+ float float1 = 1.0F;
+ float float2 = 1.0F;
+ float float3 = 1.0F;
+ if (color != nullptr) {
+ float0 *= color.a;
+ float1 *= color.r;
+ float2 *= color.g;
+ float3 *= color.b;
+ }
 
-      texture.renderstrip(sx, sy, (int)(texture.getWidth() * scale),
-                          (int)(texture.getHeight() * scale), float1, float2,
-                          float3, float0, nullptr);
-    }
-  }
+ texture.renderstrip(sx, sy, (int)(texture.getWidth() * scale), (int)(texture.getHeight() * scale), float1, float2, float3, float0, nullptr);
+ }
+ }
 }
 } // namespace sprite
 } // namespace iso

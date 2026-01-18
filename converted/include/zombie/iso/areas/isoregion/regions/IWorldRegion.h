@@ -1,40 +1,40 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace iso {
 namespace areas {
 namespace isoregion {
 namespace regions {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 /**
  * TurboTuTone.
  */
 class IWorldRegion {
 public:
-  virtual ~IWorldRegion() = default;
-  ArrayList<IsoWorldRegion> getDebugConnectedNeighborCopy();
+ virtual ~IWorldRegion() = default;
+ ArrayList<IsoWorldRegion> getDebugConnectedNeighborCopy();
 
-  ArrayList<IsoWorldRegion> getNeighbors();
+ ArrayList<IsoWorldRegion> getNeighbors();
 
-  bool isFogMask();
+ bool isFogMask();
 
-  bool isPlayerRoom();
+ bool isPlayerRoom();
 
-  bool isFullyRoofed();
+ bool isFullyRoofed();
 
-  int getRoofCnt();
+ int getRoofCnt();
 
-  int getSquareSize();
+ int getSquareSize();
 
-  ArrayList<IsoChunkRegion> getDebugIsoChunkRegionCopy();
+ ArrayList<IsoChunkRegion> getDebugIsoChunkRegionCopy();
 }
 } // namespace regions
 } // namespace isoregion

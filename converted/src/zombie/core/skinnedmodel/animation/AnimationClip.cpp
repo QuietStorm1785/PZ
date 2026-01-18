@@ -5,26 +5,24 @@ namespace core {
 namespace skinnedmodel {
 namespace animation {
 
-public
-AnimationClip::AnimationClip(float duration, List<Keyframe> keyframes,
-                             const std::string &name, bool bKeepLastFrame) {
-  // TODO: Implement AnimationClip
-  return nullptr;
+public AnimationClip::AnimationClip(float duration, List<Keyframe> keyframes, const std::string& name, bool bKeepLastFrame) {
+ // TODO: Implement AnimationClip
+ return nullptr;
 }
 
 int AnimationClip::getRootMotionFrameCount() {
-  // TODO: Implement getRootMotionFrameCount
-  return 0;
+ // TODO: Implement getRootMotionFrameCount
+ return 0;
 }
 
 Keyframe AnimationClip::getRootMotionFrameAt(int idx) {
-  // TODO: Implement getRootMotionFrameAt
-  return nullptr;
+ // TODO: Implement getRootMotionFrameAt
+ return nullptr;
 }
 
 float AnimationClip::getTranslationLength(BoneAxis deferredBoneAxis) {
-  // TODO: Implement getTranslationLength
-  return 0;
+ // TODO: Implement getTranslationLength
+ return 0;
 }
 
 } // namespace animation

@@ -4,21 +4,21 @@ namespace zombie {
 namespace input {
 
 void MouseStateCache::poll() {
-  // TODO: Implement poll
+ // TODO: Implement poll
 }
 
 void MouseStateCache::swap() {
-  // TODO: Implement swap
+ // TODO: Implement swap
 }
 
 MouseState MouseStateCache::getState() {
-  // TODO: Implement getState
-  return nullptr;
+ // TODO: Implement getState
+ return nullptr;
 }
 
 MouseState MouseStateCache::getStatePolling() {
-  // TODO: Implement getStatePolling
-  return nullptr;
+ // TODO: Implement getStatePolling
+ return nullptr;
 }
 
 } // namespace input

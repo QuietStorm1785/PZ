@@ -8,33 +8,32 @@ namespace expose {
 namespace caller {
 
 public ConstructorCaller::ConstructorCaller(Constructor<?> constructorx) {
-  // TODO: Implement ConstructorCaller
-  return nullptr;
+ // TODO: Implement ConstructorCaller
+ return nullptr;
 }
 
-void ConstructorCaller::call(void *var1, ReturnValues returnValues,
-                             Object[] objects) {
-  // TODO: Implement call
+void ConstructorCaller::call(void* var1, ReturnValues returnValues, Object[] objects) {
+ // TODO: Implement call
 }
 
 bool ConstructorCaller::hasSelf() {
-  // TODO: Implement hasSelf
-  return false;
+ // TODO: Implement hasSelf
+ return false;
 }
 
 std::string ConstructorCaller::getDescriptor() {
-  // TODO: Implement getDescriptor
-  return "";
+ // TODO: Implement getDescriptor
+ return "";
 }
 
-bool ConstructorCaller::equals(void *object) {
-  // TODO: Implement equals
-  return false;
+bool ConstructorCaller::equals(void* object) {
+ // TODO: Implement equals
+ return false;
 }
 
 int ConstructorCaller::hashCode() {
-  // TODO: Implement hashCode
-  return 0;
+ // TODO: Implement hashCode
+ return 0;
 }
 
 } // namespace caller

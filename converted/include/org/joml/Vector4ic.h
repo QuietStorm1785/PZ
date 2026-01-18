@@ -1,89 +1,89 @@
 #pragma once
-#include <cstdint>
-#include <filesystem>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include <filesystem>
 
 namespace org {
 namespace joml {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class Vector4ic {
 public:
-  virtual ~Vector4ic() = default;
-  int x();
+ virtual ~Vector4ic() = default;
+ int x();
 
-  int y();
+ int y();
 
-  int z();
+ int z();
 
-  int w();
+ int w();
 
-  IntBuffer get(IntBuffer arg0);
+ IntBuffer get(IntBuffer arg0);
 
-  IntBuffer get(int arg0, IntBuffer arg1);
+ IntBuffer get(int arg0, IntBuffer arg1);
 
-  ByteBuffer get(ByteBuffer arg0);
+ ByteBuffer get(ByteBuffer arg0);
 
-  ByteBuffer get(int arg0, ByteBuffer arg1);
+ ByteBuffer get(int arg0, ByteBuffer arg1);
 
-  Vector4ic getToAddress(long arg0);
+ Vector4ic getToAddress(long arg0);
 
-  Vector4i sub(Vector4ic arg0, Vector4i arg1);
+ Vector4i sub(Vector4ic arg0, Vector4i arg1);
 
-  Vector4i sub(int arg0, int arg1, int arg2, int arg3, Vector4i arg4);
+ Vector4i sub(int arg0, int arg1, int arg2, int arg3, Vector4i arg4);
 
-  Vector4i add(Vector4ic arg0, Vector4i arg1);
+ Vector4i add(Vector4ic arg0, Vector4i arg1);
 
-  Vector4i add(int arg0, int arg1, int arg2, int arg3, Vector4i arg4);
+ Vector4i add(int arg0, int arg1, int arg2, int arg3, Vector4i arg4);
 
-  Vector4i mul(Vector4ic arg0, Vector4i arg1);
+ Vector4i mul(Vector4ic arg0, Vector4i arg1);
 
-  Vector4i div(Vector4ic arg0, Vector4i arg1);
+ Vector4i div(Vector4ic arg0, Vector4i arg1);
 
-  Vector4i mul(int arg0, Vector4i arg1);
+ Vector4i mul(int arg0, Vector4i arg1);
 
-  Vector4i div(float arg0, Vector4i arg1);
+ Vector4i div(float arg0, Vector4i arg1);
 
-  Vector4i div(int arg0, Vector4i arg1);
+ Vector4i div(int arg0, Vector4i arg1);
 
-  long lengthSquared();
+ long lengthSquared();
 
-  double length();
+ double length();
 
-  double distance(Vector4ic arg0);
+ double distance(Vector4ic arg0);
 
-  double distance(int arg0, int arg1, int arg2, int arg3);
+ double distance(int arg0, int arg1, int arg2, int arg3);
 
-  long gridDistance(Vector4ic arg0);
+ long gridDistance(Vector4ic arg0);
 
-  long gridDistance(int arg0, int arg1, int arg2, int arg3);
+ long gridDistance(int arg0, int arg1, int arg2, int arg3);
 
-  int distanceSquared(Vector4ic arg0);
+ int distanceSquared(Vector4ic arg0);
 
-  int distanceSquared(int arg0, int arg1, int arg2, int arg3);
+ int distanceSquared(int arg0, int arg1, int arg2, int arg3);
 
-  int dot(Vector4ic arg0);
+ int dot(Vector4ic arg0);
 
-  Vector4i negate(Vector4i arg0);
+ Vector4i negate(Vector4i arg0);
 
-  Vector4i min(Vector4ic arg0, Vector4i arg1);
+ Vector4i min(Vector4ic arg0, Vector4i arg1);
 
-  Vector4i max(Vector4ic arg0, Vector4i arg1);
+ Vector4i max(Vector4ic arg0, Vector4i arg1);
 
-  int get(int arg0);
+ int get(int arg0);
 
-  int maxComponent();
+ int maxComponent();
 
-  int minComponent();
+ int minComponent();
 
-  Vector4i absolute(Vector4i arg0);
+ Vector4i absolute(Vector4i arg0);
 
-  bool equals(int arg0, int arg1, int arg2, int arg3);
+ bool equals(int arg0, int arg1, int arg2, int arg3);
 }
 } // namespace joml
 } // namespace org

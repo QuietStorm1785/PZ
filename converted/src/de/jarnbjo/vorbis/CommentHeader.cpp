@@ -4,105 +4,103 @@ namespace de {
 namespace jarnbjo {
 namespace vorbis {
 
-public
-CommentHeader::CommentHeader(BitInputStream bitInputStream) {
-  // TODO: Implement CommentHeader
-  return nullptr;
+public CommentHeader::CommentHeader(BitInputStream bitInputStream) {
+ // TODO: Implement CommentHeader
+ return nullptr;
 }
 
-void CommentHeader::addComment(const std::string &string0,
-                               const std::string &string1) {
-  // TODO: Implement addComment
+void CommentHeader::addComment(const std::string& string0, const std::string& string1) {
+ // TODO: Implement addComment
 }
 
 std::string CommentHeader::getVendor() {
-  // TODO: Implement getVendor
-  return "";
+ // TODO: Implement getVendor
+ return "";
 }
 
-std::string CommentHeader::getComment(const std::string &string) {
-  // TODO: Implement getComment
-  return "";
+std::string CommentHeader::getComment(const std::string& string) {
+ // TODO: Implement getComment
+ return "";
 }
 
 std::string CommentHeader::getTitle() {
-  // TODO: Implement getTitle
-  return "";
+ // TODO: Implement getTitle
+ return "";
 }
 
 std::string CommentHeader::getVersion() {
-  // TODO: Implement getVersion
-  return "";
+ // TODO: Implement getVersion
+ return "";
 }
 
 std::string CommentHeader::getAlbum() {
-  // TODO: Implement getAlbum
-  return "";
+ // TODO: Implement getAlbum
+ return "";
 }
 
 std::string CommentHeader::getTrackNumber() {
-  // TODO: Implement getTrackNumber
-  return "";
+ // TODO: Implement getTrackNumber
+ return "";
 }
 
 std::string CommentHeader::getArtist() {
-  // TODO: Implement getArtist
-  return "";
+ // TODO: Implement getArtist
+ return "";
 }
 
 std::string CommentHeader::getPerformer() {
-  // TODO: Implement getPerformer
-  return "";
+ // TODO: Implement getPerformer
+ return "";
 }
 
 std::string CommentHeader::getCopyright() {
-  // TODO: Implement getCopyright
-  return "";
+ // TODO: Implement getCopyright
+ return "";
 }
 
 std::string CommentHeader::getLicense() {
-  // TODO: Implement getLicense
-  return "";
+ // TODO: Implement getLicense
+ return "";
 }
 
 std::string CommentHeader::getOrganization() {
-  // TODO: Implement getOrganization
-  return "";
+ // TODO: Implement getOrganization
+ return "";
 }
 
 std::string CommentHeader::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 std::string CommentHeader::getGenre() {
-  // TODO: Implement getGenre
-  return "";
+ // TODO: Implement getGenre
+ return "";
 }
 
 std::string CommentHeader::getDate() {
-  // TODO: Implement getDate
-  return "";
+ // TODO: Implement getDate
+ return "";
 }
 
 std::string CommentHeader::getLocation() {
-  // TODO: Implement getLocation
-  return "";
+ // TODO: Implement getLocation
+ return "";
 }
 
 std::string CommentHeader::getContact() {
-  // TODO: Implement getContact
-  return "";
+ // TODO: Implement getContact
+ return "";
 }
 
 std::string CommentHeader::getIsrc() {
-  // TODO: Implement getIsrc
-  return "";
+ // TODO: Implement getIsrc
+ return "";
 }
 
 std::string CommentHeader::getString(BitInputStream bitInputStream) {
-  // TODO: Implement getString
-  return "";
+ // TODO: Implement getString
+ return "";
 }
 
 } // namespace vorbis

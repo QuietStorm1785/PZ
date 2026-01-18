@@ -4,212 +4,207 @@ namespace zombie {
 namespace iso {
 namespace weather {
 
-public
-ClimateValues::ClimateValues(ClimateManager _clim) {
-  // TODO: Implement ClimateValues
-  return nullptr;
+public ClimateValues::ClimateValues(ClimateManager _clim) {
+ // TODO: Implement ClimateValues
+ return nullptr;
 }
 
 ClimateValues ClimateValues::getCopy() {
-  // TODO: Implement getCopy
-  return nullptr;
+ // TODO: Implement getCopy
+ return nullptr;
 }
 
 void ClimateValues::CopyValues(ClimateValues copy) {
-  // TODO: Implement CopyValues
+ // TODO: Implement CopyValues
 }
 
 void ClimateValues::print() {
-  // TODO: Implement print
+ // TODO: Implement print
 }
 
 void ClimateValues::pollDate(int year, int month, int dayOfMonth) {
-  // TODO: Implement pollDate
+ // TODO: Implement pollDate
 }
 
-void ClimateValues::pollDate(int year, int month, int dayOfMonth,
-                             int hourOfDay) {
-  // TODO: Implement pollDate
+void ClimateValues::pollDate(int year, int month, int dayOfMonth, int hourOfDay) {
+ // TODO: Implement pollDate
 }
 
-void ClimateValues::pollDate(int year, int month, int dayOfMonth, int hourOfDay,
-                             int minute) {
-  // TODO: Implement pollDate
+void ClimateValues::pollDate(int year, int month, int dayOfMonth, int hourOfDay, int minute) {
+ // TODO: Implement pollDate
 }
 
 void ClimateValues::pollDate(GregorianCalendar calendar) {
-  // TODO: Implement pollDate
+ // TODO: Implement pollDate
 }
 
-void ClimateValues::updateValues(double double0, float float4,
-                                 ClimateManager.DayInfo dayInfo0,
-                                 ClimateManager.DayInfo dayInfo1) {
-  // TODO: Implement updateValues
+void ClimateValues::updateValues(double double0, float float4, ClimateManager.DayInfo dayInfo0, ClimateManager.DayInfo dayInfo1) {
+ // TODO: Implement updateValues
 }
 
 float ClimateValues::getTime() {
-  // TODO: Implement getTime
-  return 0;
+ // TODO: Implement getTime
+ return 0;
 }
 
 float ClimateValues::getDawn() {
-  // TODO: Implement getDawn
-  return 0;
+ // TODO: Implement getDawn
+ return 0;
 }
 
 float ClimateValues::getDusk() {
-  // TODO: Implement getDusk
-  return 0;
+ // TODO: Implement getDusk
+ return 0;
 }
 
 float ClimateValues::getNoon() {
-  // TODO: Implement getNoon
-  return 0;
+ // TODO: Implement getNoon
+ return 0;
 }
 
 double ClimateValues::getAirMassNoiseFrequencyMod() {
-  // TODO: Implement getAirMassNoiseFrequencyMod
-  return 0;
+ // TODO: Implement getAirMassNoiseFrequencyMod
+ return 0;
 }
 
 float ClimateValues::getNoiseAirmass() {
-  // TODO: Implement getNoiseAirmass
-  return 0;
+ // TODO: Implement getNoiseAirmass
+ return 0;
 }
 
 float ClimateValues::getAirMassTemperature() {
-  // TODO: Implement getAirMassTemperature
-  return 0;
+ // TODO: Implement getAirMassTemperature
+ return 0;
 }
 
 float ClimateValues::getBaseTemperature() {
-  // TODO: Implement getBaseTemperature
-  return 0;
+ // TODO: Implement getBaseTemperature
+ return 0;
 }
 
 float ClimateValues::getDayLightLagged() {
-  // TODO: Implement getDayLightLagged
-  return 0;
+ // TODO: Implement getDayLightLagged
+ return 0;
 }
 
 float ClimateValues::getNightLagged() {
-  // TODO: Implement getNightLagged
-  return 0;
+ // TODO: Implement getNightLagged
+ return 0;
 }
 
 float ClimateValues::getTemperature() {
-  // TODO: Implement getTemperature
-  return 0;
+ // TODO: Implement getTemperature
+ return 0;
 }
 
 bool ClimateValues::isTemperatureIsSnow() {
-  // TODO: Implement isTemperatureIsSnow
-  return false;
+ // TODO: Implement isTemperatureIsSnow
+ return false;
 }
 
 float ClimateValues::getHumidity() {
-  // TODO: Implement getHumidity
-  return 0;
+ // TODO: Implement getHumidity
+ return 0;
 }
 
 float ClimateValues::getWindIntensity() {
-  // TODO: Implement getWindIntensity
-  return 0;
+ // TODO: Implement getWindIntensity
+ return 0;
 }
 
 float ClimateValues::getWindAngleIntensity() {
-  // TODO: Implement getWindAngleIntensity
-  return 0;
+ // TODO: Implement getWindAngleIntensity
+ return 0;
 }
 
 float ClimateValues::getWindAngleDegrees() {
-  // TODO: Implement getWindAngleDegrees
-  return 0;
+ // TODO: Implement getWindAngleDegrees
+ return 0;
 }
 
 float ClimateValues::getNightStrength() {
-  // TODO: Implement getNightStrength
-  return 0;
+ // TODO: Implement getNightStrength
+ return 0;
 }
 
 float ClimateValues::getDayLightStrength() {
-  // TODO: Implement getDayLightStrength
-  return 0;
+ // TODO: Implement getDayLightStrength
+ return 0;
 }
 
 float ClimateValues::getAmbient() {
-  // TODO: Implement getAmbient
-  return 0;
+ // TODO: Implement getAmbient
+ return 0;
 }
 
 float ClimateValues::getDesaturation() {
-  // TODO: Implement getDesaturation
-  return 0;
+ // TODO: Implement getDesaturation
+ return 0;
 }
 
 float ClimateValues::getDayLightStrengthBase() {
-  // TODO: Implement getDayLightStrengthBase
-  return 0;
+ // TODO: Implement getDayLightStrengthBase
+ return 0;
 }
 
 float ClimateValues::getLerpNight() {
-  // TODO: Implement getLerpNight
-  return 0;
+ // TODO: Implement getLerpNight
+ return 0;
 }
 
 float ClimateValues::getCloudyT() {
-  // TODO: Implement getCloudyT
-  return 0;
+ // TODO: Implement getCloudyT
+ return 0;
 }
 
 float ClimateValues::getCloudIntensity() {
-  // TODO: Implement getCloudIntensity
-  return 0;
+ // TODO: Implement getCloudIntensity
+ return 0;
 }
 
 float ClimateValues::getAirFrontAirmass() {
-  // TODO: Implement getAirFrontAirmass
-  return 0;
+ // TODO: Implement getAirFrontAirmass
+ return 0;
 }
 
 double ClimateValues::getCacheWorldAgeHours() {
-  // TODO: Implement getCacheWorldAgeHours
-  return 0;
+ // TODO: Implement getCacheWorldAgeHours
+ return 0;
 }
 
 int ClimateValues::getCacheYear() {
-  // TODO: Implement getCacheYear
-  return 0;
+ // TODO: Implement getCacheYear
+ return 0;
 }
 
 int ClimateValues::getCacheMonth() {
-  // TODO: Implement getCacheMonth
-  return 0;
+ // TODO: Implement getCacheMonth
+ return 0;
 }
 
 int ClimateValues::getCacheDay() {
-  // TODO: Implement getCacheDay
-  return 0;
+ // TODO: Implement getCacheDay
+ return 0;
 }
 
 float ClimateValues::getDayMeanTemperature() {
-  // TODO: Implement getDayMeanTemperature
-  return 0;
+ // TODO: Implement getDayMeanTemperature
+ return 0;
 }
 
 bool ClimateValues::isDayDoFog() {
-  // TODO: Implement isDayDoFog
-  return false;
+ // TODO: Implement isDayDoFog
+ return false;
 }
 
 float ClimateValues::getDayFogStrength() {
-  // TODO: Implement getDayFogStrength
-  return 0;
+ // TODO: Implement getDayFogStrength
+ return 0;
 }
 
 float ClimateValues::getDayFogDuration() {
-  // TODO: Implement getDayFogDuration
-  return 0;
+ // TODO: Implement getDayFogDuration
+ return 0;
 }
 
 } // namespace weather

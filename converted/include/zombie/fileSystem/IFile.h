@@ -1,42 +1,42 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
 #include <cstdint>
 #include <fstream>
 #include <iostream>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace fileSystem {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class IFile {
 public:
-  virtual ~IFile() = default;
-  bool open(const std::string &path, int mode);
+ virtual ~IFile() = default;
+ bool open(const std::string& path, int mode);
 
-  void close();
+ void close();
 
-  bool read(byte[] var1, long var2);
+ bool read(byte[] var1, long var2);
 
-  bool write(byte[] var1, long var2);
+ bool write(byte[] var1, long var2);
 
-  byte[] getBuffer();
+ byte[] getBuffer();
 
-  long size();
+ long size();
 
-  bool seek(FileSeekMode mode, long pos);
+ bool seek(FileSeekMode mode, long pos);
 
-  long pos();
+ long pos();
 
-  InputStream getInputStream();
+ InputStream getInputStream();
 
-  IFileDevice getDevice();
+ IFileDevice getDevice();
 
-  void release();
+ void release();
 }
 } // namespace fileSystem
 } // namespace zombie

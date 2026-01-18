@@ -5,12 +5,12 @@ namespace ai {
 namespace sadisticAIDirector {
 
 void SleepingEventData::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 double SleepingEventData::getHoursSinceRainStarted() {
-  // TODO: Implement getHoursSinceRainStarted
-  return 0;
+ // TODO: Implement getHoursSinceRainStarted
+ return 0;
 }
 
 } // namespace sadisticAIDirector

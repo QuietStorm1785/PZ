@@ -5,98 +5,94 @@ namespace ai {
 namespace states {
 
 ClimbOverFenceState ClimbOverFenceState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ClimbOverFenceState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ClimbOverFenceState::setLungeXVars(IsoZombie zombie0) {
-  // TODO: Implement setLungeXVars
+ // TODO: Implement setLungeXVars
 }
 
 void ClimbOverFenceState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ClimbOverFenceState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 void ClimbOverFenceState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
-void ClimbOverFenceState::getDeltaModifiers(IsoGameCharacter owner,
-                                            MoveDeltaModifiers modifiers) {
-  // TODO: Implement getDeltaModifiers
+void ClimbOverFenceState::getDeltaModifiers(IsoGameCharacter owner, MoveDeltaModifiers modifiers) {
+ // TODO: Implement getDeltaModifiers
 }
 
-bool ClimbOverFenceState::isIgnoreCollide(IsoGameCharacter owner, int fromX,
-                                          int fromY, int fromZ, int toX,
-                                          int toY, int toZ) {
-  // TODO: Implement isIgnoreCollide
-  return false;
+bool ClimbOverFenceState::isIgnoreCollide(IsoGameCharacter owner, int fromX, int fromY, int fromZ, int toX, int toY, int toZ) {
+ // TODO: Implement isIgnoreCollide
+ return false;
 }
 
 void ClimbOverFenceState::slideX(IsoGameCharacter character, float float1) {
-  // TODO: Implement slideX
+ // TODO: Implement slideX
 }
 
 void ClimbOverFenceState::slideY(IsoGameCharacter character, float float1) {
-  // TODO: Implement slideY
+ // TODO: Implement slideY
 }
 
 IsoObject ClimbOverFenceState::getFence(IsoGameCharacter character) {
-  // TODO: Implement getFence
-  return nullptr;
+ // TODO: Implement getFence
+ return nullptr;
 }
 
 int ClimbOverFenceState::getFenceType(IsoObject object) {
-  // TODO: Implement getFenceType
-  return 0;
+ // TODO: Implement getFenceType
+ return 0;
 }
 
-return ClimbOverFenceState::switch () {
-  // TODO: Implement switch
-  return nullptr;
+return ClimbOverFenceState::switch() {
+ // TODO: Implement switch
+ return nullptr;
 }
 
 int ClimbOverFenceState::getTripType(IsoObject object) {
-  // TODO: Implement getTripType
-  return 0;
+ // TODO: Implement getTripType
+ return 0;
 }
 
-return ClimbOverFenceState::switch () {
-  // TODO: Implement switch
-  return nullptr;
+return ClimbOverFenceState::switch() {
+ // TODO: Implement switch
+ return nullptr;
 }
 
 bool ClimbOverFenceState::shouldFallAfterVaultOver(IsoGameCharacter character) {
-  // TODO: Implement shouldFallAfterVaultOver
-  return false;
+ // TODO: Implement shouldFallAfterVaultOver
+ return false;
 }
 
 int ClimbOverFenceState::countZombiesClimbingOver(IsoObject object) {
-  // TODO: Implement countZombiesClimbingOver
-  return 0;
+ // TODO: Implement countZombiesClimbingOver
+ return 0;
 }
 
-int ClimbOverFenceState::countZombiesClimbingOver(IsoObject object,
-                                                  IsoGridSquare square) {
-  // TODO: Implement countZombiesClimbingOver
-  return 0;
+int ClimbOverFenceState::countZombiesClimbingOver(IsoObject object, IsoGridSquare square) {
+ // TODO: Implement countZombiesClimbingOver
+ return 0;
 }
 
 bool ClimbOverFenceState::isMetalFence(IsoObject object) {
-  // TODO: Implement isMetalFence
-  return false;
+ // TODO: Implement isMetalFence
+ return false;
 }
 
 void ClimbOverFenceState::setParams(IsoGameCharacter owner, IsoDirections dir) {
-  // TODO: Implement setParams
+ // TODO: Implement setParams
 }
 
 } // namespace states

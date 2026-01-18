@@ -6,7 +6,7 @@ namespace kahluafork {
 namespace compiler {
 
 void Token::set(Token token0) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 } // namespace compiler

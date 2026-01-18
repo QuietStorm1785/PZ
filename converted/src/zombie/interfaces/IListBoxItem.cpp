@@ -4,18 +4,18 @@ namespace zombie {
 namespace interfaces {
 
 std::string IListBoxItem::getLabel() {
-  // TODO: Implement getLabel
-  return "";
+ // TODO: Implement getLabel
+ return "";
 }
 
 std::string IListBoxItem::getLeftLabel() {
-  // TODO: Implement getLeftLabel
-  return "";
+ // TODO: Implement getLeftLabel
+ return "";
 }
 
 std::string IListBoxItem::getRightLabel() {
-  // TODO: Implement getRightLabel
-  return "";
+ // TODO: Implement getRightLabel
+ return "";
 }
 
 } // namespace interfaces

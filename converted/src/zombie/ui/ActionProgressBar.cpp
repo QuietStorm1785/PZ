@@ -3,31 +3,30 @@
 namespace zombie {
 namespace ui {
 
-public
-ActionProgressBar::ActionProgressBar(int x, int y) {
-  // TODO: Implement ActionProgressBar
-  return nullptr;
+public ActionProgressBar::ActionProgressBar(int x, int y) {
+ // TODO: Implement ActionProgressBar
+ return nullptr;
 }
 
 void ActionProgressBar::render() {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 void ActionProgressBar::setValue(float delta) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 float ActionProgressBar::getValue() {
-  // TODO: Implement getValue
-  return 0;
+ // TODO: Implement getValue
+ return 0;
 }
 
 void ActionProgressBar::update(int nPlayer) {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void ActionProgressBar::updateScreenPos(int int0) {
-  // TODO: Implement updateScreenPos
+ // TODO: Implement updateScreenPos
 }
 
 } // namespace ui

@@ -5,31 +5,29 @@ namespace ai {
 namespace states {
 
 CrawlingZombieTurnState CrawlingZombieTurnState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void CrawlingZombieTurnState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void CrawlingZombieTurnState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void CrawlingZombieTurnState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
-void CrawlingZombieTurnState::animEvent(IsoGameCharacter owner,
-                                        AnimEvent event) {
-  // TODO: Implement animEvent
+void CrawlingZombieTurnState::animEvent(IsoGameCharacter owner, AnimEvent event) {
+ // TODO: Implement animEvent
 }
 
-bool CrawlingZombieTurnState::calculateDir(IsoGameCharacter owner,
-                                           IsoDirections targetDir) {
-  // TODO: Implement calculateDir
-  return false;
+bool CrawlingZombieTurnState::calculateDir(IsoGameCharacter owner, IsoDirections targetDir) {
+ // TODO: Implement calculateDir
+ return false;
 }
 
 } // namespace states

@@ -5,16 +5,16 @@ namespace ai {
 namespace astar {
 
 void IPathfinder::Failed(Mover mover) {
-  // TODO: Implement Failed
+ // TODO: Implement Failed
 }
 
 void IPathfinder::Succeeded(Path path, Mover mover) {
-  // TODO: Implement Succeeded
+ // TODO: Implement Succeeded
 }
 
 std::string IPathfinder::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 } // namespace astar

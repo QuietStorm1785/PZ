@@ -4,14 +4,13 @@ namespace zombie {
 namespace core {
 namespace znet {
 
-public
-CallbackManager::CallbackManager() {
-  // TODO: Implement CallbackManager
-  return nullptr;
+public CallbackManager::CallbackManager() {
+ // TODO: Implement CallbackManager
+ return nullptr;
 }
 
-void CallbackManager::onJoinRequest(long var1, const std::string &string) {
-  // TODO: Implement onJoinRequest
+void CallbackManager::onJoinRequest(long var1, const std::string& string) {
+ // TODO: Implement onJoinRequest
 }
 
 } // namespace znet

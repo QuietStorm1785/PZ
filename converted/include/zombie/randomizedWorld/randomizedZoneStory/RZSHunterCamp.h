@@ -1,74 +1,69 @@
 #pragma once
-#include "zombie/core/Rand.h"
-#include "zombie/iso/IsoMetaGrid.h"
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "zombie/core/Rand.h"
+#include "zombie/iso/IsoMetaGrid.h"
 
 namespace zombie {
 namespace randomizedWorld {
 namespace randomizedZoneStory {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class RZSHunterCamp : public RandomizedZoneStoryBase {
 public:
-public
-  RZSHunterCamp() {
-    this.name = "Hunter Forest Camp";
-    this.chance = 5;
-    this.minZoneHeight = 6;
-    this.minZoneWidth = 6;
-    this.zoneType.add(RandomizedZoneStoryBase.ZoneType.Forest.toString());
-  }
+ public RZSHunterCamp() {
+ this->name = "Hunter Forest Camp";
+ this->chance = 5;
+ this->minZoneHeight = 6;
+ this->minZoneWidth = 6;
+ this->zoneType.add(RandomizedZoneStoryBase.ZoneType.Forest.toString());
+ }
 
-public
-  static ArrayList<String> getForestClutter() {
-    std::vector arrayList = new ArrayList();
-    arrayList.add("Base.VarmintRifle");
-    arrayList.add("Base.223Box");
-    arrayList.add("Base.HuntingRifle");
-    arrayList.add("Base.308Box");
-    arrayList.add("Base.Shotgun");
-    arrayList.add("Base.ShotgunShellsBox");
-    arrayList.add("Base.DoubleBarrelShotgun");
-    arrayList.add("Base.AssaultRifle");
-    arrayList.add("Base.556Box");
-    return arrayList;
-  }
+ public static ArrayList<String> getForestClutter() {
+ std::vector arrayList = new ArrayList();
+ arrayList.add("Base.VarmintRifle");
+ arrayList.add("Base.223Box");
+ arrayList.add("Base.HuntingRifle");
+ arrayList.add("Base.308Box");
+ arrayList.add("Base.Shotgun");
+ arrayList.add("Base.ShotgunShellsBox");
+ arrayList.add("Base.DoubleBarrelShotgun");
+ arrayList.add("Base.AssaultRifle");
+ arrayList.add("Base.556Box");
+ return arrayList;
+ }
 
-  void randomizeZoneStory(IsoMetaGrid.Zone zone) {
-    int int0 = zone.pickedXForZoneStory;
-    int int1 = zone.pickedYForZoneStory;
-    std::vector arrayList = getForestClutter();
-    this.cleanAreaForStory(this, zone);
-    this.addVehicle(zone, this.getSq(zone.x, zone.y, zone.z), nullptr, nullptr,
-                    "Base.OffRoad", nullptr, nullptr, "Hunter");
-    this.addTileObject(int0, int1, zone.z, "camping_01_6");
-    int int2 = Rand.Next(-1, 2);
-    int int3 = Rand.Next(-1, 2);
-    this.addTentWestEast(int0 + int2 - 2, int1 + int3, zone.z);
-    if (Rand.Next(100) < 70) {
-      this.addTentNorthSouth(int0 + int2, int1 + int3 - 2, zone.z);
-    }
+ void randomizeZoneStory(IsoMetaGrid.Zone zone) {
+ int int0 = zone.pickedXForZoneStory;
+ int int1 = zone.pickedYForZoneStory;
+ std::vector arrayList = getForestClutter();
+ this->cleanAreaForStory(this, zone);
+ this->addVehicle(zone, this->getSq(zone.x, zone.y, zone.z), nullptr, nullptr, "Base.OffRoad", nullptr, nullptr, "Hunter");
+ this->addTileObject(int0, int1, zone.z, "camping_01_6");
+ int int2 = Rand.Next(-1, 2);
+ int int3 = Rand.Next(-1, 2);
+ this->addTentWestEast(int0 + int2 - 2, int1 + int3, zone.z);
+ if (Rand.Next(100) < 70) {
+ this->addTentNorthSouth(int0 + int2, int1 + int3 - 2, zone.z);
+ }
 
-    if (Rand.Next(100) < 30) {
-      this.addTentNorthSouth(int0 + int2 + 1, int1 + int3 - 2, zone.z);
-    }
+ if (Rand.Next(100) < 30) {
+ this->addTentNorthSouth(int0 + int2 + 1, int1 + int3 - 2, zone.z);
+ }
 
-    int int4 = Rand.Next(2, 5);
+ int int4 = Rand.Next(2, 5);
 
-    for (int int5 = 0; int5 < int4; int5++) {
-      this.addItemOnGround(this.getRandomFreeSquare(this, zone),
-                           (String)arrayList.get(Rand.Next(arrayList.size())));
-    }
+ for (int int5 = 0; int5 < int4; int5++) {
+ this->addItemOnGround(this->getRandomFreeSquare(this, zone), (String)arrayList.get(Rand.Next(arrayList.size())));
+ }
 
-    this.addZombiesOnSquare(Rand.Next(2, 5), "Hunter", 0,
-                            this.getRandomFreeSquare(this, zone));
-  }
+ this->addZombiesOnSquare(Rand.Next(2, 5), "Hunter", 0, this->getRandomFreeSquare(this, zone);
+ }
 }
 } // namespace randomizedZoneStory
 } // namespace randomizedWorld

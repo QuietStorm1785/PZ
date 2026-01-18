@@ -6,15 +6,13 @@ namespace skinnedmodel {
 namespace animation {
 namespace sharedskele {
 
-SharedSkeleAnimationTrack
-SharedSkeleAnimationRepository::getTrack(AnimationClip clip) {
-  // TODO: Implement getTrack
-  return nullptr;
+SharedSkeleAnimationTrack SharedSkeleAnimationRepository::getTrack(AnimationClip clip) {
+ // TODO: Implement getTrack
+ return nullptr;
 }
 
-void SharedSkeleAnimationRepository::setTrack(AnimationClip clip,
-                                              SharedSkeleAnimationTrack track) {
-  // TODO: Implement setTrack
+void SharedSkeleAnimationRepository::setTrack(AnimationClip clip, SharedSkeleAnimationTrack track) {
+ // TODO: Implement setTrack
 }
 
 } // namespace sharedskele

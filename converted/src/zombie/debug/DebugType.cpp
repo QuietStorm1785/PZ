@@ -4,8 +4,8 @@ namespace zombie {
 namespace debug {
 
 bool DebugType::Do(DebugType debugType) {
-  // TODO: Implement Do
-  return false;
+ // TODO: Implement Do
+ return false;
 }
 
 } // namespace debug

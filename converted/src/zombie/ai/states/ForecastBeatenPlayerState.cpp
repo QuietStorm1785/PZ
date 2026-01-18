@@ -5,20 +5,20 @@ namespace ai {
 namespace states {
 
 ForecastBeatenPlayerState ForecastBeatenPlayerState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void ForecastBeatenPlayerState::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void ForecastBeatenPlayerState::execute(IsoGameCharacter character) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void ForecastBeatenPlayerState::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 } // namespace states

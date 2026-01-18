@@ -3,40 +3,39 @@
 namespace fmod {
 namespace fmod {
 
-public
-FMODAudio::FMODAudio(BaseSoundEmitter arg0) {
-  // TODO: Implement FMODAudio
-  return nullptr;
+public FMODAudio::FMODAudio(BaseSoundEmitter arg0) {
+ // TODO: Implement FMODAudio
+ return nullptr;
 }
 
 bool FMODAudio::isPlaying() {
-  // TODO: Implement isPlaying
-  return false;
+ // TODO: Implement isPlaying
+ return false;
 }
 
 void FMODAudio::setVolume(float arg0) {
-  // TODO: Implement setVolume
+ // TODO: Implement setVolume
 }
 
 void FMODAudio::start() {
-  // TODO: Implement start
+ // TODO: Implement start
 }
 
 void FMODAudio::pause() {
-  // TODO: Implement pause
+ // TODO: Implement pause
 }
 
 void FMODAudio::stop() {
-  // TODO: Implement stop
+ // TODO: Implement stop
 }
 
-void FMODAudio::setName(const std::string &arg0) {
-  // TODO: Implement setName
+void FMODAudio::setName(const std::string& arg0) {
+ // TODO: Implement setName
 }
 
 std::string FMODAudio::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 } // namespace fmod

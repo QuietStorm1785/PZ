@@ -5,144 +5,142 @@ namespace core {
 namespace opengl {
 
 void RenderThread::init() {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 void RenderThread::initServerGUI() {
-  // TODO: Implement initServerGUI
+ // TODO: Implement initServerGUI
 }
 
 void RenderThread::renderLoop() {
-  // TODO: Implement renderLoop
+ // TODO: Implement renderLoop
 }
 
 void RenderThread::uncaughtException(Thread thread0, std::exception throwable) {
-  // TODO: Implement uncaughtException
+ // TODO: Implement uncaughtException
 }
 
 bool RenderThread::renderStep() {
-  // TODO: Implement renderStep
-  return false;
+ // TODO: Implement renderStep
+ return false;
 }
 
 bool RenderThread::lockStepRenderStep() {
-  // TODO: Implement lockStepRenderStep
-  return false;
+ // TODO: Implement lockStepRenderStep
+ return false;
 }
 
 void RenderThread::checkControllers() {
-  // TODO: Implement checkControllers
+ // TODO: Implement checkControllers
 }
 
 bool RenderThread::waitForRenderStateCallback() {
-  // TODO: Implement waitForRenderStateCallback
-  return false;
+ // TODO: Implement waitForRenderStateCallback
+ return false;
 }
 
 return RenderThread::shouldContinueWaiting() {
-  // TODO: Implement shouldContinueWaiting
-  return nullptr;
+ // TODO: Implement shouldContinueWaiting
+ return nullptr;
 }
 
 bool RenderThread::shouldContinueWaiting() {
-  // TODO: Implement shouldContinueWaiting
-  return false;
+ // TODO: Implement shouldContinueWaiting
+ return false;
 }
 
 bool RenderThread::isWaitForRenderState() {
-  // TODO: Implement isWaitForRenderState
-  return false;
+ // TODO: Implement isWaitForRenderState
+ return false;
 }
 
 void RenderThread::setWaitForRenderState(bool boolean0) {
-  // TODO: Implement setWaitForRenderState
+ // TODO: Implement setWaitForRenderState
 }
 
 void RenderThread::flushInvokeQueue() {
-  // TODO: Implement flushInvokeQueue
+ // TODO: Implement flushInvokeQueue
 }
 
 void RenderThread::logGLException(OpenGLException openGLException) {
-  // TODO: Implement logGLException
+ // TODO: Implement logGLException
 }
 
-void RenderThread::logGLException(OpenGLException openGLException,
-                                  bool boolean0) {
-  // TODO: Implement logGLException
+void RenderThread::logGLException(OpenGLException openGLException, bool boolean0) {
+ // TODO: Implement logGLException
 }
 
 void RenderThread::Ready() {
-  // TODO: Implement Ready
+ // TODO: Implement Ready
 }
 
 void RenderThread::acquireContextReentrant() {
-  // TODO: Implement acquireContextReentrant
+ // TODO: Implement acquireContextReentrant
 }
 
 void RenderThread::releaseContextReentrant() {
-  // TODO: Implement releaseContextReentrant
+ // TODO: Implement releaseContextReentrant
 }
 
 void RenderThread::acquireContextReentrantInternal() {
-  // TODO: Implement acquireContextReentrantInternal
+ // TODO: Implement acquireContextReentrantInternal
 }
 
 void RenderThread::releaseContextReentrantInternal() {
-  // TODO: Implement releaseContextReentrantInternal
+ // TODO: Implement releaseContextReentrantInternal
 }
 
 void RenderThread::invokeOnRenderContext(Runnable runnable) {
-  // TODO: Implement invokeOnRenderContext
+ // TODO: Implement invokeOnRenderContext
 }
 
 void RenderThread::notifyRenderStateQueue() {
-  // TODO: Implement notifyRenderStateQueue
+ // TODO: Implement notifyRenderStateQueue
 }
 
 void RenderThread::queueInvokeOnRenderContext(Runnable runnable) {
-  // TODO: Implement queueInvokeOnRenderContext
+ // TODO: Implement queueInvokeOnRenderContext
 }
 
-void RenderThread::queueInvokeOnRenderContext(
-    RenderContextQueueItem renderContextQueueItem) {
-  // TODO: Implement queueInvokeOnRenderContext
+void RenderThread::queueInvokeOnRenderContext(RenderContextQueueItem renderContextQueueItem) {
+ // TODO: Implement queueInvokeOnRenderContext
 }
 
 void RenderThread::shutdown() {
-  // TODO: Implement shutdown
+ // TODO: Implement shutdown
 }
 
 bool RenderThread::isCloseRequested() {
-  // TODO: Implement isCloseRequested
-  return false;
+ // TODO: Implement isCloseRequested
+ return false;
 }
 
 int RenderThread::getDisplayWidth() {
-  // TODO: Implement getDisplayWidth
-  return 0;
+ // TODO: Implement getDisplayWidth
+ return 0;
 }
 
 int RenderThread::getDisplayHeight() {
-  // TODO: Implement getDisplayHeight
-  return 0;
+ // TODO: Implement getDisplayHeight
+ return 0;
 }
 
 bool RenderThread::isRunning() {
-  // TODO: Implement isRunning
-  return false;
+ // TODO: Implement isRunning
+ return false;
 }
 
 void RenderThread::startRendering() {
-  // TODO: Implement startRendering
+ // TODO: Implement startRendering
 }
 
 void RenderThread::onGameThreadExited() {
-  // TODO: Implement onGameThreadExited
+ // TODO: Implement onGameThreadExited
 }
 
 bool RenderThread::isCursorVisible() {
-  // TODO: Implement isCursorVisible
-  return false;
+ // TODO: Implement isCursorVisible
+ return false;
 }
 
 } // namespace opengl

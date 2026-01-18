@@ -4,27 +4,23 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterMeleeHitSurface::ParameterMeleeHitSurface(
-    IsoGameCharacter _character) {
-  // TODO: Implement ParameterMeleeHitSurface
-  return nullptr;
+public ParameterMeleeHitSurface::ParameterMeleeHitSurface(IsoGameCharacter _character) {
+ // TODO: Implement ParameterMeleeHitSurface
+ return nullptr;
 }
 
 float ParameterMeleeHitSurface::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
-void ParameterMeleeHitSurface::setMaterial(
-    ParameterMeleeHitSurface.Material _material) {
-  // TODO: Implement setMaterial
+void ParameterMeleeHitSurface::setMaterial(ParameterMeleeHitSurface.Material _material) {
+ // TODO: Implement setMaterial
 }
 
-private
-ParameterMeleeHitSurface::Material(int int1) {
-  // TODO: Implement Material
-  return nullptr;
+private ParameterMeleeHitSurface::Material(int int1) {
+ // TODO: Implement Material
+ return nullptr;
 }
 
 } // namespace parameters

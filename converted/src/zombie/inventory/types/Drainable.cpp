@@ -5,12 +5,12 @@ namespace inventory {
 namespace types {
 
 float Drainable::getUsedDelta() {
-  // TODO: Implement getUsedDelta
-  return 0;
+ // TODO: Implement getUsedDelta
+ return 0;
 }
 
 void Drainable::setUsedDelta(float usedDelta) {
-  // TODO: Implement setUsedDelta
+ // TODO: Implement setUsedDelta
 }
 
 } // namespace types

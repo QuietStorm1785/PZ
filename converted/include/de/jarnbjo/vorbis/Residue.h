@@ -1,217 +1,234 @@
 #pragma once
-#include "de/jarnbjo/util/io/BitInputStream.h"
-#include <cstdint>
-#include <fstream>
-#include <iostream>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
+#include "de/jarnbjo/util/io/BitInputStream.h"
+#include <fstream>
+#include <iostream>
 
 namespace de {
 namespace jarnbjo {
 namespace vorbis {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class Residue {
 public:
-  int begin;
-  int end;
-  int partitionSize;
-  int classifications;
-  int classBook;
-protected
-  int[] cascade;
-protected
-  int[][] books;
-  std::unordered_map looks = new HashMap();
+ int begin;
+ int end;
+ int partitionSize;
+ int classifications;
+ int classBook;
+ protected int[] cascade;
+ protected int[][] books;
+ std::unordered_map looks = new HashMap();
 
-protected
-  Residue() {}
+ protected Residue() {
+ }
 
-protected
-  Residue(BitInputStream bitInputStream, SetupHeader setupHeader) {
-    this.begin = bitInputStream.getInt(24);
-    this.end = bitInputStream.getInt(24);
-    this.partitionSize = bitInputStream.getInt(24) + 1;
-    this.classifications = bitInputStream.getInt(6) + 1;
-    this.classBook = bitInputStream.getInt(8);
-    this.cascade = new int[this.classifications];
-    int int0 = 0;
+ protected Residue(BitInputStream bitInputStream, SetupHeader setupHeader) {
+ this->begin = bitInputStream.getInt(24);
+ this->end = bitInputStream.getInt(24);
+ this->partitionSize = bitInputStream.getInt(24) + 1;
+ this->classifications = bitInputStream.getInt(6) + 1;
+ this->classBook = bitInputStream.getInt(8);
+ this->cascade = new int[this->classifications];
+ int int0 = 0;
 
-    for (int int1 = 0; int1 < this.classifications; int1++) {
-      int int2 = 0;
-      int int3 = 0;
-      int3 = bitInputStream.getInt(3);
-      if (bitInputStream.getBit()) {
-        int2 = bitInputStream.getInt(5);
-      }
+ for (int int1 = 0; int1 < this->classifications; int1++) {
+ int int2 = 0;
+ int int3 = 0;
+ int3 = bitInputStream.getInt(3);
+ if (bitInputStream.getBit()) {
+ int2 = bitInputStream.getInt(5);
+ }
 
-      this.cascade[int1] = int2 << 3 | int3;
-      int0 += Util.icount(this.cascade[int1]);
-    }
+ this->cascade[int1] = int2 << 3 | int3;
+ int0 += Util.icount(this->cascade[int1]);
+ }
 
-    this.books = new int[this.classifications][8];
+ this->books = new int[this->classifications][8];
 
-    for (int int4 = 0; int4 < this.classifications; int4++) {
-      for (int int5 = 0; int5 < 8; int5++) {
-        if ((this.cascade[int4] & 1 << int5) != 0) {
-          this.books[int4][int5] = bitInputStream.getInt(8);
-          if (this.books[int4][int5] > setupHeader.getCodeBooks().length) {
-            throw new VorbisFormatException(
-                "Reference to invalid codebook entry in residue header.");
-          }
-        }
-      }
-    }
-  }
+ for (int int4 = 0; int4 < this->classifications; int4++) {
+ for (int int5 = 0; int5 < 8; int5++) {
+ if ((this->cascade[int4] & 1 << int5) != 0) {
+ this->books[int4][int5] = bitInputStream.getInt(8);
+ if (this->books[int4][int5] > setupHeader.getCodeBooks().length) {
+ throw VorbisFormatException("Reference to invalid codebook entry in residue header.");
+ }
+ }
+ }
+ }
+ }
 
-  static Residue createInstance(BitInputStream bitInputStream,
-                                SetupHeader setupHeader) {
-    int int0 = bitInputStream.getInt(16);
-    switch (int0) {
-    case 0:
-      return new Residue0(bitInputStream, setupHeader);
-    case 1:
-      return new Residue2(bitInputStream, setupHeader);
-    case 2:
-      return new Residue2(bitInputStream, setupHeader);
-    default:
-      throw new VorbisFormatException("Residue type " + int0 +
-                                      " is not supported.");
-    }
-  }
+ static Residue createInstance(BitInputStream bitInputStream, SetupHeader setupHeader) {
+ int int0 = bitInputStream.getInt(16);
+ switch (int0) {
+ case 0:
+ return new Residue0(bitInputStream, setupHeader);
+ case 1:
+ return new Residue2(bitInputStream, setupHeader);
+ case 2:
+ return new Residue2(bitInputStream, setupHeader);
+ default:
+ throw VorbisFormatException("Residue type " + int0 + " is not supported.");
+ }
+ }
 
-protected
-  abstract int getType();
+ protected int getType();
 
-protected
-  abstract void decodeResidue(VorbisStream var1, BitInputStream var2, Mode var3,
-                              int var4, boolean[] var5,
-                              float[][] var6) throws VorbisFormatException,
-      IOException;
+ protected void decodeResidue(VorbisStream var1, BitInputStream var2, Mode var3, int var4, boolean[] var5, float[][] var6) throws VorbisFormatException, IOException;
 
-  int getBegin() { return this.begin; }
+ int getBegin() {
+ return this->begin;
+ }
 
-  int getEnd() { return this.end; }
+ int getEnd() {
+ return this->end;
+ }
 
-  int getPartitionSize() { return this.partitionSize; }
+ int getPartitionSize() {
+ return this->partitionSize;
+ }
 
-  int getClassifications() { return this.classifications; }
+ int getClassifications() {
+ return this->classifications;
+ }
 
-  int getClassBook() { return this.classBook; }
+ int getClassBook() {
+ return this->classBook;
+ }
 
-protected
-  int[] getCascade() { return this.cascade; }
+ protected int[] getCascade() {
+ return this->cascade;
+ }
 
-protected
-  int[][] getBooks() { return this.books; }
+ protected int[][] getBooks() {
+ return this->books;
+ }
 
-  void fill(Residue residue1) {
-    residue1.begin = this.begin;
-    residue1.books = this.books;
-    residue1.cascade = this.cascade;
-    residue1.classBook = this.classBook;
-    residue1.classifications = this.classifications;
-    residue1.end = this.end;
-    residue1.partitionSize = this.partitionSize;
-  }
+ void fill(Residue residue1) {
+ residue1.begin = this->begin;
+ residue1.books = this->books;
+ residue1.cascade = this->cascade;
+ residue1.classBook = this->classBook;
+ residue1.classifications = this->classifications;
+ residue1.end = this->end;
+ residue1.partitionSize = this->partitionSize;
+ }
 
-protected
-  Residue.Look getLook(VorbisStream vorbisStream, Mode mode) {
-    Residue.Look look = (Residue.Look)this.looks.get(mode);
-    if (look == nullptr) {
-      look = new Residue.Look(vorbisStream, mode);
-      this.looks.put(mode, look);
-    }
+ protected Residue.Look getLook(VorbisStream vorbisStream, Mode mode) {
+ Residue.Look look = (Residue.Look)this->looks.get(mode);
+ if (look.empty()) {
+ look = new Residue.Look(vorbisStream, mode);
+ this->looks.put(mode, look);
+ }
 
-    return look;
-  }
+ return look;
+ }
 
-  class Look {
-    int map;
-    int parts;
-    int stages;
-    CodeBook[] fullbooks;
-    CodeBook phrasebook;
-    int[][] partbooks;
-    int partvals;
-    int[][] decodemap;
-    int postbits;
-    int phrasebits;
-    int frames;
+ class Look {
+ int map;
+ int parts;
+ int stages;
+ CodeBook[] fullbooks;
+ CodeBook phrasebook;
+ int[][] partbooks;
+ int partvals;
+ int[][] decodemap;
+ int postbits;
+ int phrasebits;
+ int frames;
 
-  protected
-    Look(VorbisStream vorbisStream, Mode mode) {
-      int int0 = 0;
-      bool boolean0 = false;
-      int int1 = 0;
-      this.map = mode.getMapping();
-      this.parts = Residue.this.getClassifications();
-      this.fullbooks = vorbisStream.getSetupHeader().getCodeBooks();
-      this.phrasebook = this.fullbooks[Residue.this.getClassBook()];
-      int0 = this.phrasebook.getDimensions();
-      this.partbooks = new int[this.parts][];
+ protected Look(VorbisStream vorbisStream, Mode mode) {
+ int int0 = 0;
+ bool boolean0 = false;
+ int int1 = 0;
+ this->map = mode.getMapping();
+ this->parts = Residue.this->getClassifications();
+ this->fullbooks = vorbisStream.getSetupHeader().getCodeBooks();
+ this->phrasebook = this->fullbooks[Residue.this->getClassBook()];
+ int0 = this->phrasebook.getDimensions();
+ this->partbooks = new int[this->parts][];
 
-      for (int int2 = 0; int2 < this.parts; int2++) {
-        int int3 = Util.ilog(Residue.this.getCascade()[int2]);
-        if (int3 != 0) {
-          if (int3 > int1) {
-            int1 = int3;
-          }
+ for (int int2 = 0; int2 < this->parts; int2++) {
+ int int3 = Util.ilog(Residue.this->getCascade()[int2]);
+ if (int3 != 0) {
+ if (int3 > int1) {
+ int1 = int3;
+ }
 
-          this.partbooks[int2] = new int[int3];
+ this->partbooks[int2] = new int[int3];
 
-          for (int int4 = 0; int4 < int3; int4++) {
-            if ((Residue.this.getCascade()[int2] & 1 << int4) != 0) {
-              this.partbooks[int2][int4] = Residue.this.getBooks()[int2][int4];
-            }
-          }
-        }
-      }
+ for (int int4 = 0; int4 < int3; int4++) {
+ if ((Residue.this->getCascade()[int2] & 1 << int4) != 0) {
+ this->partbooks[int2][int4] = Residue.this->getBooks()[int2][int4];
+ }
+ }
+ }
+ }
 
-      this.partvals = (int)Math.rint(Math.pow(this.parts, int0));
-      this.stages = int1;
-      this.decodemap = new int[this.partvals][];
+ this->partvals = (int)Math.rint(Math.pow(this->parts, int0);
+ this->stages = int1;
+ this->decodemap = new int[this->partvals][];
 
-      for (int int5 = 0; int5 < this.partvals; int5++) {
-        int int6 = int5;
-        int int7 = this.partvals / this.parts;
-        this.decodemap[int5] = new int[int0];
+ for (int int5 = 0; int5 < this->partvals; int5++) {
+ int int6 = int5;
+ int int7 = this->partvals / this->parts;
+ this->decodemap[int5] = new int[int0];
 
-        for (int int8 = 0; int8 < int0; int8++) {
-          int int9 = int6 / int7;
-          int6 -= int9 * int7;
-          int7 /= this.parts;
-          this.decodemap[int5][int8] = int9;
-        }
-      }
-    }
+ for (int int8 = 0; int8 < int0; int8++) {
+ int int9 = int6 / int7;
+ int6 -= int9 * int7;
+ int7 /= this->parts;
+ this->decodemap[int5][int8] = int9;
+ }
+ }
+ }
 
-  protected
-    int[][] getDecodeMap() { return this.decodemap; }
+ protected int[][] getDecodeMap() {
+ return this->decodemap;
+ }
 
-    int getFrames() { return this.frames; }
+ int getFrames() {
+ return this->frames;
+ }
 
-    int getMap() { return this.map; }
+ int getMap() {
+ return this->map;
+ }
 
-  protected
-    int[][] getPartBooks() { return this.partbooks; }
+ protected int[][] getPartBooks() {
+ return this->partbooks;
+ }
 
-    int getParts() { return this.parts; }
+ int getParts() {
+ return this->parts;
+ }
 
-    int getPartVals() { return this.partvals; }
+ int getPartVals() {
+ return this->partvals;
+ }
 
-    int getPhraseBits() { return this.phrasebits; }
+ int getPhraseBits() {
+ return this->phrasebits;
+ }
 
-    CodeBook getPhraseBook() { return this.phrasebook; }
+ CodeBook getPhraseBook() {
+ return this->phrasebook;
+ }
 
-    int getPostBits() { return this.postbits; }
+ int getPostBits() {
+ return this->postbits;
+ }
 
-    int getStages() { return this.stages; }
-  }
+ int getStages() {
+ return this->stages;
+ }
+ }
 }
 } // namespace vorbis
 } // namespace jarnbjo

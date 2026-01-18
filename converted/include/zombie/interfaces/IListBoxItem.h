@@ -1,24 +1,23 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace interfaces {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class IListBoxItem {
 public:
-  virtual ~IListBoxItem() = default;
-  std::string getLabel();
+ virtual ~IListBoxItem() = default;
+ std::string getLabel();
 
-  std::string getLeftLabel();
+ std::string getLeftLabel();
 
-  std::string getRightLabel();
+ std::string getRightLabel();
 }
 } // namespace interfaces
 } // namespace zombie

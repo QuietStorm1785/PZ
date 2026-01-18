@@ -4,34 +4,33 @@ namespace zombie {
 namespace core {
 namespace stash {
 
-public
-Stash::Stash(const std::string &_name) {
-  // TODO: Implement Stash
-  return nullptr;
+public Stash::Stash(const std::string& _name) {
+ // TODO: Implement Stash
+ return nullptr;
 }
 
 void Stash::load(KahluaTableImpl stashDesc) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 std::string Stash::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 std::string Stash::getItem() {
-  // TODO: Implement getItem
-  return "";
+ // TODO: Implement getItem
+ return "";
 }
 
 int Stash::getBuildingX() {
-  // TODO: Implement getBuildingX
-  return 0;
+ // TODO: Implement getBuildingX
+ return 0;
 }
 
 int Stash::getBuildingY() {
-  // TODO: Implement getBuildingY
-  return 0;
+ // TODO: Implement getBuildingY
+ return 0;
 }
 
 } // namespace stash

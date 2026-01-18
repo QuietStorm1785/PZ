@@ -3,11 +3,9 @@
 namespace org {
 namespace joml {
 
-public
-ConfigurationException::ConfigurationException(const std::string &string,
-                                               std::exception throwable) {
-  // TODO: Implement ConfigurationException
-  return nullptr;
+public ConfigurationException::ConfigurationException(const std::string& string, std::exception throwable) {
+ // TODO: Implement ConfigurationException
+ return nullptr;
 }
 
 } // namespace joml

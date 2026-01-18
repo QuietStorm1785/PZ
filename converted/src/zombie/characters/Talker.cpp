@@ -4,22 +4,22 @@ namespace zombie {
 namespace characters {
 
 bool Talker::IsSpeaking() {
-  // TODO: Implement IsSpeaking
-  return false;
+ // TODO: Implement IsSpeaking
+ return false;
 }
 
-void Talker::Say(const std::string &line) {
-  // TODO: Implement Say
+void Talker::Say(const std::string& line) {
+ // TODO: Implement Say
 }
 
 std::string Talker::getSayLine() {
-  // TODO: Implement getSayLine
-  return "";
+ // TODO: Implement getSayLine
+ return "";
 }
 
 std::string Talker::getTalkerType() {
-  // TODO: Implement getTalkerType
-  return "";
+ // TODO: Implement getTalkerType
+ return "";
 }
 
 } // namespace characters

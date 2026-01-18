@@ -6,7 +6,7 @@ namespace skinnedmodel {
 namespace advancedanimation {
 
 void IAnimEventCallback::OnAnimEvent(AnimLayer var1, AnimEvent var2) {
-  // TODO: Implement OnAnimEvent
+ // TODO: Implement OnAnimEvent
 }
 
 } // namespace advancedanimation

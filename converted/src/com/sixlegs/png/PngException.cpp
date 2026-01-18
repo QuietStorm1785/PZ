@@ -5,13 +5,13 @@ namespace sixlegs {
 namespace png {
 
 Method PngException::getInitCause() {
-  // TODO: Implement getInitCause
-  return nullptr;
+ // TODO: Implement getInitCause
+ return nullptr;
 }
 
 bool PngException::isFatal() {
-  // TODO: Implement isFatal
-  return false;
+ // TODO: Implement isFatal
+ return false;
 }
 
 } // namespace png

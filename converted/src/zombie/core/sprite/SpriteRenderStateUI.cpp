@@ -4,14 +4,13 @@ namespace zombie {
 namespace core {
 namespace sprite {
 
-public
-SpriteRenderStateUI::SpriteRenderStateUI(int index) {
-  // TODO: Implement SpriteRenderStateUI
-  return nullptr;
+public SpriteRenderStateUI::SpriteRenderStateUI(int index) {
+ // TODO: Implement SpriteRenderStateUI
+ return nullptr;
 }
 
 void SpriteRenderStateUI::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace sprite

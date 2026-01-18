@@ -4,10 +4,9 @@ namespace zombie {
 namespace debug {
 namespace options {
 
-public
-Animation::Animation() {
-  // TODO: Implement Animation
-  return nullptr;
+public Animation::Animation() {
+ // TODO: Implement Animation
+ return nullptr;
 }
 
 } // namespace options

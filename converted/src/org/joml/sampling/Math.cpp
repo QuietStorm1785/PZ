@@ -5,8 +5,8 @@ namespace joml {
 namespace sampling {
 
 double Math::sin_roquen_9(double double1) {
-  // TODO: Implement sin_roquen_9
-  return 0;
+ // TODO: Implement sin_roquen_9
+ return 0;
 }
 
 } // namespace sampling

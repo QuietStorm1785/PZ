@@ -7,13 +7,12 @@ namespace model {
 namespace jassimp {
 
 ProcessedAiSceneParams ProcessedAiSceneParams::create() {
-  // TODO: Implement create
-  return nullptr;
+ // TODO: Implement create
+ return nullptr;
 }
 
-void ProcessedAiSceneParams::set(
-    ProcessedAiSceneParams processedAiSceneParams0) {
-  // TODO: Implement set
+void ProcessedAiSceneParams::set(ProcessedAiSceneParams processedAiSceneParams0) {
+ // TODO: Implement set
 }
 
 } // namespace jassimp

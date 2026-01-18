@@ -5,19 +5,18 @@ namespace util {
 namespace list {
 
 bool PZEmptyIterable::hasNext() {
-  // TODO: Implement hasNext
-  return false;
+ // TODO: Implement hasNext
+ return false;
 }
 
 T PZEmptyIterable::next() {
-  // TODO: Implement next
-  return nullptr;
+ // TODO: Implement next
+ return nullptr;
 }
 
-private
-PZEmptyIterable::PZEmptyIterable() {
-  // TODO: Implement PZEmptyIterable
-  return nullptr;
+private PZEmptyIterable::PZEmptyIterable() {
+ // TODO: Implement PZEmptyIterable
+ return nullptr;
 }
 
 } // namespace list

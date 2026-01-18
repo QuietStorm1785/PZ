@@ -5,17 +5,17 @@ namespace radio {
 namespace script {
 
 CompareResult ConditionIter::Evaluate() {
-  // TODO: Implement Evaluate
-  return nullptr;
+ // TODO: Implement Evaluate
+ return nullptr;
 }
 
 OperatorType ConditionIter::getNextOperator() {
-  // TODO: Implement getNextOperator
-  return nullptr;
+ // TODO: Implement getNextOperator
+ return nullptr;
 }
 
 void ConditionIter::setNextOperator(OperatorType var1) {
-  // TODO: Implement setNextOperator
+ // TODO: Implement setNextOperator
 }
 
 } // namespace script

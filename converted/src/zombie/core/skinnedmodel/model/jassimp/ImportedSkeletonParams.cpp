@@ -6,11 +6,9 @@ namespace skinnedmodel {
 namespace model {
 namespace jassimp {
 
-ImportedSkeletonParams
-ImportedSkeletonParams::create(ProcessedAiSceneParams processedAiSceneParams,
-                               AiMesh aiMesh) {
-  // TODO: Implement create
-  return nullptr;
+ImportedSkeletonParams ImportedSkeletonParams::create(ProcessedAiSceneParams processedAiSceneParams, AiMesh aiMesh) {
+ // TODO: Implement create
+ return nullptr;
 }
 
 } // namespace jassimp

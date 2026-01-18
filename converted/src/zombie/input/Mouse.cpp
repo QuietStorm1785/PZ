@@ -4,108 +4,108 @@ namespace zombie {
 namespace input {
 
 int Mouse::getWheelState() {
-  // TODO: Implement getWheelState
-  return 0;
+ // TODO: Implement getWheelState
+ return 0;
 }
 
 bool Mouse::isButtonDown(int number) {
-  // TODO: Implement isButtonDown
-  return false;
+ // TODO: Implement isButtonDown
+ return false;
 }
 
 void Mouse::UIBlockButtonDown(int number) {
-  // TODO: Implement UIBlockButtonDown
+ // TODO: Implement UIBlockButtonDown
 }
 
 bool Mouse::isButtonDownUICheck(int number) {
-  // TODO: Implement isButtonDownUICheck
-  return false;
+ // TODO: Implement isButtonDownUICheck
+ return false;
 }
 
 bool Mouse::isLeftDown() {
-  // TODO: Implement isLeftDown
-  return false;
+ // TODO: Implement isLeftDown
+ return false;
 }
 
 bool Mouse::isLeftPressed() {
-  // TODO: Implement isLeftPressed
-  return false;
+ // TODO: Implement isLeftPressed
+ return false;
 }
 
 bool Mouse::isLeftReleased() {
-  // TODO: Implement isLeftReleased
-  return false;
+ // TODO: Implement isLeftReleased
+ return false;
 }
 
 bool Mouse::isLeftUp() {
-  // TODO: Implement isLeftUp
-  return false;
+ // TODO: Implement isLeftUp
+ return false;
 }
 
 bool Mouse::isMiddleDown() {
-  // TODO: Implement isMiddleDown
-  return false;
+ // TODO: Implement isMiddleDown
+ return false;
 }
 
 bool Mouse::isMiddlePressed() {
-  // TODO: Implement isMiddlePressed
-  return false;
+ // TODO: Implement isMiddlePressed
+ return false;
 }
 
 bool Mouse::isMiddleReleased() {
-  // TODO: Implement isMiddleReleased
-  return false;
+ // TODO: Implement isMiddleReleased
+ return false;
 }
 
 bool Mouse::isMiddleUp() {
-  // TODO: Implement isMiddleUp
-  return false;
+ // TODO: Implement isMiddleUp
+ return false;
 }
 
 bool Mouse::isRightDown() {
-  // TODO: Implement isRightDown
-  return false;
+ // TODO: Implement isRightDown
+ return false;
 }
 
 bool Mouse::isRightPressed() {
-  // TODO: Implement isRightPressed
-  return false;
+ // TODO: Implement isRightPressed
+ return false;
 }
 
 bool Mouse::isRightReleased() {
-  // TODO: Implement isRightReleased
-  return false;
+ // TODO: Implement isRightReleased
+ return false;
 }
 
 bool Mouse::isRightUp() {
-  // TODO: Implement isRightUp
-  return false;
+ // TODO: Implement isRightUp
+ return false;
 }
 
 void Mouse::poll() {
-  // TODO: Implement poll
+ // TODO: Implement poll
 }
 
-Cursor Mouse::loadCursor(const std::string &filename) {
-  // TODO: Implement loadCursor
-  return nullptr;
+Cursor Mouse::loadCursor(const std::string& filename) {
+ // TODO: Implement loadCursor
+ return nullptr;
 }
 
 void Mouse::initCustomCursor() {
-  // TODO: Implement initCustomCursor
+ // TODO: Implement initCustomCursor
 }
 
 void Mouse::setCursorVisible(bool bVisible) {
-  // TODO: Implement setCursorVisible
+ // TODO: Implement setCursorVisible
 }
 
 bool Mouse::isCursorVisible() {
-  // TODO: Implement isCursorVisible
-  return false;
+ // TODO: Implement isCursorVisible
+ return false;
 }
 
 void Mouse::renderCursorTexture() {
-  // TODO: Implement renderCursorTexture
+ // TODO: Implement renderCursorTexture
 }
 
 } // namespace input

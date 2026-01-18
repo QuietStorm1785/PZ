@@ -4,8 +4,8 @@ namespace zombie {
 namespace commands {
 
 std::string CommandName::name() {
-  // TODO: Implement name
-  return "";
+ // TODO: Implement name
+ return "";
 }
 
 } // namespace commands

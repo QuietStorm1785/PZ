@@ -3,28 +3,28 @@
 namespace zombie {
 
 void LoadGridsquarePerformanceWorkaround::init(int var0, int var1) {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 void LoadGridsquarePerformanceWorkaround::LoadGridsquare(IsoGridSquare square) {
-  // TODO: Implement LoadGridsquare
+ // TODO: Implement LoadGridsquare
 }
 
 void LoadGridsquarePerformanceWorkaround::init() {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 bool LoadGridsquarePerformanceWorkaround::begin(IsoGridSquare squarex) {
-  // TODO: Implement begin
-  return false;
+ // TODO: Implement begin
+ return false;
 }
 
 void LoadGridsquarePerformanceWorkaround::checkObject(IsoObject object) {
-  // TODO: Implement checkObject
+ // TODO: Implement checkObject
 }
 
 void LoadGridsquarePerformanceWorkaround::end(IsoGridSquare squarex) {
-  // TODO: Implement end
+ // TODO: Implement end
 }
 
 } // namespace zombie

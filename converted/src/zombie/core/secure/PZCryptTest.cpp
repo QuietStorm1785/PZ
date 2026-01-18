@@ -5,11 +5,11 @@ namespace core {
 namespace secure {
 
 void PZCryptTest::hash() {
-  // TODO: Implement hash
+ // TODO: Implement hash
 }
 
 void PZCryptTest::hashSalt() {
-  // TODO: Implement hashSalt
+ // TODO: Implement hashSalt
 }
 
 } // namespace secure

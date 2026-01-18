@@ -4,37 +4,36 @@ namespace zombie {
 namespace core {
 namespace utils {
 
-public
-ExpandableBooleanList::ExpandableBooleanList(int int0) {
-  // TODO: Implement ExpandableBooleanList
-  return nullptr;
+public ExpandableBooleanList::ExpandableBooleanList(int int0) {
+ // TODO: Implement ExpandableBooleanList
+ return nullptr;
 }
 
 ExpandableBooleanList ExpandableBooleanList::clone() {
-  // TODO: Implement clone
-  return nullptr;
+ // TODO: Implement clone
+ return nullptr;
 }
 
 void ExpandableBooleanList::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 void ExpandableBooleanList::fill() {
-  // TODO: Implement fill
+ // TODO: Implement fill
 }
 
 bool ExpandableBooleanList::getValue(int int0) {
-  // TODO: Implement getValue
-  return false;
+ // TODO: Implement getValue
+ return false;
 }
 
 void ExpandableBooleanList::setValue(int int0, bool boolean0) {
-  // TODO: Implement setValue
+ // TODO: Implement setValue
 }
 
 int ExpandableBooleanList::getWidth() {
-  // TODO: Implement getWidth
-  return 0;
+ // TODO: Implement getWidth
+ return 0;
 }
 
 } // namespace utils

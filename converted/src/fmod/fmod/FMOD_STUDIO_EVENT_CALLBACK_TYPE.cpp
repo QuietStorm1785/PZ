@@ -3,10 +3,9 @@
 namespace fmod {
 namespace fmod {
 
-private
-FMOD_STUDIO_EVENT_CALLBACK_TYPE::FMOD_STUDIO_EVENT_CALLBACK_TYPE(int int1) {
-  // TODO: Implement FMOD_STUDIO_EVENT_CALLBACK_TYPE
-  return nullptr;
+private FMOD_STUDIO_EVENT_CALLBACK_TYPE::FMOD_STUDIO_EVENT_CALLBACK_TYPE(int int1) {
+ // TODO: Implement FMOD_STUDIO_EVENT_CALLBACK_TYPE
+ return nullptr;
 }
 
 } // namespace fmod

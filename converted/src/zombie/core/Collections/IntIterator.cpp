@@ -5,13 +5,13 @@ namespace core {
 namespace Collections {
 
 int IntIterator::next() {
-  // TODO: Implement next
-  return 0;
+ // TODO: Implement next
+ return 0;
 }
 
 bool IntIterator::hasNext() {
-  // TODO: Implement hasNext
-  return false;
+ // TODO: Implement hasNext
+ return false;
 }
 
 } // namespace Collections

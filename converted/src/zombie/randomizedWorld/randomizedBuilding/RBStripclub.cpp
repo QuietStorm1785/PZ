@@ -5,18 +5,17 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 
 void RBStripclub::randomizeBuilding(BuildingDef def) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 bool RBStripclub::isValid(BuildingDef def, bool force) {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
-public
-RBStripclub::RBStripclub() {
-  // TODO: Implement RBStripclub
-  return nullptr;
+public RBStripclub::RBStripclub() {
+ // TODO: Implement RBStripclub
+ return nullptr;
 }
 
 } // namespace randomizedBuilding

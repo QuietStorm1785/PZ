@@ -4,16 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterCharacterInside::ParameterCharacterInside(
-    IsoGameCharacter _character) {
-  // TODO: Implement ParameterCharacterInside
-  return nullptr;
+public ParameterCharacterInside::ParameterCharacterInside(IsoGameCharacter _character) {
+ // TODO: Implement ParameterCharacterInside
+ return nullptr;
 }
 
 float ParameterCharacterInside::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

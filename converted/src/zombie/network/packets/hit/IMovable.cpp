@@ -6,13 +6,13 @@ namespace packets {
 namespace hit {
 
 float IMovable::getSpeed() {
-  // TODO: Implement getSpeed
-  return 0;
+ // TODO: Implement getSpeed
+ return 0;
 }
 
 bool IMovable::isVehicle() {
-  // TODO: Implement isVehicle
-  return false;
+ // TODO: Implement isVehicle
+ return false;
 }
 
 } // namespace hit

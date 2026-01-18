@@ -6,8 +6,8 @@ namespace kahlua {
 namespace vm {
 
 int JavaFunction::call(LuaCallFrame arg0, int arg1) {
-  // TODO: Implement call
-  return 0;
+ // TODO: Implement call
+ return 0;
 }
 
 } // namespace vm

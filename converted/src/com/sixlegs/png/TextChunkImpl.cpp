@@ -4,38 +4,34 @@ namespace com {
 namespace sixlegs {
 namespace png {
 
-public
-TextChunkImpl::TextChunkImpl(const std::string &string0,
-                             const std::string &string1,
-                             const std::string &string2,
-                             const std::string &string3, int int0) {
-  // TODO: Implement TextChunkImpl
-  return nullptr;
+public TextChunkImpl::TextChunkImpl(const std::string& string0, const std::string& string1, const std::string& string2, const std::string& string3, int int0) {
+ // TODO: Implement TextChunkImpl
+ return nullptr;
 }
 
 std::string TextChunkImpl::getKeyword() {
-  // TODO: Implement getKeyword
-  return "";
+ // TODO: Implement getKeyword
+ return "";
 }
 
 std::string TextChunkImpl::getTranslatedKeyword() {
-  // TODO: Implement getTranslatedKeyword
-  return "";
+ // TODO: Implement getTranslatedKeyword
+ return "";
 }
 
 std::string TextChunkImpl::getLanguage() {
-  // TODO: Implement getLanguage
-  return "";
+ // TODO: Implement getLanguage
+ return "";
 }
 
 std::string TextChunkImpl::getText() {
-  // TODO: Implement getText
-  return "";
+ // TODO: Implement getText
+ return "";
 }
 
 int TextChunkImpl::getType() {
-  // TODO: Implement getType
-  return 0;
+ // TODO: Implement getType
+ return 0;
 }
 
 } // namespace png

@@ -5,35 +5,35 @@ namespace core {
 namespace Styles {
 
 bool AbstractStyle::getRenderSprite() {
-  // TODO: Implement getRenderSprite
-  return false;
+ // TODO: Implement getRenderSprite
+ return false;
 }
 
 AlphaOp AbstractStyle::getAlphaOp() {
-  // TODO: Implement getAlphaOp
-  return nullptr;
+ // TODO: Implement getAlphaOp
+ return nullptr;
 }
 
 int AbstractStyle::getStyleID() {
-  // TODO: Implement getStyleID
-  return 0;
+ // TODO: Implement getStyleID
+ return 0;
 }
 
 void AbstractStyle::resetState() {
-  // TODO: Implement resetState
+ // TODO: Implement resetState
 }
 
 void AbstractStyle::setupState() {
-  // TODO: Implement setupState
+ // TODO: Implement setupState
 }
 
 GeometryData AbstractStyle::build() {
-  // TODO: Implement build
-  return nullptr;
+ // TODO: Implement build
+ return nullptr;
 }
 
 void AbstractStyle::render(int vertexOffset, int indexOffset) {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 } // namespace Styles

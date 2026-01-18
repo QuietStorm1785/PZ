@@ -6,12 +6,12 @@ namespace kahluafork {
 namespace compiler {
 
 int InstructionPtr::get() {
-  // TODO: Implement get
-  return 0;
+ // TODO: Implement get
+ return 0;
 }
 
 void InstructionPtr::set(int int0) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 } // namespace compiler

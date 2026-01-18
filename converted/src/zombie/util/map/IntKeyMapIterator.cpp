@@ -5,26 +5,26 @@ namespace util {
 namespace map {
 
 bool IntKeyMapIterator::hasNext() {
-  // TODO: Implement hasNext
-  return false;
+ // TODO: Implement hasNext
+ return false;
 }
 
 void IntKeyMapIterator::next() {
-  // TODO: Implement next
+ // TODO: Implement next
 }
 
 void IntKeyMapIterator::remove() {
-  // TODO: Implement remove
+ // TODO: Implement remove
 }
 
 int IntKeyMapIterator::getKey() {
-  // TODO: Implement getKey
-  return 0;
+ // TODO: Implement getKey
+ return 0;
 }
 
 V IntKeyMapIterator::getValue() {
-  // TODO: Implement getValue
-  return nullptr;
+ // TODO: Implement getValue
+ return nullptr;
 }
 
 } // namespace map

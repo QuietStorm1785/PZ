@@ -4,26 +4,22 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedVehicleStory {
 
-public
-RVSCarCrashCorpse::RVSCarCrashCorpse() {
-  // TODO: Implement RVSCarCrashCorpse
-  return nullptr;
+public RVSCarCrashCorpse::RVSCarCrashCorpse() {
+ // TODO: Implement RVSCarCrashCorpse
+ return nullptr;
 }
 
-void RVSCarCrashCorpse::randomizeVehicleStory(IsoMetaGrid.Zone zone,
-                                              IsoChunk chunk) {
-  // TODO: Implement randomizeVehicleStory
+void RVSCarCrashCorpse::randomizeVehicleStory(IsoMetaGrid.Zone zone, IsoChunk chunk) {
+ // TODO: Implement randomizeVehicleStory
 }
 
-bool RVSCarCrashCorpse::initVehicleStorySpawner(IsoMetaGrid.Zone zone,
-                                                IsoChunk chunk, bool debug) {
-  // TODO: Implement initVehicleStorySpawner
-  return false;
+bool RVSCarCrashCorpse::initVehicleStorySpawner(IsoMetaGrid.Zone zone, IsoChunk chunk, bool debug) {
+ // TODO: Implement initVehicleStorySpawner
+ return false;
 }
 
-void RVSCarCrashCorpse::spawnElement(VehicleStorySpawner spawner,
-                                     VehicleStorySpawner.Element element) {
-  // TODO: Implement spawnElement
+void RVSCarCrashCorpse::spawnElement(VehicleStorySpawner spawner, VehicleStorySpawner.Element element) {
+ // TODO: Implement spawnElement
 }
 
 } // namespace randomizedVehicleStory

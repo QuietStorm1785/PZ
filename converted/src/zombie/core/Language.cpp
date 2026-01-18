@@ -4,48 +4,48 @@ namespace zombie {
 namespace core {
 
 int Language::index() {
-  // TODO: Implement index
-  return 0;
+ // TODO: Implement index
+ return 0;
 }
 
 std::string Language::name() {
-  // TODO: Implement name
-  return "";
+ // TODO: Implement name
+ return "";
 }
 
 std::string Language::text() {
-  // TODO: Implement text
-  return "";
+ // TODO: Implement text
+ return "";
 }
 
 std::string Language::charset() {
-  // TODO: Implement charset
-  return "";
+ // TODO: Implement charset
+ return "";
 }
 
 std::string Language::base() {
-  // TODO: Implement base
-  return "";
+ // TODO: Implement base
+ return "";
 }
 
 bool Language::isAzerty() {
-  // TODO: Implement isAzerty
-  return false;
+ // TODO: Implement isAzerty
+ return false;
 }
 
 std::string Language::toString() {
-  // TODO: Implement toString
-  return "";
+ // TODO: Implement toString
+ return "";
 }
 
 Language Language::fromIndex(int _index) {
-  // TODO: Implement fromIndex
-  return nullptr;
+ // TODO: Implement fromIndex
+ return nullptr;
 }
 
-Language Language::FromString(const std::string &str) {
-  // TODO: Implement FromString
-  return nullptr;
+Language Language::FromString(const std::string& str) {
+ // TODO: Implement FromString
+ return nullptr;
 }
 
 } // namespace core

@@ -5,8 +5,8 @@ namespace util {
 namespace lambda {
 
 int IntSupplierFunction::getInt(E var1) {
-  // TODO: Implement getInt
-  return 0;
+ // TODO: Implement getInt
+ return 0;
 }
 
 } // namespace lambda

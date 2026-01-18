@@ -6,11 +6,11 @@ namespace sprite {
 namespace shapers {
 
 void WallShaper::setTintColor(int tintABGR) {
-  // TODO: Implement setTintColor
+ // TODO: Implement setTintColor
 }
 
 void WallShaper::accept(TextureDraw texd) {
-  // TODO: Implement accept
+ // TODO: Implement accept
 }
 
 } // namespace shapers

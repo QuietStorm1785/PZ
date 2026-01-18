@@ -8,18 +8,18 @@ namespace expose {
 namespace caller {
 
 protected AbstractCaller::AbstractCaller(Class<?>[] clazzs, bool boolean1) {
-  // TODO: Implement AbstractCaller
-  return nullptr;
+ // TODO: Implement AbstractCaller
+ return nullptr;
 }
 
 bool AbstractCaller::hasVararg() {
-  // TODO: Implement hasVararg
-  return false;
+ // TODO: Implement hasVararg
+ return false;
 }
 
 bool AbstractCaller::needsMultipleReturnValues() {
-  // TODO: Implement needsMultipleReturnValues
-  return false;
+ // TODO: Implement needsMultipleReturnValues
+ return false;
 }
 
 } // namespace caller

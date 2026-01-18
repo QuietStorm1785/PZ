@@ -6,27 +6,27 @@ namespace skinnedmodel {
 namespace model {
 
 bool SkinningBoneHierarchy::isValid() {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 void SkinningBoneHierarchy::buildBoneHiearchy(SkinningData data) {
-  // TODO: Implement buildBoneHiearchy
+ // TODO: Implement buildBoneHiearchy
 }
 
 int SkinningBoneHierarchy::numRootBones() {
-  // TODO: Implement numRootBones
-  return 0;
+ // TODO: Implement numRootBones
+ return 0;
 }
 
 SkinningBone SkinningBoneHierarchy::getBoneAt(int boneIdx) {
-  // TODO: Implement getBoneAt
-  return nullptr;
+ // TODO: Implement getBoneAt
+ return nullptr;
 }
 
 SkinningBone SkinningBoneHierarchy::getRootBoneAt(int idx) {
-  // TODO: Implement getRootBoneAt
-  return nullptr;
+ // TODO: Implement getRootBoneAt
+ return nullptr;
 }
 
 } // namespace model

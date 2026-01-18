@@ -1,28 +1,27 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace se {
 namespace krka {
 namespace kahlua {
 namespace vm {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class Platform {
 public:
-  virtual ~Platform() = default;
-  double pow(double arg0, double arg1);
+ virtual ~Platform() = default;
+ double pow(double arg0, double arg1);
 
-  KahluaTable newTable();
+ KahluaTable newTable();
 
-  KahluaTable newEnvironment();
+ KahluaTable newEnvironment();
 
-  void setupEnvironment(KahluaTable arg0);
+ void setupEnvironment(KahluaTable arg0);
 }
 } // namespace vm
 } // namespace kahlua

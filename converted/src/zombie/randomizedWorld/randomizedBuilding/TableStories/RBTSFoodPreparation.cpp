@@ -5,14 +5,13 @@ namespace randomizedWorld {
 namespace randomizedBuilding {
 namespace TableStories {
 
-public
-RBTSFoodPreparation::RBTSFoodPreparation() {
-  // TODO: Implement RBTSFoodPreparation
-  return nullptr;
+public RBTSFoodPreparation::RBTSFoodPreparation() {
+ // TODO: Implement RBTSFoodPreparation
+ return nullptr;
 }
 
 void RBTSFoodPreparation::randomizeBuilding(BuildingDef var1) {
-  // TODO: Implement randomizeBuilding
+ // TODO: Implement randomizeBuilding
 }
 
 } // namespace TableStories

@@ -5,13 +5,13 @@ namespace ai {
 namespace permission {
 
 bool IStatePermissions::isDeferredMovementAllowed(IsoGameCharacter chr) {
-  // TODO: Implement isDeferredMovementAllowed
-  return false;
+ // TODO: Implement isDeferredMovementAllowed
+ return false;
 }
 
 bool IStatePermissions::isPlayerInputAllowed(IsoGameCharacter chr) {
-  // TODO: Implement isPlayerInputAllowed
-  return false;
+ // TODO: Implement isPlayerInputAllowed
+ return false;
 }
 
 } // namespace permission

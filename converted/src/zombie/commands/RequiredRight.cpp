@@ -4,8 +4,8 @@ namespace zombie {
 namespace commands {
 
 int RequiredRight::requiredRights() {
-  // TODO: Implement requiredRights
-  return 0;
+ // TODO: Implement requiredRights
+ return 0;
 }
 
 } // namespace commands

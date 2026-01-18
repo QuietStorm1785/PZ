@@ -6,28 +6,28 @@ namespace kahlua {
 namespace integration {
 
 bool LuaSuccess::isSuccess() {
-  // TODO: Implement isSuccess
-  return false;
+ // TODO: Implement isSuccess
+ return false;
 }
 
-void *LuaSuccess::getErrorObject() {
-  // TODO: Implement getErrorObject
-  return nullptr;
+void* LuaSuccess::getErrorObject() {
+ // TODO: Implement getErrorObject
+ return nullptr;
 }
 
 std::string LuaSuccess::getErrorString() {
-  // TODO: Implement getErrorString
-  return "";
+ // TODO: Implement getErrorString
+ return "";
 }
 
 std::string LuaSuccess::getLuaStackTrace() {
-  // TODO: Implement getLuaStackTrace
-  return "";
+ // TODO: Implement getLuaStackTrace
+ return "";
 }
 
 std::runtime_error LuaSuccess::getJavaException() {
-  // TODO: Implement getJavaException
-  return nullptr;
+ // TODO: Implement getJavaException
+ return nullptr;
 }
 
 } // namespace integration

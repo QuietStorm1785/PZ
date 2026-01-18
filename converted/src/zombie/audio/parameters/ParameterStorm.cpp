@@ -4,15 +4,14 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterStorm::ParameterStorm() {
-  // TODO: Implement ParameterStorm
-  return nullptr;
+public ParameterStorm::ParameterStorm() {
+ // TODO: Implement ParameterStorm
+ return nullptr;
 }
 
 float ParameterStorm::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 } // namespace parameters

@@ -3,29 +3,27 @@
 namespace zombie {
 namespace worldMap {
 
-WorldMapRemotePlayer
-WorldMapRemotePlayers::getOrCreatePlayerByID(short short0) {
-  // TODO: Implement getOrCreatePlayerByID
-  return nullptr;
+WorldMapRemotePlayer WorldMapRemotePlayers::getOrCreatePlayerByID(short short0) {
+ // TODO: Implement getOrCreatePlayerByID
+ return nullptr;
 }
 
-WorldMapRemotePlayer
-WorldMapRemotePlayers::getOrCreatePlayer(IsoPlayer player) {
-  // TODO: Implement getOrCreatePlayer
-  return nullptr;
+WorldMapRemotePlayer WorldMapRemotePlayers::getOrCreatePlayer(IsoPlayer player) {
+ // TODO: Implement getOrCreatePlayer
+ return nullptr;
 }
 
 WorldMapRemotePlayer WorldMapRemotePlayers::getPlayerByID(short short0) {
-  // TODO: Implement getPlayerByID
-  return nullptr;
+ // TODO: Implement getPlayerByID
+ return nullptr;
 }
 
 void WorldMapRemotePlayers::removePlayerByID(short short0) {
-  // TODO: Implement removePlayerByID
+ // TODO: Implement removePlayerByID
 }
 
 void WorldMapRemotePlayers::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 } // namespace worldMap

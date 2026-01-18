@@ -5,25 +5,23 @@ namespace jarnbjo {
 namespace util {
 namespace audio {
 
-public
-FadeableAudioInputStream::FadeableAudioInputStream(
-    AudioInputStream audioInputStream) {
-  // TODO: Implement FadeableAudioInputStream
-  return nullptr;
+public FadeableAudioInputStream::FadeableAudioInputStream(AudioInputStream audioInputStream) {
+ // TODO: Implement FadeableAudioInputStream
+ return nullptr;
 }
 
 void FadeableAudioInputStream::fadeOut() {
-  // TODO: Implement fadeOut
+ // TODO: Implement fadeOut
 }
 
 int FadeableAudioInputStream::read(byte[] bytes) {
-  // TODO: Implement read
-  return 0;
+ // TODO: Implement read
+ return 0;
 }
 
 int FadeableAudioInputStream::read(byte[] bytes, int int1, int int2) {
-  // TODO: Implement read
-  return 0;
+ // TODO: Implement read
+ return 0;
 }
 
 } // namespace audio

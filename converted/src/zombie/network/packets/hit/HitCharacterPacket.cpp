@@ -5,48 +5,47 @@ namespace network {
 namespace packets {
 namespace hit {
 
-public
-HitCharacterPacket::HitCharacterPacket(HitCharacterPacket.HitType hitTypex) {
-  // TODO: Implement HitCharacterPacket
-  return nullptr;
+public HitCharacterPacket::HitCharacterPacket(HitCharacterPacket.HitType hitTypex) {
+ // TODO: Implement HitCharacterPacket
+ return nullptr;
 }
 
 HitCharacterPacket HitCharacterPacket::process(ByteBuffer byteBuffer) {
-  // TODO: Implement process
-  return nullptr;
+ // TODO: Implement process
+ return nullptr;
 }
 
 void HitCharacterPacket::write(ByteBufferWriter byteBufferWriter) {
-  // TODO: Implement write
+ // TODO: Implement write
 }
 
 std::string HitCharacterPacket::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 void HitCharacterPacket::tryProcess() {
-  // TODO: Implement tryProcess
+ // TODO: Implement tryProcess
 }
 
 void HitCharacterPacket::tryProcessInternal() {
-  // TODO: Implement tryProcessInternal
+ // TODO: Implement tryProcessInternal
 }
 
 void HitCharacterPacket::preProcess() {
-  // TODO: Implement preProcess
+ // TODO: Implement preProcess
 }
 
 void HitCharacterPacket::process() {
-  // TODO: Implement process
+ // TODO: Implement process
 }
 
 void HitCharacterPacket::postProcess() {
-  // TODO: Implement postProcess
+ // TODO: Implement postProcess
 }
 
 void HitCharacterPacket::postpone() {
-  // TODO: Implement postpone
+ // TODO: Implement postpone
 }
 
 } // namespace hit

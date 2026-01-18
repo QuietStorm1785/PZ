@@ -1,42 +1,50 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace network {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class DBResult {
 public:
-private
-  HashMap<String, String> values = std::make_unique<HashMap<>>();
-private
-  ArrayList<String> columns = std::make_unique<ArrayList<>>();
-  std::string type;
-  std::string tableName;
+ private HashMap<String, String> values = std::make_unique<HashMap<>>();
+ private ArrayList<String> columns = std::make_unique<ArrayList<>>();
+ std::string type;
+ std::string tableName;
 
-public
-  HashMap<String, String> getValues() { return this.values; }
+ public HashMap<String, String> getValues() {
+ return this->values;
+ }
 
-  std::string getType() { return this.type; }
+ std::string getType() {
+ return this->type;
+ }
 
-  void setType(const std::string &_type) { this.type = _type; }
+ void setType(const std::string& _type) {
+ this->type = _type;
+ }
 
-public
-  ArrayList<String> getColumns() { return this.columns; }
+ public ArrayList<String> getColumns() {
+ return this->columns;
+ }
 
-  void setColumns(ArrayList<String> _columns) { this.columns = _columns; }
+ void setColumns(ArrayList<String> _columns) {
+ this->columns = _columns;
+ }
 
-  std::string getTableName() { return this.tableName; }
+ std::string getTableName() {
+ return this->tableName;
+ }
 
-  void setTableName(const std::string &_tableName) {
-    this.tableName = _tableName;
-  }
+ void setTableName(const std::string& _tableName) {
+ this->tableName = _tableName;
+ }
 }
 } // namespace network
 } // namespace zombie

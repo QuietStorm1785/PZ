@@ -4,20 +4,19 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterRoomSize::ParameterRoomSize() {
-  // TODO: Implement ParameterRoomSize
-  return nullptr;
+public ParameterRoomSize::ParameterRoomSize() {
+ // TODO: Implement ParameterRoomSize
+ return nullptr;
 }
 
 float ParameterRoomSize::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 IsoGameCharacter ParameterRoomSize::getCharacter() {
-  // TODO: Implement getCharacter
-  return nullptr;
+ // TODO: Implement getCharacter
+ return nullptr;
 }
 
 } // namespace parameters

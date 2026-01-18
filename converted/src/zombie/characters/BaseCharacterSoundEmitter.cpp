@@ -3,10 +3,9 @@
 namespace zombie {
 namespace characters {
 
-public
-BaseCharacterSoundEmitter::BaseCharacterSoundEmitter(IsoGameCharacter chr) {
-  // TODO: Implement BaseCharacterSoundEmitter
-  return nullptr;
+public BaseCharacterSoundEmitter::BaseCharacterSoundEmitter(IsoGameCharacter chr) {
+ // TODO: Implement BaseCharacterSoundEmitter
+ return nullptr;
 }
 
 } // namespace characters

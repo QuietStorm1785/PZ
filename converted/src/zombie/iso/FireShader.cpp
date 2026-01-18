@@ -3,18 +3,17 @@
 namespace zombie {
 namespace iso {
 
-public
-FireShader::FireShader(const std::string &string) {
-  // TODO: Implement FireShader
-  return nullptr;
+public FireShader::FireShader(const std::string& string) {
+ // TODO: Implement FireShader
+ return nullptr;
 }
 
 void FireShader::onCompileSuccess(ShaderProgram shaderProgram) {
-  // TODO: Implement onCompileSuccess
+ // TODO: Implement onCompileSuccess
 }
 
 void FireShader::updateFireParams(TextureDraw var1, int var2, float float0) {
-  // TODO: Implement updateFireParams
+ // TODO: Implement updateFireParams
 }
 
 } // namespace iso

@@ -4,13 +4,13 @@ namespace zombie {
 namespace characters {
 namespace AttachedItems {
 
-AttachedLocationGroup AttachedLocations::getGroup(const std::string &id) {
-  // TODO: Implement getGroup
-  return nullptr;
+AttachedLocationGroup AttachedLocations::getGroup(const std::string& id) {
+ // TODO: Implement getGroup
+ return nullptr;
 }
 
 void AttachedLocations::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 } // namespace AttachedItems

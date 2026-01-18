@@ -4,25 +4,24 @@ namespace zombie {
 namespace iso {
 namespace SpriteDetails {
 
-private
-IsoFlagType::IsoFlagType(int int1) {
-  // TODO: Implement IsoFlagType
-  return nullptr;
+private IsoFlagType::IsoFlagType(int int1) {
+ // TODO: Implement IsoFlagType
+ return nullptr;
 }
 
 int IsoFlagType::index() {
-  // TODO: Implement index
-  return 0;
+ // TODO: Implement index
+ return 0;
 }
 
 IsoFlagType IsoFlagType::fromIndex(int value) {
-  // TODO: Implement fromIndex
-  return nullptr;
+ // TODO: Implement fromIndex
+ return nullptr;
 }
 
-IsoFlagType IsoFlagType::FromString(const std::string &str) {
-  // TODO: Implement FromString
-  return nullptr;
+IsoFlagType IsoFlagType::FromString(const std::string& str) {
+ // TODO: Implement FromString
+ return nullptr;
 }
 
 } // namespace SpriteDetails

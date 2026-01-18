@@ -5,16 +5,14 @@ namespace core {
 namespace skinnedmodel {
 namespace model {
 
-protected
-AiSceneAsset::AiSceneAsset(AssetPath assetPath, AssetManager assetManager,
-                           AiSceneAsset.AiSceneAssetParams aiSceneAssetParams) {
-  // TODO: Implement AiSceneAsset
-  return nullptr;
+protected AiSceneAsset::AiSceneAsset(AssetPath assetPath, AssetManager assetManager, AiSceneAsset.AiSceneAssetParams aiSceneAssetParams) {
+ // TODO: Implement AiSceneAsset
+ return nullptr;
 }
 
 AssetType AiSceneAsset::getType() {
-  // TODO: Implement getType
-  return {};
+ // TODO: Implement getType
+ return {};
 }
 
 } // namespace model

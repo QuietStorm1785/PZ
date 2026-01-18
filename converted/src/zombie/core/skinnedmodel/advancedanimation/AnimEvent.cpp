@@ -6,13 +6,13 @@ namespace skinnedmodel {
 namespace advancedanimation {
 
 std::string AnimEvent::toString() {
-  // TODO: Implement toString
-  return "";
+ // TODO: Implement toString
+ return "";
 }
 
 std::string AnimEvent::toDetailsString() {
-  // TODO: Implement toDetailsString
-  return "";
+ // TODO: Implement toDetailsString
+ return "";
 }
 
 } // namespace advancedanimation

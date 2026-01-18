@@ -3,13 +3,12 @@
 namespace zombie {
 namespace worldMap {
 
-void WorldMapCell::hitTest(float x, float y,
-                           ArrayList<WorldMapFeature> features) {
-  // TODO: Implement hitTest
+void WorldMapCell::hitTest(float x, float y, ArrayList<WorldMapFeature> features) {
+ // TODO: Implement hitTest
 }
 
 void WorldMapCell::dispose() {
-  // TODO: Implement dispose
+ // TODO: Implement dispose
 }
 
 } // namespace worldMap

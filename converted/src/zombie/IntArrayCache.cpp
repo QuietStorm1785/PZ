@@ -3,11 +3,11 @@
 namespace zombie {
 
 void IntArrayCache::Init() {
-  // TODO: Implement Init
+ // TODO: Implement Init
 }
 
 void IntArrayCache::put(Integer[] integers) {
-  // TODO: Implement put
+ // TODO: Implement put
 }
 
 } // namespace zombie

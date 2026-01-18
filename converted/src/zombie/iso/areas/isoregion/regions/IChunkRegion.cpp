@@ -4,7 +4,9 @@ namespace zombie {
 namespace iso {
 namespace areas {
 namespace isoregion {
-namespace regions {} // namespace regions
+namespace regions {
+
+} // namespace regions
 } // namespace isoregion
 } // namespace areas
 } // namespace iso

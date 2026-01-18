@@ -3,10 +3,9 @@
 namespace zombie {
 namespace asset {
 
-public
-AssetTask::AssetTask(Asset asset) {
-  // TODO: Implement AssetTask
-  return nullptr;
+public AssetTask::AssetTask(Asset asset) {
+ // TODO: Implement AssetTask
+ return nullptr;
 }
 
 } // namespace asset

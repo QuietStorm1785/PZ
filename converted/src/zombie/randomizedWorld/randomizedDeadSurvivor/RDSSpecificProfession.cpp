@@ -5,13 +5,12 @@ namespace randomizedWorld {
 namespace randomizedDeadSurvivor {
 
 void RDSSpecificProfession::randomizeDeadSurvivor(BuildingDef def) {
-  // TODO: Implement randomizeDeadSurvivor
+ // TODO: Implement randomizeDeadSurvivor
 }
 
-public
-RDSSpecificProfession::RDSSpecificProfession() {
-  // TODO: Implement RDSSpecificProfession
-  return nullptr;
+public RDSSpecificProfession::RDSSpecificProfession() {
+ // TODO: Implement RDSSpecificProfession
+ return nullptr;
 }
 
 } // namespace randomizedDeadSurvivor

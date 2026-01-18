@@ -4,15 +4,14 @@ namespace zombie {
 namespace util {
 namespace hash {
 
-protected
-DefaultIntHashFunction::DefaultIntHashFunction() {
-  // TODO: Implement DefaultIntHashFunction
-  return nullptr;
+protected DefaultIntHashFunction::DefaultIntHashFunction() {
+ // TODO: Implement DefaultIntHashFunction
+ return nullptr;
 }
 
 int DefaultIntHashFunction::hash(int int0) {
-  // TODO: Implement hash
-  return 0;
+ // TODO: Implement hash
+ return 0;
 }
 
 } // namespace hash

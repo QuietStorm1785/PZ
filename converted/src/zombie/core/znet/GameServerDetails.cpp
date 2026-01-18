@@ -4,10 +4,9 @@ namespace zombie {
 namespace core {
 namespace znet {
 
-public
-GameServerDetails::GameServerDetails() {
-  // TODO: Implement GameServerDetails
-  return nullptr;
+public GameServerDetails::GameServerDetails() {
+ // TODO: Implement GameServerDetails
+ return nullptr;
 }
 
 } // namespace znet

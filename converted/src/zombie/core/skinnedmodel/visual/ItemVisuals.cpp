@@ -6,21 +6,21 @@ namespace skinnedmodel {
 namespace visual {
 
 void ItemVisuals::save(ByteBuffer output) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void ItemVisuals::load(ByteBuffer input, int WorldVersion) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 ItemVisual ItemVisuals::findHat() {
-  // TODO: Implement findHat
-  return nullptr;
+ // TODO: Implement findHat
+ return nullptr;
 }
 
 ItemVisual ItemVisuals::findMask() {
-  // TODO: Implement findMask
-  return nullptr;
+ // TODO: Implement findMask
+ return nullptr;
 }
 
 } // namespace visual

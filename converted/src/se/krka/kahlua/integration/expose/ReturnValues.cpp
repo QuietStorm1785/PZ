@@ -6,29 +6,28 @@ namespace kahlua {
 namespace integration {
 namespace expose {
 
-ReturnValues ReturnValues::get(KahluaConverterManager kahluaConverterManager,
-                               LuaCallFrame luaCallFrame) {
-  // TODO: Implement get
-  return nullptr;
+ReturnValues ReturnValues::get(KahluaConverterManager kahluaConverterManager, LuaCallFrame luaCallFrame) {
+ // TODO: Implement get
+ return nullptr;
 }
 
 void ReturnValues::put(ReturnValues returnValues) {
-  // TODO: Implement put
+ // TODO: Implement put
 }
 
-ReturnValues ReturnValues::push(void *object) {
-  // TODO: Implement push
-  return nullptr;
+ReturnValues ReturnValues::push(void* object) {
+ // TODO: Implement push
+ return nullptr;
 }
 
 ReturnValues ReturnValues::push(Object... objects) {
-  // TODO: Implement push
-  return nullptr;
+ // TODO: Implement push
+ return nullptr;
 }
 
 int ReturnValues::getNArguments() {
-  // TODO: Implement getNArguments
-  return 0;
+ // TODO: Implement getNArguments
+ return 0;
 }
 
 } // namespace expose

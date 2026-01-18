@@ -4,14 +4,13 @@ namespace zombie {
 namespace core {
 namespace textures {
 
-public
-TextureBinder::TextureBinder() {
-  // TODO: Implement TextureBinder
-  return nullptr;
+public TextureBinder::TextureBinder() {
+ // TODO: Implement TextureBinder
+ return nullptr;
 }
 
 void TextureBinder::bind(int int1) {
-  // TODO: Implement bind
+ // TODO: Implement bind
 }
 
 } // namespace textures

@@ -6,23 +6,23 @@ namespace action {
 namespace conditions {
 
 std::string LuaCall::getDescription() {
-  // TODO: Implement getDescription
-  return "";
+ // TODO: Implement getDescription
+ return "";
 }
 
 bool LuaCall::passes(ActionContext var1, int var2) {
-  // TODO: Implement passes
-  return false;
+ // TODO: Implement passes
+ return false;
 }
 
 IActionCondition LuaCall::clone() {
-  // TODO: Implement clone
-  return nullptr;
+ // TODO: Implement clone
+ return nullptr;
 }
 
 IActionCondition LuaCall::create(Element var1) {
-  // TODO: Implement create
-  return nullptr;
+ // TODO: Implement create
+ return nullptr;
 }
 
 } // namespace conditions

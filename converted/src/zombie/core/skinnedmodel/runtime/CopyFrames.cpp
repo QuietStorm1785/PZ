@@ -6,11 +6,11 @@ namespace skinnedmodel {
 namespace runtime {
 
 void CopyFrames::parse(ScriptParser.Block block) {
-  // TODO: Implement parse
+ // TODO: Implement parse
 }
 
 void CopyFrames::exec(List<Keyframe> list) {
-  // TODO: Implement exec
+ // TODO: Implement exec
 }
 
 } // namespace runtime

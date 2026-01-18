@@ -6,13 +6,13 @@ namespace util {
 namespace vector {
 
 float ReadableVector2f::getX() {
-  // TODO: Implement getX
-  return 0;
+ // TODO: Implement getX
+ return 0;
 }
 
 float ReadableVector2f::getY() {
-  // TODO: Implement getY
-  return 0;
+ // TODO: Implement getY
+ return 0;
 }
 
 } // namespace vector

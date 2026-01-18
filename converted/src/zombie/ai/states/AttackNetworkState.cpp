@@ -5,30 +5,29 @@ namespace ai {
 namespace states {
 
 AttackNetworkState AttackNetworkState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void AttackNetworkState::enter(IsoGameCharacter character) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void AttackNetworkState::execute(IsoGameCharacter character0) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void AttackNetworkState::exit(IsoGameCharacter character) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
-void AttackNetworkState::animEvent(IsoGameCharacter character,
-                                   AnimEvent animEvent) {
-  // TODO: Implement animEvent
+void AttackNetworkState::animEvent(IsoGameCharacter character, AnimEvent animEvent) {
+ // TODO: Implement animEvent
 }
 
 bool AttackNetworkState::isAttacking(IsoGameCharacter var1) {
-  // TODO: Implement isAttacking
-  return false;
+ // TODO: Implement isAttacking
+ return false;
 }
 
 } // namespace states

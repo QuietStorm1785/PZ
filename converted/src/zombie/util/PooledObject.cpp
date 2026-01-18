@@ -4,20 +4,20 @@ namespace zombie {
 namespace util {
 
 void PooledObject::setPool(Pool<IPooledObject> pool) {
-  // TODO: Implement setPool
+ // TODO: Implement setPool
 }
 
 void PooledObject::release() {
-  // TODO: Implement release
+ // TODO: Implement release
 }
 
 bool PooledObject::isFree() {
-  // TODO: Implement isFree
-  return false;
+ // TODO: Implement isFree
+ return false;
 }
 
 void PooledObject::setFree(bool boolean0) {
-  // TODO: Implement setFree
+ // TODO: Implement setFree
 }
 
 } // namespace util

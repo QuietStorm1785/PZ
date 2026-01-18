@@ -4,18 +4,17 @@ namespace zombie {
 namespace profanity {
 namespace locales {
 
-public
-LocaleGerman::LocaleGerman(const std::string &string) {
-  // TODO: Implement LocaleGerman
-  return nullptr;
+public LocaleGerman::LocaleGerman(const std::string& string) {
+ // TODO: Implement LocaleGerman
+ return nullptr;
 }
 
 void LocaleGerman::Init() {
-  // TODO: Implement Init
+ // TODO: Implement Init
 }
 
 void LocaleGerman::execute(Matcher matcher, StringBuffer stringBuffer) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 } // namespace locales

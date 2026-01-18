@@ -6,18 +6,18 @@ namespace skinnedmodel {
 namespace population {
 
 bool BeardStyle::isValid() {
-  // TODO: Implement isValid
-  return false;
+ // TODO: Implement isValid
+ return false;
 }
 
 int BeardStyle::getLevel() {
-  // TODO: Implement getLevel
-  return 0;
+ // TODO: Implement getLevel
+ return 0;
 }
 
 std::string BeardStyle::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 } // namespace population

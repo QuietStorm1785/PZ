@@ -5,23 +5,23 @@ namespace core {
 namespace znet {
 
 void SteamFriends::init() {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 void SteamFriends::shutdown() {
-  // TODO: Implement shutdown
+ // TODO: Implement shutdown
 }
 
 void SteamFriends::onStatusChangedCallback(long long0) {
-  // TODO: Implement onStatusChangedCallback
+ // TODO: Implement onStatusChangedCallback
 }
 
 void SteamFriends::onAvatarChangedCallback(long long0) {
-  // TODO: Implement onAvatarChangedCallback
+ // TODO: Implement onAvatarChangedCallback
 }
 
 void SteamFriends::onProfileNameChanged(long var0) {
-  // TODO: Implement onProfileNameChanged
+ // TODO: Implement onProfileNameChanged
 }
 
 } // namespace znet

@@ -5,13 +5,13 @@ namespace core {
 namespace bucket {
 
 Bucket BucketManager::Active() {
-  // TODO: Implement Active
-  return nullptr;
+ // TODO: Implement Active
+ return nullptr;
 }
 
 Bucket BucketManager::Shared() {
-  // TODO: Implement Shared
-  return nullptr;
+ // TODO: Implement Shared
+ return nullptr;
 }
 
 } // namespace bucket

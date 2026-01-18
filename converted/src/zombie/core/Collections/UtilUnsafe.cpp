@@ -4,15 +4,14 @@ namespace zombie {
 namespace core {
 namespace Collections {
 
-private
-UtilUnsafe::UtilUnsafe() {
-  // TODO: Implement UtilUnsafe
-  return nullptr;
+private UtilUnsafe::UtilUnsafe() {
+ // TODO: Implement UtilUnsafe
+ return nullptr;
 }
 
 Unsafe UtilUnsafe::getUnsafe() {
-  // TODO: Implement getUnsafe
-  return nullptr;
+ // TODO: Implement getUnsafe
+ return nullptr;
 }
 
 } // namespace Collections

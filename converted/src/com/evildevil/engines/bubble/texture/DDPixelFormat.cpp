@@ -6,51 +6,50 @@ namespace engines {
 namespace bubble {
 namespace texture {
 
-public
-DDPixelFormat::DDPixelFormat() {
-  // TODO: Implement DDPixelFormat
-  return nullptr;
+public DDPixelFormat::DDPixelFormat() {
+ // TODO: Implement DDPixelFormat
+ return nullptr;
 }
 
 void DDPixelFormat::setSize(long long0) {
-  // TODO: Implement setSize
+ // TODO: Implement setSize
 }
 
 void DDPixelFormat::setFlags(long long0) {
-  // TODO: Implement setFlags
+ // TODO: Implement setFlags
 }
 
 void DDPixelFormat::setFourCC(long long0) {
-  // TODO: Implement setFourCC
+ // TODO: Implement setFourCC
 }
 
 void DDPixelFormat::createFourCCString() {
-  // TODO: Implement createFourCCString
+ // TODO: Implement createFourCCString
 }
 
 std::string DDPixelFormat::getFourCCString() {
-  // TODO: Implement getFourCCString
-  return "";
+ // TODO: Implement getFourCCString
+ return "";
 }
 
 void DDPixelFormat::setRGBBitCount(long long0) {
-  // TODO: Implement setRGBBitCount
+ // TODO: Implement setRGBBitCount
 }
 
 void DDPixelFormat::setRBitMask(long long0) {
-  // TODO: Implement setRBitMask
+ // TODO: Implement setRBitMask
 }
 
 void DDPixelFormat::setGBitMask(long long0) {
-  // TODO: Implement setGBitMask
+ // TODO: Implement setGBitMask
 }
 
 void DDPixelFormat::setBBitMask(long long0) {
-  // TODO: Implement setBBitMask
+ // TODO: Implement setBBitMask
 }
 
 void DDPixelFormat::setRGBAlphaBitMask(long long0) {
-  // TODO: Implement setRGBAlphaBitMask
+ // TODO: Implement setRGBAlphaBitMask
 }
 
 } // namespace texture

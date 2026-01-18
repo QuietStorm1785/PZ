@@ -5,42 +5,40 @@ namespace iso {
 namespace weather {
 namespace fx {
 
-public
-WeatherParticle::WeatherParticle(Texture _texture) {
-  // TODO: Implement WeatherParticle
-  return nullptr;
+public WeatherParticle::WeatherParticle(Texture _texture) {
+ // TODO: Implement WeatherParticle
+ return nullptr;
 }
 
-public
-WeatherParticle::WeatherParticle(Texture _texture, int w, int h) {
-  // TODO: Implement WeatherParticle
-  return nullptr;
+public WeatherParticle::WeatherParticle(Texture _texture, int w, int h) {
+ // TODO: Implement WeatherParticle
+ return nullptr;
 }
 
 void WeatherParticle::setParent(ParticleRectangle particleRectangle) {
-  // TODO: Implement setParent
+ // TODO: Implement setParent
 }
 
 void WeatherParticle::update(float delta) {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 void WeatherParticle::update(float delta, bool doBounds) {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 bool WeatherParticle::updateZoomSize() {
-  // TODO: Implement updateZoomSize
-  return false;
+ // TODO: Implement updateZoomSize
+ return false;
 }
 
 bool WeatherParticle::isOnScreen(float offsetx, float offsety) {
-  // TODO: Implement isOnScreen
-  return false;
+ // TODO: Implement isOnScreen
+ return false;
 }
 
 void WeatherParticle::render(float offsetx, float offsety) {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 } // namespace fx

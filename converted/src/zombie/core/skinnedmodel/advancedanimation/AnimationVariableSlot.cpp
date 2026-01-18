@@ -5,15 +5,14 @@ namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
 
-protected
-AnimationVariableSlot::AnimationVariableSlot(const std::string &string) {
-  // TODO: Implement AnimationVariableSlot
-  return nullptr;
+protected AnimationVariableSlot::AnimationVariableSlot(const std::string& string) {
+ // TODO: Implement AnimationVariableSlot
+ return nullptr;
 }
 
 std::string AnimationVariableSlot::getKey() {
-  // TODO: Implement getKey
-  return "";
+ // TODO: Implement getKey
+ return "";
 }
 
 } // namespace advancedanimation

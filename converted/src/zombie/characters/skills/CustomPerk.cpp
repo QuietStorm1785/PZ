@@ -4,10 +4,9 @@ namespace zombie {
 namespace characters {
 namespace skills {
 
-public
-CustomPerk::CustomPerk(const std::string &string) {
-  // TODO: Implement CustomPerk
-  return nullptr;
+public CustomPerk::CustomPerk(const std::string& string) {
+ // TODO: Implement CustomPerk
+ return nullptr;
 }
 
 } // namespace skills

@@ -2,6 +2,8 @@
 
 namespace de {
 namespace jarnbjo {
-namespace ogg {} // namespace ogg
+namespace ogg {
+
+} // namespace ogg
 } // namespace jarnbjo
 } // namespace de

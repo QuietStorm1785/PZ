@@ -5,1252 +5,1217 @@ namespace iso {
 namespace weather {
 
 float ClimateManager::getMaxWindspeedKph() {
-  // TODO: Implement getMaxWindspeedKph
-  return 0;
+ // TODO: Implement getMaxWindspeedKph
+ return 0;
 }
 
 float ClimateManager::getMaxWindspeedMph() {
-  // TODO: Implement getMaxWindspeedMph
-  return 0;
+ // TODO: Implement getMaxWindspeedMph
+ return 0;
 }
 
 float ClimateManager::ToKph(float val) {
-  // TODO: Implement ToKph
-  return 0;
+ // TODO: Implement ToKph
+ return 0;
 }
 
 float ClimateManager::ToMph(float val) {
-  // TODO: Implement ToMph
-  return 0;
+ // TODO: Implement ToMph
+ return 0;
 }
 
 ClimateManager ClimateManager::getInstance() {
-  // TODO: Implement getInstance
-  return nullptr;
+ // TODO: Implement getInstance
+ return nullptr;
 }
 
 void ClimateManager::setInstance(ClimateManager inst) {
-  // TODO: Implement setInstance
+ // TODO: Implement setInstance
 }
 
-public
-ClimateManager::ClimateManager() {
-  // TODO: Implement ClimateManager
-  return nullptr;
+public ClimateManager::ClimateManager() {
+ // TODO: Implement ClimateManager
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getColNight() {
-  // TODO: Implement getColNight
-  return nullptr;
+ // TODO: Implement getColNight
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getColNightNoMoon() {
-  // TODO: Implement getColNightNoMoon
-  return nullptr;
+ // TODO: Implement getColNightNoMoon
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getColNightMoon() {
-  // TODO: Implement getColNightMoon
-  return nullptr;
+ // TODO: Implement getColNightMoon
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getColFog() {
-  // TODO: Implement getColFog
-  return nullptr;
+ // TODO: Implement getColFog
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getColFogLegacy() {
-  // TODO: Implement getColFogLegacy
-  return nullptr;
+ // TODO: Implement getColFogLegacy
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getColFogNew() {
-  // TODO: Implement getColFogNew
-  return nullptr;
+ // TODO: Implement getColFogNew
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getFogTintStorm() {
-  // TODO: Implement getFogTintStorm
-  return nullptr;
+ // TODO: Implement getFogTintStorm
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getFogTintTropical() {
-  // TODO: Implement getFogTintTropical
-  return nullptr;
+ // TODO: Implement getFogTintTropical
+ return nullptr;
 }
 
 void ClimateManager::setup() {
-  // TODO: Implement setup
+ // TODO: Implement setup
 }
 
 int ClimateManager::getFloatMax() {
-  // TODO: Implement getFloatMax
-  return 0;
+ // TODO: Implement getFloatMax
+ return 0;
 }
 
 int ClimateManager::getColorMax() {
-  // TODO: Implement getColorMax
-  return 0;
+ // TODO: Implement getColorMax
+ return 0;
 }
 
 int ClimateManager::getBoolMax() {
-  // TODO: Implement getBoolMax
-  return 0;
+ // TODO: Implement getBoolMax
+ return 0;
 }
 
 void ClimateManager::setEnabledSimulation(bool b) {
-  // TODO: Implement setEnabledSimulation
+ // TODO: Implement setEnabledSimulation
 }
 
 bool ClimateManager::getEnabledSimulation() {
-  // TODO: Implement getEnabledSimulation
-  return false;
+ // TODO: Implement getEnabledSimulation
+ return false;
 }
 
 bool ClimateManager::getEnabledFxUpdate() {
-  // TODO: Implement getEnabledFxUpdate
-  return false;
+ // TODO: Implement getEnabledFxUpdate
+ return false;
 }
 
 void ClimateManager::setEnabledFxUpdate(bool b) {
-  // TODO: Implement setEnabledFxUpdate
+ // TODO: Implement setEnabledFxUpdate
 }
 
 bool ClimateManager::getEnabledWeatherGeneration() {
-  // TODO: Implement getEnabledWeatherGeneration
-  return false;
+ // TODO: Implement getEnabledWeatherGeneration
+ return false;
 }
 
 void ClimateManager::setEnabledWeatherGeneration(bool b) {
-  // TODO: Implement setEnabledWeatherGeneration
+ // TODO: Implement setEnabledWeatherGeneration
 }
 
 Color ClimateManager::getGlobalLightInternal() {
-  // TODO: Implement getGlobalLightInternal
-  return nullptr;
+ // TODO: Implement getGlobalLightInternal
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getGlobalLight() {
-  // TODO: Implement getGlobalLight
-  return nullptr;
+ // TODO: Implement getGlobalLight
+ return nullptr;
 }
 
 float ClimateManager::getGlobalLightIntensity() {
-  // TODO: Implement getGlobalLightIntensity
-  return 0;
+ // TODO: Implement getGlobalLightIntensity
+ return 0;
 }
 
 ClimateColorInfo ClimateManager::getColorNewFog() {
-  // TODO: Implement getColorNewFog
-  return nullptr;
+ // TODO: Implement getColorNewFog
+ return nullptr;
 }
 
 void ClimateManager::setNightStrength(float b) {
-  // TODO: Implement setNightStrength
+ // TODO: Implement setNightStrength
 }
 
 float ClimateManager::getDesaturation() {
-  // TODO: Implement getDesaturation
-  return 0;
+ // TODO: Implement getDesaturation
+ return 0;
 }
 
 void ClimateManager::setDesaturation(float _desaturation) {
-  // TODO: Implement setDesaturation
+ // TODO: Implement setDesaturation
 }
 
 float ClimateManager::getAirMass() {
-  // TODO: Implement getAirMass
-  return 0;
+ // TODO: Implement getAirMass
+ return 0;
 }
 
 float ClimateManager::getAirMassDaily() {
-  // TODO: Implement getAirMassDaily
-  return 0;
+ // TODO: Implement getAirMassDaily
+ return 0;
 }
 
 float ClimateManager::getAirMassTemperature() {
-  // TODO: Implement getAirMassTemperature
-  return 0;
+ // TODO: Implement getAirMassTemperature
+ return 0;
 }
 
 float ClimateManager::getDayLightStrength() {
-  // TODO: Implement getDayLightStrength
-  return 0;
+ // TODO: Implement getDayLightStrength
+ return 0;
 }
 
 float ClimateManager::getNightStrength() {
-  // TODO: Implement getNightStrength
-  return 0;
+ // TODO: Implement getNightStrength
+ return 0;
 }
 
 float ClimateManager::getDayMeanTemperature() {
-  // TODO: Implement getDayMeanTemperature
-  return 0;
+ // TODO: Implement getDayMeanTemperature
+ return 0;
 }
 
 float ClimateManager::getTemperature() {
-  // TODO: Implement getTemperature
-  return 0;
+ // TODO: Implement getTemperature
+ return 0;
 }
 
 float ClimateManager::getBaseTemperature() {
-  // TODO: Implement getBaseTemperature
-  return 0;
+ // TODO: Implement getBaseTemperature
+ return 0;
 }
 
 float ClimateManager::getSnowStrength() {
-  // TODO: Implement getSnowStrength
-  return 0;
+ // TODO: Implement getSnowStrength
+ return 0;
 }
 
 bool ClimateManager::getPrecipitationIsSnow() {
-  // TODO: Implement getPrecipitationIsSnow
-  return false;
+ // TODO: Implement getPrecipitationIsSnow
+ return false;
 }
 
 float ClimateManager::getPrecipitationIntensity() {
-  // TODO: Implement getPrecipitationIntensity
-  return 0;
+ // TODO: Implement getPrecipitationIntensity
+ return 0;
 }
 
 float ClimateManager::getFogIntensity() {
-  // TODO: Implement getFogIntensity
-  return 0;
+ // TODO: Implement getFogIntensity
+ return 0;
 }
 
 float ClimateManager::getWindIntensity() {
-  // TODO: Implement getWindIntensity
-  return 0;
+ // TODO: Implement getWindIntensity
+ return 0;
 }
 
 float ClimateManager::getWindAngleIntensity() {
-  // TODO: Implement getWindAngleIntensity
-  return 0;
+ // TODO: Implement getWindAngleIntensity
+ return 0;
 }
 
 float ClimateManager::getCorrectedWindAngleIntensity() {
-  // TODO: Implement getCorrectedWindAngleIntensity
-  return 0;
+ // TODO: Implement getCorrectedWindAngleIntensity
+ return 0;
 }
 
 float ClimateManager::getWindPower() {
-  // TODO: Implement getWindPower
-  return 0;
+ // TODO: Implement getWindPower
+ return 0;
 }
 
 float ClimateManager::getWindspeedKph() {
-  // TODO: Implement getWindspeedKph
-  return 0;
+ // TODO: Implement getWindspeedKph
+ return 0;
 }
 
 float ClimateManager::getCloudIntensity() {
-  // TODO: Implement getCloudIntensity
-  return 0;
+ // TODO: Implement getCloudIntensity
+ return 0;
 }
 
 float ClimateManager::getAmbient() {
-  // TODO: Implement getAmbient
-  return 0;
+ // TODO: Implement getAmbient
+ return 0;
 }
 
 float ClimateManager::getViewDistance() {
-  // TODO: Implement getViewDistance
-  return 0;
+ // TODO: Implement getViewDistance
+ return 0;
 }
 
 float ClimateManager::getHumidity() {
-  // TODO: Implement getHumidity
-  return 0;
+ // TODO: Implement getHumidity
+ return 0;
 }
 
 float ClimateManager::getWindAngleDegrees() {
-  // TODO: Implement getWindAngleDegrees
-  return 0;
+ // TODO: Implement getWindAngleDegrees
+ return 0;
 }
 
 float ClimateManager::getWindAngleRadians() {
-  // TODO: Implement getWindAngleRadians
-  return 0;
+ // TODO: Implement getWindAngleRadians
+ return 0;
 }
 
 float ClimateManager::getWindSpeedMovement() {
-  // TODO: Implement getWindSpeedMovement
-  return 0;
+ // TODO: Implement getWindSpeedMovement
+ return 0;
 }
 
-float ClimateManager::getWindForceMovement(IsoGameCharacter character,
-                                           float angle) {
-  // TODO: Implement getWindForceMovement
-  return 0;
+float ClimateManager::getWindForceMovement(IsoGameCharacter character, float angle) {
+ // TODO: Implement getWindForceMovement
+ return 0;
 }
 
 bool ClimateManager::isRaining() {
-  // TODO: Implement isRaining
-  return false;
+ // TODO: Implement isRaining
+ return false;
 }
 
 float ClimateManager::getRainIntensity() {
-  // TODO: Implement getRainIntensity
-  return 0;
+ // TODO: Implement getRainIntensity
+ return 0;
 }
 
 bool ClimateManager::isSnowing() {
-  // TODO: Implement isSnowing
-  return false;
+ // TODO: Implement isSnowing
+ return false;
 }
 
 float ClimateManager::getSnowIntensity() {
-  // TODO: Implement getSnowIntensity
-  return 0;
+ // TODO: Implement getSnowIntensity
+ return 0;
 }
 
 void ClimateManager::setAmbient(float f) {
-  // TODO: Implement setAmbient
+ // TODO: Implement setAmbient
 }
 
 void ClimateManager::setViewDistance(float f) {
-  // TODO: Implement setViewDistance
+ // TODO: Implement setViewDistance
 }
 
 void ClimateManager::setDayLightStrength(float f) {
-  // TODO: Implement setDayLightStrength
+ // TODO: Implement setDayLightStrength
 }
 
 void ClimateManager::setPrecipitationIsSnow(bool b) {
-  // TODO: Implement setPrecipitationIsSnow
+ // TODO: Implement setPrecipitationIsSnow
 }
 
 ErosionSeason ClimateManager::getSeason() {
-  // TODO: Implement getSeason
-  return nullptr;
+ // TODO: Implement getSeason
+ return nullptr;
 }
 
 float ClimateManager::getFrontStrength() {
-  // TODO: Implement getFrontStrength
-  return 0;
+ // TODO: Implement getFrontStrength
+ return 0;
 }
 
 void ClimateManager::stopWeatherAndThunder() {
-  // TODO: Implement stopWeatherAndThunder
+ // TODO: Implement stopWeatherAndThunder
 }
 
 ThunderStorm ClimateManager::getThunderStorm() {
-  // TODO: Implement getThunderStorm
-  return nullptr;
+ // TODO: Implement getThunderStorm
+ return nullptr;
 }
 
 WeatherPeriod ClimateManager::getWeatherPeriod() {
-  // TODO: Implement getWeatherPeriod
-  return nullptr;
+ // TODO: Implement getWeatherPeriod
+ return nullptr;
 }
 
 bool ClimateManager::getIsThunderStorming() {
-  // TODO: Implement getIsThunderStorming
-  return false;
+ // TODO: Implement getIsThunderStorming
+ return false;
 }
 
 float ClimateManager::getWeatherInterference() {
-  // TODO: Implement getWeatherInterference
-  return 0;
+ // TODO: Implement getWeatherInterference
+ return 0;
 }
 
 KahluaTable ClimateManager::getModData() {
-  // TODO: Implement getModData
-  return nullptr;
+ // TODO: Implement getModData
+ return nullptr;
 }
 
 float ClimateManager::getAirTemperatureForCharacter(IsoGameCharacter plr) {
-  // TODO: Implement getAirTemperatureForCharacter
-  return 0;
+ // TODO: Implement getAirTemperatureForCharacter
+ return 0;
 }
 
-float ClimateManager::getAirTemperatureForCharacter(IsoGameCharacter plr,
-                                                    bool doWindChill) {
-  // TODO: Implement getAirTemperatureForCharacter
-  return 0;
+float ClimateManager::getAirTemperatureForCharacter(IsoGameCharacter plr, bool doWindChill) {
+ // TODO: Implement getAirTemperatureForCharacter
+ return 0;
 }
 
 float ClimateManager::getAirTemperatureForSquare(IsoGridSquare square) {
-  // TODO: Implement getAirTemperatureForSquare
-  return 0;
+ // TODO: Implement getAirTemperatureForSquare
+ return 0;
 }
 
-float ClimateManager::getAirTemperatureForSquare(IsoGridSquare square,
-                                                 BaseVehicle vehicle) {
-  // TODO: Implement getAirTemperatureForSquare
-  return 0;
+float ClimateManager::getAirTemperatureForSquare(IsoGridSquare square, BaseVehicle vehicle) {
+ // TODO: Implement getAirTemperatureForSquare
+ return 0;
 }
 
-float ClimateManager::getAirTemperatureForSquare(IsoGridSquare square,
-                                                 BaseVehicle vehicle,
-                                                 bool doWindChill) {
-  // TODO: Implement getAirTemperatureForSquare
-  return 0;
+float ClimateManager::getAirTemperatureForSquare(IsoGridSquare square, BaseVehicle vehicle, bool doWindChill) {
+ // TODO: Implement getAirTemperatureForSquare
+ return 0;
 }
 
 std::string ClimateManager::getSeasonName() {
-  // TODO: Implement getSeasonName
-  return "";
+ // TODO: Implement getSeasonName
+ return "";
 }
 
 float ClimateManager::getSeasonProgression() {
-  // TODO: Implement getSeasonProgression
-  return 0;
+ // TODO: Implement getSeasonProgression
+ return 0;
 }
 
 float ClimateManager::getSeasonStrength() {
-  // TODO: Implement getSeasonStrength
-  return 0;
+ // TODO: Implement getSeasonStrength
+ return 0;
 }
 
 void ClimateManager::init(IsoMetaGrid metaGrid) {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 void ClimateManager::updateEveryTenMins() {
-  // TODO: Implement updateEveryTenMins
+ // TODO: Implement updateEveryTenMins
 }
 
 void ClimateManager::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 double ClimateManager::getWindNoiseBase() {
-  // TODO: Implement getWindNoiseBase
-  return 0;
+ // TODO: Implement getWindNoiseBase
+ return 0;
 }
 
 double ClimateManager::getWindNoiseFinal() {
-  // TODO: Implement getWindNoiseFinal
-  return 0;
+ // TODO: Implement getWindNoiseFinal
+ return 0;
 }
 
 double ClimateManager::getWindTickFinal() {
-  // TODO: Implement getWindTickFinal
-  return 0;
+ // TODO: Implement getWindTickFinal
+ return 0;
 }
 
 void ClimateManager::updateWindTick() {
-  // TODO: Implement updateWindTick
+ // TODO: Implement updateWindTick
 }
 
 void ClimateManager::updateOLD() {
-  // TODO: Implement updateOLD
+ // TODO: Implement updateOLD
 }
 
 void ClimateManager::updateFx() {
-  // TODO: Implement updateFx
+ // TODO: Implement updateFx
 }
 
 void ClimateManager::updateSnow() {
-  // TODO: Implement updateSnow
+ // TODO: Implement updateSnow
 }
 
 void ClimateManager::updateSnowOLD() {
-  // TODO: Implement updateSnowOLD
+ // TODO: Implement updateSnowOLD
 }
 
 float ClimateManager::getSnowFracNow() {
-  // TODO: Implement getSnowFracNow
-  return 0;
+ // TODO: Implement getSnowFracNow
+ return 0;
 }
 
 void ClimateManager::resetOverrides() {
-  // TODO: Implement resetOverrides
+ // TODO: Implement resetOverrides
 }
 
 void ClimateManager::resetModded() {
-  // TODO: Implement resetModded
+ // TODO: Implement resetModded
 }
 
 void ClimateManager::resetAdmin() {
-  // TODO: Implement resetAdmin
+ // TODO: Implement resetAdmin
 }
 
 void ClimateManager::triggerWinterIsComingStorm() {
-  // TODO: Implement triggerWinterIsComingStorm
+ // TODO: Implement triggerWinterIsComingStorm
 }
 
 bool ClimateManager::triggerCustomWeather(float strength, bool warmFront) {
-  // TODO: Implement triggerCustomWeather
-  return false;
+ // TODO: Implement triggerCustomWeather
+ return false;
 }
 
 bool ClimateManager::triggerCustomWeatherStage(int stage, float duration) {
-  // TODO: Implement triggerCustomWeatherStage
-  return false;
+ // TODO: Implement triggerCustomWeatherStage
+ return false;
 }
 
 void ClimateManager::updateOnTick() {
-  // TODO: Implement updateOnTick
+ // TODO: Implement updateOnTick
 }
 
 void ClimateManager::updateTestFlare() {
-  // TODO: Implement updateTestFlare
+ // TODO: Implement updateTestFlare
 }
 
 void ClimateManager::launchFlare() {
-  // TODO: Implement launchFlare
+ // TODO: Implement launchFlare
 }
 
 double ClimateManager::getAirMassNoiseFrequencyMod(int int0) {
-  // TODO: Implement getAirMassNoiseFrequencyMod
-  return 0;
+ // TODO: Implement getAirMassNoiseFrequencyMod
+ return 0;
 }
 
 float ClimateManager::getRainTimeMultiplierMod(int int0) {
-  // TODO: Implement getRainTimeMultiplierMod
-  return 0;
+ // TODO: Implement getRainTimeMultiplierMod
+ return 0;
 }
 
 void ClimateManager::updateValues() {
-  // TODO: Implement updateValues
+ // TODO: Implement updateValues
 }
 
 void ClimateManager::updateViewDistance() {
-  // TODO: Implement updateViewDistance
+ // TODO: Implement updateViewDistance
 }
 
-void ClimateManager::setSeasonColorDawn(int _temperature, int _season, float r,
-                                        float g, float b, float a,
-                                        bool exterior) {
-  // TODO: Implement setSeasonColorDawn
+void ClimateManager::setSeasonColorDawn(int _temperature, int _season, float r, float g, float b, float a, bool exterior) {
+ // TODO: Implement setSeasonColorDawn
 }
 
-void ClimateManager::setSeasonColorDay(int _temperature, int _season, float r,
-                                       float g, float b, float a,
-                                       bool exterior) {
-  // TODO: Implement setSeasonColorDay
+void ClimateManager::setSeasonColorDay(int _temperature, int _season, float r, float g, float b, float a, bool exterior) {
+ // TODO: Implement setSeasonColorDay
 }
 
-void ClimateManager::setSeasonColorDusk(int _temperature, int _season, float r,
-                                        float g, float b, float a,
-                                        bool exterior) {
-  // TODO: Implement setSeasonColorDusk
+void ClimateManager::setSeasonColorDusk(int _temperature, int _season, float r, float g, float b, float a, bool exterior) {
+ // TODO: Implement setSeasonColorDusk
 }
 
-ClimateColorInfo ClimateManager::getSeasonColor(int segment, int _temperature,
-                                                int _season) {
-  // TODO: Implement getSeasonColor
-  return nullptr;
+ClimateColorInfo ClimateManager::getSeasonColor(int segment, int _temperature, int _season) {
+ // TODO: Implement getSeasonColor
+ return nullptr;
 }
 
 void ClimateManager::initSeasonColors() {
-  // TODO: Implement initSeasonColors
+ // TODO: Implement initSeasonColors
 }
 
 void ClimateManager::save(DataOutputStream output) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void ClimateManager::load(DataInputStream input, int worldVersion) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void ClimateManager::postCellLoadSetSnow() {
-  // TODO: Implement postCellLoadSetSnow
+ // TODO: Implement postCellLoadSetSnow
 }
 
 void ClimateManager::forceDayInfoUpdate() {
-  // TODO: Implement forceDayInfoUpdate
+ // TODO: Implement forceDayInfoUpdate
 }
 
 void ClimateManager::updateDayInfo(int int2, int int1, int int0) {
-  // TODO: Implement updateDayInfo
+ // TODO: Implement updateDayInfo
 }
 
-void ClimateManager::setDayInfo(ClimateManager.DayInfo dayInfo, int int2,
-                                int int1, int int0, int int3) {
-  // TODO: Implement setDayInfo
+void ClimateManager::setDayInfo(ClimateManager.DayInfo dayInfo, int int2, int int1, int int0, int int3) {
+ // TODO: Implement setDayInfo
 }
 
-void ClimateManager::transmitClimatePacket(
-    ClimateManager.ClimateNetAuth climateNetAuth, uint8_t byte0,
-    UdpConnection udpConnection1) {
-  // TODO: Implement transmitClimatePacket
+void ClimateManager::transmitClimatePacket(ClimateManager.ClimateNetAuth climateNetAuth, uint8_t byte0, UdpConnection udpConnection1) {
+ // TODO: Implement transmitClimatePacket
 }
 
-bool ClimateManager::writePacketContents(UdpConnection udpConnection,
-                                         uint8_t byte0) {
-  // TODO: Implement writePacketContents
-  return false;
+bool ClimateManager::writePacketContents(UdpConnection udpConnection, uint8_t byte0) {
+ // TODO: Implement writePacketContents
+ return false;
 }
 
-void ClimateManager::receiveClimatePacket(ByteBuffer bb,
-                                          UdpConnection ignoreConnection) {
-  // TODO: Implement receiveClimatePacket
+void ClimateManager::receiveClimatePacket(ByteBuffer bb, UdpConnection ignoreConnection) {
+ // TODO: Implement receiveClimatePacket
 }
 
-bool ClimateManager::readPacketContents(ByteBuffer byteBuffer, uint8_t byte0,
-                                        UdpConnection var3) {
-  // TODO: Implement readPacketContents
-  return false;
+bool ClimateManager::readPacketContents(ByteBuffer byteBuffer, uint8_t byte0, UdpConnection var3) {
+ // TODO: Implement readPacketContents
+ return false;
 }
 
 void ClimateManager::serverReceiveClientChangeAdminVars() {
-  // TODO: Implement serverReceiveClientChangeAdminVars
+ // TODO: Implement serverReceiveClientChangeAdminVars
 }
 
 void ClimateManager::serverReceiveClientChangeWeather() {
-  // TODO: Implement serverReceiveClientChangeWeather
+ // TODO: Implement serverReceiveClientChangeWeather
 }
 
 void ClimateManager::transmitServerStopWeather() {
-  // TODO: Implement transmitServerStopWeather
+ // TODO: Implement transmitServerStopWeather
 }
 
 void ClimateManager::transmitServerTriggerStorm(float duration) {
-  // TODO: Implement transmitServerTriggerStorm
+ // TODO: Implement transmitServerTriggerStorm
 }
 
-void ClimateManager::transmitServerTriggerLightning(int x, int y, bool doStrike,
-                                                    bool doLightning,
-                                                    bool doRumble) {
-  // TODO: Implement transmitServerTriggerLightning
+void ClimateManager::transmitServerTriggerLightning(int x, int y, bool doStrike, bool doLightning, bool doRumble) {
+ // TODO: Implement transmitServerTriggerLightning
 }
 
 void ClimateManager::transmitServerStartRain(float intensity) {
-  // TODO: Implement transmitServerStartRain
+ // TODO: Implement transmitServerStartRain
 }
 
 void ClimateManager::transmitServerStopRain() {
-  // TODO: Implement transmitServerStopRain
+ // TODO: Implement transmitServerStopRain
 }
 
 void ClimateManager::transmitRequestAdminVars() {
-  // TODO: Implement transmitRequestAdminVars
+ // TODO: Implement transmitRequestAdminVars
 }
 
 void ClimateManager::transmitClientChangeAdminVars() {
-  // TODO: Implement transmitClientChangeAdminVars
+ // TODO: Implement transmitClientChangeAdminVars
 }
 
 void ClimateManager::transmitStopWeather() {
-  // TODO: Implement transmitStopWeather
+ // TODO: Implement transmitStopWeather
 }
 
 void ClimateManager::transmitTriggerStorm(float duration) {
-  // TODO: Implement transmitTriggerStorm
+ // TODO: Implement transmitTriggerStorm
 }
 
 void ClimateManager::transmitTriggerTropical(float duration) {
-  // TODO: Implement transmitTriggerTropical
+ // TODO: Implement transmitTriggerTropical
 }
 
 void ClimateManager::transmitTriggerBlizzard(float duration) {
-  // TODO: Implement transmitTriggerBlizzard
+ // TODO: Implement transmitTriggerBlizzard
 }
 
 void ClimateManager::transmitGenerateWeather(float strength, int front) {
-  // TODO: Implement transmitGenerateWeather
+ // TODO: Implement transmitGenerateWeather
 }
 
-float ClimateManager::getTimeLerpHours(float float0, float float1,
-                                       float float2) {
-  // TODO: Implement getTimeLerpHours
-  return 0;
+float ClimateManager::getTimeLerpHours(float float0, float float1, float float2) {
+ // TODO: Implement getTimeLerpHours
+ return 0;
 }
 
-float ClimateManager::getTimeLerpHours(float float2, float float1, float float0,
-                                       bool boolean0) {
-  // TODO: Implement getTimeLerpHours
-  return 0;
+float ClimateManager::getTimeLerpHours(float float2, float float1, float float0, bool boolean0) {
+ // TODO: Implement getTimeLerpHours
+ return 0;
 }
 
 float ClimateManager::getTimeLerp(float float0, float float1, float float2) {
-  // TODO: Implement getTimeLerp
-  return 0;
+ // TODO: Implement getTimeLerp
+ return 0;
 }
 
-float ClimateManager::getTimeLerp(float float2, float float0, float float1,
-                                  bool boolean1) {
-  // TODO: Implement getTimeLerp
-  return 0;
+float ClimateManager::getTimeLerp(float float2, float float0, float float1, bool boolean1) {
+ // TODO: Implement getTimeLerp
+ return 0;
 }
 
 float ClimateManager::clamp01(float val) {
-  // TODO: Implement clamp01
-  return 0;
+ // TODO: Implement clamp01
+ return 0;
 }
 
 return ClimateManager::clamp() {
-  // TODO: Implement clamp
-  return nullptr;
+ // TODO: Implement clamp
+ return nullptr;
 }
 
 float ClimateManager::clamp(float min, float max, float val) {
-  // TODO: Implement clamp
-  return 0;
+ // TODO: Implement clamp
+ return 0;
 }
 
 int ClimateManager::clamp(int min, int max, int val) {
-  // TODO: Implement clamp
-  return 0;
+ // TODO: Implement clamp
+ return 0;
 }
 
 float ClimateManager::lerp(float t, float a, float b) {
-  // TODO: Implement lerp
-  return 0;
+ // TODO: Implement lerp
+ return 0;
 }
 
 float ClimateManager::clerp(float t, float a, float b) {
-  // TODO: Implement clerp
-  return 0;
+ // TODO: Implement clerp
+ return 0;
 }
 
 float ClimateManager::normalizeRange(float v, float n) {
-  // TODO: Implement normalizeRange
-  return 0;
+ // TODO: Implement normalizeRange
+ return 0;
 }
 
 return ClimateManager::clamp(v /) {
-  // TODO: Implement clamp
-  return nullptr;
+ // TODO: Implement clamp
+ return nullptr;
 }
 
 float ClimateManager::posToPosNegRange(float v) {
-  // TODO: Implement posToPosNegRange
-  return 0;
+ // TODO: Implement posToPosNegRange
+ return 0;
 }
 
 void ClimateManager::execute_Simulation() {
-  // TODO: Implement execute_Simulation
+ // TODO: Implement execute_Simulation
 }
 
 void ClimateManager::execute_Simulation(int RainModOverride) {
-  // TODO: Implement execute_Simulation
+ // TODO: Implement execute_Simulation
 }
 
-void ClimateManager::triggerKateBobIntroStorm(int centerX, int centerY,
-                                              double duration, float strength,
-                                              float initialProgress,
-                                              float angle,
-                                              float initialPuddles) {
-  // TODO: Implement triggerKateBobIntroStorm
+void ClimateManager::triggerKateBobIntroStorm(int centerX, int centerY, double duration, float strength, float initialProgress, float angle, float initialPuddles) {
+ // TODO: Implement triggerKateBobIntroStorm
 }
 
 double ClimateManager::getSimplexOffsetA() {
-  // TODO: Implement getSimplexOffsetA
-  return 0;
+ // TODO: Implement getSimplexOffsetA
+ return 0;
 }
 
 double ClimateManager::getSimplexOffsetB() {
-  // TODO: Implement getSimplexOffsetB
-  return 0;
+ // TODO: Implement getSimplexOffsetB
+ return 0;
 }
 
 double ClimateManager::getSimplexOffsetC() {
-  // TODO: Implement getSimplexOffsetC
-  return 0;
+ // TODO: Implement getSimplexOffsetC
+ return 0;
 }
 
 double ClimateManager::getSimplexOffsetD() {
-  // TODO: Implement getSimplexOffsetD
-  return 0;
+ // TODO: Implement getSimplexOffsetD
+ return 0;
 }
 
 double ClimateManager::getWorldAgeHours() {
-  // TODO: Implement getWorldAgeHours
-  return 0;
+ // TODO: Implement getWorldAgeHours
+ return 0;
 }
 
 ClimateValues ClimateManager::getClimateValuesCopy() {
-  // TODO: Implement getClimateValuesCopy
-  return nullptr;
+ // TODO: Implement getClimateValuesCopy
+ return nullptr;
 }
 
 void ClimateManager::CopyClimateValues(ClimateValues copy) {
-  // TODO: Implement CopyClimateValues
+ // TODO: Implement CopyClimateValues
 }
 
 ClimateForecaster ClimateManager::getClimateForecaster() {
-  // TODO: Implement getClimateForecaster
-  return nullptr;
+ // TODO: Implement getClimateForecaster
+ return nullptr;
 }
 
 ClimateHistory ClimateManager::getClimateHistory() {
-  // TODO: Implement getClimateHistory
-  return nullptr;
+ // TODO: Implement getClimateHistory
+ return nullptr;
 }
 
-void ClimateManager::CalculateWeatherFrontStrength(
-    int year, int month, int day, ClimateManager.AirFront front) {
-  // TODO: Implement CalculateWeatherFrontStrength
+void ClimateManager::CalculateWeatherFrontStrength(int year, int month, int day, ClimateManager.AirFront front) {
+ // TODO: Implement CalculateWeatherFrontStrength
 }
 
 std::string ClimateManager::getWindAngleString(float angle) {
-  // TODO: Implement getWindAngleString
-  return "";
+ // TODO: Implement getWindAngleString
+ return "";
 }
 
 void ClimateManager::sendInitialState(UdpConnection connection) {
-  // TODO: Implement sendInitialState
+ // TODO: Implement sendInitialState
 }
 
 bool ClimateManager::isUpdated() {
-  // TODO: Implement isUpdated
-  return false;
+ // TODO: Implement isUpdated
+ return false;
 }
 
 float ClimateManager::getDays() {
-  // TODO: Implement getDays
-  return 0;
+ // TODO: Implement getDays
+ return 0;
 }
 
 float ClimateManager::getMaxNoise() {
-  // TODO: Implement getMaxNoise
-  return 0;
+ // TODO: Implement getMaxNoise
+ return 0;
 }
 
 float ClimateManager::getTotalNoise() {
-  // TODO: Implement getTotalNoise
-  return 0;
+ // TODO: Implement getTotalNoise
+ return 0;
 }
 
 int ClimateManager::getType() {
-  // TODO: Implement getType
-  return 0;
+ // TODO: Implement getType
+ return 0;
 }
 
 float ClimateManager::getStrength() {
-  // TODO: Implement getStrength
-  return 0;
+ // TODO: Implement getStrength
+ return 0;
 }
 
 float ClimateManager::getAngleDegrees() {
-  // TODO: Implement getAngleDegrees
-  return 0;
+ // TODO: Implement getAngleDegrees
+ return 0;
 }
 
-public
-ClimateManager::AirFront() {
-  // TODO: Implement AirFront
-  return nullptr;
+public ClimateManager::AirFront() {
+ // TODO: Implement AirFront
+ return nullptr;
 }
 
 void ClimateManager::setFrontType(int _type) {
-  // TODO: Implement setFrontType
+ // TODO: Implement setFrontType
 }
 
 void ClimateManager::setFrontWind(float float0) {
-  // TODO: Implement setFrontWind
+ // TODO: Implement setFrontWind
 }
 
 void ClimateManager::setStrength(float str) {
-  // TODO: Implement setStrength
+ // TODO: Implement setStrength
 }
 
 void ClimateManager::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 void ClimateManager::save(DataOutputStream output) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void ClimateManager::load(DataInputStream input) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void ClimateManager::addDaySample(float noiseval) {
-  // TODO: Implement addDaySample
+ // TODO: Implement addDaySample
 }
 
 void ClimateManager::copyFrom(ClimateManager.AirFront other) {
-  // TODO: Implement copyFrom
+ // TODO: Implement copyFrom
 }
 
 int ClimateManager::getID() {
-  // TODO: Implement getID
-  return 0;
+ // TODO: Implement getID
+ return 0;
 }
 
 std::string ClimateManager::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 bool ClimateManager::getInternalValue() {
-  // TODO: Implement getInternalValue
-  return false;
+ // TODO: Implement getInternalValue
+ return false;
 }
 
 bool ClimateManager::getOverride() {
-  // TODO: Implement getOverride
-  return false;
+ // TODO: Implement getOverride
+ return false;
 }
 
 void ClimateManager::setOverride(bool b) {
-  // TODO: Implement setOverride
+ // TODO: Implement setOverride
 }
 
 void ClimateManager::setEnableOverride(bool b) {
-  // TODO: Implement setEnableOverride
+ // TODO: Implement setEnableOverride
 }
 
 bool ClimateManager::isEnableOverride() {
-  // TODO: Implement isEnableOverride
-  return false;
+ // TODO: Implement isEnableOverride
+ return false;
 }
 
 void ClimateManager::setEnableAdmin(bool b) {
-  // TODO: Implement setEnableAdmin
+ // TODO: Implement setEnableAdmin
 }
 
 bool ClimateManager::isEnableAdmin() {
-  // TODO: Implement isEnableAdmin
-  return false;
+ // TODO: Implement isEnableAdmin
+ return false;
 }
 
 void ClimateManager::setAdminValue(bool b) {
-  // TODO: Implement setAdminValue
+ // TODO: Implement setAdminValue
 }
 
 bool ClimateManager::getAdminValue() {
-  // TODO: Implement getAdminValue
-  return false;
+ // TODO: Implement getAdminValue
+ return false;
 }
 
 void ClimateManager::setEnableModded(bool b) {
-  // TODO: Implement setEnableModded
+ // TODO: Implement setEnableModded
 }
 
 void ClimateManager::setModdedValue(bool b) {
-  // TODO: Implement setModdedValue
+ // TODO: Implement setModdedValue
 }
 
 bool ClimateManager::getModdedValue() {
-  // TODO: Implement getModdedValue
-  return false;
+ // TODO: Implement getModdedValue
+ return false;
 }
 
 void ClimateManager::setFinalValue(bool b) {
-  // TODO: Implement setFinalValue
+ // TODO: Implement setFinalValue
 }
 
 void ClimateManager::calculate() {
-  // TODO: Implement calculate
+ // TODO: Implement calculate
 }
 
 void ClimateManager::writeAdmin(ByteBuffer byteBuffer) {
-  // TODO: Implement writeAdmin
+ // TODO: Implement writeAdmin
 }
 
 void ClimateManager::readAdmin(ByteBuffer byteBuffer) {
-  // TODO: Implement readAdmin
+ // TODO: Implement readAdmin
 }
 
 void ClimateManager::saveAdmin(DataOutputStream dataOutputStream) {
-  // TODO: Implement saveAdmin
+ // TODO: Implement saveAdmin
 }
 
 void ClimateManager::loadAdmin(DataInputStream dataInputStream, int var2) {
-  // TODO: Implement loadAdmin
+ // TODO: Implement loadAdmin
 }
 
 int ClimateManager::getID() {
-  // TODO: Implement getID
-  return 0;
+ // TODO: Implement getID
+ return 0;
 }
 
 std::string ClimateManager::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 ClimateColorInfo ClimateManager::getInternalValue() {
-  // TODO: Implement getInternalValue
-  return nullptr;
+ // TODO: Implement getInternalValue
+ return nullptr;
 }
 
 ClimateColorInfo ClimateManager::getOverride() {
-  // TODO: Implement getOverride
-  return nullptr;
+ // TODO: Implement getOverride
+ return nullptr;
 }
 
 float ClimateManager::getOverrideInterpolate() {
-  // TODO: Implement getOverrideInterpolate
-  return 0;
+ // TODO: Implement getOverrideInterpolate
+ return 0;
 }
 
 void ClimateManager::setOverride(ClimateColorInfo targ, float inter) {
-  // TODO: Implement setOverride
+ // TODO: Implement setOverride
 }
 
 void ClimateManager::setOverride(ByteBuffer input, float interp) {
-  // TODO: Implement setOverride
+ // TODO: Implement setOverride
 }
 
 void ClimateManager::setEnableOverride(bool b) {
-  // TODO: Implement setEnableOverride
+ // TODO: Implement setEnableOverride
 }
 
 bool ClimateManager::isEnableOverride() {
-  // TODO: Implement isEnableOverride
-  return false;
+ // TODO: Implement isEnableOverride
+ return false;
 }
 
 void ClimateManager::setEnableAdmin(bool b) {
-  // TODO: Implement setEnableAdmin
+ // TODO: Implement setEnableAdmin
 }
 
 bool ClimateManager::isEnableAdmin() {
-  // TODO: Implement isEnableAdmin
-  return false;
+ // TODO: Implement isEnableAdmin
+ return false;
 }
 
-void ClimateManager::setAdminValue(float r, float g, float b, float a, float r1,
-                                   float g1, float b1, float a1) {
-  // TODO: Implement setAdminValue
+void ClimateManager::setAdminValue(float r, float g, float b, float a, float r1, float g1, float b1, float a1) {
+ // TODO: Implement setAdminValue
 }
 
 void ClimateManager::setAdminValueExterior(float r, float g, float b, float a) {
-  // TODO: Implement setAdminValueExterior
+ // TODO: Implement setAdminValueExterior
 }
 
 void ClimateManager::setAdminValueInterior(float r, float g, float b, float a) {
-  // TODO: Implement setAdminValueInterior
+ // TODO: Implement setAdminValueInterior
 }
 
 void ClimateManager::setAdminValue(ClimateColorInfo targ) {
-  // TODO: Implement setAdminValue
+ // TODO: Implement setAdminValue
 }
 
 ClimateColorInfo ClimateManager::getAdminValue() {
-  // TODO: Implement getAdminValue
-  return nullptr;
+ // TODO: Implement getAdminValue
+ return nullptr;
 }
 
 void ClimateManager::setEnableModded(bool b) {
-  // TODO: Implement setEnableModded
+ // TODO: Implement setEnableModded
 }
 
 void ClimateManager::setModdedValue(ClimateColorInfo targ) {
-  // TODO: Implement setModdedValue
+ // TODO: Implement setModdedValue
 }
 
 ClimateColorInfo ClimateManager::getModdedValue() {
-  // TODO: Implement getModdedValue
-  return nullptr;
+ // TODO: Implement getModdedValue
+ return nullptr;
 }
 
 void ClimateManager::setModdedInterpolate(float f) {
-  // TODO: Implement setModdedInterpolate
+ // TODO: Implement setModdedInterpolate
 }
 
 void ClimateManager::setFinalValue(ClimateColorInfo targ) {
-  // TODO: Implement setFinalValue
+ // TODO: Implement setFinalValue
 }
 
 ClimateColorInfo ClimateManager::getFinalValue() {
-  // TODO: Implement getFinalValue
-  return nullptr;
+ // TODO: Implement getFinalValue
+ return nullptr;
 }
 
 void ClimateManager::calculate() {
-  // TODO: Implement calculate
+ // TODO: Implement calculate
 }
 
 void ClimateManager::writeAdmin(ByteBuffer byteBuffer) {
-  // TODO: Implement writeAdmin
+ // TODO: Implement writeAdmin
 }
 
 void ClimateManager::readAdmin(ByteBuffer byteBuffer) {
-  // TODO: Implement readAdmin
+ // TODO: Implement readAdmin
 }
 
 void ClimateManager::saveAdmin(DataOutputStream dataOutputStream) {
-  // TODO: Implement saveAdmin
+ // TODO: Implement saveAdmin
 }
 
 void ClimateManager::loadAdmin(DataInputStream dataInputStream, int int0) {
-  // TODO: Implement loadAdmin
+ // TODO: Implement loadAdmin
 }
 
 int ClimateManager::getID() {
-  // TODO: Implement getID
-  return 0;
+ // TODO: Implement getID
+ return 0;
 }
 
 std::string ClimateManager::getName() {
-  // TODO: Implement getName
-  return "";
+ // TODO: Implement getName
+ return "";
 }
 
 float ClimateManager::getMin() {
-  // TODO: Implement getMin
-  return 0;
+ // TODO: Implement getMin
+ return 0;
 }
 
 float ClimateManager::getMax() {
-  // TODO: Implement getMax
-  return 0;
+ // TODO: Implement getMax
+ return 0;
 }
 
 float ClimateManager::getInternalValue() {
-  // TODO: Implement getInternalValue
-  return 0;
+ // TODO: Implement getInternalValue
+ return 0;
 }
 
 float ClimateManager::getOverride() {
-  // TODO: Implement getOverride
-  return 0;
+ // TODO: Implement getOverride
+ return 0;
 }
 
 float ClimateManager::getOverrideInterpolate() {
-  // TODO: Implement getOverrideInterpolate
-  return 0;
+ // TODO: Implement getOverrideInterpolate
+ return 0;
 }
 
 void ClimateManager::setOverride(float targ, float inter) {
-  // TODO: Implement setOverride
+ // TODO: Implement setOverride
 }
 
 void ClimateManager::setEnableOverride(bool b) {
-  // TODO: Implement setEnableOverride
+ // TODO: Implement setEnableOverride
 }
 
 bool ClimateManager::isEnableOverride() {
-  // TODO: Implement isEnableOverride
-  return false;
+ // TODO: Implement isEnableOverride
+ return false;
 }
 
 void ClimateManager::setEnableAdmin(bool b) {
-  // TODO: Implement setEnableAdmin
+ // TODO: Implement setEnableAdmin
 }
 
 bool ClimateManager::isEnableAdmin() {
-  // TODO: Implement isEnableAdmin
-  return false;
+ // TODO: Implement isEnableAdmin
+ return false;
 }
 
 void ClimateManager::setAdminValue(float f) {
-  // TODO: Implement setAdminValue
+ // TODO: Implement setAdminValue
 }
 
 float ClimateManager::getAdminValue() {
-  // TODO: Implement getAdminValue
-  return 0;
+ // TODO: Implement getAdminValue
+ return 0;
 }
 
 void ClimateManager::setEnableModded(bool b) {
-  // TODO: Implement setEnableModded
+ // TODO: Implement setEnableModded
 }
 
 void ClimateManager::setModdedValue(float f) {
-  // TODO: Implement setModdedValue
+ // TODO: Implement setModdedValue
 }
 
 float ClimateManager::getModdedValue() {
-  // TODO: Implement getModdedValue
-  return 0;
+ // TODO: Implement getModdedValue
+ return 0;
 }
 
 void ClimateManager::setModdedInterpolate(float f) {
-  // TODO: Implement setModdedInterpolate
+ // TODO: Implement setModdedInterpolate
 }
 
 void ClimateManager::setFinalValue(float f) {
-  // TODO: Implement setFinalValue
+ // TODO: Implement setFinalValue
 }
 
 float ClimateManager::getFinalValue() {
-  // TODO: Implement getFinalValue
-  return 0;
+ // TODO: Implement getFinalValue
+ return 0;
 }
 
 void ClimateManager::calculate() {
-  // TODO: Implement calculate
+ // TODO: Implement calculate
 }
 
 void ClimateManager::writeAdmin(ByteBuffer byteBuffer) {
-  // TODO: Implement writeAdmin
+ // TODO: Implement writeAdmin
 }
 
 void ClimateManager::readAdmin(ByteBuffer byteBuffer) {
-  // TODO: Implement readAdmin
+ // TODO: Implement readAdmin
 }
 
 void ClimateManager::saveAdmin(DataOutputStream dataOutputStream) {
-  // TODO: Implement saveAdmin
+ // TODO: Implement saveAdmin
 }
 
 void ClimateManager::loadAdmin(DataInputStream dataInputStream, int var2) {
-  // TODO: Implement loadAdmin
+ // TODO: Implement loadAdmin
 }
 
 void ClimateManager::reset() {
-  // TODO: Implement reset
+ // TODO: Implement reset
 }
 
 void ClimateManager::set(int _day, int _month, int _year) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 int ClimateManager::getDay() {
-  // TODO: Implement getDay
-  return 0;
+ // TODO: Implement getDay
+ return 0;
 }
 
 int ClimateManager::getMonth() {
-  // TODO: Implement getMonth
-  return 0;
+ // TODO: Implement getMonth
+ return 0;
 }
 
 int ClimateManager::getYear() {
-  // TODO: Implement getYear
-  return 0;
+ // TODO: Implement getYear
+ return 0;
 }
 
 int ClimateManager::getHour() {
-  // TODO: Implement getHour
-  return 0;
+ // TODO: Implement getHour
+ return 0;
 }
 
 int ClimateManager::getMinutes() {
-  // TODO: Implement getMinutes
-  return 0;
+ // TODO: Implement getMinutes
+ return 0;
 }
 
 long ClimateManager::getDateValue() {
-  // TODO: Implement getDateValue
-  return 0;
+ // TODO: Implement getDateValue
+ return 0;
 }
 
 ErosionSeason ClimateManager::getSeason() {
-  // TODO: Implement getSeason
-  return nullptr;
+ // TODO: Implement getSeason
+ return nullptr;
 }
 
-public
-ClimateManager::SeasonColor() {
-  // TODO: Implement SeasonColor
-  return nullptr;
+public ClimateManager::SeasonColor() {
+ // TODO: Implement SeasonColor
+ return nullptr;
 }
 
 void ClimateManager::setIgnoreNormal(bool arg0) {
-  // TODO: Implement setIgnoreNormal
+ // TODO: Implement setIgnoreNormal
 }
 
 ClimateColorInfo ClimateManager::getColor(int arg0, int arg1) {
-  // TODO: Implement getColor
-  return nullptr;
+ // TODO: Implement getColor
+ return nullptr;
 }
 
-void ClimateManager::setColorInterior(int arg0, int arg1, float arg2,
-                                      float arg3, float arg4, float arg5) {
-  // TODO: Implement setColorInterior
+void ClimateManager::setColorInterior(int arg0, int arg1, float arg2, float arg3, float arg4, float arg5) {
+ // TODO: Implement setColorInterior
 }
 
-void ClimateManager::setColorExterior(int arg0, int arg1, float arg2,
-                                      float arg3, float arg4, float arg5) {
-  // TODO: Implement setColorExterior
+void ClimateManager::setColorExterior(int arg0, int arg1, float arg2, float arg3, float arg4, float arg5) {
+ // TODO: Implement setColorExterior
 }
 
-ClimateColorInfo ClimateManager::update(float arg0, float arg1, int arg2,
-                                        int arg3) {
-  // TODO: Implement update
-  return nullptr;
+ClimateColorInfo ClimateManager::update(float arg0, float arg1, int arg2, int arg3) {
+ // TODO: Implement update
+ return nullptr;
 }
 
 } // namespace weather

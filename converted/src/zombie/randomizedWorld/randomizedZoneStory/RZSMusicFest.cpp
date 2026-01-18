@@ -4,14 +4,13 @@ namespace zombie {
 namespace randomizedWorld {
 namespace randomizedZoneStory {
 
-public
-RZSMusicFest::RZSMusicFest() {
-  // TODO: Implement RZSMusicFest
-  return nullptr;
+public RZSMusicFest::RZSMusicFest() {
+ // TODO: Implement RZSMusicFest
+ return nullptr;
 }
 
 void RZSMusicFest::randomizeZoneStory(IsoMetaGrid.Zone zone) {
-  // TODO: Implement randomizeZoneStory
+ // TODO: Implement randomizeZoneStory
 }
 
 } // namespace randomizedZoneStory

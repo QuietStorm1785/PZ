@@ -6,13 +6,13 @@ namespace packets {
 namespace hit {
 
 float IPositional::getX() {
-  // TODO: Implement getX
-  return 0;
+ // TODO: Implement getX
+ return 0;
 }
 
 float IPositional::getY() {
-  // TODO: Implement getY
-  return 0;
+ // TODO: Implement getY
+ return 0;
 }
 
 } // namespace hit

@@ -4,10 +4,9 @@ namespace com {
 namespace jcraft {
 namespace jorbis {
 
-int Residue1::inverse(Block block, void *object, float[][] floats, int[] ints,
-                      int int2) {
-  // TODO: Implement inverse
-  return 0;
+int Residue1::inverse(Block block, void* object, float[][] floats, int[] ints, int int2) {
+ // TODO: Implement inverse
+ return 0;
 }
 
 } // namespace jorbis

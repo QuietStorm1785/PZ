@@ -1,48 +1,50 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace characters {
 namespace AttachedItems {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class AttachedLocation {
 public:
-  const AttachedLocationGroup group;
-  const std::string id;
-  std::string attachmentName;
+ const AttachedLocationGroup group;
+ const std::string id;
+ std::string attachmentName;
 
-public
-  AttachedLocation(AttachedLocationGroup _group, const std::string &_id) {
-    if (_id == nullptr) {
-      throw new NullPointerException("id is nullptr");
-    } else if (_id.isEmpty()) {
-      throw new IllegalArgumentException("id is empty");
-    } else {
-      this.group = _group;
-      this.id = _id;
-    }
-  }
+ public AttachedLocation(AttachedLocationGroup _group, const std::string& _id) {
+ if (_id.empty()) {
+ throw NullPointerException("id is nullptr");
+ } else if (_id.empty()) {
+ throw IllegalArgumentException("id is empty");
+ } else {
+ this->group = _group;
+ this->id = _id;
+ }
+ }
 
-  void setAttachmentName(const std::string &_attachmentName) {
-    if (this.id == nullptr) {
-      throw new NullPointerException("attachmentName is nullptr");
-    } else if (this.id.isEmpty()) {
-      throw new IllegalArgumentException("attachmentName is empty");
-    } else {
-      this.attachmentName = _attachmentName;
-    }
-  }
+ void setAttachmentName(const std::string& _attachmentName) {
+ if (this->id.empty()) {
+ throw NullPointerException("attachmentName is nullptr");
+ } else if (this->id.empty()) {
+ throw IllegalArgumentException("attachmentName is empty");
+ } else {
+ this->attachmentName = _attachmentName;
+ }
+ }
 
-  std::string getAttachmentName() { return this.attachmentName; }
+ std::string getAttachmentName() {
+ return this->attachmentName;
+ }
 
-  std::string getId() { return this.id; }
+ std::string getId() {
+ return this->id;
+ }
 }
 } // namespace AttachedItems
 } // namespace characters

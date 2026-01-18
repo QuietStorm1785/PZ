@@ -4,92 +4,87 @@ namespace zombie {
 namespace iso {
 
 BrokenFences BrokenFences::getInstance() {
-  // TODO: Implement getInstance
-  return nullptr;
+ // TODO: Implement getInstance
+ return nullptr;
 }
 
 void BrokenFences::addBrokenTiles(KahluaTableImpl tiles) {
-  // TODO: Implement addBrokenTiles
+ // TODO: Implement addBrokenTiles
 }
 
 void BrokenFences::addDebrisTiles(KahluaTableImpl tiles) {
-  // TODO: Implement addDebrisTiles
+ // TODO: Implement addDebrisTiles
 }
 
 void BrokenFences::setDestroyed(IsoObject obj) {
-  // TODO: Implement setDestroyed
+ // TODO: Implement setDestroyed
 }
 
 void BrokenFences::setDamagedLeft(IsoObject obj) {
-  // TODO: Implement setDamagedLeft
+ // TODO: Implement setDamagedLeft
 }
 
 void BrokenFences::setDamagedRight(IsoObject obj) {
-  // TODO: Implement setDamagedRight
+ // TODO: Implement setDamagedRight
 }
 
-void BrokenFences::updateSprite(IsoObject obj, bool brokenLeft,
-                                bool brokenRight) {
-  // TODO: Implement updateSprite
+void BrokenFences::updateSprite(IsoObject obj, bool brokenLeft, bool brokenRight) {
+ // TODO: Implement updateSprite
 }
 
 bool BrokenFences::isNW(IsoObject object) {
-  // TODO: Implement isNW
-  return false;
+ // TODO: Implement isNW
+ return false;
 }
 
-void BrokenFences::damageAdjacent(IsoGridSquare square1,
-                                  IsoDirections directions0,
-                                  IsoDirections directions1) {
-  // TODO: Implement damageAdjacent
+void BrokenFences::damageAdjacent(IsoGridSquare square1, IsoDirections directions0, IsoDirections directions1) {
+ // TODO: Implement damageAdjacent
 }
 
 void BrokenFences::destroyFence(IsoObject obj, IsoDirections dir) {
-  // TODO: Implement destroyFence
+ // TODO: Implement destroyFence
 }
 
 bool BrokenFences::isUnbroken(IsoObject object) {
-  // TODO: Implement isUnbroken
-  return false;
+ // TODO: Implement isUnbroken
+ return false;
 }
 
 bool BrokenFences::isBrokenLeft(IsoObject object) {
-  // TODO: Implement isBrokenLeft
-  return false;
+ // TODO: Implement isBrokenLeft
+ return false;
 }
 
 bool BrokenFences::isBrokenRight(IsoObject object) {
-  // TODO: Implement isBrokenRight
-  return false;
+ // TODO: Implement isBrokenRight
+ return false;
 }
 
 bool BrokenFences::isBreakableObject(IsoObject obj) {
-  // TODO: Implement isBreakableObject
-  return false;
+ // TODO: Implement isBreakableObject
+ return false;
 }
 
-IsoObject BrokenFences::getBreakableObject(IsoGridSquare square,
-                                           bool boolean0) {
-  // TODO: Implement getBreakableObject
-  return nullptr;
+IsoObject BrokenFences::getBreakableObject(IsoGridSquare square, bool boolean0) {
+ // TODO: Implement getBreakableObject
+ return nullptr;
 }
 
 void BrokenFences::addItems(IsoObject object, IsoGridSquare square) {
-  // TODO: Implement addItems
+ // TODO: Implement addItems
 }
 
-void BrokenFences::addDebrisObject(IsoObject object0,
-                                   IsoDirections directions) {
-  // TODO: Implement addDebrisObject
+void BrokenFences::addDebrisObject(IsoObject object0, IsoDirections directions) {
+ // TODO: Implement addDebrisObject
 }
 
 void BrokenFences::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 std::string BrokenFences::pickRandom(ArrayList<String> arrayList) {
-  // TODO: Implement pickRandom
-  return "";
+ // TODO: Implement pickRandom
+ return "";
 }
 
 } // namespace iso

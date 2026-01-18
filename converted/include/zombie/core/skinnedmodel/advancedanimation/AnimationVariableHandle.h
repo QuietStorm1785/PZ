@@ -1,36 +1,44 @@
 #pragma once
-#include <cstdint>
-#include <memory>
 #include <string>
+#include <vector>
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
+#include <cstdint>
 
 namespace zombie {
 namespace core {
 namespace skinnedmodel {
 namespace advancedanimation {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
 
 class AnimationVariableHandle {
 public:
-  std::string m_name = null;
-  int m_varIndex = -1;
+ std::string m_name = nullptr;
+ int m_varIndex = -1;
 
-  AnimationVariableHandle() {}
+ AnimationVariableHandle() {
+ }
 
-  static AnimationVariableHandle alloc(const std::string &name) {
-    return AnimationVariableHandlePool.getOrCreate(name);
-  }
+ static AnimationVariableHandle alloc(const std::string& name) {
+ return AnimationVariableHandlePool.getOrCreate(name);
+ }
 
-  std::string getVariableName() { return this.m_name; }
+ std::string getVariableName() {
+ return this->m_name;
+ }
 
-  int getVariableIndex() { return this.m_varIndex; }
+ int getVariableIndex() {
+ return this->m_varIndex;
+ }
 
-  void setVariableName(const std::string &string) { this.m_name = string; }
+ void setVariableName(const std::string& string) {
+ this->m_name = string;
+ }
 
-  void setVariableIndex(int int0) { this.m_varIndex = int0; }
+ void setVariableIndex(int int0) {
+ this->m_varIndex = int0;
+ }
 }
 } // namespace advancedanimation
 } // namespace skinnedmodel

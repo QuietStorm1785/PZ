@@ -4,21 +4,19 @@ namespace zombie {
 namespace text {
 namespace templating {
 
-public
-ReplaceList::ReplaceList() {
-  // TODO: Implement ReplaceList
-  return nullptr;
+public ReplaceList::ReplaceList() {
+ // TODO: Implement ReplaceList
+ return nullptr;
 }
 
-public
-ReplaceList::ReplaceList(ArrayList<String> arrayList) {
-  // TODO: Implement ReplaceList
-  return nullptr;
+public ReplaceList::ReplaceList(ArrayList<String> arrayList) {
+ // TODO: Implement ReplaceList
+ return nullptr;
 }
 
 std::string ReplaceList::getString() {
-  // TODO: Implement getString
-  return "";
+ // TODO: Implement getString
+ return "";
 }
 
 } // namespace templating

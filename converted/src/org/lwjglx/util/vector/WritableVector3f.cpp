@@ -6,11 +6,11 @@ namespace util {
 namespace vector {
 
 void WritableVector3f::setZ(float var1) {
-  // TODO: Implement setZ
+ // TODO: Implement setZ
 }
 
 void WritableVector3f::set(float var1, float var2, float var3) {
-  // TODO: Implement set
+ // TODO: Implement set
 }
 
 } // namespace vector

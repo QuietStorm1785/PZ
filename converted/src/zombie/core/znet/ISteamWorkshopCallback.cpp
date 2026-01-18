@@ -5,43 +5,43 @@ namespace core {
 namespace znet {
 
 void ISteamWorkshopCallback::onItemCreated(long var1, bool var3) {
-  // TODO: Implement onItemCreated
+ // TODO: Implement onItemCreated
 }
 
 void ISteamWorkshopCallback::onItemNotCreated(int var1) {
-  // TODO: Implement onItemNotCreated
+ // TODO: Implement onItemNotCreated
 }
 
 void ISteamWorkshopCallback::onItemUpdated(bool var1) {
-  // TODO: Implement onItemUpdated
+ // TODO: Implement onItemUpdated
 }
 
 void ISteamWorkshopCallback::onItemNotUpdated(int var1) {
-  // TODO: Implement onItemNotUpdated
+ // TODO: Implement onItemNotUpdated
 }
 
 void ISteamWorkshopCallback::onItemSubscribed(long var1) {
-  // TODO: Implement onItemSubscribed
+ // TODO: Implement onItemSubscribed
 }
 
 void ISteamWorkshopCallback::onItemNotSubscribed(long var1, int var3) {
-  // TODO: Implement onItemNotSubscribed
+ // TODO: Implement onItemNotSubscribed
 }
 
 void ISteamWorkshopCallback::onItemDownloaded(long var1) {
-  // TODO: Implement onItemDownloaded
+ // TODO: Implement onItemDownloaded
 }
 
 void ISteamWorkshopCallback::onItemNotDownloaded(long var1, int var3) {
-  // TODO: Implement onItemNotDownloaded
+ // TODO: Implement onItemNotDownloaded
 }
 
 void ISteamWorkshopCallback::onItemQueryCompleted(long var1, int var3) {
-  // TODO: Implement onItemQueryCompleted
+ // TODO: Implement onItemQueryCompleted
 }
 
 void ISteamWorkshopCallback::onItemQueryNotCompleted(long var1, int var3) {
-  // TODO: Implement onItemQueryNotCompleted
+ // TODO: Implement onItemQueryNotCompleted
 }
 
 } // namespace znet

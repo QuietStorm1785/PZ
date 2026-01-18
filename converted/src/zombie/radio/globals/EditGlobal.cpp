@@ -4,26 +4,24 @@ namespace zombie {
 namespace radio {
 namespace globals {
 
-public
-EditGlobal::EditGlobal(RadioGlobal radioGlobal0, EditGlobalOps editGlobalOps,
-                       RadioGlobal radioGlobal1) {
-  // TODO: Implement EditGlobal
-  return nullptr;
+public EditGlobal::EditGlobal(RadioGlobal radioGlobal0, EditGlobalOps editGlobalOps, RadioGlobal radioGlobal1) {
+ // TODO: Implement EditGlobal
+ return nullptr;
 }
 
 RadioGlobal EditGlobal::getGlobal() {
-  // TODO: Implement getGlobal
-  return nullptr;
+ // TODO: Implement getGlobal
+ return nullptr;
 }
 
 EditGlobalOps EditGlobal::getOperator() {
-  // TODO: Implement getOperator
-  return nullptr;
+ // TODO: Implement getOperator
+ return nullptr;
 }
 
 RadioGlobal EditGlobal::getValue() {
-  // TODO: Implement getValue
-  return nullptr;
+ // TODO: Implement getValue
+ return nullptr;
 }
 
 } // namespace globals

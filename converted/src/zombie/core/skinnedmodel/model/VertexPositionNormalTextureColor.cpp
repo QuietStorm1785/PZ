@@ -6,7 +6,7 @@ namespace skinnedmodel {
 namespace model {
 
 void VertexPositionNormalTextureColor::put(ByteBuffer byteBuffer) {
-  // TODO: Implement put
+ // TODO: Implement put
 }
 
 } // namespace model

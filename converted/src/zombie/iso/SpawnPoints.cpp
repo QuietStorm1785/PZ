@@ -4,58 +4,58 @@ namespace zombie {
 namespace iso {
 
 void SpawnPoints::init() {
-  // TODO: Implement init
+ // TODO: Implement init
 }
 
 void SpawnPoints::initServer1() {
-  // TODO: Implement initServer1
+ // TODO: Implement initServer1
 }
 
 void SpawnPoints::initServer2() {
-  // TODO: Implement initServer2
+ // TODO: Implement initServer2
 }
 
 void SpawnPoints::initSinglePlayer() {
-  // TODO: Implement initSinglePlayer
+ // TODO: Implement initSinglePlayer
 }
 
 void SpawnPoints::initSpawnRegions() {
-  // TODO: Implement initSpawnRegions
+ // TODO: Implement initSpawnRegions
 }
 
 bool SpawnPoints::parseServerSpawnPoint() {
-  // TODO: Implement parseServerSpawnPoint
-  return false;
+ // TODO: Implement parseServerSpawnPoint
+ return false;
 }
 
 void SpawnPoints::parseSpawnRegions() {
-  // TODO: Implement parseSpawnRegions
+ // TODO: Implement parseSpawnRegions
 }
 
 void SpawnPoints::parseRegion(KahluaTable table1) {
-  // TODO: Implement parseRegion
+ // TODO: Implement parseRegion
 }
 
 void SpawnPoints::parseProfession(KahluaTable table0) {
-  // TODO: Implement parseProfession
+ // TODO: Implement parseProfession
 }
 
 void SpawnPoints::parsePoint(KahluaTable table) {
-  // TODO: Implement parsePoint
+ // TODO: Implement parsePoint
 }
 
 void SpawnPoints::initSpawnBuildings() {
-  // TODO: Implement initSpawnBuildings
+ // TODO: Implement initSpawnBuildings
 }
 
 bool SpawnPoints::isSpawnBuilding(BuildingDef buildingDef) {
-  // TODO: Implement isSpawnBuilding
-  return false;
+ // TODO: Implement isSpawnBuilding
+ return false;
 }
 
 KahluaTable SpawnPoints::getSpawnRegions() {
-  // TODO: Implement getSpawnRegions
-  return nullptr;
+ // TODO: Implement getSpawnRegions
+ return nullptr;
 }
 
 } // namespace iso

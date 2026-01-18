@@ -3,25 +3,24 @@
 namespace zombie {
 namespace commands {
 
-private
-PlayerType::PlayerType() {
-  // TODO: Implement PlayerType
-  return nullptr;
+private PlayerType::PlayerType() {
+ // TODO: Implement PlayerType
+ return nullptr;
 }
 
 std::string PlayerType::toString(uint8_t byte0) {
-  // TODO: Implement toString
-  return "";
+ // TODO: Implement toString
+ return "";
 }
 
-uint8_t PlayerType::fromString(const std::string &string) {
-  // TODO: Implement fromString
-  return 0;
+uint8_t PlayerType::fromString(const std::string& string) {
+ // TODO: Implement fromString
+ return 0;
 }
 
 bool PlayerType::isPrivileged(uint8_t byte0) {
-  // TODO: Implement isPrivileged
-  return false;
+ // TODO: Implement isPrivileged
+ return false;
 }
 
 } // namespace commands

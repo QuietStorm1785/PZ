@@ -6,22 +6,20 @@ namespace skinnedmodel {
 namespace model {
 
 void AnimationAssetManager::startLoading(Asset asset) {
-  // TODO: Implement startLoading
+ // TODO: Implement startLoading
 }
 
-void AnimationAssetManager::loadCallback(AnimationAsset animationAsset,
-                                         void *object) {
-  // TODO: Implement loadCallback
+void AnimationAssetManager::loadCallback(AnimationAsset animationAsset, void* object) {
+ // TODO: Implement loadCallback
 }
 
-Asset AnimationAssetManager::createAsset(AssetPath assetPath,
-                                         AssetManager.AssetParams assetParams) {
-  // TODO: Implement createAsset
-  return {};
+Asset AnimationAssetManager::createAsset(AssetPath assetPath, AssetManager.AssetParams assetParams) {
+ // TODO: Implement createAsset
+ return {};
 }
 
 void AnimationAssetManager::destroyAsset(Asset var1) {
-  // TODO: Implement destroyAsset
+ // TODO: Implement destroyAsset
 }
 
 } // namespace model

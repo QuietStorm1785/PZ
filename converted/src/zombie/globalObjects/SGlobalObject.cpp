@@ -4,11 +4,11 @@ namespace zombie {
 namespace globalObjects {
 
 void SGlobalObject::load(ByteBuffer bb, int WorldVersion) {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void SGlobalObject::save(ByteBuffer bb) {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 } // namespace globalObjects

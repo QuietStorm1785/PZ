@@ -6,30 +6,29 @@ namespace kahlua {
 namespace integration {
 namespace expose {
 
-std::string TypeUtil::removePackages(const std::string &string) {
-  // TODO: Implement removePackages
-  return "";
+std::string TypeUtil::removePackages(const std::string& string) {
+ // TODO: Implement removePackages
+ return "";
 }
 
 std::string TypeUtil::getClassName(Type type) {
-  // TODO: Implement getClassName
-  return "";
+ // TODO: Implement getClassName
+ return "";
 }
 
 return TypeUtil::handleBounds() {
-  // TODO: Implement handleBounds
-  return nullptr;
+ // TODO: Implement handleBounds
+ return nullptr;
 }
 
 return TypeUtil::getClassName() {
-  // TODO: Implement getClassName
-  return nullptr;
+ // TODO: Implement getClassName
+ return nullptr;
 }
 
-std::string TypeUtil::handleBounds(const std::string &string, Type[] types0,
-                                   Type[] types1) {
-  // TODO: Implement handleBounds
-  return "";
+std::string TypeUtil::handleBounds(const std::string& string, Type[] types0, Type[] types1) {
+ // TODO: Implement handleBounds
+ return "";
 }
 
 } // namespace expose

@@ -5,26 +5,25 @@ namespace krka {
 namespace kahlua {
 namespace profiler {
 
-public
-Sampler::Sampler(KahluaThread kahluaThread, long long0, Profiler profilerx) {
-  // TODO: Implement Sampler
-  return nullptr;
+public Sampler::Sampler(KahluaThread kahluaThread, long long0, Profiler profilerx) {
+ // TODO: Implement Sampler
+ return nullptr;
 }
 
 void Sampler::start() {
-  // TODO: Implement start
+ // TODO: Implement start
 }
 
 void Sampler::run() {
-  // TODO: Implement run
+ // TODO: Implement run
 }
 
 void Sampler::appendList(List<StacktraceElement> list, Coroutine coroutine) {
-  // TODO: Implement appendList
+ // TODO: Implement appendList
 }
 
 void Sampler::stop() {
-  // TODO: Implement stop
+ // TODO: Implement stop
 }
 
 } // namespace profiler

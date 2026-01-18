@@ -4,44 +4,44 @@ namespace zombie {
 namespace world {
 
 bool DictionaryDataClient::isClient() {
-  // TODO: Implement isClient
-  return false;
+ // TODO: Implement isClient
+ return false;
 }
 
-void DictionaryDataClient::parseItemLoadList(ItemInfo > var1) {
-  // TODO: Implement parseItemLoadList
+void DictionaryDataClient::parseItemLoadList(ItemInfo> var1) {
+ // TODO: Implement parseItemLoadList
 }
 
 void DictionaryDataClient::parseCurrentItemSet() {
-  // TODO: Implement parseCurrentItemSet
+ // TODO: Implement parseCurrentItemSet
 }
 
 void DictionaryDataClient::parseObjectNameLoadList(List<String> var1) {
-  // TODO: Implement parseObjectNameLoadList
+ // TODO: Implement parseObjectNameLoadList
 }
 
 void DictionaryDataClient::backupCurrentDataSet() {
-  // TODO: Implement backupCurrentDataSet
+ // TODO: Implement backupCurrentDataSet
 }
 
 void DictionaryDataClient::deleteBackupCurrentDataSet() {
-  // TODO: Implement deleteBackupCurrentDataSet
+ // TODO: Implement deleteBackupCurrentDataSet
 }
 
 void DictionaryDataClient::createErrorBackups() {
-  // TODO: Implement createErrorBackups
+ // TODO: Implement createErrorBackups
 }
 
 void DictionaryDataClient::load() {
-  // TODO: Implement load
+ // TODO: Implement load
 }
 
 void DictionaryDataClient::save() {
-  // TODO: Implement save
+ // TODO: Implement save
 }
 
 void DictionaryDataClient::saveToByteBuffer(ByteBuffer var1) {
-  // TODO: Implement saveToByteBuffer
+ // TODO: Implement saveToByteBuffer
 }
 
 } // namespace world

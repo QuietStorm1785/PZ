@@ -5,29 +5,29 @@ namespace ai {
 namespace states {
 
 StaggerBackState StaggerBackState::instance() {
-  // TODO: Implement instance
-  return nullptr;
+ // TODO: Implement instance
+ return nullptr;
 }
 
 void StaggerBackState::enter(IsoGameCharacter owner) {
-  // TODO: Implement enter
+ // TODO: Implement enter
 }
 
 void StaggerBackState::execute(IsoGameCharacter owner) {
-  // TODO: Implement execute
+ // TODO: Implement execute
 }
 
 void StaggerBackState::exit(IsoGameCharacter owner) {
-  // TODO: Implement exit
+ // TODO: Implement exit
 }
 
 float StaggerBackState::getMaxStaggerTime(IsoGameCharacter character) {
-  // TODO: Implement getMaxStaggerTime
-  return 0;
+ // TODO: Implement getMaxStaggerTime
+ return 0;
 }
 
 void StaggerBackState::animEvent(IsoGameCharacter owner, AnimEvent event) {
-  // TODO: Implement animEvent
+ // TODO: Implement animEvent
 }
 
 } // namespace states

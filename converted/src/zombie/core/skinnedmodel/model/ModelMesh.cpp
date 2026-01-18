@@ -5,49 +5,47 @@ namespace core {
 namespace skinnedmodel {
 namespace model {
 
-public
-ModelMesh::ModelMesh(AssetPath path, AssetManager manager,
-                     ModelMesh.MeshAssetParams params) {
-  // TODO: Implement ModelMesh
-  return nullptr;
+public ModelMesh::ModelMesh(AssetPath path, AssetManager manager, ModelMesh.MeshAssetParams params) {
+ // TODO: Implement ModelMesh
+ return nullptr;
 }
 
 void ModelMesh::onLoadedX(ProcessedAiScene processedAiScene) {
-  // TODO: Implement onLoadedX
+ // TODO: Implement onLoadedX
 }
 
 void ModelMesh::onLoadedTxt(ModelTxt modelTxt) {
-  // TODO: Implement onLoadedTxt
+ // TODO: Implement onLoadedTxt
 }
 
 void ModelMesh::SetVertexBuffer(VertexBufferObject _vb) {
-  // TODO: Implement SetVertexBuffer
+ // TODO: Implement SetVertexBuffer
 }
 
 void ModelMesh::Draw(Shader shader) {
-  // TODO: Implement Draw
+ // TODO: Implement Draw
 }
 
 void ModelMesh::onBeforeReady() {
-  // TODO: Implement onBeforeReady
+ // TODO: Implement onBeforeReady
 }
 
 bool ModelMesh::isReady() {
-  // TODO: Implement isReady
-  return false;
+ // TODO: Implement isReady
+ return false;
 }
 
 void ModelMesh::setAssetParams(AssetManager.AssetParams params) {
-  // TODO: Implement setAssetParams
+ // TODO: Implement setAssetParams
 }
 
 AssetType ModelMesh::getType() {
-  // TODO: Implement getType
-  return {};
+ // TODO: Implement getType
+ return {};
 }
 
 void ModelMesh::clear() {
-  // TODO: Implement clear
+ // TODO: Implement clear
 }
 
 } // namespace model

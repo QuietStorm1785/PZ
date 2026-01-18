@@ -3,70 +3,66 @@
 namespace zombie {
 namespace characters {
 
-int ZombieVocalsManager::compare(
-    ZombieVocalsManager.ObjectWithDistance objectWithDistance1,
-    ZombieVocalsManager.ObjectWithDistance objectWithDistance0) {
-  // TODO: Implement compare
-  return 0;
+int ZombieVocalsManager::compare(ZombieVocalsManager.ObjectWithDistance objectWithDistance1, ZombieVocalsManager.ObjectWithDistance objectWithDistance0) {
+ // TODO: Implement compare
+ return 0;
 }
 
-public
-ZombieVocalsManager::ZombieVocalsManager() {
-  // TODO: Implement ZombieVocalsManager
-  return nullptr;
+public ZombieVocalsManager::ZombieVocalsManager() {
+ // TODO: Implement ZombieVocalsManager
+ return nullptr;
 }
 
 void ZombieVocalsManager::addCharacter(IsoZombie zombie0) {
-  // TODO: Implement addCharacter
+ // TODO: Implement addCharacter
 }
 
 void ZombieVocalsManager::update() {
-  // TODO: Implement update
+ // TODO: Implement update
 }
 
 bool ZombieVocalsManager::shouldPlay(IsoZombie zombie0) {
-  // TODO: Implement shouldPlay
-  return false;
+ // TODO: Implement shouldPlay
+ return false;
 }
 
 int ZombieVocalsManager::getExistingSlot(IsoZombie zombie0) {
-  // TODO: Implement getExistingSlot
-  return 0;
+ // TODO: Implement getExistingSlot
+ return 0;
 }
 
 int ZombieVocalsManager::getFreeSlot() {
-  // TODO: Implement getFreeSlot
-  return 0;
+ // TODO: Implement getFreeSlot
+ return 0;
 }
 
 void ZombieVocalsManager::stopNotPlaying() {
-  // TODO: Implement stopNotPlaying
+ // TODO: Implement stopNotPlaying
 }
 
 void ZombieVocalsManager::postUpdate() {
-  // TODO: Implement postUpdate
+ // TODO: Implement postUpdate
 }
 
-float ZombieVocalsManager::getClosestListener(float float5, float float6,
-                                              float float7) {
-  // TODO: Implement getClosestListener
-  return 0;
+float ZombieVocalsManager::getClosestListener(float float5, float float6, float float7) {
+ // TODO: Implement getClosestListener
+ return 0;
 }
 
 void ZombieVocalsManager::render() {
-  // TODO: Implement render
+ // TODO: Implement render
 }
 
 void ZombieVocalsManager::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 void ZombieVocalsManager::playSound(IsoZombie zombie0) {
-  // TODO: Implement playSound
+ // TODO: Implement playSound
 }
 
 void ZombieVocalsManager::stopPlaying() {
-  // TODO: Implement stopPlaying
+ // TODO: Implement stopPlaying
 }
 
 } // namespace characters

@@ -1,127 +1,114 @@
 #pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
 #include "zombie/ZomboidFileSystem.h"
 #include "zombie/core/logger/ExceptionLogger.h"
 #include "zombie/gameStates/ChooseGameInfo.h"
 #include "zombie/util/Lambda.h"
 #include "zombie/util/list/PZArrayUtil.h"
-#include <cstdint>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
 
 namespace zombie {
 namespace core {
-// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3
-// using Vineflower.
+// Decompiled on Sat Jan 17 08:24:00 EST 2026 with Zomboid Decompiler v0.2.3 using Vineflower.
+
 
 class Languages {
 public:
-  static const Languages instance = new Languages();
-private
-  final ArrayList<Language> m_languages = std::make_unique<ArrayList<>>();
-  Language m_defaultLanguage =
-      new Language(0, "EN", "English", "UTF-8", null, false);
+ static const Languages instance = new Languages();
+ private ArrayList<Language> m_languages = std::make_unique<ArrayList<>>();
+ Language m_defaultLanguage = new Language(0, "EN", "English", "UTF-8", nullptr, false);
 
-public
-  Languages() { this.m_languages.add(this.m_defaultLanguage); }
+ public Languages() {
+ this->m_languages.add(this->m_defaultLanguage);
+ }
 
-  void init() {
-    this.m_languages.clear();
-    this.m_defaultLanguage =
-        new Language(0, "EN", "English", "UTF-8", nullptr, false);
-    this.m_languages.add(this.m_defaultLanguage);
-    this.loadTranslateDirectory(
-        ZomboidFileSystem.instance.getMediaPath("lua/shared/Translate"));
+ void init() {
+ this->m_languages.clear();
+ this->m_defaultLanguage = new Language(0, "EN", "English", "UTF-8", nullptr, false);
+ this->m_languages.add(this->m_defaultLanguage);
+ this->loadTranslateDirectory(ZomboidFileSystem.instance.getMediaPath("lua/shared/Translate"));
 
-    for (String string : ZomboidFileSystem.instance.getModIDs()) {
-      ChooseGameInfo.Mod mod = ChooseGameInfo.getAvailableModDetails(string);
-      if (mod != nullptr) {
-        File file = new File(mod.getDir(), "media/lua/shared/Translate");
-        if (file.isDirectory()) {
-          this.loadTranslateDirectory(file.getAbsolutePath());
-        }
-      }
-    }
-  }
+ for (String string : ZomboidFileSystem.instance.getModIDs()) {
+ ChooseGameInfo.Mod mod = ChooseGameInfo.getAvailableModDetails(string);
+ if (mod != nullptr) {
+ File file = new File(mod.getDir(), "media/lua/shared/Translate");
+ if (file.isDirectory()) {
+ this->loadTranslateDirectory(file.getAbsolutePath());
+ }
+ }
+ }
+ }
 
-  Language getDefaultLanguage() { return this.m_defaultLanguage; }
+ Language getDefaultLanguage() {
+ return this->m_defaultLanguage;
+ }
 
-  int getNumLanguages() { return this.m_languages.size(); }
+ int getNumLanguages() {
+ return this->m_languages.size();
+ }
 
-  Language getByIndex(int int0) {
-    return int0 >= 0 && int0 < this.m_languages.size()
-               ? this.m_languages.get(int0)
-               : nullptr;
-  }
+ Language getByIndex(int int0) {
+ return int0 >= 0 && int0 < this->m_languages.size() ? this->m_languages.get(int0) : nullptr;
+ }
 
-  Language getByName(const std::string &string) {
-    return PZArrayUtil.find(
-        this.m_languages,
-        Lambda.predicate(
-            string,
-            (language, stringx)->language.name().equalsIgnoreCase(stringx)));
-  }
+ Language getByName(const std::string& string) {
+ return PZArrayUtil.find(this->m_languages, Lambda.predicate(string, (language, stringx) -> language.name().equalsIgnoreCase(stringx));
+ }
 
-  int getIndexByName(const std::string &string) {
-    return PZArrayUtil.indexOf(
-        this.m_languages,
-        Lambda.predicate(
-            string,
-            (language, stringx)->language.name().equalsIgnoreCase(stringx)));
-  }
+ int getIndexByName(const std::string& string) {
+ return PZArrayUtil.indexOf(this->m_languages, Lambda.predicate(string, (language, stringx) -> language.name().equalsIgnoreCase(stringx));
+ }
 
-  void loadTranslateDirectory(const std::string &string) {
-    Filter filter = path->Files.isDirectory(path) &&
-                    Files.exists(path.resolve("language.txt"));
-    Path path0 = FileSystems.getDefault().getPath(string);
-    if (Files.exists(path0)) {
-      try(DirectoryStream directoryStream =
-              Files.newDirectoryStream(path0, filter)) {
-        for (auto &path1 : directoryStream)
-          LanguageFileData languageFileData =
-              this.loadLanguageDirectory(path1.toAbsolutePath());
-        if (languageFileData != nullptr) {
-          int int0 = this.getIndexByName(languageFileData.name);
-          if (int0 == -1) {
-            Language language0 =
-                new Language(this.m_languages.size(), languageFileData.name,
-                             languageFileData.text, languageFileData.charset,
-                             languageFileData.base, languageFileData.azerty);
-            this.m_languages.add(language0);
-          } else {
-            Language language1 =
-                new Language(int0, languageFileData.name, languageFileData.text,
-                             languageFileData.charset, languageFileData.base,
-                             languageFileData.azerty);
-            this.m_languages.set(int0, language1);
-            if (languageFileData.name == this.m_defaultLanguage.name())) {
-                                this.m_defaultLanguage = language1;
-                            }
-          }
-        }
-      }
-    }
-    catch (Exception exception) {
-      ExceptionLogger.logException(exception);
-    }
-  }
-}
+ void loadTranslateDirectory(const std::string& string) {
+ Filter filter = path -> Files.isDirectory(path) && Files.exists(path.resolve("language.txt"));
+ Path path0 = FileSystems.getDefault().getPath(string);
+ if (Files.exists(path0) {
+ try (DirectoryStream directoryStream = Files.newDirectoryStream(path0, filter) {
+ for (auto& path1 : directoryStream) LanguageFileData languageFileData = this->loadLanguageDirectory(path1.toAbsolutePath());
+ if (languageFileData != nullptr) {
+ int int0 = this->getIndexByName(languageFileData.name);
+ if (int0 == -1) {
+ Language language0 = new Language(
+ this->m_languages.size(),
+ languageFileData.name,
+ languageFileData.text,
+ languageFileData.charset,
+ languageFileData.base,
+ languageFileData.azerty
+ );
+ this->m_languages.add(language0);
+ } else {
+ Language language1 = new Language(
+ int0, languageFileData.name, languageFileData.text, languageFileData.charset, languageFileData.base, languageFileData.azerty
+ );
+ this->m_languages.set(int0, language1);
+ if (languageFileData.name == this->m_defaultLanguage.name())) {
+ this->m_defaultLanguage = language1;
+ }
+ }
+ }
+ }
+ } catch (Exception exception) {
+ ExceptionLogger.logException(exception);
+ }
+ }
+ }
 
-LanguageFileData
-loadLanguageDirectory(Path path) {
-  std::string string0 = path.getFileName().toString();
-  LanguageFileData languageFileData = new LanguageFileData();
-  languageFileData.name = string0;
-  LanguageFile languageFile = new LanguageFile();
-  std::string string1 = path.resolve("language.txt").toString();
-  return !languageFile.read(string1, languageFileData) ? nullptr
-                                                       : languageFileData;
-}
+ LanguageFileData loadLanguageDirectory(Path path) {
+ std::string string0 = path.getFileName().toString();
+ LanguageFileData languageFileData = new LanguageFileData();
+ languageFileData.name = string0;
+ LanguageFile languageFile = new LanguageFile();
+ std::string string1 = path.resolve("language.txt").toString();
+ return !languageFile.read(string1, languageFileData) ? nullptr : languageFileData;
+ }
 }
 } // namespace core
 } // namespace zombie

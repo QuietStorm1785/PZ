@@ -4,16 +4,16 @@ namespace zombie {
 namespace erosion {
 
 void ErosionGlobals::Boot(IsoSpriteManager spriteManager) {
-  // TODO: Implement Boot
+ // TODO: Implement Boot
 }
 
 new ErosionGlobals::ErosionMain() {
-  // TODO: Implement ErosionMain
-  return nullptr;
+ // TODO: Implement ErosionMain
+ return nullptr;
 }
 
 void ErosionGlobals::Reset() {
-  // TODO: Implement Reset
+ // TODO: Implement Reset
 }
 
 } // namespace erosion

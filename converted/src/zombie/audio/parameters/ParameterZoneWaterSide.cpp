@@ -4,25 +4,24 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public
-ParameterZoneWaterSide::ParameterZoneWaterSide() {
-  // TODO: Implement ParameterZoneWaterSide
-  return nullptr;
+public ParameterZoneWaterSide::ParameterZoneWaterSide() {
+ // TODO: Implement ParameterZoneWaterSide
+ return nullptr;
 }
 
 float ParameterZoneWaterSide::calculateCurrentValue() {
-  // TODO: Implement calculateCurrentValue
-  return 0;
+ // TODO: Implement calculateCurrentValue
+ return 0;
 }
 
 int ParameterZoneWaterSide::calculate(IsoGameCharacter character) {
-  // TODO: Implement calculate
-  return 0;
+ // TODO: Implement calculate
+ return 0;
 }
 
 IsoGameCharacter ParameterZoneWaterSide::getCharacter() {
-  // TODO: Implement getCharacter
-  return nullptr;
+ // TODO: Implement getCharacter
+ return nullptr;
 }
 
 } // namespace parameters
