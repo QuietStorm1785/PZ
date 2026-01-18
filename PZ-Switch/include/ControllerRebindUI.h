@@ -13,37 +13,37 @@ namespace ui {
  */
 class ControllerRebindUI : public UIElement {
 public:
-    using RebindCallback = std::function<void(const std::string& action, const std::string& buttonName)>;
+ using RebindCallback = std::function<void(const std::string& action, const std::string& buttonName)>;
 
-    explicit ControllerRebindUI(const std::string& id);
+ explicit ControllerRebindUI(const std::string& id);
 
-    // Start rebinding for an action (e.g., "interact", "attack")
-    void startRebind(const std::string& actionName);
+ // Start rebinding for an action (e.g., "interact", "attack")
+ void startRebind(const std::string& actionName);
 
-    // Cancel the current rebind
-    void cancelRebind();
+ // Cancel the current rebind
+ void cancelRebind();
 
-    // Check if actively waiting for input
-    bool isRebinding() const { return rebinding; }
+ // Check if actively waiting for input
+ bool isRebinding() const { return rebinding; }
 
-    // Set callback invoked when a button is pressed during rebind
-    void setRebindCallback(RebindCallback cb) { onRebindComplete = cb; }
+ // Set callback invoked when a button is pressed during rebind
+ void setRebindCallback(RebindCallback cb) { onRebindComplete = cb; }
 
-    // UIElement overrides
-    void render() override;
-    void handleInput(int x, int y, bool pressed) override;
-    void update(float deltaTime) override;
+ // UIElement overrides
+ void render() override;
+ void handleInput(int x, int y, bool pressed) override;
+ void update(float deltaTime) override;
 
-    // Handle controller button presses directly
-    void handleControllerButtonPress(int buttonCode);
+ // Handle controller button presses directly
+ void handleControllerButtonPress(int buttonCode);
 
 private:
-    std::string currentAction;
-    bool rebinding;
-    float rebindTimeout;
-    RebindCallback onRebindComplete;
+ std::string currentAction;
+ bool rebinding;
+ float rebindTimeout;
+ RebindCallback onRebindComplete;
 
-    std::string buttonCodeToName(int buttonCode);
+ std::string buttonCodeToName(int buttonCode);
 };
 
 } // namespace ui

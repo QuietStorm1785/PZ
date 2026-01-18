@@ -1,0 +1,6 @@
+# Large binary files
+media/binary.dat
+media/maps/Muldraugh, KY/pyramid.zip
+
+# Build artifacts
+PZ-Switch/build-switch/*.zip

@@ -1,6 +1,5 @@
+/workspaces/PZ/PZ-Switch/build/CMakeFiles/lua.dir
 /workspaces/PZ/PZ-Switch/build/CMakeFiles/ProjectZomboidCpp.dir
-/workspaces/PZ/PZ-Switch/build/CMakeFiles/test_pooling.dir
-/workspaces/PZ/PZ-Switch/build/CMakeFiles/test_streaming.dir
 /workspaces/PZ/PZ-Switch/build/CMakeFiles/edit_cache.dir
 /workspaces/PZ/PZ-Switch/build/CMakeFiles/rebuild_cache.dir
 /workspaces/PZ/PZ-Switch/build/CMakeFiles/list_install_components.dir

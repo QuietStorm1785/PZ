@@ -1,3 +1,4 @@
+/workspaces/PZ/PZ-Switch/build-switch/CMakeFiles/lua.dir
 /workspaces/PZ/PZ-Switch/build-switch/CMakeFiles/ProjectZomboidCpp.dir
 /workspaces/PZ/PZ-Switch/build-switch/CMakeFiles/edit_cache.dir
 /workspaces/PZ/PZ-Switch/build-switch/CMakeFiles/rebuild_cache.dir
