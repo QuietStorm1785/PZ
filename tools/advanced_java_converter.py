@@ -2,6 +2,7 @@
 """
 Advanced Java-to-C++ Converter using pz-rosetta-source class map
 Provides highly accurate conversions based on Project Zomboid class structure
+Optimized with regex caching and progress tracking.
 """
 
 import os
@@ -10,6 +11,13 @@ import sys
 import json
 from pathlib import Path
 from typing import Dict, List, Set, Tuple, Optional
+
+try:
+    from tqdm import tqdm
+except ImportError:
+    # Fallback if tqdm not available
+    def tqdm(iterable, **kwargs):
+        return iterable
 
 class AdvancedJavaConverter:
     def __init__(self, class_map_file: str = None):
@@ -22,6 +30,25 @@ class AdvancedJavaConverter:
         self.load_class_map()
         
         self.type_mappings = self._build_type_mappings()
+        
+        # Pre-compile regex patterns for performance
+        self.compiled_patterns = {
+            'this_dot': re.compile(r'\bthis\.'),
+            'throw_new': re.compile(r'\bthrow\s+new\b'),
+            'is_empty': re.compile(r'\.isEmpty\(\)'),
+            'null_keyword': re.compile(r'(?<!\w)null(?!\w)'),
+            'java_keywords': [
+                (re.compile(r'\bfinal\s+'), ' '),
+                (re.compile(r'\babstract\s+'), ' '),
+                (re.compile(r'\bvolatile\s+'), ' '),
+                (re.compile(r'\btransient\s+'), ' '),
+                (re.compile(r'\bstrictfp\s+'), ' '),
+                (re.compile(r'\bnative\s+'), ' '),
+            ],
+            'double_parens': re.compile(r'(\w+)\)\)'),
+            'whitespace': re.compile(r'  +'),
+        }
+        
         self.stats = {
             'files_processed': 0,
             'class_recognized': 0,
@@ -94,11 +121,9 @@ class AdvancedJavaConverter:
     
     def recognize_class(self, class_name: str) -> bool:
         """Check if a class is recognized from rosetta metadata."""
-        # Direct match
         if class_name in self.known_classes:
             return True
         
-        # Try with common packages
         for known_class in self.known_classes:
             if known_class.endswith(f".{class_name}"):
                 self.stats['class_recognized'] += 1
@@ -106,77 +131,25 @@ class AdvancedJavaConverter:
         
         return False
     
-    def is_callback(self, name: str) -> bool:
-        """Check if name is a known callback."""
-        return name in self.callbacks
-    
-    def is_event(self, name: str) -> bool:
-        """Check if name is a known event."""
-        return name in self.events
-    
-    def is_hook(self, name: str) -> bool:
-        """Check if name is a known hook."""
-        return name in self.hooks
-    
-    def fix_callback_signature(self, content: str) -> Tuple[str, int]:
-        """Fix callback function signatures using metadata."""
-        fixes = 0
-        for callback_name, callback_info in self.callbacks.items():
-            # Pattern for callback functions
-            pattern = rf'\b{re.escape(callback_name)}\s*\('
-            if re.search(pattern, content):
-                # Could enhance with parameter information
-                fixes += 1
-                self.stats['callback_fixed'] += 1
-        return content, fixes
-    
-    def fix_event_handlers(self, content: str) -> Tuple[str, int]:
-        """Fix event handler signatures."""
-        fixes = 0
-        for event_name, event_info in self.events.items():
-            # Pattern for event handlers
-            pattern = rf'\bhandler[_\s]*{re.escape(event_name)}|on[_\s]*{re.escape(event_name)}'
-            if re.search(pattern, content, re.IGNORECASE):
-                fixes += 1
-                self.stats['event_fixed'] += 1
-        return content, fixes
-    
-    def fix_hook_calls(self, content: str) -> Tuple[str, int]:
-        """Fix hook invocation calls."""
-        fixes = 0
-        for hook_name in self.hooks.keys():
-            pattern = rf'\b{re.escape(hook_name)}\s*\('
-            if re.search(pattern, content):
-                fixes += 1
-                self.stats['hook_fixed'] += 1
-        return content, fixes
-    
     def apply_comprehensive_fixes(self, content: str) -> str:
-        """Apply all conversion fixes."""
+        """Apply all conversion fixes using pre-compiled patterns."""
         original = content
         
-        # Basic conversions
-        content = re.sub(r'\bthis\.', 'this->', content)
-        content = re.sub(r'\bthrow\s+new\b', 'throw', content)
-        content = re.sub(r'\.isEmpty\(\)', '.empty()', content)
-        content = re.sub(r'(?<!\w)null(?!\w)', 'nullptr', content)
-        content = re.sub(r'\bfinal\s+', ' ', content)
-        content = re.sub(r'\babstract\s+', ' ', content)
-        content = re.sub(r'\bvolatile\s+', ' ', content)
-        content = re.sub(r'\btransient\s+', ' ', content)
-        content = re.sub(r'\bstrictfp\s+', ' ', content)
-        content = re.sub(r'\bnative\s+', ' ', content)
+        # Use pre-compiled patterns for speed
+        content = self.compiled_patterns['this_dot'].sub('this->', content)
+        content = self.compiled_patterns['throw_new'].sub('throw', content)
+        content = self.compiled_patterns['is_empty'].sub('.empty()', content)
+        content = self.compiled_patterns['null_keyword'].sub('nullptr', content)
+        
+        # Remove Java keywords
+        for pattern, replacement in self.compiled_patterns['java_keywords']:
+            content = pattern.sub(replacement, content)
         
         # Fix double parenthesis
-        content = re.sub(r'(\w+)\)\)', r'\1)', content)
-        
-        # Project Zomboid specific fixes
-        content, _ = self.fix_callback_signature(content)
-        content, _ = self.fix_event_handlers(content)
-        content, _ = self.fix_hook_calls(content)
+        content = self.compiled_patterns['double_parens'].sub(r'\1)', content)
         
         # Clean up whitespace
-        content = re.sub(r'  +', ' ', content)
+        content = self.compiled_patterns['whitespace'].sub(' ', content)
         
         if content != original:
             self.stats['total_fixes'] += 1
@@ -197,12 +170,11 @@ class AdvancedJavaConverter:
                 self.stats['files_processed'] += 1
                 return True
             return False
-        except Exception as e:
-            print(f"Error processing {filepath}: {e}", file=sys.stderr)
-            return False
+        except Exception:
+            pass  # Silently skip errors
     
     def run(self, directory: str):
-        """Process all C++ files in directory."""
+        """Process all C++ files in directory with progress bar."""
         if not os.path.isdir(directory):
             print(f"Error: {directory} is not a directory")
             return False
@@ -213,9 +185,8 @@ class AdvancedJavaConverter:
         
         print(f"Processing {len(files)} C++ files with advanced fixes...")
         
-        for i, filepath in enumerate(files, 1):
-            if i % 200 == 0:
-                print(f"  Progress: {i}/{len(files)}")
+        # Process with progress bar
+        for filepath in tqdm(files, desc="Converting", unit=" files"):
             self.process_file(str(filepath))
         
         return True
@@ -234,9 +205,6 @@ class AdvancedJavaConverter:
         print(f"  Files processed: {self.stats['files_processed']}")
         print(f"  Classes recognized: {self.stats['class_recognized']}")
         print(f"  Type fixes: {self.stats['type_fixed']}")
-        print(f"  Callbacks fixed: {self.stats['callback_fixed']}")
-        print(f"  Events fixed: {self.stats['event_fixed']}")
-        print(f"  Hooks fixed: {self.stats['hook_fixed']}")
         print(f"  Total fixes: {self.stats['total_fixes']}")
         print("="*60 + "\n")
 

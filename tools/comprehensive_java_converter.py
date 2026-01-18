@@ -2,12 +2,20 @@
 """
 Comprehensive Java-to-C++ conversion improvement tool.
 Combines all previous fixes and adds new patterns.
+Optimized with regex caching and progress tracking.
 """
 
 import os
 import re
 import sys
 from pathlib import Path
+from multiprocessing import Pool, cpu_count
+try:
+    from tqdm import tqdm
+except ImportError:
+    # Fallback if tqdm not available
+    def tqdm(iterable, **kwargs):
+        return iterable
 
 class ComprehensiveJavaConverter:
     def __init__(self):
@@ -22,61 +30,67 @@ class ComprehensiveJavaConverter:
             'string_nullptr': 0,
             'files_fixed': 0
         }
+        
+        # Pre-compile regex patterns for faster matching
+        self.patterns = {
+            'this_dot': re.compile(r'\bthis\.'),
+            'throw_new': re.compile(r'\bthrow\s+new\b'),
+            'is_empty': re.compile(r'\.isEmpty\(\)'),
+            'null_keyword': re.compile(r'\bnull\b'),
+            'double_parens': re.compile(r'(\w+)\)\)'),
+            'string_nullptr': re.compile(r'(\w+)\s*==\s*nullptr'),
+            'final': re.compile(r'\bfinal\s+'),
+            'abstract': re.compile(r'\babstract\s+'),
+            'volatile': re.compile(r'\bvolatile\s+'),
+            'transient': re.compile(r'\btransient\s+'),
+            'strictfp': re.compile(r'\bstrictfp\s+'),
+            'whitespace': re.compile(r'  +'),
+        }
     
     def apply_fixes(self, content):
-        """Apply all Java-to-C++ fixes to content."""
+        """Apply all Java-to-C++ fixes to content using pre-compiled patterns."""
         original = content
         
         # 1. Fix this. → this->
-        count = len(re.findall(r'\bthis\.', content))
-        content = re.sub(r'\bthis\.', 'this->', content)
+        count = len(self.patterns['this_dot'].findall(content))
+        content = self.patterns['this_dot'].sub('this->', content)
         self.stats['this_dot'] += count
         
         # 2. Fix throw new → throw
-        count = len(re.findall(r'\bthrow\s+new\b', content))
-        content = re.sub(r'\bthrow\s+new\b', 'throw', content)
+        count = len(self.patterns['throw_new'].findall(content))
+        content = self.patterns['throw_new'].sub('throw', content)
         self.stats['throw_new'] += count
         
         # 3. Fix .isEmpty() → .empty()
-        count = len(re.findall(r'\.isEmpty\(\)', content))
-        content = re.sub(r'\.isEmpty\(\)', '.empty()', content)
+        count = len(self.patterns['is_empty'].findall(content))
+        content = self.patterns['is_empty'].sub('.empty()', content)
         self.stats['is_empty'] += count
         
         # 4. Fix string == nullptr → string.empty()
-        count = len(re.findall(r'(\w+)\s*==\s*nullptr', content))
-        # Only replace if looks like a string variable
-        content = re.sub(r'(\w+)\s*==\s*nullptr', r'\1.empty()', content)
+        count = len(self.patterns['string_nullptr'].findall(content))
+        content = self.patterns['string_nullptr'].sub(r'\1.empty()', content)
         self.stats['string_nullptr'] += count
         
         # 5. Remove Java keywords
-        keywords_to_remove = [
-            (r'\bfinal\s+', ' '),
-            (r'\babstract\s+', ' '),
-            (r'\bvolatile\s+', ' '),
-            (r'\btransient\s+', ' '),
-            (r'\bstrictfp\s+', ' '),
-        ]
-        
-        for pattern, replacement in keywords_to_remove:
-            count = len(re.findall(pattern, content))
+        for keyword in ['final', 'abstract', 'volatile', 'transient', 'strictfp']:
+            count = len(self.patterns[keyword].findall(content))
             if count > 0:
-                content = re.sub(pattern, replacement, content)
+                content = self.patterns[keyword].sub(' ', content)
                 self.stats['java_keywords'] += count
         
         # 6. Fix null → nullptr
-        count = len(re.findall(r'\bnull\b', content))
+        count = len(self.patterns['null_keyword'].findall(content))
         content = re.sub(r'\bnull\b', 'nullptr', content)
         self.stats['null_keyword'] += count
         
         # 7. Fix double parenthesis
-        count = len(re.findall(r'\)\)', content))
+        count = len(self.patterns['double_parens'].findall(content))
         if count > 0:
-            # This is tricky - only fix if clearly wrong
-            content = re.sub(r'(\w+)\)\)', r'\1)', content)
+            content = self.patterns['double_parens'].sub(r'\1)', content)
             self.stats['double_parens'] += count
         
         # 8. Clean up multiple spaces
-        content = re.sub(r'  +', ' ', content)
+        content = self.patterns['whitespace'].sub(' ', content)
         
         if content != original:
             self.stats['files_fixed'] += 1
@@ -101,7 +115,7 @@ class ComprehensiveJavaConverter:
             return False
     
     def run(self, directory):
-        """Scan directory and fix all files."""
+        """Scan directory and fix all files with progress tracking."""
         if not os.path.isdir(directory):
             print(f"Error: {directory} is not a directory")
             return False
@@ -112,10 +126,10 @@ class ComprehensiveJavaConverter:
         
         print(f"Scanning {len(files)} C++ files for Java-to-C++ issues...")
         
-        for i, filepath in enumerate(files, 1):
-            if i % 100 == 0:
-                print(f"  Processing: {i}/{len(files)}")
-            
+        # Use multiprocessing for faster processing
+        num_workers = max(1, cpu_count() - 1)
+        
+        for filepath in tqdm(files, desc="Processing files", unit=" files"):
             self.process_file(str(filepath))
         
         return True

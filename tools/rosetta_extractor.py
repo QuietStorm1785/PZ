@@ -2,6 +2,7 @@
 """
 Project Zomboid Rosetta Metadata Extractor
 Extracts class hierarchy, fields, methods, and documentation from pz-rosetta-source
+Optimized with progress tracking and efficient parsing.
 """
 
 import os
@@ -11,6 +12,13 @@ import json
 from pathlib import Path
 from typing import Dict, List, Set, Optional, Any
 from collections import defaultdict
+
+try:
+    from tqdm import tqdm
+except ImportError:
+    # Fallback if tqdm not available
+    def tqdm(iterable, **kwargs):
+        return iterable
 
 class RosettaMetadataExtractor:
     def __init__(self, rosetta_base: str = None):
@@ -35,13 +43,13 @@ class RosettaMetadataExtractor:
         yml_files = list(Path(self.rosetta_base).rglob("*.yml"))
         print(f"Loading {len(yml_files)} Java class documentation files...")
         
-        for yml_file in yml_files:
+        for yml_file in tqdm(yml_files, desc="Loading classes", unit=" files"):
             try:
                 with open(yml_file, 'r', encoding='utf-8') as f:
                     data = yaml.safe_load(f)
                     if data and 'languages' in data and 'java' in data['languages']:
                         self._extract_java_classes(data['languages']['java'], str(yml_file))
-            except Exception as e:
+            except Exception:
                 pass
     
     def _extract_java_classes(self, java_data: Dict, source_file: str):
