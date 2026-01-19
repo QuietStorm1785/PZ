@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ private
  List<RadioScriptEntry> scriptEntries = std::make_unique<ArrayList<>>();
 
 public
- ExitOptionOld(const std::string &string0, const std::string &string1) {
+ ExitOptionOld(std::string_view string0, std::string_view string1) {
  this->parentScript = string0 != nullptr ? string0 : "Noname";
  this->name = string1 != nullptr ? string1 : "Noname";
  }

@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,11 +30,11 @@ public
  EventSound() { this("Unnamed"); }
 
 public
- EventSound(const std::string &_name) { this->name = _name; }
+ EventSound(std::string_view _name) { this->name = _name; }
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  Color getColor() { return this->color; }
 

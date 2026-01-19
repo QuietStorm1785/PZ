@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -24,7 +25,7 @@ class PredicatedFileWatcher {
       this.m_callback = var2;
    }
 
-    void call(const std::string& var1) {
+    void call(std::string_view var1) {
     void* var2;
       try {
          var2 = PZXmlUtil.parse(this.m_class, var1);

@@ -43,6 +43,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -131,7 +132,7 @@ public
  }
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  if ("swapItem" == change) {
  if (this->getItem() == nullptr) {
  return;
@@ -148,7 +149,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  if ("swapItem" == change) {
  try {
  InventoryItem itemx = InventoryItem.loadItem(bb, 195);

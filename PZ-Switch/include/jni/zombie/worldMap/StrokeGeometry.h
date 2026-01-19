@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -177,7 +178,7 @@ class StrokeGeometry {
       }
    }
 
-    static void createTriangles(Point var0, Point var1, Point var2, ArrayList<Point> var3, float var4, const std::string& var5, float var6) {
+    static void createTriangles(Point var0, Point var1, Point var2, ArrayList<Point> var3, float var4, std::string_view var5, float var6) {
     Point var7 = Point.Sub(var1, var0);
     Point var8 = Point.Sub(var2, var1);
       var7.perpendicular();

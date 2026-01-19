@@ -151,7 +151,7 @@ public
  /**
  * Pack list to its minimum size.
  */
- void trimToSize() {
+ void trimToSize() noexcept{
  if (this->count != this->value.length) {
  short[] shorts = this->value;
  this->value = new short[this->count];

@@ -92,6 +92,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -241,8 +242,8 @@ private
  }
  }
 
- void loadAdditionalModel(const std::string &meshName, const std::string &tex,
- bool bStatic, const std::string &shaderName) {
+ void loadAdditionalModel(std::string_view meshName, std::string_view tex,
+ bool bStatic, std::string_view shaderName) {
  bool boolean0 = this->bCreateSoftwareMeshes;
  if (DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.debugln("createSoftwareMesh: %B, model: %s", boolean0,
@@ -261,11 +262,11 @@ private
  }
  }
 
- ModelInstance newAdditionalModelInstance(const std::string &meshName,
- const std::string &tex,
+ ModelInstance newAdditionalModelInstance(std::string_view meshName,
+ std::string_view tex,
  IsoGameCharacter chr,
  AnimationPlayer animPlayer,
- const std::string &shaderName) {
+ std::string_view shaderName) {
  Model model =
  this->tryGetLoadedModel(meshName, tex, false, shaderName, false);
  if (model.empty()) {
@@ -277,7 +278,7 @@ private
  return this->newInstance(model, chr, animPlayer);
  }
 
- void loadAnimsFromDir(const std::string &string, ModelMesh modelMesh) {
+ void loadAnimsFromDir(std::string_view string, ModelMesh modelMesh) {
  File file = new File(ZomboidFileSystem.instance.base, string);
  this->loadAnimsFromDir(ZomboidFileSystem.instance.baseURI,
  ZomboidFileSystem.instance.getMediaRootFile().toURI(),
@@ -1317,10 +1318,10 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
 
  ModelInstance addStatic(ModelManager.ModelSlot slot,
- const std::string &meshName,
- const std::string &texName,
- const std::string &boneName,
- const std::string &shaderName) {
+ std::string_view meshName,
+ std::string_view texName,
+ std::string_view boneName,
+ std::string_view shaderName) {
  ModelInstance modelInstance =
  this->newStaticInstance(slot, meshName, texName, boneName, shaderName);
  if (modelInstance.empty()) {
@@ -1334,10 +1335,10 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
 
  ModelInstance newStaticInstance(ModelManager.ModelSlot slot,
- const std::string &meshName,
- const std::string &texName,
- const std::string &boneName,
- const std::string &shaderName) {
+ std::string_view meshName,
+ std::string_view texName,
+ std::string_view boneName,
+ std::string_view shaderName) {
  if (DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.debugln("Adding Static Model:" + meshName);
  }
@@ -1377,15 +1378,15 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
 
  ModelInstance addStatic(ModelManager.ModelSlot modelSlot,
- const std::string &string0,
- const std::string &string1) {
+ std::string_view string0,
+ std::string_view string1) {
  return this->addStaticForcedTex(modelSlot, string0, string1, nullptr);
  }
 
  ModelInstance addStaticForcedTex(ModelManager.ModelSlot modelSlot,
- const std::string &string1,
- const std::string &string5,
- const std::string &string4) {
+ std::string_view string1,
+ std::string_view string5,
+ std::string_view string4) {
  std::string string0 = ScriptManager.getItemName(string1);
  std::string string2 = ScriptManager.getItemName(string1);
  std::string string3 = nullptr;
@@ -1426,18 +1427,18 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
 
  ModelInstance addStatic(ModelInstance parentInst,
- const std::string &modelName,
- const std::string &attachNameSelf,
- const std::string &attachNameParent) {
+ std::string_view modelName,
+ std::string_view attachNameSelf,
+ std::string_view attachNameParent) {
  return this->addStaticForcedTex(parentInst, modelName, attachNameSelf,
  attachNameParent, nullptr);
  }
 
  ModelInstance addStaticForcedTex(ModelInstance parentInst,
- const std::string &modelName,
- const std::string &attachNameSelf,
- const std::string &attachNameParent,
- const std::string &forcedTex) {
+ std::string_view modelName,
+ std::string_view attachNameSelf,
+ std::string_view attachNameParent,
+ std::string_view forcedTex) {
  std::string string0 = ScriptManager.getItemName(modelName);
  std::string string1 = ScriptManager.getItemName(modelName);
  std::string string2 = nullptr;
@@ -1497,7 +1498,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- std::string modifyShaderName(const std::string &string) {
+ std::string modifyShaderName(std::string_view string) {
  if ((StringUtils == string, "vehicle") || StringUtils == string,
  "vehicle_multiuv") || StringUtils == string, "vehicle_norandom_multiuv"))
  && !Core.getInstance().getPerfReflectionsOnLoad()) {
@@ -1507,9 +1508,9 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  return string;
  }
 
- Model loadModelInternal(const std::string &string1,
- const std::string &string2,
- const std::string &string0, ModelMesh modelMesh,
+ Model loadModelInternal(std::string_view string1,
+ std::string_view string2,
+ std::string_view string0, ModelMesh modelMesh,
  bool boolean0) {
  string0 = this->modifyShaderName(string0);
  Model.ModelAssetParams modelAssetParams = new Model.ModelAssetParams();
@@ -1545,16 +1546,16 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  return int0 | 128;
  }
 
- void setModelMetaData(const std::string &meshName,
- const std::string &texName,
- const std::string &shaderName, bool bStatic) {
+ void setModelMetaData(std::string_view meshName,
+ std::string_view texName,
+ std::string_view shaderName, bool bStatic) {
  this->setModelMetaData(meshName, meshName, texName, shaderName, bStatic);
  }
 
- void setModelMetaData(const std::string &modelId,
- const std::string &meshName,
- const std::string &texName,
- const std::string &shaderName, bool bStatic) {
+ void setModelMetaData(std::string_view modelId,
+ std::string_view meshName,
+ std::string_view texName,
+ std::string_view shaderName, bool bStatic) {
  ModelManager.ModelMetaData modelMetaDatax =
  new ModelManager.ModelMetaData();
  modelMetaDatax.meshName = meshName;
@@ -1564,19 +1565,19 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  modelMetaData.put(modelId, modelMetaDatax);
  }
 
- Model loadStaticModel(const std::string &meshName, const std::string &tex,
- const std::string &shaderName) {
+ Model loadStaticModel(std::string_view meshName, std::string_view tex,
+ std::string_view shaderName) {
  std::string string = this->modifyShaderName(shaderName);
  return this->loadModelInternal(meshName, tex, string, nullptr, true);
  }
 
- Model loadModel(const std::string &string0, const std::string &string1,
+ Model loadModel(std::string_view string0, std::string_view string1,
  ModelMesh modelMesh) {
  return this->loadModelInternal(string0, string1, "basicEffect", modelMesh,
  false);
  }
 
- Model getLoadedModel(const std::string &meshName) {
+ Model getLoadedModel(std::string_view meshName) {
  ModelScript modelScript = ScriptManager.instance.getModelScript(meshName);
  if (modelScript != nullptr) {
  if (modelScript.loadedModel != nullptr) {
@@ -1663,13 +1664,13 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- Model getLoadedModel(const std::string &meshName, const std::string &tex,
- bool isStatic, const std::string &shaderName) {
+ Model getLoadedModel(std::string_view meshName, std::string_view tex,
+ bool isStatic, std::string_view shaderName) {
  return this->tryGetLoadedModel(meshName, tex, isStatic, shaderName, true);
  }
 
- Model tryGetLoadedModel(const std::string &meshName, const std::string &tex,
- bool isStatic, const std::string &shaderName,
+ Model tryGetLoadedModel(std::string_view meshName, std::string_view tex,
+ bool isStatic, std::string_view shaderName,
  bool logError) {
  std::string string =
  this->createModelKey(meshName, tex, isStatic, shaderName);
@@ -1688,8 +1689,8 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- void putLoadedModel(const std::string &name, const std::string &tex,
- bool isStatic, const std::string &shaderName,
+ void putLoadedModel(std::string_view name, std::string_view tex,
+ bool isStatic, std::string_view shaderName,
  Model model) {
  std::string string = this->createModelKey(name, tex, isStatic, shaderName);
  if (string != nullptr) {
@@ -1708,9 +1709,9 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- std::string createModelKey(const std::string &string0,
- const std::string &string2, bool boolean0,
- const std::string &string1) {
+ std::string createModelKey(std::string_view string0,
+ std::string_view string2, bool boolean0,
+ std::string_view string1) {
  builder.delete(0, builder.length());
  if (string0.empty()) {
  return nullptr;
@@ -1749,9 +1750,9 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- std::string createModelKey2(const std::string &string0,
- const std::string &string3, bool boolean0,
- const std::string &string1) {
+ std::string createModelKey2(std::string_view string0,
+ std::string_view string3, bool boolean0,
+ std::string_view string1) {
  if (string0.empty()) {
  return nullptr;
  } else {
@@ -1773,7 +1774,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- AnimationAsset loadAnim(const std::string &string, ModelMesh modelMesh,
+ AnimationAsset loadAnim(std::string_view string, ModelMesh modelMesh,
  ModelManager.ModAnimations modAnimations) {
  DebugLog.Animation.debugln("Adding asset to queue: %s", string);
  AnimationAsset.AnimationAssetParams animationAssetParams =
@@ -1787,7 +1788,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  return animationAsset;
  }
 
- void putAnimationAsset(const std::string &string1,
+ void putAnimationAsset(std::string_view string1,
  AnimationAsset animationAsset1,
  ModelManager.ModAnimations modAnimations) {
  std::string string0 = string1.toLowerCase();
@@ -1817,12 +1818,12 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- AnimationAsset getAnimationAsset(const std::string &string1) {
+ AnimationAsset getAnimationAsset(std::string_view string1) {
  std::string string0 = string1.toLowerCase(Locale.ENGLISH);
  return this->m_animationAssets.get(string0);
  }
 
- AnimationAsset getAnimationAssetRequired(const std::string &string) {
+ AnimationAsset getAnimationAssetRequired(std::string_view string) {
  AnimationAsset animationAsset = this->getAnimationAsset(string);
  if (animationAsset.empty()) {
  throw NullPointerException("Required Animation Asset not found: " +
@@ -1832,11 +1833,11 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- void addAnimationClip(const std::string &name, AnimationClip clip) {
+ void addAnimationClip(std::string_view name, AnimationClip clip) {
  this->m_animModel.skinningData.AnimationClips.put(name, clip);
  }
 
- AnimationClip getAnimationClip(const std::string &name) {
+ AnimationClip getAnimationClip(std::string_view name) {
  return this->m_animModel.skinningData.AnimationClips.get(name);
  }
 
@@ -1867,7 +1868,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  return false;
  }
 
- void reloadModelsMatching(const std::string &meshName) {
+ void reloadModelsMatching(std::string_view meshName) {
  meshName = meshName.toLowerCase(Locale.ENGLISH);
 
  for (String string : this->m_modelMap.keySet()) {
@@ -2072,7 +2073,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- bool isAnimationsMeshDirectory(const std::string &string) {
+ bool isAnimationsMeshDirectory(std::string_view string) {
  for (AnimationsMesh animationsMesh :
  ScriptManager.instance.getAllAnimationsMeshes()) {
  if (animationsMesh.animationDirectories.contains(string) {
@@ -2095,7 +2096,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  ModelManager.ModAnimations m_modAnimations;
 
  public
- AnimDirReloader(URI uri0, URI uri1, const std::string &string,
+ AnimDirReloader(URI uri0, URI uri1, std::string_view string,
  ModelMesh modelMesh,
  ModelManager.ModAnimations modAnimations) {
  string = ZomboidFileSystem.instance.getRelativeFile(uri0, string);
@@ -2116,7 +2117,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  this->m_modAnimations = modAnimations;
  }
 
- bool IsInDir(const std::string &string) {
+ bool IsInDir(std::string_view string) {
  string = ZomboidFileSystem.instance.normalizeFolderPath(string);
 
  try {
@@ -2130,7 +2131,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  }
  }
 
- void call(const std::string &string1) {
+ void call(std::string_view string1) {
  std::string string0 = string1.toLowerCase();
  if (string0.endsWith(".fbx") || string0.endsWith(".x") ||
  string0.endsWith(".txt")) {
@@ -2176,7 +2177,7 @@ void ResetEquippedNextFrame(IsoGameCharacter isoGameCharacter) {
  int m_priority;
 
  public
- ModAnimations(const std::string &modID) { this->m_modID = modID; }
+ ModAnimations(std::string_view modID) { this->m_modID = modID; }
 
  void setPriority(int priority) {
  assert priority >= -1;

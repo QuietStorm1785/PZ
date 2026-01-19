@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -19,7 +20,7 @@ class WorldMapImages {
     std::string m_directory;
     ImagePyramid m_pyramid;
 
-    static WorldMapImages getOrCreate(const std::string& var0) {
+    static WorldMapImages getOrCreate(std::string_view var0) {
     std::string var1 = ZomboidFileSystem.instance.getString(var0 + "/pyramid.zip");
       if (!Files.exists(Paths.get(var1))) {
     return nullptr;

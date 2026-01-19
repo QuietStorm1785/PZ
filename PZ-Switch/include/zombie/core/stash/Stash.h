@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,7 +41,7 @@ public
  int barricades;
 
 public
- Stash(const std::string &_name) { this->name = _name; }
+ Stash(std::string_view _name) { this->name = _name; }
 
  void load(KahluaTableImpl stashDesc) {
  this->type = stashDesc.rawgetStr("type");

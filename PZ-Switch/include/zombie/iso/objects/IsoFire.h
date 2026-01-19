@@ -29,6 +29,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -725,7 +726,7 @@ public
  super.removeFromWorld();
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  super.saveChange(change, tbl, bb);
  if ("Energy" == change) {
  bb.putInt(this->Energy);
@@ -735,7 +736,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  super.loadChange(change, bb);
  if ("Energy" == change) {
  this->Energy = bb.getInt();

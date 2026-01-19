@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -534,7 +535,7 @@ public
  return 1;
  }
 
- void append(StringBuilder stringBuilder, const std::string &string, int int1,
+ void append(StringBuilder stringBuilder, std::string_view string, int int1,
  int int2) {
  for (int int0 = int1; int0 < int2; int0++) {
  stringBuilder.append(string.charAt(int0);
@@ -696,7 +697,7 @@ public
  }
 
  std::string getStringArg(LuaCallFrame luaCallFrame, int int0,
- const std::string &string) {
+ std::string_view string) {
  return KahluaUtil.getStringArg(luaCallFrame, int0, string);
  }
 
@@ -705,7 +706,7 @@ public
  }
 
  double getDoubleArg(LuaCallFrame luaCallFrame, int int0,
- const std::string &string) {
+ std::string_view string) {
  return KahluaUtil.getNumberArg(luaCallFrame, int0, string);
  }
 
@@ -896,7 +897,7 @@ private
  return int0;
  }
 
- static bool noSpecialChars(const std::string &string) {
+ static bool noSpecialChars(std::string_view string) {
  for (int int0 = 0; int0 < string.length(); int0++) {
  char char0 = string.charAt(int0);
  if (char0 < 256 && SPECIALS[char0]) {
@@ -1660,10 +1661,10 @@ public
  int index = 0;
 
  public
- StringPointer(const std::string &stringx) { this->string = stringx; }
+ StringPointer(std::string_view stringx) { this->string = stringx; }
 
  public
- StringPointer(const std::string &stringx, int int0) {
+ StringPointer(std::string_view stringx, int int0) {
  this->string = stringx;
  this->index = int0;
  }

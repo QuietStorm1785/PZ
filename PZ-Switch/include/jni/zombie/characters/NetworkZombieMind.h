@@ -75,7 +75,7 @@ class NetworkZombieMind {
       }
    }
 
-    void restorePFBTarget() {
+    void restorePFBTarget() noexcept{
       this.shouldRestorePFBTarget = true;
    }
 
@@ -86,7 +86,7 @@ class NetworkZombieMind {
       }
    }
 
-    void doRestorePFBTarget() {
+    void doRestorePFBTarget() noexcept{
       if (!this.pfbIsCanceled) {
          if (this.pfbType == 1 && this.pfbTargetCharacter != nullptr) {
             this.zombie.pathToCharacter(this.pfbTargetCharacter);

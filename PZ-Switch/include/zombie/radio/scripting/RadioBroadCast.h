@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,7 +32,7 @@ private
  bool hasDonePostPause = false;
 
 public
- RadioBroadCast(const std::string &id, int startstamp, int endstamp) {
+ RadioBroadCast(std::string_view id, int startstamp, int endstamp) {
  this->ID = id;
  this->startStamp = startstamp;
  this->endStamp = endstamp;
@@ -43,7 +44,7 @@ public
 
  int getEndStamp() { return this->endStamp; }
 
- void resetLineCounter() { this->resetLineCounter(true); }
+ void resetLineCounter() noexcept{ this->resetLineCounter(true); }
 
  void resetLineCounter(bool doChildren) {
  this->lineCount = 0;

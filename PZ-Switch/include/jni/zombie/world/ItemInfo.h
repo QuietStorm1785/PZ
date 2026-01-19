@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -156,7 +157,7 @@ class ItemInfo {
          + ",";
    }
 
-    void saveAsText(FileWriter var1, const std::string& var2) {
+    void saveAsText(FileWriter var1, std::string_view var2) {
       var1.write(var2 + "registryID = " + this.registryID + "," + System.lineSeparator());
       var1.write(var2 + "fulltype = \"" + this.fullType + "\"," + System.lineSeparator());
       var1.write(var2 + "modID = \"" + this.modID + "\"," + System.lineSeparator());

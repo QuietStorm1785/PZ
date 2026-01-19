@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ public
 
  static void init() {}
 
- static void setMutualExclusive(const std::string &a, const std::string &b) {
+ static void setMutualExclusive(std::string_view a, std::string_view b) {
  TraitMap.get(a).MutuallyExclusive.add(b);
  TraitMap.get(b).MutuallyExclusive.add(a);
  }
@@ -120,8 +121,8 @@ public
  }
 
  public
- Trait(const std::string &tr, const std::string &_name, int _cost,
- const std::string &desc, bool _prof, bool _removeInMP) {
+ Trait(std::string_view tr, std::string_view _name, int _cost,
+ std::string_view desc, bool _prof, bool _removeInMP) {
  this->traitID = tr;
  this->name = _name;
  this->cost = _cost;
@@ -172,7 +173,7 @@ public
 
  std::string getDescription() { return this->description; }
 
- void setDescription(const std::string &desc) {
+ void setDescription(std::string_view desc) {
  this->description = desc;
  }
 

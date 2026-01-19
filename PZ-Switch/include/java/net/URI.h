@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <stdexcept>
 
 namespace java {
@@ -13,13 +14,13 @@ class URI {
 public:
  URI() = default;
  
- explicit URI(const std::string& uriString) 
+ explicit URI(std::string_view uriString) 
  : uri(uriString) {}
  
- URI(const std::string& scheme, const std::string& path)
+ URI(std::string_view scheme, std::string_view path)
  : uri(scheme + ":" + path) {}
  
- URI(const std::string& scheme, const std::string& host, const std::string& path)
+ URI(std::string_view scheme, std::string_view host, std::string_view path)
  : uri(scheme + "://" + host + path) {}
  
  // Copy and move constructors
@@ -105,7 +106,7 @@ public:
  }
  
  // Static factory method
- static URI create(const std::string& uriString) {
+ static URI create(std::string_view uriString) {
  return URI(uriString);
  }
  

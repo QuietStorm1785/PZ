@@ -142,6 +142,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -438,8 +439,8 @@ public
  }
  }
 
- static void copyWorld(const std::string &string1,
- const std::string &string3) {
+ static void copyWorld(std::string_view string1,
+ std::string_view string3) {
  std::string string0 = ZomboidFileSystem.instance.getGameModeCacheDir() +
  File.separator + string1 + File.separator;
  string0 = string0.replace("/", File.separator);
@@ -494,7 +495,7 @@ public
  }
  }
 
- static void createWorld(const std::string &string0) {
+ static void createWorld(std::string_view string0) {
  string0 = string0.replace(" ", "_").trim();
  std::string string1 = ZomboidFileSystem.instance.getGameModeCacheDir() +
  File.separator + string0 + File.separator;

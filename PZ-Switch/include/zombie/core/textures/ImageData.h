@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -69,7 +70,7 @@ public
  }
 
 public
- ImageData(const std::string &path) {
+ ImageData(std::string_view path) {
  if (path.contains(".txt")) {
  path = path.replace(".txt", ".png");
  }
@@ -373,7 +374,7 @@ public
 
  int getWidthHW() { return this->widthHW; }
 
- int getMipMapCount() {
+ int getMipMapCount() noexcept{
  if (this->data.empty()) {
  return 0;
  } else {

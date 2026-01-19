@@ -255,6 +255,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -969,7 +970,7 @@ public:
  /**
  * The desired twist, unclamped, in degrees.
  */
- float getTargetTwist() {
+ float getTargetTwist() noexcept{
  return this->m_animPlayer != nullptr
  ? (180.0F / (float)Math.PI) *
  this->m_animPlayer.getTargetTwistAngle()
@@ -1319,7 +1320,7 @@ public:
  *
  * @param itemGuid The item's Globally Unique Identifier (GUID).
  */
- void clothingItemChanged(const std::string &itemGuid) {
+ void clothingItemChanged(std::string_view itemGuid) {
  if (this->wornItems != nullptr) {
  for (int int0 = 0; int0 < this->wornItems.size(); int0++) {
  InventoryItem item = this->wornItems.getItemByIndex(int0);
@@ -1403,9 +1404,9 @@ public:
  }
  }
 
- void dressInNamedOutfit(const std::string &outfitName) {}
+ void dressInNamedOutfit(std::string_view outfitName) {}
 
- void dressInPersistentOutfit(const std::string &outfitName) {
+ void dressInPersistentOutfit(std::string_view outfitName) {
  int int0 =
  PersistentOutfits.instance.pickOutfit(outfitName, this->isFemale());
  this->dressInPersistentOutfitID(int0);
@@ -1423,7 +1424,7 @@ public:
  }
  }
 
- void dressInClothingItem(const std::string &itemGUID) {}
+ void dressInClothingItem(std::string_view itemGUID) {}
 
  Outfit getRandomDefaultOutfit() {
  IsoGridSquare square = this->getCurrentSquare();
@@ -1443,7 +1444,7 @@ public:
  return this->legsSprite != nullptr && this->legsSprite.hasActiveModel();
  }
 
- bool hasItems(const std::string &type, int count) {
+ bool hasItems(std::string_view type, int count) {
  int int0 = this->inventory.getItemCount(type);
  return count <= int0;
  }
@@ -1888,7 +1889,7 @@ public:
  /**
  * @return the FollowingTarget
  */
- IsoGameCharacter getFollowingTarget() { return this->FollowingTarget; }
+ IsoGameCharacter getFollowingTarget() noexcept{ return this->FollowingTarget; }
 
  /**
  *
@@ -2039,7 +2040,7 @@ public:
  /**
  * @return the DieCount
  */
- int getDieCount() { return this->DieCount; }
+ int getDieCount() noexcept{ return this->DieCount; }
 
  /**
  *
@@ -2536,7 +2537,7 @@ public:
  *
  * @param _hurtSound the hurtSound to set
  */
- void setHurtSound(const std::string &_hurtSound) {
+ void setHurtSound(std::string_view _hurtSound) {
  this->hurtSound = _hurtSound;
  }
 
@@ -2560,7 +2561,7 @@ public:
  this->inventory.setExplored(true);
  }
 
- bool isPrimaryEquipped(const std::string &item) {
+ bool isPrimaryEquipped(std::string_view item) {
  return this->leftHandItem.empty() ? false : this->leftHandItem.getFullType() == item) || this->leftHandItem.getType() == item);
  }
 
@@ -2603,7 +2604,7 @@ public:
  }
  }
 
- void initWornItems(const std::string &bodyLocationGroupName) {
+ void initWornItems(std::string_view bodyLocationGroupName) {
  BodyLocationGroup bodyLocationGroup =
  BodyLocations.getGroup(bodyLocationGroupName);
  this->wornItems = new WornItems(bodyLocationGroup);
@@ -2615,15 +2616,15 @@ public:
  this->wornItems = new WornItems(other);
  }
 
- InventoryItem getWornItem(const std::string &location) {
+ InventoryItem getWornItem(std::string_view location) {
  return this->wornItems.getItem(location);
  }
 
- void setWornItem(const std::string &location, InventoryItem item) {
+ void setWornItem(std::string_view location, InventoryItem item) {
  this->setWornItem(location, item, true);
  }
 
- void setWornItem(const std::string &location, InventoryItem item,
+ void setWornItem(std::string_view location, InventoryItem item,
  bool forceDropTooHeavy) {
  InventoryItem _item = this->wornItems.getItem(location);
  if (item != _item) {
@@ -2695,7 +2696,7 @@ public:
 
  void onWornItemsChanged() {}
 
- void initAttachedItems(const std::string &groupName) {
+ void initAttachedItems(std::string_view groupName) {
  AttachedLocationGroup attachedLocationGroup =
  AttachedLocations.getGroup(groupName);
  this->attachedItems = new AttachedItems(attachedLocationGroup);
@@ -2707,11 +2708,11 @@ public:
  this->attachedItems = new AttachedItems(other);
  }
 
- InventoryItem getAttachedItem(const std::string &location) {
+ InventoryItem getAttachedItem(std::string_view location) {
  return this->attachedItems.getItem(location);
  }
 
- void setAttachedItem(const std::string &location, InventoryItem item) {
+ void setAttachedItem(std::string_view location, InventoryItem item) {
  InventoryItem _item = this->attachedItems.getItem(location);
  IsoCell cell = IsoWorld.instance.CurrentCell;
  if (_item != nullptr && cell != nullptr) {
@@ -2881,21 +2882,21 @@ public:
  /**
  * @return the PathTargetX
  */
- int getPathTargetX() {
+ int getPathTargetX() noexcept{
  return (int)this->getPathFindBehavior2().getTargetX();
  }
 
  /**
  * @return the PathTargetY
  */
- int getPathTargetY() {
+ int getPathTargetY() noexcept{
  return (int)this->getPathFindBehavior2().getTargetY();
  }
 
  /**
  * @return the PathTargetZ
  */
- int getPathTargetZ() {
+ int getPathTargetZ() noexcept{
  return (int)this->getPathFindBehavior2().getTargetZ();
  }
 
@@ -3092,7 +3093,7 @@ public:
  /**
  * @return the attackTargetSquare
  */
- IsoGridSquare getAttackTargetSquare() { return this->attackTargetSquare; }
+ IsoGridSquare getAttackTargetSquare() noexcept{ return this->attackTargetSquare; }
 
  /**
  *
@@ -4285,7 +4286,7 @@ public:
  this->stats.Anger += amount / 100.0F;
  }
 
- bool hasEquipped(const std::string &itemType) {
+ bool hasEquipped(std::string_view itemType) {
  if (itemType.contains(".")) {
  itemType = itemType.split("\\.")[1];
  }
@@ -4295,7 +4296,7 @@ public:
  : this->rightHandItem != nullptr && this->rightHandItem.getType() == itemType);
  }
 
- bool hasEquippedTag(const std::string &tag) {
+ bool hasEquippedTag(std::string_view tag) {
  return this->leftHandItem != nullptr && this->leftHandItem.hasTag(tag)
  ? true
  : this->rightHandItem != nullptr &&
@@ -4641,7 +4642,7 @@ public:
  this->bUseParts = true;
  }
 
- bool HasTrait(const std::string &trait) {
+ bool HasTrait(std::string_view trait) {
  return this->Traits.contains(trait);
  }
 
@@ -4672,18 +4673,18 @@ public:
  }
  }
 
- void PlayAnim(const std::string &string) {}
+ void PlayAnim(std::string_view string) {}
 
- void PlayAnimWithSpeed(const std::string &string,
+ void PlayAnimWithSpeed(std::string_view string,
  float framesSpeedPerFrame) {}
 
- void PlayAnimUnlooped(const std::string &string) {}
+ void PlayAnimUnlooped(std::string_view string) {}
 
  void DirectionFromVector(Vector2 vecA) {
  this->dir = IsoDirections.fromAngle(vecA);
  }
 
- void DoFootstepSound(const std::string &type) {
+ void DoFootstepSound(std::string_view type) {
  float float0 = 1.0F;
  switch (type) {
  case "sneak_walk":
@@ -5007,7 +5008,7 @@ public:
  : this->rightHandItem.getType();
  }
 
- bool HasItem(const std::string &string) {
+ bool HasItem(std::string_view string) {
  return string.empty()
  ? true
  : string == this->getSecondaryHandType()) || string == this->getPrimaryHandType()) || this->inventory.contains(string);
@@ -5937,15 +5938,15 @@ public:
  }
  }
 
- void setHaloNote(const std::string &str) {
+ void setHaloNote(std::string_view str) {
  this->setHaloNote(str, this->haloDispTime);
  }
 
- void setHaloNote(const std::string &str, float dispTime) {
+ void setHaloNote(std::string_view str, float dispTime) {
  this->setHaloNote(str, 0, 255, 0, dispTime);
  }
 
- void setHaloNote(const std::string &str, int r, int g, int b,
+ void setHaloNote(std::string_view str, int r, int g, int b,
  float dispTime) {
  if (this->haloNote != nullptr && str != nullptr) {
  this->haloDispTime = dispTime;
@@ -5955,7 +5956,7 @@ public:
  }
  }
 
- float getHaloTimerCount() {
+ float getHaloTimerCount() noexcept{
  return this->haloNote != nullptr ? this->haloNote.getInternalClock() : 0.0F;
  }
 
@@ -6006,7 +6007,7 @@ public:
  *
  * @param sayLine the sayLine to set
  */
- void setSayLine(const std::string &sayLine) { this->Say(sayLine); }
+ void setSayLine(std::string_view sayLine) { this->Say(sayLine); }
 
  ChatMessage getLastChatMessage() { return this->lastChatMessage; }
 
@@ -6016,7 +6017,7 @@ public:
 
  std::string getLastSpokenLine() { return this->lastSpokenLine; }
 
- void setLastSpokenLine(const std::string &line) {
+ void setLastSpokenLine(std::string_view line) {
  this->lastSpokenLine = line;
  }
 
@@ -6034,47 +6035,47 @@ public:
  }
  }
 
- void SayDebug(const std::string &text) {
+ void SayDebug(std::string_view text) {
  this->chatElement.SayDebug(0, text);
  }
 
- void SayDebug(int n, const std::string &text) {
+ void SayDebug(int n, std::string_view text) {
  this->chatElement.SayDebug(n, text);
  }
 
  int getMaxChatLines() { return this->chatElement.getMaxChatLines(); }
 
- void Say(const std::string &line) {
+ void Say(std::string_view line) {
  if (!this->isZombie()) {
  this->ProcessSay(line, this->SpeakColour.r, this->SpeakColour.g,
  this->SpeakColour.b, 30.0F, 0, "default");
  }
  }
 
- void Say(const std::string &line, float r, float g, float b, UIFont font,
- float baseRange, const std::string &customTag) {
+ void Say(std::string_view line, float r, float g, float b, UIFont font,
+ float baseRange, std::string_view customTag) {
  this->ProcessSay(line, r, g, b, baseRange, 0, customTag);
  }
 
- void SayWhisper(const std::string &line) {
+ void SayWhisper(std::string_view line) {
  this->ProcessSay(line, this->SpeakColour.r, this->SpeakColour.g,
  this->SpeakColour.b, 10.0F, 0, "whisper");
  }
 
- void SayShout(const std::string &line) {
+ void SayShout(std::string_view line) {
  this->ProcessSay(line, this->SpeakColour.r, this->SpeakColour.g,
  this->SpeakColour.b, 60.0F, 0, "shout");
  }
 
- void SayRadio(const std::string &line, float r, float g, float b,
+ void SayRadio(std::string_view line, float r, float g, float b,
  UIFont font, float baseRange, int channel,
- const std::string &customTag) {
+ std::string_view customTag) {
  this->ProcessSay(line, r, g, b, baseRange, channel, customTag);
  }
 
- void ProcessSay(const std::string &string0, float float0, float float1,
+ void ProcessSay(std::string_view string0, float float0, float float1,
  float float2, float float3, int int0,
- const std::string &string1) {
+ std::string_view string1) {
  if (this->AllowConversation) {
  if (TutorialManager.instance.ProfanityFilter) {
  string0 = ProfanityFilter.getInstance().filterString(string0);
@@ -6113,18 +6114,18 @@ public:
  }
  }
 
- void addLineChatElement(const std::string &line) {
+ void addLineChatElement(std::string_view line) {
  this->addLineChatElement(line, 1.0F, 1.0F, 1.0F);
  }
 
- void addLineChatElement(const std::string &line, float r, float g,
+ void addLineChatElement(std::string_view line, float r, float g,
  float b) {
  this->addLineChatElement(line, r, g, b, UIFont.Dialogue, 30.0F, "default");
  }
 
- void addLineChatElement(const std::string &line, float r, float g, float b,
+ void addLineChatElement(std::string_view line, float r, float g, float b,
  UIFont font, float baseRange,
- const std::string &customTag) {
+ std::string_view customTag) {
  this->addLineChatElement(line, r, g, b, font, baseRange, customTag, false,
  false, false, false, false, true);
  }
@@ -7080,7 +7081,7 @@ public:
  LineDrawer.drawLine(float2, float3, float4, float5, r, g, b, 0.5F, 1);
  }
 
- void drawDebugTextBelow(const std::string &text) {
+ void drawDebugTextBelow(std::string_view text) {
  int int0 = TextManager.instance.MeasureStringX(UIFont.Small, text) + 32;
  int int1 = TextManager.instance.getFontHeight(UIFont.Small);
  int int2 = (int)Math.ceil(int1 * 1.25);
@@ -7459,7 +7460,7 @@ public:
  }
  }
 
- void serverRemoveItemFromZombie(const std::string &item) {
+ void serverRemoveItemFromZombie(std::string_view item) {
  if (GameServer.bServer) {
  IsoZombie zombie0 = Type.tryCastTo(this, IsoZombie.class);
  this->getItemVisuals(tempItemVisuals);
@@ -7478,7 +7479,7 @@ public:
 
  bool helmetFall(bool hitHead) { return this->helmetFall(hitHead, nullptr); }
 
- bool helmetFall(bool hitHead, const std::string &forcedItem) {
+ bool helmetFall(bool hitHead, std::string_view forcedItem) {
  IsoPlayer player = Type.tryCastTo(this, IsoPlayer.class);
  bool boolean0 = false;
  InventoryItem item0 = nullptr;
@@ -8924,7 +8925,7 @@ public:
  }
  }
 
- void DoFloorSplat(IsoGridSquare sq, const std::string &id, bool bFlip,
+ void DoFloorSplat(IsoGridSquare sq, std::string_view id, bool bFlip,
  float offZ, float alpha) {
  if (sq != nullptr) {
  sq.DirtySlice();
@@ -8974,7 +8975,7 @@ public:
  }
  }
 
- void DoSplat(IsoGridSquare square, const std::string &string, bool boolean0,
+ void DoSplat(IsoGridSquare square, std::string_view string, bool boolean0,
  IsoFlagType flagType, float float0, float float1,
  float float2) {
  if (square != nullptr) {
@@ -9367,7 +9368,7 @@ public:
 
  bool isZombie() { return false; }
 
- int getLastHitCount() { return this->lastHitCount; }
+ int getLastHitCount() noexcept{ return this->lastHitCount; }
 
  void setLastHitCount(int hitCount) { this->lastHitCount = hitCount; }
 
@@ -9499,7 +9500,7 @@ public:
  }
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  super.saveChange(change, tbl, bb);
  if ("addItem" == change) {
  if (tbl != nullptr && tbl.rawget("item") instanceof InventoryItem) {
@@ -9598,7 +9599,7 @@ public:
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  super.loadChange(change, bb);
  if ("addItem" == change) {
  try {
@@ -9726,7 +9727,7 @@ public:
  }
  }
 
- int getAlreadyReadPages(const std::string &fullType) {
+ int getAlreadyReadPages(std::string_view fullType) {
  for (int int0 = 0; int0 < this->ReadBooks.size(); int0++) {
  IsoGameCharacter.ReadBook readBook = this->ReadBooks.get(int0);
  if (readBook.fullType == fullType) {
@@ -9737,7 +9738,7 @@ public:
  return 0;
  }
 
- void setAlreadyReadPages(const std::string &fullType, int pages) {
+ void setAlreadyReadPages(std::string_view fullType, int pages) {
  for (int int0 = 0; int0 < this->ReadBooks.size(); int0++) {
  IsoGameCharacter.ReadBook readBook0 = this->ReadBooks.get(int0);
  if (readBook0.fullType == fullType) {
@@ -9990,7 +9991,7 @@ public:
 
  std::string getClickSound() { return this->clickSound; }
 
- void setClickSound(const std::string &_clickSound) {
+ void setClickSound(std::string_view _clickSound) {
  this->clickSound = _clickSound;
  }
 
@@ -10377,7 +10378,7 @@ public:
  recipe.getOriginalname());
  }
 
- bool isRecipeKnown(const std::string &name) {
+ bool isRecipeKnown(std::string_view name) {
  Recipe recipe = ScriptManager.instance.getRecipe(name);
  if (recipe.empty()) {
  return DebugOptions.instance.CheatRecipeKnowAll.getValue()
@@ -10388,7 +10389,7 @@ public:
  }
  }
 
- bool learnRecipe(const std::string &name) {
+ bool learnRecipe(std::string_view name) {
  if (!this->isRecipeKnown(name) {
  this->getKnownRecipes().add(name);
  return true;
@@ -10397,13 +10398,13 @@ public:
  }
  }
 
- void addKnownMediaLine(const std::string &guid) {
+ void addKnownMediaLine(std::string_view guid) {
  if (!StringUtils.isNullOrWhitespace(guid) {
  this->knownMediaLines.add(guid.trim());
  }
  }
 
- void removeKnownMediaLine(const std::string &guid) {
+ void removeKnownMediaLine(std::string_view guid) {
  if (!StringUtils.isNullOrWhitespace(guid) {
  this->knownMediaLines.remove(guid.trim());
  }
@@ -10411,7 +10412,7 @@ public:
 
  void clearKnownMediaLines() { this->knownMediaLines.clear(); }
 
- bool isKnownMediaLine(const std::string &guid) {
+ bool isKnownMediaLine(std::string_view guid) {
  return StringUtils.isNullOrWhitespace(guid)
  ? false
  : this->knownMediaLines.contains(guid.trim());
@@ -10501,11 +10502,11 @@ public:
  }
  }
 
- long playSound(const std::string &file) {
+ long playSound(std::string_view file) {
  return this->getEmitter().playSound(file);
  }
 
- long playSoundLocal(const std::string &file) {
+ long playSoundLocal(std::string_view file) {
  return this->getEmitter().playSoundImpl(file, nullptr);
  }
 
@@ -10555,7 +10556,7 @@ public:
 
  std::string getBedType() { return this->bedType; }
 
- void setBedType(const std::string &_bedType) { this->bedType = _bedType; }
+ void setBedType(std::string_view _bedType) { this->bedType = _bedType; }
 
  void enterVehicle(BaseVehicle v, int seat, Vector3f offset) {
  if (this->vehicle != nullptr) {
@@ -10710,14 +10711,14 @@ public:
  /**
  * Description copied from interface: IAnimationVariableSource
  */
- IAnimationVariableSlot getVariable(const std::string &key) {
+ IAnimationVariableSlot getVariable(std::string_view key) {
  return this->getGameVariablesInternal().getVariable(key);
  }
 
  /**
  * Description copied from interface: IAnimationVariableMap
  */
- IAnimationVariableSlot getOrCreateVariable(const std::string &key) {
+ IAnimationVariableSlot getOrCreateVariable(std::string_view key) {
  return this->getGameVariablesInternal().getOrCreateVariable(key);
  }
 
@@ -10728,19 +10729,19 @@ public:
  this->getGameVariablesInternal().setVariable(var);
  }
 
- void setVariable(const std::string &key, const std::string &value) {
+ void setVariable(std::string_view key, std::string_view value) {
  this->getGameVariablesInternal().setVariable(key, value);
  }
 
- void setVariable(const std::string &key, bool value) {
+ void setVariable(std::string_view key, bool value) {
  this->getGameVariablesInternal().setVariable(key, value);
  }
 
- void setVariable(const std::string &key, float value) {
+ void setVariable(std::string_view key, float value) {
  this->getGameVariablesInternal().setVariable(key, value);
  }
 
- void setVariable(const std::string &string,
+ void setVariable(std::string_view string,
  AnimationVariableSlotCallbackBool
  .CallbackGetStrongTyped callbackGetStrongTyped) {
  this->getGameVariablesInternal().setVariable(string,
@@ -10757,7 +10758,7 @@ public:
  string, callbackGetStrongTyped, callbackSetStrongTyped);
  }
 
- void setVariable(const std::string &string,
+ void setVariable(std::string_view string,
  AnimationVariableSlotCallbackString
  .CallbackGetStrongTyped callbackGetStrongTyped) {
  this->getGameVariablesInternal().setVariable(string,
@@ -10774,7 +10775,7 @@ public:
  string, callbackGetStrongTyped, callbackSetStrongTyped);
  }
 
- void setVariable(const std::string &string,
+ void setVariable(std::string_view string,
  AnimationVariableSlotCallbackFloat
  .CallbackGetStrongTyped callbackGetStrongTyped) {
  this->getGameVariablesInternal().setVariable(string,
@@ -10791,7 +10792,7 @@ public:
  string, callbackGetStrongTyped, callbackSetStrongTyped);
  }
 
- void setVariable(const std::string &string,
+ void setVariable(std::string_view string,
  AnimationVariableSlotCallbackInt
  .CallbackGetStrongTyped callbackGetStrongTyped) {
  this->getGameVariablesInternal().setVariable(string,
@@ -10812,7 +10813,7 @@ public:
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key, bool defaultVal,
+ std::string_view key, bool defaultVal,
  AnimationVariableSlotCallbackBool.CallbackGetStrongTyped callbackGet) {
  this->getGameVariablesInternal().setVariable(key, defaultVal, callbackGet);
  }
@@ -10832,7 +10833,7 @@ public:
  /**
  * Strong-typed utility function.
  */
- void setVariable(const std::string &key, const std::string &defaultVal,
+ void setVariable(std::string_view key, std::string_view defaultVal,
  AnimationVariableSlotCallbackString
  .CallbackGetStrongTyped callbackGet) {
  this->getGameVariablesInternal().setVariable(key, defaultVal, callbackGet);
@@ -10855,7 +10856,7 @@ public:
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key, float defaultVal,
+ std::string_view key, float defaultVal,
  AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped callbackGet) {
  this->getGameVariablesInternal().setVariable(key, defaultVal, callbackGet);
  }
@@ -10876,7 +10877,7 @@ public:
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key, int defaultVal,
+ std::string_view key, int defaultVal,
  AnimationVariableSlotCallbackInt.CallbackGetStrongTyped callbackGet) {
  this->getGameVariablesInternal().setVariable(key, defaultVal, callbackGet);
  }
@@ -10893,7 +10894,7 @@ public:
  callbackSet);
  }
 
- void clearVariable(const std::string &key) {
+ void clearVariable(std::string_view key) {
  this->getGameVariablesInternal().clearVariable(key);
  }
 
@@ -10902,7 +10903,7 @@ public:
  /**
  * Description copied from interface: IAnimationVariableSource
  */
- std::string getVariableString(const std::string &name) {
+ std::string getVariableString(std::string_view name) {
  return this->getGameVariablesInternal().getVariableString(name);
  }
 
@@ -10946,14 +10947,14 @@ public:
  /**
  * Description copied from interface: IAnimationVariableSource
  */
- float getVariableFloat(const std::string &name, float defaultVal) {
+ float getVariableFloat(std::string_view name, float defaultVal) {
  return this->getGameVariablesInternal().getVariableFloat(name, defaultVal);
  }
 
  /**
  * Description copied from interface: IAnimationVariableSource
  */
- bool getVariableBoolean(const std::string &name) {
+ bool getVariableBoolean(std::string_view name) {
  return this->getGameVariablesInternal().getVariableBoolean(name);
  }
 
@@ -10962,7 +10963,7 @@ public:
  * string variable to a boolean. If that fails, or if variable not found,
  * returns defaultVal
  */
- bool getVariableBoolean(const std::string &key, bool defaultVal) {
+ bool getVariableBoolean(std::string_view key, bool defaultVal) {
  return this->getGameVariablesInternal().getVariableBoolean(this->name,
  defaultVal);
  }
@@ -10971,11 +10972,11 @@ public:
  * Compares (ignoring case) the value of the specified variable. Returns
  * TRUE if they match.
  */
- bool isVariable(const std::string &name, const std::string &val) {
+ bool isVariable(std::string_view name, std::string_view val) {
  return this->getGameVariablesInternal().isVariable(name, val);
  }
 
- bool containsVariable(const std::string &name) {
+ bool containsVariable(std::string_view name) {
  return this->getGameVariablesInternal().containsVariable(name);
  }
 
@@ -11054,15 +11055,15 @@ public:
  : this->actionContext.getPlaybackStateSnapshot();
  }
 
- std::string GetVariable(const std::string &key) {
+ std::string GetVariable(std::string_view key) {
  return this->getVariableString(key);
  }
 
- void SetVariable(const std::string &key, const std::string &value) {
+ void SetVariable(std::string_view key, std::string_view value) {
  this->setVariable(key, value);
  }
 
- void ClearVariable(const std::string &key) { this->clearVariable(key); }
+ void ClearVariable(std::string_view key) { this->clearVariable(key); }
 
  void actionStateChanged(ActionContext sender) {
  std::vector arrayList0 = IsoGameCharacter.L_actionStateChanged.stateNames;
@@ -11099,16 +11100,16 @@ public:
  this->hitFromBehind = _hitFromBehind;
  }
 
- void reportEvent(const std::string &name) {
+ void reportEvent(std::string_view name) {
  this->actionContext.reportEvent(name);
  }
 
- void StartTimedActionAnim(const std::string &event) {
+ void StartTimedActionAnim(std::string_view event) {
  this->StartTimedActionAnim(event, nullptr);
  }
 
- void StartTimedActionAnim(const std::string &event,
- const std::string &type) {
+ void StartTimedActionAnim(std::string_view event,
+ std::string_view type) {
  this->reportEvent(event);
  if (type != nullptr) {
  this->setVariable("TimedActionType", type);
@@ -11129,7 +11130,7 @@ public:
 
  std::string getHitReaction() { return this->hitReaction; }
 
- void setHitReaction(const std::string &_hitReaction) {
+ void setHitReaction(std::string_view _hitReaction) {
  this->hitReaction = _hitReaction;
  }
 
@@ -11408,7 +11409,7 @@ public:
 
  std::string getBumpType() { return this->bumpType; }
 
- void setBumpType(const std::string &_bumpType) {
+ void setBumpType(std::string_view _bumpType) {
  if (StringUtils.equalsIgnoreCase(this->bumpType, _bumpType) {
  this->bumpType = _bumpType;
  } else {
@@ -11423,7 +11424,7 @@ public:
 
  std::string getBumpFallType() { return this->m_bumpFallType; }
 
- void setBumpFallType(const std::string &val) { this->m_bumpFallType = val; }
+ void setBumpFallType(std::string_view val) { this->m_bumpFallType = val; }
 
  IsoGameCharacter getBumpedChr() { return this->bumpedChr; }
 
@@ -11818,11 +11819,11 @@ public:
  }
  }
 
- void addVisualDamage(const std::string &itemType) {
+ void addVisualDamage(std::string_view itemType) {
  this->addBodyVisualFromItemType("Base." + itemType);
  }
 
- ItemVisual addBodyVisualFromItemType(const std::string &string) {
+ ItemVisual addBodyVisualFromItemType(std::string_view string) {
  Item item = ScriptManager.instance.getItem(string);
  return item != nullptr &&
  !StringUtils.isNullOrWhitespace(item.getClothingItem())
@@ -11831,7 +11832,7 @@ public:
  : nullptr;
  }
 
- ItemVisual addBodyVisualFromClothingItemName(const std::string &string1) {
+ ItemVisual addBodyVisualFromClothingItemName(std::string_view string1) {
  IHumanVisual iHumanVisual = Type.tryCastTo(this, IHumanVisual.class);
  if (iHumanVisual.empty()) {
  return nullptr;
@@ -11929,7 +11930,7 @@ public:
  this->GameCharacterAIBrain.HumanControlVars.bRunning = newvalue;
  }
 
- bool NPCGetRunning() {
+ bool NPCGetRunning() const noexcept {
  return this->GameCharacterAIBrain.HumanControlVars.bRunning;
  }
 
@@ -11941,7 +11942,7 @@ public:
  this->GameCharacterAIBrain.HumanControlVars.bAiming = _isAiming;
  }
 
- bool NPCGetAiming() {
+ bool NPCGetAiming() const noexcept {
  return this->GameCharacterAIBrain.HumanControlVars.bAiming;
  }
 
@@ -12288,7 +12289,7 @@ public:
  return this->m_sleepingEventData;
  }
 
- void playEmote(const std::string &emote) {
+ void playEmote(std::string_view emote) {
  this->setVariable("emote", emote);
  this->actionContext.reportEvent("EventEmote");
  }
@@ -12780,7 +12781,7 @@ private
  THashMap<String, InventoryItem> itemMap =
  std::make_unique<THashMap<>>();
 
- std::string getBloodBandageType(const std::string &string1) {
+ std::string getBloodBandageType(std::string_view string1) {
  std::string string0 = this->bandageTypeMap.get(string1);
  if (string0.empty()) {
  this->bandageTypeMap.put(string1, string0 = string1 + "_Blood");
@@ -12881,7 +12882,7 @@ private
  }
 
  void addBandageModel(IsoGameCharacter character,
- const std::string &string) {
+ std::string_view string) {
  if (!this->itemMap.containsKey(string) {
  if (InventoryItemFactory.CreateItem(string) instanceof
  Clothing clothing) {
@@ -12893,7 +12894,7 @@ private
  }
 
  void removeBandageModel(IsoGameCharacter character,
- const std::string &string) {
+ std::string_view string) {
  InventoryItem item = this->itemMap.get(string);
  if (item != nullptr) {
  character.getWornItems().remove(item);

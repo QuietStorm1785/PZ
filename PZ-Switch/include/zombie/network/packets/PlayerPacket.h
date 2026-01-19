@@ -89,7 +89,7 @@ public
  this->variables.write(byteBufferWriter);
  }
 
- int getPacketSizeBytes() { return 43; }
+ int getPacketSizeBytes() noexcept{ return 43; }
 
  bool set(IsoPlayer player) {
  if (GameClient.bClient) {

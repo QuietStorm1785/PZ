@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public:
  float baseVolume = 1.0F;
 
 public
- StorySound(const std::string &_name, float baseVol) {
+ StorySound(std::string_view _name, float baseVol) {
  this->name = _name;
  this->baseVolume = baseVol;
  }
@@ -53,7 +54,7 @@ public
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  float getBaseVolume() { return this->baseVolume; }
 

@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,11 +26,11 @@ public:
 
  void stopSoundLocal(long handle) {}
 
- int stopSoundByName(const std::string &name) { return 0; }
+ int stopSoundByName(std::string_view name) { return 0; }
 
  void stopOrTriggerSound(long handle) {}
 
- void stopOrTriggerSoundByName(const std::string &name) {}
+ void stopOrTriggerSoundByName(std::string_view name) {}
 
  void setVolume(long handle, float volume) {}
 
@@ -41,7 +42,7 @@ public:
  FMOD_STUDIO_PARAMETER_DESCRIPTION parameterDescription,
  float value) {}
 
- void setTimelinePosition(long handle, const std::string &positionName) {}
+ void setTimelinePosition(long handle, std::string_view positionName) {}
 
  void triggerCue(long handle) {}
 
@@ -51,34 +52,34 @@ public:
 
  void stopAll() {}
 
- long playSound(const std::string &file) { return 0L; }
+ long playSound(std::string_view file) { return 0L; }
 
- long playSound(const std::string &file, IsoGameCharacter character) {
+ long playSound(std::string_view file, IsoGameCharacter character) {
  return 0L;
  }
 
- long playSound(const std::string &file, int x, int y, int z) { return 0L; }
+ long playSound(std::string_view file, int x, int y, int z) { return 0L; }
 
- long playSound(const std::string &file, IsoGridSquare square) { return 0L; }
+ long playSound(std::string_view file, IsoGridSquare square) { return 0L; }
 
- long playSoundImpl(const std::string &file, IsoGridSquare square) {
+ long playSoundImpl(std::string_view file, IsoGridSquare square) {
  return 0L;
  }
 
- long playSound(const std::string &file, bool doWorldSound) { return 0L; }
+ long playSound(std::string_view file, bool doWorldSound) { return 0L; }
 
- long playSoundImpl(const std::string &file, bool doWorldSound,
+ long playSoundImpl(std::string_view file, bool doWorldSound,
  IsoObject parent) {
  return 0L;
  }
 
- long playSound(const std::string &file, IsoObject parent) { return 0L; }
+ long playSound(std::string_view file, IsoObject parent) { return 0L; }
 
- long playSoundImpl(const std::string &file, IsoObject parent) { return 0L; }
+ long playSoundImpl(std::string_view file, IsoObject parent) { return 0L; }
 
  long playClip(GameSoundClip clip, IsoObject parent) { return 0L; }
 
- long playAmbientSound(const std::string &name) { return 0L; }
+ long playAmbientSound(std::string_view name) { return 0L; }
 
  void tick() {}
 
@@ -88,15 +89,15 @@ public:
 
  bool isPlaying(long channel) { return false; }
 
- bool isPlaying(const std::string &alias) { return false; }
+ bool isPlaying(std::string_view alias) { return false; }
 
  bool restart(long handle) { return false; }
 
- long playSoundLooped(const std::string &file) { return 0L; }
+ long playSoundLooped(std::string_view file) { return 0L; }
 
- long playSoundLoopedImpl(const std::string &file) { return 0L; }
+ long playSoundLoopedImpl(std::string_view file) { return 0L; }
 
- long playAmbientLoopedImpl(const std::string &file) { return 0L; }
+ long playAmbientLoopedImpl(std::string_view file) { return 0L; }
 }
 } // namespace audio
 } // namespace zombie

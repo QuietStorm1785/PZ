@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -47,7 +48,7 @@ enum class BloodClothingType {
  private static HashMap<BloodClothingType, ArrayList<BloodBodyPartType>> coveredParts = nullptr;
  private static ArrayList<BloodBodyPartType> bodyParts = std::make_unique<ArrayList<>>();
 
- static BloodClothingType fromString(const std::string& str) {
+ static BloodClothingType fromString(std::string_view str) {
  if (Jacket.toString() == str) {
  return Jacket;
  } else if (LongJacket.toString() == str) {

@@ -15,6 +15,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -169,7 +170,7 @@ public
  : object;
  }
 
- bool isCurrent(const std::string &arg0, int arg1) {
+ bool isCurrent(std::string_view arg0, int arg1) {
  return arg1 = = this->currentLine;
  }
 
@@ -1219,7 +1220,7 @@ public
  this->DoProfileTiming(string0, long0, long5);
  }
 
- void DoProfileTiming(const std::string &string, long long1, long long0) {
+ void DoProfileTiming(std::string_view string, long long1, long long0) {
  if (this->doProfiling) {
  double double0 = (long0 - long1) / 1000000.0;
  if (GameWindow.states.current == IngameState.instance) {
@@ -1288,12 +1289,12 @@ public
  m_error_count++;
  }
 
- void *getMetaOp(void *object, const std::string &string) {
+ void *getMetaOp(void *object, std::string_view string) {
  KahluaTable table = (KahluaTable)this->getmetatable(object, true);
  return table = = nullptr ? nullptr : table.rawget(string);
  }
 
- void *getCompMetaOp(void *object0, void *object1, const std::string &string) {
+ void *getCompMetaOp(void *object0, void *object1, std::string_view string) {
  KahluaTable table0 = (KahluaTable)this->getmetatable(object0, true);
  KahluaTable table1 = (KahluaTable)this->getmetatable(object1, true);
  if (table0 != nullptr && table1 != nullptr) {
@@ -1305,7 +1306,7 @@ public
  }
  }
 
- void *getBinMetaOp(void *object1, void *object2, const std::string &string) {
+ void *getBinMetaOp(void *object1, void *object2, std::string_view string) {
  void *object0 = this->getMetaOp(object1, string);
  return object0 != nullptr ? object0 : this->getMetaOp(object2, string);
  }
@@ -1752,7 +1753,7 @@ public
 
  Platform getPlatform() { return this->platform; }
 
- void breakpointToggle(const std::string &arg0, int arg1) {
+ void breakpointToggle(std::string_view arg0, int arg1) {
  std::vector arrayList;
  if (!this->BreakpointMap.containsKey(arg0) {
  arrayList = std::make_unique<ArrayList>();
@@ -1768,7 +1769,7 @@ public
  }
  }
 
- bool hasBreakpoint(const std::string &arg0, int arg1) {
+ bool hasBreakpoint(std::string_view arg0, int arg1) {
  return this->BreakpointMap.containsKey(arg0) &&
  this->BreakpointMap.get(arg0).contains((long)arg1);
  }

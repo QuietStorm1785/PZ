@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,7 +49,7 @@ private
  "\\W){2,20})|(?<word>[\\w'\\$@_-]+)");
  }
 
- static void printDebug(const std::string &string) {
+ static void printDebug(std::string_view string) {
  if (DEBUG) {
  System.out.println(string);
  }
@@ -58,7 +59,7 @@ private
 
  bool isEnabled() { return this->enabled; }
 
- int getFilterWordsCount() {
+ int getFilterWordsCount() noexcept{
  return this->locale != nullptr ? this->locale.getFilterWordsCount() : 0;
  }
 
@@ -74,31 +75,31 @@ private
 
  Locale getLocale() { return this->locale; }
 
- void addWhiteListWord(const std::string &string) {
+ void addWhiteListWord(std::string_view string) {
  if (this->locale != nullptr) {
  this->locale.addWhiteListWord(string);
  }
  }
 
- void removeWhiteListWord(const std::string &string) {
+ void removeWhiteListWord(std::string_view string) {
  if (this->locale != nullptr) {
  this->locale.removeWhiteListWord(string);
  }
  }
 
- void addFilterWord(const std::string &string) {
+ void addFilterWord(std::string_view string) {
  if (this->locale != nullptr) {
  this->locale.addFilterWord(string);
  }
  }
 
- void removeFilterWord(const std::string &string) {
+ void removeFilterWord(std::string_view string) {
  if (this->locale != nullptr) {
  this->locale.removeFilterWord(string);
  }
  }
 
- void setLocale(const std::string &string) {
+ void setLocale(std::string_view string) {
  if (this->locales.containsKey(string) {
  this->locale = this->locales.get(string);
  } else {
@@ -106,7 +107,7 @@ private
  }
  }
 
- std::string filterString(const std::string &string) {
+ std::string filterString(std::string_view string) {
  if (this->enabled && this->locale != nullptr && string != nullptr &&
  this->locale.getFilterWordsCount() > 0) {
  try {
@@ -137,11 +138,11 @@ private
  return string;
  }
 
- std::string validateString(const std::string &string) {
+ std::string validateString(std::string_view string) {
  return this->validateString(string, true, true, true);
  }
 
- std::string validateString(const std::string &string, bool boolean1,
+ std::string validateString(std::string_view string, bool boolean1,
  bool boolean2, bool boolean3) {
  if (this->enabled && this->locale != nullptr && string != nullptr &&
  this->locale.getFilterWordsCount() > 0) {

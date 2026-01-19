@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -99,12 +100,12 @@ public
 
  void removeFromWorld() { super.removeFromWorld(); }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  this->m_washer.saveChange(change, tbl, bb);
  this->m_dryer.saveChange(change, tbl, bb);
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  this->m_washer.loadChange(change, bb);
  this->m_dryer.loadChange(change, bb);
  }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -42,7 +43,7 @@ class javafmod {
       return javafmodJNI.FMOD_Memory_GetStats(SWIGTYPE_p_int.getCPtr(var0), SWIGTYPE_p_int.getCPtr(var1), SWIGTYPE_p_FMOD_BOOL.getCPtr(var2));
    }
 
-    static int FMOD_Debug_Initialize(SWIGTYPE_p_FMOD_DEBUG_FLAGS var0, SWIGTYPE_p_FMOD_DEBUG_MODE var1, SWIGTYPE_p_FMOD_DEBUG_CALLBACK var2, const std::string& var3) {
+    static int FMOD_Debug_Initialize(SWIGTYPE_p_FMOD_DEBUG_FLAGS var0, SWIGTYPE_p_FMOD_DEBUG_MODE var1, SWIGTYPE_p_FMOD_DEBUG_CALLBACK var2, std::string_view var3) {
       return javafmodJNI.FMOD_Debug_Initialize(
          SWIGTYPE_p_FMOD_DEBUG_FLAGS.getCPtr(var0), SWIGTYPE_p_FMOD_DEBUG_MODE.getCPtr(var1), SWIGTYPE_p_FMOD_DEBUG_CALLBACK.getCPtr(var2), var3
       );
@@ -184,11 +185,11 @@ class javafmod {
       );
    }
 
-    static int FMOD_System_SetPluginPath(SWIGTYPE_p_FMOD_SYSTEM var0, const std::string& var1) {
+    static int FMOD_System_SetPluginPath(SWIGTYPE_p_FMOD_SYSTEM var0, std::string_view var1) {
       return javafmodJNI.FMOD_System_SetPluginPath(SWIGTYPE_p_FMOD_SYSTEM.getCPtr(var0), var1);
    }
 
-    static int FMOD_System_LoadPlugin(SWIGTYPE_p_FMOD_SYSTEM var0, const std::string& var1, SWIGTYPE_p_unsigned_int var2, long var3) {
+    static int FMOD_System_LoadPlugin(SWIGTYPE_p_FMOD_SYSTEM var0, std::string_view var1, SWIGTYPE_p_unsigned_int var2, long var3) {
       return javafmodJNI.FMOD_System_LoadPlugin(SWIGTYPE_p_FMOD_SYSTEM.getCPtr(var0), var1, SWIGTYPE_p_unsigned_int.getCPtr(var2), var3);
    }
 
@@ -368,7 +369,7 @@ class javafmod {
       );
    }
 
-    static long FMOD_System_CreateSound(const std::string& var0, long var1) {
+    static long FMOD_System_CreateSound(std::string_view var0, long var1) {
       return javafmodJNI.FMOD_System_CreateSound(var0, var1);
    }
 
@@ -432,7 +433,7 @@ class javafmod {
     return 0;
    }
 
-    static long FMOD_System_CreateChannelGroup(const std::string& var0) {
+    static long FMOD_System_CreateChannelGroup(std::string_view var0) {
       try {
          return javafmodJNI.FMOD_System_CreateChannelGroup(var0);
       } catch (Throwable var2) {
@@ -441,7 +442,7 @@ class javafmod {
       }
    }
 
-    static int FMOD_System_CreateSoundGroup(SWIGTYPE_p_FMOD_SYSTEM var0, const std::string& var1, SWIGTYPE_p_p_FMOD_SOUNDGROUP var2) {
+    static int FMOD_System_CreateSoundGroup(SWIGTYPE_p_FMOD_SYSTEM var0, std::string_view var1, SWIGTYPE_p_p_FMOD_SOUNDGROUP var2) {
       return javafmodJNI.FMOD_System_CreateSoundGroup(SWIGTYPE_p_FMOD_SYSTEM.getCPtr(var0), var1, SWIGTYPE_p_p_FMOD_SOUNDGROUP.getCPtr(var2));
    }
 
@@ -461,7 +462,7 @@ class javafmod {
       return javafmodJNI.FMOD_System_GetChannel(SWIGTYPE_p_FMOD_SYSTEM.getCPtr(var0), var1, SWIGTYPE_p_p_FMOD_CHANNEL.getCPtr(var2));
    }
 
-    static long FMOD_System_GetMasterChannelGroup() {
+    static long FMOD_System_GetMasterChannelGroup() noexcept{
       return javafmodJNI.FMOD_System_GetMasterChannelGroup();
    }
 
@@ -505,7 +506,7 @@ class javafmod {
       return javafmodJNI.FMOD_System_UnlockDSP(SWIGTYPE_p_FMOD_SYSTEM.getCPtr(var0));
    }
 
-    static int FMOD_System_GetRecordNumDrivers() {
+    static int FMOD_System_GetRecordNumDrivers() const noexcept {
       return javafmodJNI.FMOD_System_GetRecordNumDrivers();
    }
 
@@ -559,11 +560,11 @@ class javafmod {
       );
    }
 
-    static int FMOD_System_SetNetworkProxy(SWIGTYPE_p_FMOD_SYSTEM var0, const std::string& var1) {
+    static int FMOD_System_SetNetworkProxy(SWIGTYPE_p_FMOD_SYSTEM var0, std::string_view var1) {
       return javafmodJNI.FMOD_System_SetNetworkProxy(SWIGTYPE_p_FMOD_SYSTEM.getCPtr(var0), var1);
    }
 
-    static int FMOD_System_GetNetworkProxy(SWIGTYPE_p_FMOD_SYSTEM var0, const std::string& var1, int var2) {
+    static int FMOD_System_GetNetworkProxy(SWIGTYPE_p_FMOD_SYSTEM var0, std::string_view var1, int var2) {
       return javafmodJNI.FMOD_System_GetNetworkProxy(SWIGTYPE_p_FMOD_SYSTEM.getCPtr(var0), var1, var2);
    }
 
@@ -639,11 +640,11 @@ class javafmod {
       return javafmodJNI.FMOD_Studio_GetTimelinePosition(var0);
    }
 
-    static long FMOD_Studio_System_GetBus(const std::string& var0) {
+    static long FMOD_Studio_System_GetBus(std::string_view var0) {
       return javafmodJNI.FMOD_Studio_System_GetBus(var0);
    }
 
-    static long FMOD_Studio_System_GetEvent(const std::string& var0) {
+    static long FMOD_Studio_System_GetEvent(std::string_view var0) {
       if (map.containsKey(var0)) {
          return map.get(var0);
       } else {
@@ -657,7 +658,7 @@ class javafmod {
       return javafmodJNI.FMOD_Studio_CreateEventInstance(var0);
    }
 
-    static long FMOD_Studio_System_LoadBankFile(const std::string& var0) {
+    static long FMOD_Studio_System_LoadBankFile(std::string_view var0) {
       return javafmodJNI.FMOD_Studio_LoadBankFile(var0);
    }
 
@@ -665,7 +666,7 @@ class javafmod {
     return var0 = = nullptr ? 0 : javafmodJNI.FMOD_Studio_System_SetParameterByID(var0.address(), var1, var2);
    }
 
-    static int FMOD_Studio_System_SetParameterByName(const std::string& var0, float var1, bool var2) {
+    static int FMOD_Studio_System_SetParameterByName(std::string_view var0, float var1, bool var2) {
       return javafmodJNI.FMOD_Studio_System_SetParameterByName(var0, var1, var2);
    }
 
@@ -729,7 +730,7 @@ class javafmod {
       return javafmodJNI.FMOD_Sound_GetSubSoundParent(SWIGTYPE_p_FMOD_SOUND.getCPtr(var0), SWIGTYPE_p_p_FMOD_SOUND.getCPtr(var1));
    }
 
-    static int FMOD_Sound_GetName(SWIGTYPE_p_FMOD_SOUND var0, const std::string& var1, int var2) {
+    static int FMOD_Sound_GetName(SWIGTYPE_p_FMOD_SOUND var0, std::string_view var1, int var2) {
       return javafmodJNI.FMOD_Sound_GetName(SWIGTYPE_p_FMOD_SOUND.getCPtr(var0), var1, var2);
    }
 
@@ -757,7 +758,7 @@ class javafmod {
       return javafmodJNI.FMOD_Sound_GetNumTags(SWIGTYPE_p_FMOD_SOUND.getCPtr(var0), SWIGTYPE_p_int.getCPtr(var1), SWIGTYPE_p_int.getCPtr(var2));
    }
 
-    static int FMOD_Sound_GetTag(SWIGTYPE_p_FMOD_SOUND var0, const std::string& var1, int var2, SWIGTYPE_p_FMOD_TAG var3) {
+    static int FMOD_Sound_GetTag(SWIGTYPE_p_FMOD_SOUND var0, std::string_view var1, int var2, SWIGTYPE_p_FMOD_TAG var3) {
       return javafmodJNI.FMOD_Sound_GetTag(SWIGTYPE_p_FMOD_SOUND.getCPtr(var0), var1, var2, SWIGTYPE_p_FMOD_TAG.getCPtr(var3));
    }
 
@@ -1543,7 +1544,7 @@ class javafmod {
       return javafmodJNI.FMOD_ChannelGroup_GetParentGroup(SWIGTYPE_p_FMOD_CHANNELGROUP.getCPtr(var0), SWIGTYPE_p_p_FMOD_CHANNELGROUP.getCPtr(var1));
    }
 
-    static int FMOD_ChannelGroup_GetName(SWIGTYPE_p_FMOD_CHANNELGROUP var0, const std::string& var1, int var2) {
+    static int FMOD_ChannelGroup_GetName(SWIGTYPE_p_FMOD_CHANNELGROUP var0, std::string_view var1, int var2) {
       return javafmodJNI.FMOD_ChannelGroup_GetName(SWIGTYPE_p_FMOD_CHANNELGROUP.getCPtr(var0), var1, var2);
    }
 
@@ -1599,7 +1600,7 @@ class javafmod {
       return javafmodJNI.FMOD_SoundGroup_Stop(SWIGTYPE_p_FMOD_SOUNDGROUP.getCPtr(var0));
    }
 
-    static int FMOD_SoundGroup_GetName(SWIGTYPE_p_FMOD_SOUNDGROUP var0, const std::string& var1, int var2) {
+    static int FMOD_SoundGroup_GetName(SWIGTYPE_p_FMOD_SOUNDGROUP var0, std::string_view var1, int var2) {
       return javafmodJNI.FMOD_SoundGroup_GetName(SWIGTYPE_p_FMOD_SOUNDGROUP.getCPtr(var0), var1, var2);
    }
 
@@ -1752,19 +1753,19 @@ class javafmod {
       return javafmodJNI.FMOD_DSP_SetParameterData(SWIGTYPE_p_FMOD_DSP.getCPtr(var0), var1, SWIGTYPE_p_void.getCPtr(var2), var3);
    }
 
-    static int FMOD_DSP_GetParameterFloat(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_float var2, const std::string& var3, int var4) {
+    static int FMOD_DSP_GetParameterFloat(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_float var2, std::string_view var3, int var4) {
       return javafmodJNI.FMOD_DSP_GetParameterFloat(SWIGTYPE_p_FMOD_DSP.getCPtr(var0), var1, SWIGTYPE_p_float.getCPtr(var2), var3, var4);
    }
 
-    static int FMOD_DSP_GetParameterInt(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_int var2, const std::string& var3, int var4) {
+    static int FMOD_DSP_GetParameterInt(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_int var2, std::string_view var3, int var4) {
       return javafmodJNI.FMOD_DSP_GetParameterInt(SWIGTYPE_p_FMOD_DSP.getCPtr(var0), var1, SWIGTYPE_p_int.getCPtr(var2), var3, var4);
    }
 
-    static int FMOD_DSP_GetParameterBool(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_FMOD_BOOL var2, const std::string& var3, int var4) {
+    static int FMOD_DSP_GetParameterBool(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_FMOD_BOOL var2, std::string_view var3, int var4) {
       return javafmodJNI.FMOD_DSP_GetParameterBool(SWIGTYPE_p_FMOD_DSP.getCPtr(var0), var1, SWIGTYPE_p_FMOD_BOOL.getCPtr(var2), var3, var4);
    }
 
-    static int FMOD_DSP_GetParameterData(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_p_void var2, SWIGTYPE_p_unsigned_int var3, const std::string& var4, int var5) {
+    static int FMOD_DSP_GetParameterData(SWIGTYPE_p_FMOD_DSP var0, int var1, SWIGTYPE_p_p_void var2, SWIGTYPE_p_unsigned_int var3, std::string_view var4, int var5) {
       return javafmodJNI.FMOD_DSP_GetParameterData(
          SWIGTYPE_p_FMOD_DSP.getCPtr(var0), var1, SWIGTYPE_p_p_void.getCPtr(var2), SWIGTYPE_p_unsigned_int.getCPtr(var3), var4, var5
       );
@@ -2056,11 +2057,11 @@ class javafmod {
     return FMOD_Studio_EventInstance_SetParameterByID();
    }
 
-    static int FMOD_Studio_EventInstance_SetParameterByName(long var0, const std::string& var2, float var3) {
+    static int FMOD_Studio_EventInstance_SetParameterByName(long var0, std::string_view var2, float var3) {
       return javafmodJNI.FMOD_Studio_EventInstance_SetParameterByName(var0, var2, var3);
    }
 
-    static float FMOD_Studio_GetParameter(long var0, const std::string& var2) {
+    static float FMOD_Studio_GetParameter(long var0, std::string_view var2) {
       return javafmodJNI.FMOD_Studio_GetParameter(var0, var2);
    }
 

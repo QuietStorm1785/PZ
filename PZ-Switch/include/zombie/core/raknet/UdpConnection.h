@@ -22,6 +22,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -307,7 +308,7 @@ public
  }
  }
 
- void forceDisconnect(const std::string &description) {
+ void forceDisconnect(std::string_view description) {
  if (!GameServer.bServer) {
  GameClient.instance.disconnect();
  }
@@ -338,7 +339,7 @@ public
 
  bool isFullyConnected() { return this->bFullyConnected; }
 
- void calcCountPlayersInRelevantPosition() {
+ void calcCountPlayersInRelevantPosition() noexcept{
  if (this->isFullyConnected()) {
  bool boolean0 = false;
 
@@ -386,7 +387,7 @@ public
  return this->engine.peer.GetLowestPing(this->connectedGUID);
  }
 
- int getMTUSize() { return this->engine.peer.GetMTUSize(this->connectedGUID); }
+ int getMTUSize() noexcept{ return this->engine.peer.GetMTUSize(this->connectedGUID); }
 
 public
  UdpConnection.ConnectionType getConnectionType() {

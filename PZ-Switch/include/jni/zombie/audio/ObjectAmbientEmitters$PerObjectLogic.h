@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -23,7 +24,7 @@ class ObjectAmbientEmitters {
     return this;
    }
 
-    void setParameterValue1(BaseSoundEmitter var1, long var2, const std::string& var4, float var5) {
+    void setParameterValue1(BaseSoundEmitter var1, long var2, std::string_view var4, float var5) {
       if (var5 != this.parameterValue1) {
          this.parameterValue1 = var5;
     FMOD_STUDIO_PARAMETER_DESCRIPTION var6 = FMODManager.instance.getParameterDescription(var4);

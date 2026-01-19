@@ -99,7 +99,7 @@ public
  }
  }
 
- int getPacketSizeBytes() {
+ int getPacketSizeBytes() noexcept{
  int int0 = 11 + this->targetOnGround.getPacketSizeBytes();
  uint8_t byte0 = (byte)Math.min(100, this->targetsStanding.size());
 

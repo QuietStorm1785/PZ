@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -45,7 +46,7 @@ public
  }
 
  void addTrigger(BuildingDef def, int triggerRange, int zombieExclusionRange,
- const std::string &type) {
+ std::string_view type) {
  this->triggers.add(
  new IsoMetaGrid.Trigger(def, triggerRange, zombieExclusionRange, type);
  }

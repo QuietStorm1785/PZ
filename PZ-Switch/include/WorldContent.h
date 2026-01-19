@@ -1,6 +1,7 @@
 #pragma once
 #include "IsoObject.h"
 #include <string>
+#include <string_view>
 #include <vector>
 
 class Item;
@@ -27,7 +28,7 @@ public:
  bool addItem(Item* item);
  bool removeItem(Item* item);
  const std::vector<Item*>& getItems() const { return items; }
- int getItemCount() const { return items.size(); }
+ int getItemCount() const noexcept { return items.size(); }
  int getMaxItems() const { return maxItems; }
  
  bool isLocked() const { return locked; }
@@ -42,5 +43,5 @@ private:
 // Factory for creating objects by type string
 class IsoWorldObjectFactory {
 public:
- static IsoObject* create(const std::string& type, bool forceSolid = false);
+ static IsoObject* create(std::string_view type, bool forceSolid = false);
 };

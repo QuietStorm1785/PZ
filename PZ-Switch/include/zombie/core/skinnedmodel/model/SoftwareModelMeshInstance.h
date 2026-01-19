@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
  std::string name;
 
 public
- SoftwareModelMeshInstance(const std::string &_name,
+ SoftwareModelMeshInstance(std::string_view _name,
  SoftwareModelMesh _softwareMesh) {
  this->name = _name;
  this->softwareMesh = _softwareMesh;

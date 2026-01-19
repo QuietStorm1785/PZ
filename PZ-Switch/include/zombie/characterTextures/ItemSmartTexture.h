@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  std::string m_texName = nullptr;
 
 public
- ItemSmartTexture(const std::string &tex) {
+ ItemSmartTexture(std::string_view tex) {
  if (tex != nullptr) {
  this->add(tex);
  this->m_texName = tex;
@@ -29,7 +30,7 @@ public
  }
 
 public
- ItemSmartTexture(const std::string &tex, float hue) {
+ ItemSmartTexture(std::string_view tex, float hue) {
  this->addHue("media/textures/" + tex + ".png", 300, hue);
  this->m_texName = tex;
  }
@@ -73,7 +74,7 @@ public
  }
  }
 
- void setBlood(const std::string &tex, BloodBodyPartType bodyPart,
+ void setBlood(std::string_view tex, BloodBodyPartType bodyPart,
  float intensity) {
  std::string string = "media/textures/BloodTextures/" +
  CharacterSmartTexture.MaskFiles[bodyPart.index()] +
@@ -82,7 +83,7 @@ public
  this->setBlood(tex, string, intensity, int0);
  }
 
- void setBlood(const std::string &tex, const std::string &mask,
+ void setBlood(std::string_view tex, std::string_view mask,
  float intensity, int category) {
  intensity = Math.max(0.0F, Math.min(1.0F, intensity);
  TextureCombinerCommand textureCombinerCommand =
@@ -104,7 +105,7 @@ public
  }
  }
 
- float addBlood(const std::string &tex, BloodBodyPartType bodyPart,
+ float addBlood(std::string_view tex, BloodBodyPartType bodyPart,
  float intensity) {
  std::string string = "media/textures/BloodTextures/" +
  CharacterSmartTexture.MaskFiles[bodyPart.index()] +
@@ -113,7 +114,7 @@ public
  return this->addBlood(tex, string, intensity, int0);
  }
 
- float addDirt(const std::string &tex, BloodBodyPartType bodyPart,
+ float addDirt(std::string_view tex, BloodBodyPartType bodyPart,
  float intensity) {
  std::string string = "media/textures/BloodTextures/" +
  CharacterSmartTexture.MaskFiles[bodyPart.index()] +
@@ -122,7 +123,7 @@ public
  return this->addDirt(tex, string, intensity, int0);
  }
 
- float addBlood(const std::string &tex, const std::string &mask,
+ float addBlood(std::string_view tex, std::string_view mask,
  float intensity, int category) {
  TextureCombinerCommand textureCombinerCommand =
  this->getFirstFromCategory(category);
@@ -154,7 +155,7 @@ public
  }
  }
 
- float addDirt(const std::string &tex, const std::string &mask,
+ float addDirt(std::string_view tex, std::string_view mask,
  float intensity, int category) {
  TextureCombinerCommand textureCombinerCommand =
  this->getFirstFromCategory(category);

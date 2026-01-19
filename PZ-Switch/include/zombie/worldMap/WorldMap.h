@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -62,7 +63,7 @@ public
  metaGrid.getMaxX(), metaGrid.getMaxY());
  }
 
- void addData(const std::string &fileName) {
+ void addData(std::string_view fileName) {
  if (!StringUtils.isNullOrWhitespace(fileName) {
  std::string string = ZomboidFileSystem.instance.getString(fileName);
  WorldMapData worldMapData = WorldMapData.getOrCreateData(string);
@@ -77,7 +78,7 @@ public
  }
  }
 
- int getDataCount() { return this->m_data.size(); }
+ int getDataCount() noexcept{ return this->m_data.size(); }
 
  WorldMapData getDataByIndex(int index) { return this->m_data.get(index); }
 
@@ -127,7 +128,7 @@ public
 
  bool hasData() { return !this->m_data.empty(); }
 
- void addImages(const std::string &directory) {
+ void addImages(std::string_view directory) {
  if (!StringUtils.isNullOrWhitespace(directory) {
  WorldMapImages worldMapImages = WorldMapImages.getOrCreate(directory);
  if (worldMapImages != nullptr &&
@@ -139,7 +140,7 @@ public
 
  bool hasImages() { return !this->m_images.empty(); }
 
- int getImagesCount() { return this->m_images.size(); }
+ int getImagesCount() noexcept{ return this->m_images.size(); }
 
  WorldMapImages getImagesByIndex(int index) {
  return this->m_images.get(index);

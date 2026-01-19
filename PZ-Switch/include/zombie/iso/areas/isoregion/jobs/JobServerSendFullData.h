@@ -24,7 +24,7 @@ protected
 
  void reset() { this->targetConn = nullptr; }
 
- UdpConnection getTargetConn() { return this->targetConn; }
+ UdpConnection getTargetConn() noexcept{ return this->targetConn; }
 }
 } // namespace jobs
 } // namespace isoregion

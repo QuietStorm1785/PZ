@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -84,7 +85,7 @@ class ScriptManager {
     static std::string currentLoadFileAbsPath;
     static const std::string VanillaID = "pz-vanilla";
 
-    void ParseScript(const std::string& var1) {
+    void ParseScript(std::string_view var1) {
       if (DebugLog.isEnabled(DebugType.Script)) {
          DebugLog.Script.debugln("Parsing...");
       }
@@ -100,7 +101,7 @@ class ScriptManager {
     void update() {
    }
 
-    void LoadFile(const std::string& var1, bool var2) {
+    void LoadFile(std::string_view var1, bool var2) {
       if (DebugLog.isEnabled(DebugType.Script)) {
          DebugLog.Script.debugln(var1 + (var2 ? " bLoadJar" : ""));
       }
@@ -156,7 +157,7 @@ class ScriptManager {
       }
    }
 
-    void CreateFromToken(const std::string& var1) {
+    void CreateFromToken(std::string_view var1) {
       var1 = var1.trim();
       if (var1.indexOf("module") == 0) {
     int var2 = var1.indexOf("{");
@@ -195,16 +196,16 @@ class ScriptManager {
       }
    }
 
-    static std::string getItemName(const std::string& var0) {
+    static std::string getItemName(std::string_view var0) {
     int var1 = var0.indexOf(46);
     return var1 = = -1 ? var0 : var0.substring(var1 + 1);
    }
 
-    ScriptModule getModule(const std::string& var1) {
+    ScriptModule getModule(std::string_view var1) {
       return this.getModule(var1, true);
    }
 
-    ScriptModule getModule(const std::string& var1, bool var2) {
+    ScriptModule getModule(std::string_view var1, bool var2) {
       if (var1.trim() == "Base") || var1.startsWith("Base.")) {
          return this.ModuleMap.get("Base");
       } else if (this.CachedModules.containsKey(var1)) {
@@ -246,7 +247,7 @@ class ScriptManager {
       }
    }
 
-    ScriptModule getModuleNoDisableCheck(const std::string& var1) {
+    ScriptModule getModuleNoDisableCheck(std::string_view var1) {
       if (this.ModuleAliases.containsKey(var1)) {
          var1 = this.ModuleAliases.get(var1);
       }
@@ -258,7 +259,7 @@ class ScriptManager {
       }
    }
 
-    Item getItem(const std::string& var1) {
+    Item getItem(std::string_view var1) {
       if (var1.contains(".") && this.FullTypeToItemMap.containsKey(var1)) {
          return this.FullTypeToItemMap.get(var1);
       } else {
@@ -267,11 +268,11 @@ class ScriptManager {
       }
    }
 
-    Item FindItem(const std::string& var1) {
+    Item FindItem(std::string_view var1) {
       return this.FindItem(var1, true);
    }
 
-    Item FindItem(const std::string& var1, bool var2) {
+    Item FindItem(std::string_view var1, bool var2) {
       if (var1.contains(".") && this.FullTypeToItemMap.containsKey(var1)) {
          return this.FullTypeToItemMap.get(var1);
       } else {
@@ -297,27 +298,27 @@ class ScriptManager {
       }
    }
 
-    bool isDrainableItemType(const std::string& var1) {
+    bool isDrainableItemType(std::string_view var1) {
     Item var2 = this.FindItem(var1);
       return var2 != nullptr ? var2.getType() == Type.Drainable : false;
    }
 
-    Recipe getRecipe(const std::string& var1) {
+    Recipe getRecipe(std::string_view var1) {
     ScriptModule var2 = this.getModule(var1);
     return var2 = = nullptr ? nullptr : var2.getRecipe(getItemName(var1));
    }
 
-    VehicleScript getVehicle(const std::string& var1) {
+    VehicleScript getVehicle(std::string_view var1) {
     ScriptModule var2 = this.getModule(var1);
     return var2 = = nullptr ? nullptr : var2.getVehicle(getItemName(var1));
    }
 
-    VehicleTemplate getVehicleTemplate(const std::string& var1) {
+    VehicleTemplate getVehicleTemplate(std::string_view var1) {
     ScriptModule var2 = this.getModule(var1);
     return var2 = = nullptr ? nullptr : var2.getVehicleTemplate(getItemName(var1));
    }
 
-    VehicleEngineRPM getVehicleEngineRPM(const std::string& var1) {
+    VehicleEngineRPM getVehicleEngineRPM(std::string_view var1) {
     ScriptModule var2 = this.getModule(var1);
     return var2 = = nullptr ? nullptr : var2.getVehicleEngineRPM(getItemName(var1));
    }
@@ -488,7 +489,7 @@ class ScriptManager {
     return var1;
    }
 
-    AnimationsMesh getAnimationsMesh(const std::string& var1) {
+    AnimationsMesh getAnimationsMesh(std::string_view var1) {
     ScriptModule var2 = this.getModule(var1);
       if (var2 == nullptr) {
     return nullptr;
@@ -511,7 +512,7 @@ class ScriptManager {
       return this.animationsMeshTempList;
    }
 
-    MannequinScript getMannequinScript(const std::string& var1) {
+    MannequinScript getMannequinScript(std::string_view var1) {
     ScriptModule var2 = this.getModule(var1);
       if (var2 == nullptr) {
     return nullptr;
@@ -535,7 +536,7 @@ class ScriptManager {
       return this.mannequinScriptTempList;
    }
 
-    ModelScript getModelScript(const std::string& var1) {
+    ModelScript getModelScript(std::string_view var1) {
     ScriptModule var2 = this.getModule(var1);
       if (var2 == nullptr) {
     return nullptr;
@@ -571,7 +572,7 @@ class ScriptManager {
       return this.vehicleScriptTempList;
    }
 
-    SoundTimelineScript getSoundTimeline(const std::string& var1) {
+    SoundTimelineScript getSoundTimeline(std::string_view var1) {
       if (this.SoundTimelineMap.isEmpty()) {
          for (int var2 = 0; var2 < this.ModuleList.size(); var2++) {
     ScriptModule var3 = this.ModuleList.get(var2);
@@ -747,11 +748,11 @@ class ScriptManager {
     return var3;
    }
 
-    std::string getItemTypeForClothingItem(const std::string& var1) {
+    std::string getItemTypeForClothingItem(std::string_view var1) {
       return this.clothingToItemMap.get(var1);
    }
 
-    Item getItemForClothingItem(const std::string& var1) {
+    Item getItemForClothingItem(std::string_view var1) {
     std::string var2 = this.getItemTypeForClothingItem(var1);
     return var2 = = nullptr ? nullptr : this.FindItem(var2);
    }
@@ -789,7 +790,7 @@ class ScriptManager {
       }
    }
 
-    std::string resolveItemType(ScriptModule var1, const std::string& var2) {
+    std::string resolveItemType(ScriptModule var1, std::string_view var2) {
       if (StringUtils.isNullOrWhitespace(var2)) {
     return nullptr;
       } else if (var2.contains(".")) {
@@ -814,7 +815,7 @@ class ScriptManager {
       }
    }
 
-    std::string resolveModelScript(ScriptModule var1, const std::string& var2) {
+    std::string resolveModelScript(ScriptModule var1, std::string_view var2) {
       if (StringUtils.isNullOrWhitespace(var2)) {
     return nullptr;
       } else if (var2.contains(".")) {
@@ -839,7 +840,7 @@ class ScriptManager {
       }
    }
 
-    Item getSpecificItem(const std::string& var1) {
+    Item getSpecificItem(std::string_view var1) {
       if (!var1.contains(".")) {
          DebugLog.log("ScriptManager.getSpecificItem requires a full type name, cannot find: " + var1);
          if (Core.bDebug) {

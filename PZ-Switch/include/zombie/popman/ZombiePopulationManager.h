@@ -38,6 +38,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -174,7 +175,7 @@ private
 private
  static int n_getRadarZombieData(float[] var0);
 
- static void noise(const std::string &string) {
+ static void noise(std::string_view string) {
  if (bDebugLoggingEnabled &&
  (Core.bDebug || GameServer.bServer && GameServer.bDebug) {
  DebugLog.log("ZPOP: " + string);
@@ -202,7 +203,7 @@ private
  ZombiePopulationManager::onTriggeredZombieFile);
  }
 
- static void onTriggeredZombieFile(const std::string &string) {
+ static void onTriggeredZombieFile(std::string_view string) {
  DebugLog.General.println("ZombiePopulationManager.onTriggeredZombieFile(" +
  string + ">");
 
@@ -423,7 +424,7 @@ private
  }
  }
 
- void updateRealZombieCount() {
+ void updateRealZombieCount() noexcept{
  if (this->realZombieCount.empty() ||
  this->realZombieCount.length != this->width * this->height) {
  this->realZombieCount = new short[this->width * this->height];

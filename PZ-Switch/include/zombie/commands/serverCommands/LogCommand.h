@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -34,12 +35,12 @@ namespace serverCommands {
 class LogCommand : public CommandBase {
  public:
  public
- LogCommand(const std::string &string0, const std::string &string1,
- const std::string &string2, UdpConnection udpConnection) {
+ LogCommand(std::string_view string0, std::string_view string1,
+ std::string_view string2, UdpConnection udpConnection) {
  super(string0, string1, string2, udpConnection);
  }
 
- static DebugType getDebugType(const std::string &string) {
+ static DebugType getDebugType(std::string_view string) {
  std::vector arrayList = new ArrayList();
 
  for (DebugType debugType : DebugType.values()) {
@@ -51,7 +52,7 @@ class LogCommand : public CommandBase {
  return arrayList.size() == 1 ? (DebugType)arrayList.get(0) : nullptr;
  }
 
- static LogSeverity getLogSeverity(const std::string &string) {
+ static LogSeverity getLogSeverity(std::string_view string) {
  std::vector arrayList = new ArrayList();
 
  for (LogSeverity logSeverity : LogSeverity.values()) {

@@ -33,6 +33,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -112,7 +113,7 @@ public
  this->deviceData.setParent(this);
  }
 
- DeviceData cloneDeviceDataFromItem(const std::string &itemfull) {
+ DeviceData cloneDeviceDataFromItem(std::string_view itemfull) {
  if (itemfull != nullptr) {
  if (deviceDataCache.containsKey(itemfull) &&
  deviceDataCache.get(itemfull) != nullptr) {
@@ -161,39 +162,39 @@ public
 
  std::string getTalkerType() { return this->chatElement.getTalkerType(); }
 
- void setTalkerType(const std::string &type) {
+ void setTalkerType(std::string_view type) {
  this->talkerType = type.empty() ? "" : type;
  this->chatElement.setTalkerType(this->talkerType);
  }
 
  std::string getSayLine() { return this->chatElement.getSayLine(); }
 
- void Say(const std::string &line) {
+ void Say(std::string_view line) {
  this->AddDeviceText(line, 1.0F, 1.0F, 1.0F, nullptr, nullptr, -1, false);
  }
 
- void AddDeviceText(const std::string &line, float r, float g, float b,
- const std::string &guid, const std::string &codes,
+ void AddDeviceText(std::string_view line, float r, float g, float b,
+ std::string_view guid, std::string_view codes,
  int distance) {
  this->AddDeviceText(line, r, g, b, guid, codes, distance, true);
  }
 
- void AddDeviceText(const std::string &line, int r, int g, int b,
- const std::string &guid, const std::string &codes,
+ void AddDeviceText(std::string_view line, int r, int g, int b,
+ std::string_view guid, std::string_view codes,
  int distance) {
  this->AddDeviceText(line, r / 255.0F, g / 255.0F, b / 255.0F, guid, codes,
  distance, true);
  }
 
- void AddDeviceText(const std::string &line, int r, int g, int b,
- const std::string &guid, const std::string &codes,
+ void AddDeviceText(std::string_view line, int r, int g, int b,
+ std::string_view guid, std::string_view codes,
  int distance, bool attractZombies) {
  this->AddDeviceText(line, r / 255.0F, g / 255.0F, b / 255.0F, guid, codes,
  distance, attractZombies);
  }
 
- void AddDeviceText(const std::string &line, float r, float g, float b,
- const std::string &guid, const std::string &codes,
+ void AddDeviceText(std::string_view line, float r, float g, float b,
+ std::string_view guid, std::string_view codes,
  int distance, bool attractZombies) {
  if (this->deviceData != nullptr && this->deviceData.getIsTurnedOn()) {
  if (!ZomboidRadio.isStaticSound(line) {

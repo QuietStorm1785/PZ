@@ -44,7 +44,7 @@ private
 
  int getID() { return this->ID; }
 
- int getSquareSize() { return this->squareSize; }
+ int getSquareSize() noexcept{ return this->squareSize; }
 
  Color getColor() { return this->color; }
 
@@ -131,7 +131,7 @@ protected
  this->roofCnt = 0;
  }
 
- void addSquareCount() { this->squareSize++; }
+ void addSquareCount() noexcept{ this->squareSize++; }
 
  int getChunkBorderSquaresCnt() { return this->chunkBorderSquaresCnt; }
 
@@ -205,7 +205,7 @@ public
  this->connectedNeighbors.remove(chunkRegion0);
  }
 
- int getNeighborCount() { return this->allNeighbors.size(); }
+ int getNeighborCount() noexcept{ return this->allNeighbors.size(); }
 
 protected
  ArrayList<IsoChunkRegion> getAllNeighbors() { return this->allNeighbors; }

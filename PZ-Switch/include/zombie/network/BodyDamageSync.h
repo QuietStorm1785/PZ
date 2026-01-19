@@ -12,6 +12,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -74,7 +75,7 @@ public:
 private
  ArrayList<BodyDamageSync.Updater> updaters = std::make_unique<ArrayList<>>();
 
- static void noise(const std::string &string) {
+ static void noise(std::string_view string) {
  if (Core.bDebug || GameServer.bServer && GameServer.bDebug) {
  DebugLog.log("BodyDamage: " + string);
  }
@@ -359,7 +360,7 @@ public
  }
  }
 
- void updateField(uint8_t id, const std::string &value) {
+ void updateField(uint8_t id, std::string_view value) {
  if (!this->partStarted) {
  bb.put((byte)64);
  bb.put(this->partIndex);

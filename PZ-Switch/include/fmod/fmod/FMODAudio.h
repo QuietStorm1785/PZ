@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,7 +30,7 @@ public
 
  void stop() { this->emitter.stopAll(); }
 
- void setName(const std::string &arg0) {}
+ void setName(std::string_view arg0) {}
 
  std::string getName() { return nullptr; }
 }

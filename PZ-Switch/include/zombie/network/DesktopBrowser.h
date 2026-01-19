@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ private
  "konqueror", "netscape", "opera", "links",
  "lynx", "chromium", "brave-browser"};
 
- static bool openURL(const std::string &string0) {
+ static bool openURL(std::string_view string0) {
  try {
  if (System.getProperty("os.name").contains("OS X")) {
  Runtime.getRuntime().exec(String.format("open %s", string0);

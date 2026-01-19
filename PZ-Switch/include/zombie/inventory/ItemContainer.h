@@ -50,6 +50,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -109,7 +110,7 @@ private
  ThreadLocal.withInitial(ItemContainer.Predicates::new);
 
 public
- ItemContainer(int _ID, const std::string &containerName, IsoGridSquare square,
+ ItemContainer(int _ID, std::string_view containerName, IsoGridSquare square,
  IsoObject _parent) {
  this->ID = _ID;
  this->parent = _parent;
@@ -122,7 +123,7 @@ public
  }
 
 public
- ItemContainer(const std::string &containerName, IsoGridSquare square,
+ ItemContainer(std::string_view containerName, IsoGridSquare square,
  IsoObject _parent) {
  this->ID = -1;
  this->parent = _parent;
@@ -166,7 +167,7 @@ public
  return nullptr;
  }
 
- InventoryItem getItemFromTypeRecurse(const std::string &_type) {
+ InventoryItem getItemFromTypeRecurse(std::string_view _type) {
  return this->getFirstTypeRecurse(_type);
  }
 
@@ -341,16 +342,16 @@ public
  }
  }
 
- int getNumberOfItem(const std::string &findItem,
+ int getNumberOfItem(std::string_view findItem,
  bool includeReplaceOnDeplete) {
  return this->getNumberOfItem(findItem, includeReplaceOnDeplete, false);
  }
 
- int getNumberOfItem(const std::string &findItem) {
+ int getNumberOfItem(std::string_view findItem) {
  return this->getNumberOfItem(findItem, false);
  }
 
- int getNumberOfItem(const std::string &findItem, bool includeReplaceOnDeplete,
+ int getNumberOfItem(std::string_view findItem, bool includeReplaceOnDeplete,
  ArrayList<ItemContainer> containers) {
  int int0 = this->getNumberOfItem(findItem, includeReplaceOnDeplete);
  if (containers != nullptr) {
@@ -364,7 +365,7 @@ public
  return int0;
 }
 
- int getNumberOfItem(const std::string& findItem, bool includeReplaceOnDeplete, bool insideInv) {
+ int getNumberOfItem(std::string_view findItem, bool includeReplaceOnDeplete, bool insideInv) {
  int int0 = 0;
 
  for (int int1 = 0; int1 < this->Items.size(); int1++) {
@@ -437,7 +438,7 @@ InventoryItem AddItemBlind(InventoryItem item) {
  }
 }
 
-InventoryItem AddItem(const std::string &_type) {
+InventoryItem AddItem(std::string_view _type) {
  this->drawDirty = true;
  if (this->parent != nullptr && !(this->parent instanceof IsoGameCharacter) {
  this->dirty = true;
@@ -474,7 +475,7 @@ InventoryItem AddItem(const std::string &_type) {
  }
 }
 
-bool AddItem(const std::string &_type, float useDelta) {
+bool AddItem(std::string_view _type, float useDelta) {
  this->drawDirty = true;
  if (this->parent != nullptr && !(this->parent instanceof IsoGameCharacter) {
  this->dirty = true;
@@ -496,11 +497,11 @@ bool AddItem(const std::string &_type, float useDelta) {
 
 bool contains(InventoryItem item) { return this->Items.contains(item); }
 
-bool containsWithModule(const std::string &moduleType) {
+bool containsWithModule(std::string_view moduleType) {
  return this->containsWithModule(moduleType, false);
 }
 
-bool containsWithModule(const std::string &moduleType, bool withDeltaLeft) {
+bool containsWithModule(std::string_view moduleType, bool withDeltaLeft) {
  std::string string0 = moduleType;
  std::string string1 = "Base";
  if (moduleType.contains(".")) {
@@ -584,15 +585,15 @@ bool contains(InventoryItem itemToFind, bool doInv) {
  return false;
 }
 
-bool contains(const std::string &_type, bool doInv) {
+bool contains(std::string_view _type, bool doInv) {
  return this->contains(_type, doInv, false);
 }
 
-bool containsType(const std::string &_type) {
+bool containsType(std::string_view _type) {
  return this->contains(_type, false, false);
 }
 
-bool containsTypeRecurse(const std::string &_type) {
+bool containsTypeRecurse(std::string_view _type) {
  return this->contains(_type, true, false);
 }
 
@@ -600,7 +601,7 @@ bool testBroken(bool boolean0, InventoryItem item) {
  return !boolean0 ? true : !item.isBroken();
 }
 
-bool contains(const std::string &_type, bool doInv, bool ignoreBroken) {
+bool contains(std::string_view _type, bool doInv, bool ignoreBroken) {
  ItemContainer.InventoryItemList inventoryItemList =
  TL_itemListPool.get().alloc();
  if (_type.contains("Type:")) {
@@ -692,7 +693,7 @@ TL_itemListPool.get().release(inventoryItemList);
 return false;
 }
 
-bool contains(const std::string &_type) { return this->contains(_type, false); }
+bool contains(std::string_view _type) { return this->contains(_type, false); }
 
 static InventoryItem
 getBestOf(ItemContainer.InventoryItemList inventoryItemList,
@@ -733,7 +734,7 @@ InventoryItem getBestRecurse(Predicate<InventoryItem> predicate,
  return item;
 }
 
-InventoryItem getBestType(const std::string &_type,
+InventoryItem getBestType(std::string_view _type,
  Comparator<InventoryItem> comparator) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
@@ -748,7 +749,7 @@ InventoryItem getBestType(const std::string &_type,
  return item;
 }
 
-InventoryItem getBestTypeRecurse(const std::string &_type,
+InventoryItem getBestTypeRecurse(std::string_view _type,
  Comparator<InventoryItem> comparator) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
@@ -834,7 +835,7 @@ InventoryItem getBestEvalArgRecurse(LuaClosure predicateObj,
  return item;
 }
 
-InventoryItem getBestTypeEval(const std::string &_type,
+InventoryItem getBestTypeEval(std::string_view _type,
  LuaClosure comparatorObj) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
@@ -852,7 +853,7 @@ InventoryItem getBestTypeEval(const std::string &_type,
  return item;
 }
 
-InventoryItem getBestTypeEvalRecurse(const std::string &_type,
+InventoryItem getBestTypeEvalRecurse(std::string_view _type,
  LuaClosure comparatorObj) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
@@ -870,7 +871,7 @@ InventoryItem getBestTypeEvalRecurse(const std::string &_type,
  return item;
 }
 
-InventoryItem getBestTypeEvalArg(const std::string &_type,
+InventoryItem getBestTypeEvalArg(std::string_view _type,
  LuaClosure comparatorObj, void *arg) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
@@ -888,7 +889,7 @@ InventoryItem getBestTypeEvalArg(const std::string &_type,
  return item;
 }
 
-InventoryItem getBestTypeEvalArgRecurse(const std::string &_type,
+InventoryItem getBestTypeEvalArgRecurse(std::string_view _type,
  LuaClosure comparatorObj, void *arg) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
@@ -930,7 +931,7 @@ InventoryItem getBestConditionRecurse(Predicate<InventoryItem> predicate) {
  return item;
 }
 
-InventoryItem getBestCondition(const std::string &_type) {
+InventoryItem getBestCondition(std::string_view _type) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
  InventoryItem item = this->getBestCondition(typePredicate);
@@ -938,7 +939,7 @@ InventoryItem getBestCondition(const std::string &_type) {
  return item;
 }
 
-InventoryItem getBestConditionRecurse(const std::string &_type) {
+InventoryItem getBestConditionRecurse(std::string_view _type) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
  InventoryItem item = this->getBestConditionRecurse(typePredicate);
@@ -1011,38 +1012,38 @@ bool containsEvalArgRecurse(LuaClosure functionObj, void *arg) {
  return this->getFirstEvalArgRecurse(functionObj, arg) != nullptr;
 }
 
-bool containsTag(const std::string &tag) {
+bool containsTag(std::string_view tag) {
  return this->getFirstTag(tag) != nullptr;
 }
 
-bool containsTagEval(const std::string &tag, LuaClosure functionObj) {
+bool containsTagEval(std::string_view tag, LuaClosure functionObj) {
  return this->getFirstTagEval(tag, functionObj) != nullptr;
 }
 
-bool containsTagRecurse(const std::string &tag) {
+bool containsTagRecurse(std::string_view tag) {
  return this->getFirstTagRecurse(tag) != nullptr;
 }
 
-bool containsTagEvalRecurse(const std::string &tag, LuaClosure functionObj) {
+bool containsTagEvalRecurse(std::string_view tag, LuaClosure functionObj) {
  return this->getFirstTagEvalRecurse(tag, functionObj) != nullptr;
 }
 
-bool containsTagEvalArgRecurse(const std::string &tag, LuaClosure functionObj,
+bool containsTagEvalArgRecurse(std::string_view tag, LuaClosure functionObj,
  void *arg) {
  return this->getFirstTagEvalArgRecurse(tag, functionObj, arg) != nullptr;
 }
 
-bool containsTypeEvalRecurse(const std::string &_type, LuaClosure functionObj) {
+bool containsTypeEvalRecurse(std::string_view _type, LuaClosure functionObj) {
  return this->getFirstTypeEvalRecurse(_type, functionObj) != nullptr;
 }
 
-bool containsTypeEvalArgRecurse(const std::string &_type,
+bool containsTypeEvalArgRecurse(std::string_view _type,
  LuaClosure functionObj, void *arg) {
  return this->getFirstTypeEvalArgRecurse(_type, functionObj, arg) != nullptr;
 }
 
-static bool compareType(const std::string &string0,
- const std::string &string1) {
+static bool compareType(std::string_view string0,
+ std::string_view string1) {
  if (string0 != nullptr && string0.contains("/")) {
  int int0 = string0.indexOf(string1);
  if (int0 == -1) {
@@ -1060,7 +1061,7 @@ static bool compareType(const std::string &string0,
  }
 }
 
-static bool compareType(const std::string &string, InventoryItem item) {
+static bool compareType(std::string_view string, InventoryItem item) {
  return string != nullptr && string.indexOf(46) == -1
  ? compareType(string, item.getType())
  : compareType(string, item.getFullType()) ||
@@ -1241,7 +1242,7 @@ int getCountRecurse(Predicate<InventoryItem> predicate) {
  return int0;
 }
 
-int getCountTag(const std::string &tag) {
+int getCountTag(std::string_view tag) {
  ItemContainer.TagPredicate tagPredicate =
  TL_predicates.get().tag.alloc().init(tag);
  int int0 = this->getCount(tagPredicate);
@@ -1249,7 +1250,7 @@ int getCountTag(const std::string &tag) {
  return int0;
 }
 
-int getCountTagEval(const std::string &tag, LuaClosure functionObj) {
+int getCountTagEval(std::string_view tag, LuaClosure functionObj) {
  ItemContainer.TagEvalPredicate tagEvalPredicate =
  TL_predicates.get().tagEval.alloc().init(tag, functionObj);
  int int0 = this->getCount(tagEvalPredicate);
@@ -1257,7 +1258,7 @@ int getCountTagEval(const std::string &tag, LuaClosure functionObj) {
  return int0;
 }
 
-int getCountTagEvalArg(const std::string &tag, LuaClosure functionObj,
+int getCountTagEvalArg(std::string_view tag, LuaClosure functionObj,
  void *arg) {
  ItemContainer.TagEvalArgPredicate tagEvalArgPredicate =
  TL_predicates.get().tagEvalArg.alloc().init(tag, functionObj, arg);
@@ -1266,7 +1267,7 @@ int getCountTagEvalArg(const std::string &tag, LuaClosure functionObj,
  return int0;
 }
 
-int getCountTagRecurse(const std::string &tag) {
+int getCountTagRecurse(std::string_view tag) {
  ItemContainer.TagPredicate tagPredicate =
  TL_predicates.get().tag.alloc().init(tag);
  int int0 = this->getCountRecurse(tagPredicate);
@@ -1274,7 +1275,7 @@ int getCountTagRecurse(const std::string &tag) {
  return int0;
 }
 
-int getCountTagEvalRecurse(const std::string &tag, LuaClosure functionObj) {
+int getCountTagEvalRecurse(std::string_view tag, LuaClosure functionObj) {
  ItemContainer.TagEvalPredicate tagEvalPredicate =
  TL_predicates.get().tagEval.alloc().init(tag, functionObj);
  int int0 = this->getCountRecurse(tagEvalPredicate);
@@ -1282,7 +1283,7 @@ int getCountTagEvalRecurse(const std::string &tag, LuaClosure functionObj) {
  return int0;
 }
 
-int getCountTagEvalArgRecurse(const std::string &tag, LuaClosure functionObj,
+int getCountTagEvalArgRecurse(std::string_view tag, LuaClosure functionObj,
  void *arg) {
  ItemContainer.TagEvalArgPredicate tagEvalArgPredicate =
  TL_predicates.get().tagEvalArg.alloc().init(tag, functionObj, arg);
@@ -1291,7 +1292,7 @@ int getCountTagEvalArgRecurse(const std::string &tag, LuaClosure functionObj,
  return int0;
 }
 
-int getCountType(const std::string &_type) {
+int getCountType(std::string_view _type) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
  int int0 = this->getCount(typePredicate);
@@ -1299,7 +1300,7 @@ int getCountType(const std::string &_type) {
  return int0;
 }
 
-int getCountTypeEval(const std::string &_type, LuaClosure functionObj) {
+int getCountTypeEval(std::string_view _type, LuaClosure functionObj) {
  ItemContainer.TypeEvalPredicate typeEvalPredicate =
  TL_predicates.get().typeEval.alloc().init(_type, functionObj);
  int int0 = this->getCount(typeEvalPredicate);
@@ -1307,7 +1308,7 @@ int getCountTypeEval(const std::string &_type, LuaClosure functionObj) {
  return int0;
 }
 
-int getCountTypeEvalArg(const std::string &_type, LuaClosure functionObj,
+int getCountTypeEvalArg(std::string_view _type, LuaClosure functionObj,
  void *arg) {
  ItemContainer.TypeEvalArgPredicate typeEvalArgPredicate =
  TL_predicates.get().typeEvalArg.alloc().init(_type, functionObj, arg);
@@ -1316,7 +1317,7 @@ int getCountTypeEvalArg(const std::string &_type, LuaClosure functionObj,
  return int0;
 }
 
-int getCountTypeRecurse(const std::string &_type) {
+int getCountTypeRecurse(std::string_view _type) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
  int int0 = this->getCountRecurse(typePredicate);
@@ -1324,7 +1325,7 @@ int getCountTypeRecurse(const std::string &_type) {
  return int0;
 }
 
-int getCountTypeEvalRecurse(const std::string &_type, LuaClosure functionObj) {
+int getCountTypeEvalRecurse(std::string_view _type, LuaClosure functionObj) {
  ItemContainer.TypeEvalPredicate typeEvalPredicate =
  TL_predicates.get().typeEval.alloc().init(_type, functionObj);
  int int0 = this->getCountRecurse(typeEvalPredicate);
@@ -1332,7 +1333,7 @@ int getCountTypeEvalRecurse(const std::string &_type, LuaClosure functionObj) {
  return int0;
 }
 
-int getCountTypeEvalArgRecurse(const std::string &_type, LuaClosure functionObj,
+int getCountTypeEvalArgRecurse(std::string_view _type, LuaClosure functionObj,
  void *arg) {
  ItemContainer.TypeEvalArgPredicate typeEvalArgPredicate =
  TL_predicates.get().typeEvalArg.alloc().init(_type, functionObj, arg);
@@ -1373,7 +1374,7 @@ int getCountEvalArgRecurse(LuaClosure functionObj, void *arg) {
  return int0;
 }
 
-InventoryItem getFirstCategory(const std::string &category) {
+InventoryItem getFirstCategory(std::string_view category) {
  ItemContainer.CategoryPredicate categoryPredicate =
  TL_predicates.get().category.alloc().init(category);
  InventoryItem item = this->getFirst(categoryPredicate);
@@ -1381,7 +1382,7 @@ InventoryItem getFirstCategory(const std::string &category) {
  return item;
 }
 
-InventoryItem getFirstCategoryRecurse(const std::string &category) {
+InventoryItem getFirstCategoryRecurse(std::string_view category) {
  ItemContainer.CategoryPredicate categoryPredicate =
  TL_predicates.get().category.alloc().init(category);
  InventoryItem item = this->getFirstRecurse(categoryPredicate);
@@ -1405,7 +1406,7 @@ InventoryItem getFirstEvalArgRecurse(LuaClosure functionObj, void *arg) {
  return item;
 }
 
-InventoryItem getFirstTag(const std::string &tag) {
+InventoryItem getFirstTag(std::string_view tag) {
  ItemContainer.TagPredicate tagPredicate =
  TL_predicates.get().tag.alloc().init(tag);
  InventoryItem item = this->getFirst(tagPredicate);
@@ -1413,7 +1414,7 @@ InventoryItem getFirstTag(const std::string &tag) {
  return item;
 }
 
-InventoryItem getFirstTagRecurse(const std::string &tag) {
+InventoryItem getFirstTagRecurse(std::string_view tag) {
  ItemContainer.TagPredicate tagPredicate =
  TL_predicates.get().tag.alloc().init(tag);
  InventoryItem item = this->getFirstRecurse(tagPredicate);
@@ -1421,7 +1422,7 @@ InventoryItem getFirstTagRecurse(const std::string &tag) {
  return item;
 }
 
-InventoryItem getFirstTagEval(const std::string &tag, LuaClosure functionObj) {
+InventoryItem getFirstTagEval(std::string_view tag, LuaClosure functionObj) {
  ItemContainer.TagEvalPredicate tagEvalPredicate =
  TL_predicates.get().tagEval.alloc().init(tag, functionObj);
  InventoryItem item = this->getFirstRecurse(tagEvalPredicate);
@@ -1429,7 +1430,7 @@ InventoryItem getFirstTagEval(const std::string &tag, LuaClosure functionObj) {
  return item;
 }
 
-InventoryItem getFirstTagEvalRecurse(const std::string &tag,
+InventoryItem getFirstTagEvalRecurse(std::string_view tag,
  LuaClosure functionObj) {
  ItemContainer.TagEvalPredicate tagEvalPredicate =
  TL_predicates.get().tagEval.alloc().init(tag, functionObj);
@@ -1438,7 +1439,7 @@ InventoryItem getFirstTagEvalRecurse(const std::string &tag,
  return item;
 }
 
-InventoryItem getFirstTagEvalArgRecurse(const std::string &tag,
+InventoryItem getFirstTagEvalArgRecurse(std::string_view tag,
  LuaClosure functionObj, void *arg) {
  ItemContainer.TagEvalArgPredicate tagEvalArgPredicate =
  TL_predicates.get().tagEvalArg.alloc().init(tag, functionObj, arg);
@@ -1447,7 +1448,7 @@ InventoryItem getFirstTagEvalArgRecurse(const std::string &tag,
  return item;
 }
 
-InventoryItem getFirstType(const std::string &_type) {
+InventoryItem getFirstType(std::string_view _type) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
  InventoryItem item = this->getFirst(typePredicate);
@@ -1455,7 +1456,7 @@ InventoryItem getFirstType(const std::string &_type) {
  return item;
 }
 
-InventoryItem getFirstTypeRecurse(const std::string &_type) {
+InventoryItem getFirstTypeRecurse(std::string_view _type) {
  ItemContainer.TypePredicate typePredicate =
  TL_predicates.get().type.alloc().init(_type);
  InventoryItem item = this->getFirstRecurse(typePredicate);
@@ -1463,7 +1464,7 @@ InventoryItem getFirstTypeRecurse(const std::string &_type) {
  return item;
 }
 
-InventoryItem getFirstTypeEval(const std::string &_type,
+InventoryItem getFirstTypeEval(std::string_view _type,
  LuaClosure functionObj) {
  ItemContainer.TypeEvalPredicate typeEvalPredicate =
  TL_predicates.get().typeEval.alloc().init(_type, functionObj);
@@ -1472,7 +1473,7 @@ InventoryItem getFirstTypeEval(const std::string &_type,
  return item;
 }
 
-InventoryItem getFirstTypeEvalRecurse(const std::string &_type,
+InventoryItem getFirstTypeEvalRecurse(std::string_view _type,
  LuaClosure functionObj) {
  ItemContainer.TypeEvalPredicate typeEvalPredicate =
  TL_predicates.get().typeEval.alloc().init(_type, functionObj);
@@ -1481,7 +1482,7 @@ InventoryItem getFirstTypeEvalRecurse(const std::string &_type,
  return item;
 }
 
-InventoryItem getFirstTypeEvalArgRecurse(const std::string &_type,
+InventoryItem getFirstTypeEvalArgRecurse(std::string_view _type,
  LuaClosure functionObj, void *arg) {
  ItemContainer.TypeEvalArgPredicate typeEvalArgPredicate =
  TL_predicates.get().typeEvalArg.alloc().init(_type, functionObj, arg);
@@ -2048,7 +2049,7 @@ getAllTypeEvalArgRecurse(String _type, LuaClosure functionObj, Object arg) {
  std::make_unique<ArrayList<>>());
 }
 
-InventoryItem FindAndReturnCategory(const std::string &category) {
+InventoryItem FindAndReturnCategory(std::string_view category) {
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
  if (item.getCategory() == category) {
@@ -2064,7 +2065,7 @@ ArrayList<InventoryItem> FindAndReturn(String _type, int count) {
  return this->getSomeType(_type, count);
 }
 
-InventoryItem FindAndReturn(const std::string &_type,
+InventoryItem FindAndReturn(std::string_view _type,
  ArrayList<InventoryItem> itemToCheck) {
  if (_type.empty()) {
  return nullptr;
@@ -2081,7 +2082,7 @@ InventoryItem FindAndReturn(const std::string &_type,
  }
 }
 
-InventoryItem FindAndReturn(const std::string &_type) {
+InventoryItem FindAndReturn(std::string_view _type) {
  return this->getFirstType(_type);
 }
 
@@ -2090,7 +2091,7 @@ ArrayList<InventoryItem> FindAll(String _type) {
  return this->getAllType(_type);
 }
 
-InventoryItem FindAndReturnStack(const std::string &_type) {
+InventoryItem FindAndReturnStack(std::string_view _type) {
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item0 = this->Items.get(int0);
  if (compareType(_type, item0) {
@@ -2176,7 +2177,7 @@ void DoRemoveItem(InventoryItem item) {
  }
 }
 
-void Remove(const std::string &itemTypes) {
+void Remove(std::string_view itemTypes) {
  for (int int0 = 0; int0 < this->Items.size(); int0++) {
  InventoryItem item = this->Items.get(int0);
  if (item.type == itemTypes) {
@@ -2232,7 +2233,7 @@ InventoryItem Find(ItemType itemType) {
  * Remove all the item of the type in parameter inside the container Ex of
  * itemType : Broccoli (no need the module like Base.Broccoli)
  */
-void RemoveAll(const std::string &itemType) {
+void RemoveAll(std::string_view itemType) {
  this->drawDirty = true;
  if (this->parent != nullptr) {
  this->dirty = true;
@@ -2254,7 +2255,7 @@ void RemoveAll(const std::string &itemType) {
 }
 }
 
-bool RemoveOneOf(const std::string &String, bool insideInv) {
+bool RemoveOneOf(std::string_view String, bool insideInv) {
  this->drawDirty = true;
  if (this->parent != nullptr && !(this->parent instanceof IsoGameCharacter) {
  this->dirty = true;
@@ -2292,7 +2293,7 @@ bool RemoveOneOf(const std::string &String, bool insideInv) {
  return false;
 }
 
-void RemoveOneOf(const std::string &String) { this->RemoveOneOf(String, true); }
+void RemoveOneOf(std::string_view String) { this->RemoveOneOf(String, true); }
 
 /** @deprecated */
 int getWeight() {
@@ -2594,7 +2595,7 @@ InventoryItem getBestBandage(SurvivorDesc descriptor) {
  return item0;
 }
 
-int getNumItems(const std::string &item) {
+int getNumItems(std::string_view item) {
  int int0 = 0;
  if (item.contains("Type:")) {
  for (int int1 = 0; int1 < this->Items.size(); int1++) {
@@ -2719,7 +2720,7 @@ std::string getType() { return this->type; }
  *
  * @param _type the type to set
  */
-void setType(const std::string &_type) { this->type = _type; }
+void setType(std::string_view _type) { this->type = _type; }
 
 void clear() {
  this->Items.clear();
@@ -2727,7 +2728,7 @@ void clear() {
  this->drawDirty = true;
 }
 
-int getWaterContainerCount() {
+int getWaterContainerCount() noexcept{
  int int0 = 0;
 
  for (int int1 = 0; int1 < this->Items.size(); int1++) {
@@ -2771,13 +2772,13 @@ ArrayList<InventoryItem> getAllWaterFillables() {
  return tempList;
 }
 
-int getItemCount(const std::string &_type) { return this->getCountType(_type); }
+int getItemCount(std::string_view _type) { return this->getCountType(_type); }
 
-int getItemCountRecurse(const std::string &_type) {
+int getItemCountRecurse(std::string_view _type) {
  return this->getCountTypeRecurse(_type);
 }
 
-int getItemCount(const std::string &_type, bool doBags) {
+int getItemCount(std::string_view _type, bool doBags) {
  return doBags ? this->getCountTypeRecurse(_type) : this->getCountType(_type);
 }
 
@@ -2806,7 +2807,7 @@ int getUsesRecurse(Predicate<InventoryItem> predicate) {
  return int0;
 }
 
-int getUsesType(const std::string &_type) {
+int getUsesType(std::string_view _type) {
  ItemContainer.InventoryItemList inventoryItemList =
  TL_itemListPool.get().alloc();
  this->getAllType(_type, inventoryItemList);
@@ -2815,7 +2816,7 @@ int getUsesType(const std::string &_type) {
  return int0;
 }
 
-int getUsesTypeRecurse(const std::string &_type) {
+int getUsesTypeRecurse(std::string_view _type) {
  ItemContainer.InventoryItemList inventoryItemList =
  TL_itemListPool.get().alloc();
  this->getAllTypeRecurse(_type, inventoryItemList);
@@ -2870,7 +2871,7 @@ bool containsRecursive(InventoryItem item) {
  return false;
 }
 
-int getItemCountFromTypeRecurse(const std::string &_type) {
+int getItemCountFromTypeRecurse(std::string_view _type) {
  int int0 = 0;
 
  for (int int1 = 0; int1 < this->getItems().size(); int1++) {
@@ -2894,7 +2895,7 @@ float getCustomTemperature() { return this->customTemperature; }
 
 void setCustomTemperature(float newTemp) { this->customTemperature = newTemp; }
 
-InventoryItem getItemFromType(const std::string &_type, IsoGameCharacter chr,
+InventoryItem getItemFromType(std::string_view _type, IsoGameCharacter chr,
  bool notEquipped, bool ignoreBroken,
  bool includeInv) {
  ItemContainer.InventoryItemList inventoryItemList =
@@ -2936,12 +2937,12 @@ InventoryItem getItemFromType(const std::string &_type, IsoGameCharacter chr,
  return nullptr;
 }
 
-InventoryItem getItemFromType(const std::string &_type, bool ignoreBroken,
+InventoryItem getItemFromType(std::string_view _type, bool ignoreBroken,
  bool includeInv) {
  return this->getItemFromType(_type, nullptr, false, ignoreBroken, includeInv);
 }
 
-InventoryItem getItemFromType(const std::string &_type) {
+InventoryItem getItemFromType(std::string_view _type) {
  return this->getFirstType(_type);
 }
 
@@ -3142,19 +3143,19 @@ void setHasBeenLooted(bool _hasBeenLooted) {
 
 std::string getOpenSound() { return this->openSound; }
 
-void setOpenSound(const std::string &_openSound) {
+void setOpenSound(std::string_view _openSound) {
  this->openSound = _openSound;
 }
 
 std::string getCloseSound() { return this->closeSound; }
 
-void setCloseSound(const std::string &_closeSound) {
+void setCloseSound(std::string_view _closeSound) {
  this->closeSound = _closeSound;
 }
 
 std::string getPutSound() { return this->putSound; }
 
-void setPutSound(const std::string &_putSound) { this->putSound = _putSound; }
+void setPutSound(std::string_view _putSound) { this->putSound = _putSound; }
 
 InventoryItem haveThisKeyId(int keyId) {
  for (int int0 = 0; int0 < this->getItems().size(); int0++) {
@@ -3173,14 +3174,14 @@ InventoryItem haveThisKeyId(int keyId) {
 
 std::string getOnlyAcceptCategory() { return this->OnlyAcceptCategory; }
 
-void setOnlyAcceptCategory(const std::string &onlyAcceptCategory) {
+void setOnlyAcceptCategory(std::string_view onlyAcceptCategory) {
  this->OnlyAcceptCategory =
  StringUtils.discardNullOrWhitespace(onlyAcceptCategory);
 }
 
 std::string getAcceptItemFunction() { return this->AcceptItemFunction; }
 
-void setAcceptItemFunction(const std::string &functionName) {
+void setAcceptItemFunction(std::string_view functionName) {
  this->AcceptItemFunction = StringUtils.discardNullOrWhitespace(functionName);
 }
 
@@ -3328,13 +3329,13 @@ bool isExistYet() {
 
 std::string getContainerPosition() { return this->containerPosition; }
 
-void setContainerPosition(const std::string &_containerPosition) {
+void setContainerPosition(std::string_view _containerPosition) {
  this->containerPosition = _containerPosition;
 }
 
 std::string getFreezerPosition() { return this->freezerPosition; }
 
-void setFreezerPosition(const std::string &_freezerPosition) {
+void setFreezerPosition(std::string_view _freezerPosition) {
  this->freezerPosition = _freezerPosition;
 }
 

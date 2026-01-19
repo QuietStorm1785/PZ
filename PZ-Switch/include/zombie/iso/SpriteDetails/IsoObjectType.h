@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,7 +33,7 @@ static IsoObjectType fromIndex(int value) {
  return IsoObjectType.class.getEnumConstants()[value];
 }
 
-static IsoObjectType FromString(const std::string &str) {
+static IsoObjectType FromString(std::string_view str) {
  IsoObjectType objectType = fromStringMap.get(str);
  return objectType = = nullptr ? MAX : objectType;
 }

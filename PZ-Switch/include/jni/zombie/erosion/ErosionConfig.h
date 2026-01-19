@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -106,7 +107,7 @@ class ErosionConfig {
       this.season.dec = var1.getFloat();
    }
 
-    void writeFile(const std::string& var1) {
+    void writeFile(std::string_view var1) {
       try {
          if (Core.getInstance().isNoSave()) {
             return;
@@ -167,7 +168,7 @@ class ErosionConfig {
       }
    }
 
-    bool readFile(const std::string& var1) {
+    bool readFile(std::string_view var1) {
       try {
     File var2 = new File(var1);
          if (!var2.exists()) {

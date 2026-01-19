@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -38,7 +39,7 @@ class SharedDescriptors {
       }
    }
 
-    static void noise(const std::string& var0) {
+    static void noise(std::string_view var0) {
       DebugLog.log("shared-descriptor: " + var0);
    }
 
@@ -137,7 +138,7 @@ class SharedDescriptors {
       }
    }
 
-    static void ApplyReanimatedPlayerOutfit(int var0, const std::string& var1, IsoGameCharacter var2) {
+    static void ApplyReanimatedPlayerOutfit(int var0, std::string_view var1, IsoGameCharacter var2) {
     IsoZombie var3 = (IsoZombie)Type.tryCastTo(var2, IsoZombie.class);
       if (var3 != nullptr) {
     short var4 = (short)(var0 & 65535);

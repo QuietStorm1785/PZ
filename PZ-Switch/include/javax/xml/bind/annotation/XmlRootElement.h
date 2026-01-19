@@ -1,4 +1,5 @@
 #include <string>
+#include <string_view>
 #ifndef JAVAX_XML_BIND_ANNOTATION_XMLROOTELEMENT_H
 #define JAVAX_XML_BIND_ANNOTATION_XMLROOTELEMENT_H
 
@@ -18,10 +19,10 @@ class XmlRootElement {
 public:
  XmlRootElement() = default;
 
- XmlRootElement(const std::string& name,
- const std::string& namespace_uri = "",
- const std::string& factory_class = "",
- const std::string& factory_method = "")
+ XmlRootElement(std::string_view name,
+ std::string_view namespace_uri = "",
+ std::string_view factory_class = "",
+ std::string_view factory_method = "")
  : name_(name), namespace_(namespace_uri),
  factory_class_(factory_class), factory_method_(factory_method) {}
 

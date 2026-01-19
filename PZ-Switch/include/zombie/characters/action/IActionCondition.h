@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,7 +32,7 @@ public:
  return iFactory != nullptr ? iFactory.create(element) : nullptr;
  }
 
- static void registerFactory(const std::string &string,
+ static void registerFactory(std::string_view string,
  IActionCondition.IFactory iFactory) {
  s_factoryMap.put(string, iFactory);
  }

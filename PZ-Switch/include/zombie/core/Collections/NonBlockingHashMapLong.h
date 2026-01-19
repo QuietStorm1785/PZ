@@ -632,7 +632,7 @@ private
  }
 
 private
- NonBlockingHashMapLong.CHM resize() {
+ NonBlockingHashMapLong.CHM resize() noexcept{
  NonBlockingHashMapLong.CHM chm0 = this->_newchm;
  if (chm0 != nullptr) {
  return chm0;

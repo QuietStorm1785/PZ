@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -149,8 +150,8 @@ public:
  }
  }
 
- static void addToZip(FileSystem fileSystem, const std::string &string0,
- const std::string &string1) {
+ static void addToZip(FileSystem fileSystem, std::string_view string0,
+ std::string_view string1) {
  try {
  Path path0 = fileSystem.getPath(string0);
  Files.createDirectories(path0.getParent());
@@ -167,8 +168,8 @@ public:
  }
  }
 
- static void addSaveToZip(FileSystem fileSystem, const std::string &string0,
- const std::string &string1) {
+ static void addSaveToZip(FileSystem fileSystem, std::string_view string0,
+ std::string_view string1) {
  try {
  Path path0 = fileSystem.getPath(string0);
  Files.createDirectories(path0.getParent());
@@ -186,8 +187,8 @@ public:
  }
  }
 
- static void addSaveOldToZip(FileSystem fileSystem, const std::string &string2,
- const std::string &string3) {
+ static void addSaveOldToZip(FileSystem fileSystem, std::string_view string2,
+ std::string_view string3) {
  try {
  BufferedReader bufferedReader = nullptr;
 
@@ -254,8 +255,8 @@ public:
  return "World: " + string1 + "\n\rGameMode:" + string0;
  }
 
- static void addDirToZip(FileSystem fileSystem, const std::string &string0,
- const std::string &string1) {
+ static void addDirToZip(FileSystem fileSystem, std::string_view string0,
+ std::string_view string1) {
  try {
  Path path0 = fileSystem.getPath(string0);
  deleteDirectory(fileSystem, path0);
@@ -276,8 +277,8 @@ public:
  }
  }
 
- static void addDirToZipLua(FileSystem fileSystem, const std::string &string0,
- const std::string &string1) {
+ static void addDirToZipLua(FileSystem fileSystem, std::string_view string0,
+ std::string_view string1) {
  try {
  Path path0 = fileSystem.getPath(string0);
  deleteDirectory(fileSystem, path0);
@@ -302,8 +303,8 @@ public:
  }
 
  static void addFilelistToZip(FileSystem fileSystem,
- const std::string &string0,
- const std::string &string1) {
+ std::string_view string0,
+ std::string_view string1) {
  try {
  Path path0 = fileSystem.getPath(string0);
  Path path1 = FileSystems.getDefault()
@@ -349,8 +350,8 @@ getDirectoryFiles(Path path) {
  }
 }
 
-static void addLogToZip(FileSystem fileSystem, const std::string &string1,
- const std::string &string0, long long1) {
+static void addLogToZip(FileSystem fileSystem, std::string_view string1,
+ std::string_view string0, long long1) {
  long long0;
  try {
  long0 = MD5Checksum.createChecksum(
@@ -402,8 +403,8 @@ static void addLogToZip(FileSystem fileSystem, const std::string &string1,
  }
 }
 
-static void addDebugLogToZip(FileSystem fileSystem, const std::string &string2,
- const std::string &string3, long long1) {
+static void addDebugLogToZip(FileSystem fileSystem, std::string_view string2,
+ std::string_view string3, long long1) {
  std::string string0 = nullptr;
  File file0 = new File(LoggerManager.getLogsDir());
  String[] strings = file0.list();
@@ -465,7 +466,7 @@ static void addDebugLogToZip(FileSystem fileSystem, const std::string &string2,
  }
 }
 
-static long getMD5FromZip(FileSystem fileSystem, const std::string &string) {
+static long getMD5FromZip(FileSystem fileSystem, std::string_view string) {
  long long0 = 0L;
 
  try {
@@ -481,8 +482,8 @@ static long getMD5FromZip(FileSystem fileSystem, const std::string &string) {
  return long0;
 }
 
-static void putTextFile(FileSystem fileSystem, const std::string &string0,
- const std::string &string1) {
+static void putTextFile(FileSystem fileSystem, std::string_view string0,
+ std::string_view string1) {
  try {
  Path path = fileSystem.getPath(string0);
  Files.createDirectories(path.getParent());

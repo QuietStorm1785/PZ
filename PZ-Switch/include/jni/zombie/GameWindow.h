@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -750,11 +751,11 @@ class GameWindow {
       Texture.onTexturePacksChanged();
    }
 
-    static void LoadTexturePack(const std::string& var0, int var1) {
+    static void LoadTexturePack(std::string_view var0, int var1) {
       LoadTexturePack(var0, var1, nullptr);
    }
 
-    static void LoadTexturePack(const std::string& var0, int var1, const std::string& var2) {
+    static void LoadTexturePack(std::string_view var0, int var1, std::string_view var2) {
       DebugLog.General.println("texturepack: loading " + var0);
       DoLoadingText(Translator.getText("UI_Loading_Texturepack", var0));
     std::string var3 = ZomboidFileSystem.instance.getString("media/texturepacks/" + var0 + ".pack");
@@ -766,7 +767,7 @@ class GameWindow {
       texturePacks.add(var4);
    }
 
-    static void LoadTexturePackDDS(const std::string& var0) {
+    static void LoadTexturePackDDS(std::string_view var0) {
       DebugLog.log("texturepack: loading " + var0);
       if (SpriteRenderer.instance != nullptr) {
          Core.getInstance().StartFrame();
@@ -829,7 +830,7 @@ class GameWindow {
       Texture.nullTextures.clear();
    }
 
-    static void installRequiredLibrary(const std::string& var0, const std::string& var1) {
+    static void installRequiredLibrary(std::string_view var0, std::string_view var1) {
       if (new File(var0).exists()) {
          DebugLog.log("Attempting to install " + var1);
          DebugLog.log("Running " + var0 + ".");
@@ -1030,15 +1031,15 @@ class GameWindow {
       return var0.getParent();
    }
 
-    static void WriteString(ByteBuffer var0, const std::string& var1) {
+    static void WriteString(ByteBuffer var0, std::string_view var1) {
       WriteStringUTF(var0, var1);
    }
 
-    static void WriteStringUTF(ByteBuffer var0, const std::string& var1) {
+    static void WriteStringUTF(ByteBuffer var0, std::string_view var1) {
       stringUTF.get().save(var0, var1);
    }
 
-    static void WriteString(DataOutputStream var0, const std::string& var1) {
+    static void WriteString(DataOutputStream var0, std::string_view var1) {
       if (var1 == nullptr) {
          var0.writeInt(0);
       } else {
@@ -1078,7 +1079,7 @@ class GameWindow {
       doRenderEvent = var0;
    }
 
-    static void DoLoadingText(const std::string& var0) {
+    static void DoLoadingText(std::string_view var0) {
       if (SpriteRenderer.instance != nullptr && TextManager.instance.font != nullptr) {
          Core.getInstance().StartFrame();
          Core.getInstance().EndFrame();

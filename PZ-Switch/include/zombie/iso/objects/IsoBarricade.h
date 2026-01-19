@@ -38,6 +38,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -591,7 +592,7 @@ public
  output.putShort((short)this->metalBarHealth);
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  if ("state" == change) {
  for (int int0 = 0; int0 < 4; int0++) {
  bb.putShort((short)this->plankHealth[int0]);
@@ -602,7 +603,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  if ("state" == change) {
  for (int int0 = 0; int0 < 4; int0++) {
  this->plankHealth[int0] = bb.getShort();

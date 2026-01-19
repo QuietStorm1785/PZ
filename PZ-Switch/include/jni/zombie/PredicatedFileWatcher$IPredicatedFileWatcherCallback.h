@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -11,6 +12,6 @@ namespace zombie {
 class PredicatedFileWatcher {
 :
     virtual ~PredicatedFileWatcher() = default;
-    void call(const std::string& var1);
+    void call(std::string_view var1);
 }
 } // namespace zombie

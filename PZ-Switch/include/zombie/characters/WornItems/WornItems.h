@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -50,7 +51,7 @@ public
 
  WornItem get(int index) { return this->items.get(index); }
 
- void setItem(const std::string &location, InventoryItem item) {
+ void setItem(std::string_view location, InventoryItem item) {
  this->group.checkValid(location);
  if (!this->group.isMultiItem(location) {
  int int0 = this->indexOf(location);
@@ -84,7 +85,7 @@ public
  }
  }
 
- InventoryItem getItem(const std::string &location) {
+ InventoryItem getItem(std::string_view location) {
  this->group.checkValid(location);
  int int0 = this->indexOf(location);
  return int0 = = -1 ? nullptr : this->items.get(int0).item;
@@ -170,7 +171,7 @@ public
  }
  }
 
- int indexOf(const std::string &string) {
+ int indexOf(std::string_view string) {
  for (int int0 = 0; int0 < this->items.size(); int0++) {
  WornItem wornItem = this->items.get(int0);
  if (wornItem.location == string) {

@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -14,7 +15,7 @@ namespace vecmath {
 
 class VecMathI18N {
 public:
- static std::string getString(const std::string &string1) {
+ static std::string getString(std::string_view string1) {
  std::string string0;
  try {
  string0 = ResourceBundle.getBundle("javax.vecmath.ExceptionStrings")

@@ -323,7 +323,7 @@ public
 
  float getShaderTime() { return this->PuddlesTime; }
 
- float getPuddlesSize() { return this->puddlesSize.getFinalValue(); }
+ float getPuddlesSize() noexcept{ return this->puddlesSize.getFinalValue(); }
 
  ITexture getHMTexture() { return this->texHM; }
 

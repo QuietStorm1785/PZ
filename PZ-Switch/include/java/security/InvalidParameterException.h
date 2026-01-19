@@ -3,12 +3,13 @@
 
 #include <exception>
 #include <string>
+#include <string_view>
 
 namespace java { namespace security {
 
 class InvalidParameterException : public std::exception {
 public:
- explicit InvalidParameterException(const std::string& msg = "Invalid parameter") : message(msg) {}
+ explicit InvalidParameterException(std::string_view msg = "Invalid parameter") : message(msg) {}
  const char* what() const noexcept override { return message.c_str(); }
 private:
  std::string message;

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -138,7 +139,7 @@ class IndieGL {
       );
    }
 
-    static Uniform getShaderUniform(Shader var0, const std::string& var1, int var2) {
+    static Uniform getShaderUniform(Shader var0, std::string_view var1, int var2) {
       if (var0 == nullptr) {
     return nullptr;
       } else {
@@ -147,7 +148,7 @@ class IndieGL {
       }
    }
 
-    static void shaderSetSamplerUnit(Shader var0, const std::string& var1, int var2) {
+    static void shaderSetSamplerUnit(Shader var0, std::string_view var1, int var2) {
     Uniform var3 = getShaderUniform(var0, var1, 35678);
       if (var3 != nullptr) {
          var3.sampler = var2;
@@ -155,47 +156,47 @@ class IndieGL {
       }
    }
 
-    static void shaderSetValue(Shader var0, const std::string& var1, float var2) {
+    static void shaderSetValue(Shader var0, std::string_view var1, float var2) {
     Uniform var3 = getShaderUniform(var0, var1, 5126);
       if (var3 != nullptr) {
          ShaderUpdate1f(var0.getID(), var3.loc, var2);
       }
    }
 
-    static void shaderSetValue(Shader var0, const std::string& var1, int var2) {
+    static void shaderSetValue(Shader var0, std::string_view var1, int var2) {
     Uniform var3 = getShaderUniform(var0, var1, 5124);
       if (var3 != nullptr) {
          ShaderUpdate1i(var0.getID(), var3.loc, var2);
       }
    }
 
-    static void shaderSetValue(Shader var0, const std::string& var1, Vector2 var2) {
+    static void shaderSetValue(Shader var0, std::string_view var1, Vector2 var2) {
       shaderSetVector2(var0, var1, var2.x, var2.y);
    }
 
-    static void shaderSetValue(Shader var0, const std::string& var1, Vector3 var2) {
+    static void shaderSetValue(Shader var0, std::string_view var1, Vector3 var2) {
       shaderSetVector3(var0, var1, var2.x, var2.y, var2.z);
    }
 
-    static void shaderSetValue(Shader var0, const std::string& var1, Vector4 var2) {
+    static void shaderSetValue(Shader var0, std::string_view var1, Vector4 var2) {
       shaderSetVector4(var0, var1, var2.x, var2.y, var2.z, var2.w);
    }
 
-    static void shaderSetVector2(Shader var0, const std::string& var1, float var2, float var3) {
+    static void shaderSetVector2(Shader var0, std::string_view var1, float var2, float var3) {
     Uniform var4 = getShaderUniform(var0, var1, 35664);
       if (var4 != nullptr) {
          ShaderUpdate2f(var0.getID(), var4.loc, var2, var3);
       }
    }
 
-    static void shaderSetVector3(Shader var0, const std::string& var1, float var2, float var3, float var4) {
+    static void shaderSetVector3(Shader var0, std::string_view var1, float var2, float var3, float var4) {
     Uniform var5 = getShaderUniform(var0, var1, 35665);
       if (var5 != nullptr) {
          ShaderUpdate3f(var0.getID(), var5.loc, var2, var3, var4);
       }
    }
 
-    static void shaderSetVector4(Shader var0, const std::string& var1, float var2, float var3, float var4, float var5) {
+    static void shaderSetVector4(Shader var0, std::string_view var1, float var2, float var3, float var4, float var5) {
     Uniform var6 = getShaderUniform(var0, var1, 35666);
       if (var6 != nullptr) {
          ShaderUpdate4f(var0.getID(), var6.loc, var2, var3, var4, var5);

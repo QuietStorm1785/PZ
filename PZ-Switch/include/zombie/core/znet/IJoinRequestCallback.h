@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,7 +16,7 @@ namespace znet {
 class IJoinRequestCallback {
 public:
  virtual ~IJoinRequestCallback() = default;
- void onJoinRequest(long var1, const std::string &var3);
+ void onJoinRequest(long var1, std::string_view var3);
 }
 } // namespace znet
 } // namespace core

@@ -214,7 +214,7 @@ public
 
  void *getObjectFromStack(int arg0) { return this->objectStack[arg0]; }
 
- int getObjectStackSize() { return this->top; }
+ int getObjectStackSize() noexcept{ return this->top; }
 
  LuaCallFrame getParentCallframe() {
  int int0 = this->callFrameTop - 1;

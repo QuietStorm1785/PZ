@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <functional>
@@ -17,7 +18,7 @@ enum class TaskState {
 
 class TaskObjective {
 public:
- TaskObjective(const std::string& desc);
+ TaskObjective(std::string_view desc);
  ~TaskObjective() = default;
  
  const std::string& getDescription() const { return description; }
@@ -31,20 +32,20 @@ private:
 
 class Task {
 public:
- Task(const std::string& id, const std::string& title);
+ Task(std::string_view id, std::string_view title);
  ~Task() = default;
  
  const std::string& getId() const { return id; }
  const std::string& getTitle() const { return title; }
  const std::string& getDescription() const { return description; }
  
- void setDescription(const std::string& desc) { description = desc; }
+ void setDescription(std::string_view desc) { description = desc; }
  
  TaskState getState() const { return state; }
  void setState(TaskState s) { state = s; }
  
  void addObjective(std::shared_ptr<TaskObjective> obj);
- int getObjectiveCount() const { return objectives.size(); }
+ int getObjectiveCount() const noexcept { return objectives.size(); }
  int getCompletedObjectives() const;
  
  float getProgress() const;
@@ -67,15 +68,15 @@ private:
 
 class Quest {
 public:
- Quest(const std::string& id, const std::string& title);
+ Quest(std::string_view id, std::string_view title);
  ~Quest() = default;
  
  const std::string& getId() const { return id; }
  const std::string& getTitle() const { return title; }
  
  void addTask(std::shared_ptr<Task> task);
- std::shared_ptr<Task> getTask(const std::string& taskId);
- int getTaskCount() const { return tasks.size(); }
+ std::shared_ptr<Task> getTask(std::string_view taskId);
+ int getTaskCount() const noexcept { return tasks.size(); }
  const std::vector<std::shared_ptr<Task>>& getTasks() const { return tasks; }
  
  float getProgress() const;
@@ -94,13 +95,13 @@ public:
  return instance;
  }
  
- std::shared_ptr<Quest> createQuest(const std::string& id, const std::string& title);
- std::shared_ptr<Quest> getQuest(const std::string& questId);
+ std::shared_ptr<Quest> createQuest(std::string_view id, std::string_view title);
+ std::shared_ptr<Quest> getQuest(std::string_view questId);
  
- std::shared_ptr<Task> createTask(const std::string& questId, const std::string& taskId, const std::string& title);
+ std::shared_ptr<Task> createTask(std::string_view questId, std::string_view taskId, std::string_view title);
  
- void completeTask(const std::string& questId, const std::string& taskId);
- void completeQuest(const std::string& questId);
+ void completeTask(std::string_view questId, std::string_view taskId);
+ void completeQuest(std::string_view questId);
  
  void update(float deltaTime);
  

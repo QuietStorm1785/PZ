@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ namespace vehicles {
 
 class VehicleDBHelper {
 public:
- static bool isPlayerAlive(const std::string &string0, int int0) {
+ static bool isPlayerAlive(std::string_view string0, int int0) {
  File file0 = new File(string0 + File.separator + "map_p.bin");
  if (file0.exists()) {
  return true;

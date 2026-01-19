@@ -28,6 +28,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -164,7 +165,7 @@ private
  float CriticalChance = 20.0F;
  std::string hitSound = "BaseballBatHit";
 
- float getSplatSize() { return this->SplatSize; }
+ float getSplatSize() noexcept{ return this->SplatSize; }
 
  bool CanStack(InventoryItem item) { return false; }
 
@@ -173,15 +174,15 @@ private
  }
 
 public
- HandWeapon(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ HandWeapon(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  this->cat = ItemType.Weapon;
  }
 
 public
- HandWeapon(const std::string &module, const std::string &name,
- const std::string &itemType, Item item) {
+ HandWeapon(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item) {
  super(module, name, itemType, item);
  this->cat = ItemType.Weapon;
  }
@@ -863,7 +864,7 @@ public
  *
  * @param _impactSound the impactSound to set
  */
- void setImpactSound(const std::string &_impactSound) {
+ void setImpactSound(std::string_view _impactSound) {
  this->impactSound = _impactSound;
  }
 
@@ -905,7 +906,7 @@ public
  /**
  * @return the maxHitCount
  */
- int getMaxHitCount() { return this->maxHitCount; }
+ int getMaxHitCount() noexcept{ return this->maxHitCount; }
 
  /**
  *
@@ -1009,7 +1010,7 @@ public
  *
  * @param _otherHandRequire the otherHandRequire to set
  */
- void setOtherHandRequire(const std::string &_otherHandRequire) {
+ void setOtherHandRequire(std::string_view _otherHandRequire) {
  this->otherHandRequire = _otherHandRequire;
  }
 
@@ -1035,7 +1036,7 @@ public
  *
  * @param _physicsObject the physicsObject to set
  */
- void setPhysicsObject(const std::string &_physicsObject) {
+ void setPhysicsObject(std::string_view _physicsObject) {
  this->physicsObject = _physicsObject;
  }
 
@@ -1129,7 +1130,7 @@ public
  *
  * @param _swingSound the swingSound to set
  */
- void setSwingSound(const std::string &_swingSound) {
+ void setSwingSound(std::string_view _swingSound) {
  this->swingSound = _swingSound;
  }
 
@@ -1190,7 +1191,7 @@ public
  *
  * @param _weaponSprite the weaponSprite to set
  */
- void setWeaponSprite(const std::string &_weaponSprite) {
+ void setWeaponSprite(std::string_view _weaponSprite) {
  this->weaponSprite = _weaponSprite;
  }
 
@@ -1225,7 +1226,7 @@ public
  *
  * @param _doorHitSound the doorHitSound to set
  */
- void setDoorHitSound(const std::string &_doorHitSound) {
+ void setDoorHitSound(std::string_view _doorHitSound) {
  this->doorHitSound = _doorHitSound;
  }
 
@@ -1330,7 +1331,7 @@ public
 
  bool isAimedHandWeapon() { return this->bIsAimedHandWeapon; }
 
- int getProjectileCount() { return this->ProjectileCount; }
+ int getProjectileCount() noexcept{ return this->ProjectileCount; }
 
  void setProjectileCount(int count) { this->ProjectileCount = count; }
 
@@ -1344,13 +1345,13 @@ public
 
  float getCriticalChance() { return this->CriticalChance; }
 
- void setSubCategory(const std::string &subcategory) {
+ void setSubCategory(std::string_view subcategory) {
  this->SubCategory = subcategory;
  }
 
  std::string getSubCategory() { return this->SubCategory; }
 
- void setZombieHitSound(const std::string &_hitSound) {
+ void setZombieHitSound(std::string_view _hitSound) {
  this->hitSound = _hitSound;
  }
 
@@ -1425,7 +1426,7 @@ public
 
  void setRecoilpad(WeaponPart _recoilpad) { this->recoilpad = _recoilpad; }
 
- int getClipSize() { return this->ClipSize; }
+ int getClipSize() noexcept{ return this->ClipSize; }
 
  void setClipSize(int capacity) {
  this->ClipSize = capacity;
@@ -1725,17 +1726,17 @@ public
 
  std::string getBulletOutSound() { return this->bulletOutSound; }
 
- void setBulletOutSound(const std::string &_bulletOutSound) {
+ void setBulletOutSound(std::string_view _bulletOutSound) {
  this->bulletOutSound = _bulletOutSound;
  }
 
  std::string getShellFallSound() { return this->shellFallSound; }
 
- void setShellFallSound(const std::string &_shellFallSound) {
+ void setShellFallSound(std::string_view _shellFallSound) {
  this->shellFallSound = _shellFallSound;
  }
 
- void addPartToList(const std::string &string,
+ void addPartToList(std::string_view string,
  ArrayList<WeaponPart> arrayList) {
  WeaponPart weaponPart = this->getWeaponPart(string);
  if (weaponPart != nullptr) {
@@ -1760,7 +1761,7 @@ public
  return result;
  }
 
- void setWeaponPart(const std::string &type, WeaponPart part) {
+ void setWeaponPart(std::string_view type, WeaponPart part) {
  if (part.empty() || type.equalsIgnoreCase(part.getPartType())) {
  if ("Scope".equalsIgnoreCase(type) {
  this->scope = part;
@@ -1780,7 +1781,7 @@ public
  }
  }
 
- WeaponPart getWeaponPart(const std::string &type) {
+ WeaponPart getWeaponPart(std::string_view type) {
  if ("Scope".equalsIgnoreCase(type) {
  return this->scope;
  } else if ("Clip".equalsIgnoreCase(type) {
@@ -1799,7 +1800,7 @@ public
  }
  }
 
- float getWeaponPartWeightModifier(const std::string &type) {
+ float getWeaponPartWeightModifier(std::string_view type) {
  return this->getWeaponPartWeightModifier(this->getWeaponPart(type);
  }
 
@@ -1907,7 +1908,7 @@ public
 
  std::string getPlacedSprite() { return this->placedSprite; }
 
- void setPlacedSprite(const std::string &_placedSprite) {
+ void setPlacedSprite(std::string_view _placedSprite) {
  this->placedSprite = _placedSprite;
  }
 
@@ -1945,11 +1946,11 @@ public
 
  std::string getAmmoBox() { return this->ammoBox; }
 
- void setAmmoBox(const std::string &_ammoBox) { this->ammoBox = _ammoBox; }
+ void setAmmoBox(std::string_view _ammoBox) { this->ammoBox = _ammoBox; }
 
  std::string getMagazineType() { return this->magazineType; }
 
- void setMagazineType(const std::string &_magazineType) {
+ void setMagazineType(std::string_view _magazineType) {
  this->magazineType = _magazineType;
  }
 
@@ -1979,7 +1980,7 @@ public
 
  std::string getRackSound() { return this->rackSound; }
 
- void setRackSound(const std::string &_rackSound) {
+ void setRackSound(std::string_view _rackSound) {
  this->rackSound = _rackSound;
  }
 
@@ -2008,7 +2009,7 @@ public
 
  std::string getWeaponReloadType() { return this->weaponReloadType; }
 
- void setWeaponReloadType(const std::string &_weaponReloadType) {
+ void setWeaponReloadType(std::string_view _weaponReloadType) {
  this->weaponReloadType = _weaponReloadType;
  }
 
@@ -2030,7 +2031,7 @@ public
  this->bSpentRoundChambered = _roundChambered;
  }
 
- int getSpentRoundCount() { return this->spentRoundCount; }
+ int getSpentRoundCount() noexcept{ return this->spentRoundCount; }
 
  void setSpentRoundCount(int count) {
  this->spentRoundCount = PZMath.clamp(count, 0, this->getMaxAmmo());
@@ -2056,7 +2057,7 @@ public
 
  std::string getClickSound() { return this->clickSound; }
 
- void setClickSound(const std::string &_clickSound) {
+ void setClickSound(std::string_view _clickSound) {
  this->clickSound = _clickSound;
  }
 
@@ -2071,7 +2072,7 @@ public
 
  std::string getOriginalWeaponSprite() { return this->originalWeaponSprite; }
 
- void setOriginalWeaponSprite(const std::string &_originalWeaponSprite) {
+ void setOriginalWeaponSprite(std::string_view _originalWeaponSprite) {
  this->originalWeaponSprite = _originalWeaponSprite;
  }
 
@@ -2081,7 +2082,7 @@ public
 
  std::string getDamageCategory() { return this->damageCategory; }
 
- void setDamageCategory(const std::string &_damageCategory) {
+ void setDamageCategory(std::string_view _damageCategory) {
  this->damageCategory = _damageCategory;
  }
 
@@ -2093,7 +2094,7 @@ public
 
  std::string getHitFloorSound() { return this->hitFloorSound; }
 
- void setHitFloorSound(const std::string &_hitFloorSound) {
+ void setHitFloorSound(std::string_view _hitFloorSound) {
  this->hitFloorSound = _hitFloorSound;
  }
 
@@ -2105,7 +2106,7 @@ public
 
  std::string getFireMode() { return this->fireMode; }
 
- void setFireMode(const std::string &_fireMode) { this->fireMode = _fireMode; }
+ void setFireMode(std::string_view _fireMode) { this->fireMode = _fireMode; }
 
 public
  ArrayList<String> getFireModePossibilities() {

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public:
  static const int VERSION1 = 1;
  static const int VERSION = 1;
 
- bool write(const std::string &string0, ActiveMods activeMods) {
+ bool write(std::string_view string0, ActiveMods activeMods) {
  if (Core.getInstance().isNoSave()) {
  return false;
  } else {
@@ -67,7 +68,7 @@ public:
  return stringBuilder.toString();
  }
 
- bool read(const std::string &string0, ActiveMods activeMods) {
+ bool read(std::string_view string0, ActiveMods activeMods) {
  activeMods.clear();
 
  try {
@@ -92,7 +93,7 @@ public:
  }
  }
 
- void fromString(const std::string &string0, ActiveMods activeMods) {
+ void fromString(std::string_view string0, ActiveMods activeMods) {
  string0 = ScriptParser.stripComments(string0);
  ScriptParser.Block block0 = ScriptParser.parse(string0);
  int int0 = -1;

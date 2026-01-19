@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -16,7 +17,7 @@ class Phonizer {
     std::string name;
     std::string regex;
 
-     Phonizer(const std::string& var1, const std::string& var2) {
+     Phonizer(std::string_view var1, std::string_view var2) {
       this.name = var1;
       this.regex = var2;
    }

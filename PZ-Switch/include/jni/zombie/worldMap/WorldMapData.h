@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -29,7 +30,7 @@ class WorldMapData :  Asset {
     int m_maxY;
     static const AssetType ASSET_TYPE = new AssetType("WorldMapData");
 
-    static WorldMapData getOrCreateData(const std::string& var0) {
+    static WorldMapData getOrCreateData(std::string_view var0) {
     WorldMapData var1 = s_fileNameToData.get(var0);
       if (var1 == nullptr && Files.exists(Paths.get(var0))) {
          var1 = (WorldMapData)WorldMapDataAssetManager.instance.load(new AssetPath(var0));

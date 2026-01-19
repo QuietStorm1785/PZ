@@ -60,14 +60,14 @@ private
 
  static NetworkZombieSimulator getInstance() { return instance; }
 
- int getAuthorizedZombieCount() {
+ int getAuthorizedZombieCount() noexcept{
  return (int)IsoWorld.instance.CurrentCell.getZombieList()
  .stream()
  .filter(zombie0->zombie0.authOwner == GameClient.connection)
  .count();
  }
 
- int getUnauthorizedZombieCount() {
+ int getUnauthorizedZombieCount() noexcept{
  return (int)IsoWorld.instance.CurrentCell.getZombieList()
  .stream()
  .filter(zombie0->zombie0.authOwner.empty())

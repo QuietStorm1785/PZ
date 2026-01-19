@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -63,7 +64,7 @@ public
 public
  Object[] getParams() { return this->params; }
 
- void fail(const std::string &string) {
+ void fail(std::string_view string) {
  this->failure = string;
  this->bValid = false;
  }

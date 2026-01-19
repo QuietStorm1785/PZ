@@ -20,7 +20,7 @@ namespace parameters {
 class ParameterRoomSize : public FMODGlobalParameter {
 public:
 public
- ParameterRoomSize() { super("RoomSize"); }
+ ParameterRoomSize() noexcept{ super("RoomSize"); }
 
  float calculateCurrentValue() {
  IsoGameCharacter character = this->getCharacter();

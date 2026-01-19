@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -33,7 +34,7 @@ protected
  std::string errorMsg = nullptr;
 
 public
- ServerSettings(const std::string &_name) {
+ ServerSettings(std::string_view _name) {
  this->errorMsg = nullptr;
  this->valid = true;
  this->name = _name;
@@ -94,7 +95,7 @@ public
  }
  }
 
- bool tryDeleteFile(const std::string &string) {
+ bool tryDeleteFile(std::string_view string) {
  try {
  File file = new File(
  ServerSettingsManager.instance.getNameInSettingsFolder(string);
@@ -119,7 +120,7 @@ public
  return true;
  }
 
- bool duplicateFiles(const std::string &newName) {
+ bool duplicateFiles(std::string_view newName) {
  if (!ServerSettingsManager.instance.isValidNewName(newName) {
  return false;
  } else {
@@ -140,7 +141,7 @@ public
  }
  }
 
- bool rename(const std::string &newName) {
+ bool rename(std::string_view newName) {
  if (!ServerSettingsManager.instance.isValidNewName(newName) {
  return false;
  } else {
@@ -178,7 +179,7 @@ public
 
  void clearSpawnRegions() { this->spawnRegions.clear(); }
 
- void addSpawnRegion(const std::string &_name, const std::string &file) {
+ void addSpawnRegion(std::string_view _name, std::string_view file) {
  if (_name != nullptr && file != nullptr) {
  SpawnRegions.Region region = new SpawnRegions.Region();
  region.name = _name;
@@ -196,13 +197,13 @@ public
 
  void removeSpawnRegion(int index) { this->spawnRegions.remove(index); }
 
- KahluaTable loadSpawnPointsFile(const std::string &file) {
+ KahluaTable loadSpawnPointsFile(std::string_view file) {
  SpawnRegions spawnRegionsx = new SpawnRegions();
  return spawnRegionsx.loadPointsTable(
  ServerSettingsManager.instance.getNameInSettingsFolder(file);
  }
 
- bool saveSpawnPointsFile(const std::string &file,
+ bool saveSpawnPointsFile(std::string_view file,
  KahluaTable professionsTable) {
  SpawnRegions spawnRegionsx = new SpawnRegions();
  return spawnRegionsx.savePointsTable(

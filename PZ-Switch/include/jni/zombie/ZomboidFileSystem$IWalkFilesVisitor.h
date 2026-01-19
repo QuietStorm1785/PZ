@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -14,6 +15,6 @@ namespace zombie {
 class ZomboidFileSystem {
 :
     virtual ~ZomboidFileSystem() = default;
-    void visit(File var1, const std::string& var2);
+    void visit(File var1, std::string_view var2);
 }
 } // namespace zombie

@@ -16,6 +16,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -67,7 +68,7 @@ public
 
  void forceComplete() { this->forceComplete = true; }
 
- void PlayLoopedSoundTillComplete(const std::string &name, int radius,
+ void PlayLoopedSoundTillComplete(std::string_view name, int radius,
  float maxGain) {
  this->SoundEffect = this->chr.getEmitter().playSound(name);
  }
@@ -190,7 +191,7 @@ public
  }
  }
 
- void setAnimVariable(const std::string &key, const std::string &val) {
+ void setAnimVariable(std::string_view key, std::string_view val) {
  if (!this->animVariables.contains(key) {
  this->animVariables.add(key);
  }
@@ -198,7 +199,7 @@ public
  this->chr.setVariable(key, val);
  }
 
- void setAnimVariable(const std::string &key, bool val) {
+ void setAnimVariable(std::string_view key, bool val) {
  if (!this->animVariables.contains(key) {
  this->animVariables.add(key);
  }
@@ -218,7 +219,7 @@ public
  this->setActionAnim(act.toString());
  }
 
- void setActionAnim(const std::string &animNode) {
+ void setActionAnim(std::string_view animNode) {
  this->setAnimVariable("PerformingAction", animNode);
  this->chr.setVariable("IsPerformingAnAction", true);
  if (Core.bDebug) {
@@ -236,13 +237,13 @@ public
  this->setOverrideHandModelsObject(primaryHand, secondaryHand, resetModel);
  }
 
- void setOverrideHandModelsString(const std::string &primaryHand,
- const std::string &secondaryHand) {
+ void setOverrideHandModelsString(std::string_view primaryHand,
+ std::string_view secondaryHand) {
  this->setOverrideHandModelsString(primaryHand, secondaryHand, true);
  }
 
- void setOverrideHandModelsString(const std::string &primaryHand,
- const std::string &secondaryHand,
+ void setOverrideHandModelsString(std::string_view primaryHand,
+ std::string_view secondaryHand,
  bool resetModel) {
  this->setOverrideHandModelsObject(primaryHand, secondaryHand, resetModel);
  }

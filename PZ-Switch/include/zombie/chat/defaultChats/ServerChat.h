@@ -17,6 +17,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -54,8 +55,8 @@ public
  return chatSettings;
  }
 
- ChatMessage createMessage(const std::string &string1,
- const std::string &string0, bool boolean0) {
+ ChatMessage createMessage(std::string_view string1,
+ std::string_view string0, bool boolean0) {
  ChatMessage chatMessage = this->createMessage(string0);
  chatMessage.setAuthor(string1);
  if (boolean0) {
@@ -65,7 +66,7 @@ public
  return chatMessage;
  }
 
- ServerChatMessage createServerMessage(const std::string &string,
+ ServerChatMessage createServerMessage(std::string_view string,
  bool boolean0) {
  ServerChatMessage serverChatMessage = this->createServerMessage(string);
  serverChatMessage.setServerAlert(boolean0);

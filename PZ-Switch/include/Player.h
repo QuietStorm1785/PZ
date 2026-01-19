@@ -53,7 +53,7 @@ public:
  // AI
  void setTarget(float targetX, float targetY);
  void clearTarget();
- bool hasTarget() const { return hasTargetPos; }
+ bool hasTarget() const noexcept { return hasTargetPos; }
  
  // Properties
  float getMoveSpeed() const { return moveSpeed; }

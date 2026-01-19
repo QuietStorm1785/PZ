@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -36,7 +37,7 @@ private
  std::make_unique<ConcurrentLinkedQueue<>>();
 
 private
- RCONServer(int int0, const std::string &string, bool boolean0) {
+ RCONServer(int int0, std::string_view string, bool boolean0) {
  this->password = string;
 
  try {
@@ -89,7 +90,7 @@ private
  }
  }
 
- static void init(int int0, const std::string &string, bool boolean0) {
+ static void init(int int0, std::string_view string, bool boolean0) {
  instance = new RCONServer(int0, string, boolean0);
  }
 
@@ -119,7 +120,7 @@ private
  int pendingCommands;
 
  public
- ClientThread(Socket socketx, const std::string &string) {
+ ClientThread(Socket socketx, std::string_view string) {
  this->socket = socketx;
  this->password = string;
 
@@ -190,7 +191,7 @@ private
  }
  }
 
- void handlePacket(int int1, int int0, const std::string &string) {
+ void handlePacket(int int1, int int0, std::string_view string) {
  if (!"players" == string) {
  DebugLog.log("RCON: ID=" + int1 + " Type=" + int0 + " Body='" +
  string + "' " + this->socket.toString());
@@ -328,7 +329,7 @@ private
  RCONServer.ClientThread thread;
 
  public
- ExecCommand(int int0, const std::string &string,
+ ExecCommand(int int0, std::string_view string,
  RCONServer.ClientThread clientThread) {
  this->ID = int0;
  this->command = string;

@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -191,13 +192,13 @@ public
 
  std::string getlocvar(int int0) { return this->locvars[this->actvar[int0]]; }
 
- void checklimit(int int0, int int1, const std::string &string) {
+ void checklimit(int int0, int int1, std::string_view string) {
  if (int0 > int1) {
  this->errorlimit(int1, string);
  }
  }
 
- void errorlimit(int int0, const std::string &string1) {
+ void errorlimit(int int0, std::string_view string1) {
  String string0 = this->linedefined == 0
  ? "main function has more than " + int0 + " " + string1
  : "function at line " + this->linedefined +
@@ -205,7 +206,7 @@ public
  this->ls.lexerror(string0, 0);
  }
 
- int indexupvalue(const std::string &string, ExpDesc expDesc) {
+ int indexupvalue(std::string_view string, ExpDesc expDesc) {
  for (int int0 = 0; int0 < this->f.numUpvalues; int0++) {
  if (this->upvalues_k[int0] == expDesc.k &&
  this->upvalues_info[int0] == expDesc.info) {
@@ -228,7 +229,7 @@ public
  return int1;
  }
 
- int searchvar(const std::string &string) {
+ int searchvar(std::string_view string) {
  for (int int0 = this->nactvar - 1; int0 >= 0; int0--) {
  if (string == this->getlocvar(int0)) {
  return int0;
@@ -250,7 +251,7 @@ public
  }
  }
 
- int singlevaraux(const std::string &string, ExpDesc expDesc, int int1) {
+ int singlevaraux(std::string_view string, ExpDesc expDesc, int int1) {
  int int0 = this->searchvar(string);
  if (int0 >= 0) {
  expDesc.init(6, int0);
@@ -534,7 +535,7 @@ public
  return int0;
  }
 
- int stringK(const std::string &string) { return this->addk(string); }
+ int stringK(std::string_view string) { return this->addk(string); }
 
  int numberK(double double0) { return this->addk(new Double(double0); }
 

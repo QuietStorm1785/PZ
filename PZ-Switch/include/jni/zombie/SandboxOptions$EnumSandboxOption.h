@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -44,7 +45,7 @@ class SandboxOptions {
       return this.tableName;
    }
 
-    SandboxOption setTranslation(const std::string& var1) {
+    SandboxOption setTranslation(std::string_view var1) {
       this.translation = var1;
     return this;
    }
@@ -91,7 +92,7 @@ class SandboxOptions {
       return this.bCustom;
    }
 
-    SandboxOption setPageName(const std::string& var1) {
+    SandboxOption setPageName(std::string_view var1) {
       this.pageName = var1;
     return this;
    }

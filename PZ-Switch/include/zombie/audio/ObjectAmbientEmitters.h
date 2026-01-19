@@ -29,6 +29,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -515,7 +516,7 @@ public
  }
 
  void setParameterValue1(BaseSoundEmitter baseSoundEmitter, long long0,
- const std::string &string, float float0) {
+ std::string_view string, float float0) {
  if (float0 != this->parameterValue1) {
  this->parameterValue1 = float0;
  FMOD_STUDIO_PARAMETER_DESCRIPTION fmod_studio_parameter_description =

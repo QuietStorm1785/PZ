@@ -24,6 +24,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -61,7 +62,7 @@ private
  static void init() { safehouseList.clear(); }
 
  static SafeHouse addSafeHouse(int _x, int _y, int _w, int _h,
- const std::string &player, bool remote) {
+ std::string_view player, bool remote) {
  SafeHouse safeHouse = new SafeHouse(_x, _y, _w, _h, player);
  safeHouse.setOwner(player);
  safeHouse.setLastVisited(Calendar.getInstance().getTimeInMillis());
@@ -98,7 +99,7 @@ private
  );
  }
 
- static SafeHouse hasSafehouse(const std::string &username) {
+ static SafeHouse hasSafehouse(std::string_view username) {
  for (int int0 = 0; int0 < safehouseList.size(); int0++) {
  SafeHouse safeHouse = safehouseList.get(int0);
  if (safeHouse.getPlayers().contains(username) ||
@@ -178,7 +179,7 @@ private
  * if there's a safehouse here
  */
  static SafeHouse isSafeHouse(IsoGridSquare square,
- const std::string &username,
+ std::string_view username,
  bool doDisableSafehouse) {
  if (square.empty()) {
  return nullptr;
@@ -226,18 +227,18 @@ private
  return this->players.contains(player.getUsername()) || this->owner == player.getUsername()) || !player.accessLevel == "");
  }
 
- bool playerAllowed(const std::string &name) {
+ bool playerAllowed(std::string_view name) {
  return this->players.contains(name) || this->owner == name);
  }
 
- void addPlayer(const std::string &player) {
+ void addPlayer(std::string_view player) {
  if (!this->players.contains(player) {
  this->players.add(player);
  updateSafehousePlayersConnected();
  }
  }
 
- void removePlayer(const std::string &player) {
+ void removePlayer(std::string_view player) {
  if (this->players.contains(player) {
  this->players.remove(player);
  this->playersRespawn.remove(player);
@@ -489,7 +490,7 @@ private
  }
  }
 
- SafeHouse alreadyHaveSafehouse(const std::string &username) {
+ SafeHouse alreadyHaveSafehouse(std::string_view username) {
  return ServerOptions.instance.PlayerSafehouse.getValue()
  ? hasSafehouse(username)
  : nullptr;
@@ -568,7 +569,7 @@ private
  }
 
 public
- SafeHouse(int _x, int _y, int _w, int _h, const std::string &player) {
+ SafeHouse(int _x, int _y, int _w, int _h, std::string_view player) {
  this->x = _x;
  this->y = _y;
  this->w = _w;
@@ -615,7 +616,7 @@ public
 
  std::string getOwner() { return this->owner; }
 
- void setOwner(const std::string &_owner) {
+ void setOwner(std::string_view _owner) {
  this->owner = _owner;
  if (this->players.contains(_owner) {
  this->players.remove(_owner);
@@ -632,7 +633,7 @@ public
 
  std::string getTitle() { return this->title; }
 
- void setTitle(const std::string &_title) { this->title = _title; }
+ void setTitle(std::string_view _title) { this->title = _title; }
 
  int getPlayerConnected() { return this->playerConnected; }
 
@@ -644,7 +645,7 @@ public
 
  void setOpenTimer(int _openTimer) { this->openTimer = _openTimer; }
 
- void setRespawnInSafehouse(bool b, const std::string &username) {
+ void setRespawnInSafehouse(bool b, std::string_view username) {
  if (b) {
  this->playersRespawn.add(username);
  } else {
@@ -656,7 +657,7 @@ public
  }
  }
 
- bool isRespawnInSafehouse(const std::string &username) {
+ bool isRespawnInSafehouse(std::string_view username) {
  return this->playersRespawn.contains(username);
  }
 

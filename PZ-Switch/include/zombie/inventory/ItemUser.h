@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -103,7 +104,7 @@ private
  }
  }
 
- static void CreateItem(const std::string &string,
+ static void CreateItem(std::string_view string,
  ArrayList<InventoryItem> arrayList) {
  arrayList.clear();
  Item item0 = ScriptManager.instance.FindItem(string);

@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -41,7 +42,7 @@ private
  setLogLevel(logSeverity.ordinal());
  }
 
- static void logPutsCallback(const std::string& string1) {
+ static void logPutsCallback(std::string_view string1) {
  std::string string0 = s_logSdf.format(Calendar.getInstance().getTime());
  DebugLog.Network.print("[" + string0 + "] > " + string1);
  System.out.flush();

@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -47,7 +48,7 @@ private
  long metaID;
 
 public
- RoomDef(int _ID, const std::string &_name) {
+ RoomDef(int _ID, std::string_view _name) {
  this->ID = _ID;
  this->name = _name;
  }

@@ -32,6 +32,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -179,11 +180,11 @@ private
  return y + this->yPos;
  }
 
- void renderStringUI(float x, float y, const std::string &str, Color c) {
+ void renderStringUI(float x, float y, std::string_view str, Color c) {
  this->renderStringUI(x, y, str, c.r, c.g, c.b, c.a);
  }
 
- void renderStringUI(float x, float y, const std::string &str, double r,
+ void renderStringUI(float x, float y, std::string_view str, double r,
  double g, double b, double a) {
  float float0 = this->offx + x;
  float float1 = this->offy + y;
@@ -195,7 +196,7 @@ private
  TextManager.instance.DrawString(float0, float1, str, r, g, b, a);
  }
 
- void renderString(float x, float y, const std::string &str, double r,
+ void renderString(float x, float y, std::string_view str, double r,
  double g, double b, double a) {
  float float0 = this->worldToScreenX(x);
  float float1 = this->worldToScreenY(y);
@@ -288,7 +289,7 @@ private
  }
  }
 
- void debugLine(const std::string &string) { this->debugLines.add(string); }
+ void debugLine(std::string_view string) { this->debugLines.add(string); }
 
  void recalcSurroundings() { IsoRegions.forceRecalcSurroundingChunks(); }
 
@@ -819,7 +820,7 @@ private
  }
  }
 
- ConfigOption getEditOptionByName(const std::string &name) {
+ ConfigOption getEditOptionByName(std::string_view name) {
  for (int int0 = 0; int0 < this->editOptions.size(); int0++) {
  ConfigOption configOption = this->editOptions.get(int0);
  if (configOption.getName() == name) {
@@ -830,7 +831,7 @@ private
  return nullptr;
  }
 
- int getEditOptionCount() { return this->editOptions.size(); }
+ int getEditOptionCount() noexcept{ return this->editOptions.size(); }
 
  ConfigOption getEditOptionByIndex(int index) {
  return this->editOptions.get(index);
@@ -865,7 +866,7 @@ private
  }
  }
 
- ConfigOption getZLevelOptionByName(const std::string &name) {
+ ConfigOption getZLevelOptionByName(std::string_view name) {
  for (int int0 = 0; int0 < this->zLevelOptions.size(); int0++) {
  ConfigOption configOption = this->zLevelOptions.get(int0);
  if (configOption.getName() == name) {
@@ -876,7 +877,7 @@ private
  return nullptr;
  }
 
- int getZLevelOptionCount() { return this->zLevelOptions.size(); }
+ int getZLevelOptionCount() noexcept{ return this->zLevelOptions.size(); }
 
  ConfigOption getZLevelOptionByIndex(int index) {
  return this->zLevelOptions.get(index);
@@ -898,7 +899,7 @@ private
  }
  }
 
- ConfigOption getOptionByName(const std::string &name) {
+ ConfigOption getOptionByName(std::string_view name) {
  for (int int0 = 0; int0 < this->options.size(); int0++) {
  ConfigOption configOption = this->options.get(int0);
  if (configOption.getName() == name) {
@@ -909,18 +910,18 @@ private
  return nullptr;
  }
 
- int getOptionCount() { return this->options.size(); }
+ int getOptionCount() noexcept{ return this->options.size(); }
 
  ConfigOption getOptionByIndex(int index) { return this->options.get(index); }
 
- void setBoolean(const std::string &name, bool value) {
+ void setBoolean(std::string_view name, bool value) {
  ConfigOption configOption = this->getOptionByName(name);
  if (configOption instanceof BooleanConfigOption) {
  ((BooleanConfigOption)configOption).setValue(value);
  }
  }
 
- bool getBoolean(const std::string &name) {
+ bool getBoolean(std::string_view name) {
  ConfigOption configOption = this->getOptionByName(name);
  return configOption instanceof
  BooleanConfigOption ? ((BooleanConfigOption)configOption).getValue()
@@ -957,7 +958,7 @@ public
 
  public
  BooleanDebugOption(ArrayList<ConfigOption> optionList,
- const std::string &name, bool defaultValue,
+ std::string_view name, bool defaultValue,
  int _zLevel) {
  super(name, defaultValue);
  this->index = optionList.size();
@@ -967,7 +968,7 @@ public
 
  public
  BooleanDebugOption(ArrayList<ConfigOption> optionList,
- const std::string &name, bool defaultValue) {
+ std::string_view name, bool defaultValue) {
  super(name, defaultValue);
  this->index = optionList.size();
  optionList.add(this);

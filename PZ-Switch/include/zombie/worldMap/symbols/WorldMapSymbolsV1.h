@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -80,7 +81,7 @@ public
  return this->m_uiSymbols.hitTest(this->m_ui, uiX, uiY);
  }
 
- int getSymbolCount() { return this->m_symbols.size(); }
+ int getSymbolCount() noexcept{ return this->m_symbols.size(); }
 
 public
  WorldMapSymbolsV1.WorldMapBaseSymbolV1 getSymbolByIndex(int index) {
@@ -216,14 +217,14 @@ protected
  return this;
  }
 
- void setTranslatedText(const std::string &text) {
+ void setTranslatedText(std::string_view text) {
  if (!StringUtils.isNullOrWhitespace(text) {
  this->m_textSymbol.setTranslatedText(text);
  this->m_owner.m_uiSymbols.invalidateLayout();
  }
  }
 
- void setUntranslatedText(const std::string &text) {
+ void setUntranslatedText(std::string_view text) {
  if (!StringUtils.isNullOrWhitespace(text) {
  this->m_textSymbol.setUntranslatedText(text);
  this->m_owner.m_uiSymbols.invalidateLayout();

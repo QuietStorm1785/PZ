@@ -631,7 +631,7 @@ class WorldMapVisited {
       }
    }
 
-    void forget() {
+    void forget() noexcept{
       this.clearKnownInCells(this.m_minX, this.m_minY, this.m_maxX, this.m_maxY);
       this.clearVisitedInCells(this.m_minX, this.m_minY, this.m_maxX, this.m_maxY);
       Arrays.fill(this.m_updateMinX, -1);

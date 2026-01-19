@@ -22,7 +22,7 @@ public:
 
  void write(ByteBufferWriter b);
 
- default int getPacketSizeBytes() { return 0; }
+ default int getPacketSizeBytes() noexcept{ return 0; }
 
  default boolean isConsistent() { return true; }
 

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,113 +22,113 @@ public:
  KahluaTable table;
  KahluaTable typeTable;
 
- std::string getString(const std::string &string) {
+ std::string getString(std::string_view string) {
  return (String)this->rawget(string);
  }
 
 public
- LuaBackendClass(const std::string &string) {
+ LuaBackendClass(std::string_view string) {
  this->typeTable = (KahluaTable)LuaManager.env.rawget(string);
  }
 
- void callVoid(const std::string &string) {
+ void callVoid(std::string_view string) {
  LuaManager.caller.pcallvoid(LuaManager.thread,
  this->typeTable.rawget(string), this->table);
  }
 
- void callVoid(const std::string &string, void *object) {
+ void callVoid(std::string_view string, void *object) {
  LuaManager.caller.pcallvoid(LuaManager.thread,
  this->typeTable.rawget(string),
  new Object[]{this->table, object});
  }
 
- void callVoid(const std::string &string, void *object0, void *object1) {
+ void callVoid(std::string_view string, void *object0, void *object1) {
  LuaManager.caller.pcallvoid(LuaManager.thread,
  this->typeTable.rawget(string),
  new Object[]{this->table, object0, object1});
  }
 
- void callVoid(const std::string &string, void *object0, void *object1,
+ void callVoid(std::string_view string, void *object0, void *object1,
  void *object2) {
  LuaManager.caller.pcallvoid(
  LuaManager.thread, this->typeTable.rawget(string),
  new Object[]{this->table, object0, object1, object2});
  }
 
- void callVoid(const std::string &string, void *object0, void *object1,
+ void callVoid(std::string_view string, void *object0, void *object1,
  void *object2, void *object3) {
  LuaManager.caller.pcallvoid(
  LuaManager.thread, this->typeTable.rawget(string),
  new Object[]{this->table, object0, object1, object2, object3});
  }
 
- void callVoid(const std::string &string, void *object0, void *object1,
+ void callVoid(std::string_view string, void *object0, void *object1,
  void *object2, void *object3, void *object4) {
  LuaManager.caller.pcallvoid(
  LuaManager.thread, this->typeTable.rawget(string),
  new Object[]{this->table, object0, object1, object2, object3, object4});
  }
 
- void *call(const std::string &string) {
+ void *call(std::string_view string) {
  return LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table)[1];
  }
 
- void *call(const std::string &string, void *object) {
+ void *call(std::string_view string, void *object) {
  return LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string), this->table,
  object)[1];
  }
 
- void *call(const std::string &string, void *object0, void *object1) {
+ void *call(std::string_view string, void *object0, void *object1) {
  return LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string), this->table,
  object0, object1)[1];
  }
 
- void *call(const std::string &string, void *object0, void *object1,
+ void *call(std::string_view string, void *object0, void *object1,
  void *object2) {
  return LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string), this->table,
  object0, object1, object2)[1];
  }
 
- void *call(const std::string &string, void *object0, void *object1,
+ void *call(std::string_view string, void *object0, void *object1,
  void *object2, void *object3) {
  return LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string), this->table,
  object0, object1, object2, object3)[1];
  }
 
- void *call(const std::string &string, void *object0, void *object1,
+ void *call(std::string_view string, void *object0, void *object1,
  void *object2, void *object3, void *object4) {
  return LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table, object0,
  object1, object2, object3, object4)[1];
  }
 
- int callInt(const std::string &string) {
+ int callInt(std::string_view string) {
  return ((Double)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table)[1])
  .intValue();
  }
 
- int callInt(const std::string &string, void *object) {
+ int callInt(std::string_view string, void *object) {
  return ((Double)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table, object)[1])
  .intValue();
  }
 
- int callInt(const std::string &string, void *object0, void *object1) {
+ int callInt(std::string_view string, void *object0, void *object1) {
  return ((Double)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table, object0, object1)[1])
  .intValue();
  }
 
- int callInt(const std::string &string, void *object0, void *object1,
+ int callInt(std::string_view string, void *object0, void *object1,
  void *object2) {
  return ((Double)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table,
@@ -135,7 +136,7 @@ public
  .intValue();
  }
 
- int callInt(const std::string &string, void *object0, void *object1,
+ int callInt(std::string_view string, void *object0, void *object1,
  void *object2, void *object3) {
  return ((Double)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table,
@@ -143,7 +144,7 @@ public
  .intValue();
  }
 
- int callInt(const std::string &string, void *object0, void *object1,
+ int callInt(std::string_view string, void *object0, void *object1,
  void *object2, void *object3, void *object4) {
  return ((Double)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table,
@@ -151,28 +152,28 @@ public
  .intValue();
  }
 
- float callFloat(const std::string &string) {
+ float callFloat(std::string_view string) {
  return ((Double)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table)[1])
  .floatValue();
  }
 
- float callFloat(const std::string &string, void *object) {
+ float callFloat(std::string_view string, void *object) {
  return ((Double)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table, object)[1])
  .floatValue();
  }
 
- float callFloat(const std::string &string, void *object0, void *object1) {
+ float callFloat(std::string_view string, void *object0, void *object1) {
  return ((Double)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table, object0, object1)[1])
  .floatValue();
  }
 
- float callFloat(const std::string &string, void *object0, void *object1,
+ float callFloat(std::string_view string, void *object0, void *object1,
  void *object2) {
  return ((Double)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table,
@@ -180,7 +181,7 @@ public
  .floatValue();
  }
 
- float callFloat(const std::string &string, void *object0, void *object1,
+ float callFloat(std::string_view string, void *object0, void *object1,
  void *object2, void *object3) {
  return ((Double)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table,
@@ -188,7 +189,7 @@ public
  .floatValue();
  }
 
- float callFloat(const std::string &string, void *object0, void *object1,
+ float callFloat(std::string_view string, void *object0, void *object1,
  void *object2, void *object3, void *object4) {
  return ((Double)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table,
@@ -196,38 +197,38 @@ public
  .floatValue();
  }
 
- bool callBool(const std::string &string) {
+ bool callBool(std::string_view string) {
  return (Boolean)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table)[1];
  }
 
- bool callBool(const std::string &string, void *object) {
+ bool callBool(std::string_view string, void *object) {
  return (Boolean)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table, object)[1];
  }
 
- bool callBool(const std::string &string, void *object0, void *object1) {
+ bool callBool(std::string_view string, void *object0, void *object1) {
  return (Boolean)LuaManager.caller.pcall(LuaManager.thread,
  this->typeTable.rawget(string),
  this->table, object0, object1)[1];
  }
 
- bool callBool(const std::string &string, void *object0, void *object1,
+ bool callBool(std::string_view string, void *object0, void *object1,
  void *object2) {
  return (Boolean)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table, object0,
  object1, object2)[1];
  }
 
- bool callBool(const std::string &string, void *object0, void *object1,
+ bool callBool(std::string_view string, void *object0, void *object1,
  void *object2, void *object3) {
  return (Boolean)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table, object0,
  object1, object2, object3)[1];
  }
 
- bool callBool(const std::string &string, void *object0, void *object1,
+ bool callBool(std::string_view string, void *object0, void *object1,
  void *object2, void *object3, void *object4) {
  return (Boolean)LuaManager.caller.pcall(
  LuaManager.thread, this->typeTable.rawget(string), this->table, object0,

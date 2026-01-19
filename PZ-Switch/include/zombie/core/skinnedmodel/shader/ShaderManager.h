@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
 private
  ArrayList<Shader> shaders = std::make_unique<ArrayList<>>();
 
- Shader getShader(const std::string &string, bool boolean0) {
+ Shader getShader(std::string_view string, bool boolean0) {
  for (int int0 = 0; int0 < this->shaders.size(); int0++) {
  Shader shader = this->shaders.get(int0);
  if (string == shader.name) && boolean0 == shader.bStatic) {
@@ -30,7 +31,7 @@ private
  return nullptr;
  }
 
- Shader getOrCreateShader(const std::string &string, bool boolean0) {
+ Shader getOrCreateShader(std::string_view string, bool boolean0) {
  Shader shader0 = this->getShader(string, boolean0);
  if (shader0 != nullptr) {
  return shader0;

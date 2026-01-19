@@ -26,7 +26,7 @@ class MovingObjectUpdateScheduler {
     long frameCounter;
     bool isEnabled = true;
 
-    long getFrameCounter() const {
+    long getFrameCounter() const noexcept {
       return this.frameCounter;
    }
 

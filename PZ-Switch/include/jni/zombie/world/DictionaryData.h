@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -63,7 +64,7 @@ class DictionaryData {
       this.spriteNameToIdMap.clear();
    }
 
-    ItemInfo getItemInfoFromType(const std::string& var1) {
+    ItemInfo getItemInfoFromType(std::string_view var1) {
       return this.itemTypeToInfoMap.get(var1);
    }
 
@@ -71,7 +72,7 @@ class DictionaryData {
       return this.itemIdToInfoMap.get(var1);
    }
 
-    short getItemRegistryID(const std::string& var1) {
+    short getItemRegistryID(std::string_view var1) {
     ItemInfo var2 = this.itemTypeToInfoMap.get(var1);
       if (var2 != nullptr) {
          return var2.registryID;
@@ -114,7 +115,7 @@ class DictionaryData {
     return nullptr;
    }
 
-    int getIdForSpriteName(const std::string& var1) {
+    int getIdForSpriteName(std::string_view var1) {
       if (var1 != nullptr) {
          if (this.spriteNameToIdMap.containsKey(var1)) {
             return this.spriteNameToIdMap.get(var1);
@@ -143,7 +144,7 @@ class DictionaryData {
     return nullptr;
    }
 
-    uint8_t getIdForObjectName(const std::string& var1) {
+    uint8_t getIdForObjectName(std::string_view var1) {
       if (var1 != nullptr) {
          if (this.objectNameToIdMap.containsKey(var1)) {
             return this.objectNameToIdMap.get(var1);
@@ -477,7 +478,7 @@ class DictionaryData {
       }
    }
 
-    void saveAsText(const std::string& var1) {
+    void saveAsText(std::string_view var1) {
       if (!Core.getInstance().isNoSave()) {
     File var2 = new File(ZomboidFileSystem.instance.getCurrentSaveDir() + File.separator);
          if (var2.exists() && var2.isDirectory()) {

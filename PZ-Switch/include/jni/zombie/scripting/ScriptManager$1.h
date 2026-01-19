@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -19,7 +20,7 @@ class ScriptManager {
       this.this$0 = var1;
    }
 
-    int compare(const std::string& var1, const std::string& var2) {
+    int compare(std::string_view var1, std::string_view var2) {
     std::string var3 = new File(var1).getName();
     std::string var4 = new File(var2).getName();
       if (var3.startsWith("template_") && !var4.startsWith("template_")) {

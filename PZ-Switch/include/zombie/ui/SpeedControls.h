@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -60,7 +61,7 @@ public
  this->AddChild(Wait);
  }
 
- void ButtonClicked(const std::string &name) {
+ void ButtonClicked(std::string_view name) {
  GameTime.instance.setMultiplier(1.0F);
  if ("Pause" == name) {
  if (this->CurrentSpeed > 0) {
@@ -181,8 +182,8 @@ public
  static const int BORDER = 3;
 
  public
- SCButton(const std::string &string0, float float1, float float0,
- const std::string &string1, const std::string &string2,
+ SCButton(std::string_view string0, float float1, float float0,
+ std::string_view string1, std::string_view string2,
  UIElement uIElement) {
  super(string0, (double)float1, (double)float0, string1, string2,
  uIElement);

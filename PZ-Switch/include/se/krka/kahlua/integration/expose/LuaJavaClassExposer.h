@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -119,7 +120,7 @@ Map < Class < ? >, ClassDebugInformation > getClassDebugInformation() {
  }
 
  void exposeGlobalObjectFunction(KahluaTable table, void *object,
- Method method, const std::string &string) {
+ Method method, std::string_view string) {
  Class clazz = object.getClass();
  this->readDebugData(clazz);
  LuaJavaInvoker luaJavaInvoker =
@@ -127,32 +128,32 @@ Map < Class < ? >, ClassDebugInformation > getClassDebugInformation() {
  this->addInvoker(table, string, luaJavaInvoker);
  }
 
- void exposeGlobalClassFunction(KahluaTable table, Class<?> clazz, Constructor<?> constructor, const std::string& string) {
+ void exposeGlobalClassFunction(KahluaTable table, Class<?> clazz, Constructor<?> constructor, std::string_view string) {
  this->readDebugData(clazz);
  LuaJavaInvoker luaJavaInvoker =
  this->getConstructorInvoker(clazz, constructor, string);
  this->addInvoker(table, string, luaJavaInvoker);
  }
 
- LuaJavaInvoker getMethodInvoker(Class<?> clazz, Method method, const std::string& string, void* object, bool boolean0) {
+ LuaJavaInvoker getMethodInvoker(Class<?> clazz, Method method, std::string_view string, void* object, bool boolean0) {
  return new LuaJavaInvoker(this, this->manager, clazz, string,
  new MethodCaller(method, object, boolean0);
  }
 
- LuaJavaInvoker getConstructorInvoker(Class<?> clazz, Constructor<?> constructor, const std::string& string) {
+ LuaJavaInvoker getConstructorInvoker(Class<?> clazz, Constructor<?> constructor, std::string_view string) {
  return new LuaJavaInvoker(this, this->manager, clazz, string,
  new ConstructorCaller(constructor);
  }
 
- LuaJavaInvoker getMethodInvoker(Class<?> clazz, Method method, const std::string& string) {
+ LuaJavaInvoker getMethodInvoker(Class<?> clazz, Method method, std::string_view string) {
  return this->getMethodInvoker(clazz, method, string, nullptr, true);
  }
 
- LuaJavaInvoker getGlobalInvoker(Class<?> clazz, Method method, const std::string& string) {
+ LuaJavaInvoker getGlobalInvoker(Class<?> clazz, Method method, std::string_view string) {
  return this->getMethodInvoker(clazz, method, string, nullptr, false);
  }
 
- void exposeGlobalClassFunction(KahluaTable table, Class<?> clazz, Method method, const std::string& string) {
+ void exposeGlobalClassFunction(KahluaTable table, Class<?> clazz, Method method, std::string_view string) {
  this->readDebugData(clazz);
  if (Modifier.isStatic(method.getModifiers())) {
  this->addInvoker(table, string,
@@ -164,7 +165,7 @@ Map < Class < ? >, ClassDebugInformation > getClassDebugInformation() {
  this->exposeMethod(clazz, method, method.getName(), table);
  }
 
- void exposeMethod(Class<?> clazz, Method method, const std::string& string, KahluaTable table0) {
+ void exposeMethod(Class<?> clazz, Method method, std::string_view string, KahluaTable table0) {
  this->readDebugData(clazz);
  if (!this->isExposed(clazz) {
  this->setupMetaTables(clazz, table0);
@@ -177,7 +178,7 @@ Map < Class < ? >, ClassDebugInformation > getClassDebugInformation() {
  this->addInvoker(table2, string, luaJavaInvoker);
  }
 
- void addInvoker(KahluaTable table, const std::string &string,
+ void addInvoker(KahluaTable table, std::string_view string,
  LuaJavaInvoker luaJavaInvoker) {
  if (string == "setDir")) {
  bool boolean0 = false;

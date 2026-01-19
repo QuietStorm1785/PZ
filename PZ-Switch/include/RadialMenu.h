@@ -1,6 +1,7 @@
 #pragma once
 #include "UI.h"
 #include <string>
+#include <string_view>
 #include <vector>
 #include <functional>
 #include <memory>
@@ -17,7 +18,7 @@ struct RadialOption {
 
 class RadialMenu : public UIPanel {
 public:
- explicit RadialMenu(const std::string& id);
+ explicit RadialMenu(std::string_view id);
 
  // Supply options; they are laid out evenly in a ring.
  void setOptions(const std::vector<RadialOption>& opts);

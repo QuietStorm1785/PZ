@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,7 +33,7 @@ public:
  DspState vd;
  int W;
 
- static std::string asdsadsa(const std::string &string, byte[] bytes,
+ static std::string asdsadsa(std::string_view string, byte[] bytes,
  int int0) {
  return string +
  Integer.toString((bytes[int0] & 255) + 256, 16).substring(1);

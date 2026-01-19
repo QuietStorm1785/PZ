@@ -47,7 +47,7 @@ public:
  .count();
  }
 
- int getUnauthorizedZombieCount() {
+ int getUnauthorizedZombieCount() noexcept{
  return (int)IsoWorld.instance.CurrentCell.getZombieList()
  .stream()
  .filter(zombie0->zombie0.authOwner.empty())

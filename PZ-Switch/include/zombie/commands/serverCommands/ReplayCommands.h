@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,8 +41,8 @@ class ReplayCommands : public CommandBase {
  static const std::string Stop = "(-stop)";
 
  public
- ReplayCommands(const std::string &string0, const std::string &string1,
- const std::string &string2, UdpConnection udpConnection) {
+ ReplayCommands(std::string_view string0, std::string_view string1,
+ std::string_view string2, UdpConnection udpConnection) {
  super(string0, string1, string2, udpConnection);
  }
 

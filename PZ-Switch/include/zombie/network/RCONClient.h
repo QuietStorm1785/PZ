@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -37,7 +38,7 @@ public:
  }
  }
 
- bool connect(const std::string &string0, const std::string &string1) {
+ bool connect(std::string_view string0, std::string_view string1) {
  try {
  this->socket = std::make_unique<Socket>();
  this->socket.setSoTimeout(5000);
@@ -51,7 +52,7 @@ public:
  }
  }
 
- bool auth(const std::string &string) {
+ bool auth(std::string_view string) {
  try {
  int int0 = (int)(65535L & System.currentTimeMillis());
  RCONClient.RCONMessage rCONMessage0 =
@@ -78,7 +79,7 @@ public:
  }
  }
 
- std::string exec(const std::string &string) {
+ std::string exec(std::string_view string) {
  try {
  int int0 = (int)(65535L & System.currentTimeMillis());
  RCONClient.RCONMessage rCONMessage0 =
@@ -93,7 +94,7 @@ public:
  }
  }
 
- bool send(const std::string &string1, const std::string &string0) {
+ bool send(std::string_view string1, std::string_view string0) {
  try {
  HttpClient httpClient = HttpClient.newHttpClient();
  HttpRequest httpRequest =

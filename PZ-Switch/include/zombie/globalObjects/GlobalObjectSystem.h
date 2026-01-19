@@ -79,7 +79,7 @@ public
  return this->lookup.getObjectsAdjacentTo(x, y, z, this->allocList());
  }
 
- int getObjectCount() { return this->objects.size(); }
+ int getObjectCount() noexcept{ return this->objects.size(); }
 
  GlobalObject getObjectByIndex(int index) {
  return index >= 0 && index < this->objects.size() ? this->objects.get(index)

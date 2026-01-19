@@ -24,6 +24,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -157,11 +158,11 @@ private
 
  static IsoRegionsLogger getLogger() { return logger; }
 
- static void log(const std::string &str) { logger.log(str); }
+ static void log(std::string_view str) { logger.log(str); }
 
- static void log(const std::string &str, Color col) { logger.log(str, col); }
+ static void log(std::string_view str, Color col) { logger.log(str, col); }
 
- static void warn(const std::string &str) { logger.warn(str); }
+ static void warn(std::string_view str) { logger.warn(str); }
 
  static void reset() {
  previousFlags = 0;

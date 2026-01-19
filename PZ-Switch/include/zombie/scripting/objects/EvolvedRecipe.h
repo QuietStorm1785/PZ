@@ -17,6 +17,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -47,9 +48,9 @@ public
  bool allowFrozenItem = false;
 
 public
- EvolvedRecipe(const std::string &_name) { this->name = _name; }
+ EvolvedRecipe(std::string_view _name) { this->name = _name; }
 
- void Load(const std::string &string0, String[] strings0) {
+ void Load(std::string_view string0, String[] strings0) {
  this->DisplayName = Translator.getRecipeName(string0);
  this->originalname = string0;
 
@@ -146,7 +147,7 @@ public
  return arrayList;
 }
 
- void checkItemCanBeUse(ItemContainer container, const std::string& string, InventoryItem item1, int int1, ArrayList<InventoryItem> arrayList1) {
+ void checkItemCanBeUse(ItemContainer container, std::string_view string, InventoryItem item1, int int1, ArrayList<InventoryItem> arrayList1) {
  std::vector arrayList0 = container.getItemsFromType(string);
 
  for (int int0 = 0; int0 < arrayList0.size(); int0++) {

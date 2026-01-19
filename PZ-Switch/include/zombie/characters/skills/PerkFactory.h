@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -222,7 +223,7 @@ public
  PerkFactory.Perk parent = PerkFactory.Perks.None;
 
  public
- Perk(const std::string &_id) {
+ Perk(std::string_view _id) {
  this->id = _id;
  this->index = PerkFactory.NextPerkID++;
  this->translation = _id;
@@ -236,7 +237,7 @@ public
  }
 
  public
- Perk(const std::string &_id, PerkFactory.Perk _parent) {
+ Perk(std::string_view _id, PerkFactory.Perk _parent) {
  this(_id);
  this->parent = _parent;
  }

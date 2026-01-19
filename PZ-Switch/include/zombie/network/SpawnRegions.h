@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -153,7 +154,7 @@ public
  }
  }
 
- std::string fmtKey(const std::string &string) {
+ std::string fmtKey(std::string_view string) {
  if (string.contains("\\")) {
  string = string.replace("\\", "\\\\");
  }
@@ -169,7 +170,7 @@ public
  return string.startsWith("\"") ? "[" + string + "]" : string;
  }
 
- std::string fmtValue(const std::string &string) {
+ std::string fmtValue(std::string_view string) {
  if (string.contains("\\")) {
  string = string.replace("\\", "\\\\");
  }
@@ -181,7 +182,7 @@ public
  return "\"" + string + "\"";
  }
 
- bool saveRegionsFile(const std::string &string0,
+ bool saveRegionsFile(std::string_view string0,
  ArrayList<SpawnRegions.Region> arrayList) {
  File file = new File(string0);
  DebugLog.log("writing " + string0);
@@ -265,7 +266,7 @@ public
  }
  }
 
- bool savePointsFile(const std::string &string0,
+ bool savePointsFile(std::string_view string0,
  ArrayList<SpawnRegions.Profession> arrayList) {
  File file = new File(string0);
  DebugLog.log("writing " + string0);
@@ -303,7 +304,7 @@ public
  }
  }
 
- KahluaTable loadPointsTable(const std::string &string) {
+ KahluaTable loadPointsTable(std::string_view string) {
  std::vector arrayList = this->loadPointsFile(string);
  if (arrayList.empty()) {
  return nullptr;
@@ -333,7 +334,7 @@ public
  }
  }
 
- bool savePointsTable(const std::string &string, KahluaTable table) {
+ bool savePointsTable(std::string_view string, KahluaTable table) {
  std::vector arrayList = this->parseProfessionsTable(table);
  return arrayList != nullptr ? this->savePointsFile(string, arrayList)
  : false;

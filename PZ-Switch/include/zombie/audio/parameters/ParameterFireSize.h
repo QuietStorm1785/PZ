@@ -18,7 +18,7 @@ public:
  int size = 0;
 
 public
- ParameterFireSize() { super("FireSize"); }
+ ParameterFireSize() noexcept{ super("FireSize"); }
 
  float calculateCurrentValue() { return this->size; }
 

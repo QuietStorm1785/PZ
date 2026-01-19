@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ private
  bool enabled = false;
 
 public
- ChatTab(short tabID, const std::string &_titleID) {
+ ChatTab(short tabID, std::string_view _titleID) {
  this->id = tabID;
  this->titleID = _titleID;
  this->translatedTitle = Translator.getText(_titleID);
@@ -33,7 +34,7 @@ public
  }
 
 public
- ChatTab(short tabID, const std::string &_titleID, int chatID) {
+ ChatTab(short tabID, std::string_view _titleID, int chatID) {
  this(tabID, _titleID);
  this->containedChats.add(chatID);
  }

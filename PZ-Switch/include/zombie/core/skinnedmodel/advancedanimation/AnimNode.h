@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -72,7 +73,7 @@ public
  * file path, or a File GUID.
  * @return The deserialized AnimNode instance, or NULL if failed.
  */
- static AnimNode Parse(const std::string &source) {
+ static AnimNode Parse(std::string_view source) {
  try {
  AnimNode animNode = PZXmlUtil.parse(AnimNode.class, source);
  if (animNode.m_2DBlendTri.size() > 0) {
@@ -154,7 +155,7 @@ public
  bool isIdleAnim() { return this->m_Name.contains("Idle"); }
 
  AnimTransition findTransitionTo(IAnimationVariableSource varSource,
- const std::string &targetName) {
+ std::string_view targetName) {
  AnimTransition animTransition0 = nullptr;
  int int0 = 0;
 

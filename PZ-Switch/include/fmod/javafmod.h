@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <string>
+#include <string_view>
 
 namespace fmod {
 
@@ -14,7 +15,7 @@ public:
  static int FMOD_System_Update();
  static int FMOD_System_Set3DSettings(float doppler, float distanceFactor, float rolloffScale);
 
- static long FMOD_System_CreateSound(const std::string &path, long mode);
+ static long FMOD_System_CreateSound(std::string_view path, long mode);
  static long FMOD_System_CreateRecordSound(long driverId, long channels, long frequency, long mode);
  static long FMOD_System_CreateRAWPlaySound(long channels, long frequency, long mode);
  static long FMOD_System_SetRawPlayBufferingPeriod(long milliseconds);
@@ -23,11 +24,11 @@ public:
  static int FMOD_System_SetRecordVolume(long percent);
  static int FMOD_System_RecordStart(int driverId, long soundHandle, bool loop);
  static int FMOD_System_RecordStop(int driverId);
- static int FMOD_System_GetRecordNumDrivers();
+ static int FMOD_System_GetRecordNumDrivers() const ;
  static int FMOD_System_GetRecordDriverInfo(int driverId, long infoHandle);
  static int FMOD_System_GetRecordPosition(int driverId, long positionHandle);
 
- static long FMOD_System_CreateChannelGroup(const std::string &name);
+ static long FMOD_System_CreateChannelGroup(std::string_view name);
  static long FMOD_System_GetMasterChannelGroup();
  static int FMOD_System_PlaySound(long soundHandle, bool paused);
  static int FMOD_System_PlayDSP();
@@ -104,11 +105,11 @@ public:
  static int FMOD_Studio_System_Init(int maxChannels, int studioFlags, int flags);
  static int FMOD_Studio_System_Update();
  static void FMOD_Studio_System_FlushCommands();
- static long FMOD_Studio_System_LoadBankFile(const std::string &path);
- static long FMOD_Studio_System_GetBus(const std::string &path);
- static long FMOD_Studio_System_GetEvent(const std::string &path);
+ static long FMOD_Studio_System_LoadBankFile(std::string_view path);
+ static long FMOD_Studio_System_GetBus(std::string_view path);
+ static long FMOD_Studio_System_GetEvent(std::string_view path);
  static long FMOD_Studio_System_CreateEventInstance(long eventDescriptionHandle);
- static int FMOD_Studio_System_SetParameterByName(const std::string &name, float value, bool ignoreSeekSpeed);
+ static int FMOD_Studio_System_SetParameterByName(std::string_view name, float value, bool ignoreSeekSpeed);
  static int FMOD_Studio_System_SetParameterByID(long parameterIdHandle, float value, bool ignoreSeekSpeed);
  static int FMOD_Studio_LoadSampleData(long bankOrEventHandle);
  static void FMOD_Studio_LoadEventSampleData(long eventHandle);
@@ -120,7 +121,7 @@ public:
  static long FMOD_Studio_GetTimelinePosition(long eventInstanceHandle);
  static int FMOD_Studio_EventInstance_SetCallback(long eventInstanceHandle, long callback, long mask);
  static int FMOD_Studio_EventInstance_SetParameterByID(long eventInstanceHandle, long parameterIdHandle, float value, bool ignoreSeekSpeed);
- static int FMOD_Studio_EventInstance_SetParameterByName(long eventInstanceHandle, const std::string &name, float value, bool ignoreSeekSpeed);
+ static int FMOD_Studio_EventInstance_SetParameterByName(long eventInstanceHandle, std::string_view name, float value, bool ignoreSeekSpeed);
  static int FMOD_Studio_EventInstance_SetReverbLevel(long eventInstanceHandle, int index, float level);
  static int FMOD_Studio_EventInstance_SetParameterValueByIndex(long eventInstanceHandle, int index, float value);
  static int FMOD_Studio_EventInstance_SetVolume(long eventInstanceHandle, float volume);
@@ -138,7 +139,7 @@ public:
  static int FMOD_Studio_Bus_SetPaused(long busHandle, bool paused);
 
  static long FMOD_Studio_GetPlaybackState(long eventInstanceHandle);
- static long FMOD_Studio_GetParameterValue(long eventInstanceHandle, const std::string &name);
+ static long FMOD_Studio_GetParameterValue(long eventInstanceHandle, std::string_view name);
  static long FMOD_Studio_GetParameterValue(long eventInstanceHandle, long parameterIdHandle);
 };
 

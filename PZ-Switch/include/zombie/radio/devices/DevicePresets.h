@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -52,7 +53,7 @@ public
 
  void setMaxPresets(int m) { this->maxPresets = m; }
 
- void addPreset(const std::string &name, int frequency) {
+ void addPreset(std::string_view name, int frequency) {
  if (this->presets.size() < this->maxPresets) {
  this->presets.add(new PresetEntry(name, frequency);
  }
@@ -76,7 +77,7 @@ public
  : -1;
  }
 
- void setPresetName(int id, const std::string &name) {
+ void setPresetName(int id, std::string_view name) {
  if (name.empty()) {
  name = "name-is-nullptr";
  }
@@ -94,7 +95,7 @@ public
  }
  }
 
- void setPreset(int id, const std::string &name, int frequency) {
+ void setPreset(int id, std::string_view name, int frequency) {
  if (name.empty()) {
  name = "name-is-nullptr";
  }

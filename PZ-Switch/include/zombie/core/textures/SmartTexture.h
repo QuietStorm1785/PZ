@@ -17,6 +17,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -81,7 +82,7 @@ public
  : this->commands.get(this->categoryMap.get(int0).get(0);
  }
 
- void addOverlayPatches(const std::string &string0, const std::string &string1,
+ void addOverlayPatches(std::string_view string0, std::string_view string1,
  int int0) {
  if (blit.empty()) {
  this->create();
@@ -92,7 +93,7 @@ public
  this->add(string0, blit, string1, arrayList, 770, 771);
  }
 
- void addOverlay(const std::string &string0, const std::string &string1,
+ void addOverlay(std::string_view string0, std::string_view string1,
  float float0, int int0) {
  if (masked.empty()) {
  this->create();
@@ -105,7 +106,7 @@ public
  this->addSeparate(string0, masked, string1, arrayList, 774, 771, 772, 771);
  }
 
- void addDirtOverlay(const std::string &string0, const std::string &string1,
+ void addDirtOverlay(std::string_view string0, std::string_view string1,
  float float0, int int0) {
  if (dirtMask.empty()) {
  this->create();
@@ -117,7 +118,7 @@ public
  this->addSeparate(string0, dirtMask, string1, arrayList, 774, 771, 772, 771);
  }
 
- void addOverlay(const std::string &string) {
+ void addOverlay(std::string_view string) {
  if (tint.empty()) {
  this->create();
  }
@@ -125,7 +126,7 @@ public
  this->addSeparate(string, 774, 771, 772, 771);
  }
 
- void addRect(const std::string &string, int int0, int int1, int int2,
+ void addRect(std::string_view string, int int0, int int1, int int2,
  int int3) {
  this->commands.add(TextureCombinerCommand.get().init(
  getTextureWithFlags(string), int0, int1, int2, int3);
@@ -141,7 +142,7 @@ public
  this->dirty = false;
  }
 
- void addTint(const std::string &string, int int0, float float0, float float1,
+ void addTint(std::string_view string, int int0, float float0, float float1,
  float float2) {
  this->addTint(getTextureWithFlags(string), int0, float0, float1, float2);
  }
@@ -160,7 +161,7 @@ public
  this->add(texture, tint, arrayList);
  }
 
- void addHue(const std::string &string, int int0, float float0) {
+ void addHue(std::string_view string, int int0, float float0) {
  this->addHue(getTextureWithFlags(string), int0, float0);
  }
 
@@ -195,7 +196,7 @@ public
  return texture;
  }
 
- void removeHole(const std::string &string1,
+ void removeHole(std::string_view string1,
  BloodBodyPartType bloodBodyPartType) {
  std::string string0 =
  "media/textures/HoleTextures/" +
@@ -222,7 +223,7 @@ public
  this->dirty = true;
  }
 
- void mask(const std::string &string1, const std::string &string0, int int0) {
+ void mask(std::string_view string1, std::string_view string0, int int0) {
  this->mask(getTextureWithFlags(string1), getTextureWithFlags(string0), int0);
  }
 
@@ -237,7 +238,7 @@ public
  this->dirty = true;
  }
 
- void maskHue(const std::string &string1, const std::string &string0, int int0,
+ void maskHue(std::string_view string1, std::string_view string0, int int0,
  float float0) {
  this->maskHue(getTextureWithFlags(string1), getTextureWithFlags(string0),
  int0, float0);
@@ -256,7 +257,7 @@ public
  this->dirty = true;
  }
 
- void maskTint(const std::string &string1, const std::string &string0,
+ void maskTint(std::string_view string1, std::string_view string0,
  int int0, float float0, float float1, float float2) {
  this->maskTint(getTextureWithFlags(string1), getTextureWithFlags(string0),
  int0, float0, float1, float2);
@@ -278,14 +279,14 @@ public
  this->dirty = true;
  }
 
- void addMaskedTexture(CharacterMask characterMask, const std::string &string0,
- const std::string &string1, int int0,
+ void addMaskedTexture(CharacterMask characterMask, std::string_view string0,
+ std::string_view string1, int int0,
  ImmutableColor immutableColor, float float0) {
  addMaskedTexture(this, characterMask, string0, getTextureWithFlags(string1),
  int0, immutableColor, float0);
  }
 
- void addMaskedTexture(CharacterMask characterMask, const std::string &string,
+ void addMaskedTexture(CharacterMask characterMask, std::string_view string,
  Texture texture, int int0,
  ImmutableColor immutableColor, float float0) {
  addMaskedTexture(this, characterMask, string, texture, int0, immutableColor,
@@ -294,7 +295,7 @@ public
 
  static void addMaskFlags(SmartTexture smartTexture,
  CharacterMask characterMask,
- const std::string &string, Texture texture,
+ std::string_view string, Texture texture,
  int int0) {
  Consumer consumer = Lambda.consumer(
  smartTexture, string, texture, int0,
@@ -307,7 +308,7 @@ public
 
  static void addMaskFlagsHue(SmartTexture smartTexture,
  CharacterMask characterMask,
- const std::string &string, Texture texture,
+ std::string_view string, Texture texture,
  int int0, float float0) {
  Consumer consumer = Lambda.consumer(
  smartTexture, string, texture, int0, float0,
@@ -364,12 +365,12 @@ private
  }
  }
 
- void addTexture(const std::string &string, int int0,
+ void addTexture(std::string_view string, int int0,
  ImmutableColor immutableColor, float float0) {
  addTexture(this, string, int0, immutableColor, float0);
  }
 
- static void addTexture(SmartTexture smartTexture, const std::string &string,
+ static void addTexture(SmartTexture smartTexture, std::string_view string,
  int int0, ImmutableColor immutableColor,
  float float0) {
  if (!ImmutableColor.white == immutableColor) {
@@ -468,7 +469,7 @@ public
  this->dirty = false;
  }
 
- void add(const std::string &string) { this->add(getTextureWithFlags(string); }
+ void add(std::string_view string) { this->add(getTextureWithFlags(string); }
 
  void add(Texture texture) {
  if (blit.empty()) {
@@ -479,7 +480,7 @@ public
  this->dirty = true;
  }
 
- void add(const std::string &string, SmartShader smartShader,
+ void add(std::string_view string, SmartShader smartShader,
  ArrayList<TextureCombinerShaderParam> arrayList) {
  this->add(getTextureWithFlags(string), smartShader, arrayList);
  }
@@ -491,8 +492,8 @@ public
  this->dirty = true;
  }
 
- void add(const std::string &string1, SmartShader smartShader,
- const std::string &string0, int int0, int int1) {
+ void add(std::string_view string1, SmartShader smartShader,
+ std::string_view string0, int int0, int int1) {
  this->add(getTextureWithFlags(string1), smartShader,
  getTextureWithFlags(string0), int0, int1);
  }
@@ -504,7 +505,7 @@ public
  this->dirty = true;
  }
 
- void add(const std::string &string, int int0, int int1) {
+ void add(std::string_view string, int int0, int int1) {
  this->add(getTextureWithFlags(string), int0, int1);
  }
 
@@ -512,7 +513,7 @@ public
  this->addSeparate(texture, int0, int1, 1, 771);
  }
 
- void addSeparate(const std::string &string, int int0, int int1, int int2,
+ void addSeparate(std::string_view string, int int0, int int1, int int2,
  int int3) {
  this->addSeparate(getTextureWithFlags(string), int0, int1, int2, int3);
  }
@@ -523,8 +524,8 @@ public
  this->dirty = true;
  }
 
- void add(const std::string &string1, SmartShader smartShader,
- const std::string &string0,
+ void add(std::string_view string1, SmartShader smartShader,
+ std::string_view string0,
  ArrayList<TextureCombinerShaderParam> arrayList, int int0,
  int int1) {
  this->add(getTextureWithFlags(string1), smartShader,
@@ -556,12 +557,12 @@ public
  this->dirty = true;
  }
 
- static Texture getTextureWithFlags(const std::string &string) {
+ static Texture getTextureWithFlags(std::string_view string) {
  return Texture.getSharedTexture(string,
  ModelManager.instance.getTextureFlags());
  }
 
- void saveOnRenderThread(const std::string &string) {
+ void saveOnRenderThread(std::string_view string) {
  if (this->dirty) {
  this->calculate();
  }

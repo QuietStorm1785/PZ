@@ -33,6 +33,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -389,7 +390,7 @@ public
 
  std::string getDeviceName() { return this->deviceName; }
 
- void setDeviceName(const std::string &name) { this->deviceName = name; }
+ void setDeviceName(std::string_view name) { this->deviceName = name; }
 
  bool getIsTwoWay() { return this->twoWay; }
 
@@ -537,17 +538,17 @@ public
  }
  }
 
- void playSoundSend(const std::string &soundname, bool useDeviceVolume) {
+ void playSoundSend(std::string_view soundname, bool useDeviceVolume) {
  this->playSound(soundname,
  useDeviceVolume ? this->deviceVolume * 0.4F : 0.05F, true);
  }
 
- void playSoundLocal(const std::string &soundname, bool useDeviceVolume) {
+ void playSoundLocal(std::string_view soundname, bool useDeviceVolume) {
  this->playSound(soundname,
  useDeviceVolume ? this->deviceVolume * 0.4F : 0.05F, false);
  }
 
- void playSound(const std::string &soundname, float volume, bool transmit) {
+ void playSound(std::string_view soundname, float volume, bool transmit) {
  if (!GameServer.bServer) {
  this->setEmitterAndPos();
  if (this->emitter != nullptr) {

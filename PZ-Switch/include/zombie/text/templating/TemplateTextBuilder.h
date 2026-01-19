@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,16 +30,16 @@ protected
 
  void Reset() { this->m_keys.clear(); }
 
- std::string Build(const std::string &string) {
+ std::string Build(std::string_view string) {
  return this->format(string, nullptr);
  }
 
- std::string Build(const std::string &string,
+ std::string Build(std::string_view string,
  IReplaceProvider iReplaceProvider) {
  return this->format(string, iReplaceProvider);
  }
 
- std::string Build(const std::string &string1,
+ std::string Build(std::string_view string1,
  KahluaTableImpl kahluaTableImpl) {
  ReplaceProviderLua replaceProviderLua = ReplaceProviderLua.Alloc();
  replaceProviderLua.fromLuaTable(kahluaTableImpl);
@@ -47,7 +48,7 @@ protected
  return string0;
  }
 
- std::string format(const std::string &string0,
+ std::string format(std::string_view string0,
  IReplaceProvider iReplaceProvider) {
  Matcher matcher = pattern.matcher(string0);
  std::string string1 = string0;
@@ -75,7 +76,7 @@ protected
  return string1;
  }
 
- void RegisterKey(const std::string &string, KahluaTableImpl kahluaTableImpl) {
+ void RegisterKey(std::string_view string, KahluaTableImpl kahluaTableImpl) {
  try {
  std::vector arrayList = new ArrayList();
 
@@ -94,11 +95,11 @@ protected
  }
  }
 
- void RegisterKey(const std::string &string, IReplace iReplace) {
+ void RegisterKey(std::string_view string, IReplace iReplace) {
  this->localRegisterKey(string, iReplace);
  }
 
- void localRegisterKey(const std::string &string, IReplace iReplace) {
+ void localRegisterKey(std::string_view string, IReplace iReplace) {
  if (this->m_keys.containsKey(string.toLowerCase().trim())) {
  DebugLog.log("TemplateTextBuilder -> Warning: key '" + string +
  "' replaces an existing key.");

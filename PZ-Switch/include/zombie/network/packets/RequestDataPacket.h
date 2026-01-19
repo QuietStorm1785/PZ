@@ -24,6 +24,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -345,7 +346,7 @@ public:
  }
  }
 
- void saveToFile(ByteBuffer byteBuffer, const std::string &string) {
+ void saveToFile(ByteBuffer byteBuffer, std::string_view string) {
  File file =
  new File(ZomboidFileSystem.instance.getFileNameInCurrentSave(string);
 

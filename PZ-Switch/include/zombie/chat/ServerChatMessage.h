@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ namespace chat {
 class ServerChatMessage : public ChatMessage {
 public:
 public
- ServerChatMessage(ChatBase chat, const std::string &text) {
+ ServerChatMessage(ChatBase chat, std::string_view text) {
  super(chat, text);
  super.setAuthor("Server");
  this->setServerAuthor(true);
@@ -26,7 +27,7 @@ public
 
  std::string getAuthor() { return super.getAuthor(); }
 
- void setAuthor(const std::string &author) {
+ void setAuthor(std::string_view author) {
  throw std::make_unique<UnsupportedOperationException>();
  }
 }

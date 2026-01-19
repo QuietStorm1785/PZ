@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -39,7 +40,7 @@ IsoDirectionFrame[] FramesArray = new IsoDirectionFrame[0];
 
 static void DisposeAll() { GlobalAnimMap.clear(); }
 
-void LoadExtraFrame(const std::string &string2, const std::string &string0,
+void LoadExtraFrame(std::string_view string2, std::string_view string0,
  int int0) {
  this->name = string0;
  std::string string1 = string2 + "_";
@@ -60,9 +61,9 @@ void LoadExtraFrame(const std::string &string2, const std::string &string0,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesReverseAltName(const std::string &ObjectName,
- const std::string &AnimName,
- const std::string &AltName, int nFrames) {
+void LoadFramesReverseAltName(std::string_view ObjectName,
+ std::string_view AnimName,
+ std::string_view AltName, int nFrames) {
  this->name = AltName;
  StringBuilder stringBuilder = tlsStrBuf.get();
  stringBuilder.setLength(0);
@@ -160,7 +161,7 @@ void LoadFramesReverseAltName(const std::string &ObjectName,
  }
 }
 
-void LoadFrames(const std::string &ObjectName, const std::string &AnimName,
+void LoadFrames(std::string_view ObjectName, std::string_view AnimName,
  int nFrames) {
  this->name = AnimName;
  StringBuilder stringBuilder = tlsStrBuf.get();
@@ -267,11 +268,11 @@ void LoadFrames(const std::string &ObjectName, const std::string &AnimName,
  }
 }
 
-void LoadFramesUseOtherFrame(const std::string &ObjectName,
- const std::string &Variant,
- const std::string &AnimName,
- const std::string &OtherAnimName,
- int nOtherFrameFrame, const std::string &pal) {
+void LoadFramesUseOtherFrame(std::string_view ObjectName,
+ std::string_view Variant,
+ std::string_view AnimName,
+ std::string_view OtherAnimName,
+ int nOtherFrameFrame, std::string_view pal) {
  this->name = AnimName;
  std::string string0 = OtherAnimName + "_" + Variant + "_";
  std::string string1 = "_";
@@ -300,8 +301,8 @@ void LoadFramesUseOtherFrame(const std::string &ObjectName,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesBits(const std::string &ObjectName, const std::string &Variant,
- const std::string &AnimName, int nFrames) {
+void LoadFramesBits(std::string_view ObjectName, std::string_view Variant,
+ std::string_view AnimName, int nFrames) {
  this->name = AnimName;
  std::string string0 = AnimName + "_" + Variant + "_";
  std::string string1 = "_";
@@ -326,7 +327,7 @@ void LoadFramesBits(const std::string &ObjectName, const std::string &Variant,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesBits(const std::string &ObjectName, const std::string &AnimName,
+void LoadFramesBits(std::string_view ObjectName, std::string_view AnimName,
  int nFrames) {
  this->name = AnimName;
  std::string string0 = ObjectName + "_" + AnimName + "_";
@@ -352,8 +353,8 @@ void LoadFramesBits(const std::string &ObjectName, const std::string &AnimName,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesBitRepeatFrame(const std::string &ObjectName,
- const std::string &AnimName, int RepeatFrame) {
+void LoadFramesBitRepeatFrame(std::string_view ObjectName,
+ std::string_view AnimName, int RepeatFrame) {
  this->name = AnimName;
  std::string string0 = "_";
  std::string string1 = "";
@@ -374,10 +375,10 @@ void LoadFramesBitRepeatFrame(const std::string &ObjectName,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesBitRepeatFrame(const std::string &ObjectName,
- const std::string &Variant,
- const std::string &AnimName, int RepeatFrame,
- const std::string &pal) {
+void LoadFramesBitRepeatFrame(std::string_view ObjectName,
+ std::string_view Variant,
+ std::string_view AnimName, int RepeatFrame,
+ std::string_view pal) {
  this->name = AnimName;
  std::string string0 = AnimName + "_" + Variant + "_";
  std::string string1 = "_";
@@ -403,9 +404,9 @@ void LoadFramesBitRepeatFrame(const std::string &ObjectName,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesBits(const std::string &ObjectName, const std::string &Variant,
- const std::string &AnimName, int nFrames,
- const std::string &pal) {
+void LoadFramesBits(std::string_view ObjectName, std::string_view Variant,
+ std::string_view AnimName, int nFrames,
+ std::string_view pal) {
  this->name = AnimName;
  std::string string0 = AnimName + "_" + Variant + "_";
  std::string string1 = "_";
@@ -434,7 +435,7 @@ void LoadFramesBits(const std::string &ObjectName, const std::string &Variant,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesPcx(const std::string &ObjectName, const std::string &AnimName,
+void LoadFramesPcx(std::string_view ObjectName, std::string_view AnimName,
  int nFrames) {
  this->name = AnimName;
  std::string string0 = ObjectName + "_";
@@ -467,7 +468,7 @@ void Dispose() {
  }
 }
 
-Texture LoadFrameExplicit(const std::string &string) {
+Texture LoadFrameExplicit(std::string_view string) {
  Texture texture = Texture.getSharedTexture(string);
  IsoDirectionFrame directionFrame = new IsoDirectionFrame(texture);
  this->Frames.add(directionFrame);
@@ -475,7 +476,7 @@ Texture LoadFrameExplicit(const std::string &string) {
  return texture;
 }
 
-void LoadFramesNoDir(const std::string &string2, const std::string &string0,
+void LoadFramesNoDir(std::string_view string2, std::string_view string0,
  int int1) {
  this->name = string0;
  std::string string1 = "media/" + string2;
@@ -493,7 +494,7 @@ void LoadFramesNoDir(const std::string &string2, const std::string &string0,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesNoDirPage(const std::string &string2, const std::string &string0,
+void LoadFramesNoDirPage(std::string_view string2, std::string_view string0,
  int int1) {
  this->name = string0;
  std::string string1 = string2;
@@ -510,8 +511,8 @@ void LoadFramesNoDirPage(const std::string &string2, const std::string &string0,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesNoDirPageDirect(const std::string &string2,
- const std::string &string0, int int1) {
+void LoadFramesNoDirPageDirect(std::string_view string2,
+ std::string_view string0, int int1) {
  this->name = string0;
  std::string string1 = string2;
  std::string string3 = "_" + string0 + "_";
@@ -528,7 +529,7 @@ void LoadFramesNoDirPageDirect(const std::string &string2,
  this->FinishUnloopedOnFrame = (short)(this->Frames.size() - 1);
 }
 
-void LoadFramesNoDirPage(const std::string &string1) {
+void LoadFramesNoDirPage(std::string_view string1) {
  this->name = "default";
  std::string string0 = string1;
 
@@ -542,10 +543,10 @@ void LoadFramesNoDirPage(const std::string &string1) {
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesPageSimple(const std::string &NObjectName,
- const std::string &SObjectName,
- const std::string &EObjectName,
- const std::string &WObjectName) {
+void LoadFramesPageSimple(std::string_view NObjectName,
+ std::string_view SObjectName,
+ std::string_view EObjectName,
+ std::string_view WObjectName) {
  this->name = "default";
 
  for (int int0 = 0; int0 < 1; int0++) {
@@ -562,9 +563,9 @@ void LoadFramesPageSimple(const std::string &NObjectName,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesNoDirPalette(const std::string &string2,
- const std::string &string0, int int1,
- const std::string &string4) {
+void LoadFramesNoDirPalette(std::string_view string2,
+ std::string_view string0, int int1,
+ std::string_view string4) {
  this->name = string0;
  std::string string1 = "media/characters/" + string2;
  std::string string3 = "_" + string0 + "_";
@@ -581,8 +582,8 @@ void LoadFramesNoDirPalette(const std::string &string2,
  this->FramesArray = this->Frames.toArray(this->FramesArray);
 }
 
-void LoadFramesPalette(const std::string &string2, const std::string &string0,
- int int1, const std::string &string4) {
+void LoadFramesPalette(std::string_view string2, std::string_view string0,
+ int int1, std::string_view string4) {
  this->name = string0;
  std::string string1 = string2 + "_";
  std::string string3 = "_" + string0 + "_";

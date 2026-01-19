@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -21,7 +22,7 @@ class ModUtilsJava {
       return UUID.randomUUID().toString();
    }
 
-    static bool sendItemListNet(IsoPlayer var0, ArrayList<InventoryItem> var1, IsoPlayer var2, const std::string& var3, const std::string& var4) {
+    static bool sendItemListNet(IsoPlayer var0, ArrayList<InventoryItem> var1, IsoPlayer var2, std::string_view var3, std::string_view var4) {
       if (var1 != nullptr) {
          var3 = var3 != nullptr ? var3 : "-1";
          if (GameClient.bClient) {

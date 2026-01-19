@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ namespace network {
 
 class MD5Checksum {
 public:
- static long createChecksum(const std::string &string) {
+ static long createChecksum(std::string_view string) {
  File file = new File(string);
  if (!file.exists()) {
  return 0L;

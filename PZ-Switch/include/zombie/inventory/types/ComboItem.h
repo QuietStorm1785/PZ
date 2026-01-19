@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,14 +18,14 @@ namespace types {
 class ComboItem : public InventoryItem {
 public:
 public
- ComboItem(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ ComboItem(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  }
 
 public
- ComboItem(const std::string &module, const std::string &name,
- const std::string &itemType, Item item) {
+ ComboItem(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item) {
  super(module, name, itemType, item);
  }
 

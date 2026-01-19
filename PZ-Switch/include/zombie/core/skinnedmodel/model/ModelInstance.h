@@ -29,6 +29,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -144,7 +145,7 @@ public
  }
  }
 
- void LoadTexture(const std::string &name) {
+ void LoadTexture(std::string_view name) {
  if (name != nullptr && name.length() != 0) {
  this->tex = Texture.getSharedTexture("media/textures/" + name + ".png");
  if (this->tex.empty()) {
@@ -267,7 +268,7 @@ public
 
  void setItemVisual(ItemVisual _itemVisual) { this->itemVisual = _itemVisual; }
 
- void applyModelScriptScale(const std::string &modelName) {
+ void applyModelScriptScale(std::string_view modelName) {
  this->m_modelScript = ScriptManager.instance.getModelScript(modelName);
  if (this->m_modelScript != nullptr) {
  this->scale = this->m_modelScript.scale;
@@ -280,7 +281,7 @@ public
  : this->m_modelScript.getAttachment(index);
  }
 
- ModelAttachment getAttachmentById(const std::string &id) {
+ ModelAttachment getAttachmentById(std::string_view id) {
  if (StringUtils.isNullOrWhitespace(id) {
  return nullptr;
  } else {
@@ -306,7 +307,7 @@ public
  : this->getAttachmentMatrix(modelAttachment, out);
  }
 
- Matrix4f getAttachmentMatrixById(const std::string &id, Matrix4f out) {
+ Matrix4f getAttachmentMatrixById(std::string_view id, Matrix4f out) {
  ModelAttachment modelAttachment = this->getAttachmentById(id);
  return modelAttachment = =
  nullptr ? out.identity()
@@ -735,7 +736,7 @@ public
  return float0 + (float2 - float0) * float1;
  }
 
- void setCurrentToTarget() {
+ void setCurrentToTarget() noexcept{
  for (int int0 = 0; int0 < this->frameLights.length; int0++) {
  ModelInstance.FrameLightInfo frameLightInfo = this->frameLights[int0];
  if (frameLightInfo != nullptr) {

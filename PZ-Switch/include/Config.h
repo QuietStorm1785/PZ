@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <vector>
 
@@ -53,11 +54,11 @@ struct ControllerKeys {
 
 // Loads a simple INI-style config for Nintendo Switch builds.
 // Returns true if the file was parsed; false means defaults are kept.
-bool loadSwitchConfig(const std::string& path, SwitchConfig& outConfig);
-bool loadOptionsConfig(const std::string& path, GraphicsAudioOptions& outConfig);
-bool saveOptionsConfig(const std::string& path, const GraphicsAudioOptions& cfg);
-bool loadKeysConfig(const std::string& path, ControllerKeys& outKeys);
-bool saveKeysConfig(const std::string& path, const ControllerKeys& keys);
+bool loadSwitchConfig(std::string_view path, SwitchConfig& outConfig);
+bool loadOptionsConfig(std::string_view path, GraphicsAudioOptions& outConfig);
+bool saveOptionsConfig(std::string_view path, const GraphicsAudioOptions& cfg);
+bool loadKeysConfig(std::string_view path, ControllerKeys& outKeys);
+bool saveKeysConfig(std::string_view path, const ControllerKeys& keys);
 
 // Runtime globals for options/keys (loaded at startup)
 extern GraphicsAudioOptions gOptionsConfig;

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -328,7 +329,7 @@ class RegisteredChunks {
       var2.put("time", var3.getTime());
    }
 
-    static int check(int var0, int var1, int var2, const std::string& var3) {
+    static int check(int var0, int var1, int var2, std::string_view var3) {
       if (var0 >= var1 && var0 <= var2) {
     return var0;
       } else {
@@ -511,7 +512,7 @@ class RegisteredChunks {
       return var5.toByteArray();
    }
 
-    static std::string readString(DataInput var0, int var1, const std::string& var2) {
+    static std::string readString(DataInput var0, int var1, std::string_view var2) {
       return new String(readToNull(var0, var1), var2);
    }
 

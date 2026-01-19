@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -894,7 +895,7 @@ class DirectionArrow {
  this->ID = WorldMarkers.NextHomingPointID++;
  }
 
- void setTexture(const std::string &texname) {
+ void setTexture(std::string_view texname) {
  if (texname.empty()) {
  texname = "dir_arrow_up";
  }
@@ -903,17 +904,17 @@ class DirectionArrow {
  texname + ".png");
  }
 
- void setTexDown(const std::string &texname) {
+ void setTexDown(std::string_view texname) {
  this->texDown = Texture.getSharedTexture("media/textures/highlights/" +
  texname + ".png");
  }
 
- void setTexStairsDown(const std::string &texname) {
+ void setTexStairsDown(std::string_view texname) {
  this->texStairsDown = Texture.getSharedTexture(
  "media/textures/highlights/" + texname + ".png");
  }
 
- void setTexStairsUp(const std::string &texname) {
+ void setTexStairsUp(std::string_view texname) {
  this->texStairsUp = Texture.getSharedTexture("media/textures/highlights/" +
  texname + ".png");
  }
@@ -1032,7 +1033,7 @@ class DirectionArrow {
 
  bool isRemoved() { return this->isRemoved; }
 
- void init(const std::string &texid, const std::string &overlay, int _x,
+ void init(std::string_view texid, std::string_view overlay, int _x,
  int _y, int _z, float _size) {
  if (texid.empty()) {
  texid = "circle_center";
@@ -1099,7 +1100,7 @@ class DirectionArrow {
 
  void setActive(bool _active) { this->active = _active; }
 
- float getSize() { return this->size; }
+ float getSize() noexcept{ return this->size; }
 
  float getX() { return this->x; }
 
@@ -1230,7 +1231,7 @@ class DirectionArrow {
  this->targRenderY = float1 + float3 / 2.0F;
  }
 
- void setTexture(const std::string &texname) {
+ void setTexture(std::string_view texname) {
  if (texname.empty()) {
  texname = "arrow_triangle";
  }
@@ -1273,7 +1274,7 @@ class DirectionArrow {
  * The distance in tiles uppon which the pointer will jump to target (if
  * homeOnTarget is enabled, and the target is onScreen)
  */
- int getHomeOnTargetDist() { return this->homeOnTargetDist; }
+ int getHomeOnTargetDist() noexcept{ return this->homeOnTargetDist; }
 
  void setHomeOnTargetDist(int _homeOnTargetDist) {
  this->homeOnTargetDist = _homeOnTargetDist;
@@ -1281,7 +1282,7 @@ class DirectionArrow {
 
  int getID() { return this->ID; }
 
- float getTargetAngle() { return this->targetAngle; }
+ float getTargetAngle() noexcept{ return this->targetAngle; }
 
  void setTargetAngle(float _targetAngle) { this->targetAngle = _targetAngle; }
 
@@ -1289,7 +1290,7 @@ class DirectionArrow {
  * When enabled will ommit angle calculation, custom angle be set with
  * 'setTargetAngle'.
  */
- bool isCustomTargetAngle() { return this->customTargetAngle; }
+ bool isCustomTargetAngle() noexcept{ return this->customTargetAngle; }
 
  void setCustomTargetAngle(bool _customTargetAngle) {
  this->customTargetAngle = _customTargetAngle;
@@ -1330,7 +1331,7 @@ class DirectionArrow {
  * if enabled the pointer will jump to the target when its in view (and
  * within the 'homeOnTargetDist'.
  */
- bool isHomeOnTargetInView() { return this->homeOnTargetInView; }
+ bool isHomeOnTargetInView() noexcept{ return this->homeOnTargetInView; }
 
  void setHomeOnTargetInView(bool _homeOnTargetInView) {
  this->homeOnTargetInView = _homeOnTargetInView;
@@ -1392,7 +1393,7 @@ class DirectionArrow {
 
  void setTableSurface() { this->homeOnOffsetY = -30.0F * Core.TileScale; }
 
- void setHighCounter() { this->homeOnOffsetY = -50.0F * Core.TileScale; }
+ void setHighCounter() noexcept{ this->homeOnOffsetY = -50.0F * Core.TileScale; }
 
  void setYOffsetScaled(float offset) {
  this->homeOnOffsetY = offset * Core.TileScale;

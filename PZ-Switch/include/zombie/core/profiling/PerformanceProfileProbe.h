@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,10 +22,10 @@ private
  std::make_unique<Stack<>>();
 
 public
- PerformanceProfileProbe(const std::string &name) { super(name); }
+ PerformanceProfileProbe(std::string_view name) { super(name); }
 
 public
- PerformanceProfileProbe(const std::string &name, bool isEnabled) {
+ PerformanceProfileProbe(std::string_view name, bool isEnabled) {
  super(name);
  this->setEnabled(isEnabled);
  }

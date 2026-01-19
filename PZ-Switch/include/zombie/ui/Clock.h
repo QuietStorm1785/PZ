@@ -365,7 +365,7 @@ private
  return new int[]{byte0, int0, int1, int2, int3, byte1};
  }
 
- void resize() {
+ void resize() noexcept{
  this->visible = false;
  this->digital = false;
  this->clockPlayer = nullptr;

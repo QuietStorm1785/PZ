@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -26,7 +27,7 @@ public
  SteamFriend() {}
 
 public
- SteamFriend(const std::string &_name, long _steamID) {
+ SteamFriend(std::string_view _name, long _steamID) {
  this->steamID = _steamID;
  this->steamIDString = SteamUtils.convertSteamIDToString(_steamID);
  this->name = _name;

@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -72,7 +73,7 @@ private
  /**
  * Returns the specified variable slot. Or NULL if not found.
  */
- IAnimationVariableSlot getVariable(const std::string &key) {
+ IAnimationVariableSlot getVariable(std::string_view key) {
  if (StringUtils.isNullOrWhitespace(key) {
  return nullptr;
  } else {
@@ -85,7 +86,7 @@ private
  * Returns the specified variable slot. Creates a new slot if not found.
  * Returns NULL if key is nullptr, whitespace, or empty.
  */
- IAnimationVariableSlot getOrCreateVariable(const std::string &key) {
+ IAnimationVariableSlot getOrCreateVariable(std::string_view key) {
  if (StringUtils.isNullOrWhitespace(key) {
  return nullptr;
  } else {
@@ -111,7 +112,7 @@ private
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key,
+ std::string_view key,
  AnimationVariableSlotCallbackBool.CallbackGetStrongTyped callbackGet) {
  this->setVariable(new AnimationVariableSlotCallbackBool(key, callbackGet);
  }
@@ -132,7 +133,7 @@ public
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key,
+ std::string_view key,
  AnimationVariableSlotCallbackString.CallbackGetStrongTyped callbackGet) {
  this->setVariable(new AnimationVariableSlotCallbackString(key, callbackGet);
  }
@@ -153,7 +154,7 @@ public
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key,
+ std::string_view key,
  AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped callbackGet) {
  this->setVariable(new AnimationVariableSlotCallbackFloat(key, callbackGet);
  }
@@ -174,7 +175,7 @@ public
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key,
+ std::string_view key,
  AnimationVariableSlotCallbackInt.CallbackGetStrongTyped callbackGet) {
  this->setVariable(new AnimationVariableSlotCallbackInt(key, callbackGet);
  }
@@ -195,7 +196,7 @@ public
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key, bool defaultVal,
+ std::string_view key, bool defaultVal,
  AnimationVariableSlotCallbackBool.CallbackGetStrongTyped callbackGet) {
  this->setVariable(
  new AnimationVariableSlotCallbackBool(key, defaultVal, callbackGet);
@@ -217,7 +218,7 @@ public
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key, const std::string &defaultVal,
+ std::string_view key, std::string_view defaultVal,
  AnimationVariableSlotCallbackString.CallbackGetStrongTyped callbackGet) {
  this->setVariable(
  new AnimationVariableSlotCallbackString(key, defaultVal, callbackGet);
@@ -239,7 +240,7 @@ public
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key, float defaultVal,
+ std::string_view key, float defaultVal,
  AnimationVariableSlotCallbackFloat.CallbackGetStrongTyped callbackGet) {
  this->setVariable(
  new AnimationVariableSlotCallbackFloat(key, defaultVal, callbackGet);
@@ -261,7 +262,7 @@ public
  * Strong-typed utility function.
  */
  void setVariable(
- const std::string &key, int defaultVal,
+ std::string_view key, int defaultVal,
  AnimationVariableSlotCallbackInt.CallbackGetStrongTyped callbackGet) {
  this->setVariable(
  new AnimationVariableSlotCallbackInt(key, defaultVal, callbackGet);
@@ -279,19 +280,19 @@ public
  key, defaultVal, callbackGet, callbackSet);
  }
 
- void setVariable(const std::string &key, const std::string &value) {
+ void setVariable(std::string_view key, std::string_view value) {
  this->getOrCreateVariable(key).setValue(value);
  }
 
- void setVariable(const std::string &key, bool value) {
+ void setVariable(std::string_view key, bool value) {
  this->getOrCreateVariable(key).setValue(value);
  }
 
- void setVariable(const std::string &key, float value) {
+ void setVariable(std::string_view key, float value) {
  this->getOrCreateVariable(key).setValue(value);
  }
 
- void clearVariable(const std::string &key) {
+ void clearVariable(std::string_view key) {
  IAnimationVariableSlot iAnimationVariableSlot = this->getVariable(key);
  if (iAnimationVariableSlot != nullptr) {
  iAnimationVariableSlot.clear();
@@ -308,7 +309,7 @@ public
  /**
  * Returns the specified variable. Or an empty string "" if not found.
  */
- std::string getVariableString(const std::string &key) {
+ std::string getVariableString(std::string_view key) {
  IAnimationVariableSlot iAnimationVariableSlot = this->getVariable(key);
  return iAnimationVariableSlot != nullptr
  ? iAnimationVariableSlot.getValueString()
@@ -320,7 +321,7 @@ public
  * variable to a float. If that fails, or if variable not found, returns the
  * defaultValue
  */
- float getVariableFloat(const std::string &key, float defaultVal) {
+ float getVariableFloat(std::string_view key, float defaultVal) {
  IAnimationVariableSlot iAnimationVariableSlot = this->getVariable(key);
  return iAnimationVariableSlot != nullptr
  ? iAnimationVariableSlot.getValueFloat()
@@ -332,7 +333,7 @@ public
  * string variable to a boolean. If that fails, or if variable not found,
  * returns FALSE
  */
- bool getVariableBoolean(const std::string &key) {
+ bool getVariableBoolean(std::string_view key) {
  IAnimationVariableSlot iAnimationVariableSlot = this->getVariable(key);
  return iAnimationVariableSlot != nullptr &&
  iAnimationVariableSlot.getValueBool();
@@ -343,7 +344,7 @@ public
  * string variable to a boolean. If that fails, or if variable not found,
  * returns defaultVal
  */
- bool getVariableBoolean(const std::string &key, bool defaultVal) {
+ bool getVariableBoolean(std::string_view key, bool defaultVal) {
  IAnimationVariableSlot iAnimationVariableSlot = this->getVariable(key);
  return iAnimationVariableSlot != nullptr
  ? iAnimationVariableSlot.getValueBool()
@@ -362,11 +363,11 @@ public
  * Compares (ignoring case) the value of the specified variable. Returns TRUE
  * if they match.
  */
- bool isVariable(const std::string &name, const std::string &val) {
+ bool isVariable(std::string_view name, std::string_view val) {
  return StringUtils.equalsIgnoreCase(this->getVariableString(name), val);
  }
 
- bool containsVariable(const std::string &key) {
+ bool containsVariable(std::string_view key) {
  if (StringUtils.isNullOrWhitespace(key) {
  return false;
  } else {

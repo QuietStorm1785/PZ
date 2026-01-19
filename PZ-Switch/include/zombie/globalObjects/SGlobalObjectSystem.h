@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -39,7 +40,7 @@ protected
  HashSet<String> objectSyncKeys = std::make_unique<HashSet<>>();
 
 public
- SGlobalObjectSystem(const std::string &name) { super(name); }
+ SGlobalObjectSystem(std::string_view name) { super(name); }
 
  GlobalObject makeObject(int int0, int int1, int int2) {
  return new SGlobalObject(this, int0, int1, int2);
@@ -113,11 +114,11 @@ public
  }
  }
 
- void sendCommand(const std::string &command, KahluaTable args) {
+ void sendCommand(std::string_view command, KahluaTable args) {
  SGlobalObjectNetwork.sendServerCommand(this->name, command, args);
  }
 
- void receiveClientCommand(const std::string &command, IsoPlayer playerObj,
+ void receiveClientCommand(std::string_view command, IsoPlayer playerObj,
  KahluaTable args) {
  void *object = this->modData.rawget("OnClientCommand");
  if (object.empty()) {

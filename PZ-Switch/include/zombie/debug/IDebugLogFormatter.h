@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,24 +19,24 @@ public:
 
  bool isLogSeverityEnabled(LogSeverity logSeverity);
 
- std::string format(LogSeverity logSeverity, const std::string &prefix,
- const std::string &affix,
- const std::string &formatNoParams);
+ std::string format(LogSeverity logSeverity, std::string_view prefix,
+ std::string_view affix,
+ std::string_view formatNoParams);
 
- std::string format(LogSeverity logSeverity, const std::string &prefix,
- const std::string &affix, const std::string &format,
+ std::string format(LogSeverity logSeverity, std::string_view prefix,
+ std::string_view affix, std::string_view format,
  void *param0);
 
- std::string format(LogSeverity logSeverity, const std::string &prefix,
- const std::string &affix, const std::string &format,
+ std::string format(LogSeverity logSeverity, std::string_view prefix,
+ std::string_view affix, std::string_view format,
  void *param0, void *param1);
 
- std::string format(LogSeverity logSeverity, const std::string &prefix,
- const std::string &affix, const std::string &format,
+ std::string format(LogSeverity logSeverity, std::string_view prefix,
+ std::string_view affix, std::string_view format,
  void *param0, void *param1, void *param2);
 
- std::string format(LogSeverity logSeverity, const std::string &prefix,
- const std::string &affix, const std::string &format,
+ std::string format(LogSeverity logSeverity, std::string_view prefix,
+ std::string_view affix, std::string_view format,
  void *param0, void *param1, void *param2, void *param3);
 
  String format(LogSeverity logSeverity, String prefix, String affix,

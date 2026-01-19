@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,18 +16,18 @@ namespace globals {
 class RadioGlobalString : public RadioGlobal {
 public:
 public
- RadioGlobalString(const std::string &string) {
+ RadioGlobalString(std::string_view string) {
  super(string, RadioGlobalType.String);
  }
 
 public
- RadioGlobalString(const std::string &string0, const std::string &string1) {
+ RadioGlobalString(std::string_view string0, std::string_view string1) {
  super(string0, string1, RadioGlobalType.String);
  }
 
  std::string getValue() { return this->value; }
 
- void setValue(const std::string &string) { this->value = string; }
+ void setValue(std::string_view string) { this->value = string; }
 
  std::string getString() { return this->value; }
 

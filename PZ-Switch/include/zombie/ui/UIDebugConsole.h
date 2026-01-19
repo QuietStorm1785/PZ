@@ -14,6 +14,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -302,17 +303,17 @@ void UpdateViewPos() {
  this->ScrollBarV.scrollToBottom();
 }
 
-void SpoolText(const std::string &string) {
+void SpoolText(std::string_view string) {
  this->OutputLog.bTextChanged = true;
  this->OutputLog.SetText(this->OutputLog.Text + string + "\n");
  this->UpdateViewPos();
 }
 
-Method SuggestionEngine(const std::string &string) {
+Method SuggestionEngine(std::string_view string) {
  return this->SuggestionEngine(string, this->globalLuaMethods);
 }
 
-Method SuggestionEngine(const std::string &string,
+Method SuggestionEngine(std::string_view string,
  ArrayList<Method> arrayList) {
  int int0 = 0;
  int int1 = 0;
@@ -450,7 +451,7 @@ void handleOutput() {
 class CommandEntry extends UITextBox2 {
 public
  CommandEntry(UIFont uIFont, int int0, int int1, int int2, int int3,
- const std::string &string, bool boolean0) {
+ std::string_view string, bool boolean0) {
  super(uIFont, int0, int1, int2, int3, string, boolean0);
  }
 

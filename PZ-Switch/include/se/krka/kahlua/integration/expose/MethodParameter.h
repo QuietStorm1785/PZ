@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,8 +22,8 @@ public:
  const std::string description;
 
 public
- MethodParameter(const std::string &string0, const std::string &string1,
- const std::string &string2) {
+ MethodParameter(std::string_view string0, std::string_view string1,
+ std::string_view string2) {
  this->name = string0;
  this->type = string1;
  this->description = string2;

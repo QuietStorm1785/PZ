@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public
  int height;
 
 public
- Shader(const std::string &_name) {
+ Shader(std::string_view _name) {
  this->name = _name;
  this->m_shaderProgram =
  ShaderProgram.createShaderProgram(_name, false, false);

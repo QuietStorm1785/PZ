@@ -17,6 +17,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -116,7 +117,7 @@ try {
 }
 }
 
-static uint8_t getMediaTypeForCategory(const std::string &category) {
+static uint8_t getMediaTypeForCategory(std::string_view category) {
  if (category.empty()) {
  return -1;
  } else {
@@ -156,8 +157,8 @@ ArrayList<MediaData> getAllMediaForCategory(String category) {
  return arrayList;
 }
 
-MediaData register(const std::string &category, const std::string &id,
- const std::string &itemDisplayName, int spawning) {
+MediaData register(std::string_view category, std::string_view id,
+ std::string_view itemDisplayName, int spawning) {
  if (this->mediaDataMap.containsKey(id) {
  DebugLog.log("RecordeMedia -> MediaData id already exists : " + id);
  return nullptr;
@@ -199,11 +200,11 @@ short getIndexForMediaData(MediaData data) {
  return (short)this->indexes.indexOf(data.getId());
 }
 
-MediaData getMediaData(const std::string &id) {
+MediaData getMediaData(std::string_view id) {
  return this->mediaDataMap.get(id);
 }
 
-MediaData getRandomFromCategory(const std::string &cat) {
+MediaData getRandomFromCategory(std::string_view cat) {
  if (this->categorizedMap.containsKey(cat) {
  MediaData mediaData = nullptr;
  if (cat.equalsIgnoreCase("cds")) {
@@ -368,7 +369,7 @@ void save() {
  }
 }
 
-static std::string toAscii(const std::string &string) {
+static std::string toAscii(std::string_view string) {
  StringBuilder stringBuilder = new StringBuilder(string.length());
  string = Normalizer.normalize(string, Form.NFD);
 
@@ -381,7 +382,7 @@ static std::string toAscii(const std::string &string) {
  return stringBuilder.toString();
 }
 
-bool hasListenedToLine(IsoPlayer player, const std::string &guid) {
+bool hasListenedToLine(IsoPlayer player, std::string_view guid) {
  return player.isKnownMediaLine(guid);
 }
 

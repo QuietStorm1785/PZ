@@ -100,6 +100,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -811,12 +812,12 @@ public
  Texture.onTexturePacksChanged();
  }
 
- static void LoadTexturePack(const std::string &pack, int flags) {
+ static void LoadTexturePack(std::string_view pack, int flags) {
  LoadTexturePack(pack, flags, nullptr);
  }
 
- static void LoadTexturePack(const std::string &pack, int flags,
- const std::string &modID) {
+ static void LoadTexturePack(std::string_view pack, int flags,
+ std::string_view modID) {
  DebugLog.General.println("texturepack: loading " + pack);
  DoLoadingText(Translator.getText("UI_Loading_Texturepack", pack);
  std::string string = ZomboidFileSystem.instance.getString(
@@ -829,7 +830,7 @@ public
  texturePacks.add(texturePack);
  }
 
- static void LoadTexturePackDDS(const std::string &pack) {
+ static void LoadTexturePackDDS(std::string_view pack) {
  DebugLog.log("texturepack: loading " + pack);
  if (SpriteRenderer.instance != nullptr) {
  Core.getInstance().StartFrame();
@@ -890,8 +891,8 @@ public
  Texture.nullTextures.clear();
  }
 
- static void installRequiredLibrary(const std::string &string0,
- const std::string &string1) {
+ static void installRequiredLibrary(std::string_view string0,
+ std::string_view string1) {
  if (new File(string0).exists()) {
  DebugLog.log("Attempting to install " + string1);
  DebugLog.log("Running " + string0 + ".");
@@ -1109,15 +1110,15 @@ public
  return file.getParent();
  }
 
- static void WriteString(ByteBuffer output, const std::string &str) {
+ static void WriteString(ByteBuffer output, std::string_view str) {
  WriteStringUTF(output, str);
  }
 
- static void WriteStringUTF(ByteBuffer output, const std::string &str) {
+ static void WriteStringUTF(ByteBuffer output, std::string_view str) {
  stringUTF.get().save(output, str);
  }
 
- static void WriteString(DataOutputStream output, const std::string &str) {
+ static void WriteString(DataOutputStream output, std::string_view str) {
  if (str.empty()) {
  output.writeInt(0);
  } else {
@@ -1154,7 +1155,7 @@ public
 
  static void doRenderEvent(bool b) { doRenderEvent = b; }
 
- static void DoLoadingText(const std::string &text) {
+ static void DoLoadingText(std::string_view text) {
  if (SpriteRenderer.instance != nullptr &&
  TextManager.instance.font != nullptr) {
  Core.getInstance().StartFrame();
@@ -1195,7 +1196,7 @@ public
  CharsetEncoder ce;
  CharsetDecoder cd;
 
- int encode(const std::string &string) {
+ int encode(std::string_view string) {
  if (this->chars.empty() || this->chars.length < string.length()) {
  int int0 = (string.length() + 128 - 1) / 128 * 128;
  this->chars = new char[int0];
@@ -1245,7 +1246,7 @@ public
  return new String(this->chars, 0, this->charBuffer.position());
  }
 
- void save(ByteBuffer byteBufferx, const std::string &string) {
+ void save(ByteBuffer byteBufferx, std::string_view string) {
  if (string != nullptr && !string.empty()) {
  int int0 = this->encode(string);
  byteBufferx.putShort((short)int0);

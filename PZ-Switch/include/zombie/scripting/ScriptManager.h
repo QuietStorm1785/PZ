@@ -39,6 +39,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -114,7 +115,7 @@ private
  static std::string currentLoadFileAbsPath;
  static const std::string VanillaID = "pz-vanilla";
 
- void ParseScript(const std::string &totalFile) {
+ void ParseScript(std::string_view totalFile) {
  if (DebugLog.isEnabled(DebugType.Script) {
  DebugLog.Script.debugln("Parsing...");
  }
@@ -129,7 +130,7 @@ private
 
  void update() {}
 
- void LoadFile(const std::string &filename, bool bLoadJar) {
+ void LoadFile(std::string_view filename, bool bLoadJar) {
  if (DebugLog.isEnabled(DebugType.Script) {
  DebugLog.Script.debugln(filename + (bLoadJar ? " bLoadJar" : ""));
  }
@@ -190,7 +191,7 @@ private
  }
  }
 
- void CreateFromToken(const std::string &string0) {
+ void CreateFromToken(std::string_view string0) {
  string0 = string0.trim();
  if (string0.indexOf("module") == 0) {
  int int0 = string0.indexOf("{");
@@ -233,16 +234,16 @@ private
  }
  }
 
- static std::string getItemName(const std::string &name) {
+ static std::string getItemName(std::string_view name) {
  int int0 = name.indexOf(46);
  return int0 = = -1 ? name : name.substring(int0 + 1);
  }
 
- ScriptModule getModule(const std::string &name) {
+ ScriptModule getModule(std::string_view name) {
  return this->getModule(name, true);
  }
 
- ScriptModule getModule(const std::string &name, bool defaultToBase) {
+ ScriptModule getModule(std::string_view name, bool defaultToBase) {
  if (name.trim() == "Base") || name.startsWith("Base.")) {
  return this->ModuleMap.get("Base");
  }
@@ -285,7 +286,7 @@ private
  }
  }
 
- ScriptModule getModuleNoDisableCheck(const std::string &name) {
+ ScriptModule getModuleNoDisableCheck(std::string_view name) {
  if (this->ModuleAliases.containsKey(name) {
  name = this->ModuleAliases.get(name);
  }
@@ -298,7 +299,7 @@ private
  }
  }
 
- Item getItem(const std::string &name) {
+ Item getItem(std::string_view name) {
  if (name.contains(".") && this->FullTypeToItemMap.containsKey(name) {
  return this->FullTypeToItemMap.get(name);
  } else {
@@ -308,9 +309,9 @@ private
  }
  }
 
- Item FindItem(const std::string &name) { return this->FindItem(name, true); }
+ Item FindItem(std::string_view name) { return this->FindItem(name, true); }
 
- Item FindItem(const std::string &name, bool moduleDefaultsToBase) {
+ Item FindItem(std::string_view name, bool moduleDefaultsToBase) {
  if (name.contains(".") && this->FullTypeToItemMap.containsKey(name) {
  return this->FullTypeToItemMap.get(name);
  } else {
@@ -336,30 +337,30 @@ private
  }
  }
 
- bool isDrainableItemType(const std::string &itemType) {
+ bool isDrainableItemType(std::string_view itemType) {
  Item item = this->FindItem(itemType);
  return item != nullptr ? item.getType() == Item.Type.Drainable : false;
  }
 
- Recipe getRecipe(const std::string &name) {
+ Recipe getRecipe(std::string_view name) {
  ScriptModule scriptModule = this->getModule(name);
  return scriptModule = =
  nullptr ? nullptr : scriptModule.getRecipe(getItemName(name);
  }
 
- VehicleScript getVehicle(const std::string &name) {
+ VehicleScript getVehicle(std::string_view name) {
  ScriptModule scriptModule = this->getModule(name);
  return scriptModule = =
  nullptr ? nullptr : scriptModule.getVehicle(getItemName(name);
  }
 
- VehicleTemplate getVehicleTemplate(const std::string &name) {
+ VehicleTemplate getVehicleTemplate(std::string_view name) {
  ScriptModule scriptModule = this->getModule(name);
  return scriptModule = =
  nullptr ? nullptr : scriptModule.getVehicleTemplate(getItemName(name);
  }
 
- VehicleEngineRPM getVehicleEngineRPM(const std::string &name) {
+ VehicleEngineRPM getVehicleEngineRPM(std::string_view name) {
  ScriptModule scriptModule = this->getModule(name);
  return scriptModule = =
  nullptr ? nullptr
@@ -543,7 +544,7 @@ public
  return arrayList;
  }
 
- AnimationsMesh getAnimationsMesh(const std::string &name) {
+ AnimationsMesh getAnimationsMesh(std::string_view name) {
  ScriptModule scriptModule = this->getModule(name);
  if (scriptModule.empty()) {
  return nullptr;
@@ -568,7 +569,7 @@ public
  return this->animationsMeshTempList;
  }
 
- MannequinScript getMannequinScript(const std::string &name) {
+ MannequinScript getMannequinScript(std::string_view name) {
  ScriptModule scriptModule = this->getModule(name);
  if (scriptModule.empty()) {
  return nullptr;
@@ -597,7 +598,7 @@ public
  return this->mannequinScriptTempList;
  }
 
- ModelScript getModelScript(const std::string &name) {
+ ModelScript getModelScript(std::string_view name) {
  ScriptModule scriptModule = this->getModule(name);
  if (scriptModule.empty()) {
  return nullptr;
@@ -635,7 +636,7 @@ public
  return this->vehicleScriptTempList;
  }
 
- SoundTimelineScript getSoundTimeline(const std::string &eventName) {
+ SoundTimelineScript getSoundTimeline(std::string_view eventName) {
  if (this->SoundTimelineMap.empty()) {
  for (int int0 = 0; int0 < this->ModuleList.size(); int0++) {
  ScriptModule scriptModule = this->ModuleList.get(int0);
@@ -718,7 +719,7 @@ public
  }
 
  Comparator comparator = std::make_unique<Comparator<String>>(){
- int compare(const std::string &string1, const std::string &string3){
+ int compare(std::string_view string1, std::string_view string3){
  std::string string0 = new File(string1).getName();
  std::string string2 = new File(string3).getName();
  if (string0.startsWith("template_") && !string2.startsWith("template_")) {
@@ -835,11 +836,11 @@ ArrayList<Recipe> getAllRecipesFor(String result) {
  return arrayList1;
 }
 
-std::string getItemTypeForClothingItem(const std::string &clothingItem) {
+std::string getItemTypeForClothingItem(std::string_view clothingItem) {
  return this->clothingToItemMap.get(clothingItem);
 }
 
-Item getItemForClothingItem(const std::string &clothingName) {
+Item getItemForClothingItem(std::string_view clothingName) {
  std::string string = this->getItemTypeForClothingItem(clothingName);
  return string = = nullptr ? nullptr : this->FindItem(string);
 }
@@ -878,7 +879,7 @@ void resolveItemTypes() {
  }
 }
 
-std::string resolveItemType(ScriptModule module, const std::string &itemType) {
+std::string resolveItemType(ScriptModule module, std::string_view itemType) {
  if (StringUtils.isNullOrWhitespace(itemType) {
  return nullptr;
  } else if (itemType.contains(".")) {
@@ -904,7 +905,7 @@ std::string resolveItemType(ScriptModule module, const std::string &itemType) {
 }
 
 std::string resolveModelScript(ScriptModule module,
- const std::string &modelScriptName) {
+ std::string_view modelScriptName) {
  if (StringUtils.isNullOrWhitespace(modelScriptName) {
  return nullptr;
  } else if (modelScriptName.contains(".")) {
@@ -933,7 +934,7 @@ std::string resolveModelScript(ScriptModule module,
  * Attempts to get the specific item of "module.type" without defaulting to
  * module "Base".
  */
-Item getSpecificItem(const std::string &name) {
+Item getSpecificItem(std::string_view name) {
  if (!name.contains(".")) {
  DebugLog.log("ScriptManager.getSpecificItem requires a full type name, "
  "cannot find: " +

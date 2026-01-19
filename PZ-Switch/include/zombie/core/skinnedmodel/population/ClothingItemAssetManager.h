@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -62,7 +63,7 @@ public:
  }
  }
 
- std::string fixPath(const std::string &string) {
+ std::string fixPath(std::string_view string) {
  return string = = nullptr ? nullptr : string.replaceAll("\\\\", "/");
  }
 

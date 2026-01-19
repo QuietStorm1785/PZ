@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -29,7 +30,7 @@ class GameProfileRecording :  GenericNameValueRecordingFrame {
     int m_numFramesPerFile = 60;
     int m_currentSegmentFrameCount = 0;
 
-     GameProfileRecording(const std::string& var1) {
+     GameProfileRecording(std::string_view var1) {
       super(var1, "_times");
       this.addColumnInternal("StartTime");
       this.addColumnInternal("EndTime");
@@ -86,7 +87,7 @@ class GameProfileRecording :  GenericNameValueRecordingFrame {
     return var7;
    }
 
-    int getOrCreateKey(const std::string& var1) {
+    int getOrCreateKey(std::string_view var1) {
     int var2 = this.m_keyValueTable.get(var1);
       if (var2 == nullptr) {
          var2 = this.m_keyValueTable.size();

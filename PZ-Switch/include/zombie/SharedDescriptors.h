@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -46,7 +47,7 @@ private
  }
  }
 
- static void noise(const std::string &string) {
+ static void noise(std::string_view string) {
  DebugLog.log("shared-descriptor: " + string);
  }
 
@@ -159,7 +160,7 @@ public
  }
  }
 
- static void ApplyReanimatedPlayerOutfit(int int0, const std::string &var1,
+ static void ApplyReanimatedPlayerOutfit(int int0, std::string_view var1,
  IsoGameCharacter character) {
  IsoZombie zombie0 = Type.tryCastTo(character, IsoZombie.class);
  if (zombie0 != nullptr) {

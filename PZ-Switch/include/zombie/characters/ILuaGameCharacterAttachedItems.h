@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,9 +22,9 @@ public:
 
  void setAttachedItems(AttachedItems var1);
 
- InventoryItem getAttachedItem(const std::string &var1);
+ InventoryItem getAttachedItem(std::string_view var1);
 
- void setAttachedItem(const std::string &var1, InventoryItem var2);
+ void setAttachedItem(std::string_view var1, InventoryItem var2);
 
  void removeAttachedItem(InventoryItem var1);
 

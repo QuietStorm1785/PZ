@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -60,12 +61,12 @@ public
  return this->IntMap.containsKey(gid) ? this->IntMap.get(gid) : nullptr;
  }
 
- IsoSprite getSprite(const std::string &gid) {
+ IsoSprite getSprite(std::string_view gid) {
  return this->NamedMap.containsKey(gid) ? this->NamedMap.get(gid)
  : this->AddSprite(gid);
  }
 
- IsoSprite getOrAddSpriteCache(const std::string &tex) {
+ IsoSprite getOrAddSpriteCache(std::string_view tex) {
  if (this->NamedMap.containsKey(tex) {
  return this->NamedMap.get(tex);
  } else {
@@ -76,7 +77,7 @@ public
  }
  }
 
- IsoSprite getOrAddSpriteCache(const std::string &tex, Color col) {
+ IsoSprite getOrAddSpriteCache(std::string_view tex, Color col) {
  int int0 = (int)(col.r * 255.0F);
  int int1 = (int)(col.g * 255.0F);
  int int2 = (int)(col.b * 255.0F);
@@ -91,14 +92,14 @@ public
  }
  }
 
- IsoSprite AddSprite(const std::string &tex) {
+ IsoSprite AddSprite(std::string_view tex) {
  IsoSprite sprite = new IsoSprite(this);
  sprite.LoadFramesNoDirPageSimple(tex);
  this->NamedMap.put(tex, sprite);
  return sprite;
  }
 
- IsoSprite AddSprite(const std::string &tex, int ID) {
+ IsoSprite AddSprite(std::string_view tex, int ID) {
  IsoSprite sprite = new IsoSprite(this);
  sprite.LoadFramesNoDirPageSimple(tex);
  if (this->NamedMap.containsKey(tex) {

@@ -85,6 +85,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -2729,7 +2730,7 @@ private
  return this->ConnectNewSquare(newSquare, bDoSurrounds, false);
  }
 
- void PlaceLot(const std::string &filename, int sx, int sy, int sz,
+ void PlaceLot(std::string_view filename, int sx, int sy, int sz,
  bool bClearExisting) {}
 
  void PlaceLot(IsoLot lot, int sx, int sy, int sz, bool bClearExisting) {
@@ -5584,7 +5585,7 @@ public
  return this->textures.contains(texture);
  }
 
- void resetCounter() { this->counter = 0; }
+ void resetCounter() noexcept{ this->counter = 0; }
  }
 
  private static class s_performance {

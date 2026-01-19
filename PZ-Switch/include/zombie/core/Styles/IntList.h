@@ -109,7 +109,7 @@ public
  return shorts;
  }
 
- void trimToSize() {
+ void trimToSize() noexcept{
  if (this->count != this->value.length) {
  int[] ints = this->value;
  this->value = new int[this->count];

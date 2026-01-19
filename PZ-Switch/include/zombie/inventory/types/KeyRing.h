@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,8 +22,8 @@ private
  ArrayList<Key> keys = std::make_unique<ArrayList<>>();
 
 public
- KeyRing(const std::string &module, const std::string &name,
- const std::string &type, const std::string &tex) {
+ KeyRing(std::string_view module, std::string_view name,
+ std::string_view type, std::string_view tex) {
  super(module, name, type, tex);
  this->cat = ItemType.KeyRing;
  }

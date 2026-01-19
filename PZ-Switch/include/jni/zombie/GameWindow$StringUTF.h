@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -22,7 +23,7 @@ class GameWindow {
    private GameWindow$StringUTF() {
    }
 
-    int encode(const std::string& var1) {
+    int encode(std::string_view var1) {
       if (this.chars == nullptr || this.chars.length < var1.length()) {
     int var2 = (var1.length() + 128 - 1) / 128 * 128;
          this.chars = new char[var2];
@@ -66,7 +67,7 @@ class GameWindow {
       return new String(this.chars, 0, this.charBuffer.position());
    }
 
-    void save(ByteBuffer var1, const std::string& var2) {
+    void save(ByteBuffer var1, std::string_view var2) {
       if (var2 != nullptr && !var2.isEmpty()) {
     int var3 = this.encode(var2);
          var1.putShort((short)var3);

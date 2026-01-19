@@ -36,7 +36,7 @@ public
 
  void update() {}
 
- void onresize() {
+ void onresize() noexcept{
  this->x = 288.0;
  this->y = 101.0;
  this->width = (float)(Core.getInstance().getScreenWidth() - 2.0 * this->x);

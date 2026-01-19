@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public
  return new byte[1024];
  }
 
- static std::string Ardo(const std::string &string0) {
+ static std::string Ardo(std::string_view string0) {
  byte[] bytes = asasa(string0);
  std::string string1 = "";
 
@@ -38,8 +39,8 @@ public
  return string1;
  }
 
- static bool Thigglewhat2(const std::string &string1,
- const std::string &string2) {
+ static bool Thigglewhat2(std::string_view string1,
+ std::string_view string2) {
  std::string string0 = "";
 
  try {
@@ -60,7 +61,7 @@ public
  return string0 == string2);
  }
 
- static std::string Thigglewhat22(const std::string &string1) {
+ static std::string Thigglewhat22(std::string_view string1) {
  std::string string0 = "";
 
  try {

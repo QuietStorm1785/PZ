@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -52,7 +53,7 @@ private
  static float[][] floatArrs = new float[5][];
 
 public
- WeatherShader(const std::string &string) { super(string); }
+ WeatherShader(std::string_view string) { super(string); }
 
  void startMainThread(TextureDraw textureDraw, int int0) {
  if (int0 >= 0 && int0 < 4) {

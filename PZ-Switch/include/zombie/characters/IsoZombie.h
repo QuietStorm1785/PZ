@@ -143,6 +143,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -1059,7 +1060,7 @@ public
  return true;
  }
 
- void renderTextureOverHead(const std::string &string) {
+ void renderTextureOverHead(std::string_view string) {
  float float0 = this->x;
  float float1 = this->y;
  float float2 = IsoUtils.XToScreen(float0, float1, this->getZ(), 0);
@@ -1974,7 +1975,7 @@ public
  }
  }
 
- void DoFootstepSound(const std::string &type) {
+ void DoFootstepSound(std::string_view type) {
  ParameterCharacterMovementSpeed.MovementType movementType =
  ParameterCharacterMovementSpeed.MovementType.Walk;
  float float0 = 0.5F;
@@ -2924,7 +2925,7 @@ public
  this->initCanCrawlUnderVehicle();
  }
 
- void setWalkType(const std::string &_walkType) { this->walkType = _walkType; }
+ void setWalkType(std::string_view _walkType) { this->walkType = _walkType; }
 
  void DoZombieSpeeds(float spMod) {
  if (this->bCrawling) {
@@ -3791,7 +3792,7 @@ public
  ZombiesZoneDefinition.dressInRandomOutfit(this);
  }
 
- void dressInNamedOutfit(const std::string &outfitName) {
+ void dressInNamedOutfit(std::string_view outfitName) {
  this->wornItems.clear();
  this->getHumanVisual().clear();
  this->itemVisuals.clear();
@@ -3824,7 +3825,7 @@ public
  }
  }
 
- void dressInClothingItem(const std::string &itemGUID) {
+ void dressInClothingItem(std::string_view itemGUID) {
  this->wornItems.clear();
  this->getHumanVisual().dressInClothingItem(itemGUID, this->itemVisuals);
  this->onWornItemsChanged();
@@ -3837,7 +3838,7 @@ public
  *
  * @param itemGuid The item's Globally Unique Identifier (GUID).
  */
- void clothingItemChanged(const std::string &itemGuid) {
+ void clothingItemChanged(std::string_view itemGuid) {
  super.clothingItemChanged(itemGuid);
  if (!StringUtils.isNullOrWhitespace(this->pendingOutfitName) {
  Outfit outfit =
@@ -3979,7 +3980,7 @@ public
  this->setCanCrawlUnderVehicle(Rand.Next(100) < byte0);
  }
 
- bool shouldGetUpFromCrawl() {
+ bool shouldGetUpFromCrawl() const noexcept {
  if (this->isCurrentState(ZombieGetUpFromCrawlState.instance())) {
  return true;
  } else if (this->isCurrentState(ZombieGetUpState.instance())) {
@@ -4054,7 +4055,7 @@ public
  }
  }
 
- IsoMovingObject getEatBodyTarget() { return this->eatBodyTarget; }
+ IsoMovingObject getEatBodyTarget() noexcept{ return this->eatBodyTarget; }
 
  float getEatSpeed() { return this->eatSpeed; }
 
@@ -4080,7 +4081,7 @@ public
  }
  }
 
- void updateEatBodyTarget() {
+ void updateEatBodyTarget() noexcept{
  if (this->bodyToEat != nullptr &&
  this->isCurrentState(ZombieIdleState.instance()) &&
  this->DistToSquared(this->bodyToEat) <= 1.0F &&
@@ -4188,7 +4189,7 @@ public
 
  std::string getPlayerAttackPosition() { return this->playerAttackPosition; }
 
- void setPlayerAttackPosition(const std::string &_playerAttackPosition) {
+ void setPlayerAttackPosition(std::string_view _playerAttackPosition) {
  this->playerAttackPosition = _playerAttackPosition;
  }
 
@@ -4227,13 +4228,13 @@ public
 
  void setThumpTimer(int _thumpTimer) { this->thumpTimer = _thumpTimer; }
 
- IsoMovingObject getTarget() { return this->target; }
+ IsoMovingObject getTarget() noexcept{ return this->target; }
 
  void setTargetSeenTime(float seconds) { this->targetSeenTime = seconds; }
 
- float getTargetSeenTime() { return this->targetSeenTime; }
+ float getTargetSeenTime() noexcept{ return this->targetSeenTime; }
 
- bool isTargetVisible() {
+ bool isTargetVisible() noexcept{
  IsoPlayer player = Type.tryCastTo(this->target, IsoPlayer.class);
  if (player != nullptr && this->getCurrentSquare() != nullptr) {
  return GameServer.bServer
@@ -4297,7 +4298,7 @@ public
 
  float getFootstepVolume() { return this->footstepVolume; }
 
- bool isFacingTarget() {
+ bool isFacingTarget() noexcept{
  if (this->target.empty()) {
  return false;
  } else if (GameClient.bClient && !this->isLocal() && this->isBumped()) {
@@ -4314,7 +4315,7 @@ public
  }
  }
 
- bool isTargetLocationKnown() {
+ bool isTargetLocationKnown() noexcept{
  if (this->target.empty()) {
  return false;
  } else {

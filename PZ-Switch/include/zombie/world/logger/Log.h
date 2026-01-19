@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -51,12 +52,12 @@ public
  std::string txt;
 
  public
- Comment(const std::string &string) {
+ Comment(std::string_view string) {
  this->ignoreSaveCheck = true;
  this->txt = string;
  }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "-- " + this->txt + System.lineSeparator());
  }
  }
@@ -71,7 +72,7 @@ public
  bool HasErrored = false;
 
  public
- Info(const std::string &string0, const std::string &string1, int int0,
+ Info(std::string_view string0, std::string_view string1, int int0,
  List<String> list) {
  this->ignoreSaveCheck = true;
  this->timeStamp = string0;
@@ -80,7 +81,7 @@ public
  this->mods = list;
  }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "{" + System.lineSeparator());
  fileWriter.write(string + "\ttype = \"info\"," + System.lineSeparator());
  fileWriter.write(string + "\ttimeStamp = \"" + this->timeStamp + "\"," +
@@ -109,14 +110,14 @@ public
  const std::string newModID;
 
  public
- ModIDChangedItem(ItemInfo itemInfo, const std::string &string0,
- const std::string &string1) {
+ ModIDChangedItem(ItemInfo itemInfo, std::string_view string0,
+ std::string_view string1) {
  super(itemInfo);
  this->oldModID = string0;
  this->newModID = string1;
  }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "{ type = \"modchange_item\", oldModID = \"" +
  this->oldModID + "\", " + this->getItemString() + " }" +
  System.lineSeparator());
@@ -128,7 +129,7 @@ public
  public
  ObsoleteItem(ItemInfo itemInfo) { super(itemInfo); }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "{ type = \"obsolete_item\", " +
  this->getItemString() + " }" + System.lineSeparator());
  }
@@ -139,7 +140,7 @@ public
  public
  RegisterItem(ItemInfo itemInfo) { super(itemInfo); }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "{ type = \"reg_item\", " +
  this->getItemString() + " }" + System.lineSeparator());
  }
@@ -151,12 +152,12 @@ public
  const int ID;
 
  public
- RegisterObject(const std::string &string, int int0) {
+ RegisterObject(std::string_view string, int int0) {
  this->objectName = string;
  this->ID = int0;
  }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "{ type = \"reg_obj\", id = " + this->ID +
  ", obj = \"" + this->objectName + "\" }" +
  System.lineSeparator());
@@ -168,7 +169,7 @@ public
  public
  ReinstateItem(ItemInfo itemInfo) { super(itemInfo); }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "{ type = \"reinstate_item\", " +
  this->getItemString() + " }" + System.lineSeparator());
  }
@@ -184,7 +185,7 @@ public
  this->isScriptMissing = boolean0;
  }
 
- void saveAsText(FileWriter fileWriter, const std::string &string) {
+ void saveAsText(FileWriter fileWriter, std::string_view string) {
  fileWriter.write(string + "{ type = \"removed_item\", scriptMissing = " +
  this->isScriptMissing + ", " + this->getItemString() +
  " }" + System.lineSeparator());

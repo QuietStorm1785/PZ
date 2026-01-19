@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -25,7 +26,7 @@ class WorldMapXML {
     const WorldMapProperties m_properties = new WorldMapProperties();
    private ArrayList<WorldMapProperties> m_sharedProperties = std::make_unique<ArrayList<>>();
 
-    bool read(const std::string& var1, WorldMapData var2) {
+    bool read(std::string_view var1, WorldMapData var2) {
     Element var3 = PZXmlUtil.parseXml(var1);
       if (var3.getNodeName() == "world")) {
          this.parseWorld(var3, var2);

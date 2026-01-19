@@ -7,6 +7,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -442,7 +443,7 @@ private
  }
  }
 
- void print(int int1, const std::string &string) {
+ void print(int int1, std::string_view string) {
  for (int int0 = 0; int0 < int1; int0++) {
  System.out.print(" ");
  }

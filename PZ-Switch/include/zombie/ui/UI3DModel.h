@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -85,7 +86,7 @@ public
 
  void setAnimate(bool animate) { this->animatedModel.setAnimate(animate); }
 
- void setAnimSetName(const std::string &name) {
+ void setAnimSetName(std::string_view name) {
  this->animatedModel.setAnimSetName(name);
  }
 
@@ -93,7 +94,7 @@ public
 
  void setIsometric(bool iso) { this->animatedModel.setIsometric(iso); }
 
- void setOutfitName(const std::string &outfitName, bool female, bool zombie) {
+ void setOutfitName(std::string_view outfitName, bool female, bool zombie) {
  this->animatedModel.setOutfitName(outfitName, female, zombie);
  }
 
@@ -105,17 +106,17 @@ public
  this->animatedModel.setSurvivorDesc(survivorDesc);
  }
 
- void setState(const std::string &state) {
+ void setState(std::string_view state) {
  this->animatedModel.setState(state);
  }
 
- void reportEvent(const std::string &event) {
+ void reportEvent(std::string_view event) {
  if (!StringUtils.isNullOrWhitespace(event) {
  this->animatedModel.getActionContext().reportEvent(event);
  }
  }
 
- void clothingItemChanged(const std::string &itemGuid) {
+ void clothingItemChanged(std::string_view itemGuid) {
  this->animatedModel.clothingItemChanged(itemGuid);
  }
 

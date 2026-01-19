@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,7 @@ public:
 protected
  Map<String, IReplace> m_keys = std::make_unique<HashMap<>>();
 
- void addKey(const std::string &key, String) {
+ void addKey(std::string_view key, String) {
  this->addReplacer(key, std::make_unique<IReplace>() {
  std::string getString() {
  return value;
@@ -32,7 +33,7 @@ protected
  });
  } // namespace templating
 
- void addKey(const std::string &key, KahluaTableImpl table) {
+ void addKey(std::string_view key, KahluaTableImpl table) {
  try {
  std::vector arrayList = new ArrayList();
 
@@ -51,7 +52,7 @@ protected
  }
  }
 
- void addReplacer(const std::string &key, IReplace replace) {
+ void addReplacer(std::string_view key, IReplace replace) {
  if (this->m_keys.containsKey(key.toLowerCase())) {
  DebugLog.log("ReplaceProvider -> Warning: key '" + key +
  "' replaces an existing key.");
@@ -60,11 +61,11 @@ protected
  this->m_keys.put(key.toLowerCase(), replace);
  }
 
- bool hasReplacer(const std::string &key) {
+ bool hasReplacer(std::string_view key) {
  return this->m_keys.containsKey(key);
  }
 
- IReplace getReplacer(const std::string &key) {
+ IReplace getReplacer(std::string_view key) {
  return this->m_keys.get(key);
  }
  } // namespace text

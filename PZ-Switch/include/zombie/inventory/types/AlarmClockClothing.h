@@ -31,6 +31,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -57,10 +58,10 @@ public:
  static const OnceEvery sendEvery = new OnceEvery(2.0F);
 
 public
- AlarmClockClothing(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName,
- const std::string &palette,
- const std::string &SpriteName) {
+ AlarmClockClothing(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName,
+ std::string_view palette,
+ std::string_view SpriteName) {
  super(module, name, itemType, texName, palette, SpriteName);
  this->cat = ItemType.AlarmClockClothing;
  if (this->fullType.contains("Classic")) {
@@ -71,10 +72,10 @@ public
  }
 
 public
- AlarmClockClothing(const std::string &module, const std::string &name,
- const std::string &itemType, Item item,
- const std::string &palette,
- const std::string &SpriteName) {
+ AlarmClockClothing(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item,
+ std::string_view palette,
+ std::string_view SpriteName) {
  super(module, name, itemType, item, palette, SpriteName);
  this->cat = ItemType.AlarmClockClothing;
  if (this->fullType.contains("Classic")) {
@@ -383,7 +384,7 @@ public
 
  std::string getAlarmSound() { return this->alarmSound; }
 
- void setAlarmSound(const std::string &_alarmSound) {
+ void setAlarmSound(std::string_view _alarmSound) {
  this->alarmSound = _alarmSound;
  }
 

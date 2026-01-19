@@ -32,6 +32,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -261,7 +262,7 @@ private
  }
  }
 
- void processPlayerNotFound(const std::string &string) {
+ void processPlayerNotFound(std::string_view string) {
  logger.write("Got player not found packet", "info");
  WhisperChatCreation whisperChatCreationx =
  this->whisperChatCreation.get(string);
@@ -292,7 +293,7 @@ private
  }
  }
 
- void updateChatSettings(const std::string &string, bool boolean0,
+ void updateChatSettings(std::string_view string, bool boolean0,
  bool boolean1) {
  Core.getInstance().setOptionChatFontSize(string);
  Core.getInstance().setOptionShowChatTimestamp(boolean0);
@@ -305,12 +306,12 @@ private
  }
  }
 
- void showInfoMessage(const std::string &string) {
+ void showInfoMessage(std::string_view string) {
  ChatMessage chatMessage = this->sayChat.createInfoMessage(string);
  this->sayChat.showMessage(chatMessage);
  }
 
- void showInfoMessage(const std::string &string1, const std::string &string0) {
+ void showInfoMessage(std::string_view string1, std::string_view string0) {
  if (this->sayChat != nullptr) {
  ChatMessage chatMessage = this->sayChat.createInfoMessage(string0);
  chatMessage.setAuthor(string1);
@@ -318,8 +319,8 @@ private
  }
  }
 
- void sendMessageToChat(const std::string &string1, ChatType chatType,
- const std::string &string0) {
+ void sendMessageToChat(std::string_view string1, ChatType chatType,
+ std::string_view string0) {
  string0 = string0.trim();
  if (!string0.empty()) {
  ChatBase chatBase = this->getChat(chatType);
@@ -339,7 +340,7 @@ private
  }
  }
 
- void sendMessageToChat(ChatType chatType, const std::string &string) {
+ void sendMessageToChat(ChatType chatType, std::string_view string) {
  this->sendMessageToChat(this->player.getUsername(), chatType, string);
  }
 
@@ -419,7 +420,7 @@ public
  this->radioChat.showMessage(chatMessage);
  }
 
- void showRadioMessage(const std::string &string, int int0) {
+ void showRadioMessage(std::string_view string, int int0) {
  ChatMessage chatMessage = this->radioChat.createMessage(string);
  if (int0 != 0) {
  chatMessage.setRadioChannel(int0);
@@ -428,27 +429,27 @@ public
  this->radioChat.showMessage(chatMessage);
  }
 
- void showStaticRadioSound(const std::string &string) {
+ void showStaticRadioSound(std::string_view string) {
  this->radioChat.showMessage(this->radioChat.createStaticSoundMessage(string);
  }
 
- ChatMessage createRadiostationMessage(const std::string &string, int int0) {
+ ChatMessage createRadiostationMessage(std::string_view string, int int0) {
  return this->radioChat.createBroadcastingMessage(string, int0);
  }
 
- void showServerChatMessage(const std::string &string) {
+ void showServerChatMessage(std::string_view string) {
  ServerChatMessage serverChatMessage =
  this->serverChat.createServerMessage(string);
  this->serverChat.showMessage(serverChatMessage);
  }
 
- void addMessage(int int0, const std::string &string1,
- const std::string &string0) {
+ void addMessage(int int0, std::string_view string1,
+ std::string_view string0) {
  ChatBase chatBase = this->mpChats.get(int0);
  chatBase.showMessage(string0, string1);
  }
 
- void addMessage(const std::string &string0, const std::string &string1) {
+ void addMessage(std::string_view string0, std::string_view string1) {
  if (this->generalChat.empty()) {
  throw std::make_unique<RuntimeException>();
  } else {
@@ -531,7 +532,7 @@ public
  }
  }
 
- WhisperChatCreation createWhisperChat(const std::string &string) {
+ WhisperChatCreation createWhisperChat(std::string_view string) {
  logger.write("Whisper chat is not created for '" + string + "'", "info");
  WhisperChatCreation whisperChatCreationx = new WhisperChatCreation();
  whisperChatCreationx.destPlayerName = string;

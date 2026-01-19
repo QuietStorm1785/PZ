@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -14,10 +15,10 @@ namespace world {
 class WorldDictionaryException : public Exception {
 public:
 public
- WorldDictionaryException(const std::string &string) { super(string); }
+ WorldDictionaryException(std::string_view string) { super(string); }
 
 public
- WorldDictionaryException(const std::string &string,
+ WorldDictionaryException(std::string_view string,
  std::exception throwable) {
  super(string, throwable);
  }

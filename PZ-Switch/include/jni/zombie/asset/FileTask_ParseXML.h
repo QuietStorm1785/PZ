@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -19,7 +20,7 @@ class FileTask_ParseXML :  FileTask {
    Class<?> m_class;
     std::string m_filename;
 
-     FileTask_ParseXML(Class<? extends, const std::string& var2, IFileTaskCallback var3, FileSystem var4) {
+     FileTask_ParseXML(Class<? extends, std::string_view var2, IFileTaskCallback var3, FileSystem var4) {
       super(var4, var3);
       this.m_class = var1;
       this.m_filename = var2;

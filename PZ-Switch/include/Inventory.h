@@ -3,6 +3,7 @@
 #include <map>
 #include <memory>
 #include <string>
+#include <string_view>
 
 namespace zombie {
 namespace inventory {
@@ -20,12 +21,12 @@ enum class ItemType {
 
 class InventoryItem {
 public:
- InventoryItem(const std::string& name, ItemType type, float weight = 0.5f);
+ InventoryItem(std::string_view name, ItemType type, float weight = 0.5f);
  
  std::string getName() const { return name; }
  ItemType getType() const { return type; }
  float getWeight() const { return weight; }
- int getCount() const { return count; }
+ int getCount() const noexcept { return count; }
  void setCount(int c) { count = c; }
  
  bool isStackable() const { return stackable; }
@@ -46,7 +47,7 @@ public:
  bool addItem(std::shared_ptr<InventoryItem> item);
  bool removeItem(int count);
  std::shared_ptr<InventoryItem> getItem() const { return item; }
- int getCount() const { return (item ? item->getCount() : 0); }
+ int getCount() const noexcept { return (item ? item->getCount() : 0); }
  bool isEmpty() const { return !item; }
  
 private:
@@ -65,7 +66,7 @@ public:
  
  float getTotalWeight() const;
  float getMaxWeight() const { return maxWeight; }
- int getSlotCount() const { return slots.size(); }
+ int getSlotCount() const noexcept { return slots.size(); }
  int getUsedSlots() const;
  
  void clear();

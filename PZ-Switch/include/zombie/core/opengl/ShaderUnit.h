@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,7 +30,7 @@ private
  bool m_isAttached;
 
 public
- ShaderUnit(ShaderProgram parent, const std::string &fileName,
+ ShaderUnit(ShaderProgram parent, std::string_view fileName,
  ShaderUnit.Type unitType) {
  this->m_parentProgram = parent;
  this->m_fileName = fileName;
@@ -160,7 +161,7 @@ static int getGlType(ShaderUnit.Type type) {
  return type = = ShaderUnit.Type.Vert ? 35633 : 35632;
 }
 
-std::string loadShaderFile(const std::string &string1,
+std::string loadShaderFile(std::string_view string1,
  ArrayList<String> arrayList) {
  arrayList.clear();
  std::string string0 = this->preProcessShaderFile(string1, arrayList);
@@ -176,7 +177,7 @@ std::string loadShaderFile(const std::string &string1,
  }
 }
 
-std::string preProcessShaderFile(const std::string &string0,
+std::string preProcessShaderFile(std::string_view string0,
  ArrayList<String> arrayList) {
  StringBuilder stringBuilder = new StringBuilder();
 
@@ -204,9 +205,9 @@ std::string preProcessShaderFile(const std::string &string0,
  return stringBuilder.toString();
 }
 
-bool processIncludeLine(const std::string &string3,
+bool processIncludeLine(std::string_view string3,
  StringBuilder stringBuilder1,
- const std::string &string1, const std::string &string9,
+ std::string_view string1, std::string_view string9,
  ArrayList<String> arrayList1) {
  std::string string0 = string1.substring("#include ".length());
  if (string0.startsWith("\"") && string0.endsWith("\"")) {
@@ -295,7 +296,7 @@ else {
 }
 }
 
-std::string getParentFolder(const std::string &string) {
+std::string getParentFolder(std::string_view string) {
  int int0 = string.lastIndexOf("/");
  if (int0 > -1) {
  return string.substring(0, int0);

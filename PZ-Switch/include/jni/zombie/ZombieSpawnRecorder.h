@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -40,7 +41,7 @@ class ZombieSpawnRecorder {
       }
    }
 
-    void record(IsoZombie var1, const std::string& var2) {
+    void record(IsoZombie var1, std::string_view var2) {
       if (var1 != nullptr && var1.getCurrentSquare() != nullptr) {
          if (this.m_logger != nullptr) {
     IsoGridSquare var3 = var1.getCurrentSquare();
@@ -67,7 +68,7 @@ class ZombieSpawnRecorder {
       }
    }
 
-    void record(ArrayList<IsoZombie> var1, const std::string& var2) {
+    void record(ArrayList<IsoZombie> var1, std::string_view var2) {
       if (var1 != nullptr) {
          for (int var3 = 0; var3 < var1.size(); var3++) {
             this.record((IsoZombie)var1.get(var3), var2);

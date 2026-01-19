@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -480,8 +481,8 @@ public
  }
  }
 
- static std::string hashpw(const std::string &string2,
- const std::string &string0) {
+ static std::string hashpw(std::string_view string2,
+ std::string_view string0) {
  char char0 = 0;
  uint8_t byte0 = 0;
  StringBuffer stringBuffer = new StringBuffer();
@@ -565,7 +566,7 @@ public
 
  static std::string gensalt() { return gensalt(); }
 
- static bool checkpw(const std::string &string1, const std::string &string2) {
+ static bool checkpw(std::string_view string1, std::string_view string2) {
  byte[] bytes0;
  byte[] bytes1;
  try {

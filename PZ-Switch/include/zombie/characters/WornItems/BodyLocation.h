@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,13 +26,13 @@ protected
  bool bMultiItem = false;
 
 public
- BodyLocation(BodyLocationGroup _group, const std::string &_id) {
+ BodyLocation(BodyLocationGroup _group, std::string_view _id) {
  this->checkId(_id, "id");
  this->group = _group;
  this->id = _id;
  }
 
- BodyLocation addAlias(const std::string &alias) {
+ BodyLocation addAlias(std::string_view alias) {
  this->checkId(alias, "alias");
  if (this->aliases.contains(alias) {
  return this;
@@ -41,7 +42,7 @@ public
  }
  }
 
- BodyLocation setExclusive(const std::string &otherId) {
+ BodyLocation setExclusive(std::string_view otherId) {
  this->checkId(otherId, "otherId");
  if (this->aliases.contains(otherId) {
  return this;
@@ -53,7 +54,7 @@ public
  }
  }
 
- BodyLocation setHideModel(const std::string &otherId) {
+ BodyLocation setHideModel(std::string_view otherId) {
  this->checkId(otherId, "otherId");
  if (this->hideModel.contains(otherId) {
  return this;
@@ -70,19 +71,19 @@ public
  return this;
  }
 
- bool isHideModel(const std::string &otherId) {
+ bool isHideModel(std::string_view otherId) {
  return this->hideModel.contains(otherId);
  }
 
- bool isExclusive(const std::string &_id) {
+ bool isExclusive(std::string_view _id) {
  return this->group.isExclusive(this->id, _id);
  }
 
- bool isID(const std::string &_id) {
+ bool isID(std::string_view _id) {
  return this->id == _id) || this->aliases.contains(_id);
  }
 
- void checkId(const std::string &string0, const std::string &string1) {
+ void checkId(std::string_view string0, std::string_view string1) {
  if (string0.empty()) {
  throw NullPointerException(string1 + " is nullptr");
  } else if (string0.empty()) {

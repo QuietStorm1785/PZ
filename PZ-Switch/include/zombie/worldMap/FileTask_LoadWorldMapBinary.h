@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
 
 public
  FileTask_LoadWorldMapBinary(WorldMapData worldMapData,
- const std::string &string, FileSystem fileSystem,
+ std::string_view string, FileSystem fileSystem,
  IFileTaskCallback iFileTaskCallback) {
  super(fileSystem, iFileTaskCallback);
  this->m_worldMapData = worldMapData;

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -59,7 +60,7 @@ public
  : nullptr;
  }
 
- Language getByName(const std::string &string) {
+ Language getByName(std::string_view string) {
  return PZArrayUtil.find(
  this->m_languages,
  Lambda.predicate(
@@ -67,7 +68,7 @@ public
  (language, stringx)->language.name().equalsIgnoreCase(stringx));
  }
 
- int getIndexByName(const std::string &string) {
+ int getIndexByName(std::string_view string) {
  return PZArrayUtil.indexOf(
  this->m_languages,
  Lambda.predicate(
@@ -75,7 +76,7 @@ public
  (language, stringx)->language.name().equalsIgnoreCase(stringx));
  }
 
- void loadTranslateDirectory(const std::string &string) {
+ void loadTranslateDirectory(std::string_view string) {
  Filter filter = path->Files.isDirectory(path) &&
  Files.exists(path.resolve("language.txt"));
  Path path0 = FileSystems.getDefault().getPath(string);

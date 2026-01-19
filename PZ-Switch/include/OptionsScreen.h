@@ -5,6 +5,7 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <string_view>
 #include <functional>
 #include "Config.h"
 
@@ -36,7 +37,7 @@ private:
  void buildUI();
  void clearUI();
  void applySettings();
- void onRebindComplete(const std::string& action, const std::string& buttonName);
+ void onRebindComplete(std::string_view action, std::string_view buttonName);
 
  BackCallback backCallback;
  std::vector<std::string> elementIds;

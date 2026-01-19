@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -16,7 +17,7 @@ class AssetType {
     static const AssetType INVALID_ASSET_TYPE = new AssetType("");
     long type;
 
-     AssetType(const std::string& var1) {
+     AssetType(std::string_view var1) {
     CRC32 var2 = new CRC32();
       var2.update(var1.getBytes());
       this.type = var2.getValue();

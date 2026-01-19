@@ -17,6 +17,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,8 +49,8 @@ private
  const int maxTextLength = 16384;
 
 public
- Literature(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ Literature(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  this->setBookName(name);
  this->cat = ItemType.Literature;
@@ -59,8 +60,8 @@ public
  }
 
 public
- Literature(const std::string &module, const std::string &name,
- const std::string &itemType, Item item) {
+ Literature(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item) {
  super(module, name, itemType, item);
  this->setBookName(name);
  this->cat = ItemType.Literature;
@@ -344,7 +345,7 @@ public
 
  std::string getBookName() { return this->bookName; }
 
- void setBookName(const std::string &_bookName) { this->bookName = _bookName; }
+ void setBookName(std::string_view _bookName) { this->bookName = _bookName; }
 
  int getLvlSkillTrained() { return this->LvlSkillTrained; }
 
@@ -364,7 +365,7 @@ public
 
  std::string getSkillTrained() { return this->SkillTrained; }
 
- void setSkillTrained(const std::string &skillTrained) {
+ void setSkillTrained(std::string_view skillTrained) {
  this->SkillTrained = skillTrained;
  }
 
@@ -392,7 +393,7 @@ public
  this->customPages = _customPages;
  }
 
- void addPage(int index, const std::string &text) {
+ void addPage(int index, std::string_view text) {
  if (text.length() > 16384) {
  text = text.substring(0, Math.min(text.length(), 16384);
  }
@@ -415,7 +416,7 @@ public
 
  std::string getLockedBy() { return this->lockedBy; }
 
- void setLockedBy(const std::string &_lockedBy) { this->lockedBy = _lockedBy; }
+ void setLockedBy(std::string_view _lockedBy) { this->lockedBy = _lockedBy; }
 
  int getPageToWrite() { return this->pageToWrite; }
 

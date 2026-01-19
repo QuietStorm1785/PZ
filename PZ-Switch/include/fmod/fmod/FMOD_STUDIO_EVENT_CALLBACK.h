@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,7 +18,7 @@ public:
 
  void stopped(long arg0) {}
 
- void timelineMarker(long arg0, const std::string &arg1, int arg2) {}
+ void timelineMarker(long arg0, std::string_view arg1, int arg2) {}
 }
 } // namespace fmod
 } // namespace fmod

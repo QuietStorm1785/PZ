@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -44,7 +45,7 @@ public
 private
  static HashSet<String> reported = std::make_unique<HashSet<>>();
 
- void Load(const std::string &_name, const std::string &totalFile) {
+ void Load(std::string_view _name, std::string_view totalFile) {
  ScriptManager scriptManager = ScriptManager.instance;
  this->fileName = scriptManager.currentFileName;
  this->name = _name;
@@ -110,7 +111,7 @@ private
  return modelAttachment;
  }
 
- void LoadVector3f(const std::string &string, Vector3f vector3f) {
+ void LoadVector3f(std::string_view string, Vector3f vector3f) {
  String[] strings = string.split(" ");
  vector3f.set(Float.parseFloat(strings[0]), Float.parseFloat(strings[1]),
  Float.parseFloat(strings[2]));
@@ -140,13 +141,13 @@ private
 
  std::string getFileName() { return this->fileName; }
 
- int getAttachmentCount() { return this->m_attachments.size(); }
+ int getAttachmentCount() noexcept{ return this->m_attachments.size(); }
 
  ModelAttachment getAttachment(int index) {
  return this->m_attachments.get(index);
  }
 
- ModelAttachment getAttachmentById(const std::string &id) {
+ ModelAttachment getAttachmentById(std::string_view id) {
  for (int int0 = 0; int0 < this->m_attachments.size(); int0++) {
  ModelAttachment modelAttachment = this->m_attachments.get(int0);
  if (modelAttachment.getId() == id) {
@@ -187,8 +188,8 @@ private
  this->boneWeights.clear();
  }
 
- static void checkMesh(const std::string &string2,
- const std::string &string0) {
+ static void checkMesh(std::string_view string2,
+ std::string_view string0) {
  if (!StringUtils.isNullOrWhitespace(string0) {
  std::string string1 = string0.toLowerCase(Locale.ENGLISH);
  if (!ZomboidFileSystem.instance.ActiveFileMap.containsKey(
@@ -203,8 +204,8 @@ private
  }
  }
 
- static void checkTexture(const std::string &string2,
- const std::string &string0) {
+ static void checkTexture(std::string_view string2,
+ std::string_view string0) {
  if (!GameServer.bServer) {
  if (!StringUtils.isNullOrWhitespace(string0) {
  std::string string1 = string0.toLowerCase(Locale.ENGLISH);
@@ -218,12 +219,12 @@ private
  }
  }
 
- static void check(const std::string &string0, const std::string &string1) {
+ static void check(std::string_view string0, std::string_view string1) {
  check(string0, string1, nullptr);
  }
 
- static void check(const std::string &string1, const std::string &string0,
- const std::string &string2) {
+ static void check(std::string_view string1, std::string_view string0,
+ std::string_view string2) {
  if (!StringUtils.isNullOrWhitespace(string0) {
  if (!reported.contains(string0) {
  ModelScript modelScript =

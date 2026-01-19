@@ -42,6 +42,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -91,9 +92,9 @@ public:
  }
 
 public
- Clothing(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName,
- const std::string &_palette, const std::string &_SpriteName) {
+ Clothing(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName,
+ std::string_view _palette, std::string_view _SpriteName) {
  super(module, name, itemType, texName);
  this->SpriteName = _SpriteName;
  this->col = new Color(Rand.Next(255), Rand.Next(255), Rand.Next(255);
@@ -101,9 +102,9 @@ public
  }
 
 public
- Clothing(const std::string &module, const std::string &name,
- const std::string &itemType, Item item, const std::string &_palette,
- const std::string &_SpriteName) {
+ Clothing(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item, std::string_view _palette,
+ std::string_view _SpriteName) {
  super(module, name, itemType, item);
  this->SpriteName = _SpriteName;
  this->col = new Color(Rand.Next(255), Rand.Next(255), Rand.Next(255);
@@ -583,7 +584,7 @@ private
  return this->ModDataMatches(item) && this->palette.empty() && ((Clothing)item).palette.empty() || this->palette == ((Clothing)item).palette);
  }
 
- static Clothing CreateFromSprite(const std::string &Sprite) {
+ static Clothing CreateFromSprite(std::string_view Sprite) {
  try {
  void *object = nullptr;
  return (Clothing)InventoryItemFactory.CreateItem(Sprite, 1.0F);
@@ -689,7 +690,7 @@ private
  *
  * @param _SpriteName the SpriteName to set
  */
- void setSpriteName(const std::string &_SpriteName) {
+ void setSpriteName(std::string_view _SpriteName) {
  this->SpriteName = _SpriteName;
  }
 
@@ -704,7 +705,7 @@ private
  *
  * @param _palette the palette to set
  */
- void setPalette(const std::string &_palette) { this->palette = _palette; }
+ void setPalette(std::string_view _palette) { this->palette = _palette; }
 
  float getTemperature() { return this->temperature; }
 
@@ -1134,7 +1135,7 @@ class ClothingPatch {
 
  int index; std::string type; int maxScratchDef; int maxBiteDef;
 
- private ClothingPatchFabricType(int int1, const std::string &string1,
+ private ClothingPatchFabricType(int int1, std::string_view string1,
  int int2, int int3){
  this->index = int1; this->type = string1; this->maxScratchDef = int2;
  this->maxBiteDef = int3;}

@@ -65,9 +65,9 @@ public
  return byteBuffer;
  }
 
- static int getMinCursorSize() { return 1; }
+ static int getMinCursorSize() noexcept{ return 1; }
 
- static int getMaxCursorSize() { return 512; }
+ static int getMaxCursorSize() noexcept{ return 512; }
 
  static int getCapabilities() { return 2; }
 

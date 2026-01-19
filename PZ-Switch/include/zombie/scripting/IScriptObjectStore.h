@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,9 +17,9 @@ namespace scripting {
 class IScriptObjectStore {
 public:
  virtual ~IScriptObjectStore() = default;
- Item getItem(const std::string &name);
+ Item getItem(std::string_view name);
 
- Recipe getRecipe(const std::string &name);
+ Recipe getRecipe(std::string_view name);
 }
 } // namespace scripting
 } // namespace zombie

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -38,7 +39,7 @@ class DDSLoader {
     static int lastWid = 0;
     static int lastHei = 0;
 
-    int loadDDSFile(const std::string& var1) {
+    int loadDDSFile(std::string_view var1) {
     File var2 = new File(var1);
 
       try {

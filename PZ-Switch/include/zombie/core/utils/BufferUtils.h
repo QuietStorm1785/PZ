@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -163,8 +164,8 @@ private
  }
  }
 
- static Method loadMethod(const std::string &string1,
- const std::string &string0) {
+ static Method loadMethod(std::string_view string1,
+ std::string_view string0) {
  try {
  Method method = Class.forName(string1).getMethod(string0);
  method.setAccessible(true);

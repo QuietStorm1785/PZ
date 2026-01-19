@@ -31,6 +31,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -190,7 +191,7 @@ public
 
  std::string getBulbItem() { return this->bulbItem; }
 
- void setBulbItemRaw(const std::string &item) { this->bulbItem = item; }
+ void setBulbItemRaw(std::string_view item) { this->bulbItem = item; }
 
  void addLightBulb(IsoGameCharacter chr, InventoryItem bulb) {
  if (!this->hasLightBulb() && bulb != nullptr &&

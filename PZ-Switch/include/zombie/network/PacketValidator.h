@@ -31,6 +31,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -198,7 +199,7 @@ public
  }
 
  static bool checkPVP(UdpConnection udpConnection, char character1,
- char character0, const std::string &string) {
+ char character0, std::string_view string) {
  boolean boolean0 =
  checkPVP(character1.getCharacter(), character0.getCharacter()) ||
  SafetySystemManager.checkUpdateDelay(character1.getCharacter(),
@@ -213,7 +214,7 @@ public
  }
 
  static bool checkSpeed(UdpConnection udpConnection, IMovable iMovable,
- const std::string &string) {
+ std::string_view string) {
  float float0 = iMovable.getSpeed();
  double double0 = iMovable.isVehicle()
  ? ServerOptions.instance.SpeedLimit.getValue()
@@ -234,7 +235,7 @@ public
  static bool checkLongDistance(UdpConnection udpConnection,
  IPositional iPositional0,
  IPositional iPositional1,
- const std::string &string) {
+ std::string_view string) {
  float float0 =
  IsoUtils.DistanceTo(iPositional1.getX(), iPositional1.getY(),
  iPositional0.getX(), iPositional0.getY());
@@ -258,7 +259,7 @@ public
  }
 
  static bool checkDamage(UdpConnection udpConnection, Hit hit,
- const std::string &string) {
+ std::string_view string) {
  float float0 = hit.getDamage();
  bool boolean0 =
  float0 <=
@@ -274,7 +275,7 @@ public
  }
 
  static bool checkOwner(UdpConnection udpConnection1, Zombie zombie1,
- const std::string &string) {
+ std::string_view string) {
  IsoZombie zombie0 = (IsoZombie)zombie1.getCharacter();
  UdpConnection udpConnection0 = zombie0.authOwner;
  bool boolean0 =
@@ -298,7 +299,7 @@ public
  }
 
  static bool checkTarget(UdpConnection udpConnection, Player player1,
- const std::string &string) {
+ std::string_view string) {
  IsoPlayer player0 = player1.getPlayer();
  bool boolean0 = Arrays.stream(udpConnection.players)
  .anyMatch(player1x->player1x.getOnlineID() ==
@@ -313,8 +314,8 @@ public
  }
 
  static bool checkSafehouseAuth(UdpConnection udpConnection,
- const std::string &string0,
- const std::string &string1) {
+ std::string_view string0,
+ std::string_view string1) {
  bool boolean0 = StringUtils.isNullOrEmpty(string0) ||
  string0.equals(udpConnection.username) ||
  udpConnection.accessLevel >= 16;
@@ -330,7 +331,7 @@ public
  static bool checkShortDistance(UdpConnection udpConnection,
  IPositional iPositional0,
  IPositional iPositional1,
- const std::string &string) {
+ std::string_view string) {
  float float0 =
  IsoUtils.DistanceTo(iPositional1.getX(), iPositional1.getY(),
  iPositional0.getX(), iPositional0.getY());
@@ -359,7 +360,7 @@ public
  return doAntiCheatProtection();
  }
 
- bool checkSuspiciousActivity(const std::string &string) {
+ bool checkSuspiciousActivity(std::string_view string) {
  if (this->suspiciousActivityCounter <= 4) {
  this->suspiciousActivityCounter++;
  this->suspiciousActivityDescription = String.format(
@@ -372,7 +373,7 @@ public
  return this->suspiciousActivityCounter > 4;
  }
 
- void updateSuspiciousActivityCounter() {
+ void updateSuspiciousActivityCounter() noexcept{
  if (this->suspiciousActivityCounter > 0) {
  this->suspiciousActivityCounter--;
  DebugLog.Multiplayer.warn("SuspiciousActivity decrease: counter=%d %s",
@@ -385,8 +386,8 @@ public
 
  static void doLogUser(UdpConnection udpConnection,
  Userlog.UserlogType userlogType,
- const std::string &string0,
- const std::string &string1) {
+ std::string_view string0,
+ std::string_view string1) {
  long long0 = System.currentTimeMillis();
  DebugLog.Multiplayer.warn("Log: player=\"%s\" type=\"%s\" issuer=\"%s\"",
  udpConnection.username, string0, string1);
@@ -399,8 +400,8 @@ public
  }
 
  static void doKickUser(UdpConnection udpConnection,
- const std::string &string0, const std::string &string1,
- const std::string &string2) {
+ std::string_view string0, std::string_view string1,
+ std::string_view string2) {
  ServerWorldDatabase.instance.addUserlog(udpConnection.username,
  Userlog.UserlogType.Kicked, string0,
  "AntiCheat" + string1, 1);
@@ -412,8 +413,8 @@ public
  GameServer.addDisconnect(udpConnection);
  }
 
- static void doBanUser(UdpConnection udpConnection, const std::string &string0,
- const std::string &string1) {
+ static void doBanUser(UdpConnection udpConnection, std::string_view string0,
+ std::string_view string1) {
  ServerWorldDatabase.instance.addUserlog(udpConnection.username,
  Userlog.UserlogType.Banned, string0,
  "AntiCheat" + string1, 1);
@@ -602,7 +603,7 @@ public
  const int value;
 
  public
- Skill(const std::string &string, int int0) {
+ Skill(std::string_view string, int int0) {
  this->name = string;
  this->value = int0;
  }

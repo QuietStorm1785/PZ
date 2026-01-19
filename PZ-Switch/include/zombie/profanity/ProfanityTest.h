@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -26,7 +27,7 @@ public:
  "@$$h0le fu'ckeerr: sdsi: KUNT as'as!! ffffuuuccckkkerrr");
  }
 
- static void testString(int int0, const std::string &string1) {
+ static void testString(int int0, std::string_view string1) {
  ProfanityFilter profanityFilter = ProfanityFilter.getInstance();
  std::string string0 = "";
  System.out.println("Benchmarking " + int0 + " iterations: ");

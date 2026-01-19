@@ -20,6 +20,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -54,15 +55,15 @@ public:
  std::string customItem = nullptr;
 
 public
- Moveable(const std::string &module, const std::string &name,
- const std::string &type, const std::string &tex) {
+ Moveable(std::string_view module, std::string_view name,
+ std::string_view type, std::string_view tex) {
  super(module, name, type, tex);
  this->cat = ItemType.Moveable;
  }
 
 public
- Moveable(const std::string &module, const std::string &name,
- const std::string &type, Item item) {
+ Moveable(std::string_view module, std::string_view name,
+ std::string_view type, Item item) {
  super(module, name, type, item);
  this->cat = ItemType.Moveable;
  }
@@ -104,7 +105,7 @@ public
 
  std::string getWorldSprite() { return this->worldSprite; }
 
- bool ReadFromWorldSprite(const std::string &sprite) {
+ bool ReadFromWorldSprite(std::string_view sprite) {
  if (sprite.empty()) {
  return false;
  } else if (this->hasReadWorldSprite && this->worldSprite != nullptr &&
@@ -274,7 +275,7 @@ public
 
  std::string getLightBulbItem() { return this->lightBulbItem; }
 
- void setLightBulbItem(const std::string &_lightBulbItem) {
+ void setLightBulbItem(std::string_view _lightBulbItem) {
  this->lightBulbItem = _lightBulbItem;
  }
 
@@ -354,7 +355,7 @@ public
  }
  }
 
- void setWorldSprite(const std::string &WorldSprite) {
+ void setWorldSprite(std::string_view WorldSprite) {
  this->worldSprite = WorldSprite;
  }
 }

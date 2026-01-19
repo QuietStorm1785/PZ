@@ -23,6 +23,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -49,7 +50,7 @@ private
  Jassimp.setLibraryLoader(new JAssImpImporter.LibraryLoader());
  }
 
- static AiNode FindNode(const std::string &string, AiNode aiNode0) {
+ static AiNode FindNode(std::string_view string, AiNode aiNode0) {
  std::vector list = aiNode0.getChildren();
 
  for (int int0 = 0; int0 < list.size(); int0++) {
@@ -140,7 +141,7 @@ private
  return string + String.format("%1$.8f\n ", matrix4f.m33);
  }
 
- static AiBone FindAiBone(const std::string &string1, List<AiBone> list) {
+ static AiBone FindAiBone(std::string_view string1, List<AiBone> list) {
  int int0 = list.size();
 
  for (int int1 = 0; int1 < int0; int1++) {
@@ -313,7 +314,7 @@ static Vector3f GetKeyFrameScale(AiNodeAnim aiNodeAnim, float float1) {
  }
 }
 
-static void replaceHashMapKeys(Integer > hashMap, const std::string &string1) {
+static void replaceHashMapKeys(Integer > hashMap, std::string_view string1) {
  tempHashMap.clear();
  tempHashMap.putAll(hashMap);
  hashMap.clear();
@@ -326,8 +327,8 @@ static void replaceHashMapKeys(Integer > hashMap, const std::string &string1) {
  tempHashMap.clear();
 }
 
-static std::string getSharedString(const std::string &string1,
- const std::string &string2) {
+static std::string getSharedString(std::string_view string1,
+ std::string_view string2) {
  std::string string0 = sharedStrings.get(string1);
  if (Core.bDebug && string1 != string0) {
  sharedStringCounts.adjustOrPutValue(string2, 1, 0);

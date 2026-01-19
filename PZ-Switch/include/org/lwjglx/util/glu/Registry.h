@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,8 +30,8 @@ public:
  }
  }
 
- static bool gluCheckExtension(const std::string &string1,
- const std::string &string0) {
+ static bool gluCheckExtension(std::string_view string1,
+ std::string_view string0) {
  return string0 != nullptr && string1 != nullptr
  ? string0.indexOf(string1) != -1
  : false;

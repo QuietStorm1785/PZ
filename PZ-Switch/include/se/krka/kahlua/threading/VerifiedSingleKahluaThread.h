@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -146,7 +147,7 @@ public
  return table;
  }
 
- void *getMetaOp(void *object1, const std::string &string) {
+ void *getMetaOp(void *object1, std::string_view string) {
  this->lock();
 
  void *object0;

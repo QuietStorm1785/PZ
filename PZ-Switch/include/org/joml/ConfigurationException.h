@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ public:
  static const long serialVersionUID = -7832356906364070687L;
 
 public
- ConfigurationException(const std::string &string, std::exception throwable) {
+ ConfigurationException(std::string_view string, std::exception throwable) {
  super(string, throwable);
  }
 }

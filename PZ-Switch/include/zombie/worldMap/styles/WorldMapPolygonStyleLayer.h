@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public
  std::make_unique<ArrayList<>>();
 
 public
- WorldMapPolygonStyleLayer(const std::string &string) { super(string); }
+ WorldMapPolygonStyleLayer(std::string_view string) { super(string); }
 
  std::string getTypeString() { return "Polygon"; }
 

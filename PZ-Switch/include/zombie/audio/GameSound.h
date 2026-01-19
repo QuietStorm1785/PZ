@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -50,7 +51,7 @@ public
 
  std::string getMasterName() { return this->master.name(); }
 
- int numClipsUsingParameter(const std::string &parameterName) {
+ int numClipsUsingParameter(std::string_view parameterName) {
  FMOD_STUDIO_PARAMETER_DESCRIPTION fmod_studio_parameter_description =
  FMODManager.instance.getParameterDescription(parameterName);
  if (fmod_studio_parameter_description.empty()) {

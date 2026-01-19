@@ -470,7 +470,7 @@ private
  this->y4 = ClimateManager.clerp(float0, (float)this->ly4, (float)this->ty4);
  }
 
- void swapTargetToLast() {
+ void swapTargetToLast() noexcept{
  this->lx1 = this->tx1;
  this->ly1 = this->ty1;
  this->lx2 = this->tx2;

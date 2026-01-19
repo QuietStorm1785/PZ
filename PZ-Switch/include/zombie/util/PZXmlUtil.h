@@ -27,6 +27,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -52,7 +53,7 @@ private
  }
  });
 
- static Element parseXml(const std::string &string1) {
+ static Element parseXml(std::string_view string1) {
  std::string string0 = ZomboidFileSystem.instance.resolveFileOrGUID(string1);
 
  Element element0;
@@ -80,7 +81,7 @@ private
  }
 
  static Element includeAnotherFile(Element element0,
- const std::string &string1) {
+ std::string_view string1) {
  std::string string0 = element0.getAttribute("x_include");
  if (string0 != nullptr && string0.trim().length() != 0) {
  if (!ZomboidFileSystem.instance.isValidFilePathGuid(string0) {
@@ -295,7 +296,7 @@ static Document createNewDocument() {
  return documentBuilder.newDocument();
 }
 
-static Element parseXmlInternal(const std::string &string) {
+static Element parseXmlInternal(std::string_view string) {
  try {
  Element element0;
  try(FileInputStream fileInputStream = new FileInputStream(string);

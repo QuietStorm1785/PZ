@@ -16,6 +16,7 @@
  */
 
 #include <string>
+#include <string_view>
 #include <memory>
 #include <vector>
 #include <unordered_map>
@@ -50,7 +51,7 @@ using jobject = std::shared_ptr<void>;
 
 class JavaException : public std::runtime_error {
 public:
-    explicit JavaException(const std::string& message) 
+    explicit JavaException(std::string_view message) 
         : std::runtime_error(message) {}
     
     virtual const char* what() const noexcept override {
@@ -67,21 +68,21 @@ namespace string {
     /**
      * Convert Java String (std::string) to C++ std::string
      */
-    inline std::string toString(const std::string& javaStr) {
+    inline std::string toString(std::string_view javaStr) {
         return javaStr;
     }
     
     /**
      * Convert C++ std::string to Java String
      */
-    inline jstring toJavaString(const std::string& cppStr) {
+    inline jstring toJavaString(std::string_view cppStr) {
         return std::make_shared<std::string>(cppStr);
     }
     
     /**
      * UTF-8 to UTF-16 conversion for char arrays
      */
-    std::u16string utf8ToUtf16(const std::string& utf8Str);
+    std::u16string utf8ToUtf16(std::string_view utf8Str);
     
     /**
      * UTF-16 to UTF-8 conversion
@@ -171,7 +172,7 @@ namespace null_safety {
      * Java not-null assertion
      */
     template<typename T>
-    void requireNonNull(const std::shared_ptr<T>& ptr, const std::string& message = "") {
+    void requireNonNull(const std::shared_ptr<T>& ptr, std::string_view message = "") {
         if (ptr == nullptr) {
             throw JavaException("NullPointerException: " + message);
         }

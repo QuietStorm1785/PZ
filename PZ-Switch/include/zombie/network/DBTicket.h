@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  bool isAnswer = false;
 
 public
- DBTicket(const std::string &_author, const std::string &_message,
+ DBTicket(std::string_view _author, std::string_view _message,
  int _ticketID) {
  this->author = _author;
  this->message = _message;
@@ -31,11 +32,11 @@ public
 
  std::string getAuthor() { return this->author; }
 
- void setAuthor(const std::string &_author) { this->author = _author; }
+ void setAuthor(std::string_view _author) { this->author = _author; }
 
  std::string getMessage() { return this->message; }
 
- void setMessage(const std::string &_message) { this->message = _message; }
+ void setMessage(std::string_view _message) { this->message = _message; }
 
  int getTicketID() { return this->ticketID; }
 

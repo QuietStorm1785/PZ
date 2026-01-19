@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -45,7 +46,7 @@ public:
  }
  }
 
- void addTexture(const std::string &string0, const std::string &string1,
+ void addTexture(std::string_view string0, std::string_view string1,
  IsoDirections directions, int int0,
  DeadBodyAtlas.BodyTexture bodyTexture) {
  CharacterTextures.CTAnimSet cTAnimSet = this->getAnimSet(string0);
@@ -77,7 +78,7 @@ private
  return nullptr;
  }
 
- void addEntry(const std::string &string, IsoDirections directions, int int0,
+ void addEntry(std::string_view string, IsoDirections directions, int int0,
  DeadBodyAtlas.BodyTexture bodyTexture) {
  CharacterTextures.CTState cTState = this->getState(string);
  if (cTState.empty()) {

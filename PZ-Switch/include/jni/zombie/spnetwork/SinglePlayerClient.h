@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -187,7 +188,7 @@ class SinglePlayerClient {
       }
    }
 
-    static void sendClientCommand(IsoPlayer var0, const std::string& var1, const std::string& var2, KahluaTable var3) {
+    static void sendClientCommand(IsoPlayer var0, std::string_view var1, std::string_view var2, KahluaTable var3) {
     ByteBufferWriter var4 = connection.startPacket();
       PacketType.ClientCommand.doPacket(var4);
       var4.putByte((byte)(var0 != nullptr ? var0.PlayerIndex : -1));

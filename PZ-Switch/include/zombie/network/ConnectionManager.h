@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
  static const SimpleDateFormat s_logSdf =
  new SimpleDateFormat("dd-MM-yy HH:mm:ss.SSS");
 
- static void log(const std::string &string0, const std::string &string1,
+ static void log(std::string_view string0, std::string_view string1,
  UdpConnection udpConnection) {
  DebugLog.Network.println(
  "[%s] > ConnectionManager: [%s] \"%s\" connection: %s",

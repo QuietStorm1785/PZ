@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
  IAnimationVariableSlot m_valueSlot;
 
 public
- AnimationVariableGenericSlot(const std::string &string) { super(string); }
+ AnimationVariableGenericSlot(std::string_view string) { super(string); }
 
  std::string getValueString() {
  return this->m_valueSlot != nullptr ? this->m_valueSlot.getValueString()
@@ -36,7 +37,7 @@ public
  return this->m_valueSlot != nullptr && this->m_valueSlot.getValueBool();
  }
 
- void setValue(const std::string &string) {
+ void setValue(std::string_view string) {
  if (this->m_valueSlot.empty() ||
  !this->m_valueSlot.canConvertFrom(string) {
  this->m_valueSlot = new AnimationVariableSlotString(this->getKey());
@@ -80,7 +81,7 @@ public
  }
  }
 
- bool canConvertFrom(const std::string &var1) { return true; }
+ bool canConvertFrom(std::string_view var1) { return true; }
 
  void clear() {
  this->m_type = AnimationVariableType.Void;

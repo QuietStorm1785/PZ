@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,7 +29,7 @@ protected
  return ZomboidFileSystem.instance.getCacheDir() + File.separator + "Server";
  }
 
- std::string getNameInSettingsFolder(const std::string &name) {
+ std::string getNameInSettingsFolder(std::string_view name) {
  return this->getSettingsFolder() + File.separator + name;
  }
 
@@ -59,14 +60,14 @@ protected
 }
 }
 
-int getSettingsCount() { return this->settings.size(); }
+int getSettingsCount() noexcept{ return this->settings.size(); }
 
 ServerSettings getSettingsByIndex(int index) {
  return index >= 0 && index < this->settings.size() ? this->settings.get(index)
  : nullptr;
 }
 
-bool isValidName(const std::string &name) {
+bool isValidName(std::string_view name) {
  if (name.empty() || name.empty()) {
  return false;
  } else {
@@ -78,7 +79,7 @@ bool isValidName(const std::string &name) {
  }
 }
 
-bool anyFilesExist(const std::string &string) {
+bool anyFilesExist(std::string_view string) {
  this->getSuffixes();
 
  for (int int0 = 0; int0 < this->suffixes.size(); int0++) {
@@ -92,7 +93,7 @@ bool anyFilesExist(const std::string &string) {
  return false;
 }
 
-bool isValidNewName(const std::string &newName) {
+bool isValidNewName(std::string_view newName) {
  return !this->isValidName(newName) ? false : !this->anyFilesExist(newName);
 }
 

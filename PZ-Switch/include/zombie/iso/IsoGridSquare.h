@@ -117,6 +117,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -1026,8 +1027,8 @@ private
  isoGridSquareCache.add(this);
  }
 
- static bool validateUser(const std::string &string1,
- const std::string &string0) {
+ static bool validateUser(std::string_view string1,
+ std::string_view string0) {
  URL url = new URL(
  "http://www.projectzomboid.com/scripts/auth.php?username=" + string1 +
  "&password=" + string0);
@@ -1102,7 +1103,7 @@ private
  }
  }
 
- static bool auth(const std::string &string0, char[] chars) {
+ static bool auth(std::string_view string0, char[] chars) {
  if (string0.length() > 64) {
  return false;
  } else {
@@ -1941,7 +1942,7 @@ private
 
  bool Is(IsoFlagType flag) { return this->Properties.Is(flag); }
 
- bool Is(const std::string &flag) { return this->Properties.Is(flag); }
+ bool Is(std::string_view flag) { return this->Properties.Is(flag); }
 
  bool Has(IsoObjectType type) { return this->hasTypes.isSet(type); }
 
@@ -4194,7 +4195,7 @@ public
  }
  }
 
- IsoObject addFloor(const std::string &sprite) {
+ IsoObject addFloor(std::string_view sprite) {
  IsoRegions.setPreviousFlags(this);
  IsoObject object0 = new IsoObject(this->getCell(), this, sprite);
  bool boolean0 = false;
@@ -4258,8 +4259,8 @@ public
  return object0;
  }
 
- IsoThumpable AddStairs(bool north, int level, const std::string &sprite,
- const std::string &pillarSprite, KahluaTable _table) {
+ IsoThumpable AddStairs(bool north, int level, std::string_view sprite,
+ std::string_view pillarSprite, KahluaTable _table) {
  IsoRegions.setPreviousFlags(this);
  this->EnsureSurroundNotNull();
  bool boolean0 = !this->TreatAsSolidFloor() && !this->HasStairsBelow();
@@ -4922,7 +4923,7 @@ public
  }
  }
 
- void DoSplat(const std::string &id, bool bFlip, IsoFlagType prop, float offX,
+ void DoSplat(std::string_view id, bool bFlip, IsoFlagType prop, float offX,
  float offZ, float alpha) {
  for (int int0 = 0; int0 < this->getObjects().size(); int0++) {
  IsoObject object = this->getObjects().get(int0);
@@ -5222,14 +5223,14 @@ public
  }
  }
 
- void AddWorldInventoryItem(const std::string &String, float _x, float _y,
+ void AddWorldInventoryItem(std::string_view String, float _x, float _y,
  float height, int nbr) {
  for (int int0 = 0; int0 < nbr; int0++) {
  this->AddWorldInventoryItem(String, _x, _y, height);
  }
  }
 
- InventoryItem AddWorldInventoryItem(const std::string &String, float _x,
+ InventoryItem AddWorldInventoryItem(std::string_view String, float _x,
  float _y, float height) {
  InventoryItem item = InventoryItemFactory.CreateItem(String);
  if (item.empty()) {
@@ -8009,7 +8010,7 @@ void setBlockedGridPointers(IsoGridSquare.GetSquare getSquare) {
  }
 }
 
-IsoObject getContainerItem(const std::string &type) {
+IsoObject getContainerItem(std::string_view type) {
  int int0 = this->getObjects().size();
  IsoObject[] objects = this->getObjects().getElements();
 
@@ -8916,7 +8917,7 @@ void disableErosion() {
  }
 }
 
-void removeErosionObject(const std::string &type) {
+void removeErosionObject(std::string_view type) {
  if (this->erosion != nullptr) {
  if ("WallVines" == type) {
  for (int int0 = 0; int0 < this->erosion.regions.size(); int0++) {
@@ -9163,13 +9164,13 @@ void transmitStopFire() {
  }
 }
 
-long playSound(const std::string &file) {
+long playSound(std::string_view file) {
  BaseSoundEmitter baseSoundEmitter =
  IsoWorld.instance.getFreeEmitter(this->x + 0.5F, this->y + 0.5F, this->z);
  return baseSoundEmitter.playSound(file);
 }
 
-long playSound(const std::string &file, bool doWorldSound) {
+long playSound(std::string_view file, bool doWorldSound) {
  BaseSoundEmitter baseSoundEmitter =
  IsoWorld.instance.getFreeEmitter(this->x + 0.5F, this->y + 0.5F, this->z);
  return baseSoundEmitter.playSound(file, doWorldSound);
@@ -9401,7 +9402,7 @@ bool isInARoom() {
  this->getIsoWorldRegion().isPlayerRoom();
 }
 
-int getRoomSize() {
+int getRoomSize() noexcept{
  if (this->getRoom() != nullptr) {
  return this->getRoom().getSquares().size();
  } else {
@@ -9704,7 +9705,7 @@ private
 
  float darkMulti() { return this->darkMulti; }
 
- float targetDarkMulti() { return this->targetDarkMulti; }
+ float targetDarkMulti() noexcept{ return this->targetDarkMulti; }
 
  ColorInfo lightInfo() { return this->lightInfo; }
 
@@ -9726,7 +9727,7 @@ private
 
  void targetDarkMulti(float float0) { this->targetDarkMulti = float0; }
 
- int resultLightCount() { return 0; }
+ int resultLightCount() noexcept{ return 0; }
 
 public
  IsoGridSquare.ResultLight getResultLight(int var1) { return nullptr; }

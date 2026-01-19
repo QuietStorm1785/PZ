@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  int maxLength;
 
 public
- StringConfigOption(const std::string &name, const std::string &_defaultValue,
+ StringConfigOption(std::string_view name, std::string_view _defaultValue,
  int _maxLength) {
  super(name);
  if (_defaultValue.empty()) {
@@ -36,7 +37,7 @@ public
 
  void setDefaultToCurrentValue() { this->defaultValue = this->value; }
 
- void parse(const std::string &s) { this->setValueFromObject(s); }
+ void parse(std::string_view s) { this->setValueFromObject(s); }
 
  std::string getValueAsString() { return this->value; }
 
@@ -57,9 +58,9 @@ public
 
  void *getValueAsObject() { return this->value; }
 
- bool isValidString(const std::string &s) { return true; }
+ bool isValidString(std::string_view s) { return true; }
 
- void setValue(const std::string &_value) {
+ void setValue(std::string_view _value) {
  if (_value.empty()) {
  _value = "";
  }

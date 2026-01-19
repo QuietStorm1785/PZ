@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ public:
 
 public
  AnimationVariableSlotCallbackString(
- const std::string &string,
+ std::string_view string,
  AnimationVariableSlotCallbackString
  .CallbackGetStrongTyped callbackGetStrongTyped) {
  super(string, callbackGetStrongTyped);
@@ -66,7 +67,7 @@ public
 
  bool getValueBool() { return StringUtils.tryParseBoolean(this->getValue()); }
 
- void setValue(const std::string &string) { this->trySetValue(string); }
+ void setValue(std::string_view string) { this->trySetValue(string); }
 
  void setValue(float float0) { this->trySetValue(String.valueOf(float0); }
 
@@ -76,7 +77,7 @@ public
 
  AnimationVariableType getType() { return AnimationVariableType.String; }
 
- bool canConvertFrom(const std::string &var1) { return true; }
+ bool canConvertFrom(std::string_view var1) { return true; }
 
 public
  interface CallbackGetStrongTyped extends

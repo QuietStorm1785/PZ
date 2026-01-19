@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -71,7 +72,7 @@ public
  return this->getBoneHieararchy().getBoneAt(boneIdx);
  }
 
- SkinningBone getBone(const std::string &boneName) {
+ SkinningBone getBone(std::string_view boneName) {
  int integer = this->BoneIndices.get(boneName);
  return integer = = nullptr ? nullptr : this->getBoneAt(integer);
  }

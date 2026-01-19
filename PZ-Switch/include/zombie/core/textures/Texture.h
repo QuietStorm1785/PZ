@@ -40,6 +40,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -184,7 +185,7 @@ public
  }
 
 public
- Texture(TextureID data, const std::string &_name) {
+ Texture(TextureID data, std::string_view _name) {
  super(nullptr, TextureAssetManager.instance);
  this->dataid = data;
  this->dataid.referenceCount++;
@@ -210,13 +211,13 @@ public
  * @param file relative path
  */
 public
- Texture(const std::string &file) {
+ Texture(std::string_view file) {
  this(new TextureID(file), file);
  this->setUseAlphaChannel(true);
  }
 
 public
- Texture(const std::string &_name, BufferedInputStream b, bool bDoMask,
+ Texture(std::string_view _name, BufferedInputStream b, bool bDoMask,
  Texture.PZFileformat format) {
  this(new TextureID(b, _name, bDoMask, format), _name);
  if (bDoMask && this->dataid.mask != nullptr) {
@@ -227,7 +228,7 @@ public
  }
 
 public
- Texture(const std::string &_name, BufferedInputStream b, bool bDoMask) {
+ Texture(std::string_view _name, BufferedInputStream b, bool bDoMask) {
  this(new TextureID(b, _name, bDoMask), _name);
  if (bDoMask) {
  this->createMask(this->dataid.mask);
@@ -237,7 +238,7 @@ public
  }
 
 public
- Texture(const std::string &file, bool bDelete, bool bUseAlpha) {
+ Texture(std::string_view file, bool bDelete, bool bUseAlpha) {
  this(new TextureID(file), file);
  this->setUseAlphaChannel(bUseAlpha);
  if (bDelete) {
@@ -246,13 +247,13 @@ public
  }
 
 public
- Texture(const std::string &_name, const std::string &palette) {
+ Texture(std::string_view _name, std::string_view palette) {
  this(new TextureID(_name, palette), _name);
  this->setUseAlphaChannel(true);
  }
 
 public
- Texture(const std::string &string, int[] ints) {
+ Texture(std::string_view string, int[] ints) {
  this(new TextureID(string, ints), string);
  if (string.contains("drag")) {
  bool boolean0 = false;
@@ -269,7 +270,7 @@ public
  * channel
  */
 public
- Texture(const std::string &file, bool useAlphaChannel) {
+ Texture(std::string_view file, bool useAlphaChannel) {
  this(new TextureID(file), file);
  this->setUseAlphaChannel(useAlphaChannel);
  }
@@ -283,7 +284,7 @@ public
  * @param flags
  */
 public
- Texture(int _width, int _height, const std::string &_name, int flags) {
+ Texture(int _width, int _height, std::string_view _name, int flags) {
  this(new TextureID(_width, _height, flags), _name);
  }
 
@@ -309,7 +310,7 @@ public
  * @param blue blue value to compare
  */
 public
- Texture(const std::string &file, int red, int green, int blue) {
+ Texture(std::string_view file, int red, int green, int blue) {
  this(new TextureID(file, red, green, blue), file);
  }
 
@@ -341,7 +342,7 @@ public
  this->onCreated(Asset.State.EMPTY);
  }
 
- static std::string processFilePath(const std::string &filePath) {
+ static std::string processFilePath(std::string_view filePath) {
  return filePath.replaceAll("\\\\", "/");
  }
 
@@ -475,13 +476,13 @@ public
 
  static void clearTextures() { textures.clear(); }
 
- static Texture getSharedTexture(const std::string &_name) {
+ static Texture getSharedTexture(std::string_view _name) {
  int int0 = 0;
  int0 |= TextureID.bUseCompression ? 4 : 0;
  return getSharedTexture();
  }
 
- static Texture getSharedTexture(const std::string &_name, int flags) {
+ static Texture getSharedTexture(std::string_view _name, int flags) {
  if (GameServer.bServer && !ServerGUI.isCreated()) {
  return nullptr;
  } else {
@@ -493,7 +494,7 @@ public
  }
  }
 
- static Texture trygetTexture(const std::string &_name) {
+ static Texture trygetTexture(std::string_view _name) {
  if (GameServer.bServer && !ServerGUI.isCreated()) {
  return nullptr;
  } else {
@@ -527,7 +528,7 @@ public
  }
  }
 
- static void onTextureFileChanged(const std::string &string) {
+ static void onTextureFileChanged(std::string_view string) {
  DebugLog.General.println("Texture.onTextureFileChanged> " + string);
  }
 
@@ -536,12 +537,12 @@ public
  s_sharedTextureTable.clear();
  }
 
- static void setSharedTextureInternal(const std::string &string,
+ static void setSharedTextureInternal(std::string_view string,
  Texture texture) {
  s_sharedTextureTable.put(string, texture);
  }
 
- static Texture getSharedTextureInternal(const std::string &string0,
+ static Texture getSharedTextureInternal(std::string_view string0,
  int int0) {
  if (GameServer.bServer && !ServerGUI.isCreated()) {
  return nullptr;
@@ -639,8 +640,8 @@ public
  }
  }
 
- static Texture getSharedTexture(const std::string &_name,
- const std::string &palette) {
+ static Texture getSharedTexture(std::string_view _name,
+ std::string_view palette) {
  if (BucketManager.Shared().HasTexture(_name + palette) {
  return BucketManager.Shared().getTexture(_name + palette);
  } else {
@@ -650,8 +651,8 @@ public
  }
  }
 
- static Texture getSharedTexture(const std::string &string0, int[] ints,
- const std::string &string1) {
+ static Texture getSharedTexture(std::string_view string0, int[] ints,
+ std::string_view string1) {
  if (BucketManager.Shared().HasTexture(string0 + string1) {
  return BucketManager.Shared().getTexture(string0 + string1);
  } else {
@@ -668,7 +669,7 @@ public
  * @param _name the name of texture
  * @return returns the texture from the given name
  */
- static Texture getTexture(const std::string &_name) {
+ static Texture getTexture(std::string_view _name) {
  if (!_name.contains(".txt")) {
  std::string string = _name.replace(".png", "");
  string = string.replace(".pcx", "");
@@ -716,12 +717,12 @@ public
  }
  }
 
- static void forgetTexture(const std::string &_name) {
+ static void forgetTexture(std::string_view _name) {
  BucketManager.Shared().forgetTexture(_name);
  s_sharedTextureTable.remove(_name);
  }
 
- static void reload(const std::string &_name) {
+ static void reload(std::string_view _name) {
  if (_name != nullptr && !_name.empty()) {
  Texture texture = s_sharedTextureTable.get(_name);
  if (texture.empty()) {
@@ -753,7 +754,7 @@ public
  return ints0;
  }
 
- void reloadFromFile(const std::string &_name) {
+ void reloadFromFile(std::string_view _name) {
  if (this->dataid != nullptr) {
  TextureID.TextureIDAssetParams textureIDAssetParams =
  new TextureID.TextureIDAssetParams();
@@ -922,7 +923,7 @@ public
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) {
+ void setName(std::string_view _name) {
  if (_name != nullptr) {
  if (_name == this->name) {
  if (!textures.containsKey(_name) {
@@ -1379,7 +1380,7 @@ public
 
  void setCustomizedTexture() { this->dataid.pathFileName = nullptr; }
 
- void setNameOnly(const std::string &_name) { this->name = _name; }
+ void setNameOnly(std::string_view _name) { this->name = _name; }
 
  /**
  * Description copied from interface: ITexture
@@ -1467,7 +1468,7 @@ public
  return texture;
  }
 
- Texture split(const std::string &_name, int xOffset, int yOffset, int _width,
+ Texture split(std::string_view _name, int xOffset, int yOffset, int _width,
  int _height) {
  Texture texture = new Texture(this->getTextureId(), _name);
  texture.setRegion(xOffset, yOffset, _width, _height);
@@ -1531,16 +1532,16 @@ public
  "\", w:" + this->getWidth() + ", h:" + this->getHeight() + " }";
  }
 
- void saveMask(const std::string &_name) { this->mask.save(_name); }
+ void saveMask(std::string_view _name) { this->mask.save(_name); }
 
- void saveToZomboidDirectory(const std::string &filename) {
+ void saveToZomboidDirectory(std::string_view filename) {
  if (!StringUtils.containsDoubleDot(filename) {
  std::string string = ZomboidFileSystem.instance.getCacheDirSub(filename);
  RenderThread.invokeOnRenderContext(()->this->saveOnRenderThread(string);
  }
  }
 
- void saveToCurrentSavefileDirectory(const std::string &filename) {
+ void saveToCurrentSavefileDirectory(std::string_view filename) {
  if (!StringUtils.containsDoubleDot(filename) {
  std::string string =
  ZomboidFileSystem.instance.getFileNameInCurrentSave(filename);
@@ -1548,7 +1549,7 @@ public
  }
  }
 
- void saveOnRenderThread(const std::string &filename) {
+ void saveOnRenderThread(std::string_view filename) {
  if (this->getID() == -1) {
  throw IllegalStateException(
  "texture hasn't been uploaded to the GPU");
@@ -1631,7 +1632,7 @@ public
  }
  }
 
- void syncReadSize() {
+ void syncReadSize() noexcept{
  PNGSize pNGSize = pngSize.get();
  pNGSize.readSize(this->name);
  this->width = pNGSize.width;

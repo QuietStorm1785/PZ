@@ -53,7 +53,7 @@ public
  return this->data.empty() ? nullptr : this->data.getBuffer();
  }
 
- int getDataSize() { return this->width * this->height * 4; }
+ int getDataSize() noexcept{ return this->width * this->height * 4; }
 }
 } // namespace textures
 } // namespace core

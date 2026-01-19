@@ -34,6 +34,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -112,7 +113,7 @@ private
  recordedMedia = std::make_unique<RecordedMedia>();
  }
 
- static bool isStaticSound(const std::string &str) {
+ static bool isStaticSound(std::string_view str) {
  if (str != nullptr) {
  for (auto &string : staticSounds)
  if (str == string) {
@@ -143,13 +144,13 @@ void setHasRecievedServerData(bool state) {
  this->hasRecievedServerData = state;
 }
 
-void addChannelName(const std::string &name, int frequency,
- const std::string &category) {
+void addChannelName(std::string_view name, int frequency,
+ std::string_view category) {
  this->addChannelName(name, frequency, category, true);
 }
 
-void addChannelName(const std::string &name, int frequency,
- const std::string &category, bool overwrite) {
+void addChannelName(std::string_view name, int frequency,
+ std::string_view category, bool overwrite) {
  if (overwrite || !this->channelNames.containsKey(frequency) {
  if (!this->categorizedChannels.containsKey(category) {
  this->categorizedChannels.put(category, std::make_unique<HashMap<>>());
@@ -861,7 +862,7 @@ void DistributeTransmission(int int1, int int2, int int3, String string0,
  }
 }
 
-std::string doDeviceRangeDistortion(const std::string &string, int int0,
+std::string doDeviceRangeDistortion(std::string_view string, int int0,
  int int1) {
  float float0 = int0 * 0.9F;
  if (float0 < int0 && int1 > float0) {
@@ -886,7 +887,7 @@ std::string getRandomBzztFzzt() {
  return staticSounds[int0];
 }
 
-std::string applyWeatherInterference(const std::string &string, int int1) {
+std::string applyWeatherInterference(std::string_view string, int int1) {
  if (ClimateManager.getInstance().getWeatherInterference() <= 0.0F) {
  return string;
  } else {
@@ -896,13 +897,13 @@ std::string applyWeatherInterference(const std::string &string, int int1) {
  }
 }
 
-std::string scrambleString(const std::string &string, int int0, bool boolean0) {
+std::string scrambleString(std::string_view string, int int0, bool boolean0) {
  return this->scrambleString(string, int0, boolean0, nullptr);
 }
 
-std::string scrambleString(const std::string &msg, int intensity,
+std::string scrambleString(std::string_view msg, int intensity,
  bool ignoreBBcode,
- const std::string &customScramble) {
+ std::string_view customScramble) {
  this->hasAppliedInterference = false;
  StringBuilder stringBuilderx = this->stringBuilder;
  stringBuilderx.setLength(0);
@@ -1083,7 +1084,7 @@ void UnRegisterDevice(WaveSignalDevice device) {
 
 void *clone() { return nullptr; }
 
-std::string computerize(const std::string &str) {
+std::string computerize(std::string_view str) {
  StringBuilder stringBuilderx = this->stringBuilder;
  stringBuilderx.setLength(0);
 

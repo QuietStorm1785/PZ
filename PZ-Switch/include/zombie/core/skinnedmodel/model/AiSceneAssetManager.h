@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -63,7 +64,7 @@ public:
  EnumSet<AiPostProcessSteps> m_post_process_step_set;
 
  public
- FileTask_LoadAiScene(const std::string &string,
+ FileTask_LoadAiScene(std::string_view string,
  EnumSet<AiPostProcessSteps> enumSet,
  IFileTaskCallback iFileTaskCallback,
  FileSystem fileSystem) {

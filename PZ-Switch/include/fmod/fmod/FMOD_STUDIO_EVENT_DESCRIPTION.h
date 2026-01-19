@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public
  std::make_unique<ArrayList<>>();
 
 public
- FMOD_STUDIO_EVENT_DESCRIPTION(long arg0, const std::string &arg1,
+ FMOD_STUDIO_EVENT_DESCRIPTION(long arg0, std::string_view arg1,
  FMOD_GUID arg2, bool arg3, long arg4) {
  this->address = arg0;
  this->path = arg1;

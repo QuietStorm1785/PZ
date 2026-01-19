@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -18,7 +19,7 @@ class FileTask_LoadWorldMapBinary :  FileTask {
     WorldMapData m_worldMapData;
     std::string m_filename;
 
-     FileTask_LoadWorldMapBinary(WorldMapData var1, const std::string& var2, FileSystem var3, IFileTaskCallback var4) {
+     FileTask_LoadWorldMapBinary(WorldMapData var1, std::string_view var2, FileSystem var3, IFileTaskCallback var4) {
       super(var3, var4);
       this.m_worldMapData = var1;
       this.m_filename = var2;

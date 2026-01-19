@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -90,7 +91,7 @@ public
  el.update();
  }
 
- void ButtonClicked(const std::string &name) {
+ void ButtonClicked(std::string_view name) {
  super.ButtonClicked(name);
  if (name == "close")) {
  this->setVisible(false);

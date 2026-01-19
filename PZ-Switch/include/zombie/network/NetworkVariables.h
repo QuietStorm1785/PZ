@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -34,7 +35,7 @@ static enum ThumpType {
 
  const std::string thumpType;
 
- private ThumpType(const std::string &string1){this->thumpType = string1;}
+ private ThumpType(std::string_view string1){this->thumpType = string1;}
 
 std::string toString() { return this->thumpType; }
 
@@ -69,7 +70,7 @@ static enum WalkType {
 
  const std::string walkType;
 
- private WalkType(const std::string &string1){this->walkType = string1;}
+ private WalkType(std::string_view string1){this->walkType = string1;}
 
 std::string toString() { return this->walkType; }
 
@@ -115,7 +116,7 @@ static enum ZombieState {
 
  const std::string zombieState;
 
- private ZombieState(const std::string &string1){this->zombieState = string1;}
+ private ZombieState(std::string_view string1){this->zombieState = string1;}
 
 std::string toString() { return this->zombieState; }
 

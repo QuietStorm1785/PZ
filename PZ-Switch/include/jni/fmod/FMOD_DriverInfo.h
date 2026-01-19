@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -26,7 +27,7 @@ class FMOD_DriverInfo {
       this.speakerchannels = 1;
    }
 
-     FMOD_DriverInfo(int var1, const std::string& var2) {
+     FMOD_DriverInfo(int var1, std::string_view var2) {
       this.id = var1;
       this.name = var2;
       this.guid = 0;

@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,7 +32,7 @@ public
  NonPvpZone() {}
 
 public
- NonPvpZone(const std::string &_title, int _x, int _y, int _x2, int _y2) {
+ NonPvpZone(std::string_view _title, int _x, int _y, int _x2, int _y2) {
  if (_x > _x2) {
  int int0 = _x2;
  _x2 = _x;
@@ -52,7 +53,7 @@ public
  this->size = Math.abs(_x - _x2 + (_y - _y2);
  }
 
- static NonPvpZone addNonPvpZone(const std::string &_title, int _x, int _y,
+ static NonPvpZone addNonPvpZone(std::string_view _title, int _x, int _y,
  int _x2, int _y2) {
  NonPvpZone nonPvpZone = new NonPvpZone(_title, _x, _y, _x2, _y2);
  nonPvpZoneList.add(nonPvpZone);
@@ -60,7 +61,7 @@ public
  return nonPvpZone;
  }
 
- static void removeNonPvpZone(const std::string &_title) {
+ static void removeNonPvpZone(std::string_view _title) {
  NonPvpZone nonPvpZone = getZoneByTitle(_title);
  if (nonPvpZone != nullptr) {
  nonPvpZoneList.remove(nonPvpZone);
@@ -68,7 +69,7 @@ public
  }
  }
 
- static NonPvpZone getZoneByTitle(const std::string &_title) {
+ static NonPvpZone getZoneByTitle(std::string_view _title) {
  for (int int0 = 0; int0 < nonPvpZoneList.size(); int0++) {
  NonPvpZone nonPvpZone = nonPvpZoneList.get(int0);
  if (nonPvpZone.getTitle() == _title) {
@@ -136,9 +137,9 @@ public
 
  std::string getTitle() { return this->title; }
 
- void setTitle(const std::string &_title) { this->title = _title; }
+ void setTitle(std::string_view _title) { this->title = _title; }
 
- int getSize() { return this->size; }
+ int getSize() noexcept{ return this->size; }
 
  void setSize(int _size) { this->size = _size; }
 }

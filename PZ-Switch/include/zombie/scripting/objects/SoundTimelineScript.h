@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
 private
  HashMap<String, Integer> positionByName = std::make_unique<HashMap<>>();
 
- void Load(const std::string &name, const std::string &totalFile) {
+ void Load(std::string_view name, std::string_view totalFile) {
  this->eventName = name;
  ScriptParser.Block block = ScriptParser.parse(totalFile);
  block = block.children.get(0);
@@ -34,7 +35,7 @@ private
 
  std::string getEventName() { return this->eventName; }
 
- int getPosition(const std::string &id) {
+ int getPosition(std::string_view id) {
  return this->positionByName.containsKey(id) ? this->positionByName.get(id)
  : -1;
  }

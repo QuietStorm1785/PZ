@@ -34,6 +34,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -108,7 +109,7 @@ public
 
  int getSkinTextureIndex() { return this->skinTexture; }
 
- void setSkinTextureName(const std::string &textureName) {
+ void setSkinTextureName(std::string_view textureName) {
  this->skinTextureName = textureName;
  }
 
@@ -245,7 +246,7 @@ public
  return this->naturalBeardColor;
  }
 
- void setHairModel(const std::string &model) { this->hairModel = model; }
+ void setHairModel(std::string_view model) { this->hairModel = model; }
 
  std::string getHairModel() {
  if (this->owner.isFemale()) {
@@ -261,7 +262,7 @@ public
  return this->hairModel;
  }
 
- void setBeardModel(const std::string &model) { this->beardModel = model; }
+ void setBeardModel(std::string_view model) { this->beardModel = model; }
 
  std::string getBeardModel() {
  if (this->owner.isFemale()) {
@@ -639,7 +640,7 @@ public
  }
  }
 
- void dressInNamedOutfit(const std::string &outfitName,
+ void dressInNamedOutfit(std::string_view outfitName,
  ItemVisuals itemVisuals) {
  itemVisuals.clear();
  if (!StringUtils.isNullOrWhitespace(outfitName) {
@@ -654,12 +655,12 @@ public
  }
  }
 
- void dressInClothingItem(const std::string &itemGUID,
+ void dressInClothingItem(std::string_view itemGUID,
  ItemVisuals itemVisuals) {
  this->dressInClothingItem(itemGUID, itemVisuals, true);
  }
 
- void dressInClothingItem(const std::string &itemGUID, ItemVisuals itemVisuals,
+ void dressInClothingItem(std::string_view itemGUID, ItemVisuals itemVisuals,
  bool clearCurrentVisuals) {
  if (clearCurrentVisuals) {
  this->clear();
@@ -732,11 +733,11 @@ public
 
  ItemVisuals getBodyVisuals() { return this->bodyVisuals; }
 
- ItemVisual addBodyVisual(const std::string &clothingItemName) {
+ ItemVisual addBodyVisual(std::string_view clothingItemName) {
  return this->addBodyVisualFromClothingItemName(clothingItemName);
  }
 
- ItemVisual addBodyVisualFromItemType(const std::string &itemType) {
+ ItemVisual addBodyVisualFromItemType(std::string_view itemType) {
  Item item = ScriptManager.instance.getItem(itemType);
  return item != nullptr &&
  !StringUtils.isNullOrWhitespace(item.getClothingItem())
@@ -745,7 +746,7 @@ public
  }
 
  ItemVisual
- addBodyVisualFromClothingItemName(const std::string &clothingItemName) {
+ addBodyVisualFromClothingItemName(std::string_view clothingItemName) {
  if (StringUtils.isNullOrWhitespace(clothingItemName) {
  return nullptr;
  } else {
@@ -779,7 +780,7 @@ public
  }
  }
 
- ItemVisual removeBodyVisualFromItemType(const std::string &itemType) {
+ ItemVisual removeBodyVisualFromItemType(std::string_view itemType) {
  for (int int0 = 0; int0 < this->bodyVisuals.size(); int0++) {
  ItemVisual itemVisual = this->bodyVisuals.get(int0);
  if (itemVisual.getItemType() == itemType) {
@@ -791,7 +792,7 @@ public
  return nullptr;
  }
 
- bool hasBodyVisualFromItemType(const std::string &itemType) {
+ bool hasBodyVisualFromItemType(std::string_view itemType) {
  for (int int0 = 0; int0 < this->bodyVisuals.size(); int0++) {
  ItemVisual itemVisual = this->bodyVisuals.get(int0);
  if (itemVisual.getItemType() == itemType) {
@@ -841,7 +842,7 @@ public
 
  ItemVisual addClothingItem(ItemVisuals itemVisuals,
  ArrayList<String> arrayList,
- const std::string &string0,
+ std::string_view string0,
  ClothingItemReference clothingItemReference) {
  assert itemVisuals.size() == arrayList.size();
 
@@ -942,7 +943,7 @@ public
 
  std::string getNonAttachedHair() { return this->nonAttachedHair; }
 
- void setNonAttachedHair(const std::string &_nonAttachedHair) {
+ void setNonAttachedHair(std::string_view _nonAttachedHair) {
  if (StringUtils.isNullOrWhitespace(_nonAttachedHair) {
  _nonAttachedHair = nullptr;
  }
@@ -952,7 +953,7 @@ public
 
  void setForceModel(Model model) { this->forceModel = model; }
 
- void setForceModelScript(const std::string &modelScript) {
+ void setForceModelScript(std::string_view modelScript) {
  this->forceModelScript = modelScript;
  }
 
@@ -966,7 +967,7 @@ public
  return stringBuilder;
  }
 
- static ImmutableColor colorFromString(const std::string &string) {
+ static ImmutableColor colorFromString(std::string_view string) {
  String[] strings = string.split(",");
  if (strings.length == 3) {
  try {
@@ -1043,7 +1044,7 @@ public
  return stringBuilder.toString();
  }
 
- bool loadLastStandString(const std::string &saveStr) {
+ bool loadLastStandString(std::string_view saveStr) {
  saveStr = saveStr.trim();
  if (!StringUtils.isNullOrWhitespace(saveStr) &&
  saveStr.startsWith("version=")) {

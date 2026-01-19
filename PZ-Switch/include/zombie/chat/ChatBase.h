@@ -20,6 +20,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -164,7 +165,7 @@ public
  this->customSettings = true;
  }
 
- void setFontSize(const std::string &fontSize) {
+ void setFontSize(std::string_view fontSize) {
  this->settings.setFontSize(fontSize.toLowerCase());
  }
 
@@ -196,7 +197,7 @@ public
 
  bool isShowTitle() { return this->settings.isShowChatTitle(); }
 
- std::string getFontSize() { return this->settings.getFontSize().toString(); }
+ std::string getFontSize() noexcept{ return this->settings.getFontSize().toString(); }
 
  std::string getTitle() {
  if (this->translatedTitle.empty()) {
@@ -246,25 +247,25 @@ public
  * @param text text of the message
  * @return corresponding object to message
  */
- ChatMessage createMessage(const std::string &text) {
+ ChatMessage createMessage(std::string_view text) {
  return this->createMessage(this->getChatOwnerName(), text);
  }
 
- ChatMessage createMessage(const std::string &string1,
- const std::string &string0) {
+ ChatMessage createMessage(std::string_view string1,
+ std::string_view string0) {
  ChatMessage chatMessage = new ChatMessage(this, string0);
  chatMessage.setAuthor(string1);
  chatMessage.setServerAuthor(false);
  return chatMessage;
  }
 
- ServerChatMessage createServerMessage(const std::string &text) {
+ ServerChatMessage createServerMessage(std::string_view text) {
  ServerChatMessage serverChatMessage = new ServerChatMessage(this, text);
  serverChatMessage.setServerAuthor(true);
  return serverChatMessage;
  }
 
- void showMessage(const std::string &text, const std::string &author) {
+ void showMessage(std::string_view text, std::string_view author) {
  ChatMessage chatMessage = new ChatMessage(this, LocalDateTime.now(), text);
  chatMessage.setAuthor(author);
  this->showMessage(chatMessage);
@@ -381,7 +382,7 @@ public
  return "<RGB:" + color.r + "," + color.g + "," + color.b + ">";
  }
 
- std::string getFontSizeTag() {
+ std::string getFontSizeTag() noexcept{
  return "<SIZE:" + this->settings.getFontSize() + ">";
  }
 

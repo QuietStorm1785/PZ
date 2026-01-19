@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL_mixer.h>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -24,8 +25,8 @@ public:
  void shutdown();
  
  // Music playback
- bool loadMusic(const std::string& name, const std::string& path);
- void playMusic(const std::string& name, int loops = -1); // -1 = infinite loop
+ bool loadMusic(std::string_view name, std::string_view path);
+ void playMusic(std::string_view name, int loops = -1); // -1 = infinite loop
  void pauseMusic();
  void resumeMusic();
  void stopMusic();
@@ -33,8 +34,8 @@ public:
  bool isMusicPlaying() const;
  
  // Sound effects
- bool loadSound(const std::string& name, const std::string& path);
- void playSound(const std::string& name, int loops = 0);
+ bool loadSound(std::string_view name, std::string_view path);
+ void playSound(std::string_view name, int loops = 0);
  void setSoundVolume(float volume); // 0.0 to 1.0
  
  // Master volume
@@ -42,12 +43,12 @@ public:
  float getMasterVolume() const { return masterVolume; }
  
  // Cleanup
- void unloadMusic(const std::string& name);
- void unloadSound(const std::string& name);
+ void unloadMusic(std::string_view name);
+ void unloadSound(std::string_view name);
  void unloadAll();
  
  // Set media path
- void setMediaPath(const std::string& path) { mediaPath = path; }
+ void setMediaPath(std::string_view path) { mediaPath = path; }
  std::string getMediaPath() const { return mediaPath; }
  
 private:

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -108,7 +109,7 @@ public:
  (char)(int0 >>> 8 & 0xFF) + (char)(int0 & 0xFF);
  }
 
- static int getChunkType(const std::string &string) {
+ static int getChunkType(std::string_view string) {
  return (string.charAt(0) & 0xFF) << 24 | (string.charAt(1) & 0xFF) << 16 |
  (string.charAt(2) & 0xFF) << 8 | string.charAt(3) & 0xFF;
  }

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public:
  bool Clicked = false;
 
 public
- ModalDialog(const std::string &name, const std::string &help, bool bYesNo) {
+ ModalDialog(std::string_view name, std::string_view help, bool bYesNo) {
  super(Core.getInstance().getOffscreenWidth(0) / 2,
  Core.getInstance().getOffscreenHeight(0) / 2, 470, 10, false);
  this->Name = name;
@@ -57,7 +58,7 @@ public
  this->y = this->y - this->height / 2.0F;
  }
 
- void ButtonClicked(const std::string &name) {
+ void ButtonClicked(std::string_view name) {
  if (this->handler != nullptr) {
  this->handler.ModalClick(this->Name, name);
  this->setVisible(false);
@@ -91,7 +92,7 @@ public
  }
  }
 
- void Clicked(const std::string &name) {
+ void Clicked(std::string_view name) {
  if (this->Name == "Sleep") && name == "Yes")) {
  float float0 = 12.0F * IsoPlayer.getInstance().getStats().fatigue;
  if (float0 < 7.0F) {

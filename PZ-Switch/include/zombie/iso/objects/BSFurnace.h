@@ -20,6 +20,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -46,8 +47,8 @@ public
  BSFurnace(IsoCell cell) { super(cell); }
 
 public
- BSFurnace(IsoCell cell, IsoGridSquare square, const std::string &string0,
- const std::string &string1) {
+ BSFurnace(IsoCell cell, IsoGridSquare square, std::string_view string0,
+ std::string_view string1) {
  super(cell, square, IsoSpriteManager.instance.getSprite(string0);
  this->sSprite = string0;
  this->sLitSprite = string1;

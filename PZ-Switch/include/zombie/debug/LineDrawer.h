@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -334,7 +335,7 @@ public
 
  static void addLine(float float0, float float1, float float2, float float3,
  float float4, float float5, int int2, int int1, int int0,
- const std::string &string) {
+ std::string_view string) {
  addLine(float0, float1, float2, float3, float4, float5, int2, int1, int0,
  string, true);
  }
@@ -379,7 +380,7 @@ public
  }
  }
 
- void removeLine(const std::string &string) {
+ void removeLine(std::string_view string) {
  for (int int0 = 0; int0 < lines.size(); int0++) {
  if (lines.get(int0).name == string) {
  lines.remove(lines.get(int0);

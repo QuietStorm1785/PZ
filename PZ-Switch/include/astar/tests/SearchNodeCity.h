@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ private
  std::make_unique<HashMap<>>();
 
 public
- SearchNodeCity(const std::string &string) {
+ SearchNodeCity(std::string_view string) {
  this->name = string;
  this->fillAdjacencyMatrix();
  }

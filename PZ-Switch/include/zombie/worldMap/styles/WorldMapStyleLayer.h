@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public
  std::string m_filterValue;
 
 public
- WorldMapStyleLayer(const std::string &id) { this->m_id = id; }
+ WorldMapStyleLayer(std::string_view id) { this->m_id = id; }
 
 public
  String getTypeString();
@@ -224,7 +225,7 @@ public
  Texture texture;
 
  public
- TextureStop(float float0, const std::string &string) {
+ TextureStop(float float0, std::string_view string) {
  super(float0);
  this->texturePath = string;
  this->texture = Texture.getTexture(string);

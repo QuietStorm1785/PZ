@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -108,7 +109,7 @@ class ZomboidFileSystem {
       this.loadList.clear();
    }
 
-    File getCanonicalFile(File var1, const std::string& var2) {
+    File getCanonicalFile(File var1, std::string_view var2) {
       if (!var1.isDirectory()) {
          return new File(var1, var2);
       } else {
@@ -130,27 +131,27 @@ class ZomboidFileSystem {
       return this.getGameModeCacheDir() + File.separator + Core.GameSaveWorld;
    }
 
-    std::string getFileNameInCurrentSave(const std::string& var1) {
+    std::string getFileNameInCurrentSave(std::string_view var1) {
       return this.getCurrentSaveDir() + File.separator + var1;
    }
 
-    std::string getFileNameInCurrentSave(const std::string& var1, const std::string& var2) {
+    std::string getFileNameInCurrentSave(std::string_view var1, std::string_view var2) {
       return this.getFileNameInCurrentSave(var1 + File.separator + var2);
    }
 
-    std::string getFileNameInCurrentSave(const std::string& var1, const std::string& var2, const std::string& var3) {
+    std::string getFileNameInCurrentSave(std::string_view var1, std::string_view var2, std::string_view var3) {
       return this.getFileNameInCurrentSave(var1 + File.separator + var2 + File.separator + var3);
    }
 
-    File getFileInCurrentSave(const std::string& var1) {
+    File getFileInCurrentSave(std::string_view var1) {
       return new File(this.getFileNameInCurrentSave(var1));
    }
 
-    File getFileInCurrentSave(const std::string& var1, const std::string& var2) {
+    File getFileInCurrentSave(std::string_view var1, std::string_view var2) {
       return new File(this.getFileNameInCurrentSave(var1, var2));
    }
 
-    File getFileInCurrentSave(const std::string& var1, const std::string& var2, const std::string& var3) {
+    File getFileInCurrentSave(std::string_view var1, std::string_view var2, std::string_view var3) {
       return new File(this.getFileNameInCurrentSave(var1, var2, var3));
    }
 
@@ -160,7 +161,7 @@ class ZomboidFileSystem {
     return var1;
    }
 
-    std::string getSaveDirSub(const std::string& var1) {
+    std::string getSaveDirSub(std::string_view var1) {
       return this.getSaveDir() + File.separator + var1;
    }
 
@@ -170,11 +171,11 @@ class ZomboidFileSystem {
     return var1;
    }
 
-    std::string getScreenshotDirSub(const std::string& var1) {
+    std::string getScreenshotDirSub(std::string_view var1) {
       return this.getScreenshotDir() + File.separator + var1;
    }
 
-    void setCacheDir(const std::string& var1) {
+    void setCacheDir(std::string_view var1) {
       var1 = var1.replace("/", File.separator);
       this.cacheDir = new File(var1).getAbsoluteFile();
       ensureFolderExists(this.cacheDir);
@@ -194,7 +195,7 @@ class ZomboidFileSystem {
       return this.cacheDir.getPath();
    }
 
-    std::string getCacheDirSub(const std::string& var1) {
+    std::string getCacheDirSub(std::string_view var1) {
       return this.getCacheDir() + File.separator + var1;
    }
 
@@ -204,7 +205,7 @@ class ZomboidFileSystem {
     return var1;
    }
 
-    std::string getMessagingDirSub(const std::string& var1) {
+    std::string getMessagingDirSub(std::string_view var1) {
       return this.getMessagingDir() + File.separator + var1;
    }
 
@@ -218,13 +219,13 @@ class ZomboidFileSystem {
       return this.workdir.getPath();
    }
 
-    File getMediaFile(const std::string& var1) {
+    File getMediaFile(std::string_view var1) {
       assert this.workdir != nullptr;
 
       return new File(this.workdir, var1);
    }
 
-    std::string getMediaPath(const std::string& var1) {
+    std::string getMediaPath(std::string_view var1) {
       return this.getMediaFile(var1).getPath();
    }
 
@@ -236,7 +237,7 @@ class ZomboidFileSystem {
       return this.localWorkdir.getPath();
    }
 
-    std::string getLocalWorkDirSub(const std::string& var1) {
+    std::string getLocalWorkDirSub(std::string_view var1) {
       return this.getLocalWorkDir() + File.separator + var1;
    }
 
@@ -248,7 +249,7 @@ class ZomboidFileSystem {
       return this.actiongroups.getPath();
    }
 
-    static bool ensureFolderExists(const std::string& var0) {
+    static bool ensureFolderExists(std::string_view var0) {
     return ensureFolderExists(new File(var0);
    }
 
@@ -340,7 +341,7 @@ class ZomboidFileSystem {
       }
    }
 
-    std::string getAbsolutePath(const std::string& var1) {
+    std::string getAbsolutePath(std::string_view var1) {
     std::string var2 = var1.toLowerCase(Locale.ENGLISH);
       return this.ActiveFileMap.get(var2);
    }
@@ -369,7 +370,7 @@ class ZomboidFileSystem {
       }
    }
 
-    File getCanonicalFile(const std::string& var1) {
+    File getCanonicalFile(std::string_view var1) {
       return this.getCanonicalFile(new File(var1));
    }
 
@@ -381,11 +382,11 @@ class ZomboidFileSystem {
       }
    }
 
-    std::string getCanonicalPath(const std::string& var1) {
+    std::string getCanonicalPath(std::string_view var1) {
       return this.getCanonicalPath(new File(var1));
    }
 
-    URI getCanonicalURI(const std::string& var1) {
+    URI getCanonicalURI(std::string_view var1) {
     URI var2 = this.CanonicalURIMap.get(var1);
       if (var2 == nullptr) {
          var2 = this.getCanonicalFile(var1).toURI();
@@ -425,7 +426,7 @@ class ZomboidFileSystem {
       }
    }
 
-    void getAllModFoldersAux(const std::string& var1, List<String> var2) {
+    void getAllModFoldersAux(std::string_view var1, List<String> var2) {
     1 var3 = new 1(this);
     Path var4 = FileSystems.getDefault().getPath(var1);
       if (Files.exists(var4)) {
@@ -452,7 +453,7 @@ class ZomboidFileSystem {
       }
    }
 
-    void setModFoldersOrder(const std::string& var1) {
+    void setModFoldersOrder(std::string_view var1) {
       this.modFoldersOrder = new ArrayList<>(Arrays.asList(var1.split(",")));
    }
 
@@ -526,7 +527,7 @@ class ZomboidFileSystem {
       }
    }
 
-    Mod searchForModInfo(File var1, const std::string& var2, ArrayList<Mod> var3) {
+    Mod searchForModInfo(File var1, std::string_view var2, ArrayList<Mod> var3) {
       if (var1.isDirectory()) {
          String[] var4 = var1.list();
          if (var4 == nullptr) {
@@ -559,7 +560,7 @@ class ZomboidFileSystem {
     return nullptr;
    }
 
-    void loadMod(const std::string& var1) {
+    void loadMod(std::string_view var1) {
       if (this.getModDir(var1) != nullptr) {
          if (CoopMaster.instance != nullptr) {
             CoopMaster.instance.update();
@@ -642,7 +643,7 @@ class ZomboidFileSystem {
     return var1;
    }
 
-    void loadMods(const std::string& var1) {
+    void loadMods(std::string_view var1) {
       if (Core.OptionModsEnabled) {
          if (GameClient.bClient) {
     std::vector var6 = new ArrayList();
@@ -669,7 +670,7 @@ class ZomboidFileSystem {
       }
    }
 
-    bool isTranslationMod(const std::string& var1) {
+    bool isTranslationMod(std::string_view var1) {
     Mod var2 = ChooseGameInfo.getAvailableModDetails(var1);
       if (var2 == nullptr) {
     return false;
@@ -724,7 +725,7 @@ class ZomboidFileSystem {
       }
    }
 
-    std::string loadModAndRequired(const std::string& var1, ArrayList<String> var2) {
+    std::string loadModAndRequired(std::string_view var1, ArrayList<String> var2) {
       if (var1.isEmpty()) {
     return nullptr;
       } else if (var1.toLowerCase() == "examplemod")) {
@@ -780,11 +781,11 @@ class ZomboidFileSystem {
       return this.mods;
    }
 
-    std::string getModDir(const std::string& var1) {
+    std::string getModDir(std::string_view var1) {
       return this.modIdToDir.get(var1);
    }
 
-    Mod getModInfoForDir(const std::string& var1) {
+    Mod getModInfoForDir(std::string_view var1) {
     Mod var2 = this.modDirToMod.get(var1);
       if (var2 == nullptr) {
          var2 = new Mod(var1);
@@ -798,7 +799,7 @@ class ZomboidFileSystem {
       return this.getRelativeFile(this.baseURI, var1.getAbsolutePath());
    }
 
-    std::string getRelativeFile(const std::string& var1) {
+    std::string getRelativeFile(std::string_view var1) {
       return this.getRelativeFile(this.baseURI, var1);
    }
 
@@ -806,7 +807,7 @@ class ZomboidFileSystem {
       return this.getRelativeFile(var1, var2.getAbsolutePath());
    }
 
-    std::string getRelativeFile(URI var1, const std::string& var2) {
+    std::string getRelativeFile(URI var1, std::string_view var2) {
     URI var3 = this.getCanonicalURI(var2);
     URI var4 = this.getCanonicalURI(var1.getPath()).relativize(var3);
       if (var4 == var3)) {
@@ -838,7 +839,7 @@ class ZomboidFileSystem {
     return var4;
    }
 
-    std::string resolveRelativePath(const std::string& var1, const std::string& var2) {
+    std::string resolveRelativePath(std::string_view var1, std::string_view var2) {
     Path var3 = Paths.get(var1);
     Path var4 = var3.getParent();
     Path var5 = var4.resolve(var2);
@@ -994,17 +995,17 @@ class ZomboidFileSystem {
       return this.m_fileGuidTable;
    }
 
-    std::string getFilePathFromGuid(const std::string& var1) {
+    std::string getFilePathFromGuid(std::string_view var1) {
     FileGuidTable var2 = this.getFileGuidTable();
       return var2 != nullptr ? var2.getFilePathFromGuid(var1) : nullptr;
    }
 
-    std::string getGuidFromFilePath(const std::string& var1) {
+    std::string getGuidFromFilePath(std::string_view var1) {
     FileGuidTable var2 = this.getFileGuidTable();
       return var2 != nullptr ? var2.getGuidFromFilePath(var1) : nullptr;
    }
 
-    std::string resolveFileOrGUID(const std::string& var1) {
+    std::string resolveFileOrGUID(std::string_view var1) {
     std::string var2 = var1;
     std::string var3 = this.getFilePathFromGuid(var1);
       if (var3 != nullptr) {
@@ -1015,7 +1016,7 @@ class ZomboidFileSystem {
       return this.ActiveFileMap.containsKey(var4) ? this.ActiveFileMap.get(var4) : var2;
    }
 
-    bool isValidFilePathGuid(const std::string& var1) {
+    bool isValidFilePathGuid(std::string_view var1) {
       return this.getFilePathFromGuid(var1) != nullptr;
    }
 
@@ -1079,7 +1080,7 @@ class ZomboidFileSystem {
       }
    }
 
-    void walkGameAndModFiles(const std::string& var1, bool var2, IWalkFilesVisitor var3) {
+    void walkGameAndModFiles(std::string_view var1, bool var2, IWalkFilesVisitor var3) {
       this.walkGameAndModFilesInternal(this.base, var1, var2, var3);
     std::vector var4 = this.getModIDs();
 
@@ -1091,7 +1092,7 @@ class ZomboidFileSystem {
       }
    }
 
-    void walkGameAndModFilesInternal(File var1, const std::string& var2, bool var3, IWalkFilesVisitor var4) {
+    void walkGameAndModFilesInternal(File var1, std::string_view var2, bool var3, IWalkFilesVisitor var4) {
     File var5 = new File(var1, var2);
       if (var5.isDirectory()) {
          File[] var6 = var5.listFiles();
@@ -1131,13 +1132,13 @@ class ZomboidFileSystem {
       return var4.toArray(new String[0]);
    }
 
-    std::string normalizeFolderPath(const std::string& var1) {
+    std::string normalizeFolderPath(std::string_view var1) {
       var1 = var1.toLowerCase(Locale.ENGLISH).replace('\\', '/');
       var1 = var1 + "/";
       return var1.replace("///", "/").replace("//", "/");
    }
 
-    static std::string processFilePath(const std::string& var0, char var1) {
+    static std::string processFilePath(std::string_view var0, char var1) {
       if (var1 != '\\') {
          var0 = var0.replace('\\', var1);
       }
@@ -1149,7 +1150,7 @@ class ZomboidFileSystem {
     return var0;
    }
 
-    bool tryDeleteFile(const std::string& var1) {
+    bool tryDeleteFile(std::string_view var1) {
       if (StringUtils.isNullOrWhitespace(var1)) {
     return false;
       } else {
@@ -1162,7 +1163,7 @@ class ZomboidFileSystem {
       }
    }
 
-    bool deleteFile(const std::string& var1) {
+    bool deleteFile(std::string_view var1) {
     File var2 = new File(var1).getAbsoluteFile();
       if (!var2.isFile()) {
          throw FileNotFoundException(String.format("File path not found: \"%s\"", var1));
@@ -1194,7 +1195,7 @@ class ZomboidFileSystem {
       }
    }
 
-    bool isModFile(const std::string& var1) {
+    bool isModFile(std::string_view var1) {
       if (this.m_modsChangedTime > 0L) {
     return false;
       } else if (this.modFolders == nullptr) {
@@ -1216,7 +1217,7 @@ class ZomboidFileSystem {
       }
    }
 
-    void onModFileChanged(const std::string& var1) {
+    void onModFileChanged(std::string_view var1) {
       this.m_modsChangedTime = System.currentTimeMillis() + 2000L;
    }
 
@@ -1257,7 +1258,7 @@ class ZomboidFileSystem {
       }
    }
 
-    void resetDefaultModsForNewRelease(const std::string& var1) {
+    void resetDefaultModsForNewRelease(std::string_view var1) {
       ensureFolderExists(this.getCacheDirSub("mods"));
     std::string var2 = this.getCacheDirSub("mods") + File.separator + "reset-mods-" + var1 + ".txt";
     File var3 = new File(var2);

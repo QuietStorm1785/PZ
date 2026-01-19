@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -32,7 +33,7 @@ class ScriptParser {
       return this.elements.isEmpty();
    }
 
-    void prettyPrint(int var1, StringBuilder var2, const std::string& var3) {
+    void prettyPrint(int var1, StringBuilder var2, std::string_view var3) {
       for (int var4 = 0; var4 < var1; var4++) {
          var2.append('\t');
       }
@@ -61,7 +62,7 @@ class ScriptParser {
       var2.append(var3);
    }
 
-    void prettyPrintElements(int var1, StringBuilder var2, const std::string& var3) {
+    void prettyPrintElements(int var1, StringBuilder var2, std::string_view var3) {
     BlockElement var4 = nullptr;
 
       for (BlockElement var6 : this.elements) {
@@ -97,7 +98,7 @@ class ScriptParser {
     return nullptr;
    }
 
-    Value getValue(const std::string& var1) {
+    Value getValue(std::string_view var1) {
       for (Value var3 : this.values) {
     int var4 = var3.string.indexOf(61);
          if (var4 > 0 && var3.getKey().trim() == var1)) {
@@ -108,7 +109,7 @@ class ScriptParser {
     return nullptr;
    }
 
-    void setValue(const std::string& var1, const std::string& var2) {
+    void setValue(std::string_view var1, std::string_view var2) {
     Value var3 = this.getValue(var1);
       if (var3 == nullptr) {
          this.addValue(var1, var2);
@@ -117,7 +118,7 @@ class ScriptParser {
       }
    }
 
-    Value addValue(const std::string& var1, const std::string& var2) {
+    Value addValue(std::string_view var1, std::string_view var2) {
     Value var3 = new Value();
       var3.string = var1 + " = " + var2;
       this.elements.add(var3);
@@ -125,7 +126,7 @@ class ScriptParser {
     return var3;
    }
 
-    void moveValueAfter(const std::string& var1, const std::string& var2) {
+    void moveValueAfter(std::string_view var1, std::string_view var2) {
     Value var3 = this.getValue(var1);
     Value var4 = this.getValue(var2);
       if (var3 != nullptr && var4 != nullptr) {

@@ -21,6 +21,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -147,7 +148,7 @@ public
 
  void setTable(KahluaTable table) { this->m_table = table; }
 
- void *fromLua0(const std::string &func) {
+ void *fromLua0(std::string_view func) {
  uint8_t byte0 = -1;
  switch (func.hashCode()) {
  case 3127582:
@@ -165,7 +166,7 @@ public
  }
  }
 
- void *fromLua1(const std::string &func, void *arg0) {
+ void *fromLua1(std::string_view func, void *arg0) {
  uint8_t byte0 = -1;
  switch (func.hashCode()) {
  case 1396535690:
@@ -220,7 +221,7 @@ private
  return ScriptParser.parseTokens(string3);
  }
 
- void updateScript(const std::string &string0, ArrayList<String> arrayList0,
+ void updateScript(std::string_view string0, ArrayList<String> arrayList0,
  ModelScript modelScript) {
  string0 = ZomboidFileSystem.instance.getString(string0);
 
@@ -266,7 +267,7 @@ private
  }
 
  std::string modelScriptToText(ModelScript modelScript,
- const std::string &string0) {
+ std::string_view string0) {
  ScriptParser.Block block0 = ScriptParser.parse(string0);
  block0 = block0.children.get(0);
 
@@ -322,7 +323,7 @@ private
  return stringBuilder.toString();
  }
 
- void writeScript(const std::string &string1, ArrayList<String> arrayList) {
+ void writeScript(std::string_view string1, ArrayList<String> arrayList) {
  std::string string0 = ZomboidFileSystem.instance.getString(string1);
  File file = new File(string0);
 

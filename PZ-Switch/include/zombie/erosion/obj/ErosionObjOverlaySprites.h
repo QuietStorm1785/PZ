@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ private
  ErosionObjOverlaySprites.Stage[] sprites;
 
 public
- ErosionObjOverlaySprites(int int0, const std::string &string) {
+ ErosionObjOverlaySprites(int int0, std::string_view string) {
  this->name = string;
  this->stages = int0;
  this->sprites = new ErosionObjOverlaySprites.Stage[this->stages];
@@ -41,7 +42,7 @@ public
  return this->sprites[int1].seasons[int0].getInstance();
  }
 
- void setSprite(int int1, const std::string &string, int int0) {
+ void setSprite(int int1, std::string_view string, int int0) {
  this->sprites[int1].seasons[int0] =
  new ErosionObjOverlaySprites.Sprite(string);
  }
@@ -51,7 +52,7 @@ private
  const std::string sprite;
 
  public
- Sprite(const std::string &string) { this->sprite = string; }
+ Sprite(std::string_view string) { this->sprite = string; }
 
  IsoSprite getSprite() {
  return this->sprite != nullptr

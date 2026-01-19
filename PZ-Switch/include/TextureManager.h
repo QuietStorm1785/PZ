@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <memory>
 #include <vector>
@@ -36,16 +37,16 @@ public:
  void shutdown();
  
  // Load texture from media directory
- SDL_Texture* loadTexture(const std::string& path);
+ SDL_Texture* loadTexture(std::string_view path);
  
  // Get cached texture
- SDL_Texture* getTexture(const std::string& path);
+ SDL_Texture* getTexture(std::string_view path);
  
  // Get texture dimensions
- bool getTextureSize(const std::string& path, int* w, int* h);
+ bool getTextureSize(std::string_view path, int* w, int* h);
  
  // Set media directory base path
- void setMediaPath(const std::string& path) { mediaPath = path; }
+ void setMediaPath(std::string_view path) { mediaPath = path; }
  std::string getMediaPath() const { return mediaPath; }
 
  // Atlas knobs
@@ -62,23 +63,23 @@ public:
  
  // Load animated sprite from PZ texture pack format
  // Loads both .png and .txt files (e.g., "ShirtGrey_Walk" -> ShirtGrey_Walk.png + .txt)
- zombie::graphics::AnimatedSprite* loadAnimatedSprite(const std::string& baseName);
+ zombie::graphics::AnimatedSprite* loadAnimatedSprite(std::string_view baseName);
  
  // Parse PZ animation format (.txt file)
- bool parseAnimationFile(const std::string& txtPath, 
+ bool parseAnimationFile(std::string_view txtPath, 
  std::unordered_map<std::string, zombie::graphics::Animation>& animations);
  
  // Create texture atlas from multiple sprites
- zombie::assets::TextureAtlas* createAtlas(const std::string& name, 
+ zombie::assets::TextureAtlas* createAtlas(std::string_view name, 
  const std::vector<std::string>& spritePaths,
  int maxWidth = 2048, int maxHeight = 2048);
  
  // Get cached atlas
- zombie::assets::TextureAtlas* getAtlas(const std::string& name);
+ zombie::assets::TextureAtlas* getAtlas(std::string_view name);
 
  // Load a Project Zomboid texture pack (directory with .png + .txt definitions)
  // Returns map of base sprite name -> AnimatedSprite*
- bool loadTexturePack(const std::string& packName,
+ bool loadTexturePack(std::string_view packName,
  std::unordered_map<std::string, zombie::graphics::AnimatedSprite*>& outSprites,
  bool buildAtlas = false,
  int atlasMaxWidth = 2048,
@@ -86,20 +87,20 @@ public:
  
  // Load character sprite sheet (8-direction animations)
  zombie::graphics::AnimatedSprite* loadCharacterSpriteSheet(
- const std::string& characterName,
- const std::string& outfit = "Bob"
+ std::string_view characterName,
+ std::string_view outfit = "Bob"
  );
  
  // Load tile texture by name (e.g., "grass_01", "dirt_floor")
- SDL_Texture* loadTileTexture(const std::string& tileName);
+ SDL_Texture* loadTileTexture(std::string_view tileName);
  
  // Load object texture (furniture, containers, etc.)
- SDL_Texture* loadObjectTexture(const std::string& objectName);
+ SDL_Texture* loadObjectTexture(std::string_view objectName);
  
  // Create character atlas from all animations
  zombie::assets::TextureAtlas* createCharacterAtlas(
- const std::string& characterName,
- const std::string& outfit = "Bob"
+ std::string_view characterName,
+ std::string_view outfit = "Bob"
  );
  
  // Create tile atlas from common tiles
@@ -109,7 +110,7 @@ public:
 
  // Build atlas from hottest requested textures
  zombie::assets::TextureAtlas* buildUsageAtlas(
- const std::string& atlasName,
+ std::string_view atlasName,
  int minUsage = 3,
  int maxSprites = 256,
  int maxWidth = 2048,
@@ -117,7 +118,7 @@ public:
  );
 
  // Dynamically add a sprite to an existing atlas and rebuild
- bool addSpriteToAtlas(const std::string& atlasName, const std::string& spritePath);
+ bool addSpriteToAtlas(std::string_view atlasName, std::string_view spritePath);
  
 private:
  static TextureManager* instance;
@@ -151,8 +152,8 @@ private:
  std::unordered_map<std::string, int> usageCounts;
  
  // Load from file
- SDL_Texture* loadFromFile(const std::string& fullPath);
- void registerUsage(const std::string& path);
+ SDL_Texture* loadFromFile(std::string_view fullPath);
+ void registerUsage(std::string_view path);
 };
 
 } // namespace assets

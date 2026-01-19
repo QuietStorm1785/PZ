@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -76,7 +77,7 @@ void registerDir(Path path) {
  }
 }
 
-void addWatchedFile(const std::string &string) {
+void addWatchedFile(std::string_view string) {
  if (string != nullptr) {
  this->m_watchedFiles.put(this->m_fs.getPath(string), string);
  }
@@ -90,13 +91,13 @@ void add(PredicatedFileWatcher predicatedFileWatcher) {
  }
 }
 
-void addDirectory(const std::string &string) {
+void addDirectory(std::string_view string) {
  if (string != nullptr) {
  this->registerDir(this->m_fs.getPath(string);
  }
 }
 
-void addDirectoryRecurse(const std::string &string) {
+void addDirectoryRecurse(std::string_view string) {
  if (string != nullptr) {
  this->registerDirRecursive(this->m_fs.getPath(string);
  }

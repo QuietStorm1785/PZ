@@ -12,6 +12,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ namespace network {
 
 class GameServerWorkshopItems {
 public:
- static void noise(const std::string &string) {
+ static void noise(std::string_view string) {
  DebugLog.log("Workshop: " + string);
  }
 

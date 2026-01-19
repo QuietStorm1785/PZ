@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -24,7 +25,7 @@ class ActiveModsFile {
     static const int VERSION1 = 1;
     static const int VERSION = 1;
 
-    bool write(const std::string& var1, ActiveMods var2) {
+    bool write(std::string_view var1, ActiveMods var2) {
       if (Core.getInstance().isNoSave()) {
     return false;
       } else {
@@ -70,7 +71,7 @@ class ActiveModsFile {
       return var10.toString();
    }
 
-    bool read(const std::string& var1, ActiveMods var2) {
+    bool read(std::string_view var1, ActiveMods var2) {
       var2.clear();
 
       try {
@@ -96,7 +97,7 @@ class ActiveModsFile {
       }
    }
 
-    void fromString(const std::string& var1, ActiveMods var2) {
+    void fromString(std::string_view var1, ActiveMods var2) {
       var1 = ScriptParser.stripComments(var1);
     Block var3 = ScriptParser.parse(var1);
     int var4 = -1;

@@ -1,6 +1,7 @@
 #pragma once
 #include "UI.h"
 #include <string>
+#include <string_view>
 #include <functional>
 #include <memory>
 
@@ -13,12 +14,12 @@ namespace ui {
  */
 class ControllerRebindUI : public UIElement {
 public:
- using RebindCallback = std::function<void(const std::string& action, const std::string& buttonName)>;
+ using RebindCallback = std::function<void(std::string_view action, std::string_view buttonName)>;
 
- explicit ControllerRebindUI(const std::string& id);
+ explicit ControllerRebindUI(std::string_view id);
 
  // Start rebinding for an action (e.g., "interact", "attack")
- void startRebind(const std::string& actionName);
+ void startRebind(std::string_view actionName);
 
  // Cancel the current rebind
  void cancelRebind();

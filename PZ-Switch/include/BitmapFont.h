@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 
 namespace zombie {
@@ -30,21 +31,21 @@ public:
  ~BitmapFont();
  
  // Load font from .fnt file
- bool loadFromFile(const std::string& fntPath, SDL_Renderer* renderer);
+ bool loadFromFile(std::string_view fntPath, SDL_Renderer* renderer);
  
  // Render text
- void drawText(SDL_Renderer* renderer, const std::string& text, 
+ void drawText(SDL_Renderer* renderer, std::string_view text, 
  int x, int y, SDL_Color color = {255, 255, 255, 255});
  
  // Measure text dimensions
- int getTextWidth(const std::string& text) const;
+ int getTextWidth(std::string_view text) const;
  int getTextHeight() const { return lineHeight; }
  
  // Font properties
  int getLineHeight() const { return lineHeight; }
  int getBase() const { return base; }
  std::string getFaceName() const { return face; }
- int getSize() const { return size; }
+ int getSize() const noexcept { return size; }
  
  // Cleanup
  void cleanup();
@@ -63,16 +64,16 @@ private:
  std::unordered_map<int, CharGlyph> glyphs;
  
  // Parse .fnt file
- bool parseFntFile(const std::string& path);
- void parseLine(const std::string& line);
- void parseInfo(const std::string& line);
- void parseCommon(const std::string& line);
- void parsePage(const std::string& line, const std::string& basePath, SDL_Renderer* renderer);
- void parseChar(const std::string& line);
+ bool parseFntFile(std::string_view path);
+ void parseLine(std::string_view line);
+ void parseInfo(std::string_view line);
+ void parseCommon(std::string_view line);
+ void parsePage(std::string_view line, std::string_view basePath, SDL_Renderer* renderer);
+ void parseChar(std::string_view line);
  
  // Helper functions
- std::string extractValue(const std::string& line, const std::string& key) const;
- int extractIntValue(const std::string& line, const std::string& key) const;
+ std::string extractValue(std::string_view line, std::string_view key) const;
+ int extractIntValue(std::string_view line, std::string_view key) const;
 };
 
 } // namespace graphics

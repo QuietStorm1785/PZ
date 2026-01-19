@@ -3,12 +3,13 @@
 
 #include <exception>
 #include <string>
+#include <string_view>
 
 namespace org { namespace xml { namespace sax {
 
 class SAXException : public std::exception {
 public:
- explicit SAXException(const std::string& msg = "SAX error") : message(msg) {}
+ explicit SAXException(std::string_view msg = "SAX error") : message(msg) {}
  const char* what() const noexcept override { return message.c_str(); }
 private:
  std::string message;

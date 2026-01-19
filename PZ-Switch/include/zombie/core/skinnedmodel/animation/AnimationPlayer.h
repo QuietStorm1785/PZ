@@ -31,6 +31,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -204,8 +205,8 @@ private
 
  bool hasSkinningData() { return this->m_skinningData != nullptr; }
 
- void addBoneReparent(const std::string &boneName,
- const std::string &newParentBone) {
+ void addBoneReparent(std::string_view boneName,
+ std::string_view newParentBone) {
  if (!PZArrayUtil.contains(
  this->m_reparentedBoneBindings,
  Lambda.predicate(boneName, newParentBone,
@@ -236,7 +237,7 @@ private
  }
  }
 
- void setCounterRotationBone(const std::string &boneName) {
+ void setCounterRotationBone(std::string_view boneName) {
  if (this->m_counterRotationBone != nullptr &&
  StringUtils == this->m_counterRotationBone.boneName,
  boneName) {
@@ -246,7 +247,7 @@ private
  this->m_counterRotationBone.setSkinningData(this->m_skinningData);
  }
 
- AnimationBoneBinding getCounterRotationBone() {
+ AnimationBoneBinding getCounterRotationBone() noexcept{
  return this->m_counterRotationBone;
  }
 
@@ -298,7 +299,7 @@ public
  : nullptr;
  }
 
- int getSkinningBoneIndex(const std::string &boneName, int defaultVal) {
+ int getSkinningBoneIndex(std::string_view boneName, int defaultVal) {
  std::unordered_map hashMap = this->getSkinningBoneIndices();
  return hashMap != nullptr ? (Integer)hashMap.get(boneName) : defaultVal;
  }
@@ -378,7 +379,7 @@ private
  PZArrayUtil.forEach(animationTracks, PooledObject::release);
  }
 
- AnimationTrack play(const std::string &animName, bool looped) {
+ AnimationTrack play(std::string_view animName, bool looped) {
  if (this->m_skinningData.empty()) {
  return nullptr;
  } else {
@@ -1247,14 +1248,14 @@ public
 
  void setAngle(float angle) { this->m_angle = angle; }
 
- void setAngleToTarget() { this->setAngle(this->getTargetAngle()); }
+ void setAngleToTarget() noexcept{ this->setAngle(this->getTargetAngle()); }
 
- void setTargetToAngle() {
+ void setTargetToAngle() noexcept{
  float float0 = this->getAngle();
  this->setTargetAngle(float0);
  }
 
- float getTargetAngle() { return this->m_targetAngle; }
+ float getTargetAngle() noexcept{ return this->m_targetAngle; }
 
  void setTargetAngle(float targetAngle) { this->m_targetAngle = targetAngle; }
 
@@ -1279,7 +1280,7 @@ public
  * targetAngle. The twist target, not clamped at all. All twists aim for
  * this target, and are clamped by maxTwist.
  */
- float getTargetTwistAngle() { return this->m_targetTwistAngle; }
+ float getTargetTwistAngle() noexcept{ return this->m_targetTwistAngle; }
 
 private
  static class L_applyTwistBone {

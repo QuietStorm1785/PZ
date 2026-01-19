@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,7 +16,7 @@ class ScriptParser {
 public:
  static StringBuilder stringBuilder = new StringBuilder();
 
- static int readBlock(const std::string &string0, int int1,
+ static int readBlock(std::string_view string0, int int1,
  ScriptParser.Block block1) {
  int int0;
  for (int0 = int1; int0 < string0.length(); int0++) {
@@ -54,7 +55,7 @@ public
  return block;
  }
 
- static std::string stripComments(const std::string &string) {
+ static std::string stripComments(std::string_view string) {
  stringBuilder.setLength(0);
  stringBuilder.append(string);
  int int0 = stringBuilder.lastIndexOf("*/");
@@ -145,7 +146,7 @@ public
 
  bool isEmpty() { return this->elements.empty(); }
 
- void prettyPrint(int indent, StringBuilder sb, const std::string &eol) {
+ void prettyPrint(int indent, StringBuilder sb, std::string_view eol) {
  for (int int0 = 0; int0 < indent; int0++) {
  sb.append('\t');
  }
@@ -175,7 +176,7 @@ public
  }
 
  void prettyPrintElements(int indent, StringBuilder sb,
- const std::string &eol) {
+ std::string_view eol) {
  ScriptParser.BlockElement blockElement0 = nullptr;
 
  for (ScriptParser.BlockElement blockElement1 : this->elements) {
@@ -226,7 +227,7 @@ public
  return nullptr;
  }
 
- void setValue(const std::string &key, const std::string &value) {
+ void setValue(std::string_view key, std::string_view value) {
  ScriptParser.Value _value = this->getValue(key);
  if (_value.empty()) {
  this->addValue(key, value);
@@ -244,8 +245,8 @@ public
  return _value;
  }
 
- void moveValueAfter(const std::string &keyMove,
- const std::string &keyAfter) {
+ void moveValueAfter(std::string_view keyMove,
+ std::string_view keyAfter) {
  ScriptParser.Value value0 = this->getValue(keyMove);
  ScriptParser.Value value1 = this->getValue(keyAfter);
  if (value0 != nullptr && value1 != nullptr) {
@@ -263,7 +264,7 @@ public
 
  ScriptParser.Value asValue();
 
- void prettyPrint(int var1, StringBuilder var2, const std::string &var3);
+ void prettyPrint(int var1, StringBuilder var2, std::string_view var3);
  }
 
 public
@@ -276,7 +277,7 @@ public
  public
  ScriptParser.Value asValue() { return this; }
 
- void prettyPrint(int indent, StringBuilder sb, const std::string &eol) {
+ void prettyPrint(int indent, StringBuilder sb, std::string_view eol) {
  for (int int0 = 0; int0 < indent; int0++) {
  sb.append('\t');
  }

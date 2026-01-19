@@ -39,7 +39,7 @@ public
  this->target = this->clamp(this->min, this->max, _target);
  }
 
- float getTarget() { return this->target; }
+ float getTarget() noexcept{ return this->target; }
 
  void overrideCurrentValue(float f) { this->current = f; }
 

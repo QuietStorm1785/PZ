@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <functional>
@@ -20,7 +21,7 @@ struct Vec4 {
 
 class UIElement {
 public:
- UIElement(const std::string& id, Vec4 bounds);
+ UIElement(std::string_view id, Vec4 bounds);
  virtual ~UIElement() = default;
  
  virtual void render() = 0;
@@ -45,13 +46,13 @@ protected:
 
 class UIButton : public UIElement {
 public:
- UIButton(const std::string& id, Vec4 bounds, const std::string& label);
+ UIButton(std::string_view id, Vec4 bounds, std::string_view label);
  
  void render() override;
  void handleInput(int x, int y, bool pressed) override;
  
  void setOnClick(std::function<void()> callback) { onClickCallback = callback; }
- void setLabel(const std::string& text) { label = text; }
+ void setLabel(std::string_view text) { label = text; }
  const std::string& getLabel() const { return label; }
  
 private:
@@ -62,13 +63,13 @@ private:
 
 class UIPanel : public UIElement {
 public:
- UIPanel(const std::string& id, Vec4 bounds);
+ UIPanel(std::string_view id, Vec4 bounds);
  
  void render() override;
  void update(float deltaTime) override;
  
  void addChild(std::shared_ptr<UIElement> child);
- void removeChild(const std::string& childId);
+ void removeChild(std::string_view childId);
  
 private:
  std::vector<std::shared_ptr<UIElement>> children;
@@ -76,12 +77,12 @@ private:
 
 class UITextBox : public UIElement {
 public:
- UITextBox(const std::string& id, Vec4 bounds);
+ UITextBox(std::string_view id, Vec4 bounds);
  
  void render() override;
  void handleInput(int x, int y, bool pressed) override;
  
- void setText(const std::string& text) { content = text; }
+ void setText(std::string_view text) { content = text; }
  const std::string& getText() const { return content; }
  
 private:
@@ -100,8 +101,8 @@ public:
  void shutdown();
  
  void addElement(std::shared_ptr<UIElement> element);
- void removeElement(const std::string& id);
- std::shared_ptr<UIElement> getElement(const std::string& id);
+ void removeElement(std::string_view id);
+ std::shared_ptr<UIElement> getElement(std::string_view id);
  
  void render();
  void update(float deltaTime);

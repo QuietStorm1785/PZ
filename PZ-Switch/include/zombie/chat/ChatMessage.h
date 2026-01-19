@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,13 +36,13 @@ public:
  bool serverAuthor = false;
 
 public
- ChatMessage(ChatBase _chat, const std::string &_text) {
+ ChatMessage(ChatBase _chat, std::string_view _text) {
  this(_chat, LocalDateTime.now(), _text);
  }
 
 public
  ChatMessage(ChatBase _chat, LocalDateTime _datetime,
- const std::string &_text) {
+ std::string_view _text) {
  this->chat = _chat;
  this->datetime = _datetime;
  this->text = _text;
@@ -65,7 +66,7 @@ public
  : nullptr;
  }
 
- void setScrambledText(const std::string &_text) {
+ void setScrambledText(std::string_view _text) {
  this->scramble = true;
  this->text = _text;
  }
@@ -106,7 +107,7 @@ public
 
  std::string getAuthor() { return this->author; }
 
- void setAuthor(const std::string &_author) { this->author = _author; }
+ void setAuthor(std::string_view _author) { this->author = _author; }
 
  ChatBase getChat() { return this->chat; }
 
@@ -114,7 +115,7 @@ public
 
  std::string getText() { return this->text; }
 
- void setText(const std::string &_text) { this->text = _text; }
+ void setText(std::string_view _text) { this->text = _text; }
 
  std::string getTextWithPrefix() {
  return this->chat.getMessageTextWithPrefix(this);
@@ -124,7 +125,7 @@ public
 
  std::string getCustomTag() { return this->customTag; }
 
- void setCustomTag(const std::string &_customTag) {
+ void setCustomTag(std::string_view _customTag) {
  this->customTag = _customTag;
  }
 

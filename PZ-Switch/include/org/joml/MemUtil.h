@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -4481,7 +4482,7 @@ public
  return long0;
  }
 
- static Field getDeclaredField(Class clazz1, const std::string &string) {
+ static Field getDeclaredField(Class clazz1, std::string_view string) {
  Class clazz0 = clazz1;
 
  do {

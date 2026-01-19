@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -37,7 +38,7 @@ public
 
  void putShort(short v) { this->bb.putShort(v); }
 
- void putUTF(const std::string &string) {
+ void putUTF(std::string_view string) {
  GameWindow.WriteStringUTF(this->bb, string);
  }
 }

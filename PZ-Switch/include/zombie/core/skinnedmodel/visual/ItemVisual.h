@@ -19,6 +19,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -63,7 +64,7 @@ public
 public
  ItemVisual(ItemVisual other) { this->copyFrom(other); }
 
- void setItemType(const std::string &fullType) {
+ void setItemType(std::string_view fullType) {
  Objects.requireNonNull(fullType);
 
  assert fullType.contains(".");
@@ -73,7 +74,7 @@ public
 
  std::string getItemType() { return this->m_fullType; }
 
- void setAlternateModelName(const std::string &name) {
+ void setAlternateModelName(std::string_view name) {
  this->m_alternateModelName = name;
  }
 
@@ -86,7 +87,7 @@ public
 
  std::string getClothingItemName() { return this->m_clothingItemName; }
 
- void setClothingItemName(const std::string &name) {
+ void setClothingItemName(std::string_view name) {
  this->m_clothingItemName = name;
  }
 
@@ -182,7 +183,7 @@ public
  }
  }
 
- void setDecal(const std::string &decalName) { this->m_Decal = decalName; }
+ void setDecal(std::string_view decalName) { this->m_Decal = decalName; }
 
  std::string getDecal(ClothingItem clothingItem) {
  if (StringUtils.isNullOrWhitespace(clothingItem.m_DecalGroup) {
@@ -760,7 +761,7 @@ public
  return stringBuilder;
  }
 
- static ImmutableColor colorFromString(const std::string &string) {
+ static ImmutableColor colorFromString(std::string_view string) {
  String[] strings = string.split(",");
  if (strings.length == 3) {
  try {
@@ -828,7 +829,7 @@ public
  }
  }
 
- static InventoryItem createLastStandItem(const std::string &saveStr) {
+ static InventoryItem createLastStandItem(std::string_view saveStr) {
  saveStr = saveStr.trim();
  if (!StringUtils.isNullOrWhitespace(saveStr) &&
  saveStr.startsWith("version=")) {

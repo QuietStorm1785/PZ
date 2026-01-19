@@ -1,6 +1,7 @@
 #pragma once
 #include <stdexcept>
 #include <string>
+#include <string_view>
 
 namespace javax {
 namespace xml {
@@ -12,17 +13,17 @@ namespace bind {
  */
 class JAXBException : public std::runtime_error {
 public:
- explicit JAXBException(const std::string& message)
+ explicit JAXBException(std::string_view message)
  : std::runtime_error(message)
  , errorCode("")
  , linkedException(nullptr) {}
  
- JAXBException(const std::string& message, const std::string& code)
+ JAXBException(std::string_view message, std::string_view code)
  : std::runtime_error(message)
  , errorCode(code)
  , linkedException(nullptr) {}
  
- JAXBException(const std::string& message, std::exception* linked)
+ JAXBException(std::string_view message, std::exception* linked)
  : std::runtime_error(message)
  , errorCode("")
  , linkedException(linked) {}

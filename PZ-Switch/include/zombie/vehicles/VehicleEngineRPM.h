@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ public
 
  std::string getName() { return this->m_name; }
 
- void Load(const std::string &name, const std::string &totalFile) {
+ void Load(std::string_view name, std::string_view totalFile) {
  this->m_name = name;
  int int0 = -1;
  ScriptParser.Block block0 = ScriptParser.parse(totalFile);

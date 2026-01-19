@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -117,7 +118,7 @@ public
  }
  }
 
- void setPrototypeStacksize() {
+ void setPrototypeStacksize() noexcept{
  if (this->isLua()) {
  this->setTop(this->closure.prototype.maxStacksize);
  }
@@ -215,7 +216,7 @@ public
 
  LuaClosure getClosure() { return this->closure; }
 
- void setLocalVarToStack(const std::string &arg0, int arg1) {
+ void setLocalVarToStack(std::string_view arg0, int arg1) {
  this->LocalVarToStackMap.put(arg0, arg1);
  this->LocalStackToVarMap.put(arg1, arg0);
  this->LocalVarNames.add(arg0);

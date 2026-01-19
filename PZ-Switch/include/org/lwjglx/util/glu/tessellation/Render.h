@@ -313,7 +313,7 @@ private
  Render.renderCallBack render;
 
  private
- FaceCount() {}
+ FaceCount() noexcept{}
 
  private
  FaceCount(long long0, GLUhalfEdge gLUhalfEdge,

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -246,7 +247,7 @@ void RemoveCallback(ISteamWorkshopCallback iSteamWorkshopCallback) {
  this->callbacks.remove(iSteamWorkshopCallback);
 }
 
-std::string getIDFromItemInstallFolder(const std::string &string0) {
+std::string getIDFromItemInstallFolder(std::string_view string0) {
  if (string0 != nullptr &&
  string0.replace("\\", "/").contains("/workshop/content/108600/")) {
  File file = new File(string0);

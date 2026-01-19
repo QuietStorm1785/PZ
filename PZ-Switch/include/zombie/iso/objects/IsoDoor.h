@@ -60,6 +60,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -634,7 +635,7 @@ public
  }
 
 public
- IsoDoor(IsoCell cell, IsoGridSquare gridSquare, const std::string &_gid,
+ IsoDoor(IsoCell cell, IsoGridSquare gridSquare, std::string_view _gid,
  bool _north) {
  this->OutlineOnMouseover = true;
  this->PushedMaxStrength = this->PushedStrength = 2500;
@@ -671,7 +672,7 @@ public
  }
 
 public
- IsoDoor(IsoCell cell, IsoGridSquare gridSquare, const std::string &_gid,
+ IsoDoor(IsoCell cell, IsoGridSquare gridSquare, std::string_view _gid,
  bool _north, KahluaTable _table) {
  this->OutlineOnMouseover = true;
  this->PushedMaxStrength = this->PushedStrength = 2500;
@@ -2357,7 +2358,7 @@ public
  }
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  if ("addSheet" == change) {
  if (tbl != nullptr && tbl.rawget("inside") instanceof Boolean) {
  bb.put((byte)(tbl.rawget("inside") ? 1 : 0);
@@ -2375,7 +2376,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  if ("addSheet" == change) {
  this->addSheet(bb.get() == 1, nullptr);
  }
@@ -3234,7 +3235,7 @@ public
  }
 
  void playDoorSound(BaseCharacterSoundEmitter baseCharacterSoundEmitter,
- const std::string &string) {
+ std::string_view string) {
  baseCharacterSoundEmitter.playSound(this->getSoundPrefix() + string, this);
  }
 

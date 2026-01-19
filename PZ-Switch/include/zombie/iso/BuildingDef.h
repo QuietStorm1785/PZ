@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -65,7 +66,7 @@ public
 public
  ArrayList<RoomDef> getRooms() { return this->rooms; }
 
- RoomDef getRoom(const std::string &roomName) {
+ RoomDef getRoom(std::string_view roomName) {
  for (int int0 = 0; int0 < this->rooms.size(); int0++) {
  RoomDef roomDef = this->rooms.get(int0);
  if (roomDef.getName().equalsIgnoreCase(roomName) {
@@ -292,7 +293,7 @@ public
  : nullptr;
  }
 
- bool containsRoom(const std::string &name) {
+ bool containsRoom(std::string_view name) {
  for (int int0 = 0; int0 < this->rooms.size(); int0++) {
  RoomDef roomDef = this->rooms.get(int0);
  if (roomDef.name == name) {

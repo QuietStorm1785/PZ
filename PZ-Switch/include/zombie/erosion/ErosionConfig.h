@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -107,7 +108,7 @@ public
  this->season.dec = bb.getFloat();
  }
 
- void writeFile(const std::string &_file) {
+ void writeFile(std::string_view _file) {
  try {
  if (Core.getInstance().isNoSave()) {
  return;
@@ -174,7 +175,7 @@ public
  }
  }
 
- bool readFile(const std::string &_file) {
+ bool readFile(std::string_view _file) {
  try {
  File file = new File(_file);
  if (!file.exists()) {

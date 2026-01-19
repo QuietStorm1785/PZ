@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -33,7 +34,7 @@ private
  int chunkType;
  int chunkRemaining;
 
- void readSize(const std::string &string) {
+ void readSize(std::string_view string) {
  try(FileInputStream fileInputStream = new FileInputStream(string);
  BufferedInputStream bufferedInputStream =
  new BufferedInputStream(fileInputStream);) {

@@ -69,6 +69,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -164,7 +165,7 @@ public
 
  bool isSkeleton() { return this->bSkeleton; }
 
- void setAnimSetName(const std::string &name) {
+ void setAnimSetName(std::string_view name) {
  if (StringUtils.isNullOrWhitespace(name) {
  throw IllegalArgumentException("invalid AnimSet \"" + name + "\"");
  } else {
@@ -172,7 +173,7 @@ public
  }
  }
 
- void setOutfitName(const std::string &name, bool female, bool zombie) {
+ void setOutfitName(std::string_view name, bool female, bool zombie) {
  this->outfitName = name;
  this->bFemale = female;
  this->bZombie = zombie;
@@ -209,11 +210,11 @@ public
  this->setModelData(survivorDesc.getHumanVisual(), this->itemVisuals);
  }
 
- void setPrimaryHandModelName(const std::string &name) {
+ void setPrimaryHandModelName(std::string_view name) {
  this->primaryHandModelName = name;
  }
 
- void setSecondaryHandModelName(const std::string &name) {
+ void setSecondaryHandModelName(std::string_view name) {
  this->secondaryHandModelName = name;
  }
 
@@ -328,7 +329,7 @@ public
  }
  }
 
- void setState(const std::string &_state) { this->state = _state; }
+ void setState(std::string_view _state) { this->state = _state; }
 
  std::string getState() { return this->state; }
 
@@ -346,7 +347,7 @@ public
 
  void setTrackTime(float _trackTime) { this->trackTime = _trackTime; }
 
- void clothingItemChanged(const std::string &itemGuid) {
+ void clothingItemChanged(std::string_view itemGuid) {
  this->bClothingChanged = true;
  }
 
@@ -457,7 +458,7 @@ public
  }
  }
 
- void addHeadHairItem(const std::string &string0, const std::string &string1,
+ void addHeadHairItem(std::string_view string0, std::string_view string1,
  ImmutableColor immutableColor) {
  if (StringUtils.isNullOrWhitespace(string0) {
  if (DebugLog.isEnabled(DebugType.Clothing) {
@@ -510,7 +511,7 @@ public
  bodyLocationGroup, itemVisualsx, itemVisual);
  }
 
- std::string processModelFileName(const std::string &string) {
+ std::string processModelFileName(std::string_view string) {
  string = string.replaceAll("\\\\", "/");
  return string.toLowerCase(Locale.ENGLISH);
  }
@@ -574,8 +575,8 @@ public
  }
  }
 
- ModelInstance addStatic(const std::string &string1,
- const std::string &string4) {
+ ModelInstance addStatic(std::string_view string1,
+ std::string_view string4) {
  std::string string0 = string1;
  std::string string2 = string1;
  std::string string3 = nullptr;
@@ -589,10 +590,10 @@ public
  return this->addStatic(string0, string2, string4, string3);
  }
 
- ModelInstance addStatic(const std::string &string0,
- const std::string &string1,
- const std::string &string3,
- const std::string &string2) {
+ ModelInstance addStatic(std::string_view string0,
+ std::string_view string1,
+ std::string_view string3,
+ std::string_view string2) {
  if (DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.debugln("Adding Static Model:" + string0);
  }

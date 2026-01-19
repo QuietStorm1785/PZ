@@ -42,7 +42,7 @@ private
 
  int size() { return this->isoChunkRegions.size(); }
 
- int getSquareSize() { return this->squareSize; }
+ int getSquareSize() noexcept{ return this->squareSize; }
 
  bool isInPool() { return this->isInPool; }
 
@@ -204,7 +204,7 @@ public
  return arrayList;
  }
 
- void resetSquareSize() { this->squareSize = 0; }
+ void resetSquareSize() noexcept{ this->squareSize = 0; }
 
  void setDirtyEnclosed() { this->isDirtyEnclosed = true; }
 

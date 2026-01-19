@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -66,7 +67,7 @@ public
  this->sendMessage("status", nullptr, string);
  }
 
- static void status(const std::string &string) {
+ static void status(std::string_view string) {
  if (instance != nullptr) {
  instance.sendStatus(string);
  }
@@ -87,7 +88,7 @@ public
  }
  }
 
- void sendExternalIPAddress(const std::string &string) {
+ void sendExternalIPAddress(std::string_view string) {
  this->sendMessage("get-parameter", string, PortMapper.getExternalAddress());
  }
 
@@ -100,7 +101,7 @@ public
  this->sendMessage("get-parameter", string, this->serverSteamID.toString());
  }
 
- bool handleCommand(const std::string &string0) {
+ bool handleCommand(std::string_view string0) {
  Matcher matcher = this->serverMessageParser.matcher(string0);
  if (matcher.find()) {
  std::string string1 = matcher.group(1);

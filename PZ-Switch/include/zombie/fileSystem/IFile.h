@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ namespace fileSystem {
 class IFile {
 public:
  virtual ~IFile() = default;
- bool open(const std::string &path, int mode);
+ bool open(std::string_view path, int mode);
 
  void close();
 

@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -38,7 +39,7 @@ public
  this->setCanBeDoneFromFloor(false);
  }
 
- void setResult(const std::string &resultItem, int count) {
+ void setResult(std::string_view resultItem, int count) {
  Recipe.Result result = new Recipe.Result();
  result.count = count;
  if (resultItem.contains(".")) {
@@ -51,13 +52,13 @@ public
  this->Result = result;
  }
 
- void setSource(const std::string &sourceItem) {
+ void setSource(std::string_view sourceItem) {
  Recipe.Source source = new Recipe.Source();
  source.getItems().add(sourceItem);
  this->Source.add(source);
  }
 
- void setTool(const std::string &tools, bool isPrimary) {
+ void setTool(std::string_view tools, bool isPrimary) {
  Recipe.Source source = new Recipe.Source();
  source.keep = true;
  if (tools.contains("/")) {
@@ -94,17 +95,17 @@ public
 
  bool hasXpPerk() { return this->xpPerk != PerkFactory.Perks.MAX; }
 
- void setOnCreate(const std::string &onCreate) { this->LuaCreate = onCreate; }
+ void setOnCreate(std::string_view onCreate) { this->LuaCreate = onCreate; }
 
- void setOnXP(const std::string &onXP) { this->LuaGiveXP = onXP; }
+ void setOnXP(std::string_view onXP) { this->LuaGiveXP = onXP; }
 
  void setTime(float time) { this->TimeToMake = time; }
 
- void setName(const std::string &name) { this->name = name; }
+ void setName(std::string_view name) { this->name = name; }
 
  std::string getWorldSprite() { return this->worldSprite; }
 
- void setWorldSprite(const std::string &_worldSprite) {
+ void setWorldSprite(std::string_view _worldSprite) {
  this->worldSprite = _worldSprite;
  }
 

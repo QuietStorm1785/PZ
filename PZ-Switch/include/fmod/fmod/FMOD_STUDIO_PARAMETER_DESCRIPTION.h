@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  const int globalIndex;
 
 public
- FMOD_STUDIO_PARAMETER_DESCRIPTION(const std::string &arg0,
+ FMOD_STUDIO_PARAMETER_DESCRIPTION(std::string_view arg0,
  FMOD_STUDIO_PARAMETER_ID arg1, int arg2,
  int arg3) {
  this->name = arg0;

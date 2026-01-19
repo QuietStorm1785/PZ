@@ -107,7 +107,7 @@ public
  }
 
 public
- int getCount() { return this->ParticleSystemsCount; }
+ int getCount() noexcept{ return this->ParticleSystemsCount; }
 
 public
  boolean getNeedToUpdate() { return this->needToUpdate; }

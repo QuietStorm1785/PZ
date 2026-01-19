@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <memory>
 #include <unordered_map>
 
@@ -26,7 +27,7 @@ public:
  * @param objectType - Type of object (e.g., "furniture", "container", "door")
  * @param soundPath - Path to sound file relative to media/sound/
  */
- void registerInteractionSound(const std::string& objectType, const std::string& soundPath);
+ void registerInteractionSound(std::string_view objectType, std::string_view soundPath);
 
  /**
  * Register a sound effect for a specific object action
@@ -34,7 +35,7 @@ public:
  * @param actionName - Action name (e.g., "open", "close")
  * @param soundPath - Path to sound file
  */
- void registerActionSound(const std::string& objectType, const std::string& actionName, const std::string& soundPath);
+ void registerActionSound(std::string_view objectType, std::string_view actionName, std::string_view soundPath);
 
  /**
  * Play interaction sound for object type
@@ -42,7 +43,7 @@ public:
  * @param x, y - World position for spatial audio
  * @return true if sound played successfully
  */
- bool playInteractionSound(const std::string& objectType, float x, float y);
+ bool playInteractionSound(std::string_view objectType, float x, float y);
 
  /**
  * Play sound for specific object action
@@ -50,7 +51,7 @@ public:
  * @param actionName - Specific action (e.g., "open", "close", "break")
  * @param x, y - World position
  */
- bool playObjectSound(const std::string& objectType, const std::string& actionName, float x, float y);
+ bool playObjectSound(std::string_view objectType, std::string_view actionName, float x, float y);
 
  /**
  * Register container-specific sounds

@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -53,7 +54,7 @@ private
  return (NumberFormat)object;
  }
 
- static bool hasOption(const std::string &string) {
+ static bool hasOption(std::string_view string) {
  if (string.empty()) {
  return false;
  } else {

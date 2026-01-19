@@ -33,6 +33,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -335,7 +336,7 @@ public
  1.0, 0.0, 0.0, 1.0);
  }
 
- void renderPlayerName(float float4, float float5, const std::string &string) {
+ void renderPlayerName(float float4, float float5, std::string_view string) {
  if (this->m_renderer.getBoolean("PlayerNames")) {
  if (!StringUtils.isNullOrWhitespace(string) {
  float float0 = this->m_renderer.getDisplayZoomF();

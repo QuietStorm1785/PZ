@@ -83,6 +83,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -773,7 +774,7 @@ public
  }
 
  void AddVehicles_OnZone(IsoMetaGrid.VehicleZone vehicleZone,
- const std::string &string) {
+ std::string_view string) {
  IsoDirections directions = IsoDirections.N;
  uint8_t byte0 = 3;
  uint8_t byte1 = 4;
@@ -995,7 +996,7 @@ public
  }
 }
 
- void AddVehicles_OnZonePolyline(IsoMetaGrid.VehicleZone vehicleZone, const std::string& string) {
+ void AddVehicles_OnZonePolyline(IsoMetaGrid.VehicleZone vehicleZone, std::string_view string) {
  uint8_t byte0 = 5;
  Vector2 vector = new Vector2();
 
@@ -1153,7 +1154,7 @@ static bool doSpawnedVehiclesInInvalidPosition(BaseVehicle v) {
 }
 
 void spawnVehicleRandomAngle(IsoGridSquare square, IsoMetaGrid.Zone zone,
- const std::string &string) {
+ std::string_view string) {
  bool boolean0 = true;
  uint8_t byte0 = 3;
  uint8_t byte1 = 4;
@@ -1213,7 +1214,7 @@ void spawnVehicleRandomAngle(IsoGridSquare square, IsoMetaGrid.Zone zone,
  * @return true if succed
  */
 bool RandomizeModel(BaseVehicle v, IsoMetaGrid.Zone zone,
- const std::string &name, VehicleType type) {
+ std::string_view name, VehicleType type) {
  if (type.vehiclesDefinition.empty()) {
  System.out.println("no vehicle definition found for " + name);
  return false;
@@ -1259,7 +1260,7 @@ bool RandomizeModel(BaseVehicle v, IsoMetaGrid.Zone zone,
 }
 
 void AddVehicles_TrafficJam_W(IsoMetaGrid.Zone zone,
- const std::string &string) {
+ std::string_view string) {
  int int0 = zone.y - this->wy * 10 + 1;
 
  while (int0 < 0) {
@@ -1332,7 +1333,7 @@ void AddVehicles_TrafficJam_W(IsoMetaGrid.Zone zone,
 }
 
 void AddVehicles_TrafficJam_E(IsoMetaGrid.Zone zone,
- const std::string &string) {
+ std::string_view string) {
  int int0 = zone.y - this->wy * 10 + 1;
 
  while (int0 < 0) {
@@ -1405,7 +1406,7 @@ void AddVehicles_TrafficJam_E(IsoMetaGrid.Zone zone,
 }
 
 void AddVehicles_TrafficJam_S(IsoMetaGrid.Zone zone,
- const std::string &string) {
+ std::string_view string) {
  int int0 = zone.y - this->wy * 10 + 3;
 
  while (int0 < 0) {
@@ -1478,7 +1479,7 @@ void AddVehicles_TrafficJam_S(IsoMetaGrid.Zone zone,
 }
 
 void AddVehicles_TrafficJam_N(IsoMetaGrid.Zone zone,
- const std::string &string) {
+ std::string_view string) {
  int int0 = zone.y - this->wy * 10 + 3;
 
  while (int0 < 0) {
@@ -1551,7 +1552,7 @@ void AddVehicles_TrafficJam_N(IsoMetaGrid.Zone zone,
 }
 
 void AddVehicles_TrafficJam_Polyline(IsoMetaGrid.Zone zone,
- const std::string &string) {
+ std::string_view string) {
  Vector2 vector0 = new Vector2();
  Vector2 vector1 = new Vector2();
  float float0 = 0.0F;
@@ -1606,7 +1607,7 @@ void AddVehicles_TrafficJam_Polyline(IsoMetaGrid.Zone zone,
  }
 }
 
-void TryAddVehicle_TrafficJam(IsoMetaGrid.Zone zone, const std::string &string,
+void TryAddVehicle_TrafficJam(IsoMetaGrid.Zone zone, std::string_view string,
  float float1, float float0, Vector2 vector,
  float float6, float float7) {
  if (!(float1 < this->wx * 10) && !(float1 >= (this->wx + 1) * 10) &&
@@ -3675,7 +3676,7 @@ void Save(bool bSaveQuit) {
  }
 }
 
-static void SafeWrite(const std::string &_prefix, int _wx, int _wy,
+static void SafeWrite(std::string_view _prefix, int _wx, int _wy,
  ByteBuffer bb) {
  IsoChunk.ChunkLock chunkLock = acquireLock(_wx, _wy);
  chunkLock.lockForWriting();
@@ -3695,7 +3696,7 @@ static void SafeWrite(const std::string &_prefix, int _wx, int _wy,
  }
 }
 
-static ByteBuffer SafeRead(const std::string &_prefix, int _wx, int _wy,
+static ByteBuffer SafeRead(std::string_view _prefix, int _wx, int _wy,
  ByteBuffer bb) {
  IsoChunk.ChunkLock chunkLock = acquireLock(_wx, _wy);
  chunkLock.lockForReading();
@@ -4210,7 +4211,7 @@ static int Fix2x(IsoGridSquare square, int spriteID) {
  }
 }
 
-static std::string Fix2x(const std::string &tileName) {
+static std::string Fix2x(std::string_view tileName) {
  if (Fix2xMap.empty()) {
  std::unordered_map hashMap = Fix2xMap;
 

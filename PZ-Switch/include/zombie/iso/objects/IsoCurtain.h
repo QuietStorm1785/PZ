@@ -30,6 +30,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -94,7 +95,7 @@ public
  }
 
 public
- IsoCurtain(IsoCell cell, IsoGridSquare gridSquare, const std::string &gid,
+ IsoCurtain(IsoCell cell, IsoGridSquare gridSquare, std::string_view gid,
  bool _north) {
  this->OutlineOnMouseover = true;
  this->PushedMaxStrength = this->PushedStrength = 2500;

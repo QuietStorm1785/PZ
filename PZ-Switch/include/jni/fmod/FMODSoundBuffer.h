@@ -36,7 +36,7 @@ class FMODSoundBuffer {
       return this.buf1;
    }
 
-    long get_size() const {
+    long get_size() const noexcept {
       return this.buf1size;
    }
 

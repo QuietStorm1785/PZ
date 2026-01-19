@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -43,25 +44,25 @@ public
 
  static void forceNextAddText() { ignoreOverheadCheckOnce = true; }
 
- static void addTextWithArrow(IsoPlayer player, const std::string &text,
+ static void addTextWithArrow(IsoPlayer player, std::string_view text,
  bool arrowIsUp, HaloTextHelper.ColorRGB color) {
  addTextWithArrow(player, text, arrowIsUp, color.r, color.g, color.b,
  color.r, color.g, color.b);
  }
 
- static void addTextWithArrow(IsoPlayer player, const std::string &text,
+ static void addTextWithArrow(IsoPlayer player, std::string_view text,
  bool arrowIsUp, int r, int g, int b) {
  addTextWithArrow(player, text, arrowIsUp, r, g, b, r, g, b);
  }
 
- static void addTextWithArrow(IsoPlayer player, const std::string &text,
+ static void addTextWithArrow(IsoPlayer player, std::string_view text,
  bool arrowIsUp, HaloTextHelper.ColorRGB color,
  HaloTextHelper.ColorRGB arrowColor) {
  addTextWithArrow(player, text, arrowIsUp, color.r, color.g, color.b,
  arrowColor.r, arrowColor.g, arrowColor.b);
  }
 
- static void addTextWithArrow(IsoPlayer player, const std::string &text,
+ static void addTextWithArrow(IsoPlayer player, std::string_view text,
  bool arrowIsUp, int r, int g, int b, int aR,
  int aG, int aB) {
  addText(player, "[col=" + r + "," + g + "," + b + "]" + text +
@@ -70,17 +71,17 @@ public
  aR + "," + aG + "," + aB + "]");
  }
 
- static void addText(IsoPlayer player, const std::string &text,
+ static void addText(IsoPlayer player, std::string_view text,
  HaloTextHelper.ColorRGB color) {
  addText(player, text, color.r, color.g, color.b);
  }
 
- static void addText(IsoPlayer player, const std::string &text, int r, int g,
+ static void addText(IsoPlayer player, std::string_view text, int r, int g,
  int b) {
  addText(player, "[col=" + r + "," + g + "," + b + "]" + text + "[/]");
  }
 
- static void addText(IsoPlayer player, const std::string &text) {
+ static void addText(IsoPlayer player, std::string_view text) {
  int int0 = player.getPlayerNum();
  if (!overheadContains(int0, text) {
  std::string string = queuedLines[int0];
@@ -98,7 +99,7 @@ public
  }
  }
 
- static bool overheadContains(int int0, const std::string &string) {
+ static bool overheadContains(int int0, std::string_view string) {
  if (ignoreOverheadCheckOnce) {
  ignoreOverheadCheckOnce = false;
  return false;

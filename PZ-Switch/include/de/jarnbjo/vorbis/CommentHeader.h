@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -58,7 +59,7 @@ public
  }
  }
 
- void addComment(const std::string &string0, const std::string &string1) {
+ void addComment(std::string_view string0, std::string_view string1) {
  std::vector arrayList = (ArrayList)this->comments.get(string0);
  if (arrayList.empty()) {
  arrayList = std::make_unique<ArrayList>();
@@ -70,7 +71,7 @@ public
 
  std::string getVendor() { return this->vendor; }
 
- std::string getComment(const std::string &string) {
+ std::string getComment(std::string_view string) {
  std::vector arrayList = (ArrayList)this->comments.get(string);
  return arrayList = = nullptr ? (String)nullptr : (String)arrayList.get(0);
  }

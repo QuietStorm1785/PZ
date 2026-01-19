@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,14 +33,14 @@ private
  DiscordSender sender;
 
 public
- DiscordBot(const std::string &string, DiscordSender discordSender) {
+ DiscordBot(std::string_view string, DiscordSender discordSender) {
  this->name = string;
  this->sender = discordSender;
  this->current = nullptr;
  }
 
- void connect(bool boolean0, const std::string &string0,
- const std::string &string1, const std::string &string2) {
+ void connect(bool boolean0, std::string_view string0,
+ std::string_view string1, std::string_view string2) {
  if (string0.empty() || string0.empty()) {
  DebugLog.log(DebugType.Network, "DISCORD: token not configured");
  boolean0 = false;
@@ -57,7 +58,7 @@ public
  }
  }
 
- void setChannel(const std::string &string0, const std::string &string1) {
+ void setChannel(std::string_view string0, std::string_view string1) {
  Collection collection = this->getChannelNames();
  if ((string0.empty() || string0.empty()) && !collection.empty()) {
  string0 = (String)collection.iterator().next();
@@ -74,7 +75,7 @@ public
  }
  }
 
- void sendMessage(const std::string &string1, const std::string &string0) {
+ void sendMessage(std::string_view string1, std::string_view string0) {
  if (this->current != nullptr) {
  this->current.sendMessage(string1 + ": " + string0);
  DebugLog.log(DebugType.Network, "DISCORD: User '" + string1 +
@@ -94,7 +95,7 @@ private
  return arrayList;
  }
 
- void setChannelByName(const std::string &string) {
+ void setChannelByName(std::string_view string) {
  this->current = nullptr;
 
  for (Channel channel : this->channels) {
@@ -120,7 +121,7 @@ private
  }
  }
 
- void setChannelByID(const std::string &string) {
+ void setChannelByID(std::string_view string) {
  this->current = nullptr;
 
  for (Channel channel : this->channels) {
@@ -199,7 +200,7 @@ private
  return string;
  }
 
- std::string removeSmilesAndImages(const std::string &string) {
+ std::string removeSmilesAndImages(std::string_view string) {
  StringBuilder stringBuilder = new StringBuilder();
  char[] chars = string.toCharArray();
  int int0 = chars.length;

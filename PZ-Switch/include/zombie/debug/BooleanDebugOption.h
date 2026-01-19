@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  const bool m_debugOnly;
 
 public
- BooleanDebugOption(const std::string &name, bool debugOnly,
+ BooleanDebugOption(std::string_view name, bool debugOnly,
  bool defaultValue) {
  super(name, defaultValue);
  this->m_debugOnly = debugOnly;

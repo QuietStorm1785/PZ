@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -45,11 +46,11 @@ class WorldDictionary {
     static const std::string netValidator = "DICTIONARY_PACKET_END";
    private static byte[] clientRemoteData;
 
-    static void log(const std::string& var0) {
+    static void log(std::string_view var0) {
       log(var0, true);
    }
 
-    static void log(const std::string& var0, bool var1) {
+    static void log(std::string_view var0, bool var1) {
       if (var1) {
          DebugLog.log("WorldDictionary: " + var0);
       }
@@ -241,7 +242,7 @@ class WorldDictionary {
     static void onWorldLoaded() {
    }
 
-    static ItemInfo getItemInfoFromType(const std::string& var0) {
+    static ItemInfo getItemInfoFromType(std::string_view var0) {
       return data.getItemInfoFromType(var0);
    }
 
@@ -249,7 +250,7 @@ class WorldDictionary {
       return data.getItemInfoFromID(var0);
    }
 
-    static short getItemRegistryID(const std::string& var0) {
+    static short getItemRegistryID(std::string_view var0) {
       return data.getItemRegistryID(var0);
    }
 
@@ -265,7 +266,7 @@ class WorldDictionary {
       return data.getSpriteNameFromID(var0);
    }
 
-    static int getIdForSpriteName(const std::string& var0) {
+    static int getIdForSpriteName(std::string_view var0) {
       return data.getIdForSpriteName(var0);
    }
 
@@ -273,7 +274,7 @@ class WorldDictionary {
       return data.getObjectNameFromID(var0);
    }
 
-    static uint8_t getIdForObjectName(const std::string& var0) {
+    static uint8_t getIdForObjectName(std::string_view var0) {
       return data.getIdForObjectName(var0);
    }
 
@@ -282,12 +283,12 @@ class WorldDictionary {
       return var1 != nullptr ? var1.modID : nullptr;
    }
 
-    static std::string getItemModID(const std::string& var0) {
+    static std::string getItemModID(std::string_view var0) {
     ItemInfo var1 = getItemInfoFromType(var0);
       return var1 != nullptr ? var1.modID : nullptr;
    }
 
-    static std::string getModNameFromID(const std::string& var0) {
+    static std::string getModNameFromID(std::string_view var0) {
       if (var0 != nullptr) {
          if (var0 == "pz-vanilla")) {
             return "Project Zomboid";
@@ -343,7 +344,7 @@ class WorldDictionary {
       }
    }
 
-    static void DebugPrintItem(const std::string& var0) {
+    static void DebugPrintItem(std::string_view var0) {
     ItemInfo var1 = getItemInfoFromType(var0);
       if (var1 != nullptr) {
          var1.DebugPrint();

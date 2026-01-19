@@ -131,7 +131,7 @@ public:
  }
  }
 
- int getPacketSizeBytes() { return this->objectType == 4 ? 12 : 3; }
+ int getPacketSizeBytes() noexcept{ return this->objectType == 4 ? 12 : 3; }
 
  std::string getDescription() {
  std::string string = "";

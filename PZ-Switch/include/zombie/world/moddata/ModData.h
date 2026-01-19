@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,37 +29,37 @@ public
  return temp_list;
  }
 
- static bool exists(const std::string &tag) {
+ static bool exists(std::string_view tag) {
  return GlobalModData.instance.exists(tag);
  }
 
- static KahluaTable getOrCreate(const std::string &tag) {
+ static KahluaTable getOrCreate(std::string_view tag) {
  return GlobalModData.instance.getOrCreate(tag);
  }
 
- static KahluaTable get(const std::string &tag) {
+ static KahluaTable get(std::string_view tag) {
  return GlobalModData.instance.get(tag);
  }
 
  static std::string create() { return GlobalModData.instance.create(); }
 
- static KahluaTable create(const std::string &tag) {
+ static KahluaTable create(std::string_view tag) {
  return GlobalModData.instance.create(tag);
  }
 
- static KahluaTable remove(const std::string &tag) {
+ static KahluaTable remove(std::string_view tag) {
  return GlobalModData.instance.remove(tag);
  }
 
- static void add(const std::string &tag, KahluaTable table) {
+ static void add(std::string_view tag, KahluaTable table) {
  GlobalModData.instance.add(tag, table);
  }
 
- static void transmit(const std::string &tag) {
+ static void transmit(std::string_view tag) {
  GlobalModData.instance.transmit(tag);
  }
 
- static void request(const std::string &tag) {
+ static void request(std::string_view tag) {
  GlobalModData.instance.request(tag);
  }
 }

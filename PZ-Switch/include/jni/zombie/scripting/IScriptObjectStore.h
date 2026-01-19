@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -15,9 +16,9 @@ namespace scripting {
 class IScriptObjectStore {
 :
     virtual ~IScriptObjectStore() = default;
-    Item getItem(const std::string& var1);
+    Item getItem(std::string_view var1);
 
-    Recipe getRecipe(const std::string& var1);
+    Recipe getRecipe(std::string_view var1);
 }
 } // namespace scripting
 } // namespace zombie

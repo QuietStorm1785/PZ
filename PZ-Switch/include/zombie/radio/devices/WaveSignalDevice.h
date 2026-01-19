@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,8 +41,8 @@ public:
 
  float getZ();
 
- void AddDeviceText(const std::string &line, float r, float g, float b,
- const std::string &guid, const std::string &codes,
+ void AddDeviceText(std::string_view line, float r, float g, float b,
+ std::string_view guid, std::string_view codes,
  int distance);
 
  bool HasPlayerInRange();

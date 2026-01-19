@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public
  AnimBoneWeight() {}
 
 public
- AnimBoneWeight(const std::string &string, float float0) {
+ AnimBoneWeight(std::string_view string, float float0) {
  this->boneName = string;
  this->weight = float0;
  this->includeDescendants = true;

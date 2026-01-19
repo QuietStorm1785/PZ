@@ -13,6 +13,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -337,7 +338,7 @@ public
  }
  }
 
- std::string getString(const std::string &arg0) {
+ std::string getString(std::string_view arg0) {
  return (String)this->rawget(arg0);
  }
 

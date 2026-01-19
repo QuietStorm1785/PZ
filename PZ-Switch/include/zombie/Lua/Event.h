@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -70,7 +71,7 @@ public
  }
 
 public
- Event(const std::string &_name, int _index) {
+ Event(std::string_view _name, int _index) {
  this->index = _index;
  this->name = _name;
  this->add = new Event.Add(this);

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,17 +49,17 @@ public:
  boolean var5, float var6, float var7,
  float var8);
 
- void cacheSound(ISoundSystem.SoundFormat var1, const std::string &var2,
- const std::string &var3, int var4);
+ void cacheSound(ISoundSystem.SoundFormat var1, std::string_view var2,
+ std::string_view var3, int var4);
 
- void cacheSound(ISoundSystem.SoundFormat var1, const std::string &var2,
- const std::string &var3);
+ void cacheSound(ISoundSystem.SoundFormat var1, std::string_view var2,
+ std::string_view var3);
 
  void clearSoundCache();
 
- int countInstances(const std::string &var1);
+ int countInstances(std::string_view var1);
 
- void setInstanceLimit(const std::string &var1, int var2,
+ void setInstanceLimit(std::string_view var1, int var2,
  ISoundSystem.InstanceFailAction var3);
 
 public

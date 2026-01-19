@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -37,13 +38,13 @@ private
  bool currentHasAired = false;
 
 public
- RadioScript(const std::string &n, int loopmin, int loopmax) {
+ RadioScript(std::string_view n, int loopmin, int loopmax) {
  this(n, loopmin, loopmax, UUID.randomUUID().toString());
  }
 
 public
- RadioScript(const std::string &n, int loopmin, int loopmax,
- const std::string &guid) {
+ RadioScript(std::string_view n, int loopmin, int loopmax,
+ std::string_view guid) {
  this->name = n;
  this->loopMin = loopmin;
  this->loopMax = loopmax;
@@ -107,7 +108,7 @@ public
  }
  }
 
- RadioBroadCast getBroadcastWithID(const std::string &guid) {
+ RadioBroadCast getBroadcastWithID(std::string_view guid) {
  for (int int0 = 0; int0 < this->broadcasts.size(); int0++) {
  RadioBroadCast radioBroadCast = this->broadcasts.get(int0);
  if (radioBroadCast.getID() == guid) {
@@ -183,7 +184,7 @@ public
  }
  }
 
- void AddExitOption(const std::string &scriptname, int chance,
+ void AddExitOption(std::string_view scriptname, int chance,
  int startdelay) {
  int int0 = chance;
 
@@ -230,7 +231,7 @@ public
  int startDelay = 0;
 
  public
- ExitOption(const std::string &name, int rollchance, int startdelay) {
+ ExitOption(std::string_view name, int rollchance, int startdelay) {
  this->scriptname = name;
  this->chance = rollchance;
  this->startDelay = startdelay;

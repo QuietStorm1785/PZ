@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -37,12 +38,12 @@ private
 
  static ActiveMods getByIndex(int index) { return s_activeMods.get(index); }
 
- static ActiveMods getById(const std::string &_id) {
+ static ActiveMods getById(std::string_view _id) {
  int int0 = indexOf(_id);
  return int0 = = -1 ? create(_id) : s_activeMods.get(int0);
  }
 
- static int indexOf(const std::string &_id) {
+ static int indexOf(std::string_view _id) {
  _id = _id.trim();
  requireValidId(_id);
 
@@ -56,7 +57,7 @@ private
  return -1;
  }
 
- static ActiveMods create(const std::string &string) {
+ static ActiveMods create(std::string_view string) {
  requireValidId(string);
  if (indexOf(string) != -1) {
  throw IllegalStateException("id \"" + string + "\" exists");
@@ -67,7 +68,7 @@ private
  }
  }
 
- static void requireValidId(const std::string &string) {
+ static void requireValidId(std::string_view string) {
  if (StringUtils.isNullOrWhitespace(string) {
  throw IllegalArgumentException("id is nullptr or whitespace");
  }
@@ -122,7 +123,7 @@ private
  static void Reset() { s_loaded.clear(); }
 
 public
- ActiveMods(const std::string &_id) {
+ ActiveMods(std::string_view _id) {
  requireValidId(_id);
  this->id = _id;
  }
@@ -145,7 +146,7 @@ public
  this->mapOrder.addAll(other.mapOrder);
  }
 
- void setModActive(const std::string &modID, bool active) {
+ void setModActive(std::string_view modID, bool active) {
  modID = modID.trim();
  if (!StringUtils.isNullOrWhitespace(modID) {
  if (active) {
@@ -158,18 +159,18 @@ public
  }
  }
 
- bool isModActive(const std::string &modID) {
+ bool isModActive(std::string_view modID) {
  modID = modID.trim();
  return StringUtils.isNullOrWhitespace(modID) ? false
  : this->mods.contains(modID);
  }
 
- void removeMod(const std::string &modID) {
+ void removeMod(std::string_view modID) {
  modID = modID.trim();
  this->mods.remove(modID);
  }
 
- void removeMapOrder(const std::string &folder) {
+ void removeMapOrder(std::string_view folder) {
  this->mapOrder.remove(folder);
  }
 

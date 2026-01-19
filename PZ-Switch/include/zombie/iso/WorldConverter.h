@@ -25,6 +25,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -42,7 +43,7 @@ public
  HashMap<Integer, Integer> TilesetConversions = nullptr;
  int oldID = 0;
 
- void convert(const std::string &string, IsoSpriteManager var2) {
+ void convert(std::string_view string, IsoSpriteManager var2) {
  File file =
  new File(ZomboidFileSystem.instance.getGameModeCacheDir() +
  File.separator + string + File.separator + "map_ver.bin");
@@ -71,7 +72,7 @@ public
  }
  }
 
- void convert(const std::string &string1, int int0, int int1) {
+ void convert(std::string_view string1, int int0, int int1) {
  if (!GameClient.bClient) {
  GameLoadingState.convertingWorld = true;
  std::string string0 = Core.GameSaveWorld;
@@ -107,7 +108,7 @@ public
  }
  }
 
- void convertchunks(const std::string &string0) {
+ void convertchunks(std::string_view string0) {
  IsoCell cell = new IsoCell(300, 300);
  IsoChunkMap chunkMap = new IsoChunkMap(cell);
  File file = new File(ZomboidFileSystem.instance.getGameModeCacheDir() +
@@ -144,7 +145,7 @@ public
  }
 }
 
- void convertchunks(const std::string& string0, int int0, int int1) {
+ void convertchunks(std::string_view string0, int int0, int int1) {
  IsoCell cell = new IsoCell(300, 300);
  new IsoChunkMap();
  File file0 = new File(ZomboidFileSystem.instance.getGameModeCacheDir() +
@@ -211,7 +212,7 @@ public
 }
 }
 
-void loadconversionmap(int int0, const std::string &string1) {
+void loadconversionmap(int int0, std::string_view string1) {
  std::string string0 = "media/" + string1 + "_" + int0 + ".tiles";
  File file = new File(string0);
  if (file.exists()) {
@@ -351,7 +352,7 @@ SteamUtils.shutdown();
 System.exit(0);
 }
 
-static void deleteFile(const std::string &string) {
+static void deleteFile(std::string_view string) {
  File file = new File(ZomboidFileSystem.instance.getGameModeCacheDir() +
  File.separator + GameServer.ServerName + File.separator +
  string);

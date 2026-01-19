@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,14 +25,14 @@ public
  PresetEntry() {}
 
 public
- PresetEntry(const std::string &n, int f) {
+ PresetEntry(std::string_view n, int f) {
  this->name = n;
  this->frequency = f;
  }
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &n) { this->name = n; }
+ void setName(std::string_view n) { this->name = n; }
 
  int getFrequency() { return this->frequency; }
 

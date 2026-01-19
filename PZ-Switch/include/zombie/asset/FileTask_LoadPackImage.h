@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public:
  int m_flags;
 
 public
- FileTask_LoadPackImage(const std::string &string0, const std::string &string1,
+ FileTask_LoadPackImage(std::string_view string0, std::string_view string1,
  FileSystem fileSystem,
  IFileTaskCallback iFileTaskCallback) {
  super(fileSystem, iFileTaskCallback);

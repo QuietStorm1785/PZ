@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,8 +18,8 @@ class WinReqistry {
 public:
  static std::string getSteamDirectory() { return readRegistry(); }
 
- static std::string readRegistry(const std::string &string1,
- const std::string &string0) {
+ static std::string readRegistry(std::string_view string1,
+ std::string_view string0) {
  try {
  Process process = Runtime.getRuntime().exec("reg query \"" + string1 +
  "\" /v " + string0);

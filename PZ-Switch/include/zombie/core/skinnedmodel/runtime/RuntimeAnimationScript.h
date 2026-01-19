@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ protected
  ArrayList<IRuntimeAnimationCommand> m_commands =
  std::make_unique<ArrayList<>>();
 
- void Load(const std::string &name, const std::string &totalFile) {
+ void Load(std::string_view name, std::string_view totalFile) {
  this->m_name = name;
  ScriptParser.Block block0 = ScriptParser.parse(totalFile);
  block0 = block0.children.get(0);

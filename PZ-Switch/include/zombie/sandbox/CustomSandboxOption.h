@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public:
  CustomSandboxOption(String string) { this->m_id = string; }
 
  static double getValueDouble(ScriptParser.Block block,
- const std::string &string, double double0) {
+ std::string_view string, double double0) {
  ScriptParser.Value value = block.getValue(string);
  return value = =
  nullptr ? double0
@@ -31,14 +32,14 @@ public:
  }
 
  static float getValueFloat(ScriptParser.Block block,
- const std::string &string, float float0) {
+ std::string_view string, float float0) {
  ScriptParser.Value value = block.getValue(string);
  return value = =
  nullptr ? float0
  : PZMath.tryParseFloat(value.getValue().trim(), float0);
  }
 
- static int getValueInt(ScriptParser.Block block, const std::string &string,
+ static int getValueInt(ScriptParser.Block block, std::string_view string,
  int int0) {
  ScriptParser.Value value = block.getValue(string);
  return value = =

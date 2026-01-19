@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -63,7 +64,7 @@ public
  return this->m_devices.remove(iFileDevice);
  }
 
- IFile open(DeviceList deviceList, const std::string &string, int int0) {
+ IFile open(DeviceList deviceList, std::string_view string, int int0) {
  IFile iFile = deviceList.createFile();
  if (iFile != nullptr) {
  if (iFile.open(string, int0) {
@@ -82,7 +83,7 @@ public
  iFile.release();
  }
 
- int openAsync(DeviceList deviceList, const std::string &string, int int0,
+ int openAsync(DeviceList deviceList, std::string_view string, int int0,
  IFileTask2Callback iFileTask2Callback) {
  IFile iFile = deviceList.createFile();
  if (iFile != nullptr) {
@@ -138,7 +139,7 @@ public
  }
  }
 
- InputStream openStream(DeviceList deviceList, const std::string &string) {
+ InputStream openStream(DeviceList deviceList, std::string_view string) {
  return deviceList.createStream(string);
  }
 
@@ -254,7 +255,7 @@ public
 
  DeviceList getDefaultDevice() { return this->m_default_device; }
 
- void mountTexturePack(const std::string &string,
+ void mountTexturePack(std::string_view string,
  FileSystem.TexturePackTextures texturePackTextures,
  int int0) {
  TexturePackDevice texturePackDevice = new TexturePackDevice(string, int0);
@@ -272,16 +273,16 @@ public
  this->m_texturepack_devicelists.put(texturePackDevice.name(), deviceList);
  }
 
- DeviceList getTexturePackDevice(const std::string &string) {
+ DeviceList getTexturePackDevice(std::string_view string) {
  return this->m_texturepack_devicelists.get(string);
  }
 
- int getTexturePackFlags(const std::string &string) {
+ int getTexturePackFlags(std::string_view string) {
  return this->m_texturepack_devices.get(string).getTextureFlags();
  }
 
- bool getTexturePackAlpha(const std::string &string1,
- const std::string &string0) {
+ bool getTexturePackAlpha(std::string_view string1,
+ std::string_view string0) {
  return this->m_texturepack_devices.get(string1).isAlpha(string0);
  }
 

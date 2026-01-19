@@ -33,7 +33,7 @@ public:
  long frameCounter;
  bool isEnabled = true;
 
- long getFrameCounter() { return this->frameCounter; }
+ long getFrameCounter() noexcept{ return this->frameCounter; }
 
  void startFrame() {
  this->frameCounter++;

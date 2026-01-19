@@ -16,6 +16,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -199,7 +200,7 @@ public:
  */
  bool isAttacking(IsoGameCharacter owner) { return true; }
 
- void triggerPlayerReaction(const std::string &string1,
+ void triggerPlayerReaction(std::string_view string1,
  IsoGameCharacter character0) {
  IsoZombie zombie0 = (IsoZombie)character0;
  IsoGameCharacter character1 = (IsoGameCharacter)zombie0.target;

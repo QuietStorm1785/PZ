@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -59,7 +60,7 @@ public
  return this->channelsList;
  }
 
- RadioChannel getRadioChannel(const std::string &uuid) {
+ RadioChannel getRadioChannel(std::string_view uuid) {
  for (Entry entry : this->channels.entrySet()) {
  if (((RadioChannel)entry.getValue()).getGUID() == uuid) {
  return (RadioChannel)entry.getValue();

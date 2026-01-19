@@ -23,6 +23,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -75,9 +76,9 @@ private
  }
 
  static Item resolveItemModuleDotType(Recipe recipe,
- const std::string &string0,
+ std::string_view string0,
  Set<String> set,
- const std::string &string2) {
+ std::string_view string2) {
  ScriptModule scriptModule0 = recipe.getModule();
  Item item = scriptModule0.getItem(string0);
  if (item != nullptr && !item.getObsolete()) {
@@ -130,8 +131,8 @@ private
  }
  }
 
- static void LoadedAfterLua(Recipe recipe, const std::string &string0,
- const std::string &string1) {
+ static void LoadedAfterLua(Recipe recipe, std::string_view string0,
+ std::string_view string1) {
  if (!StringUtils.isNullOrWhitespace(string0) {
  void *object = LuaManager.getFunctionObject(string0);
  if (object.empty()) {
@@ -162,8 +163,8 @@ private
  }
  }
 
- static bool DoesWipeUseDelta(const std::string &itemToUse,
- const std::string &itemToMake) {
+ static bool DoesWipeUseDelta(std::string_view itemToUse,
+ std::string_view itemToMake) {
  return true;
  }
 
@@ -181,7 +182,7 @@ private
  return int0;
  }
 
- static bool DoesUseItemUp(const std::string &itemToUse, Recipe recipe) {
+ static bool DoesUseItemUp(std::string_view itemToUse, Recipe recipe) {
  assert "Water" == itemToUse) || itemToUse.contains(".");
 
  for (int int0 = 0; int0 < recipe.Source.size(); int0++) {
@@ -199,7 +200,7 @@ private
  return true;
  }
 
- static bool IsItemDestroyed(const std::string &itemToUse, Recipe recipe) {
+ static bool IsItemDestroyed(std::string_view itemToUse, Recipe recipe) {
  assert "Water" == itemToUse) || itemToUse.contains(".");
 
  for (int int0 = 0; int0 < recipe.Source.size(); int0++) {
@@ -216,7 +217,7 @@ private
  return false;
  }
 
- static float UseAmount(const std::string &sourceFullType, Recipe recipe,
+ static float UseAmount(std::string_view sourceFullType, Recipe recipe,
  IsoGameCharacter chr) {
  Recipe.Source source = recipe.findSource(sourceFullType);
  return source.getCount();
@@ -933,7 +934,7 @@ static void DebugPrintAllRecipes() {
  }
 }
 
-static Recipe getDismantleRecipeFor(const std::string &item) {
+static Recipe getDismantleRecipeFor(std::string_view item) {
  RecipeList.clear();
  std::vector arrayList0 = ScriptManager.instance.getAllRecipes();
 
@@ -1072,7 +1073,7 @@ static class RMRecipe {
  return true;
  }
 
- bool isKeep(const std::string &string) {
+ bool isKeep(std::string_view string) {
  for (int int0 = 0; int0 < this->sources.size(); int0++) {
  RecipeManager.RMRecipeSource rMRecipeSource = this->sources.get(int0);
  if (rMRecipeSource.isKeep(string) {
@@ -1405,7 +1406,7 @@ private static class RMRecipeSource {
  return false;
  }
 
- bool isKeep(const std::string &string) {
+ bool isKeep(std::string_view string) {
  return this->source.getItems().contains(string) ? this->source.keep : false;
  }
 

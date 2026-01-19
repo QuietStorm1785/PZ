@@ -19,6 +19,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,9 +49,9 @@ private
 private
  static byte[] clientRemoteData;
 
- static void log(const std::string &string) { log(string, true); }
+ static void log(std::string_view string) { log(string, true); }
 
- static void log(const std::string &string, bool boolean0) {
+ static void log(std::string_view string, bool boolean0) {
  if (boolean0) {
  DebugLog.log("WorldDictionary: " + string);
  }
@@ -249,7 +250,7 @@ static void init() {
 
 static void onWorldLoaded() {}
 
-static ItemInfo getItemInfoFromType(const std::string &string) {
+static ItemInfo getItemInfoFromType(std::string_view string) {
  return data.getItemInfoFromType(string);
 }
 
@@ -257,7 +258,7 @@ static ItemInfo getItemInfoFromID(short short0) {
  return data.getItemInfoFromID(short0);
 }
 
-static short getItemRegistryID(const std::string &string) {
+static short getItemRegistryID(std::string_view string) {
  return data.getItemRegistryID(string);
 }
 
@@ -273,7 +274,7 @@ static std::string getSpriteNameFromID(int int0) {
  return data.getSpriteNameFromID(int0);
 }
 
-static int getIdForSpriteName(const std::string &string) {
+static int getIdForSpriteName(std::string_view string) {
  return data.getIdForSpriteName(string);
 }
 
@@ -281,7 +282,7 @@ static std::string getObjectNameFromID(uint8_t byte0) {
  return data.getObjectNameFromID(byte0);
 }
 
-static uint8_t getIdForObjectName(const std::string &string) {
+static uint8_t getIdForObjectName(std::string_view string) {
  return data.getIdForObjectName(string);
 }
 
@@ -290,12 +291,12 @@ static std::string getItemModID(short short0) {
  return itemInfo != nullptr ? itemInfo.modID : nullptr;
 }
 
-static std::string getItemModID(const std::string &string) {
+static std::string getItemModID(std::string_view string) {
  ItemInfo itemInfo = getItemInfoFromType(string);
  return itemInfo != nullptr ? itemInfo.modID : nullptr;
 }
 
-static std::string getModNameFromID(const std::string &string) {
+static std::string getModNameFromID(std::string_view string) {
  if (string != nullptr) {
  if (string == "pz-vanilla")) {
  return "Project Zomboid";
@@ -353,7 +354,7 @@ static void DebugPrintItem(Item item) {
  }
 }
 
-static void DebugPrintItem(const std::string &string) {
+static void DebugPrintItem(std::string_view string) {
  ItemInfo itemInfo = getItemInfoFromType(string);
  if (itemInfo != nullptr) {
  itemInfo.DebugPrint();

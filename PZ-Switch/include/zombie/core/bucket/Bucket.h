@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,7 +41,7 @@ public
  }
  }
 
- void AddTexture(const std::string &string, Texture texture) {
+ void AddTexture(std::string_view string, Texture texture) {
  if (texture != nullptr) {
  this->AddTexture(m_fs.getPath(string), texture);
  }
@@ -56,21 +57,21 @@ public
 
  Texture getTexture(Path path) { return this->m_textures.get(path); }
 
- Texture getTexture(const std::string &string) {
+ Texture getTexture(std::string_view string) {
  return this->getTexture(m_fs.getPath(string);
  }
 
  bool HasTexture(Path path) { return this->m_textures.containsKey(path); }
 
- bool HasTexture(const std::string &string) {
+ bool HasTexture(std::string_view string) {
  return this->HasTexture(m_fs.getPath(string);
  }
 
  std::string getName() { return this->m_name; }
 
- void setName(const std::string &string) { this->m_name = string; }
+ void setName(std::string_view string) { this->m_name = string; }
 
- void forgetTexture(const std::string &string) {
+ void forgetTexture(std::string_view string) {
  this->m_textures.remove(string);
  }
 }

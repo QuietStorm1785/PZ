@@ -896,7 +896,7 @@ public
  * @return the MaxZombieCountStart
  * @deprecated
  */
- float getMaxZombieCountStart() { return 0.0F; }
+ float getMaxZombieCountStart() noexcept{ return 0.0F; }
 
  /**
  *
@@ -911,7 +911,7 @@ public
  * @return the MinZombieCountStart
  * @deprecated
  */
- float getMinZombieCountStart() { return 0.0F; }
+ float getMinZombieCountStart() noexcept{ return 0.0F; }
 
  /**
  *
@@ -926,7 +926,7 @@ public
  * @return the MaxZombieCount
  * @deprecated
  */
- float getMaxZombieCount() { return this->MaxZombieCount; }
+ float getMaxZombieCount() noexcept{ return this->MaxZombieCount; }
 
  /**
  *
@@ -941,7 +941,7 @@ public
  * @return the MinZombieCount
  * @deprecated
  */
- float getMinZombieCount() { return this->MinZombieCount; }
+ float getMinZombieCount() noexcept{ return this->MinZombieCount; }
 
  /**
  *

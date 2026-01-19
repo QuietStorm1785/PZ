@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -38,13 +39,13 @@ protected
  const StringBuilder m_lineBuffer = new StringBuilder();
 
 public
- GenericNameValueRecordingFrame(const std::string &string0,
- const std::string &string1) {
+ GenericNameValueRecordingFrame(std::string_view string0,
+ std::string_view string1) {
  this->m_fileKey = string0;
  this->m_valuesFileNameSuffix = string1;
  }
 
- int addColumnInternal(const std::string &string) {
+ int addColumnInternal(std::string_view string) {
  int int0 = this->m_columnNames.length;
  this->m_columnNames = PZArrayUtil.add(this->m_columnNames, string);
  this->m_nameIndices.put(string, int0);
@@ -53,7 +54,7 @@ public
  return int0;
  }
 
- int getOrCreateColumn(const std::string &string) {
+ int getOrCreateColumn(std::string_view string) {
  return this->m_nameIndices.containsKey(string)
  ? this->m_nameIndices.get(string)
  : this->addColumnInternal(string);
@@ -61,7 +62,7 @@ public
 
  void setFrameNumber(int int0) { this->m_frameNumber = int0; }
 
- int getColumnCount() { return this->m_columnNames.length; }
+ int getColumnCount() noexcept{ return this->m_columnNames.length; }
 
  std::string getNameAt(int int0) { return this->m_columnNames[int0]; }
 
@@ -161,7 +162,7 @@ public
  }
 
  static StringBuilder appendCell(StringBuilder stringBuilder,
- const std::string &string) {
+ std::string_view string) {
  return stringBuilder.append(",").append(string);
  }
 
@@ -178,7 +179,7 @@ public
  }
 
  static StringBuilder appendCellQuot(StringBuilder stringBuilder,
- const std::string &string) {
+ std::string_view string) {
  return stringBuilder.append(",").append('"').append(string).append('"');
  }
 }

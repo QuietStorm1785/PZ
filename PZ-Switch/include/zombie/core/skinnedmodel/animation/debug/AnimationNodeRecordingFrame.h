@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ private
  const Vector3 m_characterToPlayerDiff = new Vector3();
 
 public
- AnimationNodeRecordingFrame(const std::string &fileKey) { super(fileKey); }
+ AnimationNodeRecordingFrame(std::string_view fileKey) { super(fileKey); }
 
  void logActionState(ActionState state, List<ActionState> childStates) {
  this->m_actionStateName = state != nullptr ? state.getName() : nullptr;

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <memory>
 #include <glm/glm.hpp>
 
@@ -41,7 +42,7 @@ public:
  void setSolid(bool s) { solid = s; }
 
  const std::string& getType() const { return type; }
- void setType(const std::string& t) { type = t; }
+ void setType(std::string_view t) { type = t; }
  
  // Sprite access
  zombie::graphics::Sprite* getSprite() { return sprite.get(); }

@@ -20,6 +20,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -190,7 +191,7 @@ public
  }
  }
 
- void accessDenied(int int0, const std::string &string) {
+ void accessDenied(int int0, std::string_view string) {
  if (this->player.PlayerIndex == int0) {
  DebugLog.log("coop player=" + (int0 + 1) + "/4 access denied: " + string);
  IsoCell cell = IsoWorld.instance.CurrentCell;

@@ -32,6 +32,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -56,7 +57,7 @@ private
 private
  ConnectToServerState.ItemQuery query;
 
- static void noise(const std::string &string) {
+ static void noise(std::string_view string) {
  DebugLog.log("ConnectToServerState: " + string);
  }
 
@@ -545,7 +546,7 @@ public
  this->state = ConnectToServerState.State.Exit;
  }
 
- void FromLua(const std::string &button) {
+ void FromLua(std::string_view button) {
  if (this->state != ConnectToServerState.State.ServerWorkshopItemScreen) {
  throw IllegalStateException("state != ServerWorkshopItemScreen");
  } else if ("install" == button) {

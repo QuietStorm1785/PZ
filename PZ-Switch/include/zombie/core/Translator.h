@@ -16,6 +16,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -208,7 +209,7 @@ private
  hashMap0.clear();
  }
 
- static void tryFillNewsFromFile(const std::string &string, String > var1,
+ static void tryFillNewsFromFile(std::string_view string, String > var1,
  Translator.News > hashMap,
  Language languagex) {
  File file = new File(string + File.separator + "media" + File.separator +
@@ -267,7 +268,7 @@ private
  }
  }
 
- static void addNewsLine(const std::string &string,
+ static void addNewsLine(std::string_view string,
  ArrayList<String> arrayList) {
  if (string.startsWith("[BOLD]")) {
  string = string.replaceFirst("\\[BOLD\\]",
@@ -305,8 +306,8 @@ public
  return arrayList;
  }
 
- static void tryFillMapFromFile(const std::string &string1,
- const std::string &string0, String > hashMap,
+ static void tryFillMapFromFile(std::string_view string1,
+ std::string_view string0, String > hashMap,
  Language languagex) {
  File file = new File(string1 + File.separator + "media" + File.separator +
  "lua" + File.separator + "shared" + File.separator +
@@ -317,7 +318,7 @@ public
  }
  }
 
- static void tryFillMapFromMods(const std::string &string1, String > hashMap,
+ static void tryFillMapFromMods(std::string_view string1, String > hashMap,
  Language languagex) {
  std::vector arrayList = ZomboidFileSystem.instance.getModIDs();
 
@@ -343,7 +344,7 @@ public
  }
  }
 
- static void fillMapFromFile(const std::string &string, String > hashMap) {
+ static void fillMapFromFile(std::string_view string, String > hashMap) {
  std::vector arrayList = new ArrayList();
  addLanguageToList(getLanguage(), arrayList);
  addLanguageToList(getDefaultLanguage(), arrayList);
@@ -500,15 +501,15 @@ public
  * translation for the selected language, we return the default text (in
  * English)
  */
- static std::string getText(const std::string &desc) {
+ static std::string getText(std::string_view desc) {
  return getTextInternal();
  }
 
- static std::string getTextOrNull(const std::string &desc) {
+ static std::string getTextOrNull(std::string_view desc) {
  return getTextInternal();
  }
 
- static std::string getTextInternal(const std::string &string1,
+ static std::string getTextInternal(std::string_view string1,
  bool boolean0) {
  if (ui.empty()) {
  loadFiles();
@@ -580,7 +581,7 @@ public
  }
  }
 
- static int countSubstitutions(const std::string &string) {
+ static int countSubstitutions(std::string_view string) {
  int int0 = 0;
  if (string.contains("%1")) {
  int0++;
@@ -601,8 +602,8 @@ public
  return int0;
  }
 
- static std::string subst(const std::string &string0,
- const std::string &string1, void *object) {
+ static std::string subst(std::string_view string0,
+ std::string_view string1, void *object) {
  if (object != nullptr) {
  if (object instanceof Double) {
  double double0 = (Double)object;
@@ -618,18 +619,18 @@ public
  return string0;
  }
 
- static std::string getText(const std::string &desc, void *arg1) {
+ static std::string getText(std::string_view desc, void *arg1) {
  std::string string = getText(desc);
  return subst();
  }
 
- static std::string getText(const std::string &desc, void *arg1, void *arg2) {
+ static std::string getText(std::string_view desc, void *arg1, void *arg2) {
  std::string string = getText(desc);
  string = subst(string, "%1", arg1);
  return subst();
  }
 
- static std::string getText(const std::string &desc, void *arg1, void *arg2,
+ static std::string getText(std::string_view desc, void *arg1, void *arg2,
  void *arg3) {
  std::string string = getText(desc);
  string = subst(string, "%1", arg1);
@@ -637,7 +638,7 @@ public
  return subst();
  }
 
- static std::string getText(const std::string &desc, void *arg1, void *arg2,
+ static std::string getText(std::string_view desc, void *arg1, void *arg2,
  void *arg3, void *arg4) {
  std::string string = getText(desc);
  string = subst(string, "%1", arg1);
@@ -646,12 +647,12 @@ public
  return subst();
  }
 
- static std::string getTextOrNull(const std::string &desc, void *arg1) {
+ static std::string getTextOrNull(std::string_view desc, void *arg1) {
  std::string string = getTextOrNull(desc);
  return string = = nullptr ? nullptr : subst(string, "%1", arg1);
  }
 
- static std::string getTextOrNull(const std::string &desc, void *arg1,
+ static std::string getTextOrNull(std::string_view desc, void *arg1,
  void *arg2) {
  std::string string = getTextOrNull(desc);
  if (string.empty()) {
@@ -662,7 +663,7 @@ public
  }
  }
 
- static std::string getTextOrNull(const std::string &desc, void *arg1,
+ static std::string getTextOrNull(std::string_view desc, void *arg1,
  void *arg2, void *arg3) {
  std::string string = getTextOrNull(desc);
  if (string.empty()) {
@@ -674,7 +675,7 @@ public
  }
  }
 
- static std::string getTextOrNull(const std::string &desc, void *arg1,
+ static std::string getTextOrNull(std::string_view desc, void *arg1,
  void *arg2, void *arg3, void *arg4) {
  std::string string = getTextOrNull(desc);
  if (string.empty()) {
@@ -687,11 +688,11 @@ public
  }
  }
 
- static std::string getDefaultText(const std::string &string) {
+ static std::string getDefaultText(std::string_view string) {
  return changeSomeStuff();
  }
 
- static std::string changeSomeStuff(const std::string &string) {
+ static std::string changeSomeStuff(std::string_view string) {
  return string;
  }
 
@@ -743,13 +744,13 @@ public
  return availableLanguage;
  }
 
- static std::string getDisplayItemName(const std::string &trim) {
+ static std::string getDisplayItemName(std::string_view trim) {
  void *object = nullptr;
  object = items.get(trim.replaceAll(" ", "_").replaceAll("-", "_"));
  return (String)(object.empty() ? trim : object);
  }
 
- static std::string getItemNameFromFullType(const std::string &fullType) {
+ static std::string getItemNameFromFullType(std::string_view fullType) {
  if (!fullType.contains(".")) {
  throw IllegalArgumentException(
  "fullType must contain \".\" i.e. module.type");
@@ -775,8 +776,8 @@ public
  }
  }
 
- static void setDefaultItemEvolvedRecipeName(const std::string &fullType,
- const std::string &english) {
+ static void setDefaultItemEvolvedRecipeName(std::string_view fullType,
+ std::string_view english) {
  if (getLanguage() == getDefaultLanguage()) {
  if (!fullType.contains(".")) {
  throw IllegalArgumentException(
@@ -787,7 +788,7 @@ public
  }
  }
 
- static std::string getItemEvolvedRecipeName(const std::string &fullType) {
+ static std::string getItemEvolvedRecipeName(std::string_view fullType) {
  if (!fullType.contains(".")) {
  throw IllegalArgumentException(
  "fullType must contain \".\" i.e. module.type");
@@ -813,7 +814,7 @@ public
  }
  }
 
- static std::string getMoveableDisplayName(const std::string &name) {
+ static std::string getMoveableDisplayName(std::string_view name) {
  std::string string0 = name.replaceAll(" ", "_")
  .replaceAll("-", "_")
  .replaceAll("'", "")
@@ -830,7 +831,7 @@ public
  }
  }
 
- static std::string getMoveableDisplayNameOrNull(const std::string &name) {
+ static std::string getMoveableDisplayNameOrNull(std::string_view name) {
  std::string string0 = name.replaceAll(" ", "_")
  .replaceAll("-", "_")
  .replaceAll("'", "")
@@ -845,7 +846,7 @@ public
  }
  }
 
- static std::string getMultiStageBuild(const std::string &name) {
+ static std::string getMultiStageBuild(std::string_view name) {
  std::string string = multiStageBuild.get("MultiStageBuild_" + name);
  if (string.empty()) {
  if (debug && getLanguage() != getDefaultLanguage() &&
@@ -859,7 +860,7 @@ public
  }
  }
 
- static std::string getRecipeName(const std::string &name) {
+ static std::string getRecipeName(std::string_view name) {
  std::string string = nullptr;
  string = recipe.get(name);
  if (string != nullptr && !string.empty()) {
@@ -941,7 +942,7 @@ static void debugRecipeNames() {
 }
 }
 
-static void debugwrite(const std::string &string) {
+static void debugwrite(std::string_view string) {
  if (debugFile != nullptr) {
  try {
  debugFile.write(string);
@@ -961,12 +962,12 @@ static ArrayList<String> getAzertyMap() {
  return azertyLanguages;
 }
 
-static std::string getRadioText(const std::string &s) {
+static std::string getRadioText(std::string_view s) {
  std::string string = dynamicRadio.get(s);
  return string = = nullptr ? s : string;
 }
 
-static std::string getTextMediaEN(const std::string &desc) {
+static std::string getTextMediaEN(std::string_view desc) {
  if (ui.empty()) {
  loadFiles();
  }

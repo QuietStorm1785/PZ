@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -177,8 +178,8 @@ public
  return Registry.gluGetString(int0);
  }
 
- static bool gluCheckExtension(const std::string &string0,
- const std::string &string1) {
+ static bool gluCheckExtension(std::string_view string0,
+ std::string_view string1) {
  return Registry.gluCheckExtension(string0, string1);
  }
 

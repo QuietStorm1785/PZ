@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -33,7 +34,7 @@ class DummySoundManager :  BaseSoundManager {
     void update4() {
    }
 
-    void CacheSound(const std::string& var1) {
+    void CacheSound(std::string_view var1) {
    }
 
     void StopSound(Audio var1) {
@@ -55,86 +56,86 @@ class DummySoundManager :  BaseSoundManager {
     void Update() {
    }
 
-    Audio Start(Audio var1, float var2, const std::string& var3) {
+    Audio Start(Audio var1, float var2, std::string_view var3) {
     return nullptr;
    }
 
-    Audio PrepareMusic(const std::string& var1) {
+    Audio PrepareMusic(std::string_view var1) {
     return nullptr;
    }
 
-    void PlayWorldSoundWav(const std::string& var1, IsoGridSquare var2, float var3, float var4, float var5, int var6, bool var7) {
+    void PlayWorldSoundWav(std::string_view var1, IsoGridSquare var2, float var3, float var4, float var5, int var6, bool var7) {
    }
 
-    Audio PlayWorldSoundWav(const std::string& var1, bool var2, IsoGridSquare var3, float var4, float var5, float var6, bool var7) {
+    Audio PlayWorldSoundWav(std::string_view var1, bool var2, IsoGridSquare var3, float var4, float var5, float var6, bool var7) {
     return nullptr;
    }
 
-    Audio PlayWorldSoundWav(const std::string& var1, IsoGridSquare var2, float var3, float var4, float var5, bool var6) {
+    Audio PlayWorldSoundWav(std::string_view var1, IsoGridSquare var2, float var3, float var4, float var5, bool var6) {
     return nullptr;
    }
 
-    Audio PlayWorldSound(const std::string& var1, IsoGridSquare var2, float var3, float var4, float var5, int var6, bool var7) {
+    Audio PlayWorldSound(std::string_view var1, IsoGridSquare var2, float var3, float var4, float var5, int var6, bool var7) {
     return nullptr;
    }
 
-    Audio PlayWorldSound(const std::string& var1, bool var2, IsoGridSquare var3, float var4, float var5, float var6, bool var7) {
+    Audio PlayWorldSound(std::string_view var1, bool var2, IsoGridSquare var3, float var4, float var5, float var6, bool var7) {
     return nullptr;
    }
 
-    Audio PlayWorldSoundImpl(const std::string& var1, bool var2, int var3, int var4, int var5, float var6, float var7, float var8, bool var9) {
+    Audio PlayWorldSoundImpl(std::string_view var1, bool var2, int var3, int var4, int var5, float var6, float var7, float var8, bool var9) {
     return nullptr;
    }
 
-    Audio PlayWorldSound(const std::string& var1, IsoGridSquare var2, float var3, float var4, float var5, bool var6) {
+    Audio PlayWorldSound(std::string_view var1, IsoGridSquare var2, float var3, float var4, float var5, bool var6) {
     return nullptr;
    }
 
     void update3D() {
    }
 
-    Audio PlaySoundWav(const std::string& var1, int var2, bool var3, float var4) {
+    Audio PlaySoundWav(std::string_view var1, int var2, bool var3, float var4) {
     return nullptr;
    }
 
-    Audio PlaySoundWav(const std::string& var1, bool var2, float var3) {
+    Audio PlaySoundWav(std::string_view var1, bool var2, float var3) {
     return nullptr;
    }
 
-    Audio PlaySoundWav(const std::string& var1, bool var2, float var3, float var4) {
+    Audio PlaySoundWav(std::string_view var1, bool var2, float var3, float var4) {
     return nullptr;
    }
 
-    Audio PlayJukeboxSound(const std::string& var1, bool var2, float var3) {
+    Audio PlayJukeboxSound(std::string_view var1, bool var2, float var3) {
     return nullptr;
    }
 
-    Audio PlaySoundEvenSilent(const std::string& var1, bool var2, float var3) {
+    Audio PlaySoundEvenSilent(std::string_view var1, bool var2, float var3) {
     return nullptr;
    }
 
-    Audio PlaySound(const std::string& var1, bool var2, float var3) {
+    Audio PlaySound(std::string_view var1, bool var2, float var3) {
     return nullptr;
    }
 
-    Audio PlaySound(const std::string& var1, bool var2, float var3, float var4) {
+    Audio PlaySound(std::string_view var1, bool var2, float var3, float var4) {
     return nullptr;
    }
 
-    Audio PlayMusic(const std::string& var1, const std::string& var2, bool var3, float var4) {
+    Audio PlayMusic(std::string_view var1, std::string_view var2, bool var3, float var4) {
     return nullptr;
    }
 
-    void PlayAsMusic(const std::string& var1, Audio var2, bool var3, float var4) {
+    void PlayAsMusic(std::string_view var1, Audio var2, bool var3, float var4) {
    }
 
-    void setMusicState(const std::string& var1) {
+    void setMusicState(std::string_view var1) {
    }
 
-    void setMusicWakeState(IsoPlayer var1, const std::string& var2) {
+    void setMusicWakeState(IsoPlayer var1, std::string_view var2) {
    }
 
-    void DoMusic(const std::string& var1, bool var2) {
+    void DoMusic(std::string_view var1, bool var2) {
    }
 
     float getMusicPosition() const {
@@ -144,16 +145,16 @@ class DummySoundManager :  BaseSoundManager {
     void CheckDoMusic() {
    }
 
-    void stopMusic(const std::string& var1) {
+    void stopMusic(std::string_view var1) {
    }
 
-    void playMusicNonTriggered(const std::string& var1, float var2) {
+    void playMusicNonTriggered(std::string_view var1, float var2) {
    }
 
-    void playAmbient(const std::string& var1) {
+    void playAmbient(std::string_view var1) {
    }
 
-    void playMusic(const std::string& var1) {
+    void playMusic(std::string_view var1) {
    }
 
     bool isPlayingMusic() {
@@ -164,14 +165,14 @@ class DummySoundManager :  BaseSoundManager {
     return false;
    }
 
-    void PlayAsMusic(const std::string& var1, Audio var2, float var3, bool var4) {
+    void PlayAsMusic(std::string_view var1, Audio var2, float var3, bool var4) {
    }
 
-    long playUISound(const std::string& var1) {
+    long playUISound(std::string_view var1) {
     return 0L;
    }
 
-    bool isPlayingUISound(const std::string& var1) {
+    bool isPlayingUISound(std::string_view var1) {
     return false;
    }
 
@@ -182,10 +183,10 @@ class DummySoundManager :  BaseSoundManager {
     void stopUISound(long var1) {
    }
 
-    void FadeOutMusic(const std::string& var1, int var2) {
+    void FadeOutMusic(std::string_view var1, int var2) {
    }
 
-    Audio BlendThenStart(Audio var1, float var2, const std::string& var3) {
+    Audio BlendThenStart(Audio var1, float var2, std::string_view var3) {
     return nullptr;
    }
 
@@ -223,7 +224,7 @@ class DummySoundManager :  BaseSoundManager {
       return 0.0F;
    }
 
-    void playNightAmbient(const std::string& var1) {
+    void playNightAmbient(std::string_view var1) {
    }
 
     ArrayList<Audio> getAmbientPieces() {
@@ -249,7 +250,7 @@ class DummySoundManager :  BaseSoundManager {
     return false;
    }
 
-    Audio PlayWorldSoundWavImpl(const std::string& var1, bool var2, IsoGridSquare var3, float var4, float var5, float var6, bool var7) {
+    Audio PlayWorldSoundWavImpl(std::string_view var1, bool var2, IsoGridSquare var3, float var4, float var5, float var6, bool var7) {
     return nullptr;
    }
 

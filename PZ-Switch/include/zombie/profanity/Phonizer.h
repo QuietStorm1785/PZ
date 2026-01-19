@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  std::string regex;
 
 public
- Phonizer(const std::string &string0, const std::string &string1) {
+ Phonizer(std::string_view string0, std::string_view string1) {
  this->name = string0;
  this->regex = string1;
  }

@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -38,7 +39,7 @@ private
  actionTransition0.conditions.size();
 
 public
- ActionState(const std::string &_name) { this->name = _name; }
+ ActionState(std::string_view _name) { this->name = _name; }
 
  bool canHaveSubStates() {
  return !PZArrayUtil.isNullOrEmpty(this->m_childTags);
@@ -86,7 +87,7 @@ public
 
  std::string getName() { return this->name; }
 
- void load(const std::string &stateFolderPath) {
+ void load(std::string_view stateFolderPath) {
  File file0 = new File(stateFolderPath).getAbsoluteFile();
  File[] files =
  file0.listFiles((var0, string)->string.toLowerCase().endsWith(".xml"));

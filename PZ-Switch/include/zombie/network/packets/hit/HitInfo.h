@@ -85,7 +85,7 @@ public
  byteBufferWriter.putInt(this->chance);
  }
 
- int getPacketSizeBytes() {
+ int getPacketSizeBytes() noexcept{
  return 24 + this->object.getPacketSizeBytes() +
  this->window.getPacketSizeBytes();
  }

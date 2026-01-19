@@ -15,6 +15,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -34,8 +35,8 @@ public:
  bool isInited = false;
 
 public
- WhisperChat(int int0, ChatTab chatTab, const std::string &string0,
- const std::string &string1) {
+ WhisperChat(int int0, ChatTab chatTab, std::string_view string0,
+ std::string_view string1) {
  super(int0, ChatType.whisper, chatTab);
  if (!this->isCustomSettings()) {
  this->setSettings(getDefaultSettings());

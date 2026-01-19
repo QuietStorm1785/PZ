@@ -15,6 +15,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -39,14 +40,14 @@ private
  bool m_layoutIsometric = true;
  bool m_layoutMiniMapSymbols = false;
 
- WorldMapTextSymbol addTranslatedText(const std::string &text, UIFont font,
+ WorldMapTextSymbol addTranslatedText(std::string_view text, UIFont font,
  float x, float y, float r, float g,
  float b, float a) {
  return this->addText(text, true, font, x, y, 0.0F, 0.0F,
  WorldMapBaseSymbol.DEFAULT_SCALE, r, g, b, a);
  }
 
- WorldMapTextSymbol addUntranslatedText(const std::string &text, UIFont font,
+ WorldMapTextSymbol addUntranslatedText(std::string_view text, UIFont font,
  float x, float y, float r, float g,
  float b, float a) {
  return this->addText(text, false, font, x, y, 0.0F, 0.0F,
@@ -81,14 +82,14 @@ public
  return worldMapTextSymbol;
  }
 
- WorldMapTextureSymbol addTexture(const std::string &symbolID, float x,
+ WorldMapTextureSymbol addTexture(std::string_view symbolID, float x,
  float y, float r, float g, float b,
  float a) {
  return this->addTexture(symbolID, x, y, 0.0F, 0.0F,
  WorldMapBaseSymbol.DEFAULT_SCALE, r, g, b, a);
  }
 
- WorldMapTextureSymbol addTexture(const std::string &symbolID, float x,
+ WorldMapTextureSymbol addTexture(std::string_view symbolID, float x,
  float y, float anchorX, float anchorY,
  float scale, float r, float g, float b,
  float a) {
@@ -217,7 +218,7 @@ public
  }
  }
 
- int getSymbolCount() { return this->m_symbols.size(); }
+ int getSymbolCount() noexcept{ return this->m_symbols.size(); }
 
  WorldMapBaseSymbol getSymbolByIndex(int index) {
  return this->m_symbols.get(index);

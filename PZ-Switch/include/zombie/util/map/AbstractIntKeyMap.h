@@ -174,7 +174,7 @@ protected
  return stringBuilder.toString();
  }
 
- void trimToSize() {}
+ void trimToSize() noexcept{}
 }
 } // namespace map
 } // namespace util

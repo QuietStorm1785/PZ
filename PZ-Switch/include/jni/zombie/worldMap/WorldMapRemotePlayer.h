@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -64,7 +65,7 @@ class WorldMapRemotePlayer {
       }
    }
 
-    void setFullData(short var1, const std::string& var2, const std::string& var3, const std::string& var4, const std::string& var5, float var6, float var7, bool var8) {
+    void setFullData(short var1, std::string_view var2, std::string_view var3, std::string_view var4, std::string_view var5, float var6, float var7, bool var8) {
       this.changeCount = var1;
       this.username = var2;
       this.forename = var3;
@@ -101,7 +102,7 @@ class WorldMapRemotePlayer {
       return this.y;
    }
 
-    short getChangeCount() const {
+    short getChangeCount() const noexcept {
       return this.changeCount;
    }
 
@@ -142,7 +143,7 @@ class WorldMapRemotePlayer {
       };
    }
 
-    bool isAccessLevel(const std::string& var1) {
+    bool isAccessLevel(std::string_view var1) {
       return this.getAccessLevel().equalsIgnoreCase(var1);
    }
 }

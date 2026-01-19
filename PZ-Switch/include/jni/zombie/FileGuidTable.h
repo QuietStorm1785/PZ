@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -17,7 +18,7 @@ class FileGuidTable {
    private Map<String, String> guidToPath = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
    private Map<String, String> pathToGuid = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
-    void setModID(const std::string& var1) {
+    void setModID(std::string_view var1) {
       for (FileGuidPair var3 : this.files) {
          var3.guid = var1 + "-" + var3.guid;
       }
@@ -40,11 +41,11 @@ class FileGuidTable {
       this.pathToGuid.clear();
    }
 
-    std::string getFilePathFromGuid(const std::string& var1) {
+    std::string getFilePathFromGuid(std::string_view var1) {
       return this.guidToPath.get(var1);
    }
 
-    std::string getGuidFromFilePath(const std::string& var1) {
+    std::string getGuidFromFilePath(std::string_view var1) {
       return this.pathToGuid.get(var1);
    }
 }

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,12 +24,12 @@ public:
 
  AttachedModelName(const AttachedModelName& other);
  
- AttachedModelName(const std::string &attachmentName,
- const std::string &_modelName, float _bloodLevel);
+ AttachedModelName(std::string_view attachmentName,
+ std::string_view _modelName, float _bloodLevel);
  
- AttachedModelName(const std::string &_attachmentNameSelf,
- const std::string &_attachmentNameParent,
- const std::string &_modelName, float _bloodLevel);
+ AttachedModelName(std::string_view _attachmentNameSelf,
+ std::string_view _attachmentNameParent,
+ std::string_view _modelName, float _bloodLevel);
 
  void addChild(std::shared_ptr<AttachedModelName> child);
  int getChildCount() const;

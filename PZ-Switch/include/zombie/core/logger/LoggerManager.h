@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -88,7 +89,7 @@ public
  }
  }
 
- static Calendar getLogFileLastModifiedTime(const std::string &string) {
+ static Calendar getLogFileLastModifiedTime(std::string_view string) {
  File file = new File(getLogsDir() + File.separator + string);
  Calendar calendar = Calendar.getInstance();
  calendar.setTimeInMillis(file.lastModified());

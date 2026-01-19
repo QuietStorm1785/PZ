@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,14 +36,14 @@ public:
  return instance;
  }
 
- BooleanConfigOption newOption(const std::string &string, bool boolean0) {
+ BooleanConfigOption newOption(std::string_view string, bool boolean0) {
  BooleanConfigOption booleanConfigOption =
  new BooleanConfigOption(string, boolean0);
  this->m_options.add(booleanConfigOption);
  return booleanConfigOption;
  }
 
- DoubleConfigOption newOption(const std::string &string, double double0,
+ DoubleConfigOption newOption(std::string_view string, double double0,
  double double1, double double2) {
  DoubleConfigOption doubleConfigOption =
  new DoubleConfigOption(string, double0, double1, double2);
@@ -50,7 +51,7 @@ public:
  return doubleConfigOption;
  }
 
- ConfigOption getOptionByName(const std::string &string) {
+ ConfigOption getOptionByName(std::string_view string) {
  for (int int0 = 0; int0 < this->m_options.size(); int0++) {
  ConfigOption configOption = this->m_options.get(int0);
  if (configOption.getName() == string) {
@@ -61,32 +62,32 @@ public:
  return nullptr;
  }
 
- int getOptionCount() { return this->m_options.size(); }
+ int getOptionCount() noexcept{ return this->m_options.size(); }
 
  ConfigOption getOptionByIndex(int int0) { return this->m_options.get(int0); }
 
- void setBoolean(const std::string &string, bool boolean0) {
+ void setBoolean(std::string_view string, bool boolean0) {
  ConfigOption configOption = this->getOptionByName(string);
  if (configOption instanceof BooleanConfigOption) {
  ((BooleanConfigOption)configOption).setValue(boolean0);
  }
  }
 
- bool getBoolean(const std::string &string) {
+ bool getBoolean(std::string_view string) {
  ConfigOption configOption = this->getOptionByName(string);
  return configOption instanceof
  BooleanConfigOption ? ((BooleanConfigOption)configOption).getValue()
  : false;
  }
 
- void setDouble(const std::string &string, double double0) {
+ void setDouble(std::string_view string, double double0) {
  ConfigOption configOption = this->getOptionByName(string);
  if (configOption instanceof DoubleConfigOption) {
  ((DoubleConfigOption)configOption).setValue(double0);
  }
  }
 
- double getDouble(const std::string &string, double double0) {
+ double getDouble(std::string_view string, double double0) {
  ConfigOption configOption = this->getOptionByName(string);
  return configOption instanceof
  DoubleConfigOption ? ((DoubleConfigOption)configOption).getValue()

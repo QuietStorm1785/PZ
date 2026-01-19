@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,8 +33,8 @@ namespace serverCommands {
 class StartRainCommand : public CommandBase {
  public:
  public
- StartRainCommand(const std::string &string0, const std::string &string1,
- const std::string &string2,
+ StartRainCommand(std::string_view string0, std::string_view string1,
+ std::string_view string2,
  UdpConnection udpConnection) {
  super(string0, string1, string2, udpConnection);
  }

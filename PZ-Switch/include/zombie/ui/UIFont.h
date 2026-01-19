@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ enum class UIFont {
  NewMedium, NewLarge, Code, MediumNew, AutoNormSmall, AutoNormMedium,
  AutoNormLarge, Dialogue, Intro, Handwritten, DebugConsole, Title;
 
- static UIFont FromString(const std::string &str){try {return valueOf();}
+ static UIFont FromString(std::string_view str){try {return valueOf();}
 catch (Exception exception) {
  return nullptr;
 }

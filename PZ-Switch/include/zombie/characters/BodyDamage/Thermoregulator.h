@@ -258,7 +258,7 @@ public
  this->core.celcius = this->setPoint;
  }
 
- int getNodeSize() { return this->nodes.length; }
+ int getNodeSize() noexcept{ return this->nodes.length; }
 
 public
  Thermoregulator.ThermalNode getNode(int index) { return this->nodes[index]; }
@@ -351,7 +351,7 @@ public
 
  float getMetabolicRate() { return this->metabolicRate; }
 
- float getMetabolicTarget() { return this->metabolicTarget; }
+ float getMetabolicTarget() noexcept{ return this->metabolicTarget; }
 
  float getMetabolicRateReal() { return this->metabolicRateReal; }
 
@@ -391,7 +391,7 @@ public
 
  bool thermalChevronUp() { return this->thermalChevronUp; }
 
- int thermalChevronCount() {
+ int thermalChevronCount() noexcept{
  if (this->coreRateOfChange > 0.01F) {
  return 3;
  } else if (this->coreRateOfChange > 0.001F) {

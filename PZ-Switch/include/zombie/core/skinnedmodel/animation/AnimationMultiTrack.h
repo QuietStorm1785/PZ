@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,7 @@ private
  static ArrayList<AnimationTrack> tempTracks =
  std::make_unique<ArrayList<>>();
 
- AnimationTrack findTrack(const std::string &trackName) {
+ AnimationTrack findTrack(std::string_view trackName) {
  int int0 = 0;
 
  for (int int1 = this->m_tracks.size(); int0 < int1; int0++) {
@@ -115,7 +116,7 @@ private
 public
  List<AnimationTrack> getTracks() { return this->m_tracks; }
 
- int getTrackCount() { return this->m_tracks.size(); }
+ int getTrackCount() noexcept{ return this->m_tracks.size(); }
 
  AnimationTrack getTrackAt(int i) { return this->m_tracks.get(i); }
 }

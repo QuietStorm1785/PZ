@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,13 +26,13 @@ public:
  float airTime = -1.0F;
 
 public
- RadioLine(const std::string &txt, float red, float green, float blue) {
+ RadioLine(std::string_view txt, float red, float green, float blue) {
  this(txt, red, green, blue, nullptr);
  }
 
 public
- RadioLine(const std::string &txt, float red, float green, float blue,
- const std::string &fx) {
+ RadioLine(std::string_view txt, float red, float green, float blue,
+ std::string_view fx) {
  this->text = txt != nullptr ? txt : this->text;
  this->r = red;
  this->g = green;
@@ -55,7 +56,7 @@ public
 
  void setAirTime(float _airTime) { this->airTime = _airTime; }
 
- void setText(const std::string &_text) { this->text = _text; }
+ void setText(std::string_view _text) { this->text = _text; }
 }
 } // namespace scripting
 } // namespace radio

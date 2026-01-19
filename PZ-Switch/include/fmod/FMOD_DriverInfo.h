@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -30,7 +31,7 @@ public
  }
 
 public
- FMOD_DriverInfo(int int0, const std::string &string) {
+ FMOD_DriverInfo(int int0, std::string_view string) {
  this->id = int0;
  this->name = string;
  this->guid = 0;

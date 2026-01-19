@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -21,7 +22,7 @@ class FileTask_LoadAiScene :  FileTask {
     std::string m_filename;
    EnumSet<AiPostProcessSteps> m_post_process_step_set;
 
-     FileTask_LoadAiScene(const std::string& var1, EnumSet<AiPostProcessSteps> var2, IFileTaskCallback var3, FileSystem var4) {
+     FileTask_LoadAiScene(std::string_view var1, EnumSet<AiPostProcessSteps> var2, IFileTaskCallback var3, FileSystem var4) {
       super(var4, var3);
       this.m_filename = var1;
       this.m_post_process_step_set = var2;

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public
  OggFormatException() {}
 
 public
- OggFormatException(const std::string &string) { super(string); }
+ OggFormatException(std::string_view string) { super(string); }
 }
 } // namespace ogg
 } // namespace jarnbjo

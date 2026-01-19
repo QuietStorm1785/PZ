@@ -43,6 +43,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -537,7 +538,7 @@ private
 
  static void fillContainerType(ItemPickerJava.ItemPickerRoom roomDist,
  ItemContainer container,
- const std::string &roomName,
+ std::string_view roomName,
  IsoGameCharacter character) {
  bool boolean0 = true;
  if (NoContainerFillRooms.contains(roomName) {
@@ -563,7 +564,7 @@ private
  }
 
  static InventoryItem
- tryAddItemToContainer(ItemContainer container, const std::string &itemType,
+ tryAddItemToContainer(ItemContainer container, std::string_view itemType,
  ItemPickerJava.ItemPickerContainer containerDist) {
  Item item = ScriptManager.instance.FindItem(itemType);
  if (item.empty()) {
@@ -1126,7 +1127,7 @@ public
  }
  }
 
- static float getLootModifier(const std::string &itemname) {
+ static float getLootModifier(std::string_view itemname) {
  Item item = ScriptManager.instance.FindItem(itemname);
  if (item.empty()) {
  return 0.6F;

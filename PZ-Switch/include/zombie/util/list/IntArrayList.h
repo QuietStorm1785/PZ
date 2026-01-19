@@ -154,7 +154,7 @@ public
  return int1;
  }
 
- void trimToSize() {
+ void trimToSize() noexcept{
  if (this->data.length > this->size) {
  int[] ints = new int[this->size];
  System.arraycopy(this->data, 0, ints, 0, this->size);

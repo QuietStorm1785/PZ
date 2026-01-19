@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ namespace profiling {
 class PerformanceProfileFrameProbe : public PerformanceProfileProbe {
 public:
 public
- PerformanceProfileFrameProbe(const std::string &string) { super(string); }
+ PerformanceProfileFrameProbe(std::string_view string) { super(string); }
 
  void onStart() {
  GameProfiler.getInstance().startFrame(this->Name);

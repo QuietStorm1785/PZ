@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -13,7 +14,7 @@ namespace audio {
 
 class FMODGlobalParameter :  FMODParameter {
 :
-     FMODGlobalParameter(const std::string& var1) {
+     FMODGlobalParameter(std::string_view var1) {
       super(var1);
       if (this.getParameterDescription() != nullptr && !this.getParameterDescription().isGlobal()) {
     bool var2 = true;

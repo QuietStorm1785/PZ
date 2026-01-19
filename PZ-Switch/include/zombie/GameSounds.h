@@ -28,6 +28,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -101,15 +102,15 @@ private
  }
  }
 
- static bool isKnownSound(const std::string &name) {
+ static bool isKnownSound(std::string_view name) {
  return soundByName.containsKey(name);
  }
 
- static GameSound getSound(const std::string &name) {
+ static GameSound getSound(std::string_view name) {
  return getOrCreateSound();
  }
 
- static GameSound getOrCreateSound(const std::string &name) {
+ static GameSound getOrCreateSound(std::string_view name) {
  if (StringUtils.isNullOrEmpty(name) {
  return nullptr;
  } else {
@@ -248,7 +249,7 @@ ScriptsLoaded() {
 }
 }
 
-static void ReloadFile(const std::string &fileName) {
+static void ReloadFile(std::string_view fileName) {
  try {
  ScriptManager.instance.LoadFile(fileName, true);
  std::vector arrayList = ScriptManager.instance.getAllGameSounds();
@@ -327,7 +328,7 @@ if (configFile.write(string, 1, arrayList) {
 }
 }
 
-static void previewSound(const std::string &name) {
+static void previewSound(std::string_view name) {
  if (!Core.SoundDisabled) {
  if (isKnownSound(name) {
  GameSound gameSound = getSound(name);

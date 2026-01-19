@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -242,7 +243,7 @@ class BushInit {
  bool hasFlower;
 
  public
- BushInit(const std::string &string, float float0, float float1,
+ BushInit(std::string_view string, float float0, float float1,
  bool boolean0) {
  this->name = string;
  this->bloomstart = float0;

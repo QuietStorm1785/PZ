@@ -85,7 +85,7 @@ public
 
  std::string getGamepadName() { return this->gamepadName; }
 
- int getAxisCount() { return this->axisCount; }
+ int getAxisCount() noexcept{ return this->axisCount; }
 
  float getAxisValue(int arg0) {
  if (this->gamepadState.empty() || !this->gamepadState.bPolled) {
@@ -96,9 +96,9 @@ public
  }
  }
 
- int getButtonCount() { return this->buttonsCount; }
+ int getButtonCount() noexcept{ return this->buttonsCount; }
 
- int getHatCount() { return this->hatCount; }
+ int getHatCount() noexcept{ return this->hatCount; }
 
  int getHatState() {
  return this->gamepadState != nullptr && this->gamepadState.bPolled

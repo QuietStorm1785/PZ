@@ -6,6 +6,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -350,7 +351,7 @@ public:
  }
 
  static int check(int int0, int int2, int int1,
- const std::string &string) {
+ std::string_view string) {
  if (int0 >= int2 && int0 <= int1) {
  return int0;
  } else {
@@ -581,7 +582,7 @@ public:
  }
 
  static std::string readString(DataInput dataInput, int int0,
- const std::string &string) {
+ std::string_view string) {
  return new String(readToNull(dataInput, int0), string);
  }
 

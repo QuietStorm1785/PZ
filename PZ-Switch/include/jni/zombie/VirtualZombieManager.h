@@ -968,7 +968,7 @@ class VirtualZombieManager {
       }
    }
 
-    int reusableZombiesSize() {
+    int reusableZombiesSize() noexcept{
       return this.ReusableZombies.size();
    }
 }

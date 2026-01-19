@@ -224,7 +224,7 @@ public
  GL33.glVertexAttribDivisor(1, 1);
  }
 
- int getParticleCount() { return this->particles.getCount(); }
+ int getParticleCount() noexcept{ return this->particles.getCount(); }
 
 class Particle {
  float id;

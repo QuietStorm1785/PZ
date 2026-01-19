@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ public:
  static const ClothingItemsDotTxt instance = new ClothingItemsDotTxt();
  const StringBuilder buf = new StringBuilder();
 
- int readBlock(const std::string &string0, int int1,
+ int readBlock(std::string_view string0, int int1,
  ClothingItemsDotTxt.Block block1) {
  int int0;
  for (int0 = int1; int0 < string0.length(); int0++) {
@@ -150,7 +151,7 @@ public:
  }
 }
 
- void addClothingItem(const std::string& string, ClothingItemsDotTxt.Block block1) {
+ void addClothingItem(std::string_view string, ClothingItemsDotTxt.Block block1) {
  if (!string.startsWith("FemaleHair_")) {
  if (!string.startsWith("MaleBeard_")) {
  if (!string.startsWith("MaleHair_")) {

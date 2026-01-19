@@ -27,6 +27,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -57,7 +58,7 @@ public
 
 public
  UdpEngine(int _port, int UDPPort, int _maxConnections,
- const std::string &serverPassword, bool bListen) {
+ std::string_view serverPassword, bool bListen) {
  this->port = _port;
  this->peer = std::make_unique<RakNetPeerInterface>();
  DebugLog.Network.println("Initialising RakNet...");
@@ -125,13 +126,13 @@ public
  this->peer.Shutdown();
  }
 
- void SetServerPassword(const std::string &password) {
+ void SetServerPassword(std::string_view password) {
  if (this->peer != nullptr) {
  this->peer.SetIncomingPassword(password);
  }
  }
 
- std::string hashServerPassword(const std::string &password) {
+ std::string hashServerPassword(std::string_view password) {
  return PZcrypt.hash(password, true);
  }
 
@@ -389,7 +390,7 @@ public
  : this->connectionMap.get(connection);
  }
 
- void Connect(const std::string &string0, int int0, const std::string &string1,
+ void Connect(std::string_view string0, int int0, std::string_view string1,
  bool boolean0) {
  if (int0 == 0 && SteamUtils.isSteamModeEnabled()) {
  long long0 = 0L;
@@ -424,7 +425,7 @@ public
  }
  }
 
- void forceDisconnect(long connectedGUID, const std::string &message) {
+ void forceDisconnect(long connectedGUID, std::string_view message) {
  this->peer.disconnect(connectedGUID, message);
  this->removeConnection(connectedGUID);
  }

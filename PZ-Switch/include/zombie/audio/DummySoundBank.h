@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,16 +16,16 @@ namespace audio {
 
 class DummySoundBank : public BaseSoundBank {
 public:
- void addVoice(const std::string &alias, const std::string &sound,
+ void addVoice(std::string_view alias, std::string_view sound,
  float priority) {}
 
- void addFootstep(const std::string &alias, const std::string &grass,
- const std::string &wood, const std::string &concrete,
- const std::string &upstairs) {}
+ void addFootstep(std::string_view alias, std::string_view grass,
+ std::string_view wood, std::string_view concrete,
+ std::string_view upstairs) {}
 
- FMODVoice getVoice(const std::string &alias) { return nullptr; }
+ FMODVoice getVoice(std::string_view alias) { return nullptr; }
 
- FMODFootstep getFootstep(const std::string &alias) { return nullptr; }
+ FMODFootstep getFootstep(std::string_view alias) { return nullptr; }
 }
 } // namespace audio
 } // namespace zombie

@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -91,7 +92,7 @@ public
  }
  }
 
- Random getRandom(LuaCallFrame luaCallFrame, const std::string &string) {
+ Random getRandom(LuaCallFrame luaCallFrame, std::string_view string) {
  void *object = KahluaUtil.getArg(luaCallFrame, 1, string);
  if (!(dynamic_cast<Random*>(object) != nullptr) {
  KahluaUtil.fail("First argument to " + string +

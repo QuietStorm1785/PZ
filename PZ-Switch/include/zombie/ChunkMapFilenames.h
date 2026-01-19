@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -52,7 +53,7 @@ public
  }
  }
 
- File getDir(const std::string &string) {
+ File getDir(std::string_view string) {
  if (this->cacheDir.empty()) {
  this->cacheDir = ZomboidFileSystem.instance.getGameModeCacheDir();
  }

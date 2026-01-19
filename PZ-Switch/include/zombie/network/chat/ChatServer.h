@@ -30,6 +30,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -241,7 +242,7 @@ private
  }
 
  void sendPlayerNotFoundMessage(UdpConnection udpConnection,
- const std::string &string) {
+ std::string_view string) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.PlayerNotFound.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(string);
@@ -311,7 +312,7 @@ private
  }
  }
 
- FactionChat createFactionChat(const std::string &string) {
+ FactionChat createFactionChat(std::string_view string) {
  logger.write("Creating faction chat '" + string + "'", "info");
  if (factionChats.containsKey(string) {
  logger.write("Faction chat '" + string + "' already exists!", "warning");
@@ -326,7 +327,7 @@ private
  }
  }
 
- SafehouseChat createSafehouseChat(const std::string &string) {
+ SafehouseChat createSafehouseChat(std::string_view string) {
  logger.write("Creating safehouse chat '" + string + "'", "info");
  if (safehouseChats.containsKey(string) {
  logger.write("Safehouse chat already has chat with name '" + string + "'",
@@ -342,7 +343,7 @@ private
  }
  }
 
- void removeFactionChat(const std::string &string0) {
+ void removeFactionChat(std::string_view string0) {
  logger.write("Removing faction chat '" + string0 + "'...", "info");
  int int0;
  { std::lock_guard<std::mutex> __sync_lock__(factionChats_mutex);
@@ -364,7 +365,7 @@ private
  logger.write("Faction chat '" + string0 + "' removed", "info");
  }
 
- void removeSafehouseChat(const std::string &string0) {
+ void removeSafehouseChat(std::string_view string0) {
  logger.write("Removing safehouse chat '" + string0 + "'...", "info");
  int int0;
  { std::lock_guard<std::mutex> __sync_lock__(safehouseChats_mutex);
@@ -386,8 +387,8 @@ private
  logger.write("Safehouse chat '" + string0 + "' removed", "info");
  }
 
- void syncFactionChatMembers(const std::string &string0,
- const std::string &string1,
+ void syncFactionChatMembers(std::string_view string0,
+ std::string_view string1,
  ArrayList<String> arrayList0) {
  logger.write("Start syncing faction chat '" + string0 + "'...", "info");
  if (string0 != nullptr && string1 != nullptr && arrayList0 != nullptr) {
@@ -429,8 +430,8 @@ private
  }
  }
 
- void syncSafehouseChatMembers(const std::string &string0,
- const std::string &string1,
+ void syncSafehouseChatMembers(std::string_view string0,
+ std::string_view string1,
  ArrayList<String> arrayList0) {
  logger.write("Start syncing safehouse chat '" + string0 + "'...", "info");
  if (string0 != nullptr && string1 != nullptr && arrayList0 != nullptr) {
@@ -472,7 +473,7 @@ private
  }
  }
 
- void addMemberToSafehouseChat(const std::string &string, short short0) {
+ void addMemberToSafehouseChat(std::string_view string, short short0) {
  if (!safehouseChats.containsKey(string) {
  logger.write("Safehouse chat is not initialized!", "warning");
  } else {
@@ -486,7 +487,7 @@ private
  }
  }
 
- void addMemberToFactionChat(const std::string &string, short short0) {
+ void addMemberToFactionChat(std::string_view string, short short0) {
  if (!factionChats.containsKey(string) {
  logger.write("Faction chat is not initialized!", "warning");
  } else {
@@ -499,39 +500,39 @@ private
  }
  }
 
- void sendServerAlertMessageToServerChat(const std::string &string0,
- const std::string &string1) {
+ void sendServerAlertMessageToServerChat(std::string_view string0,
+ std::string_view string1) {
  serverChat.sendMessageToChatMembers(
  serverChat.createMessage(string0, string1, true);
  logger.write("Server alert message: '" + string1 + "' by '" + string0 +
  "' sent.");
  }
 
- void sendServerAlertMessageToServerChat(const std::string &string) {
+ void sendServerAlertMessageToServerChat(std::string_view string) {
  serverChat.sendMessageToChatMembers(
  serverChat.createServerMessage(string, true);
  logger.write("Server alert message: '" + string + "' sent.");
  }
 
- ChatMessage createRadiostationMessage(const std::string &string, int int0) {
+ ChatMessage createRadiostationMessage(std::string_view string, int int0) {
  return radioChat.createBroadcastingMessage(string, int0);
  }
 
  void sendMessageToServerChat(UdpConnection udpConnection,
- const std::string &string) {
+ std::string_view string) {
  ServerChatMessage serverChatMessage =
  serverChat.createServerMessage(string, false);
  serverChat.sendMessageToPlayer(udpConnection, serverChatMessage);
  }
 
- void sendMessageToServerChat(const std::string &string) {
+ void sendMessageToServerChat(std::string_view string) {
  ServerChatMessage serverChatMessage =
  serverChat.createServerMessage(string, false);
  serverChat.sendMessageToChatMembers(serverChatMessage);
  }
 
- void sendMessageFromDiscordToGeneralChat(const std::string &string1,
- const std::string &string0) {
+ void sendMessageFromDiscordToGeneralChat(std::string_view string1,
+ std::string_view string0) {
  if (string1 != nullptr && string0 != nullptr) {
  logger.write("Got message '" + string0 + "' by author '" + string1 +
  "' from discord");
@@ -591,7 +592,7 @@ private
  }
  }
 
- void sendMessageToAdminChat(const std::string &string) {
+ void sendMessageToAdminChat(std::string_view string) {
  ServerChatMessage serverChatMessage = adminChat.createServerMessage(string);
  adminChat.sendMessageToChatMembers(serverChatMessage);
  }

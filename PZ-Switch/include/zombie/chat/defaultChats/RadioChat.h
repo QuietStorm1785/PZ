@@ -17,6 +17,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -72,7 +73,7 @@ public
  return chatSettings;
  }
 
- ChatMessage createMessage(const std::string &string) {
+ ChatMessage createMessage(std::string_view string) {
  ChatMessage chatMessage = super.createMessage(string);
  if (this->getMode() == ChatMode.SinglePlayer) {
  chatMessage.setOverHeadSpeech(true);
@@ -83,7 +84,7 @@ public
  return chatMessage;
  }
 
- ChatMessage createBroadcastingMessage(const std::string &string, int int0) {
+ ChatMessage createBroadcastingMessage(std::string_view string, int int0) {
  ChatMessage chatMessage = super.createBubbleMessage(string);
  chatMessage.setAuthor("");
  chatMessage.setShouldAttractZombies(false);
@@ -91,7 +92,7 @@ public
  return chatMessage;
  }
 
- ChatMessage createStaticSoundMessage(const std::string &string) {
+ ChatMessage createStaticSoundMessage(std::string_view string) {
  ChatMessage chatMessage = super.createBubbleMessage(string);
  chatMessage.setAuthor("");
  chatMessage.setShouldAttractZombies(false);

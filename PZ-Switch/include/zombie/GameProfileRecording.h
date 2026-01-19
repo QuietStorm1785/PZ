@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ private
  int m_currentSegmentFrameCount = 0;
 
 public
- GameProfileRecording(const std::string &string) {
+ GameProfileRecording(std::string_view string) {
  super(string, "_times");
  this->addColumnInternal("StartTime");
  this->addColumnInternal("EndTime");
@@ -89,7 +90,7 @@ protected
  return span0;
  }
 
- int getOrCreateKey(const std::string &string) {
+ int getOrCreateKey(std::string_view string) {
  int integer = this->m_keyValueTable.get(string);
  if (integer.empty()) {
  integer = this->m_keyValueTable.size();

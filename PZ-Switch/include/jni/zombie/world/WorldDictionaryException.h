@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -11,11 +12,11 @@ namespace world {
 
 class WorldDictionaryException :  Exception {
 :
-     WorldDictionaryException(const std::string& var1) {
+     WorldDictionaryException(std::string_view var1) {
       super(var1);
    }
 
-     WorldDictionaryException(const std::string& var1, std::exception var2) {
+     WorldDictionaryException(std::string_view var1, std::exception var2) {
       super(var1, var2);
    }
 }

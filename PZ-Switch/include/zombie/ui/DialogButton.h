@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,7 +33,7 @@ public:
 
 public
  DialogButton(UIElement uIElement, float float0, float float1,
- const std::string &string1, const std::string &string0) {
+ std::string_view string1, std::string_view string0) {
  this->x = float0;
  this->y = float1;
  this->origX = float0;
@@ -57,7 +58,7 @@ public
 
 public
  DialogButton(UIEventHandler uIEventHandler, int int0, int int1,
- const std::string &string1, const std::string &string0) {
+ std::string_view string1, std::string_view string0) {
  this->x = int0;
  this->y = int1;
  this->origX = int0;

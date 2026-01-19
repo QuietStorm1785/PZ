@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -423,7 +424,7 @@ public
 
  void setA(float _a) { this->a = _a; }
 
- float getSize() { return this->size; }
+ float getSize() noexcept{ return this->size; }
 
  void setSize(float _size) { this->size = _size; }
 
@@ -553,7 +554,7 @@ public
  }
  }
 
- void init(const std::string &spriteName, int _x, int _y, int _z,
+ void init(std::string_view spriteName, int _x, int _y, int _z,
  IsoGridSquare gs, bool doTempIsoObject) {
  this->square = gs;
  if (doTempIsoObject && spriteName != nullptr) {

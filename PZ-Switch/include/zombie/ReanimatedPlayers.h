@@ -21,6 +21,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ public:
 private
  ArrayList<IsoZombie> Zombies = std::make_unique<ArrayList<>>();
 
- static void noise(const std::string &string) {
+ static void noise(std::string_view string) {
  DebugLog.log("reanimate: " + string);
  }
 

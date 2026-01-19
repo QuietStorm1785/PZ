@@ -104,9 +104,9 @@ public
 
  float getAlpha() { return this->alpha; }
 
- float getTargetAlpha() { return this->targetAlpha; }
+ float getTargetAlpha() noexcept{ return this->targetAlpha; }
 
- bool isCopyTargetAlpha() { return this->bCopyTargetAlpha; }
+ bool isCopyTargetAlpha() noexcept{ return this->bCopyTargetAlpha; }
 
  bool isMultiplyObjectAlpha() { return this->bMultiplyObjectAlpha; }
 

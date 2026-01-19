@@ -24,6 +24,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -400,7 +401,7 @@ private
  this->clips.put(string, animationClip);
  }
 
- void addDefaultAnimTrack(const std::string &string, int int0,
+ void addDefaultAnimTrack(std::string_view string, int int0,
  Quaternion quaternion, Vector3f vector3f1,
  ArrayList<Keyframe> arrayList, float float0) {
  Vector3f vector3f0 = new Vector3f(1.0F, 1.0F, 1.0F);

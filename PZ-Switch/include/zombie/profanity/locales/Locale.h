@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -41,7 +42,7 @@ protected
  Pattern preProcessVowels = Pattern.compile("(?<vowel>[AOUIE])");
 
 protected
- Locale(const std::string &string) {
+ Locale(std::string_view string) {
  this->id = string;
  this->Init();
  this->finalizeData();
@@ -55,30 +56,30 @@ protected
 
  std::string getPhoneticRules() { return this->phoneticRules; }
 
- int getFilterWordsCount() { return this->filterWords.size(); }
+ int getFilterWordsCount() noexcept{ return this->filterWords.size(); }
 
 protected
  void Init();
 
- void addWhiteListWord(const std::string &string) {
+ void addWhiteListWord(std::string_view string) {
  string = string.toUpperCase().trim();
  if (!this->whitelistWords.contains(string) {
  this->whitelistWords.add(string);
  }
  }
 
- void removeWhiteListWord(const std::string &string) {
+ void removeWhiteListWord(std::string_view string) {
  string = string.toUpperCase().trim();
  if (this->whitelistWords.contains(string) {
  this->whitelistWords.remove(string);
  }
  }
 
- bool isWhiteListedWord(const std::string &string) {
+ bool isWhiteListedWord(std::string_view string) {
  return this->whitelistWords.contains(string.toUpperCase().trim());
  }
 
- void addFilterWord(const std::string &string1) {
+ void addFilterWord(std::string_view string1) {
  std::string string0 = this->phonizeWord(string1);
  if (string0.length() > 2) {
  std::string string2 = "";
@@ -96,32 +97,32 @@ protected
  }
  }
 
- void removeFilterWord(const std::string &string1) {
+ void removeFilterWord(std::string_view string1) {
  std::string string0 = this->phonizeWord(string1);
  if (this->filterWords.containsKey(string0) {
  this->filterWords.remove(string0);
  }
  }
 
- void addFilterContains(const std::string &string) {
+ void addFilterContains(std::string_view string) {
  if (string != nullptr && !string.empty() &&
  !this->filterContains.contains(string.toUpperCase())) {
  this->filterContains.add(string.toUpperCase());
  }
  }
 
- void removeFilterContains(const std::string &string) {
+ void removeFilterContains(std::string_view string) {
  this->filterContains.remove(string.toUpperCase());
  }
 
- void addFilterRawWord(const std::string &string) {
+ void addFilterRawWord(std::string_view string) {
  if (string != nullptr && !string.empty() &&
  !this->filterWordsRaw.contains(string.toUpperCase())) {
  this->filterWordsRaw.add(string.toUpperCase());
  }
  }
 
- void removeFilterWordRaw(const std::string &string) {
+ void removeFilterWordRaw(std::string_view string) {
  this->filterWordsRaw.remove(string.toUpperCase());
  }
 
@@ -131,8 +132,8 @@ protected
  return new String(chars);
  }
 
- bool containsIgnoreCase(const std::string &string1,
- const std::string &string0) {
+ bool containsIgnoreCase(std::string_view string1,
+ std::string_view string0) {
  if (string1 != nullptr && string0 != nullptr) {
  int int0 = string0.length();
  if (int0 == 0) {
@@ -151,11 +152,11 @@ protected
  }
  }
 
- std::string filterWord(const std::string &string) {
+ std::string filterWord(std::string_view string) {
  return this->filterWord(string, false);
  }
 
- std::string filterWord(const std::string &string0, bool boolean0) {
+ std::string filterWord(std::string_view string0, bool boolean0) {
  if (this->isWhiteListedWord(string0) {
  return string0;
  } else {
@@ -188,7 +189,7 @@ protected
  }
  }
 
- std::string validateWord(const std::string &string0, bool boolean0) {
+ std::string validateWord(std::string_view string0, bool boolean0) {
  if (this->isWhiteListedWord(string0) {
  return nullptr;
  } else {
@@ -218,17 +219,17 @@ protected
  }
  }
 
- std::string returnMatchSetForWord(const std::string &string1) {
+ std::string returnMatchSetForWord(std::string_view string1) {
  std::string string0 = this->phonizeWord(string1);
  return this->filterWords.containsKey(string0) ? this->filterWords.get(string0)
  : nullptr;
  }
 
- std::string returnPhonizedWord(const std::string &string) {
+ std::string returnPhonizedWord(std::string_view string) {
  return this->phonizeWord(string);
  }
 
- std::string phonizeWord(const std::string &string) {
+ std::string phonizeWord(std::string_view string) {
  string = string.toUpperCase().trim();
  if (this->whitelistWords.contains(string) {
  return string;
@@ -255,7 +256,7 @@ protected
  }
  }
 
- std::string preProcessWord(const std::string &string0) {
+ std::string preProcessWord(std::string_view string0) {
  Matcher matcher = this->preProcessLeet.matcher(string0);
  StringBuffer stringBuffer = new StringBuffer();
 

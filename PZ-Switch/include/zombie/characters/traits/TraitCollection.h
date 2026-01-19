@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ private
 
  bool remove(void *o) { return this->remove(String.valueOf(o); }
 
- bool remove(const std::string &name) {
+ bool remove(std::string_view name) {
  int int0 = this->indexOfTrait(name);
  if (int0 > -1) {
  this->deactivateTraitSlot(int0);
@@ -53,12 +54,12 @@ private
 
  bool contains(void *o) { return this->contains(String.valueOf(o); }
 
- bool contains(const std::string &trait) {
+ bool contains(std::string_view trait) {
  int int0 = this->indexOfTrait(trait);
  return int0 > -1 && this->getSlotInternal(int0).m_isSet;
  }
 
- void add(const std::string &trait) {
+ void add(std::string_view trait) {
  if (trait != nullptr) {
  this->getOrCreateSlotInternal(trait).m_isSet = true;
  this->m_activeTraitNames.add(trait);
@@ -67,7 +68,7 @@ private
 
  std::string get(int n) { return this->m_activeTraitNames.get(n); }
 
- void set(const std::string &name, bool val) {
+ void set(std::string_view name, bool val) {
  if (val) {
  this->add(name);
  } else {
@@ -82,7 +83,7 @@ private
  : this->getOrCreateSlotInternal(name);
  }
 
- int indexOfTrait(const std::string &string) {
+ int indexOfTrait(std::string_view string) {
  return PZArrayUtil.indexOf(
  this->m_traits,
  Lambda.predicate(string, TraitCollection.TraitSlot::isName);
@@ -126,12 +127,12 @@ private
  bool m_isSet;
 
  private
- TraitSlot(const std::string &string) {
+ TraitSlot(std::string_view string) {
  this->Name = string;
  this->m_isSet = false;
  }
 
- bool isName(const std::string &name) {
+ bool isName(std::string_view name) {
  return StringUtils.equalsIgnoreCase(this->Name, name);
  }
 

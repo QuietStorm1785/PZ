@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -95,7 +96,7 @@ public:
  }
  }
 
- static ClothingDecals Parse(const std::string &string) {
+ static ClothingDecals Parse(std::string_view string) {
  try {
  return parse();
  } catch (FileNotFoundException fileNotFoundException) {
@@ -106,7 +107,7 @@ public:
  return nullptr;
  }
 
- static ClothingDecals parse(const std::string &string) {
+ static ClothingDecals parse(std::string_view string) {
  ClothingDecals clothingDecals;
  try(FileInputStream fileInputStream = new FileInputStream(string) {
  JAXBContext jAXBContext =
@@ -119,7 +120,7 @@ public:
  return clothingDecals;
  }
 
- ClothingDecal getDecal(const std::string &string0) {
+ ClothingDecal getDecal(std::string_view string0) {
  if (StringUtils.isNullOrWhitespace(string0) {
  return nullptr;
  } else {
@@ -151,7 +152,7 @@ public:
  }
  }
 
- ClothingDecalGroup FindGroup(const std::string &string) {
+ ClothingDecalGroup FindGroup(std::string_view string) {
  if (StringUtils.isNullOrWhitespace(string) {
  return nullptr;
  } else {
@@ -166,7 +167,7 @@ public:
  }
  }
 
- std::string getRandomDecal(const std::string &string) {
+ std::string getRandomDecal(std::string_view string) {
  ClothingDecalGroup clothingDecalGroup = this->FindGroup(string);
  return clothingDecalGroup = =
  nullptr ? nullptr : clothingDecalGroup.getRandomDecal();

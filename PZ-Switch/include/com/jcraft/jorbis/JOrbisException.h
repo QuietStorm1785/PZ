@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public
  JOrbisException() {}
 
 public
- JOrbisException(const std::string &string) { super("JOrbis: " + string); }
+ JOrbisException(std::string_view string) { super("JOrbis: " + string); }
 }
 } // namespace jorbis
 } // namespace jcraft

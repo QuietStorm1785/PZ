@@ -15,6 +15,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -610,7 +611,7 @@ public
  : this->JoypadsController[int0].lastActivity;
  }
 
- void setControllerActive(const std::string &string, bool boolean0) {
+ void setControllerActive(std::string_view string, bool boolean0) {
  if (boolean0) {
  this->ActiveControllerGUIDs.add(string);
  } else {

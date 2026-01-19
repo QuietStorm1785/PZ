@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,7 +30,7 @@ private
 
  void update4() {}
 
- void CacheSound(const std::string &file) {}
+ void CacheSound(std::string_view file) {}
 
  void StopSound(Audio SoundEffect) {}
 
@@ -43,47 +44,47 @@ private
 
  void Update() {}
 
- Audio Start(Audio musicTrack, float f, const std::string &PrefMusic) {
+ Audio Start(Audio musicTrack, float f, std::string_view PrefMusic) {
  return nullptr;
  }
 
- Audio PrepareMusic(const std::string &name) { return nullptr; }
+ Audio PrepareMusic(std::string_view name) { return nullptr; }
 
- void PlayWorldSoundWav(const std::string &name, IsoGridSquare source,
+ void PlayWorldSoundWav(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain,
  int choices, bool ignoreOutside) {}
 
- Audio PlayWorldSoundWav(const std::string &name, bool loop,
+ Audio PlayWorldSoundWav(std::string_view name, bool loop,
  IsoGridSquare source, float pitchVar, float radius,
  float maxGain, bool ignoreOutside) {
  return nullptr;
  }
 
- Audio PlayWorldSoundWav(const std::string &name, IsoGridSquare source,
+ Audio PlayWorldSoundWav(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  return nullptr;
  }
 
- Audio PlayWorldSound(const std::string &name, IsoGridSquare source,
+ Audio PlayWorldSound(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain, int choices,
  bool ignoreOutside) {
  return nullptr;
  }
 
- Audio PlayWorldSound(const std::string &name, bool loop, IsoGridSquare source,
+ Audio PlayWorldSound(std::string_view name, bool loop, IsoGridSquare source,
  float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  return nullptr;
  }
 
- Audio PlayWorldSoundImpl(const std::string &name, bool loop, int sx, int sy,
+ Audio PlayWorldSoundImpl(std::string_view name, bool loop, int sx, int sy,
  int sz, float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  return nullptr;
  }
 
- Audio PlayWorldSound(const std::string &name, IsoGridSquare source,
+ Audio PlayWorldSound(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  return nullptr;
@@ -91,82 +92,82 @@ private
 
  void update3D() {}
 
- Audio PlaySoundWav(const std::string &name, int variations, bool loop,
+ Audio PlaySoundWav(std::string_view name, int variations, bool loop,
  float maxGain) {
  return nullptr;
  }
 
- Audio PlaySoundWav(const std::string &name, bool loop, float maxGain) {
+ Audio PlaySoundWav(std::string_view name, bool loop, float maxGain) {
  return nullptr;
  }
 
- Audio PlaySoundWav(const std::string &name, bool loop, float maxGain,
+ Audio PlaySoundWav(std::string_view name, bool loop, float maxGain,
  float pitchVar) {
  return nullptr;
  }
 
- Audio PlayJukeboxSound(const std::string &name, bool loop, float maxGain) {
+ Audio PlayJukeboxSound(std::string_view name, bool loop, float maxGain) {
  return nullptr;
  }
 
- Audio PlaySoundEvenSilent(const std::string &name, bool loop, float maxGain) {
+ Audio PlaySoundEvenSilent(std::string_view name, bool loop, float maxGain) {
  return nullptr;
  }
 
- Audio PlaySound(const std::string &name, bool loop, float maxGain) {
+ Audio PlaySound(std::string_view name, bool loop, float maxGain) {
  return nullptr;
  }
 
- Audio PlaySound(const std::string &name, bool loop, float pitchVar,
+ Audio PlaySound(std::string_view name, bool loop, float pitchVar,
  float maxGain) {
  return nullptr;
  }
 
- Audio PlayMusic(const std::string &n, const std::string &name, bool loop,
+ Audio PlayMusic(std::string_view n, std::string_view name, bool loop,
  float maxGain) {
  return nullptr;
  }
 
- void PlayAsMusic(const std::string &name, Audio musicTrack, bool loop,
+ void PlayAsMusic(std::string_view name, Audio musicTrack, bool loop,
  float volume) {}
 
- void setMusicState(const std::string &stateName) {}
+ void setMusicState(std::string_view stateName) {}
 
- void setMusicWakeState(IsoPlayer player, const std::string &stateName) {}
+ void setMusicWakeState(IsoPlayer player, std::string_view stateName) {}
 
- void DoMusic(const std::string &name, bool bLoop) {}
+ void DoMusic(std::string_view name, bool bLoop) {}
 
  float getMusicPosition() { return 0.0F; }
 
  void CheckDoMusic() {}
 
- void stopMusic(const std::string &name) {}
+ void stopMusic(std::string_view name) {}
 
- void playMusicNonTriggered(const std::string &name, float gain) {}
+ void playMusicNonTriggered(std::string_view name, float gain) {}
 
- void playAmbient(const std::string &name) {}
+ void playAmbient(std::string_view name) {}
 
- void playMusic(const std::string &name) {}
+ void playMusic(std::string_view name) {}
 
  bool isPlayingMusic() { return false; }
 
  bool IsMusicPlaying() { return false; }
 
- void PlayAsMusic(const std::string &name, Audio musicTrack, float volume,
+ void PlayAsMusic(std::string_view name, Audio musicTrack, float volume,
  bool bloop) {}
 
- long playUISound(const std::string &name) { return 0L; }
+ long playUISound(std::string_view name) { return 0L; }
 
- bool isPlayingUISound(const std::string &name) { return false; }
+ bool isPlayingUISound(std::string_view name) { return false; }
 
  bool isPlayingUISound(long eventInstance) { return false; }
 
  void stopUISound(long eventInstance) {}
 
- void FadeOutMusic(const std::string &name, int milli) {}
+ void FadeOutMusic(std::string_view name, int milli) {}
 
  Audio BlendThenStart(Audio musicTrack, float f,
- const std::string &PrefMusic) {
+ std::string_view PrefMusic) {
  return nullptr;
  }
 
@@ -190,7 +191,7 @@ private
 
  float getAmbientVolume() { return 0.0F; }
 
- void playNightAmbient(const std::string &choice) {}
+ void playNightAmbient(std::string_view choice) {}
 
 public
  ArrayList<Audio> getAmbientPieces() { return ambientPieces; }
@@ -207,7 +208,7 @@ public
 
  bool isListenerInRange(float x, float y, float range) { return false; }
 
- Audio PlayWorldSoundWavImpl(const std::string &name, bool loop,
+ Audio PlayWorldSoundWavImpl(std::string_view name, bool loop,
  IsoGridSquare source, float pitchVar,
  float radius, float maxGain, bool ignoreOutside) {
  return nullptr;

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -55,7 +56,7 @@ class WorldMap {
       this.setBoundsInCells(var1.getMinX(), var1.getMinY(), var1.getMaxX(), var1.getMaxY());
    }
 
-    void addData(const std::string& var1) {
+    void addData(std::string_view var1) {
       if (!StringUtils.isNullOrWhitespace(var1)) {
     std::string var2 = ZomboidFileSystem.instance.getString(var1);
     WorldMapData var3 = WorldMapData.getOrCreateData(var2);
@@ -70,7 +71,7 @@ class WorldMap {
       }
    }
 
-    int getDataCount() const {
+    int getDataCount() const noexcept {
       return this.m_data.size();
    }
 
@@ -126,7 +127,7 @@ class WorldMap {
       return !this.m_data.isEmpty();
    }
 
-    void addImages(const std::string& var1) {
+    void addImages(std::string_view var1) {
       if (!StringUtils.isNullOrWhitespace(var1)) {
     WorldMapImages var2 = WorldMapImages.getOrCreate(var1);
          if (var2 != nullptr && !this.m_images.contains(var2)) {
@@ -139,7 +140,7 @@ class WorldMap {
       return !this.m_images.isEmpty();
    }
 
-    int getImagesCount() const {
+    int getImagesCount() const noexcept {
       return this.m_images.size();
    }
 

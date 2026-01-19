@@ -45,13 +45,13 @@ protected
  this->buffer.clear();
  }
 
- UdpConnection getTargetConn() { return this->targetConn; }
+ UdpConnection getTargetConn() noexcept{ return this->targetConn; }
 
  void setTargetConn(UdpConnection udpConnection) {
  this->targetConn = udpConnection;
  }
 
- int getChunkCount() { return this->chunkCount; }
+ int getChunkCount() noexcept{ return this->chunkCount; }
 
  ByteBuffer getBuffer() { return this->buffer; }
 

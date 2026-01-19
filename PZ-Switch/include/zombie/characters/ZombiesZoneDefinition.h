@@ -20,6 +20,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -327,7 +328,7 @@ static void applyDefinition(IsoZombie zombie0, IsoMetaGrid.Zone zone,
 }
 
 static Outfit getRandomDefaultOutfit(bool boolean0,
- const std::string &string2) {
+ std::string_view string2) {
  std::vector arrayList = new ArrayList();
  KahluaTable table =
  (KahluaTable)LuaManager.env.rawget("ZombiesZoneDefinition");
@@ -428,7 +429,7 @@ static void registerCustomOutfits() {
  }
 }
 
-static void ApplyCustomOutfit(int int0, const std::string &string,
+static void ApplyCustomOutfit(int int0, std::string_view string,
  IsoGameCharacter character) {
  ZombiesZoneDefinition.ZZDOutfit zZDOutfit = s_customOutfitMap.get(string);
  bool boolean0 = (int0 & -2147483648) != 0;

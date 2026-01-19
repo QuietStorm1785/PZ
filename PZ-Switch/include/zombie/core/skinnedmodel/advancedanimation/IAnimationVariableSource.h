@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,33 +25,33 @@ public:
  /**
  * Returns the specified variable slot. Or NULL if not found.
  */
- IAnimationVariableSlot getVariable(const std::string &key);
+ IAnimationVariableSlot getVariable(std::string_view key);
 
  /**
  * Returns the specified variable. Or an empty string "" if not found.
  */
- std::string getVariableString(const std::string &name);
+ std::string getVariableString(std::string_view name);
 
  /**
  * Returns the specified variable, as a float. Attempts to convert the
  * string variable to a float. If that fails, or if variable not found,
  * returns the defaultValue
  */
- float getVariableFloat(const std::string &name, float defaultVal);
+ float getVariableFloat(std::string_view name, float defaultVal);
 
  /**
  * Returns the specified variable, as a boolean. Attempts to convert the
  * string variable to a boolean. If that fails, or if variable not found,
  * returns FALSE
  */
- bool getVariableBoolean(const std::string &name);
+ bool getVariableBoolean(std::string_view name);
 
  /**
  * Returns the specified variable, as a boolean. Attempts to convert the
  * string variable to a boolean. If that fails, or if variable not found,
  * returns defaultVal
  */
- bool getVariableBoolean(const std::string &key, bool defaultVal);
+ bool getVariableBoolean(std::string_view key, bool defaultVal);
 
  /**
  * Returns all Game variables.
@@ -61,9 +62,9 @@ public:
  * Compares (ignoring case) the value of the specified variable. Returns TRUE
  * if they match.
  */
- bool isVariable(const std::string &name, const std::string &val);
+ bool isVariable(std::string_view name, std::string_view val);
 
- bool containsVariable(const std::string &name);
+ bool containsVariable(std::string_view name);
 }
 } // namespace advancedanimation
 } // namespace skinnedmodel

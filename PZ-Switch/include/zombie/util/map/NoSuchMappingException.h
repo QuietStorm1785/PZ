@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,7 +18,7 @@ public:
  static const long serialVersionUID = 1L;
 
 public
- NoSuchMappingException(const std::string &string) { super(string); }
+ NoSuchMappingException(std::string_view string) { super(string); }
 }
 } // namespace map
 } // namespace util

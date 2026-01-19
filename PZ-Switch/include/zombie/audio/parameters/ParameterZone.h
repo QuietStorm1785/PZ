@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ private
  ArrayList<IsoMetaGrid.Zone> m_zones = std::make_unique<ArrayList<>>();
 
 public
- ParameterZone(const std::string &name, const std::string &zoneName) {
+ ParameterZone(std::string_view name, std::string_view zoneName) {
  super(name);
  this->m_zoneName = zoneName;
  }

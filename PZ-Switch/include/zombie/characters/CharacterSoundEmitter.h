@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -62,7 +63,7 @@ public
  SoundManager.instance.unregisterEmitter(this->extra);
  }
 
- long playVocals(const std::string &file) {
+ long playVocals(std::string_view file) {
  if (GameServer.bServer) {
  return 0L;
  } else {
@@ -125,7 +126,7 @@ public
  }
  }
 
- void playFootsteps(const std::string &file, float volume) {
+ void playFootsteps(std::string_view file, float volume) {
  if (!GameServer.bServer) {
  bool boolean0 = this->footsteps.isPlaying(this->footstep1);
  bool boolean1 = this->footsteps.isPlaying(this->footstep2);
@@ -155,7 +156,7 @@ public
  }
  }
 
- long playSound(const std::string &file) {
+ long playSound(std::string_view file) {
  if (this->character.isInvisible() &&
  !DebugOptions.instance.Character.Debug.PlaySoundWhenInvisible
  .getValue()) {
@@ -171,7 +172,7 @@ public
  }
  }
 
- long playSound(const std::string &file, bool doWorldSound) {
+ long playSound(std::string_view file, bool doWorldSound) {
  if (this->character.isInvisible() &&
  !DebugOptions.instance.Character.Debug.PlaySoundWhenInvisible
  .getValue()) {
@@ -187,7 +188,7 @@ public
  }
  }
 
- long playSound(const std::string &file, IsoObject proxy) {
+ long playSound(std::string_view file, IsoObject proxy) {
  if (this->character.isInvisible() &&
  !DebugOptions.instance.Character.Debug.PlaySoundWhenInvisible
  .getValue()) {
@@ -203,7 +204,7 @@ public
  }
  }
 
- long playSoundImpl(const std::string &file, IsoObject proxy) {
+ long playSoundImpl(std::string_view file, IsoObject proxy) {
  if (this->character instanceof IsoPlayer &&
  ((IsoPlayer)this->character).bRemote &&
  this->character.isInvisible()) {
@@ -293,7 +294,7 @@ public
  this->vocals.stopOrTriggerSound(eventInstance);
  }
 
- void stopOrTriggerSoundByName(const std::string &name) {
+ void stopOrTriggerSoundByName(std::string_view name) {
  this->extra.stopOrTriggerSoundByName(name);
  this->footsteps.stopOrTriggerSoundByName(name);
  this->vocals.stopOrTriggerSoundByName(name);
@@ -305,7 +306,7 @@ public
  this->vocals.stopAll();
  }
 
- int stopSoundByName(const std::string &soundName) {
+ int stopSoundByName(std::string_view soundName) {
  this->extra.stopSoundByName(soundName);
  this->footsteps.stopSoundByName(soundName);
  this->vocals.stopSoundByName(soundName);
@@ -323,7 +324,7 @@ public
  this->vocals.isPlaying(eventInstance);
  }
 
- bool isPlaying(const std::string &alias) {
+ bool isPlaying(std::string_view alias) {
  return this->extra.isPlaying(alias) || this->footsteps.isPlaying(alias) ||
  this->vocals.isPlaying(alias);
  }

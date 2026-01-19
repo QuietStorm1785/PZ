@@ -21,6 +21,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -195,7 +196,7 @@ public
  return attachedWeaponDefinition0;
  }
 
- bool outfitHasItem(IsoZombie zombie0, const std::string &string) {
+ bool outfitHasItem(IsoZombie zombie0, std::string_view string) {
  assert string.contains(".");
 
  ItemVisuals itemVisuals = zombie0.getItemVisuals();
@@ -260,7 +261,7 @@ public
  }
  }
 
- AttachedWeaponCustomOutfit initOutfit(const std::string &string,
+ AttachedWeaponCustomOutfit initOutfit(std::string_view string,
  KahluaTableImpl kahluaTableImpl0) {
  AttachedWeaponCustomOutfit attachedWeaponCustomOutfit =
  new AttachedWeaponCustomOutfit();
@@ -282,7 +283,7 @@ public
  return attachedWeaponCustomOutfit;
  }
 
- AttachedWeaponDefinition init(const std::string &string,
+ AttachedWeaponDefinition init(std::string_view string,
  KahluaTableImpl kahluaTableImpl0) {
  AttachedWeaponDefinition attachedWeaponDefinition =
  new AttachedWeaponDefinition();
@@ -319,7 +320,7 @@ public
  return attachedWeaponDefinition;
  }
 
- void tableToArrayList(KahluaTable table, const std::string &string,
+ void tableToArrayList(KahluaTable table, std::string_view string,
  ArrayList<String> arrayList) {
  KahluaTableImpl kahluaTableImpl = (KahluaTableImpl)table.rawget(string);
  if (kahluaTableImpl != nullptr) {

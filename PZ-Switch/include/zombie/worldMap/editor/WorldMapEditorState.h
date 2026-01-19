@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -137,7 +138,7 @@ public
 
  void setTable(KahluaTable table) { this->m_table = table; }
 
- void *fromLua0(const std::string &string) {
+ void *fromLua0(std::string_view string) {
  uint8_t byte0 = -1;
  switch (string.hashCode()) {
  case 3127582:

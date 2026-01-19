@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ class GameSoundScript : public BaseScriptObject {
 public:
  const GameSound gameSound = new GameSound();
 
- void Load(const std::string &name, const std::string &totalFile) {
+ void Load(std::string_view name, std::string_view totalFile) {
  this->gameSound.name = name;
  ScriptParser.Block block0 = ScriptParser.parse(totalFile);
  block0 = block0.children.get(0);

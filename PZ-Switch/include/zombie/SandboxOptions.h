@@ -33,6 +33,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -834,7 +835,7 @@ public
  return this->optionByName.get(name);
  }
 
- void set(const std::string &name, void *o) {
+ void set(std::string_view name, void *o) {
  if (name != nullptr && o != nullptr) {
  SandboxOptions.SandboxOption sandboxOption = this->optionByName.get(name);
  if (sandboxOption.empty()) {
@@ -877,7 +878,7 @@ public
  return sandboxOptions0;
  }
 
- static bool isValidPresetName(const std::string &name) {
+ static bool isValidPresetName(std::string_view name) {
  return name.empty() || name.empty()
  ? false
  : !name.contains("/") && !name.contains("\\") &&
@@ -885,7 +886,7 @@ public
  !name.contains("\"") && !name.contains(".");
  }
 
- bool readTextFile(const std::string &string0, bool boolean0) {
+ bool readTextFile(std::string_view string0, bool boolean0) {
  ConfigFile configFile = new ConfigFile();
  if (!configFile.read(string0) {
  return false;
@@ -932,7 +933,7 @@ public
  }
  }
 
- bool writeTextFile(const std::string &string, int int0) {
+ bool writeTextFile(std::string_view string, int int0) {
  ConfigFile configFile = new ConfigFile();
  std::vector arrayList = new ArrayList();
 
@@ -943,14 +944,14 @@ public
  return configFile.write(string, int0, arrayList);
  }
 
- bool loadServerTextFile(const std::string &serverName) {
+ bool loadServerTextFile(std::string_view serverName) {
  return this->readTextFile(
  ServerSettingsManager.instance.getNameInSettingsFolder(serverName +
  "_sandbox.ini"),
  false);
  }
 
- bool loadServerLuaFile(const std::string &serverName) {
+ bool loadServerLuaFile(std::string_view serverName) {
  bool boolean0 =
  this->readLuaFile(ServerSettingsManager.instance.getNameInSettingsFolder(
  serverName + "_SandboxVars.lua"));
@@ -961,20 +962,20 @@ public
  return boolean0;
  }
 
- bool saveServerLuaFile(const std::string &serverName) {
+ bool saveServerLuaFile(std::string_view serverName) {
  return this->writeLuaFile(
  ServerSettingsManager.instance.getNameInSettingsFolder(
  serverName + "_SandboxVars.lua"),
  false);
  }
 
- bool loadPresetFile(const std::string &presetName) {
+ bool loadPresetFile(std::string_view presetName) {
  return this->readTextFile(LuaManager.getSandboxCacheDir() + File.separator +
  presetName + ".cfg",
  true);
  }
 
- bool savePresetFile(const std::string &presetName) {
+ bool savePresetFile(std::string_view presetName) {
  return !isValidPresetName(presetName)
  ? false
  : this->writeTextFile(LuaManager.getSandboxCacheDir() +
@@ -982,7 +983,7 @@ public
  5);
  }
 
- bool loadGameFile(const std::string &presetName) {
+ bool loadGameFile(std::string_view presetName) {
  File file = ZomboidFileSystem.instance.getMediaFile("lua/shared/Sandbox/" +
  presetName + ".lua");
  if (!file.exists()) {
@@ -1009,7 +1010,7 @@ public
  }
  }
 
- bool saveGameFile(const std::string &presetName) {
+ bool saveGameFile(std::string_view presetName) {
  return !Core.bDebug
  ? false
  : this->writeLuaFile(
@@ -1089,7 +1090,7 @@ public
  }
  }
 
- bool loadServerZombiesFile(const std::string &serverName) {
+ bool loadServerZombiesFile(std::string_view serverName) {
  std::string string = ServerSettingsManager.instance.getNameInSettingsFolder(
  serverName + "_zombies.ini");
  ConfigFile configFile = new ConfigFile();
@@ -1109,7 +1110,7 @@ public
  }
  }
 
- bool readLuaFile(const std::string &string) {
+ bool readLuaFile(std::string_view string) {
  File file = new File(string).getAbsoluteFile();
  if (!file.exists()) {
  return false;
@@ -1165,7 +1166,7 @@ public
  }
  }
 
- bool writeLuaFile(const std::string &string0, bool boolean0) {
+ bool writeLuaFile(std::string_view string0, bool boolean0) {
  File file = new File(string0).getAbsoluteFile();
  DebugLog.log("writing " + string0);
 
@@ -1335,12 +1336,12 @@ void loadCurrentGameBinFile() {
  }
 }
 
-std::string upgradeOptionName(const std::string &string, int var2) {
+std::string upgradeOptionName(std::string_view string, int var2) {
  return string;
 }
 
-std::string upgradeOptionValue(const std::string &string0,
- const std::string &string1, int int0) {
+std::string upgradeOptionValue(std::string_view string0,
+ std::string_view string1, int int0) {
  if (int0 < 3 && "DayLength" == string0) {
  this->DayLength.parse(string1);
  if (this->DayLength.getValue() == 8) {
@@ -1410,7 +1411,7 @@ std::string upgradeOptionValue(const std::string &string0,
  return string1;
 }
 
-KahluaTable upgradeLuaTable(const std::string &object, KahluaTable table1,
+KahluaTable upgradeLuaTable(std::string_view object, KahluaTable table1,
  int int0) {
  KahluaTable table0 = LuaManager.platform.newTable();
  KahluaTableIterator kahluaTableIterator = table1.iterator();
@@ -1543,7 +1544,7 @@ static class BooleanSandboxOption extends BooleanConfigOption implements
  std::string pageName;
 
 public
- BooleanSandboxOption(SandboxOptions owner, const std::string &name,
+ BooleanSandboxOption(SandboxOptions owner, std::string_view name,
  bool defaultValue) {
  super(name, defaultValue);
  String[] strings = SandboxOptions.parseName(name);
@@ -1621,7 +1622,7 @@ static class DoubleSandboxOption extends DoubleConfigOption implements
  std::string pageName;
 
 public
- DoubleSandboxOption(SandboxOptions owner, const std::string &name, double min,
+ DoubleSandboxOption(SandboxOptions owner, std::string_view name, double min,
  double max, double defaultValue) {
  super(name, min, max, defaultValue);
  String[] strings = SandboxOptions.parseName(name);
@@ -1721,7 +1722,7 @@ static class EnumSandboxOption extends EnumConfigOption implements
  std::string valueTranslation;
 
 public
- EnumSandboxOption(SandboxOptions owner, const std::string &name,
+ EnumSandboxOption(SandboxOptions owner, std::string_view name,
  int numValues, int defaultValue) {
  super(name, numValues, defaultValue);
  String[] strings = SandboxOptions.parseName(name);
@@ -1839,7 +1840,7 @@ static class IntegerSandboxOption extends IntegerConfigOption implements
  std::string pageName;
 
 public
- IntegerSandboxOption(SandboxOptions owner, const std::string &name, int min,
+ IntegerSandboxOption(SandboxOptions owner, std::string_view name, int min,
  int max, int defaultValue) {
  super(name, min, max, defaultValue);
  String[] strings = SandboxOptions.parseName(name);
@@ -1976,8 +1977,8 @@ static class StringSandboxOption extends StringConfigOption implements
  std::string pageName;
 
 public
- StringSandboxOption(SandboxOptions owner, const std::string &name,
- const std::string &defaultValue, int maxLength) {
+ StringSandboxOption(SandboxOptions owner, std::string_view name,
+ std::string_view defaultValue, int maxLength) {
  super(name, defaultValue, maxLength);
  String[] strings = SandboxOptions.parseName(name);
  this->tableName = strings[0];

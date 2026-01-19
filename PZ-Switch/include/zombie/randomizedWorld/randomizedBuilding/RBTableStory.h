@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -222,7 +223,7 @@ class StoryDef {
  float forcedOffset = 0.0F;
 
  public
- StorySpawnItem(Integer > linkedHashMap, const std::string &string,
+ StorySpawnItem(Integer > linkedHashMap, std::string_view string,
  int integer) {
  this->eitherObject = linkedHashMap;
  this->object = string;
@@ -230,7 +231,7 @@ class StoryDef {
  }
 
  public
- StorySpawnItem(Integer > linkedHashMap, const std::string &string,
+ StorySpawnItem(Integer > linkedHashMap, std::string_view string,
  int integer, float float0) {
  this->eitherObject = linkedHashMap;
  this->object = string;

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -23,7 +24,7 @@ class FileTask_LoadImageData :  FileTask {
     std::string m_image_name;
     bool bMask = false;
 
-     FileTask_LoadImageData(const std::string& var1, FileSystem var2, IFileTaskCallback var3) {
+     FileTask_LoadImageData(std::string_view var1, FileSystem var2, IFileTaskCallback var3) {
       super(var2, var3);
       this.m_image_name = var1;
    }

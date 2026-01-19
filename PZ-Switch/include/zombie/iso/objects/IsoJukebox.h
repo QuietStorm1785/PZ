@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -42,7 +43,7 @@ public
  IsoJukebox(IsoCell cell) { super(cell); }
 
 public
- IsoJukebox(IsoCell cell, IsoGridSquare sq, const std::string &gid) {
+ IsoJukebox(IsoCell cell, IsoGridSquare sq, std::string_view gid) {
  super(cell, sq, gid);
  this->JukeboxTrack = nullptr;
  this->IsPlaying = false;

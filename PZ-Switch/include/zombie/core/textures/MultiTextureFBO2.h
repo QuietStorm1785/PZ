@@ -18,6 +18,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -86,7 +87,7 @@ public
  return arrayList;
  }
 
- void setZoomLevelsFromOption(const std::string &levels) {
+ void setZoomLevelsFromOption(std::string_view levels) {
  this->zoomLevels = this->zoomLevelsDefault;
  if (levels != nullptr && !levels.empty()) {
  String[] strings = levels.split(";");

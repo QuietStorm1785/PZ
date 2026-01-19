@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ public:
 private
  HashMap<String, String> strings = std::make_unique<HashMap<>>();
 
- std::string get(const std::string &s) {
+ std::string get(std::string_view s) {
  std::string string = this->strings.get(s);
  if (string.empty()) {
  this->strings.put(s, s);

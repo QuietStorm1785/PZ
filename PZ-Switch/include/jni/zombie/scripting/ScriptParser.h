@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -16,7 +17,7 @@ class ScriptParser {
 :
     static StringBuilder stringBuilder = new StringBuilder();
 
-    static int readBlock(const std::string& var0, int var1, Block var2) {
+    static int readBlock(std::string_view var0, int var1, Block var2) {
     int var3;
       for (var3 = var1; var3 < var0.length(); var3++) {
          if (var0.charAt(var3) == '{') {
@@ -47,13 +48,13 @@ class ScriptParser {
     return var3;
    }
 
-    static Block parse(const std::string& var0) {
+    static Block parse(std::string_view var0) {
     Block var1 = new Block();
       readBlock(var0, 0, var1);
     return var1;
    }
 
-    static std::string stripComments(const std::string& var0) {
+    static std::string stripComments(std::string_view var0) {
       stringBuilder.setLength(0);
       stringBuilder.append(var0);
     int var1 = stringBuilder.lastIndexOf("*/");

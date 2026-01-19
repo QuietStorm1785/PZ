@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,13 +26,13 @@ public
  this->fileStream = printStream1;
  }
 
- void print(const std::string &string) {
+ void print(std::string_view string) {
  this->systemStream.print(string);
  this->fileStream.print(string);
  this->fileStream.flush();
  }
 
- void println(const std::string &string) {
+ void println(std::string_view string) {
  this->systemStream.println(string);
  this->fileStream.println(string);
  this->fileStream.flush();

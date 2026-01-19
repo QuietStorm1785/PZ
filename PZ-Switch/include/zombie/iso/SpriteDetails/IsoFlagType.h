@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -46,7 +47,7 @@ int index() { return this->index; }
 
 static IsoFlagType fromIndex(int value) { return EnumConstants[value]; }
 
-static IsoFlagType FromString(const std::string &str) {
+static IsoFlagType FromString(std::string_view str) {
  IsoFlagType flagType = fromStringMap.get(str);
  return flagType = = nullptr ? MAX : flagType;
 }

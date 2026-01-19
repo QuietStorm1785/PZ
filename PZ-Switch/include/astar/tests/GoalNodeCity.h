@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  std::string name;
 
 public
- GoalNodeCity(const std::string &string) { this->name = string; }
+ GoalNodeCity(std::string_view string) { this->name = string; }
 
  bool inGoal(ISearchNode iSearchNode) {
  return iSearchNode instanceof

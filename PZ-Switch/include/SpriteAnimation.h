@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include <vector>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 
 namespace zombie {
@@ -33,10 +34,10 @@ struct AnimationFrame {
 class Animation {
 public:
  Animation();
- Animation(const std::string& name);
+ Animation(std::string_view name);
  ~Animation();
  
- void setName(const std::string& n) { name = n; }
+ void setName(std::string_view n) { name = n; }
  std::string getName() const { return name; }
  
  void addFrame(const AnimationFrame& frame);
@@ -44,7 +45,7 @@ public:
  void setLoop(bool loop) { looping = loop; }
  bool isLooping() const { return looping; }
  
- int getFrameCount() const { return static_cast<int>(frames.size()); }
+ int getFrameCount() const noexcept { return static_cast<int>(frames.size()); }
  const AnimationFrame& getFrame(int index) const;
  
  float getTotalDuration() const;
@@ -65,8 +66,8 @@ public:
  ~AnimatedSprite();
  
  // Animation management
- void addAnimation(const std::string& name, const Animation& anim);
- void setAnimation(const std::string& name);
+ void addAnimation(std::string_view name, const Animation& anim);
+ void setAnimation(std::string_view name);
  std::string getCurrentAnimation() const { return currentAnimName; }
  
  // Playback control
@@ -104,16 +105,16 @@ private:
  */
 class AnimationLoader {
 public:
- static bool loadFromFile(const std::string& txtPath, 
- const std::string& pngPath,
+ static bool loadFromFile(std::string_view txtPath, 
+ std::string_view pngPath,
  AnimatedSprite* sprite,
  assets::TextureManager* texMgr);
  
- static bool parseAnimationFile(const std::string& path,
+ static bool parseAnimationFile(std::string_view path,
  std::unordered_map<std::string, Animation>& animations);
  
 private:
- static void parseAnimationLine(const std::string& line,
+ static void parseAnimationLine(std::string_view line,
  std::unordered_map<std::string, Animation>& animations);
 };
 

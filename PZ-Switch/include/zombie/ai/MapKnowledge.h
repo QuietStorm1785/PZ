@@ -117,7 +117,7 @@ public
  }
  }
 
- void forget() {
+ void forget() noexcept{
  KnownBlockedEdges.releaseAll(this->knownBlockedEdges);
  this->knownBlockedEdges.clear();
  }

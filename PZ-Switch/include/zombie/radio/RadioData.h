@@ -22,6 +22,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -56,7 +57,7 @@ private
  static const Pattern pattern = Pattern.compile("\\$\\{t:([^}]+)\\}");
 
 public
- RadioData(const std::string &xmlFile) { this->xmlFilePath = xmlFile; }
+ RadioData(std::string_view xmlFile) { this->xmlFilePath = xmlFile; }
 
 public
  ArrayList<RadioChannel> getRadioChannels() { return this->radioChannels; }
@@ -212,7 +213,7 @@ static ArrayList<RadioData> fetchAllRadioData() {
  return arrayList;
 }
 
-static void searchForFiles(File file, const std::string &string,
+static void searchForFiles(File file, std::string_view string,
  ArrayList<String> arrayList) {
  if (file.isDirectory()) {
  String[] strings = file.list();
@@ -227,7 +228,7 @@ static void searchForFiles(File file, const std::string &string,
  }
 }
 
-static RadioData ReadFile(const std::string &string) {
+static RadioData ReadFile(std::string_view string) {
  RadioData radioData = new RadioData(string);
  bool boolean0 = false;
 
@@ -262,7 +263,7 @@ static RadioData ReadFile(const std::string &string) {
  return boolean0 ? radioData : nullptr;
 }
 
-void print(const std::string &string) {
+void print(std::string_view string) {
  if (PRINTDEBUG) {
  DebugLog.log(DebugType.Radio, string);
  }
@@ -287,23 +288,23 @@ ArrayList<Node> getChildNodes(Node node0) {
  return arrayList;
 }
 
-std::string toLowerLocaleSafe(const std::string &string) {
+std::string toLowerLocaleSafe(std::string_view string) {
  return string.toLowerCase(Locale.ENGLISH);
 }
 
-bool nodeNameIs(Node node, const std::string &string) {
+bool nodeNameIs(Node node, std::string_view string) {
  return node.getNodeName() == string);
 }
 
-std::string getAttrib(Node node, const std::string &string, bool boolean0) {
+std::string getAttrib(Node node, std::string_view string, bool boolean0) {
  return this->getAttrib(node, string, boolean0, false);
 }
 
-std::string getAttrib(Node node, const std::string &string) {
+std::string getAttrib(Node node, std::string_view string) {
  return this->getAttrib(node, string, true, false).trim();
 }
 
-std::string getAttrib(Node node, const std::string &string1, bool boolean0,
+std::string getAttrib(Node node, std::string_view string1, bool boolean0,
  bool boolean1) {
  std::string string0 =
  node.getAttributes().getNamedItem(string1).getTextContent();
@@ -535,8 +536,8 @@ RadioBroadCast loadBroadcast(Node node0, RadioScript radioScript1) {
  return radioBroadCast;
 }
 
-std::string checkForTranslation(const std::string &string1,
- const std::string &string2) {
+std::string checkForTranslation(std::string_view string1,
+ std::string_view string2) {
  if (this->currentTranslation != nullptr) {
  std::string string0 = this->currentTranslation.getTranslation(string1);
  if (string0 != nullptr) {
@@ -562,7 +563,7 @@ void loadExitOptions(Node node1, RadioScript radioScript) {
  }
 }
 
-std::string checkForCustomAirTimer(const std::string &string0,
+std::string checkForCustomAirTimer(std::string_view string0,
  RadioLine radioLine) {
  Matcher matcher = pattern.matcher(string0);
  std::string string1 = string0;

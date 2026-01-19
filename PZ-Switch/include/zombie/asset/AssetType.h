@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  long type;
 
 public
- AssetType(const std::string &typeName) {
+ AssetType(std::string_view typeName) {
  CRC32 crc32 = new CRC32();
  crc32.update(typeName.getBytes());
  this->type = crc32.getValue();

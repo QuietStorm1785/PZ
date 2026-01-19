@@ -19,6 +19,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -75,8 +76,8 @@ public:
  }
  }
 
- static void writeServerCommand(const std::string &string0,
- const std::string &string1, KahluaTable table,
+ static void writeServerCommand(std::string_view string0,
+ std::string_view string1, KahluaTable table,
  ByteBufferWriter byteBufferWriter) {
  PacketTypes.PacketType.GlobalObjects.doPacket(byteBufferWriter);
  byteBufferWriter.putByte((byte)1);
@@ -106,8 +107,8 @@ public:
  }
  }
 
- static void sendServerCommand(const std::string &string0,
- const std::string &string1, KahluaTable table) {
+ static void sendServerCommand(std::string_view string0,
+ std::string_view string1, KahluaTable table) {
  BYTE_BUFFER.clear();
  writeServerCommand(string0, string1, table, BYTE_BUFFER_WRITER);
  sendPacket(BYTE_BUFFER);

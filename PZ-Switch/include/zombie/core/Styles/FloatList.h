@@ -148,7 +148,7 @@ public
  /**
  * Pack list to its minimum size.
  */
- void trimToSize() {
+ void trimToSize() noexcept{
  if (this->count != this->value.length) {
  float[] floats = this->value;
  this->value = new float[this->count];

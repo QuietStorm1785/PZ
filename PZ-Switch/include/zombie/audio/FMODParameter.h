@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  float m_currentValue = Float.NaN;
 
 public
- FMODParameter(const std::string &name) {
+ FMODParameter(std::string_view name) {
  this->m_name = name;
  this->m_parameterDescription =
  FMODManager.instance.getParameterDescription(name);

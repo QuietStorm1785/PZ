@@ -407,7 +407,7 @@ public
  }
  }
 
- int getSize() { return this->values.length; }
+ int getSize() noexcept{ return this->values.length; }
 
  double getElement(int int0) { return this->values[int0]; }
 

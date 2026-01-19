@@ -39,6 +39,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -374,7 +375,7 @@ class Atlas {
  this->md.update((byte)(arg0 >> 24 & 0xFF);
  }
 
- void update(const std::string &arg0) {
+ void update(std::string_view arg0) {
  if (arg0 != nullptr && !arg0.empty()) {
  this->md.update(arg0.getBytes());
  }
@@ -1277,7 +1278,7 @@ private
  this->entry.offsetY = float1 + (float3 - float1) / 2.0F - 512.0F;
  }
 
- void calcEntrySize() {
+ void calcEntrySize() noexcept{
  float float0 = this->m_bounds[0];
  float float1 = this->m_bounds[1];
  float float2 = this->m_bounds[2];

@@ -15,7 +15,7 @@ namespace iso {
 
 class test_ObjectsSyncRequests_getObjectInsertIndex : public Assert {
 public:
- void test_getInsertIndex() {
+ void test_getInsertIndex() noexcept{
  long[] longs0 = new long[]{13L, 88L, 51L};
  long[] longs1 = new long[]{8L, 13L, 52L, 21L, 88L, 36L, 51L, 15L};
  assertEquals(0L,
@@ -36,7 +36,7 @@ public:
  ObjectsSyncRequests.getObjectInsertIndex(longs0, longs1, 15L);
  }
 
- void test_getInsertIndex2() {
+ void test_getInsertIndex2() noexcept{
  long[] longs0 = new long[0];
  long[] longs1 = new long[]{81L, 45L, 72L};
  assertEquals(-1L,
@@ -51,7 +51,7 @@ public:
  ObjectsSyncRequests.getObjectInsertIndex(longs0, longs1, 72L);
  }
 
- void test_getInsertIndex3() {
+ void test_getInsertIndex3() noexcept{
  long[] longs0 = new long[]{71L, 66L, 381L};
  long[] longs1 = new long[]{55L, 81L, 71L, 41L, 66L, 381L, 68L};
  assertEquals(0L,

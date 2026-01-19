@@ -40,6 +40,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -434,7 +435,7 @@ public
  *
  * @param _DisplayName the DisplayName to set
  */
- void setDisplayName(const std::string &_DisplayName) {
+ void setDisplayName(std::string_view _DisplayName) {
  this->DisplayName = _DisplayName;
  }
 
@@ -451,7 +452,7 @@ public
  *
  * @param _Icon the Icon to set
  */
- void setIcon(const std::string &_Icon) { this->Icon = _Icon; }
+ void setIcon(std::string_view _Icon) { this->Icon = _Icon; }
 
  int getNoiseDuration() { return this->noiseDuration; }
 
@@ -509,7 +510,7 @@ public
  /**
  * @return the Count
  */
- int getCount() { return this->Count; }
+ int getCount() noexcept{ return this->Count; }
 
  /**
  *
@@ -711,7 +712,7 @@ public
  *
  * @param _SwingSound the SwingSound to set
  */
- void setSwingSound(const std::string &_SwingSound) {
+ void setSwingSound(std::string_view _SwingSound) {
  this->SwingSound = _SwingSound;
  }
 
@@ -724,7 +725,7 @@ public
  *
  * @param _WeaponSprite the WeaponSprite to set
  */
- void setWeaponSprite(const std::string &_WeaponSprite) {
+ void setWeaponSprite(std::string_view _WeaponSprite) {
  this->WeaponSprite = _WeaponSprite;
  }
 
@@ -818,7 +819,7 @@ public
  *
  * @param _ImpactSound the ImpactSound to set
  */
- void setImpactSound(const std::string &_ImpactSound) {
+ void setImpactSound(std::string_view _ImpactSound) {
  this->ImpactSound = _ImpactSound;
  }
 
@@ -881,7 +882,7 @@ public
  *
  * @param _AmmoType the AmmoType to set
  */
- void setAmmoType(const std::string &_AmmoType) { this->AmmoType = _AmmoType; }
+ void setAmmoType(std::string_view _AmmoType) { this->AmmoType = _AmmoType; }
 
  /**
  * @return the DoorDamage
@@ -944,7 +945,7 @@ public
  *
  * @param _name the name to set
  */
- void setName(const std::string &_name) {
+ void setName(std::string_view _name) {
  this->name = _name;
  this->moduleDotType = this->module.name + "." + _name;
  }
@@ -952,7 +953,7 @@ public
  /**
  * @return the MaxHitCount
  */
- int getMaxHitCount() { return this->MaxHitCount; }
+ int getMaxHitCount() noexcept{ return this->MaxHitCount; }
 
  /**
  *
@@ -993,7 +994,7 @@ public
  *
  * @param _OtherHandRequire the OtherHandRequire to set
  */
- void setOtherHandRequire(const std::string &_OtherHandRequire) {
+ void setOtherHandRequire(std::string_view _OtherHandRequire) {
  this->OtherHandRequire = _OtherHandRequire;
  }
 
@@ -1006,7 +1007,7 @@ public
  *
  * @param _PhysicsObject the PhysicsObject to set
  */
- void setPhysicsObject(const std::string &_PhysicsObject) {
+ void setPhysicsObject(std::string_view _PhysicsObject) {
  this->PhysicsObject = _PhysicsObject;
  }
 
@@ -1019,7 +1020,7 @@ public
  *
  * @param _SwingAnim the SwingAnim to set
  */
- void setSwingAnim(const std::string &_SwingAnim) {
+ void setSwingAnim(std::string_view _SwingAnim) {
  this->SwingAnim = _SwingAnim;
  }
 
@@ -1086,7 +1087,7 @@ public
 
  std::string getEatType() { return this->eatType; }
 
- std::string getCountDownSound() { return this->countDownSound; }
+ std::string getCountDownSound() noexcept{ return this->countDownSound; }
 
  std::string getBringToBearSound() { return this->bringToBearSound; }
 
@@ -1120,7 +1121,7 @@ public
 
  std::string getShellFallSound() { return this->ShellFallSound; }
 
- std::string getSoundByID(const std::string &ID) {
+ std::string getSoundByID(std::string_view ID) {
  return this->SoundMap.empty() ? nullptr
  : this->SoundMap.getOrDefault(ID, nullptr);
  }
@@ -1136,7 +1137,7 @@ public
  *
  * @param _DoorHitSound the DoorHitSound to set
  */
- void setDoorHitSound(const std::string &_DoorHitSound) {
+ void setDoorHitSound(std::string_view _DoorHitSound) {
  this->DoorHitSound = _DoorHitSound;
  }
 
@@ -1153,13 +1154,13 @@ public
  *
  * @param _ReplaceOnUse the ReplaceOnUse to set
  */
- void setReplaceOnUse(const std::string &_ReplaceOnUse) {
+ void setReplaceOnUse(std::string_view _ReplaceOnUse) {
  this->ReplaceOnUse = _ReplaceOnUse;
  }
 
  std::string getReplaceOnDeplete() { return this->ReplaceOnDeplete; }
 
- void setReplaceOnDeplete(const std::string &_ReplaceOnDeplete) {
+ void setReplaceOnDeplete(std::string_view _ReplaceOnDeplete) {
  this->ReplaceOnDeplete = _ReplaceOnDeplete;
  }
 
@@ -1168,12 +1169,12 @@ public
 public
  HashMap<String, String> getReplaceTypesMap() { return this->ReplaceTypesMap; }
 
- std::string getReplaceType(const std::string &key) {
+ std::string getReplaceType(std::string_view key) {
  return this->ReplaceTypesMap.empty() ? nullptr
  : this->ReplaceTypesMap.get(key);
  }
 
- bool hasReplaceType(const std::string &key) {
+ bool hasReplaceType(std::string_view key) {
  return this->getReplaceType(key) != nullptr;
  }
 
@@ -1439,7 +1440,7 @@ public
  *
  * @param bodyLocation the bodyLocation to set
  */
- void setBodyLocation(const std::string &bodyLocation) {
+ void setBodyLocation(std::string_view bodyLocation) {
  this->BodyLocation = bodyLocation;
  }
 
@@ -1466,7 +1467,7 @@ public
  *
  * @param _SpriteName the SpriteName to set
  */
- void setSpriteName(const std::string &_SpriteName) {
+ void setSpriteName(std::string_view _SpriteName) {
  this->SpriteName = _SpriteName;
  }
 
@@ -1479,7 +1480,7 @@ public
  *
  * @param _PalettesStart the PalettesStart to set
  */
- void setPalettesStart(const std::string &_PalettesStart) {
+ void setPalettesStart(std::string_view _PalettesStart) {
  this->PalettesStart = _PalettesStart;
  }
 
@@ -1499,7 +1500,7 @@ public
 
  std::string getMapID() { return this->map; }
 
- void Load(const std::string &string0, String[] strings0) {
+ void Load(std::string_view string0, String[] strings0) {
  this->name = string0;
  this->moduleDotType = this->module.name + "." + string0;
  int int0 = IDMax++;
@@ -1559,7 +1560,7 @@ public
 }
 
 InventoryItem
-InstanceItem(const std::string &param) {
+InstanceItem(std::string_view param) {
  void *object = nullptr;
  if (this->type == Item.Type.Key) {
  object = new Key(this->module.name, this->DisplayName, this->name,
@@ -2005,7 +2006,7 @@ InstanceItem(const std::string &param) {
  return (InventoryItem)object;
 }
 
-void DoParam(const std::string &str) {
+void DoParam(std::string_view str) {
  if (str.trim().length() != 0) {
  try {
  String[] strings0 = str.split("=");
@@ -3313,7 +3314,7 @@ bool getExistsAsVanilla() { return this->existsAsVanilla; }
 
 std::string getFileAbsPath() { return this->fileAbsPath; }
 
-void setModID(const std::string &modid) {
+void setModID(std::string_view modid) {
  if (GameClient.bClient) {
  if (this->modID.empty()) {
  this->modID = modid;
@@ -3333,11 +3334,11 @@ bool isCantEat() { return this->CantEat; }
 
 std::string getLuaCreate() { return this->LuaCreate; }
 
-void setLuaCreate(const std::string &functionName) {
+void setLuaCreate(std::string_view functionName) {
  this->LuaCreate = functionName;
 }
 
-std::string getSoundParameter(const std::string &parameterName) {
+std::string getSoundParameter(std::string_view parameterName) {
  return this->soundParameterMap.empty()
  ? nullptr
  : this->soundParameterMap.get(parameterName);

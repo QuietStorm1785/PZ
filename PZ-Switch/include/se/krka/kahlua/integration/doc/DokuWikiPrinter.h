@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -62,7 +63,7 @@ public
  }
 }
 
- void printFunction(MethodDebugInformation methodDebugInformation, const std::string& string0) {
+ void printFunction(MethodDebugInformation methodDebugInformation, std::string_view string0) {
  this->writer.printf("%s %s %s\n", string0, methodDebugInformation.getLuaName(),
  string0);
  this->writer.printf("<code lua>%s</code>\n",

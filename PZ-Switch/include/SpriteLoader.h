@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 
@@ -43,20 +44,20 @@ public:
  
  // Load complete character with all animations
  zombie::graphics::AnimatedSprite* loadCharacter(
- const std::string& outfit = "Bob"
+ std::string_view outfit = "Bob"
  );
  
  // Setup player with sprite
  void setupPlayer(
  zombie::characters::IsoPlayer* player,
- const std::string& outfit = "Bob",
+ std::string_view outfit = "Bob",
  bool useAtlas = true
  );
  
  // === Tile Sprite Loading ===
  
  // Load single tile sprite
- zombie::graphics::Sprite* loadTile(const std::string& tileName);
+ zombie::graphics::Sprite* loadTile(std::string_view tileName);
  
  // Load common tiles into atlas
  zombie::assets::TextureAtlas* loadCommonTiles();
@@ -67,12 +68,12 @@ public:
  // === Object Sprite Loading ===
  
  // Load object sprite by type
- zombie::graphics::Sprite* loadObject(const std::string& objectType);
+ zombie::graphics::Sprite* loadObject(std::string_view objectType);
  
  // Setup object with sprite
  void setupObject(
  IsoObject* object,
- const std::string& objectType
+ std::string_view objectType
  );
  
  // === Batch Loading ===
@@ -89,10 +90,10 @@ public:
  // === Helper Methods ===
  
  // Get sprite size for object type
- static void getObjectSize(const std::string& objectType, int& width, int& height);
+ static void getObjectSize(std::string_view objectType, int& width, int& height);
  
  // Get sprite origin for object type (0-1 range)
- static void getObjectOrigin(const std::string& objectType, float& originX, float& originY);
+ static void getObjectOrigin(std::string_view objectType, float& originX, float& originY);
  
 private:
  static SpriteLoader* instance;

@@ -125,6 +125,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -536,14 +537,14 @@ public
  skin.textureDataShadow = LoadVehicleTexture(skin.textureShadow);
  }
 
- static Texture LoadVehicleTexture(const std::string &name) {
+ static Texture LoadVehicleTexture(std::string_view name) {
  int int0 = 0;
  int0 |= TextureID.bUseCompression ? 4 : 0;
  int0 |= 256;
  return LoadVehicleTexture();
  }
 
- static Texture LoadVehicleTexture(const std::string &name, int flags) {
+ static Texture LoadVehicleTexture(std::string_view name, int flags) {
  return StringUtils.isNullOrWhitespace(name)
  ? nullptr
  : Texture.getSharedTexture("media/textures/" + name + ".png",
@@ -1116,7 +1117,7 @@ public
 
  SurroundVehicle getSurroundVehicle() { return this->m_surroundVehicle; }
 
- int getSkinCount() { return this->script.getSkinCount(); }
+ int getSkinCount() noexcept{ return this->script.getSkinCount(); }
 
  int getSkinIndex() { return this->skinIndex; }
 
@@ -1181,7 +1182,7 @@ public
 
  VehicleScript getScript() { return this->script; }
 
- void setScript(const std::string &name) {
+ void setScript(std::string_view name) {
  if (!StringUtils.isNullOrWhitespace(name) {
  this->scriptName = name;
  bool boolean0 = this->script != nullptr;
@@ -1340,7 +1341,7 @@ public
 
  std::string getScriptName() { return this->scriptName; }
 
- void setScriptName(const std::string &name) {
+ void setScriptName(std::string_view name) {
  assert name = = nullptr || name.contains(".");
 
  this->scriptName = name;
@@ -1671,12 +1672,12 @@ public
  return passenger = = nullptr ? nullptr : passenger.area;
  }
 
- void playPassengerAnim(int seat, const std::string &animId) {
+ void playPassengerAnim(int seat, std::string_view animId) {
  IsoGameCharacter character = this->getCharacter(seat);
  this->playPassengerAnim(seat, animId, character);
  }
 
- void playPassengerAnim(int seat, const std::string &animId,
+ void playPassengerAnim(int seat, std::string_view animId,
  IsoGameCharacter chr) {
  if (chr != nullptr) {
  VehicleScript.Anim anim = this->getPassengerAnim(seat, animId);
@@ -1686,14 +1687,14 @@ public
  }
  }
 
- void playPassengerSound(int seat, const std::string &animId) {
+ void playPassengerSound(int seat, std::string_view animId) {
  VehicleScript.Anim anim = this->getPassengerAnim(seat, animId);
  if (anim != nullptr && anim.sound != nullptr) {
  this->playSound(anim.sound);
  }
  }
 
- void playPartAnim(VehiclePart part, const std::string &animId) {
+ void playPartAnim(VehiclePart part, std::string_view animId) {
  if (this->parts.contains(part) {
  VehicleScript.Anim anim = part.getAnimById(animId);
  if (anim != nullptr && !StringUtils.isNullOrWhitespace(anim.anim) {
@@ -1738,7 +1739,7 @@ public
  }
  }
 
- void playActorAnim(VehiclePart part, const std::string &animId,
+ void playActorAnim(VehiclePart part, std::string_view animId,
  IsoGameCharacter chr) {
  if (chr != nullptr) {
  if (this->parts.contains(part) {
@@ -1782,7 +1783,7 @@ public
  }
 
  void playPartSound(VehiclePart part, IsoPlayer player,
- const std::string &animId) {
+ std::string_view animId) {
  if (this->parts.contains(part) {
  VehicleScript.Anim anim = part.getAnimById(animId);
  if (anim != nullptr && anim.sound != nullptr) {
@@ -1792,7 +1793,7 @@ public
  }
 
  void setCharacterPosition(IsoGameCharacter chr, int seat,
- const std::string &positionId) {
+ std::string_view positionId) {
  VehicleScript.Passenger passenger = this->getScriptPassenger(seat);
  if (passenger != nullptr) {
  VehicleScript.Position position = passenger.getPositionById(positionId);
@@ -1827,14 +1828,14 @@ public
  }
  }
 
- void transmitCharacterPosition(int seat, const std::string &positionId) {
+ void transmitCharacterPosition(int seat, std::string_view positionId) {
  if (GameClient.bClient) {
  VehicleManager.instance.sendPassengerPosition(this, seat, positionId);
  }
  }
 
  void setCharacterPositionToAnim(IsoGameCharacter chr, int seat,
- const std::string &animId) {
+ std::string_view animId) {
  VehicleScript.Anim anim = this->getPassengerAnim(seat, animId);
  if (anim != nullptr) {
  if (this->getCharacter(seat) == chr) {
@@ -3634,11 +3635,11 @@ private
  }
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  super.saveChange(change, tbl, bb);
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  super.loadChange(change, bb);
  }
 
@@ -4494,7 +4495,7 @@ public
  }
  }
 
- void damageHeadlight(const std::string &string, int int0) {
+ void damageHeadlight(std::string_view string, int int0) {
  VehiclePart part = this->getPartById(string);
  if (part != nullptr && part.getInventoryItem() != nullptr) {
  part.damage(int0);
@@ -5602,11 +5603,11 @@ public
  }
  }
 
- float getBloodIntensity(const std::string &id) {
+ float getBloodIntensity(std::string_view id) {
  return (this->bloodIntensity.getOrDefault(id, BYTE_ZERO) & 255) / 100.0F;
  }
 
- void setBloodIntensity(const std::string &id, float intensity) {
+ void setBloodIntensity(std::string_view id, float intensity) {
  uint8_t byte0 = (byte)(PZMath.clamp(intensity, 0.0F, 1.0F) * 100.0F);
  if (!this->bloodIntensity.containsKey(id) ||
  byte0 != this->bloodIntensity.get(id) {
@@ -6931,13 +6932,13 @@ private
  return this->emitter;
  }
 
- long playSoundImpl(const std::string &file, IsoObject parent) {
+ long playSoundImpl(std::string_view file, IsoObject parent) {
  return this->getEmitter().playSoundImpl(file, parent);
  }
 
  int stopSound(long channel) { return this->getEmitter().stopSound(channel); }
 
- void playSound(const std::string &sound) {
+ void playSound(std::string_view sound) {
  this->getEmitter().playSound(sound);
  }
 
@@ -7393,14 +7394,14 @@ private
  : 0.0F;
  }
 
- int getPartCount() { return this->parts.size(); }
+ int getPartCount() noexcept{ return this->parts.size(); }
 
  VehiclePart getPartByIndex(int index) {
  return index >= 0 && index < this->parts.size() ? this->parts.get(index)
  : nullptr;
  }
 
- VehiclePart getPartById(const std::string &id) {
+ VehiclePart getPartById(std::string_view id) {
  if (id.empty()) {
  return nullptr;
  } else {
@@ -7508,7 +7509,7 @@ private
  }
  }
 
- int getLightCount() { return this->lights.size(); }
+ int getLightCount() noexcept{ return this->lights.size(); }
 
  VehiclePart getLightByIndex(int index) {
  return index >= 0 && index < this->lights.size() ? this->lights.get(index)
@@ -7517,9 +7518,9 @@ private
 
  std::string getZone() { return this->respawnZone; }
 
- void setZone(const std::string &name) { this->respawnZone = name; }
+ void setZone(std::string_view name) { this->respawnZone = name; }
 
- bool isInArea(const std::string &areaId, IsoGameCharacter chr) {
+ bool isInArea(std::string_view areaId, IsoGameCharacter chr) {
  if (areaId != nullptr && this->getScript() != nullptr) {
  VehicleScript.Area area = this->getScript().getAreaById(areaId);
  if (area.empty()) {
@@ -7549,7 +7550,7 @@ private
  }
  }
 
- float getAreaDist(const std::string &areaId, IsoGameCharacter chr) {
+ float getAreaDist(std::string_view areaId, IsoGameCharacter chr) {
  if (areaId != nullptr && this->getScript() != nullptr) {
  VehicleScript.Area area = this->getScript().getAreaById(areaId);
  if (area != nullptr) {
@@ -7571,11 +7572,11 @@ private
  }
  }
 
- Vector2 getAreaCenter(const std::string &areaId) {
+ Vector2 getAreaCenter(std::string_view areaId) {
  return this->getAreaCenter(areaId, std::make_unique<Vector2>());
  }
 
- Vector2 getAreaCenter(const std::string &areaId, Vector2 out) {
+ Vector2 getAreaCenter(std::string_view areaId, Vector2 out) {
  if (areaId != nullptr && this->getScript() != nullptr) {
  VehicleScript.Area area = this->getScript().getAreaById(areaId);
  return area = = nullptr ? nullptr : this->areaPositionWorld(area, out);
@@ -7637,7 +7638,7 @@ private
  }
  }
 
- void callLuaVoid(const std::string &string, void *object1, void *object2) {
+ void callLuaVoid(std::string_view string, void *object1, void *object2) {
  void *object0 = LuaManager.getFunctionObject(string);
  if (object0 != nullptr) {
  LuaManager.caller.protectedCallVoid(LuaManager.thread, object0, object1,
@@ -7645,7 +7646,7 @@ private
  }
  }
 
- void callLuaVoid(const std::string &string, void *object1, void *object2,
+ void callLuaVoid(std::string_view string, void *object1, void *object2,
  void *object3) {
  void *object0 = LuaManager.getFunctionObject(string);
  if (object0 != nullptr) {
@@ -7654,14 +7655,14 @@ private
  }
  }
 
- bool callLuaBoolean(const std::string &string, void *object1, void *object2) {
+ bool callLuaBoolean(std::string_view string, void *object1, void *object2) {
  void *object0 = LuaManager.getFunctionObject(string);
  return object0 = = nullptr ? nullptr
  : LuaManager.caller.protectedCallBoolean(
  LuaManager.thread, object0, object1, object2);
  }
 
- bool callLuaBoolean(const std::string &string, void *object1, void *object2,
+ bool callLuaBoolean(std::string_view string, void *object1, void *object2,
  void *object3) {
  void *object0 = LuaManager.getFunctionObject(string);
  return object0 = = nullptr ? nullptr
@@ -7728,7 +7729,7 @@ public
 
  std::string getVehicleType() { return this->type; }
 
- void setVehicleType(const std::string &_type) { this->type = _type; }
+ void setVehicleType(std::string_view _type) { this->type = _type; }
 
  float getMaxSpeed() { return this->maxSpeed; }
 
@@ -8973,8 +8974,8 @@ public
  return (float)Math.max(5.0 * Math.floor(this->jniSpeed / 5.0F), 5.0);
  }
 
- void setVehicleTowing(BaseVehicle vehicleB, const std::string &attachmentA,
- const std::string &attachmentB) {
+ void setVehicleTowing(BaseVehicle vehicleB, std::string_view attachmentA,
+ std::string_view attachmentB) {
  this->vehicleTowing = vehicleB;
  this->vehicleTowingID =
  this->vehicleTowing.empty() ? -1 : this->vehicleTowing.getSqlId();
@@ -8983,8 +8984,8 @@ public
  this->towConstraintZOffset = 0.0F;
  }
 
- void setVehicleTowedBy(BaseVehicle vehicleA, const std::string &attachmentA,
- const std::string &attachmentB) {
+ void setVehicleTowedBy(BaseVehicle vehicleA, std::string_view attachmentA,
+ std::string_view attachmentB) {
  this->vehicleTowedBy = vehicleA;
  this->vehicleTowedByID =
  this->vehicleTowedBy.empty() ? -1 : this->vehicleTowedBy.getSqlId();
@@ -8997,7 +8998,7 @@ public
 
  BaseVehicle getVehicleTowedBy() { return this->vehicleTowedBy; }
 
- bool attachmentExist(const std::string &attachmentName) {
+ bool attachmentExist(std::string_view attachmentName) {
  VehicleScript vehicleScript = this->getScript();
  if (vehicleScript.empty()) {
  return false;
@@ -9008,7 +9009,7 @@ public
  }
  }
 
- Vector3f getAttachmentLocalPos(const std::string &attachmentName,
+ Vector3f getAttachmentLocalPos(std::string_view attachmentName,
  Vector3f v) {
  VehicleScript vehicleScript = this->getScript();
  if (vehicleScript.empty()) {
@@ -9027,7 +9028,7 @@ public
  }
  }
 
- Vector3f getAttachmentWorldPos(const std::string &attachmentName,
+ Vector3f getAttachmentWorldPos(std::string_view attachmentName,
  Vector3f v) {
  v = this->getAttachmentLocalPos(attachmentName, v);
  return v = = nullptr ? nullptr : this->getWorldPos(v, v);
@@ -9037,25 +9038,25 @@ public
  this->getController().clientControls.forceBrake = System.currentTimeMillis();
  }
 
- Vector3f getTowingLocalPos(const std::string &attachmentName, Vector3f v) {
+ Vector3f getTowingLocalPos(std::string_view attachmentName, Vector3f v) {
  return this->getAttachmentLocalPos(attachmentName, v);
  }
 
- Vector3f getTowedByLocalPos(const std::string &attachmentName, Vector3f v) {
+ Vector3f getTowedByLocalPos(std::string_view attachmentName, Vector3f v) {
  return this->getAttachmentLocalPos(attachmentName, v);
  }
 
- Vector3f getTowingWorldPos(const std::string &attachmentName, Vector3f v) {
+ Vector3f getTowingWorldPos(std::string_view attachmentName, Vector3f v) {
  v = this->getTowingLocalPos(attachmentName, v);
  return v = = nullptr ? nullptr : this->getWorldPos(v, v);
  }
 
- Vector3f getTowedByWorldPos(const std::string &attachmentName, Vector3f v) {
+ Vector3f getTowedByWorldPos(std::string_view attachmentName, Vector3f v) {
  v = this->getTowedByLocalPos(attachmentName, v);
  return v = = nullptr ? nullptr : this->getWorldPos(v, v);
  }
 
- Vector3f getPlayerTrailerLocalPos(const std::string &attachmentName,
+ Vector3f getPlayerTrailerLocalPos(std::string_view attachmentName,
  bool left, Vector3f v) {
  ModelAttachment modelAttachment =
  this->getScript().getAttachmentById(attachmentName);
@@ -9077,7 +9078,7 @@ public
  }
  }
 
- Vector3f getPlayerTrailerWorldPos(const std::string &attachmentName,
+ Vector3f getPlayerTrailerWorldPos(std::string_view attachmentName,
  bool left, Vector3f v) {
  v = this->getPlayerTrailerLocalPos(attachmentName, left, v);
  if (v.empty()) {
@@ -9130,14 +9131,14 @@ public
  }
 
  void addPointConstraint(IsoPlayer player, BaseVehicle vehicleB,
- const std::string &attachmentA,
- const std::string &attachmentB) {
+ std::string_view attachmentA,
+ std::string_view attachmentB) {
  this->addPointConstraint(player, vehicleB, attachmentA, attachmentB, false);
  }
 
  void addPointConstraint(IsoPlayer player, BaseVehicle vehicleB,
- const std::string &attachmentA,
- const std::string &attachmentB, bool remote) {
+ std::string_view attachmentA,
+ std::string_view attachmentB, bool remote) {
  if (vehicleB.empty() ||
  player != nullptr &&
  (IsoUtils.DistanceToSquared(player.x, player.y, this->x, this->y) >
@@ -9272,13 +9273,13 @@ public
  }
  }
 
- bool canAttachTrailer(BaseVehicle vehicleB, const std::string &attachmentA,
- const std::string &attachmentB) {
+ bool canAttachTrailer(BaseVehicle vehicleB, std::string_view attachmentA,
+ std::string_view attachmentB) {
  return this->canAttachTrailer(vehicleB, attachmentA, attachmentB, false);
  }
 
- bool canAttachTrailer(BaseVehicle vehicleB, const std::string &attachmentA,
- const std::string &attachmentB, bool reconnect) {
+ bool canAttachTrailer(BaseVehicle vehicleB, std::string_view attachmentA,
+ std::string_view attachmentB, bool reconnect) {
  if (this == vehicleB || this->physics.empty() ||
  this->constraintTowing != -1) {
  return false;
@@ -9466,11 +9467,11 @@ public
  }
  }
 
- BaseVehicle setSmashed(const std::string &location) {
+ BaseVehicle setSmashed(std::string_view location) {
  return this->setSmashed(location, false);
  }
 
- BaseVehicle setSmashed(const std::string &location, bool flipped) {
+ BaseVehicle setSmashed(std::string_view location, bool flipped) {
  std::string string = nullptr;
  int integer = nullptr;
  KahluaTableImpl kahluaTableImpl0 =

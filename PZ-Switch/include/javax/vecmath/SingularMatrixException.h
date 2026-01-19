@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,7 +18,7 @@ public
  SingularMatrixException() {}
 
 public
- SingularMatrixException(const std::string &string) { super(string); }
+ SingularMatrixException(std::string_view string) { super(string); }
 }
 } // namespace vecmath
 } // namespace javax

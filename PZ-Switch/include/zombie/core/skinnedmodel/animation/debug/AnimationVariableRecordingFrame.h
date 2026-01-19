@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,7 @@ private
  String[] m_variableValues = new String[0];
 
 public
- AnimationVariableRecordingFrame(const std::string &fileKey) {
+ AnimationVariableRecordingFrame(std::string_view fileKey) {
  super(fileKey, "_values");
  }
 
@@ -40,7 +41,7 @@ public
  this->m_variableValues = PZArrayUtil.add(this->m_variableValues, nullptr);
  }
 
- void logVariable(const std::string &name, const std::string &val) {
+ void logVariable(std::string_view name, std::string_view val) {
  int int0 = this->getOrCreateColumn(name);
  if (this->m_variableValues[int0] != nullptr) {
  DebugLog.General.error("Value for %s already set: %f, new value: %f",

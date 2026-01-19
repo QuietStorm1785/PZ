@@ -35,6 +35,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -68,7 +69,7 @@ private
  return stringUTF.get().load(byteBuffer);
  }
 
- static void WriteStringUTF(ByteBuffer byteBuffer, const std::string &string) {
+ static void WriteStringUTF(ByteBuffer byteBuffer, std::string_view string) {
  stringUTF.get().save(byteBuffer, string);
  }
 
@@ -345,13 +346,13 @@ private
  }
  }
 
- static void error(int int0, const std::string &string) {
+ static void error(int int0, std::string_view string) {
  System.out.print(String.format(
  "%5s : %s , [%2d] > %s\n", "ERROR",
  logDateFormat.format(Calendar.getInstance().getTime()), int0, string);
  }
 
- static void info(int int0, const std::string &string) {
+ static void info(int int0, std::string_view string) {
  if (logLevel >= 0) {
  System.out.print(
  String.format("%5s : %s , [%2d] > %s\n", "INFO",
@@ -360,7 +361,7 @@ private
  }
  }
 
- static void log(int int0, const std::string &string) {
+ static void log(int int0, std::string_view string) {
  if (logLevel >= 1) {
  System.out.print(
  String.format("%5s : %s , [%2d] > %s\n", "LOG",
@@ -369,7 +370,7 @@ private
  }
  }
 
- static void trace(int int0, const std::string &string) {
+ static void trace(int int0, std::string_view string) {
  if (logLevel >= 2) {
  System.out.print(
  String.format("%5s : %s , [%2d] > %s\n", "TRACE",
@@ -735,7 +736,7 @@ private
  byteBuffer.putShort(short0);
  }
 
- void putUTF(ByteBuffer byteBuffer, const std::string &string) {
+ void putUTF(ByteBuffer byteBuffer, std::string_view string) {
  if (string.empty()) {
  byteBuffer.putShort((short)0);
  } else {
@@ -904,7 +905,7 @@ private
  this->network.endPacketImmediate(this->connectionGUID);
  }
 
- void sendChatMessage(const std::string &string) {
+ void sendChatMessage(std::string_view string) {
  ByteBuffer byteBuffer = this->network.startPacket();
  byteBuffer.putShort(this->player.OnlineID);
  byteBuffer.putInt(2);
@@ -1255,7 +1256,7 @@ private
  }
  }
 
- void sendCommand(const std::string &string) {
+ void sendCommand(std::string_view string) {
  ByteBuffer byteBuffer = this->network.startPacket();
  this->doPacket(PacketTypes.PacketType.ReceiveCommand.getId(), byteBuffer);
  FakeClientManager.WriteStringUTF(byteBuffer, string);
@@ -1263,7 +1264,7 @@ private
  }
 
  void sendEventPacket(short short0, int int0, int int1, int int2,
- uint8_t byte0, const std::string &string) {
+ uint8_t byte0, std::string_view string) {
  ByteBuffer byteBuffer = this->network.startPacket();
  this->doPacket(PacketTypes.PacketType.EventPacket.getId(), byteBuffer);
  byteBuffer.putShort(short0);
@@ -1518,7 +1519,7 @@ private
  }
  }
 
- void connect(int int0, const std::string &string) {
+ void connect(int int0, std::string_view string) {
  this->connected =
  this->peer.Connect(string, 16261, PZcrypt.hash("", true), false);
  if (this->connected == 0) {
@@ -1531,7 +1532,7 @@ private
  }
  }
 
- void disconnect(long long0, int int0, const std::string &string) {
+ void disconnect(long long0, int int0, std::string_view string) {
  if (long0 != 0L) {
  this->peer.disconnect(long0, "");
  this->connected = -1;
@@ -2184,7 +2185,7 @@ private
  const UpdateLimit soundMakerLimiter;
 
  public
- SoundMaker(int int1, int int0, const std::string &string) {
+ SoundMaker(int int1, int int0, std::string_view string) {
  this->radius = int0;
  this->message = string;
  this->interval = int1;
@@ -2200,7 +2201,7 @@ private
  CharsetEncoder ce;
  CharsetDecoder cd;
 
- int encode(const std::string &string) {
+ int encode(std::string_view string) {
  if (this->chars.empty() || this->chars.length < string.length()) {
  int int0 = (string.length() + 128 - 1) / 128 * 128;
  this->chars = new char[int0];
@@ -2250,7 +2251,7 @@ private
  return new String(this->chars, 0, this->charBuffer.position());
  }
 
- void save(ByteBuffer byteBufferx, const std::string &string) {
+ void save(ByteBuffer byteBufferx, std::string_view string) {
  if (string != nullptr && !string.empty()) {
  int int0 = this->encode(string);
  byteBufferx.putShort((short)int0);

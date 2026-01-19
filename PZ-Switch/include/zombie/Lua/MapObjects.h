@@ -16,6 +16,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -50,7 +51,7 @@ private
  return callback;
  }
 
- static void OnNewWithSprite(const std::string &spriteName,
+ static void OnNewWithSprite(std::string_view spriteName,
  LuaClosure __function__, int priority) {
  if (spriteName != nullptr && !spriteName.empty()) {
  if (__function__.empty()) {
@@ -158,7 +159,7 @@ private
  return callback;
  }
 
- static void OnLoadWithSprite(const std::string &spriteName,
+ static void OnLoadWithSprite(std::string_view spriteName,
  LuaClosure __function__, int priority) {
  if (spriteName != nullptr && !spriteName.empty()) {
  if (__function__.empty()) {

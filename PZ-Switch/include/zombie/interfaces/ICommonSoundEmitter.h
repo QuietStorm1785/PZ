@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,9 +20,9 @@ public:
  virtual ~ICommonSoundEmitter() = default;
  void setPos(float x, float y, float z);
 
- long playSound(const std::string &file);
+ long playSound(std::string_view file);
 
- long playSound(const std::string &file, bool doWorldSound);
+ long playSound(std::string_view file, bool doWorldSound);
 
  void tick();
 
@@ -39,11 +40,11 @@ public:
 
  void stopOrTriggerSound(long handle);
 
- void stopOrTriggerSoundByName(const std::string &name);
+ void stopOrTriggerSoundByName(std::string_view name);
 
  bool isPlaying(long channel);
 
- bool isPlaying(const std::string &alias);
+ bool isPlaying(std::string_view alias);
 }
 } // namespace interfaces
 } // namespace zombie

@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -26,12 +27,12 @@ private
  std::make_unique<HashMap<>>();
  static int s_globalIndexGenerator = 0;
 
- static AnimationVariableHandle getOrCreate(const std::string &string) {
+ static AnimationVariableHandle getOrCreate(std::string_view string) {
  { std::lock_guard<std::mutex> __sync_lock__(s_threadLock_mutex); return getOrCreateInternal(); }
  }
 
  static AnimationVariableHandle
- getOrCreateInternal(const std::string &string) {
+ getOrCreateInternal(std::string_view string) {
  if (!isVariableNameValid(string) {
  return nullptr;
  } else {
@@ -50,7 +51,7 @@ private
  }
  }
 
- static bool isVariableNameValid(const std::string &string) {
+ static bool isVariableNameValid(std::string_view string) {
  return !StringUtils.isNullOrWhitespace(string);
  }
 

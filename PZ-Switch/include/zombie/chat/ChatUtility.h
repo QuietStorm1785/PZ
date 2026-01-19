@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -144,7 +145,7 @@ private
  return udpConnection0;
  }
 
- static UdpConnection findConnection(const std::string &string) {
+ static UdpConnection findConnection(std::string_view string) {
  UdpConnection udpConnection0 = nullptr;
  if (GameServer.udpEngine != nullptr) {
  for (int int0 = 0; int0 < GameServer.udpEngine.connections.size() &&
@@ -196,7 +197,7 @@ private
 
  static std::string findPlayerName(int int0) { return findPlayer(); }
 
- static IsoPlayer findPlayer(const std::string &string) {
+ static IsoPlayer findPlayer(std::string_view string) {
  IsoPlayer player = nullptr;
  if (GameClient.bClient) {
  player = GameClient.instance.getPlayerFromUsername(string);
@@ -261,7 +262,7 @@ static void InitAllowedChatIcons() {
  Texture.collectAllIcons(allowedChatIcons, allowedChatIconsFull);
 }
 
-static std::string getColorString(const std::string &string, bool boolean0) {
+static std::string getColorString(std::string_view string, bool boolean0) {
  if (Colors.ColorExists(string) {
  Color color = Colors.GetColorByName(string);
  return boolean0 ? color.getRedFloat() + "," + color.getGreenFloat() + "," +
@@ -289,7 +290,7 @@ static std::string getColorString(const std::string &string, bool boolean0) {
  }
 }
 
-static int parseColorInt(const std::string &string) {
+static int parseColorInt(std::string_view string) {
  try {
  int int0 = Integer.parseInt(string);
  return int0 >= 0 && int0 <= 255 ? int0 : -1;
@@ -298,7 +299,7 @@ static int parseColorInt(const std::string &string) {
  }
 }
 
-static std::string parseStringForChatBubble(const std::string &string0) {
+static std::string parseStringForChatBubble(std::string_view string0) {
  try {
  builder.delete(0, builder.length());
  builderTest.delete(0, builderTest.length());
@@ -374,7 +375,7 @@ static std::string parseStringForChatBubble(const std::string &string0) {
  }
 }
 
-static std::string parseStringForChatLog(const std::string &string0) {
+static std::string parseStringForChatLog(std::string_view string0) {
  try {
  builder.delete(0, builder.length());
  builderTest.delete(0, builderTest.length());

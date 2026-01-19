@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 
 class IsoCell;
 
@@ -9,5 +10,5 @@ public:
  // Format per line: TYPE x y [z] [solid]
  // Example: tree 10 12 0 0
  // Lines starting with # are ignored.
- static bool loadLotFile(const std::string& path, IsoCell* cell, int defaultZ = 0);
+ static bool loadLotFile(std::string_view path, IsoCell* cell, int defaultZ = 0);
 };

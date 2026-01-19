@@ -42,6 +42,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -101,7 +102,7 @@ private
 private
  FMOD_STUDIO_EVENT_CALLBACK musicEventCallback =
  std::make_unique<FMOD_STUDIO_EVENT_CALLBACK>(){
- void timelineMarker(long var1, const std::string &string, int int0){
+ void timelineMarker(long var1, std::string_view string, int int0){
  DebugLog.Sound.debugln("timelineMarker %s %d", string, int0);
  if ("Lightning" == string) {
  MainScreenState.getInstance().lightningTimelineMarker = true;
@@ -156,16 +157,16 @@ void BlendVolume(Audio audio, float targetVolume) {}
 
 void BlendVolume(Audio audio, float targetVolume, float blendSpeedAlpha) {}
 
-Audio BlendThenStart(Audio musicTrack, float f, const std::string &PrefMusic) {
+Audio BlendThenStart(Audio musicTrack, float f, std::string_view PrefMusic) {
  return nullptr;
 }
 
-void FadeOutMusic(const std::string &name, int milli) {}
+void FadeOutMusic(std::string_view name, int milli) {}
 
-void PlayAsMusic(const std::string &name, Audio musicTrack, float volume,
+void PlayAsMusic(std::string_view name, Audio musicTrack, float volume,
  bool bloop) {}
 
-long playUISound(const std::string &name) {
+long playUISound(std::string_view name) {
  GameSound gameSound = GameSounds.getSound(name);
  if (gameSound != nullptr && !gameSound.clips.empty()) {
  GameSoundClip gameSoundClip = gameSound.getRandomClip();
@@ -178,7 +179,7 @@ long playUISound(const std::string &name) {
  }
 }
 
-bool isPlayingUISound(const std::string &name) {
+bool isPlayingUISound(std::string_view name) {
  return this->uiEmitter.isPlaying(name);
 }
 
@@ -343,7 +344,7 @@ void resumeSoundAndMusic() {
  }
 }
 
-void debugScriptSound(Item item, const std::string &string) {
+void debugScriptSound(Item item, std::string_view string) {
  if (string != nullptr && !string.empty()) {
  if (!GameSounds.isKnownSound(string) {
  DebugLog.General.warn("no such sound \"" + string + "\" in item " +
@@ -405,7 +406,7 @@ bool isListenerInRange(float x, float y, float range) {
  }
 }
 
-void playNightAmbient(const std::string &choice) {
+void playNightAmbient(std::string_view choice) {
  DebugLog.log("playNightAmbient: " + choice);
 
  for (int int0 = 0; int0 < ambientSoundEffects.size(); int0++) {
@@ -428,13 +429,13 @@ void playNightAmbient(const std::string &choice) {
  ambientSoundEffects.add(ambientSoundEffect1);
 }
 
-void playMusic(const std::string &name) { this->DoMusic(name, false); }
+void playMusic(std::string_view name) { this->DoMusic(name, false); }
 
-void playAmbient(const std::string &name) {}
+void playAmbient(std::string_view name) {}
 
-void playMusicNonTriggered(const std::string &name, float gain) {}
+void playMusicNonTriggered(std::string_view name, float gain) {}
 
-void stopMusic(const std::string &name) {
+void stopMusic(std::string_view name) {
  if (this->isPlayingMusic()) {
  if (StringUtils.isNullOrWhitespace(name) ||
  name.equalsIgnoreCase(this->getCurrentMusicName())) {
@@ -449,7 +450,7 @@ float getMusicPosition() {
  return this->isPlayingMusic() ? this->music.getPosition() : 0.0F;
 }
 
-void DoMusic(const std::string &name, bool bLoop) {
+void DoMusic(std::string_view name, bool bLoop) {
  if (this->AllowMusic && Core.getInstance().getOptionMusicVolume() != 0) {
  if (this->isPlayingMusic()) {
  this->StopMusic();
@@ -495,10 +496,10 @@ void DoMusic(const std::string &name, bool bLoop) {
  }
 }
 
-void PlayAsMusic(const std::string &name, Audio musicTrack, bool loop,
+void PlayAsMusic(std::string_view name, Audio musicTrack, bool loop,
  float volume) {}
 
-void setMusicState(const std::string &stateName) {
+void setMusicState(std::string_view stateName) {
  switch (stateName) {
  case "MainMenu":
  this->parameterMusicState.setState(ParameterMusicState.State.MainMenu);
@@ -520,7 +521,7 @@ void setMusicState(const std::string &stateName) {
  }
 }
 
-void setMusicWakeState(IsoPlayer player, const std::string &stateName) {
+void setMusicWakeState(IsoPlayer player, std::string_view stateName) {
  switch (stateName) {
  case "Awake":
  this->parameterMusicWakeState.setState(player,
@@ -547,17 +548,17 @@ void setMusicWakeState(IsoPlayer player, const std::string &stateName) {
  }
 }
 
-Audio PlayMusic(const std::string &n, const std::string &name, bool loop,
+Audio PlayMusic(std::string_view n, std::string_view name, bool loop,
  float maxGain) {
  return nullptr;
 }
 
-Audio PlaySound(const std::string &name, bool loop, float maxGain,
+Audio PlaySound(std::string_view name, bool loop, float maxGain,
  float pitchVar) {
  return nullptr;
 }
 
-Audio PlaySound(const std::string &name, bool loop, float maxGain) {
+Audio PlaySound(std::string_view name, bool loop, float maxGain) {
  if (GameServer.bServer) {
  return nullptr;
  } else if (IsoWorld.instance.empty()) {
@@ -570,38 +571,38 @@ Audio PlaySound(const std::string &name, bool loop, float maxGain) {
  }
 }
 
-Audio PlaySoundEvenSilent(const std::string &name, bool loop, float maxGain) {
+Audio PlaySoundEvenSilent(std::string_view name, bool loop, float maxGain) {
  return nullptr;
 }
 
-Audio PlayJukeboxSound(const std::string &name, bool loop, float maxGain) {
+Audio PlayJukeboxSound(std::string_view name, bool loop, float maxGain) {
  return nullptr;
 }
 
-Audio PlaySoundWav(const std::string &name, bool loop, float maxGain,
+Audio PlaySoundWav(std::string_view name, bool loop, float maxGain,
  float pitchVar) {
  return nullptr;
 }
 
-Audio PlaySoundWav(const std::string &name, bool loop, float maxGain) {
+Audio PlaySoundWav(std::string_view name, bool loop, float maxGain) {
  return nullptr;
 }
 
-Audio PlaySoundWav(const std::string &name, int variations, bool loop,
+Audio PlaySoundWav(std::string_view name, int variations, bool loop,
  float maxGain) {
  return nullptr;
 }
 
 void update3D() {}
 
-Audio PlayWorldSound(const std::string &name, IsoGridSquare source,
+Audio PlayWorldSound(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  return this->PlayWorldSound(name, false, source, pitchVar, radius, maxGain,
  ignoreOutside);
 }
 
-Audio PlayWorldSound(const std::string &name, bool loop, IsoGridSquare source,
+Audio PlayWorldSound(std::string_view name, bool loop, IsoGridSquare source,
  float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  if (!GameServer.bServer && source != nullptr) {
@@ -618,7 +619,7 @@ Audio PlayWorldSound(const std::string &name, bool loop, IsoGridSquare source,
  }
 }
 
-Audio PlayWorldSoundImpl(const std::string &name, bool loop, int sx, int sy,
+Audio PlayWorldSoundImpl(std::string_view name, bool loop, int sx, int sy,
  int sz, float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  BaseSoundEmitter baseSoundEmitter =
@@ -627,21 +628,21 @@ Audio PlayWorldSoundImpl(const std::string &name, bool loop, int sx, int sy,
  return new FMODAudio(baseSoundEmitter);
 }
 
-Audio PlayWorldSound(const std::string &name, IsoGridSquare source,
+Audio PlayWorldSound(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain, int choices,
  bool ignoreOutside) {
  return this->PlayWorldSound(name, source, pitchVar, radius, maxGain,
  ignoreOutside);
 }
 
-Audio PlayWorldSoundWav(const std::string &name, IsoGridSquare source,
+Audio PlayWorldSoundWav(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain,
  bool ignoreOutside) {
  return this->PlayWorldSoundWav(name, false, source, pitchVar, radius, maxGain,
  ignoreOutside);
 }
 
-Audio PlayWorldSoundWav(const std::string &name, bool loop,
+Audio PlayWorldSoundWav(std::string_view name, bool loop,
  IsoGridSquare source, float pitchVar, float radius,
  float maxGain, bool ignoreOutside) {
  if (!GameServer.bServer && source != nullptr) {
@@ -657,7 +658,7 @@ Audio PlayWorldSoundWav(const std::string &name, bool loop,
  }
 }
 
-Audio PlayWorldSoundWavImpl(const std::string &name, bool loop,
+Audio PlayWorldSoundWavImpl(std::string_view name, bool loop,
  IsoGridSquare source, float pitchVar, float radius,
  float maxGain, bool ignoreOutside) {
  BaseSoundEmitter baseSoundEmitter = IsoWorld.instance.getFreeEmitter(
@@ -666,7 +667,7 @@ Audio PlayWorldSoundWavImpl(const std::string &name, bool loop,
  return new FMODAudio(baseSoundEmitter);
 }
 
-void PlayWorldSoundWav(const std::string &name, IsoGridSquare source,
+void PlayWorldSoundWav(std::string_view name, IsoGridSquare source,
  float pitchVar, float radius, float maxGain, int choices,
  bool ignoreOutside) {
  int integer = Rand.Next(choices) + 1;
@@ -674,9 +675,9 @@ void PlayWorldSoundWav(const std::string &name, IsoGridSquare source,
  maxGain, ignoreOutside);
 }
 
-Audio PrepareMusic(const std::string &name) { return nullptr; }
+Audio PrepareMusic(std::string_view name) { return nullptr; }
 
-Audio Start(Audio musicTrack, float f, const std::string &PrefMusic) {
+Audio Start(Audio musicTrack, float f, std::string_view PrefMusic) {
  return nullptr;
 }
 
@@ -747,7 +748,7 @@ void StopMusic() { this->music.stop(); }
 
 void StopSound(Audio SoundEffect) { SoundEffect.stop(); }
 
-void CacheSound(const std::string &file) {}
+void CacheSound(std::string_view file) {}
 
 void update4() {}
 
@@ -825,7 +826,7 @@ static class AmbientSoundEffect implements Audio {
  float effectiveVolume;
 
 public
- AmbientSoundEffect(const std::string &_name) {
+ AmbientSoundEffect(std::string_view _name) {
  GameSound gameSound = GameSounds.getSound(_name);
  if (gameSound != nullptr && !gameSound.clips.empty()) {
  GameSoundClip gameSoundClip = gameSound.getRandomClip();
@@ -879,7 +880,7 @@ public
  }
  }
 
- void setName(const std::string &choice) { this->name = choice; }
+ void setName(std::string_view choice) { this->name = choice; }
 
  std::string getName() { return this->name; }
 

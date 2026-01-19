@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -43,7 +44,7 @@ public:
  }
  }
 
- static std::string searchPathForSqliteLib(const std::string &string1) {
+ static std::string searchPathForSqliteLib(std::string_view string1) {
  for (String string0 : System.getProperty("java.library.path", "")
  .split(File.pathSeparator) {
  File file = new File(string0, string1);
@@ -55,7 +56,7 @@ public:
  return "";
  }
 
- static Connection getConnection(const std::string &string) {
+ static Connection getConnection(std::string_view string) {
  return DriverManager.getConnection("jdbc:sqlite:" + string);
  }
 }

@@ -15,6 +15,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,13 +32,13 @@ public:
  std::string location = "";
  InventoryItem item = nullptr;
 
- void set(IsoPlayer playerx, const std::string &string, InventoryItem itemx) {
+ void set(IsoPlayer playerx, std::string_view string, InventoryItem itemx) {
  this->player = playerx;
  this->location = string;
  this->item = itemx;
  }
 
- bool isEquals(IsoPlayer playerx, const std::string &string,
+ bool isEquals(IsoPlayer playerx, std::string_view string,
  InventoryItem itemx) {
  return this->player.OnlineID == playerx.OnlineID && this->location == string) && this->item == itemx;
  }

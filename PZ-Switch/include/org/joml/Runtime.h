@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -85,7 +86,7 @@ private
  return Double.doubleToLongBits(double0);
  }
 
- static std::string formatNumbers(const std::string &string) {
+ static std::string formatNumbers(std::string_view string) {
  StringBuffer stringBuffer = new StringBuffer();
  int int0 = Integer.MIN_VALUE;
 
@@ -121,7 +122,7 @@ private
  }
 
  static std::string padLeft(NumberFormat numberFormat,
- const std::string &string) {
+ std::string_view string) {
  int int0 = numberFormat.format(0.0).length();
  StringBuffer stringBuffer = new StringBuffer();
 

@@ -950,7 +950,7 @@ public
 
  float darkMulti() { return this->cacheDarkMulti; }
 
- float targetDarkMulti() { return this->cacheTargetDarkMulti; }
+ float targetDarkMulti() noexcept{ return this->cacheTargetDarkMulti; }
 
  ColorInfo lightInfo() {
  this->update();
@@ -989,7 +989,7 @@ public
  throw std::make_unique<IllegalStateException>();
  }
 
- int resultLightCount() { return this->lightsCount; }
+ int resultLightCount() noexcept{ return this->lightsCount; }
 
  public
  IsoGridSquare.ResultLight getResultLight(int int0) {

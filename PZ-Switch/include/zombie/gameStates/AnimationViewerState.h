@@ -19,6 +19,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -164,7 +165,7 @@ public
 
  void setTable(KahluaTable table) { this->m_table = table; }
 
- void *fromLua0(const std::string &func) {
+ void *fromLua0(std::string_view func) {
  switch (func) {
  case "exit":
  this->bExit = true;
@@ -185,7 +186,7 @@ public
  }
  }
 
- void *fromLua1(const std::string &func, void *arg0) {
+ void *fromLua1(std::string_view func, void *arg0) {
  uint8_t byte0 = -1;
  func.hashCode();
  switch (byte0) {
@@ -195,7 +196,7 @@ public
  }
  }
 
- ConfigOption getOptionByName(const std::string &name) {
+ ConfigOption getOptionByName(std::string_view name) {
  for (int int0 = 0; int0 < this->options.size(); int0++) {
  ConfigOption configOption = this->options.get(int0);
  if (configOption.getName() == name) {
@@ -206,18 +207,18 @@ public
  return nullptr;
  }
 
- int getOptionCount() { return this->options.size(); }
+ int getOptionCount() noexcept{ return this->options.size(); }
 
  ConfigOption getOptionByIndex(int index) { return this->options.get(index); }
 
- void setBoolean(const std::string &name, bool value) {
+ void setBoolean(std::string_view name, bool value) {
  ConfigOption configOption = this->getOptionByName(name);
  if (configOption instanceof BooleanConfigOption) {
  ((BooleanConfigOption)configOption).setValue(value);
  }
  }
 
- bool getBoolean(const std::string &name) {
+ bool getBoolean(std::string_view name) {
  ConfigOption configOption = this->getOptionByName(name);
  return configOption instanceof
  BooleanConfigOption ? ((BooleanConfigOption)configOption).getValue()
@@ -249,7 +250,7 @@ public
 
 class BooleanDebugOption extends BooleanConfigOption {
  public
- BooleanDebugOption(const std::string &string, bool boolean0) {
+ BooleanDebugOption(std::string_view string, bool boolean0) {
  super(string, boolean0);
  AnimationViewerState.this->options.add(this);
  }

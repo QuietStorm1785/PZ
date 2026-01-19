@@ -16,6 +16,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -345,9 +346,9 @@ public
 
  ActionGroup getGroup() { return this->m_stateGroup; }
 
- void reportEvent(const std::string &event) { this->reportEvent(-1, event); }
+ void reportEvent(std::string_view event) { this->reportEvent(-1, event); }
 
- void reportEvent(int animLayer, const std::string &event) {
+ void reportEvent(int animLayer, std::string_view event) {
  this->occurredEvents.add(event, animLayer);
  if (GameClient.bClient && animLayer == -1 && this->m_owner instanceof
  IsoPlayer && ((IsoPlayer)this->m_owner).isLocalPlayer()) {
@@ -357,7 +358,7 @@ public
 
  bool hasChildStates() { return this->childStateCount() > 0; }
 
- int childStateCount() {
+ int childStateCount() noexcept{
  return this->m_childStates != nullptr ? this->m_childStates.size() : 0;
  }
 
@@ -402,18 +403,18 @@ public
  /**
  * Returns TRUE if an event has occurred on any layer.
  */
- bool hasEventOccurred(const std::string &eventName) {
+ bool hasEventOccurred(std::string_view eventName) {
  return this->hasEventOccurred(eventName, -1);
  }
 
  /**
  * Returns TRUE if an event has occurred on the specified layer.
  */
- bool hasEventOccurred(const std::string &eventName, int layerIdx) {
+ bool hasEventOccurred(std::string_view eventName, int layerIdx) {
  return this->occurredEvents.contains(eventName, layerIdx);
  }
 
- void clearEvent(const std::string &eventName) {
+ void clearEvent(std::string_view eventName) {
  this->occurredEvents.clearEvent(eventName);
  }
 

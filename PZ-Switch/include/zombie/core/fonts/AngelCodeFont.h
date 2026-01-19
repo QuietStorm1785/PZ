@@ -17,6 +17,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -80,7 +81,7 @@ static char[] data = new char[256];
  * @param image The image to use for the font
  */
 public
-AngelCodeFont(const std::string &_fntFile, Texture image) {
+AngelCodeFont(std::string_view _fntFile, Texture image) {
  this->fontImage = image;
  std::string string = _fntFile;
  FileInputStream fileInputStream = new FileInputStream(new File(_fntFile);
@@ -104,7 +105,7 @@ AngelCodeFont(const std::string &_fntFile, Texture image) {
  * @param imgFile The location of the font image
  */
 public
-AngelCodeFont(const std::string &_fntFile, const std::string &imgFile) {
+AngelCodeFont(std::string_view _fntFile, std::string_view imgFile) {
  if (!StringUtils.isNullOrWhitespace(imgFile) {
  int int0 = 0;
  int0 |= TextureID.bUseCompression ? 4 : 0;
@@ -137,7 +138,7 @@ AngelCodeFont(const std::string &_fntFile, const std::string &imgFile) {
  * @param y The y location at which to draw the string
  * @param text The text to be displayed
  */
-void drawString(float x, float y, const std::string &text) {
+void drawString(float x, float y, std::string_view text) {
  this->drawString(x, y, text, Color.white);
 }
 
@@ -149,16 +150,16 @@ void drawString(float x, float y, const std::string &text) {
  * @param text The text to be displayed
  * @param col The colour to draw with
  */
-void drawString(float x, float y, const std::string &text, Color col) {
+void drawString(float x, float y, std::string_view text, Color col) {
  this->drawString(x, y, text, col, 0, text.length() - 1);
 }
 
-void drawString(float x, float y, const std::string &text, float r, float g,
+void drawString(float x, float y, std::string_view text, float r, float g,
  float b, float a) {
  this->drawString(x, y, text, r, g, b, a, 0, text.length() - 1);
 }
 
-void drawString(float x, float y, float scale, const std::string &text, float r,
+void drawString(float x, float y, float scale, std::string_view text, float r,
  float g, float b, float a) {
  this->drawString(x, y, scale, text, r, g, b, a, 0, text.length() - 1);
 }
@@ -173,7 +174,7 @@ void drawString(float x, float y, float scale, const std::string &text, float r,
  * @param startIndex The index of the first character to draw
  * @param endIndex The index of the last character from the string to draw
  */
-void drawString(float x, float y, const std::string &text, Color col,
+void drawString(float x, float y, std::string_view text, Color col,
  int startIndex, int endIndex) {
  xoff = (int)x;
  yoff = (int)y;
@@ -213,12 +214,12 @@ void drawString(float x, float y, const std::string &text, Color col,
  }
 }
 
-void drawString(float x, float y, const std::string &text, float r, float g,
+void drawString(float x, float y, std::string_view text, float r, float g,
  float b, float a, int startIndex, int endIndex) {
  this->drawString(x, y, 0.0F, text, r, g, b, a, startIndex, endIndex);
 }
 
-void drawString(float x, float y, float scale, const std::string &text, float r,
+void drawString(float x, float y, float scale, std::string_view text, float r,
  float g, float b, float a, int startIndex, int endIndex) {
  xoff = (int)x;
  yoff = (int)y;
@@ -264,7 +265,7 @@ void drawString(float x, float y, float scale, const std::string &text, float r,
  * @param text The string to obtain the rendered with of
  * @return The width of the given string
  */
-int getHeight(const std::string &text) {
+int getHeight(std::string_view text) {
  AngelCodeFont.DisplayList displayList = nullptr;
  if (this->displayListCaching) {
  displayList = (AngelCodeFont.DisplayList)this->displayLists.get(text);
@@ -309,19 +310,19 @@ int getLineHeight() { return this->lineHeight; }
  * @param text The string to obtain the rendered with of
  * @return The width of the given string
  */
-int getWidth(const std::string &text) {
+int getWidth(std::string_view text) {
  return this->getWidth(text, 0, text.length() - 1, false);
 }
 
-int getWidth(const std::string &text, bool xAdvance) {
+int getWidth(std::string_view text, bool xAdvance) {
  return this->getWidth(text, 0, text.length() - 1, xAdvance);
 }
 
-int getWidth(const std::string &text, int start, int __end__) {
+int getWidth(std::string_view text, int start, int __end__) {
  return this->getWidth(text, start, __end__, false);
 }
 
-int getWidth(const std::string &text, int start, int __end__, bool xadvance) {
+int getWidth(std::string_view text, int start, int __end__, bool xadvance) {
  AngelCodeFont.DisplayList displayList = nullptr;
  if (this->displayListCaching && start == 0 && __end__ == text.length() - 1) {
  displayList = (AngelCodeFont.DisplayList)this->displayLists.get(text);
@@ -372,7 +373,7 @@ int getWidth(const std::string &text, int start, int __end__, bool xadvance) {
  * @param text The text that is to be tested
  * @return The yoffset from the y draw location at which text will start
  */
-int getYOffset(const std::string &text) {
+int getYOffset(std::string_view text) {
  AngelCodeFont.DisplayList displayList = nullptr;
  if (this->displayListCaching) {
  displayList = (AngelCodeFont.DisplayList)this->displayLists.get(text);
@@ -570,7 +571,7 @@ catch (IOException iOException) {
 }
 } // namespace zombie
 
-void render(const std::string &string, int int2, int int0) {
+void render(std::string_view string, int int2, int int0) {
  int0++;
  int int1 = int0 - int2;
  float float0 = 0.0F;
@@ -797,7 +798,7 @@ public
 
 public static class CharDefTexture extends Texture {
 public
- CharDefTexture(TextureID textureID, const std::string &string) {
+ CharDefTexture(TextureID textureID, std::string_view string) {
  super(textureID, string);
  }
 

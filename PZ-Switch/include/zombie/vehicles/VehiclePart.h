@@ -26,6 +26,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -119,7 +120,7 @@ public
  return this->scriptPart.empty() ? nullptr : this->scriptPart.itemType;
  }
 
- KahluaTable getTable(const std::string &id) {
+ KahluaTable getTable(std::string_view id) {
  if (this->scriptPart != nullptr && this->scriptPart.tables != nullptr) {
  KahluaTable table = this->scriptPart.tables.get(id);
  return table = = nullptr ? nullptr : LuaManager.copyTable(table);
@@ -414,7 +415,7 @@ public
  return !this->isContainer() ? -1 : this->scriptPart.container.seat;
  }
 
- std::string getLuaFunction(const std::string &name) {
+ std::string getLuaFunction(std::string_view name) {
  return this->scriptPart != nullptr && this->scriptPart.luaFunctions != nullptr
  ? this->scriptPart.luaFunctions.get(name)
  : nullptr;
@@ -436,7 +437,7 @@ protected
  }
  }
 
- void setModelVisible(const std::string &id, bool visible) {
+ void setModelVisible(std::string_view id, bool visible) {
  VehicleScript.Model model = this->getScriptModelById(id);
  if (model != nullptr) {
  this->vehicle.setModelVisible(this, model, visible);
@@ -453,7 +454,7 @@ protected
  this->children.add(child);
  }
 
- int getChildCount() {
+ int getChildCount() noexcept{
  return this->children.empty() ? 0 : this->children.size();
  }
 
@@ -728,8 +729,8 @@ public
 
  IsoGridSquare getSquare() { return this->vehicle.getSquare(); }
 
- void AddDeviceText(const std::string &line, float r, float g, float b,
- const std::string &guid, const std::string &codes,
+ void AddDeviceText(std::string_view line, float r, float g, float b,
+ std::string_view guid, std::string_view codes,
  int distance) {
  if (this->deviceData != nullptr && this->deviceData.getIsTurnedOn()) {
  this->deviceData.doReceiveSignal(distance);
@@ -794,7 +795,7 @@ public
 
  std::string getCategory() { return this->category; }
 
- void setCategory(const std::string &_category) { this->category = _category; }
+ void setCategory(std::string_view _category) { this->category = _category; }
 
  int getCondition() { return this->condition; }
 
@@ -937,7 +938,7 @@ public
  this->vehicle.updateBulletStats();
  }
 
- void callLuaVoid(const std::string &string, void *object1, void *object2) {
+ void callLuaVoid(std::string_view string, void *object1, void *object2) {
  void *object0 = LuaManager.getFunctionObject(string);
  if (object0 != nullptr) {
  LuaManager.caller.protectedCallVoid(LuaManager.thread, object0, object1,

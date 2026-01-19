@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -37,7 +38,7 @@ public
  this->m_formatter = formatter;
  }
 
- void write(PrintStream printStream, const std::string &string1) {
+ void write(PrintStream printStream, std::string_view string1) {
  std::string string0 =
  this->m_formatter.format(LogSeverity.General, "LOG : ", "", string1);
  if (string0 != nullptr) {
@@ -45,17 +46,17 @@ public
  }
  }
 
- void writeln(PrintStream printStream, const std::string &string) {
+ void writeln(PrintStream printStream, std::string_view string) {
  this->writeln(printStream, LogSeverity.General, "LOG : ", string);
  }
 
- void writeln(PrintStream printStream, const std::string &string,
+ void writeln(PrintStream printStream, std::string_view string,
  void *object) {
  this->writeln(printStream, LogSeverity.General, "LOG : ", string, object);
  }
 
  void writeln(PrintStream printStream, LogSeverity logSeverity,
- const std::string &string1, const std::string &string2) {
+ std::string_view string1, std::string_view string2) {
  std::string string0 =
  this->m_formatter.format(logSeverity, string1, "", string2);
  if (string0 != nullptr) {
@@ -64,7 +65,7 @@ public
  }
 
  void writeln(PrintStream printStream, LogSeverity logSeverity,
- const std::string &string1, const std::string &string2,
+ std::string_view string1, std::string_view string2,
  void *object) {
  std::string string0 =
  this->m_formatter.format(logSeverity, string1, "", string2, object);
@@ -129,11 +130,11 @@ public
 
  void printStackTrace() { this->printStackTrace(0, nullptr); }
 
- void printStackTrace(const std::string &message) {
+ void printStackTrace(std::string_view message) {
  this->printStackTrace(0, message);
  }
 
- void printStackTrace(int depth, const std::string &message) {
+ void printStackTrace(int depth, std::string_view message) {
  if (message != nullptr) {
  this->println(message);
  }
@@ -149,7 +150,7 @@ public
  }
  }
 
- static std::string getUnqualifiedClassName(const std::string &string1) {
+ static std::string getUnqualifiedClassName(std::string_view string1) {
  std::string string0 = string1;
  int int0 = string1.lastIndexOf(46);
  if (int0 > -1 && int0 < string1.length() - 1) {
@@ -163,7 +164,7 @@ public
  * Similar to println. Prepends the calling method and class name to the
  * output string.
  */
- void debugln(const std::string &str) {
+ void debugln(std::string_view str) {
  if (this->m_formatter.isLogEnabled(LogSeverity.General) {
  std::string string0 = generateCallerPrefix();
  std::string string1 = this->m_formatter.format(
@@ -180,7 +181,7 @@ public
  * @param format The string format to be printed
  * @param param0
  */
- void debugln(const std::string &format, void *param0) {
+ void debugln(std::string_view format, void *param0) {
  if (this->m_formatter.isLogEnabled(LogSeverity.General) {
  std::string string0 = generateCallerPrefix();
  std::string string1 = this->m_formatter.format(
@@ -199,7 +200,7 @@ public
  * @param param0
  * @param param1
  */
- void debugln(const std::string &format, void *param0, void *param1) {
+ void debugln(std::string_view format, void *param0, void *param1) {
  if (this->m_formatter.isLogEnabled(LogSeverity.General) {
  std::string string0 = generateCallerPrefix();
  std::string string1 = this->m_formatter.format(
@@ -219,7 +220,7 @@ public
  * @param param1
  * @param param2
  */
- void debugln(const std::string &format, void *param0, void *param1,
+ void debugln(std::string_view format, void *param0, void *param1,
  void *param2) {
  if (this->m_formatter.isLogEnabled(LogSeverity.General) {
  std::string string0 = generateCallerPrefix();
@@ -241,7 +242,7 @@ public
  * @param param2
  * @param param3
  */
- void debugln(const std::string &format, void *param0, void *param1,
+ void debugln(std::string_view format, void *param0, void *param1,
  void *param2, void *param3) {
  if (this->m_formatter.isLogEnabled(LogSeverity.General) {
  std::string string0 = generateCallerPrefix();
@@ -264,7 +265,7 @@ public
  * @param param3
  * @param param4
  */
- void debugln(const std::string &format, void *param0, void *param1,
+ void debugln(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4) {
  if (this->m_formatter.isLogEnabled(LogSeverity.General) {
  std::string string0 = generateCallerPrefix();
@@ -288,7 +289,7 @@ public
  * @param param4
  * @param param5
  */
- void debugln(const std::string &format, void *param0, void *param1,
+ void debugln(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4, void *param5) {
  if (this->m_formatter.isLogEnabled(LogSeverity.General) {
  std::string string0 = generateCallerPrefix();
@@ -349,7 +350,7 @@ public
  *
  * @param s The String to be printed
  */
- void print(const std::string &s) {
+ void print(std::string_view s) {
  this->write(this->m_wrappedStream, String.valueOf(s);
  }
 
@@ -362,7 +363,7 @@ public
  this->write(this->m_wrappedStream, String.valueOf(obj);
  }
 
- PrintStream printf(const std::string &format, Object... args) {
+ PrintStream printf(std::string_view format, Object... args) {
  this->write(this->m_wrappedStream, String.format(format, args);
  return this;
  }
@@ -449,7 +450,7 @@ public
  *
  * @param x The String to be printed.
  */
- void println(const std::string &x) {
+ void println(std::string_view x) {
  this->writeln(this->m_wrappedStream, "%s", x);
  }
 
@@ -462,7 +463,7 @@ public
  */
  void println(void *x) { this->writeln(this->m_wrappedStream, "%s", x); }
 
- void println(const std::string &format, void *param0) {
+ void println(std::string_view format, void *param0) {
  std::string string = this->m_formatter.format(LogSeverity.General,
  "LOG : ", "", format, param0);
  if (string != nullptr) {
@@ -470,7 +471,7 @@ public
  }
  }
 
- void println(const std::string &format, void *param0, void *param1) {
+ void println(std::string_view format, void *param0, void *param1) {
  std::string string = this->m_formatter.format(
  LogSeverity.General, "LOG : ", "", format, param0, param1);
  if (string != nullptr) {
@@ -478,7 +479,7 @@ public
  }
  }
 
- void println(const std::string &format, void *param0, void *param1,
+ void println(std::string_view format, void *param0, void *param1,
  void *param2) {
  std::string string = this->m_formatter.format(
  LogSeverity.General, "LOG : ", "", format, param0, param1, param2);
@@ -487,7 +488,7 @@ public
  }
  }
 
- void println(const std::string &format, void *param0, void *param1,
+ void println(std::string_view format, void *param0, void *param1,
  void *param2, void *param3) {
  std::string string =
  this->m_formatter.format(LogSeverity.General, "LOG : ", "", format,
@@ -497,7 +498,7 @@ public
  }
  }
 
- void println(const std::string &format, void *param0, void *param1,
+ void println(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4) {
  std::string string =
  this->m_formatter.format(LogSeverity.General, "LOG : ", "", format,
@@ -507,7 +508,7 @@ public
  }
  }
 
- void println(const std::string &format, void *param0, void *param1,
+ void println(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4, void *param5) {
  std::string string =
  this->m_formatter.format(LogSeverity.General, "LOG : ", "", format,
@@ -517,7 +518,7 @@ public
  }
  }
 
- void println(const std::string &format, void *param0, void *param1,
+ void println(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4, void *param5,
  void *param6) {
  std::string string = this->m_formatter.format(
@@ -528,7 +529,7 @@ public
  }
  }
 
- void println(const std::string &format, void *param0, void *param1,
+ void println(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4, void *param5,
  void *param6, void *param7) {
  std::string string = this->m_formatter.format(
@@ -567,7 +568,7 @@ public
  * @param format The string format to be printed
  * @param params The list of parameters to be inserted in the string.
  */
- void error(const std::string &format, Object... params) {
+ void error(std::string_view format, Object... params) {
  this->writeln(this->m_wrappedErrStream, LogSeverity.Error, "ERROR: ",
  generateCallerPrefix() + "> " + String.format(format, params);
  }
@@ -588,12 +589,12 @@ public
  * @param format The string format to be printed
  * @param params The list of parameters to be inserted in the string.
  */
- void warn(const std::string &format, Object... params) {
+ void warn(std::string_view format, Object... params) {
  this->writeln(this->m_wrappedWarnStream, LogSeverity.Warning, "WARN : ",
  generateCallerPrefix() + "> " + String.format(format, params);
  }
 
- void printUnitTest(const std::string &format, bool pass, Object... params) {
+ void printUnitTest(std::string_view format, bool pass, Object... params) {
  if (!pass) {
  this->error(format + ", fail", params);
  } else {
@@ -601,13 +602,13 @@ public
  }
  }
 
- void printException(std::exception ex, const std::string &errorMessage,
+ void printException(std::exception ex, std::string_view errorMessage,
  LogSeverity severity) {
  this->printException(ex, errorMessage, generateCallerPrefix(), severity);
  }
 
- void printException(std::exception ex, const std::string &errorMessage,
- const std::string &callerPrefix, LogSeverity severity) {
+ void printException(std::exception ex, std::string_view errorMessage,
+ std::string_view callerPrefix, LogSeverity severity) {
  if (ex.empty()) {
  this->warn("Null exception passed.");
  } else {
@@ -654,7 +655,7 @@ public
  }
  }
 
- void noise(const std::string &str) {
+ void noise(std::string_view str) {
  if (Core.bDebug &&
  this->m_formatter.isLogSeverityEnabled(LogSeverity.Debug) {
  std::string string0 = generateCallerPrefix();
@@ -667,7 +668,7 @@ public
  }
  }
 
- void noise(const std::string &format, void *param0) {
+ void noise(std::string_view format, void *param0) {
  if (Core.bDebug &&
  this->m_formatter.isLogSeverityEnabled(LogSeverity.Debug) {
  std::string string0 = generateCallerPrefix();
@@ -681,7 +682,7 @@ public
  }
  }
 
- void noise(const std::string &format, void *param0, void *param1) {
+ void noise(std::string_view format, void *param0, void *param1) {
  if (Core.bDebug &&
  this->m_formatter.isLogSeverityEnabled(LogSeverity.Debug) {
  std::string string0 = generateCallerPrefix();
@@ -695,7 +696,7 @@ public
  }
  }
 
- void noise(const std::string &format, void *param0, void *param1,
+ void noise(std::string_view format, void *param0, void *param1,
  void *param2) {
  if (Core.bDebug &&
  this->m_formatter.isLogSeverityEnabled(LogSeverity.Debug) {
@@ -710,7 +711,7 @@ public
  }
  }
 
- void noise(const std::string &format, void *param0, void *param1,
+ void noise(std::string_view format, void *param0, void *param1,
  void *param2, void *param3) {
  if (Core.bDebug &&
  this->m_formatter.isLogSeverityEnabled(LogSeverity.Debug) {
@@ -725,7 +726,7 @@ public
  }
  }
 
- void noise(const std::string &format, void *param0, void *param1,
+ void noise(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4) {
  if (Core.bDebug &&
  this->m_formatter.isLogSeverityEnabled(LogSeverity.Debug) {
@@ -740,7 +741,7 @@ public
  }
  }
 
- void noise(const std::string &format, void *param0, void *param1,
+ void noise(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4, void *param5) {
  if (Core.bDebug &&
  this->m_formatter.isLogSeverityEnabled(LogSeverity.Debug) {
@@ -755,7 +756,7 @@ public
  }
  }
 
- void trace(const std::string &str) {
+ void trace(std::string_view str) {
  if (this->m_formatter.isLogSeverityEnabled(LogSeverity.Trace) {
  std::string string0 = generateCallerPrefix();
  std::string string1 = this->m_formatter.format(
@@ -767,7 +768,7 @@ public
  }
  }
 
- void trace(const std::string &format, void *param0) {
+ void trace(std::string_view format, void *param0) {
  if (this->m_formatter.isLogSeverityEnabled(LogSeverity.Trace) {
  std::string string0 = generateCallerPrefix();
  std::string string1 = this->m_formatter.format(
@@ -780,7 +781,7 @@ public
  }
  }
 
- void trace(const std::string &format, void *param0, void *param1) {
+ void trace(std::string_view format, void *param0, void *param1) {
  if (this->m_formatter.isLogSeverityEnabled(LogSeverity.Trace) {
  std::string string0 = generateCallerPrefix();
  std::string string1 = this->m_formatter.format(
@@ -793,7 +794,7 @@ public
  }
  }
 
- void trace(const std::string &format, void *param0, void *param1,
+ void trace(std::string_view format, void *param0, void *param1,
  void *param2) {
  if (this->m_formatter.isLogSeverityEnabled(LogSeverity.Trace) {
  std::string string0 = generateCallerPrefix();
@@ -807,7 +808,7 @@ public
  }
  }
 
- void trace(const std::string &format, void *param0, void *param1,
+ void trace(std::string_view format, void *param0, void *param1,
  void *param2, void *param3) {
  if (this->m_formatter.isLogSeverityEnabled(LogSeverity.Trace) {
  std::string string0 = generateCallerPrefix();
@@ -821,7 +822,7 @@ public
  }
  }
 
- void trace(const std::string &format, void *param0, void *param1,
+ void trace(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4) {
  if (this->m_formatter.isLogSeverityEnabled(LogSeverity.Trace) {
  std::string string0 = generateCallerPrefix();
@@ -835,7 +836,7 @@ public
  }
  }
 
- void trace(const std::string &format, void *param0, void *param1,
+ void trace(std::string_view format, void *param0, void *param1,
  void *param2, void *param3, void *param4, void *param5) {
  if (this->m_formatter.isLogSeverityEnabled(LogSeverity.Trace) {
  std::string string0 = generateCallerPrefix();

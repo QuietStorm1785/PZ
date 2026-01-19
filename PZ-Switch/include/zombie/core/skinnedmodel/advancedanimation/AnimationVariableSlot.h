@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  const std::string m_key;
 
 protected
- AnimationVariableSlot(const std::string &string) {
+ AnimationVariableSlot(std::string_view string) {
  this->m_key = string.toLowerCase().trim();
  }
 

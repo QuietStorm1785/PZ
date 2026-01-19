@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
 
  void init() {}
 
- void addBlend(const std::string &var1, float var2, bool var3, bool var4,
+ void addBlend(std::string_view var1, float var2, bool var3, bool var4,
  bool var5, bool var6) {}
 
  void addRandomAmbient() {}
@@ -30,13 +31,13 @@ public:
 
  void update() {}
 
- void addAmbient(const std::string &var1, int var2, int var3, int var4,
+ void addAmbient(std::string_view var1, int var2, int var3, int var4,
  float var5) {}
 
  void addAmbientEmitter(float var1, float var2, int var3,
- const std::string &var4) {}
+ std::string_view var4) {}
 
  void addDaytimeAmbientEmitter(float var1, float var2, int var3,
- const std::string &var4) {}
+ std::string_view var4) {}
 }
 } // namespace zombie

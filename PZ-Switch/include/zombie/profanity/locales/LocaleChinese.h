@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,7 +16,7 @@ namespace locales {
 class LocaleChinese : public Locale {
 public:
 public
- LocaleChinese(const std::string &string) { super(string); }
+ LocaleChinese(std::string_view string) { super(string); }
 
  void Init() {}
 }

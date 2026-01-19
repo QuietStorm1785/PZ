@@ -22,6 +22,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -122,7 +123,7 @@ public
  this->gearRatio[5] = 1.0F;
  }
 
- void Load(const std::string &_name, const std::string &totalFile) {
+ void Load(std::string_view _name, std::string_view totalFile) {
  ScriptManager scriptManager = ScriptManager.instance;
  this->fileName = scriptManager.currentFileName;
  if (!scriptManager.scriptsWithVehicles.contains(this->fileName) {
@@ -636,24 +637,24 @@ public
  Bullet.defineVehicleScript(this->getFullName(), floats);
  }
 
- void LoadVector2f(const std::string &string, Vector2f vector2f) {
+ void LoadVector2f(std::string_view string, Vector2f vector2f) {
  String[] strings = string.split(" ");
  vector2f.set(Float.parseFloat(strings[0]), Float.parseFloat(strings[1]));
  }
 
- void LoadVector3f(const std::string &string, Vector3f vector3f) {
+ void LoadVector3f(std::string_view string, Vector3f vector3f) {
  String[] strings = string.split(" ");
  vector3f.set(Float.parseFloat(strings[0]), Float.parseFloat(strings[1]),
  Float.parseFloat(strings[2]));
  }
 
- void LoadVector4f(const std::string &string, Vector4f vector4f) {
+ void LoadVector4f(std::string_view string, Vector4f vector4f) {
  String[] strings = string.split(" ");
  vector4f.set(Float.parseFloat(strings[0]), Float.parseFloat(strings[1]),
  Float.parseFloat(strings[2]), Float.parseFloat(strings[3]));
  }
 
- void LoadVector2i(const std::string &string, Vector2i vector2i) {
+ void LoadVector2i(std::string_view string, Vector2i vector2i) {
  String[] strings = string.split(" ");
  vector2i.set(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
  }
@@ -1187,7 +1188,7 @@ KahluaTable LoadTable(ScriptParser.Block block0, KahluaTable table1) {
  return table0;
 }
 
-void LoadTemplate(const std::string &string0) {
+void LoadTemplate(std::string_view string0) {
  if (string0.contains("/")) {
  String[] strings = string0.split("/");
  if (strings.length == 0 || strings.length > 3) {
@@ -1267,7 +1268,7 @@ void LoadTemplate(const std::string &string0) {
  }
 }
 
-void copyAreasFrom(VehicleScript other, const std::string &spec) {
+void copyAreasFrom(VehicleScript other, std::string_view spec) {
  if ("*" == spec) {
  for (int int0 = 0; int0 < other.getAreaCount(); int0++) {
  VehicleScript.Area area0 = other.getArea(int0);
@@ -1295,7 +1296,7 @@ void copyAreasFrom(VehicleScript other, const std::string &spec) {
  }
 }
 
-void copyPartsFrom(VehicleScript other, const std::string &spec) {
+void copyPartsFrom(VehicleScript other, std::string_view spec) {
  if ("*" == spec) {
  for (int int0 = 0; int0 < other.getPartCount(); int0++) {
  VehicleScript.Part part0 = other.getPart(int0);
@@ -1323,7 +1324,7 @@ void copyPartsFrom(VehicleScript other, const std::string &spec) {
  }
 }
 
-void copyPassengersFrom(VehicleScript other, const std::string &spec) {
+void copyPassengersFrom(VehicleScript other, std::string_view spec) {
  if ("*" == spec) {
  for (int int0 = 0; int0 < other.getPassengerCount(); int0++) {
  VehicleScript.Passenger passenger0 = other.getPassenger(int0);
@@ -1351,7 +1352,7 @@ void copyPassengersFrom(VehicleScript other, const std::string &spec) {
  }
 }
 
-void copyWheelsFrom(VehicleScript other, const std::string &spec) {
+void copyWheelsFrom(VehicleScript other, std::string_view spec) {
  if ("*" == spec) {
  for (int int0 = 0; int0 < other.getWheelCount(); int0++) {
  VehicleScript.Wheel wheel0 = other.getWheel(int0);
@@ -1512,7 +1513,7 @@ void setModelScale(float scale) {
  }
 }
 
-int getModelCount() { return this->models.size(); }
+int getModelCount() noexcept{ return this->models.size(); }
 
 public
 VehicleScript.Model getModelByIndex(int index) {
@@ -1542,13 +1543,13 @@ VehicleScript.Model getModelById(String id) {
  return this->getModelById(id, this->models);
 }
 
-int getAttachmentCount() { return this->m_attachments.size(); }
+int getAttachmentCount() noexcept{ return this->m_attachments.size(); }
 
 ModelAttachment getAttachment(int index) {
  return this->m_attachments.get(index);
 }
 
-ModelAttachment getAttachmentById(const std::string &id) {
+ModelAttachment getAttachmentById(std::string_view id) {
  for (int int0 = 0; int0 < this->m_attachments.size(); int0++) {
  ModelAttachment modelAttachment = this->m_attachments.get(int0);
  if (modelAttachment.getId() == id) {
@@ -1636,7 +1637,7 @@ float getSuspensionTravel() { return this->maxSuspensionTravelCm; }
 
 float getWheelFriction() { return this->wheelFriction; }
 
-int getWheelCount() { return this->wheels.size(); }
+int getWheelCount() noexcept{ return this->wheels.size(); }
 
 public
 VehicleScript.Wheel getWheel(int index) { return this->wheels.get(index); }
@@ -1653,7 +1654,7 @@ VehicleScript.Wheel getWheelById(String id) {
  return nullptr;
 }
 
-int getIndexOfWheelById(const std::string &id) {
+int getIndexOfWheelById(std::string_view id) {
  for (int int0 = 0; int0 < this->wheels.size(); int0++) {
  VehicleScript.Wheel wheel = this->wheels.get(int0);
  if (wheel.id != nullptr && wheel.id == id) {
@@ -1664,7 +1665,7 @@ int getIndexOfWheelById(const std::string &id) {
  return -1;
 }
 
-int getPassengerCount() { return this->passengers.size(); }
+int getPassengerCount() noexcept{ return this->passengers.size(); }
 
 public
 VehicleScript.Passenger getPassenger(int index) {
@@ -1683,7 +1684,7 @@ VehicleScript.Passenger getPassengerById(String id) {
  return nullptr;
 }
 
-int getPassengerIndex(const std::string &id) {
+int getPassengerIndex(std::string_view id) {
  for (int int0 = 0; int0 < this->passengers.size(); int0++) {
  VehicleScript.Passenger passenger = this->passengers.get(int0);
  if (passenger.id != nullptr && passenger.id == id) {
@@ -1694,7 +1695,7 @@ int getPassengerIndex(const std::string &id) {
  return -1;
 }
 
-int getPhysicsShapeCount() { return this->m_physicsShapes.size(); }
+int getPhysicsShapeCount() noexcept{ return this->m_physicsShapes.size(); }
 
 public
 VehicleScript.PhysicsShape getPhysicsShape(int index) {
@@ -1712,12 +1713,12 @@ int getStorageCapacity() { return this->storageCapacity; }
 public
 VehicleScript.Skin getTextures() { return this->textures; }
 
-int getSkinCount() { return this->skins.size(); }
+int getSkinCount() noexcept{ return this->skins.size(); }
 
 public
 VehicleScript.Skin getSkin(int index) { return this->skins.get(index); }
 
-int getAreaCount() { return this->areas.size(); }
+int getAreaCount() noexcept{ return this->areas.size(); }
 
 public
 VehicleScript.Area getArea(int index) { return this->areas.get(index); }
@@ -1734,7 +1735,7 @@ VehicleScript.Area getAreaById(String id) {
  return nullptr;
 }
 
-int getIndexOfAreaById(const std::string &id) {
+int getIndexOfAreaById(std::string_view id) {
  for (int int0 = 0; int0 < this->areas.size(); int0++) {
  VehicleScript.Area area = this->areas.get(int0);
  if (area.id != nullptr && area.id == id) {
@@ -1745,7 +1746,7 @@ int getIndexOfAreaById(const std::string &id) {
  return -1;
 }
 
-int getPartCount() { return this->parts.size(); }
+int getPartCount() noexcept{ return this->parts.size(); }
 
 public
 VehicleScript.Part getPart(int index) { return this->parts.get(index); }
@@ -1762,7 +1763,7 @@ VehicleScript.Part getPartById(String id) {
  return nullptr;
 }
 
-int getIndexOfPartById(const std::string &id) {
+int getIndexOfPartById(std::string_view id) {
  for (int int0 = 0; int0 < this->parts.size(); int0++) {
  VehicleScript.Part part = this->parts.get(int0);
  if (part.id != nullptr && part.id == id) {
@@ -1800,12 +1801,12 @@ getPositionById(String string, ArrayList<VehicleScript.Position> arrayList) {
  return nullptr;
 }
 
-bool globMatch(const std::string &pattern, const std::string &str) {
+bool globMatch(std::string_view pattern, std::string_view str) {
  Pattern _pattern = Pattern.compile(pattern.replaceAll("\\*", ".*"));
  return _pattern.matcher(str).matches();
 }
 
-int getGearRatioCount() { return this->gearRatioCount; }
+int getGearRatioCount() noexcept{ return this->gearRatioCount; }
 
 int getSeats() { return this->seats; }
 
@@ -1843,7 +1844,7 @@ void setForcedVal(float _forcedVal) { this->forcedVal = _forcedVal; }
 
 std::string getEngineRPMType() { return this->engineRPMType; }
 
-void setEngineRPMType(const std::string &_engineRPMType) {
+void setEngineRPMType(std::string_view _engineRPMType) {
  this->engineRPMType = _engineRPMType;
 }
 
@@ -2121,7 +2122,7 @@ public
  return passenger0;
  }
 
- int getPositionCount() { return this->positions.size(); }
+ int getPositionCount() noexcept{ return this->positions.size(); }
 
 public
  VehicleScript.Position getPosition(int index) {

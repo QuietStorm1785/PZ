@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ private
 private
  ActionContextEvents.Event m_eventPool;
 
- void add(const std::string &name, int layer) {
+ void add(std::string_view name, int layer) {
  if (!this->contains(name, layer, false) {
  ActionContextEvents.Event event = this->allocEvent();
  event.name = name;
@@ -29,11 +30,11 @@ private
  }
  }
 
- bool contains(const std::string &name, int layer) {
+ bool contains(std::string_view name, int layer) {
  return this->contains(name, layer, true);
  }
 
- bool contains(const std::string &name, int layer, bool bAgnosticLayer) {
+ bool contains(std::string_view name, int layer, bool bAgnosticLayer) {
  for (ActionContextEvents.Event event = this->m_firstEvent; event != nullptr;
  event = event.next) {
  if (event.name.equalsIgnoreCase(name) {
@@ -68,7 +69,7 @@ private
  }
  }
 
- void clearEvent(const std::string &name) {
+ void clearEvent(std::string_view name) {
  ActionContextEvents.Event event0 = nullptr;
  ActionContextEvents.Event event1 = this->m_firstEvent;
 

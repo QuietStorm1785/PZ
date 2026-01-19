@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,11 +19,11 @@ namespace characters {
 class ILuaVariableSource {
 public:
  virtual ~ILuaVariableSource() = default;
- std::string GetVariable(const std::string &key);
+ std::string GetVariable(std::string_view key);
 
- void SetVariable(const std::string &key, const std::string &value);
+ void SetVariable(std::string_view key, std::string_view value);
 
- void ClearVariable(const std::string &key);
+ void ClearVariable(std::string_view key);
 }
 } // namespace characters
 } // namespace zombie

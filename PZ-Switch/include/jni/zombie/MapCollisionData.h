@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -91,7 +92,7 @@ class MapCollisionData {
 
    private static native void n_initMetaChunk(int var0, int var1, int var2, int var3, int var4);
 
-    static void writeToStdErr(const std::string& var0) {
+    static void writeToStdErr(std::string_view var0) {
       System.err.println(var0);
    }
 

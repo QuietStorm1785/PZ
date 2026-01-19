@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -76,13 +77,13 @@ public
  return 0;
  }
 
- void error(Require.Result > map, const std::string &string0,
- const std::string &string1) {
+ void error(Require.Result > map, std::string_view string0,
+ std::string_view string1) {
  this->setState(map, string0, Require.Result.error(string1);
  KahluaUtil.fail(string1);
  }
 
- void setState(Require.Result > map, const std::string &string,
+ void setState(Require.Result > map, std::string_view string,
  Require.Result result) {
  map.put(string, result);
  }
@@ -100,7 +101,7 @@ private
  new Require.Result(nullptr, Require.State.LOADED);
 
  private
- Result(const std::string &string, Require.State statex) {
+ Result(std::string_view string, Require.State statex) {
  this->errorMessage = string;
  this->state = statex;
  }

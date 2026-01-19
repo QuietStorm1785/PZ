@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ protected
  static ArrayList<BodyLocationGroup> groups =
  std::make_unique<ArrayList<>>();
 
- static BodyLocationGroup getGroup(const std::string &id) {
+ static BodyLocationGroup getGroup(std::string_view id) {
  for (int int0 = 0; int0 < groups.size(); int0++) {
  BodyLocationGroup bodyLocationGroup0 = groups.get(int0);
  if (bodyLocationGroup0.id == id) {

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -34,16 +35,16 @@ public
  int[] pic;
 
 public
- Pcx(const std::string &var1) {}
+ Pcx(std::string_view var1) {}
 
 public
  Pcx(URL var1) {}
 
 public
- Pcx(const std::string &var1, int[] var2) {}
+ Pcx(std::string_view var1, int[] var2) {}
 
 public
- Pcx(const std::string &var1, const std::string &var2) {}
+ Pcx(std::string_view var1, std::string_view var2) {}
 
  Image getImage() {
  int[] ints = new int[this->imageWidth * this->imageHeight];
@@ -148,7 +149,7 @@ public
  }
  }
 
- int loadPCXminusPal(const std::string &string) {
+ int loadPCXminusPal(std::string_view string) {
  try {
  if (Cache.containsKey(string) {
  Pcx pcx0 = Cache.get(string);
@@ -250,7 +251,7 @@ public
  }
  }
 
- int loadPCXpal(const std::string &string) {
+ int loadPCXpal(std::string_view string) {
  try {
  InputStream inputStream =
  GameWindow.class.getClassLoader().getResourceAsStream(string);

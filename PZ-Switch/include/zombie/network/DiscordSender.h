@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -14,7 +15,7 @@ namespace network {
 class DiscordSender {
 public:
  virtual ~DiscordSender() = default;
- void sendMessageFromDiscord(const std::string &var1, const std::string &var2);
+ void sendMessageFromDiscord(std::string_view var1, std::string_view var2);
 }
 } // namespace network
 } // namespace zombie

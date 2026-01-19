@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -87,7 +88,7 @@ class PersistentOutfits {
       }
    }
 
-    void initOutfit(const std::string& var1, bool var2, bool var3, IOutfitter var4) {
+    void initOutfit(std::string_view var1, bool var2, bool var3, IOutfitter var4) {
     TreeMap var5 = var2 ? this.m_outfitToFemale : this.m_outfitToMale;
     Data var6 = this.m_outfitToData.get(var1);
       if (var6 == nullptr) {
@@ -142,7 +143,7 @@ class PersistentOutfits {
       }
    }
 
-    int pickOutfitFemale(const std::string& var1) {
+    int pickOutfitFemale(std::string_view var1) {
     Data var2 = this.m_outfitToFemale.get(var1);
       if (var2 == nullptr) {
     return 0;
@@ -153,7 +154,7 @@ class PersistentOutfits {
       }
    }
 
-    int pickOutfitMale(const std::string& var1) {
+    int pickOutfitMale(std::string_view var1) {
     Data var2 = this.m_outfitToMale.get(var1);
       if (var2 == nullptr) {
     return 0;
@@ -164,7 +165,7 @@ class PersistentOutfits {
       }
    }
 
-    int pickOutfit(const std::string& var1, bool var2) {
+    int pickOutfit(std::string_view var1, bool var2) {
       return var2 ? this.pickOutfitFemale(var1) : this.pickOutfitMale(var1);
    }
 
@@ -260,16 +261,16 @@ class PersistentOutfits {
       }
    }
 
-    void registerOutfitter(const std::string& var1, bool var2, IOutfitter var3) {
+    void registerOutfitter(std::string_view var1, bool var2, IOutfitter var3) {
       this.initOutfit(var1, true, var2, var3);
       this.initOutfit(var1, false, var2, var3);
    }
 
-    static void ApplyOutfit(int var0, const std::string& var1, IsoGameCharacter var2) {
+    static void ApplyOutfit(int var0, std::string_view var1, IsoGameCharacter var2) {
       instance.applyOutfit(var0, var1, var2);
    }
 
-    void applyOutfit(int var1, const std::string& var2, IsoGameCharacter var3) {
+    void applyOutfit(int var1, std::string_view var2, IsoGameCharacter var3) {
     bool var4 = (var1 & -2147483648) != 0;
       var1 &= Integer.MAX_VALUE;
     short var5 = (short)(var1 >> 16);

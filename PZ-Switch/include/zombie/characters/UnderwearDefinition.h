@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -160,7 +161,7 @@ public
  public
  OutfitUnderwearDefinition(
  ArrayList<UnderwearDefinition.StringChance> arrayList,
- const std::string &string0, int int1, const std::string &string1) {
+ std::string_view string0, int int1, std::string_view string1) {
  this->top = arrayList;
  if (arrayList != nullptr) {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
@@ -184,7 +185,7 @@ public
  float chance;
 
  public
- StringChance(const std::string &string, float float0) {
+ StringChance(std::string_view string, float float0) {
  this->str = string;
  this->chance = float0;
  }

@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -53,7 +54,7 @@ public
  }
 
  void initClothing(KahluaTable table1, DefaultClothing.Clothing clothing,
- const std::string &string) {
+ std::string_view string) {
  KahluaTable table0 =
  Type.tryCastTo(table1.rawget(string), KahluaTable.class);
  if (table0 != nullptr) {
@@ -63,7 +64,7 @@ public
  }
  }
 
- void tableToArrayList(KahluaTable table, const std::string &string,
+ void tableToArrayList(KahluaTable table, std::string_view string,
  ArrayList<String> arrayList) {
  KahluaTableImpl kahluaTableImpl = (KahluaTableImpl)table.rawget(string);
  if (kahluaTableImpl != nullptr) {

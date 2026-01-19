@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <memory>
 #include <map>
 #include <algorithm>
@@ -23,7 +24,7 @@ enum class SoundCategory {
 
 class Sound {
 public:
- Sound(const std::string& path, SoundCategory category);
+ Sound(std::string_view path, SoundCategory category);
  virtual ~Sound() = default;
  
  virtual void play() = 0;
@@ -43,7 +44,7 @@ protected:
 
 class WorldSound : public Sound {
 public:
- WorldSound(const std::string& path, Vec3 position);
+ WorldSound(std::string_view path, Vec3 position);
  
  void play() override;
  void stop() override;
@@ -67,11 +68,11 @@ public:
  bool initialize();
  void shutdown();
  
- std::shared_ptr<Sound> loadSound(const std::string& path, SoundCategory category);
- void playSound(const std::string& soundId);
- void stopSound(const std::string& soundId);
+ std::shared_ptr<Sound> loadSound(std::string_view path, SoundCategory category);
+ void playSound(std::string_view soundId);
+ void stopSound(std::string_view soundId);
  
- void playWorldSound(const std::string& path, Vec3 position);
+ void playWorldSound(std::string_view path, Vec3 position);
  
  void setMasterVolume(float vol);
  void setCategoryVolume(SoundCategory category, float vol);

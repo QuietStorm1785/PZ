@@ -41,7 +41,7 @@ public
 
  void onCreated(Asset.State state) { this->m_priv.onCreated(state); }
 
- int getRefCount() { return this->m_ref_count; }
+ int getRefCount() noexcept{ return this->m_ref_count; }
 
 public
  Asset.ObserverCallback getObserverCb() {

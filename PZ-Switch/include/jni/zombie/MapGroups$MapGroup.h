@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -22,7 +23,7 @@ class MapGroups {
       this.directories = std::make_unique<LinkedList<>>();
    }
 
-    void addDirectory(const std::string& var1, const std::string& var2) {
+    void addDirectory(std::string_view var1, std::string_view var2) {
       if (!$assertionsDisabled && this.hasDirectory(var1)) {
          throw std::make_unique<AssertionError>();
       } else {
@@ -31,7 +32,7 @@ class MapGroups {
       }
    }
 
-    void addDirectory(const std::string& var1, const std::string& var2, ArrayList<String> var3) {
+    void addDirectory(std::string_view var1, std::string_view var2, ArrayList<String> var3) {
       if (!$assertionsDisabled && this.hasDirectory(var1)) {
          throw std::make_unique<AssertionError>();
       } else {
@@ -48,7 +49,7 @@ class MapGroups {
       }
    }
 
-    MapDirectory getDirectoryByName(const std::string& var1) {
+    MapDirectory getDirectoryByName(std::string_view var1) {
       for (MapDirectory var3 : this.directories) {
          if (var3.name == var1)) {
     return var3;
@@ -58,7 +59,7 @@ class MapGroups {
     return nullptr;
    }
 
-    bool hasDirectory(const std::string& var1) {
+    bool hasDirectory(std::string_view var1) {
       return this.getDirectoryByName(var1) != nullptr;
    }
 

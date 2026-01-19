@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,28 +29,28 @@ public
  return DebugLog.isLogEnabled(this->debugType, logSeverity);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &string0,
- const std::string &string1, const std::string &string2) {
+ std::string format(LogSeverity logSeverity, std::string_view string0,
+ std::string_view string1, std::string_view string2) {
  return DebugLog.formatString(this->debugType, logSeverity, string0, string1,
  string2);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &string0,
- const std::string &string1, const std::string &string2,
+ std::string format(LogSeverity logSeverity, std::string_view string0,
+ std::string_view string1, std::string_view string2,
  void *object) {
  return DebugLog.formatString(this->debugType, logSeverity, string0, string1,
  string2, object);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &string0,
- const std::string &string1, const std::string &string2,
+ std::string format(LogSeverity logSeverity, std::string_view string0,
+ std::string_view string1, std::string_view string2,
  void *object0, void *object1) {
  return DebugLog.formatString(this->debugType, logSeverity, string0, string1,
  string2, object0, object1);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &string0,
- const std::string &string1, const std::string &string2,
+ std::string format(LogSeverity logSeverity, std::string_view string0,
+ std::string_view string1, std::string_view string2,
  void *object0, void *object1, void *object2) {
  return DebugLog.formatString(this->debugType, logSeverity, string0, string1,
  string2, object0, object1, object2);

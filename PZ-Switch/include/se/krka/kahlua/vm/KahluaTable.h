@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -49,7 +50,7 @@ public:
 
  void load(DataInputStream var1, int var2);
 
- std::string getString(const std::string &var1);
+ std::string getString(std::string_view var1);
 }
 } // namespace vm
 } // namespace kahlua

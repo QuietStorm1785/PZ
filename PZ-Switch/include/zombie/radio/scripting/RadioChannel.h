@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -49,13 +50,13 @@ private
  float maxmod = 5.0F;
 
 public
- RadioChannel(const std::string &n, int freq, ChannelCategory c) {
+ RadioChannel(std::string_view n, int freq, ChannelCategory c) {
  this(n, freq, c, UUID.randomUUID().toString());
  }
 
 public
- RadioChannel(const std::string &n, int freq, ChannelCategory c,
- const std::string &guid) {
+ RadioChannel(std::string_view n, int freq, ChannelCategory c,
+ std::string_view guid) {
  this->name = n;
  this->frequency = freq;
  this->category = c;
@@ -99,7 +100,7 @@ public
 
  void setLouisvilleObfuscate(bool b) { this->louisvilleObfuscate = b; }
 
- void LoadAiringBroadcast(const std::string &guid, int line) {
+ void LoadAiringBroadcast(std::string_view guid, int line) {
  if (this->currentScript != nullptr) {
  this->airingBroadcast = this->currentScript.getBroadcastWithID(guid);
  if (line < 0) {
@@ -135,11 +136,11 @@ public
  this->airingBroadcast = nullptr;
  }
 
- void setActiveScript(const std::string &scriptName, int day) {
+ void setActiveScript(std::string_view scriptName, int day) {
  this->setActiveScript(scriptName, day, 1, -1);
  }
 
- void setActiveScript(const std::string &scriptName, int day, int loop,
+ void setActiveScript(std::string_view scriptName, int day, int loop,
  int maxloops) {
  if (scriptName != nullptr && this->scripts.containsKey(scriptName) {
  this->currentScript = this->scripts.get(scriptName);
@@ -250,7 +251,7 @@ public
  }
  }
 
- RadioScript getRadioScript(const std::string &script) {
+ RadioScript getRadioScript(std::string_view script) {
  return script != nullptr && this->scripts.containsKey(script)
  ? this->scripts.get(script)
  : nullptr;
@@ -258,7 +259,7 @@ public
 
  void setAiringBroadcast(RadioBroadCast bc) { this->airingBroadcast = bc; }
 
- float getAirCounterMultiplier() { return this->airCounterMultiplier; }
+ float getAirCounterMultiplier() noexcept{ return this->airCounterMultiplier; }
 
  void setAirCounterMultiplier(float _airCounterMultiplier) {
  this->airCounterMultiplier =

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -85,15 +86,15 @@ class GameSounds {
       }
    }
 
-    static bool isKnownSound(const std::string& var0) {
+    static bool isKnownSound(std::string_view var0) {
       return soundByName.containsKey(var0);
    }
 
-    static GameSound getSound(const std::string& var0) {
+    static GameSound getSound(std::string_view var0) {
     return getOrCreateSound();
    }
 
-    static GameSound getOrCreateSound(const std::string& var0) {
+    static GameSound getOrCreateSound(std::string_view var0) {
       if (StringUtils.isNullOrEmpty(var0)) {
     return nullptr;
       } else {
@@ -214,7 +215,7 @@ class GameSounds {
       }
    }
 
-    static void ReloadFile(const std::string& var0) {
+    static void ReloadFile(std::string_view var0) {
       try {
          ScriptManager.instance.LoadFile(var0, true);
     std::vector var1 = ScriptManager.instance.getAllGameSounds();
@@ -284,7 +285,7 @@ class GameSounds {
       }
    }
 
-    static void previewSound(const std::string& var0) {
+    static void previewSound(std::string_view var0) {
       if (!Core.SoundDisabled) {
          if (isKnownSound(var0)) {
     GameSound var1 = getSound(var0);

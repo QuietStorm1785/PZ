@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -107,7 +108,7 @@ private
  }
  }
 
- void addKey(const std::string &string1, const std::string &string0) {
+ void addKey(std::string_view string1, std::string_view string0) {
  ReplaceSingle replaceSingle = alloc_single();
  replaceSingle.setValue(string0);
  this->addReplacer(string1, replaceSingle);

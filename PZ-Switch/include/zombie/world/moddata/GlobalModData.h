@@ -20,6 +20,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -65,11 +66,11 @@ public
  }
  }
 
- bool exists(const std::string &string) {
+ bool exists(std::string_view string) {
  return this->modData.containsKey(string);
  }
 
- KahluaTable getOrCreate(const std::string &string) {
+ KahluaTable getOrCreate(std::string_view string) {
  KahluaTable table = this->get(string);
  if (table.empty()) {
  table = this->create(string);
@@ -78,7 +79,7 @@ public
  return table;
  }
 
- KahluaTable get(const std::string &string) {
+ KahluaTable get(std::string_view string) {
  return this->modData.get(string);
  }
 
@@ -88,7 +89,7 @@ public
  return string;
  }
 
- KahluaTable create(const std::string &string) {
+ KahluaTable create(std::string_view string) {
  if (this->exists(string) {
  DebugLog.log("GlobalModData -> Cannot create table '" + string +
  "', already exists. Returning nullptr.");
@@ -100,15 +101,15 @@ public
  }
  }
 
- KahluaTable remove(const std::string &string) {
+ KahluaTable remove(std::string_view string) {
  return this->modData.remove(string);
  }
 
- void add(const std::string &string, KahluaTable table) {
+ void add(std::string_view string, KahluaTable table) {
  this->modData.put(string, table);
  }
 
- void transmit(const std::string &string) {
+ void transmit(std::string_view string) {
  KahluaTable table = this->get(string);
  if (table != nullptr) {
  if (GameClient.bClient) {
@@ -174,7 +175,7 @@ public
  }
  }
 
- void request(const std::string &string) {
+ void request(std::string_view string) {
  if (GameClient.bClient) {
  ByteBufferWriter byteBufferWriter = GameClient.connection.startPacket();
  PacketTypes.PacketType.GlobalModDataRequest.doPacket(byteBufferWriter);

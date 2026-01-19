@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -208,7 +209,7 @@ public
 
  void AddBlancLine() { this->drawY = this->drawY + this->drawYLine; }
 
- void DrawLine(const std::string &string, int int0, bool boolean0,
+ void DrawLine(std::string_view string, int int0, bool boolean0,
  Color color) {
  TextManager.instance.DrawString(UIFont.Medium, this->drawX + int0,
  this->drawY, string, color.r, color.g,
@@ -218,7 +219,7 @@ public
  }
  }
 
- void DrawLine(const std::string &string, int int0, bool boolean0) {
+ void DrawLine(std::string_view string, int int0, bool boolean0) {
  this->DrawLine(string, int0, boolean0, this->colWhite);
  }
 }

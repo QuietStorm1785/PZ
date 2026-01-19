@@ -12,6 +12,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -36,15 +37,15 @@ public
  Faction() {}
 
 public
- Faction(const std::string &_name, const std::string &_owner) {
+ Faction(std::string_view _name, std::string_view _owner) {
  this->setName(_name);
  this->setOwner(_owner);
  this->tagColor = new ColorInfo(Rand.Next(0.3F, 1.0F), Rand.Next(0.3F, 1.0F),
  Rand.Next(0.3F, 1.0F), 1.0F);
  }
 
- static Faction createFaction(const std::string &_name,
- const std::string &_owner) {
+ static Faction createFaction(std::string_view _name,
+ std::string_view _owner) {
  if (!factionExist(_name) {
  Faction faction = new Faction(_name, _owner);
  factions.add(faction);
@@ -78,7 +79,7 @@ public
  ServerOptions.instance.FactionPlayersRequiredForTag.getValue();
  }
 
- static bool isAlreadyInFaction(const std::string &username) {
+ static bool isAlreadyInFaction(std::string_view username) {
  for (int int0 = 0; int0 < factions.size(); int0++) {
  Faction faction = factions.get(int0);
  if (faction.getOwner() == username) {
@@ -99,14 +100,14 @@ public
  return isAlreadyInFaction();
  }
 
- void removePlayer(const std::string &player) {
+ void removePlayer(std::string_view player) {
  this->getPlayers().remove(player);
  if (GameClient.bClient) {
  GameClient.sendFaction(this, false);
  }
  }
 
- static bool factionExist(const std::string &_name) {
+ static bool factionExist(std::string_view _name) {
  for (int int0 = 0; int0 < factions.size(); int0++) {
  if (factions.get(int0).getName() == _name) {
  return true;
@@ -116,7 +117,7 @@ public
  return false;
  }
 
- static bool tagExist(const std::string &_name) {
+ static bool tagExist(std::string_view _name) {
  for (int int0 = 0; int0 < factions.size(); int0++) {
  if (factions.get(int0).getTag() != nullptr &&
  factions.get(int0).getTag() == _name) {
@@ -144,7 +145,7 @@ public
  return nullptr;
  }
 
- static Faction getPlayerFaction(const std::string &username) {
+ static Faction getPlayerFaction(std::string_view username) {
  for (int int0 = 0; int0 < factions.size(); int0++) {
  Faction faction = factions.get(int0);
  if (faction.getOwner() == username) {
@@ -161,7 +162,7 @@ public
  return nullptr;
  }
 
- static Faction getFaction(const std::string &_name) {
+ static Faction getFaction(std::string_view _name) {
  for (int int0 = 0; int0 < factions.size(); int0++) {
  if (factions.get(int0).getName() == _name) {
  return factions.get(int0);
@@ -184,7 +185,7 @@ public
  }
  }
 
- bool isOwner(const std::string &_name) {
+ bool isOwner(std::string_view _name) {
  return this->getOwner() == _name);
  }
 
@@ -192,7 +193,7 @@ public
  return this->isMember(player.getUsername());
  }
 
- bool isMember(const std::string &_name) {
+ bool isMember(std::string_view _name) {
  for (int int0 = 0; int0 < this->getPlayers().size(); int0++) {
  if (this->getPlayers().get(int0) == _name) {
  return true;
@@ -270,7 +271,7 @@ public
  }
  }
 
- void addPlayer(const std::string &pName) {
+ void addPlayer(std::string_view pName) {
  for (int int0 = 0; int0 < factions.size(); int0++) {
  Faction faction = factions.get(int0);
  if (faction.getOwner() == pName) {
@@ -313,15 +314,15 @@ public
 
  std::string getTag() { return this->tag; }
 
- void setTag(const std::string &_tag) { this->tag = _tag; }
+ void setTag(std::string_view _tag) { this->tag = _tag; }
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  std::string getOwner() { return this->owner; }
 
- void setOwner(const std::string &_owner) {
+ void setOwner(std::string_view _owner) {
  if (this->owner.empty()) {
  this->owner = _owner;
  } else {

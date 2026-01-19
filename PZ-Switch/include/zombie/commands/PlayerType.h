@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,7 +49,7 @@ private
  }
  }
 
- static uint8_t fromString(const std::string &string) {
+ static uint8_t fromString(std::string_view string) {
  string = string.trim().toLowerCase();
  if ("" == string) || "player" == string) || "none" == string) {
  return 1;

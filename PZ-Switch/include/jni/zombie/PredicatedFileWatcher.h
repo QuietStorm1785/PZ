@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -25,7 +26,7 @@ class PredicatedFileWatcher {
       this(nullptr, var1, var2);
    }
 
-     PredicatedFileWatcher(const std::string& var1, IPredicatedFileWatcherCallback var2) {
+     PredicatedFileWatcher(std::string_view var1, IPredicatedFileWatcherCallback var2) {
       this(var1, nullptr, var2);
    }
 
@@ -33,7 +34,7 @@ class PredicatedFileWatcher {
       this(var1, nullptr, new GenericPredicatedFileWatcherCallback(var2, var3));
    }
 
-     PredicatedFileWatcher(const std::string& var1, Predicate<String> var2, IPredicatedFileWatcherCallback var3) {
+     PredicatedFileWatcher(std::string_view var1, Predicate<String> var2, IPredicatedFileWatcherCallback var3) {
       this.m_path = this.processPath(var1);
       this.m_predicate = var2 != nullptr ? var2 : this::pathsEqual;
       this.m_callback = var3;
@@ -43,15 +44,15 @@ class PredicatedFileWatcher {
       return this.m_path;
    }
 
-    std::string processPath(const std::string& var1) {
+    std::string processPath(std::string_view var1) {
       return var1 != nullptr ? ZomboidFileSystem.processFilePath(var1, File.separatorChar) : nullptr;
    }
 
-    bool pathsEqual(const std::string& var1) {
+    bool pathsEqual(std::string_view var1) {
       return var1 == this.m_path);
    }
 
-    void onModified(const std::string& var1) {
+    void onModified(std::string_view var1) {
       if (this.m_predicate.test(var1)) {
          this.m_callback.call(var1);
       }

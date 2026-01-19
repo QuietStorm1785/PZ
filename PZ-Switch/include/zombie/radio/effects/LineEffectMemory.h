@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
 private
  Map<Integer, ArrayList<String>> memory = std::make_unique<HashMap<>>();
 
- void addLine(IsoPlayer player, const std::string &string) {
+ void addLine(IsoPlayer player, std::string_view string) {
  int int0 = player.getDescriptor().getID();
  std::vector arrayList;
  if (!this->memory.containsKey(int0) {
@@ -33,7 +34,7 @@ private
  }
  }
 
- bool contains(IsoPlayer player, const std::string &string) {
+ bool contains(IsoPlayer player, std::string_view string) {
  int int0 = player.getDescriptor().getID();
  return !this->memory.containsKey(int0)
  ? false

@@ -578,6 +578,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -686,13 +687,13 @@ private
  outputTable(env, 0);
  }
 
- static void LoadDir(const std::string &var0) {}
+ static void LoadDir(std::string_view var0) {}
 
- static void LoadDirBase(const std::string &string) {
+ static void LoadDirBase(std::string_view string) {
  LoadDirBase(string, false);
  }
 
- static void LoadDirBase(const std::string &string1, bool boolean0) {
+ static void LoadDirBase(std::string_view string1, bool boolean0) {
  std::string string0 = "media/lua/" + string1 + "/";
  File file0 = ZomboidFileSystem.instance.getMediaFile(
  "lua" + File.separator + string1);
@@ -842,7 +843,7 @@ static void updateOverlaySprite(IsoObject object) {
  ItemPickerJava.updateOverlaySprite(object);
 }
 
-static LuaClosure getDotDelimitedClosure(const std::string &string) {
+static LuaClosure getDotDelimitedClosure(std::string_view string) {
  String[] strings = string.split("\\.");
  KahluaTable table = env;
 
@@ -872,9 +873,9 @@ static IsoGridSquare AdjacentFreeTileFinder(IsoGridSquare square,
  return (IsoGridSquare)caller.pcall(thread, luaClosure, square, player)[1];
 }
 
-static void *RunLua(const std::string &string) { return RunLua(); }
+static void *RunLua(std::string_view string) { return RunLua(); }
 
-static void *RunLua(const std::string &string1, bool boolean0) {
+static void *RunLua(std::string_view string1, bool boolean0) {
  std::string string0 = string1.replace("\\", "/");
  if (loading.contains(string0) {
  DebugLog.Lua.warn("recursive require(): %s", string0);
@@ -893,7 +894,7 @@ static void *RunLua(const std::string &string1, bool boolean0) {
  }
 }
 
-static void *RunLuaInternal(const std::string &string, bool boolean0) {
+static void *RunLuaInternal(std::string_view string, bool boolean0) {
  string = string.replace("\\", "/");
  if (loaded.contains(string) {
  return loadedReturn.get(string);
@@ -963,7 +964,7 @@ static void *RunLuaInternal(const std::string &string, bool boolean0) {
  }
 }
 
-static void *getFunctionObject(const std::string &string) {
+static void *getFunctionObject(std::string_view string) {
  if (string != nullptr && !string.empty()) {
  void *object = luaFunctionMap.get(string);
  if (object != nullptr) {
@@ -1007,7 +1008,7 @@ static void Test() {}
 
 static void *get(void *object) { return env.rawget(object); }
 
-static void call(const std::string &string, void *object) {
+static void call(std::string_view string, void *object) {
  caller.pcall(thread, env.rawget(string), object);
 }
 
@@ -1717,28 +1718,28 @@ private
  name = "loadVehicleModel",
  global = true
  )
- static Model loadVehicleModel(const std::string& name, const std::string& loc, const std::string& tex) {
+ static Model loadVehicleModel(std::string_view name, std::string_view loc, std::string_view tex) {
  return loadZomboidModel();
  }
 
  name = "loadStaticZomboidModel",
  global = true
  )
- static Model loadStaticZomboidModel(const std::string& name, const std::string& loc, const std::string& tex) {
+ static Model loadStaticZomboidModel(std::string_view name, std::string_view loc, std::string_view tex) {
  return loadZomboidModel();
  }
 
  name = "loadSkinnedZomboidModel",
  global = true
  )
- static Model loadSkinnedZomboidModel(const std::string& name, const std::string& loc, const std::string& tex) {
+ static Model loadSkinnedZomboidModel(std::string_view name, std::string_view loc, std::string_view tex) {
  return loadZomboidModel();
  }
 
  name = "loadZomboidModel",
  global = true
  )
- static Model loadZomboidModel(const std::string& name, const std::string& mesh, const std::string& tex, const std::string& shader, bool bStatic) {
+ static Model loadZomboidModel(std::string_view name, std::string_view mesh, std::string_view tex, std::string_view shader, bool bStatic) {
  try {
  if (mesh.startsWith("/")) {
  mesh = mesh.substring(1);
@@ -1794,7 +1795,7 @@ private
  name = "setModelMetaData",
  global = true
  )
- static void setModelMetaData(const std::string& name, const std::string& mesh, const std::string& tex, const std::string& shader, bool bStatic) {
+ static void setModelMetaData(std::string_view name, std::string_view mesh, std::string_view tex, std::string_view shader, bool bStatic) {
  if (mesh.startsWith("/")) {
  mesh = mesh.substring(1);
  }
@@ -1810,7 +1811,7 @@ private
  name = "reloadModelsMatching",
  global = true
  )
- static void reloadModelsMatching(const std::string& meshName) {
+ static void reloadModelsMatching(std::string_view meshName) {
  ModelManager.instance.reloadModelsMatching(meshName);
  }
 
@@ -1922,7 +1923,7 @@ private
  name = "sendItemListNet",
  global = true
  )
- static bool sendItemListNet(IsoPlayer sender, ArrayList<InventoryItem> items, IsoPlayer receiver, const std::string& transferID, const std::string& custom) {
+ static bool sendItemListNet(IsoPlayer sender, ArrayList<InventoryItem> items, IsoPlayer receiver, std::string_view transferID, std::string_view custom) {
  return ModUtilsJava.sendItemListNet(sender, items, receiver,
  transferID, custom);
  }
@@ -1930,7 +1931,7 @@ private
  name = "instanceof",
  global = true
  )
- static bool instof(void* obj, const std::string& name) {
+ static bool instof(void* obj, std::string_view name) {
  if ("PZKey" == name) {
  bool boolean0 = false;
  }
@@ -1969,7 +1970,7 @@ private
  name = "serverConnectCoop",
  global = true
  )
- static void serverConnectCoop(const std::string& serverSteamID) {
+ static void serverConnectCoop(std::string_view serverSteamID) {
  Core.GameMode = "Multiplayer";
  Core.setDifficulty("Hardcore");
  if (GameClient.connection != nullptr) {
@@ -1997,7 +1998,7 @@ private
  name = "connectionManagerLog",
  global = true
  )
- static void connectionManagerLog(const std::string& string0, const std::string& string1) {
+ static void connectionManagerLog(std::string_view string0, std::string_view string1) {
  ConnectionManager.log(string0, string1, nullptr);
  }
 
@@ -2031,7 +2032,7 @@ private
  name = "requestPacketCounts",
  global = true
  )
- static void requestPacketCounts() {
+ static void requestPacketCounts() noexcept{
  if (GameClient.bClient) {
  GameClient.instance.requestPacketCounts();
  }
@@ -2047,7 +2048,7 @@ private
  name = "getReconnectCountdownTimer",
  global = true
  )
- static std::string getReconnectCountdownTimer() {
+ static std::string getReconnectCountdownTimer() noexcept{
  return GameClient.instance.getReconnectCountdownTimer();
  }
 
@@ -2101,7 +2102,7 @@ private
  name = "requestUserlog",
  global = true
  )
- static void requestUserlog(const std::string& user) {
+ static void requestUserlog(std::string_view user) {
  if (GameClient.bClient) {
  GameClient.instance.requestUserlog(user);
  }
@@ -2110,7 +2111,7 @@ private
  name = "addUserlog",
  global = true
  )
- static void addUserlog(const std::string& user, const std::string& type, const std::string& text) {
+ static void addUserlog(std::string_view user, std::string_view type, std::string_view text) {
  if (GameClient.bClient) {
  GameClient.instance.addUserlog(user, type, text);
  }
@@ -2119,7 +2120,7 @@ private
  name = "removeUserlog",
  global = true
  )
- static void removeUserlog(const std::string& user, const std::string& type, const std::string& text) {
+ static void removeUserlog(std::string_view user, std::string_view type, std::string_view text) {
  if (GameClient.bClient) {
  GameClient.instance.removeUserlog(user, type, text);
  }
@@ -2128,7 +2129,7 @@ private
  name = "tabToX",
  global = true
  )
- static std::string tabToX(const std::string& a, int tabX) {
+ static std::string tabToX(std::string_view a, int tabX) {
  while (a.length() < tabX) {
  a = a + " ";
  }
@@ -2139,7 +2140,7 @@ private
  name = "istype",
  global = true
  )
- static bool isType(void* obj, const std::string& name) {
+ static bool isType(void* obj, std::string_view name) {
  if (LuaManager.exposer.TypeMap.containsKey(name) {
  Class clazz = LuaManager.exposer.TypeMap.get(name);
  return clazz == obj.getClass());
@@ -2243,7 +2244,7 @@ private
  name = "playServerSound",
  global = true
  )
- static void playServerSound(const std::string& sound, IsoGridSquare sq) {
+ static void playServerSound(std::string_view sound, IsoGridSquare sq) {
  GameServer.PlayWorldSoundServer(sound, false, sq, 0.2F, 5.0F,
  1.1F, true);
  }
@@ -2322,7 +2323,7 @@ private
  name = "getTableResult",
  global = true
  )
- static void getTableResult(const std::string& tableName, int numberPerPages) {
+ static void getTableResult(std::string_view tableName, int numberPerPages) {
  GameClient.instance.getTableResult(tableName, numberPerPages);
  }
 
@@ -2389,7 +2390,7 @@ private
  name = "reloadLuaFile",
  global = true
  )
- static void reloadLuaFile(const std::string& filename) {
+ static void reloadLuaFile(std::string_view filename) {
  LuaManager.loaded.remove(filename);
  LuaManager.RunLua(filename, true);
  }
@@ -2397,7 +2398,7 @@ private
  name = "reloadServerLuaFile",
  global = true
  )
- static void reloadServerLuaFile(const std::string& filename) {
+ static void reloadServerLuaFile(std::string_view filename) {
  if (GameServer.bServer) {
  filename = ZomboidFileSystem.instance.getCacheDir() +
  File.separator + "Server" + File.separator +
@@ -2548,7 +2549,7 @@ private
  name = "isCurrentExecutionPoint",
  global = true
  )
- static bool isCurrentExecutionPoint(const std::string& file, int line) {
+ static bool isCurrentExecutionPoint(std::string_view file, int line) {
  int int0 =
  LuaManager.thread.currentCoroutine.getCallframeTop() - 1;
  if (int0 < 0) {
@@ -2590,7 +2591,7 @@ private
  name = "toggleBreakpoint",
  global = true
  )
- static void toggleBreakpoint(const std::string& file, int line) {
+ static void toggleBreakpoint(std::string_view file, int line) {
  file = file.replace("\\", "/");
  if (Core.bDebug) {
  LuaManager.thread.breakpointToggle(file, line);
@@ -2632,14 +2633,14 @@ private
  name = "hasBreakpoint",
  global = true
  )
- static bool hasBreakpoint(const std::string& file, int line) {
+ static bool hasBreakpoint(std::string_view file, int line) {
  return LuaManager.thread.hasBreakpoint(file, line);
  }
 
  name = "getLoadedLuaCount",
  global = true
  )
- static int getLoadedLuaCount() {
+ static int getLoadedLuaCount() noexcept{
  return LuaManager.loaded.size();
  }
 
@@ -2682,7 +2683,7 @@ private
  name = "executeQuery",
  global = true
  )
- static void executeQuery(const std::string& query, KahluaTable params) {
+ static void executeQuery(std::string_view query, KahluaTable params) {
  GameClient.instance.executeQuery(query, params);
  }
 
@@ -2831,7 +2832,7 @@ private
  name = "deleteSave",
  global = true
  )
- static void deleteSave(const std::string& file) {
+ static void deleteSave(std::string_view file) {
  if (StringUtils.containsDoubleDot(file) {
  DebugLog.Lua.warn("relative paths not allowed");
  } else {
@@ -2966,7 +2967,7 @@ private
  name = "ping",
  global = true
  )
- static void ping(const std::string& username, const std::string& pwd, const std::string& ip, const std::string& port) {
+ static void ping(std::string_view username, std::string_view pwd, std::string_view ip, std::string_view port) {
  GameClient.askPing = true;
  serverConnect(username, pwd, ip, "", port, "", "", false);
  }
@@ -3117,7 +3118,7 @@ private
  name = "deleteAllGameModeSaves",
  global = true
  )
- static void deleteAllGameModeSaves(const std::string& gameMode) {
+ static void deleteAllGameModeSaves(std::string_view gameMode) {
  std::string string = Core.GameMode;
  Core.GameMode = gameMode;
  Path path =
@@ -3169,7 +3170,7 @@ private
  name = "getTickets",
  global = true
  )
- static void getTickets(const std::string& author) {
+ static void getTickets(std::string_view author) {
  if (GameClient.bClient) {
  GameClient.getTickets(author);
  }
@@ -3178,7 +3179,7 @@ private
  name = "addTicket",
  global = true
  )
- static void addTicket(const std::string& author, const std::string& message, int ticketID) {
+ static void addTicket(std::string_view author, std::string_view message, int ticketID) {
  if (GameClient.bClient) {
  GameClient.addTicket(author, message, ticketID);
  }
@@ -3196,7 +3197,7 @@ private
  name = "sendFactionInvite",
  global = true
  )
- static void sendFactionInvite(Faction faction, IsoPlayer host, const std::string& invited) {
+ static void sendFactionInvite(Faction faction, IsoPlayer host, std::string_view invited) {
  if (GameClient.bClient) {
  GameClient.sendFactionInvite(faction, host, invited);
  }
@@ -3205,7 +3206,7 @@ private
  name = "acceptFactionInvite",
  global = true
  )
- static void acceptFactionInvite(Faction faction, const std::string& host) {
+ static void acceptFactionInvite(Faction faction, std::string_view host) {
  if (GameClient.bClient) {
  GameClient.acceptFactionInvite(faction, host);
  }
@@ -3214,7 +3215,7 @@ private
  name = "sendSafehouseInvite",
  global = true
  )
- static void sendSafehouseInvite(SafeHouse safehouse, IsoPlayer host, const std::string& invited) {
+ static void sendSafehouseInvite(SafeHouse safehouse, IsoPlayer host, std::string_view invited) {
  if (GameClient.bClient) {
  GameClient.sendSafehouseInvite(safehouse, host, invited);
  }
@@ -3223,7 +3224,7 @@ private
  name = "acceptSafehouseInvite",
  global = true
  )
- static void acceptSafehouseInvite(SafeHouse safehouse, const std::string& host) {
+ static void acceptSafehouseInvite(SafeHouse safehouse, std::string_view host) {
  if (GameClient.bClient) {
  GameClient.acceptSafehouseInvite(safehouse, host);
  }
@@ -3290,35 +3291,35 @@ private
  name = "triggerEvent",
  global = true
  )
- static void triggerEvent(const std::string& event) {
+ static void triggerEvent(std::string_view event) {
  LuaEventManager.triggerEvent(event);
  }
 
  name = "triggerEvent",
  global = true
  )
- static void triggerEvent(const std::string& event, void* param) {
+ static void triggerEvent(std::string_view event, void* param) {
  LuaEventManager.triggerEventGarbage(event, param);
  }
 
  name = "triggerEvent",
  global = true
  )
- static void triggerEvent(const std::string& event, void* param, void* param2) {
+ static void triggerEvent(std::string_view event, void* param, void* param2) {
  LuaEventManager.triggerEventGarbage(event, param, param2);
  }
 
  name = "triggerEvent",
  global = true
  )
- static void triggerEvent(const std::string& event, void* param, void* param2, void* param3) {
+ static void triggerEvent(std::string_view event, void* param, void* param2, void* param3) {
  LuaEventManager.triggerEventGarbage(event, param, param2, param3);
  }
 
  name = "triggerEvent",
  global = true
  )
- static void triggerEvent(const std::string& event, void* param, void* param2, void* param3, void* param4) {
+ static void triggerEvent(std::string_view event, void* param, void* param2, void* param3, void* param4) {
  LuaEventManager.triggerEventGarbage(event, param, param2, param3,
  param4);
  }
@@ -3464,7 +3465,7 @@ private
  name = "spawnpointsExistsForMod",
  global = true
  )
- static bool spawnpointsExistsForMod(const std::string& modID, const std::string& mapFolder) {
+ static bool spawnpointsExistsForMod(std::string_view modID, std::string_view mapFolder) {
  try {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getModDetails(modID);
  if (mod.empty()) {
@@ -3505,7 +3506,7 @@ private
  name = "checkSaveFolderExists",
  global = true
  )
- static bool checkSaveFolderExists(const std::string& f) {
+ static bool checkSaveFolderExists(std::string_view f) {
  File file = new File(ZomboidFileSystem.instance.getSaveDir() +
  File.separator + f);
  return file.exists();
@@ -3514,7 +3515,7 @@ private
  name = "getAbsoluteSaveFolderName",
  global = true
  )
- static std::string getAbsoluteSaveFolderName(const std::string& f) {
+ static std::string getAbsoluteSaveFolderName(std::string_view f) {
  File file = new File(ZomboidFileSystem.instance.getSaveDir() +
  File.separator + f);
  return file.getAbsolutePath();
@@ -3523,7 +3524,7 @@ private
  name = "checkSaveFileExists",
  global = true
  )
- static bool checkSaveFileExists(const std::string& f) {
+ static bool checkSaveFileExists(std::string_view f) {
  File file = new File(
  ZomboidFileSystem.instance.getFileNameInCurrentSave(f);
  return file.exists();
@@ -3549,7 +3550,7 @@ private
  name = "fileExists",
  global = true
  )
- static bool fileExists(const std::string& filename) {
+ static bool fileExists(std::string_view filename) {
  std::string string = filename.replace("/", File.separator);
  string = string.replace("\\", File.separator);
  File file =
@@ -3560,7 +3561,7 @@ private
  name = "serverFileExists",
  global = true
  )
- static bool serverFileExists(const std::string& filename) {
+ static bool serverFileExists(std::string_view filename) {
  std::string string = filename.replace("/", File.separator);
  string = string.replace("\\", File.separator);
  File file =
@@ -3579,14 +3580,14 @@ private
  name = "takeScreenshot",
  global = true
  )
- static void takeScreenshot(const std::string& fileName) {
+ static void takeScreenshot(std::string_view fileName) {
  Core.getInstance().TakeFullScreenshot(fileName);
  }
 
  name = "checkStringPattern",
  global = true
  )
- static bool checkStringPattern(const std::string& pattern) {
+ static bool checkStringPattern(std::string_view pattern) {
  return !pattern.contains("[");
  }
 
@@ -3600,14 +3601,14 @@ private
  name = "instanceItem",
  global = true
  )
- static InventoryItem instanceItem(const std::string& item) {
+ static InventoryItem instanceItem(std::string_view item) {
  return InventoryItemFactory.CreateItem(item);
  }
 
  name = "createNewScriptItem",
  global = true
  )
- static Item createNewScriptItem(const std::string& base, const std::string& name, const std::string& display, const std::string& type, const std::string& icon) {
+ static Item createNewScriptItem(std::string_view base, std::string_view name, std::string_view display, std::string_view type, std::string_view icon) {
  Item item = new Item();
  item.module = ScriptManager.instance.getModule(base);
  item.module.ItemMap.put(name, item);
@@ -3627,7 +3628,7 @@ private
  name = "cloneItemType",
  global = true
  )
- static Item cloneItemType(const std::string& newName, const std::string& oldName) {
+ static Item cloneItemType(std::string_view newName, std::string_view oldName) {
  Item item0 = ScriptManager.instance.FindItem(oldName);
  Item item1 = new Item();
  item1.module = item0.getModule();
@@ -3638,14 +3639,14 @@ private
  name = "moduleDotType",
  global = true
  )
- static std::string moduleDotType(const std::string& module, const std::string& type) {
+ static std::string moduleDotType(std::string_view module, std::string_view type) {
  return StringUtils.moduleDotType(module, type);
  }
 
  name = "require",
  global = true
  )
- static void* require(const std::string& f) {
+ static void* require(std::string_view f) {
  std::string string0 = f;
  if (!f.endsWith(".lua")) {
  string0 = f + ".lua";
@@ -3732,7 +3733,7 @@ private
  name = "getFileOutput",
  global = true
  )
- static DataOutputStream getFileOutput(const std::string& filename) {
+ static DataOutputStream getFileOutput(std::string_view filename) {
  if (StringUtils.containsDoubleDot(filename) {
  DebugLog.Lua.warn("relative paths not allowed");
  return nullptr;
@@ -3840,7 +3841,7 @@ private
  name = "deleteSandboxPreset",
  global = true
  )
- static void deleteSandboxPreset(const std::string& name) {
+ static void deleteSandboxPreset(std::string_view name) {
  if (StringUtils.containsDoubleDot(name) {
  DebugLog.Lua.warn("relative paths not allowed");
  } else {
@@ -3865,7 +3866,7 @@ private
  name = "getFileReader",
  global = true
  )
- static BufferedReader getFileReader(const std::string& filename, bool createIfNull) {
+ static BufferedReader getFileReader(std::string_view filename, bool createIfNull) {
  if (StringUtils.containsDoubleDot(filename) {
  DebugLog.Lua.warn("relative paths not allowed");
  return nullptr;
@@ -3914,7 +3915,7 @@ private
  name = "getModFileReader",
  global = true
  )
- static BufferedReader getModFileReader(const std::string& modId, const std::string& filename, bool createIfNull) {
+ static BufferedReader getModFileReader(std::string_view modId, std::string_view filename, bool createIfNull) {
  if (!filename.empty() &&
  !StringUtils.containsDoubleDot(filename) &&
  !new File(filename).isAbsolute()) {
@@ -4086,7 +4087,7 @@ private
  name = "deletePlayerSave",
  global = true
  )
- static void deletePlayerSave(const std::string& fileName) {
+ static void deletePlayerSave(std::string_view fileName) {
  std::string string = LuaManager.getLuaCacheDir() +
  File.separator + "Players" + File.separator +
  "player" + fileName + ".txt";
@@ -4099,7 +4100,7 @@ private
  name = "getControllerCount",
  global = true
  )
- static int getControllerCount() {
+ static int getControllerCount() noexcept{
  return GameWindow.GameInput.getControllerCount();
  }
 
@@ -4548,7 +4549,7 @@ private
  name = "setPlayerJoypad",
  global = true
  )
- static void setPlayerJoypad(int player, int joypad, IsoPlayer playerObj, const std::string& username) {
+ static void setPlayerJoypad(int player, int joypad, IsoPlayer playerObj, std::string_view username) {
  if (IsoPlayer.players[player] == nullptr ||
  IsoPlayer.players[player].isDead()) {
  bool boolean0 = playerObj == nullptr;
@@ -4795,7 +4796,7 @@ private
  name = "createStory",
  global = true
  )
- static void createStory(const std::string& storyName) {
+ static void createStory(std::string_view storyName) {
  Core.GameMode = storyName;
  std::string string =
  ZomboidFileSystem.instance.getGameModeCacheDir();
@@ -4820,7 +4821,7 @@ private
  name = "createWorld",
  global = true
  )
- static void createWorld(const std::string& worldName) {
+ static void createWorld(std::string_view worldName) {
  if (worldName.empty() || worldName.empty()) {
  worldName = "blah";
  }
@@ -4845,7 +4846,7 @@ private
  name = "sanitizeWorldName",
  global = true
  )
- static std::string sanitizeWorldName(const std::string& worldName) {
+ static std::string sanitizeWorldName(std::string_view worldName) {
  return worldName.replace(" ", "_")
  .replace("/", "")
  .replace("\\", "")
@@ -4891,7 +4892,7 @@ private
  name = "getFileInput",
  global = true
  )
- static DataInputStream getFileInput(const std::string& filename) {
+ static DataInputStream getFileInput(std::string_view filename) {
  if (StringUtils.containsDoubleDot(filename) {
  DebugLog.Lua.warn("relative paths not allowed");
  return nullptr;
@@ -4919,7 +4920,7 @@ private
  name = "getGameFilesInput",
  global = true
  )
- static DataInputStream getGameFilesInput(const std::string& filename) {
+ static DataInputStream getGameFilesInput(std::string_view filename) {
  std::string string = filename.replace("/", File.separator);
  string = string.replace("\\", File.separator);
  if (!ZomboidFileSystem.instance.isKnownFile(string) {
@@ -4945,7 +4946,7 @@ private
  name = "getGameFilesTextInput",
  global = true
  )
- static BufferedReader getGameFilesTextInput(const std::string& filename) {
+ static BufferedReader getGameFilesTextInput(std::string_view filename) {
  if (!Core.getInstance().getDebug()) {
  return nullptr;
  } else {
@@ -5090,7 +5091,7 @@ private
  name = "getShortenedFilename",
  global = true
  )
- static std::string getShortenedFilename(const std::string& str) {
+ static std::string getShortenedFilename(std::string_view str) {
  return str.substring(str.indexOf("lua/") + 4);
  }
 
@@ -5264,7 +5265,7 @@ private
  name = "openUrl",
  global = true
  )
- static void openURl(const std::string& url) {
+ static void openURl(std::string_view url) {
  Desktop desktop =
  Desktop.isDesktopSupported() ? Desktop.getDesktop() : nullptr;
  if (desktop != nullptr && desktop.isSupported(Action.BROWSE) {
@@ -5291,7 +5292,7 @@ private
  name = "showFolderInDesktop",
  global = true
  )
- static void showFolderInDesktop(const std::string& folder) {
+ static void showFolderInDesktop(std::string_view folder) {
  File file = new File(folder);
  if (file.exists() && file.isDirectory()) {
  Desktop desktop =
@@ -5337,7 +5338,7 @@ private
  }
 
  static void deleteSavefileFilesMatching(File file,
- const std::string &string) {
+ std::string_view string) {
  Filter filter =
  pathx->pathx.getFileName().toString().matches(string);
 
@@ -5356,7 +5357,7 @@ private
  name = "manipulateSavefile",
  global = true
  )
- static void manipulateSavefile(const std::string& folder, const std::string& action) {
+ static void manipulateSavefile(std::string_view folder, std::string_view action) {
  if (!StringUtils.isNullOrWhitespace(folder) {
  if (!StringUtils.containsDoubleDot(folder) {
  std::string string = ZomboidFileSystem.instance.getSaveDir() +
@@ -5482,7 +5483,7 @@ private
  name = "createTile",
  global = true
  )
- static void createTile(const std::string& tile, IsoGridSquare square) {
+ static void createTile(std::string_view tile, IsoGridSquare square) {
  { std::lock_guard<std::mutex> __sync_lock__(IsoSpriteManager.instance.NamedMap_mutex);
  IsoSprite sprite = IsoSpriteManager.instance.NamedMap.get(tile);
  if (sprite != nullptr) {
@@ -5692,7 +5693,7 @@ private
  name = "getLuaDebuggerErrorCount",
  global = true
  )
- static int getLuaDebuggerErrorCount() {
+ static int getLuaDebuggerErrorCount() noexcept{
  return KahluaThread.m_error_count;
  }
 
@@ -5706,7 +5707,7 @@ private
  name = "doLuaDebuggerAction",
  global = true
  )
- static void doLuaDebuggerAction(const std::string& action) {
+ static void doLuaDebuggerAction(std::string_view action) {
  UIManager.luaDebuggerAction = action;
  }
 
@@ -5791,7 +5792,7 @@ private
  name = "getLastPlayedDate",
  global = true
  )
- static std::string getLastPlayedDate(const std::string& filename) {
+ static std::string getLastPlayedDate(std::string_view filename) {
  File file = new File(ZomboidFileSystem.instance.getSaveDir() +
  File.separator + filename);
  if (!file.exists()) {
@@ -5808,7 +5809,7 @@ private
  name = "getTextureFromSaveDir",
  global = true
  )
- static Texture getTextureFromSaveDir(const std::string& filename, const std::string& saveName) {
+ static Texture getTextureFromSaveDir(std::string_view filename, std::string_view saveName) {
  TextureID.UseFiltering = true;
  std::string string = ZomboidFileSystem.instance.getSaveDir() +
  File.separator + saveName + File.separator +
@@ -5821,7 +5822,7 @@ private
  name = "getSaveInfo",
  global = true
  )
- static KahluaTable getSaveInfo(const std::string& saveDir) {
+ static KahluaTable getSaveInfo(std::string_view saveDir) {
  if (!saveDir.contains(File.separator) {
  saveDir =
  IsoWorld.instance.getGameMode() + File.separator + saveDir;
@@ -5916,7 +5917,7 @@ private
  name = "renameSavefile",
  global = true
  )
- static bool renameSaveFile(const std::string& gameMode, const std::string& oldName, const std::string& newName) {
+ static bool renameSaveFile(std::string_view gameMode, std::string_view oldName, std::string_view newName) {
  if (gameMode.empty() || gameMode.contains("/") ||
  gameMode.contains("\\") ||
  gameMode.contains(File.separator) ||
@@ -5964,7 +5965,7 @@ private
  name = "setSavefilePlayer1",
  global = true
  )
- static void setSavefilePlayer1(const std::string& gameMode, const std::string& saveDir, int sqlID) {
+ static void setSavefilePlayer1(std::string_view gameMode, std::string_view saveDir, int sqlID) {
  std::string string = ZomboidFileSystem.instance.getSaveDirSub(
  gameMode + File.separator + saveDir);
 
@@ -5978,7 +5979,7 @@ private
  name = "getServerSavedWorldVersion",
  global = true
  )
- static int getServerSavedWorldVersion(const std::string& saveFolder) {
+ static int getServerSavedWorldVersion(std::string_view saveFolder) {
  File file = new File(ZomboidFileSystem.instance.getSaveDir() +
  File.separator + saveFolder +
  File.separator + "map_t.bin");
@@ -6096,7 +6097,7 @@ private
  name = "getMapInfo",
  global = true
  )
- static KahluaTable getMapInfo(const std::string& mapDir) {
+ static KahluaTable getMapInfo(std::string_view mapDir) {
  if (mapDir.contains(";")) {
  mapDir = mapDir.split(";")[0];
  }
@@ -6227,7 +6228,7 @@ private
  name = "getTexture",
  global = true
  )
- static Texture getTexture(const std::string& filename) {
+ static Texture getTexture(std::string_view filename) {
  return Texture.getSharedTexture(filename);
  }
 
@@ -6250,105 +6251,105 @@ private
  name = "getText",
  global = true
  )
- static std::string getText(const std::string& txt) {
+ static std::string getText(std::string_view txt) {
  return Translator.getText(txt);
  }
 
  name = "getText",
  global = true
  )
- static std::string getText(const std::string& txt, void* arg1) {
+ static std::string getText(std::string_view txt, void* arg1) {
  return Translator.getText(txt, arg1);
  }
 
  name = "getText",
  global = true
  )
- static std::string getText(const std::string& txt, void* arg1, void* arg2) {
+ static std::string getText(std::string_view txt, void* arg1, void* arg2) {
  return Translator.getText(txt, arg1, arg2);
  }
 
  name = "getText",
  global = true
  )
- static std::string getText(const std::string& txt, void* arg1, void* arg2, void* arg3) {
+ static std::string getText(std::string_view txt, void* arg1, void* arg2, void* arg3) {
  return Translator.getText(txt, arg1, arg2, arg3);
  }
 
  name = "getText",
  global = true
  )
- static std::string getText(const std::string& txt, void* arg1, void* arg2, void* arg3, void* arg4) {
+ static std::string getText(std::string_view txt, void* arg1, void* arg2, void* arg3, void* arg4) {
  return Translator.getText(txt, arg1, arg2, arg3, arg4);
  }
 
  name = "getTextOrNull",
  global = true
  )
- static std::string getTextOrNull(const std::string& txt) {
+ static std::string getTextOrNull(std::string_view txt) {
  return Translator.getTextOrNull(txt);
  }
 
  name = "getTextOrNull",
  global = true
  )
- static std::string getTextOrNull(const std::string& txt, void* arg1) {
+ static std::string getTextOrNull(std::string_view txt, void* arg1) {
  return Translator.getTextOrNull(txt, arg1);
  }
 
  name = "getTextOrNull",
  global = true
  )
- static std::string getTextOrNull(const std::string& txt, void* arg1, void* arg2) {
+ static std::string getTextOrNull(std::string_view txt, void* arg1, void* arg2) {
  return Translator.getTextOrNull(txt, arg1, arg2);
  }
 
  name = "getTextOrNull",
  global = true
  )
- static std::string getTextOrNull(const std::string& txt, void* arg1, void* arg2, void* arg3) {
+ static std::string getTextOrNull(std::string_view txt, void* arg1, void* arg2, void* arg3) {
  return Translator.getTextOrNull(txt, arg1, arg2, arg3);
  }
 
  name = "getTextOrNull",
  global = true
  )
- static std::string getTextOrNull(const std::string& txt, void* arg1, void* arg2, void* arg3, void* arg4) {
+ static std::string getTextOrNull(std::string_view txt, void* arg1, void* arg2, void* arg3, void* arg4) {
  return Translator.getTextOrNull(txt, arg1, arg2, arg3, arg4);
  }
 
  name = "getItemText",
  global = true
  )
- static std::string getItemText(const std::string& txt) {
+ static std::string getItemText(std::string_view txt) {
  return Translator.getDisplayItemName(txt);
  }
 
  name = "getRadioText",
  global = true
  )
- static std::string getRadioText(const std::string& txt) {
+ static std::string getRadioText(std::string_view txt) {
  return Translator.getRadioText(txt);
  }
 
  name = "getTextMediaEN",
  global = true
  )
- static std::string getTextMediaEN(const std::string& txt) {
+ static std::string getTextMediaEN(std::string_view txt) {
  return Translator.getTextMediaEN(txt);
  }
 
  name = "getItemNameFromFullType",
  global = true
  )
- static std::string getItemNameFromFullType(const std::string& fullType) {
+ static std::string getItemNameFromFullType(std::string_view fullType) {
  return Translator.getItemNameFromFullType(fullType);
  }
 
  name = "getRecipeDisplayName",
  global = true
  )
- static std::string getRecipeDisplayName(const std::string& name) {
+ static std::string getRecipeDisplayName(std::string_view name) {
  return Translator.getRecipeName(name);
  }
 
@@ -6362,14 +6363,14 @@ private
  name = "getSpriteManager",
  global = true
  )
- static IsoSpriteManager getSpriteManager(const std::string& sprite) {
+ static IsoSpriteManager getSpriteManager(std::string_view sprite) {
  return IsoSpriteManager.instance;
  }
 
  name = "getSprite",
  global = true
  )
- static IsoSprite getSprite(const std::string& sprite) {
+ static IsoSprite getSprite(std::string_view sprite) {
  return IsoSpriteManager.instance.getSprite(sprite);
  }
 
@@ -6410,7 +6411,7 @@ private
  name = "sendClientCommand",
  global = true
  )
- static void sendClientCommand(const std::string& module, const std::string& command, KahluaTable args) {
+ static void sendClientCommand(std::string_view module, std::string_view command, KahluaTable args) {
  if (GameClient.bClient && GameClient.bIngame) {
  GameClient.instance.sendClientCommand(nullptr, module, command,
  args);
@@ -6440,7 +6441,7 @@ private
  name = "sendClientCommand",
  global = true
  )
- static void sendClientCommand(IsoPlayer player, const std::string& module, const std::string& command, KahluaTable args) {
+ static void sendClientCommand(IsoPlayer player, std::string_view module, std::string_view command, KahluaTable args) {
  if (player != nullptr && player.isLocalPlayer()) {
  if (GameClient.bClient && GameClient.bIngame) {
  GameClient.instance.sendClientCommand(player, module, command,
@@ -6470,7 +6471,7 @@ private
  name = "sendServerCommand",
  global = true
  )
- static void sendServerCommand(const std::string& module, const std::string& command, KahluaTable args) {
+ static void sendServerCommand(std::string_view module, std::string_view command, KahluaTable args) {
  if (GameServer.bServer) {
  GameServer.sendServerCommand(module, command, args);
  }
@@ -6492,7 +6493,7 @@ private
  name = "sendServerCommand",
  global = true
  )
- static void sendServerCommand(IsoPlayer player, const std::string& module, const std::string& command, KahluaTable args) {
+ static void sendServerCommand(IsoPlayer player, std::string_view module, std::string_view command, KahluaTable args) {
  if (GameServer.bServer) {
  GameServer.sendServerCommand(player, module, command, args);
  }
@@ -6508,7 +6509,7 @@ private
  name = "isValidUserName",
  global = true
  )
- static bool isValidUserName(const std::string& user) {
+ static bool isValidUserName(std::string_view user) {
  return ServerWorldDatabase.isValidUserName(user);
  }
 
@@ -6522,7 +6523,7 @@ private
  name = "SendCommandToServer",
  global = true
  )
- static void SendCommandToServer(const std::string& command) {
+ static void SendCommandToServer(std::string_view command) {
  GameClient.SendCommandToServer(command);
  }
 
@@ -6545,7 +6546,7 @@ private
  name = "isAccessLevel",
  global = true
  )
- static bool isAccessLevel(const std::string& accessLevel) {
+ static bool isAccessLevel(std::string_view accessLevel) {
  if (GameClient.bClient) {
  return GameClient.connection.accessLevel == 1
  ? false
@@ -6559,7 +6560,7 @@ private
  name = "sendBandage",
  global = true
  )
- static void sendBandage(int onlineID, int i, bool bandaged, float bandageLife, bool isAlcoholic, const std::string& bandageType) {
+ static void sendBandage(int onlineID, int i, bool bandaged, float bandageLife, bool isAlcoholic, std::string_view bandageType) {
  GameClient.instance.sendBandage(
  onlineID, i, bandaged, bandageLife, isAlcoholic, bandageType);
  }
@@ -6591,7 +6592,7 @@ private
  name = "sendSplint",
  global = true
  )
- static void sendSplint(int onlineID, int i, bool doIt, float factor, const std::string& splintItem) {
+ static void sendSplint(int onlineID, int i, bool doIt, float factor, std::string_view splintItem) {
  GameClient.instance.sendSplint(onlineID, i, doIt, factor,
  splintItem);
  }
@@ -6636,7 +6637,7 @@ private
  name = "InvMngGetItem",
  global = true
  )
- static void InvMngGetItem(long itemId, const std::string& itemType, IsoPlayer player) {
+ static void InvMngGetItem(long itemId, std::string_view itemType, IsoPlayer player) {
  GameClient.invMngRequestItem((int)itemId, itemType, player);
  }
 
@@ -6657,7 +6658,7 @@ private
  name = "getPlayerFromUsername",
  global = true
  )
- static IsoPlayer getPlayerFromUsername(const std::string& username) {
+ static IsoPlayer getPlayerFromUsername(std::string_view username) {
  return GameClient.instance.getPlayerFromUsername(username);
  }
 
@@ -6692,7 +6693,7 @@ private
  name = "addWarningPoint",
  global = true
  )
- static void addWarningPoint(const std::string& user, const std::string& reason, int amount) {
+ static void addWarningPoint(std::string_view user, std::string_view reason, int amount) {
  if (GameClient.bClient) {
  GameClient.instance.addWarningPoint(user, reason, amount);
  }
@@ -6714,7 +6715,7 @@ private
  name = "writeLog",
  global = true
  )
- static void writeLog(const std::string& loggerName, const std::string& logs) {
+ static void writeLog(std::string_view loggerName, std::string_view logs) {
  LoggerManager.getLogger(loggerName).write(logs);
  }
 
@@ -6756,7 +6757,7 @@ private
  name = "replaceWith",
  global = true
  )
- static std::string replaceWith(const std::string& toReplace, const std::string& regex, const std::string& by) {
+ static std::string replaceWith(std::string_view toReplace, std::string_view regex, std::string_view by) {
  return toReplace.replaceFirst(regex, by);
  }
 
@@ -6801,7 +6802,7 @@ private
  name = "inviteFriend",
  global = true
  )
- static void inviteFriend(const std::string& steamID) {
+ static void inviteFriend(std::string_view steamID) {
  if (CoopMaster.instance != nullptr &&
  CoopMaster.instance.isRunning()) {
  CoopMaster.instance.sendMessage("invite-add", steamID);
@@ -6844,7 +6845,7 @@ private
  name = "isValidSteamID",
  global = true
  )
- static bool isValidSteamID(const std::string& s) {
+ static bool isValidSteamID(std::string_view s) {
  return s != nullptr && !s.empty() ? SteamUtils.isValidSteamID(s)
  : false;
  }
@@ -6912,7 +6913,7 @@ private
  name = "activateSteamOverlayToWorkshopItem",
  global = true
  )
- static void activateSteamOverlayToWorkshopItem(const std::string& itemID) {
+ static void activateSteamOverlayToWorkshopItem(std::string_view itemID) {
  if (SteamUtils.isOverlayEnabled() &&
  SteamUtils.isValidSteamID(itemID) {
  SteamFriends.ActivateGameOverlayToWebPage(
@@ -6923,7 +6924,7 @@ private
  name = "activateSteamOverlayToWebPage",
  global = true
  )
- static void activateSteamOverlayToWebPage(const std::string& url) {
+ static void activateSteamOverlayToWebPage(std::string_view url) {
  if (SteamUtils.isOverlayEnabled()) {
  SteamFriends.ActivateGameOverlayToWebPage(url);
  }
@@ -6932,7 +6933,7 @@ private
  name = "getSteamProfileNameFromSteamID",
  global = true
  )
- static std::string getSteamProfileNameFromSteamID(const std::string& steamID) {
+ static std::string getSteamProfileNameFromSteamID(std::string_view steamID) {
  if (SteamUtils.isSteamModeEnabled() && GameClient.bClient) {
  long long0 = SteamUtils.convertStringToSteamID(steamID);
  if (long0 != -1L) {
@@ -6946,7 +6947,7 @@ private
  name = "getSteamAvatarFromSteamID",
  global = true
  )
- static Texture getSteamAvatarFromSteamID(const std::string& steamID) {
+ static Texture getSteamAvatarFromSteamID(std::string_view steamID) {
  if (SteamUtils.isSteamModeEnabled() && GameClient.bClient) {
  long long0 = SteamUtils.convertStringToSteamID(steamID);
  if (long0 != -1L) {
@@ -6960,7 +6961,7 @@ private
  name = "getSteamIDFromUsername",
  global = true
  )
- static std::string getSteamIDFromUsername(const std::string& username) {
+ static std::string getSteamIDFromUsername(std::string_view username) {
  if (SteamUtils.isSteamModeEnabled() && GameClient.bClient) {
  IsoPlayer player =
  GameClient.instance.getPlayerFromUsername(username);
@@ -6982,7 +6983,7 @@ private
  name = "getSteamProfileNameFromUsername",
  global = true
  )
- static std::string getSteamProfileNameFromUsername(const std::string& username) {
+ static std::string getSteamProfileNameFromUsername(std::string_view username) {
  if (SteamUtils.isSteamModeEnabled() && GameClient.bClient) {
  IsoPlayer player =
  GameClient.instance.getPlayerFromUsername(username);
@@ -6997,7 +6998,7 @@ private
  name = "getSteamAvatarFromUsername",
  global = true
  )
- static Texture getSteamAvatarFromUsername(const std::string& username) {
+ static Texture getSteamAvatarFromUsername(std::string_view username) {
  if (SteamUtils.isSteamModeEnabled() && GameClient.bClient) {
  IsoPlayer player =
  GameClient.instance.getPlayerFromUsername(username);
@@ -7071,7 +7072,7 @@ private
  name = "showSteamGamepadTextInput",
  global = true
  )
- static bool showSteamGamepadTextInput(bool password, bool multiLine, const std::string& description, int maxChars, const std::string& existingText) {
+ static bool showSteamGamepadTextInput(bool password, bool multiLine, std::string_view description, int maxChars, std::string_view existingText) {
  return SteamUtils.isSteamModeEnabled()
  ? SteamUtils.showGamepadTextInput(
  password, multiLine, description, maxChars,
@@ -7176,7 +7177,7 @@ private
  name = "connectToServerStateCallback",
  global = true
  )
- static void connectToServerStateCallback(const std::string& button) {
+ static void connectToServerStateCallback(std::string_view button) {
  if (ConnectToServerState.instance != nullptr) {
  ConnectToServerState.instance.FromLua(button);
  }
@@ -7352,7 +7353,7 @@ private
  name = "steamGetInternetServersCount",
  global = true
  )
- static int steamRequestInternetServersCount() {
+ static int steamRequestInternetServersCount() noexcept{
  return ServerBrowser.GetServerCount();
  }
 
@@ -7414,14 +7415,14 @@ private
  name = "steamRequestServerRules",
  global = true
  )
- static bool steamRequestServerRules(const std::string& host, int port) {
+ static bool steamRequestServerRules(std::string_view host, int port) {
  return ServerBrowser.RequestServerRules(host, port);
  }
 
  name = "steamRequestServerDetails",
  global = true
  )
- static bool steamRequestServerDetails(const std::string& host, int port) {
+ static bool steamRequestServerDetails(std::string_view host, int port) {
  return ServerBrowser.QueryServer(host, port);
  }
 
@@ -7484,7 +7485,7 @@ private
  name = "getUrlInputStream",
  global = true
  )
- static DataInputStream getUrlInputStream(const std::string& url) {
+ static DataInputStream getUrlInputStream(std::string_view url) {
  if (url != nullptr &&
  (url.startsWith("https://") || url.startsWith("http://"))) {
  try {
@@ -7560,7 +7561,7 @@ private
  name = "rainConfig",
  global = true
  )
- static void rainConfig(const std::string& cmd, int arg) {
+ static void rainConfig(std::string_view cmd, int arg) {
  if ("alpha" == cmd) {
  IsoWorld.instance.CurrentCell.setRainAlpha(arg);
  }
@@ -7898,7 +7899,7 @@ private
  name = "addVehicleDebug",
  global = true
  )
- static BaseVehicle addVehicleDebug(const std::string& scriptName, IsoDirections dir, int skinIndex, IsoGridSquare sq) {
+ static BaseVehicle addVehicleDebug(std::string_view scriptName, IsoDirections dir, int skinIndex, IsoGridSquare sq) {
  if (dir.empty()) {
  dir = IsoDirections.getRandom();
  }
@@ -7942,7 +7943,7 @@ private
  name = "addVehicle",
  global = true
  )
- static BaseVehicle addVehicle(const std::string& script) {
+ static BaseVehicle addVehicle(std::string_view script) {
  if (!StringUtils.isNullOrWhitespace(script) &&
  ScriptManager.instance.getVehicle(script) == nullptr) {
  DebugLog.Lua.warn("No such vehicle script \"" + script + "\"");
@@ -8017,14 +8018,14 @@ private
  name = "getKeyCode",
  global = true
  )
- static int getKeyCode(const std::string& keyName) {
+ static int getKeyCode(std::string_view keyName) {
  return Input.getKeyCode(keyName);
  }
 
  name = "queueCharEvent",
  global = true
  )
- static void queueCharEvent(const std::string& eventChar) {
+ static void queueCharEvent(std::string_view eventChar) {
  RenderThread.queueInvokeOnRenderContext(
  ()->GameKeyboard.getEventQueuePolling().addCharEvent(
  eventChar.charAt(0));
@@ -8209,7 +8210,7 @@ private
  name = "showVehicleEditor",
  global = true
  )
- static void showVehicleEditor(const std::string& scriptName) {
+ static void showVehicleEditor(std::string_view scriptName) {
  IngameState.instance.showVehicleEditor =
  StringUtils.isNullOrWhitespace(scriptName) ? "" : scriptName;
  }
@@ -8217,7 +8218,7 @@ private
  name = "showWorldMapEditor",
  global = true
  )
- static void showWorldMapEditor(const std::string& value) {
+ static void showWorldMapEditor(std::string_view value) {
  IngameState.instance.showWorldMapEditor =
  StringUtils.isNullOrWhitespace(value) ? "" : value;
  }
@@ -8265,7 +8266,7 @@ private
  name = "proceedPM",
  global = true
  )
- static std::string proceedPM(const std::string& command) {
+ static std::string proceedPM(std::string_view command) {
  command = command.trim();
  std::string string = nullptr;
  void *object = nullptr;
@@ -8289,7 +8290,7 @@ private
  name = "processSayMessage",
  global = true
  )
- static void processSayMessage(const std::string& message) {
+ static void processSayMessage(std::string_view message) {
  if (message != nullptr && !message.empty()) {
  message = message.trim();
  ChatManager.getInstance().sendMessageToChat(ChatType.say,
@@ -8300,7 +8301,7 @@ private
  name = "processGeneralMessage",
  global = true
  )
- static void processGeneralMessage(const std::string& message) {
+ static void processGeneralMessage(std::string_view message) {
  if (message != nullptr && !message.empty()) {
  message = message.trim();
  ChatManager.getInstance().sendMessageToChat(ChatType.general,
@@ -8311,7 +8312,7 @@ private
  name = "processShoutMessage",
  global = true
  )
- static void processShoutMessage(const std::string& message) {
+ static void processShoutMessage(std::string_view message) {
  if (message != nullptr && !message.empty()) {
  message = message.trim();
  ChatManager.getInstance().sendMessageToChat(ChatType.shout,
@@ -8322,7 +8323,7 @@ private
  name = "proceedFactionMessage",
  global = true
  )
- static void ProceedFactionMessage(const std::string& message) {
+ static void ProceedFactionMessage(std::string_view message) {
  if (message != nullptr && !message.empty()) {
  message = message.trim();
  ChatManager.getInstance().sendMessageToChat(ChatType.faction,
@@ -8333,7 +8334,7 @@ private
  name = "processSafehouseMessage",
  global = true
  )
- static void ProcessSafehouseMessage(const std::string& message) {
+ static void ProcessSafehouseMessage(std::string_view message) {
  if (message != nullptr && !message.empty()) {
  message = message.trim();
  ChatManager.getInstance().sendMessageToChat(ChatType.safehouse,
@@ -8344,7 +8345,7 @@ private
  name = "processAdminChatMessage",
  global = true
  )
- static void ProcessAdminChatMessage(const std::string& message) {
+ static void ProcessAdminChatMessage(std::string_view message) {
  if (message != nullptr && !message.empty()) {
  message = message.trim();
  ChatManager.getInstance().sendMessageToChat(ChatType.admin,
@@ -8355,7 +8356,7 @@ private
  name = "showWrongChatTabMessage",
  global = true
  )
- static void showWrongChatTabMessage(int actualTabID, int rightTabID, const std::string& chatCommand) {
+ static void showWrongChatTabMessage(int actualTabID, int rightTabID, std::string_view chatCommand) {
  std::string string0 =
  ChatManager.getInstance().getTabName((short)actualTabID);
  std::string string1 =
@@ -8375,7 +8376,7 @@ private
  name = "updateChatSettings",
  global = true
  )
- static void updateChatSettings(const std::string& fontSize, bool showTimestamp, bool showTitle) {
+ static void updateChatSettings(std::string_view fontSize, bool showTimestamp, bool showTitle) {
  ChatManager.getInstance().updateChatSettings(
  fontSize, showTimestamp, showTitle);
  }
@@ -8383,7 +8384,7 @@ private
  name = "checkPlayerCanUseChat",
  global = true
  )
- static bool checkPlayerCanUseChat(const std::string& chatCommand) {
+ static bool checkPlayerCanUseChat(std::string_view chatCommand) {
  chatCommand = chatCommand.trim();
  ChatType chatType;
  switch (chatCommand) {
@@ -8429,7 +8430,7 @@ private
  name = "reloadVehicleTextures",
  global = true
  )
- static void reloadVehicleTextures(const std::string& scriptName) {
+ static void reloadVehicleTextures(std::string_view scriptName) {
  VehicleScript vehicleScript =
  ScriptManager.instance.getVehicle(scriptName);
  if (vehicleScript.empty()) {
@@ -8640,7 +8641,7 @@ private
  name = "getAllItemsForBodyLocation",
  global = true
  )
- static KahluaTable getAllItemsForBodyLocation(const std::string& bodyLocation) {
+ static KahluaTable getAllItemsForBodyLocation(std::string_view bodyLocation) {
  KahluaTable table = LuaManager.platform.newTable();
  if (StringUtils.isNullOrWhitespace(bodyLocation) {
  return table;
@@ -8734,7 +8735,7 @@ private
  name = "checkServerName",
  global = true
  )
- std::string checkServerName(const std::string& name) {
+ std::string checkServerName(std::string_view name) {
  std::string string = ProfanityFilter.getInstance().validateString(
  name, true, true, true);
  return !StringUtils.isNullOrEmpty(string)
@@ -9027,7 +9028,7 @@ private
  }
  }
 
- void inform(const std::string &string) {
+ void inform(std::string_view string) {
  if (this->connection != nullptr) {
  ChatServer.getInstance().sendMessageToServerChat(
  this->connection, string);
@@ -9100,9 +9101,9 @@ private
  public
  LuaFileWriter(PrintWriter _writer) { this->writer = _writer; }
 
- void write(const std::string &str) { this->writer.write(str); }
+ void write(std::string_view str) { this->writer.write(str); }
 
- void writeln(const std::string &str) {
+ void writeln(std::string_view str) {
  this->writer.write(str);
  this->writer.write(System.lineSeparator());
  }

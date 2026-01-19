@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -37,7 +38,7 @@ private
  * @param useConsole if true then write logs into console also
  */
 public
- ZLogger(const std::string &_name, bool useConsole) {
+ ZLogger(std::string_view _name, bool useConsole) {
  this->name = _name;
 
  try {
@@ -53,18 +54,18 @@ public
  }
  }
 
- static std::string getLoggerName(const std::string &string) {
+ static std::string getLoggerName(std::string_view string) {
  return s_fileNameSdf.format(Calendar.getInstance().getTime()) + "_" +
  string;
  }
 
- void write(const std::string &logs) { this->write(logs, nullptr); }
+ void write(std::string_view logs) { this->write(logs, nullptr); }
 
- void write(const std::string &logs, const std::string &level) {
+ void write(std::string_view logs, std::string_view level) {
  this->write(logs, level, false);
  }
 
- void write(const std::string &string0, const std::string &string1,
+ void write(std::string_view string0, std::string_view string1,
  bool boolean0) {
  try {
  this->writeUnsafe(string0, string1, boolean0);
@@ -110,7 +111,7 @@ public
  }
 
 private
- void checkSize() {
+ void checkSize() noexcept{
  try {
  this->checkSizeUnsafe();
  } catch (Exception exception) {
@@ -136,7 +137,7 @@ private
  PrintStream file;
  PrintStream console;
 
- void println(const std::string &arg0) {
+ void println(std::string_view arg0) {
  if (this->file != nullptr) {
  this->file.println(arg0);
  this->file.flush();

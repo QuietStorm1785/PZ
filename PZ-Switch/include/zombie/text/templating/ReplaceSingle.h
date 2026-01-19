@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,11 +21,11 @@ public
  ReplaceSingle() {}
 
 public
- ReplaceSingle(const std::string &string) { this->value = string; }
+ ReplaceSingle(std::string_view string) { this->value = string; }
 
  std::string getValue() { return this->value; }
 
- void setValue(const std::string &string) { this->value = string; }
+ void setValue(std::string_view string) { this->value = string; }
 
  std::string getString() { return this->value; }
 }

@@ -17,6 +17,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -690,13 +691,13 @@ public
  }
  }
 
- std::string getOption(const std::string &key) {
+ std::string getOption(std::string_view key) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
  return serverOption = =
  nullptr ? nullptr : serverOption.asConfigOption().getValueAsString();
  }
 
- bool getBoolean(const std::string &key) {
+ bool getBoolean(std::string_view key) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
  return serverOption instanceof
  ServerOptions.BooleanServerOption
@@ -705,7 +706,7 @@ public
  : nullptr;
  }
 
- float getFloat(const std::string &key) {
+ float getFloat(std::string_view key) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
  return serverOption instanceof
  ServerOptions.DoubleServerOption
@@ -713,7 +714,7 @@ public
  : nullptr;
  }
 
- double getDouble(const std::string &key) {
+ double getDouble(std::string_view key) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
  return serverOption instanceof
  ServerOptions.DoubleServerOption
@@ -721,7 +722,7 @@ public
  : nullptr;
  }
 
- int getInteger(const std::string &key) {
+ int getInteger(std::string_view key) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
  return serverOption instanceof
  ServerOptions.IntegerServerOption
@@ -729,19 +730,19 @@ public
  : nullptr;
  }
 
- void putOption(const std::string &key, const std::string &value) {
+ void putOption(std::string_view key, std::string_view value) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
  if (serverOption != nullptr) {
  serverOption.asConfigOption().parse(value);
  }
  }
 
- void putSaveOption(const std::string &key, const std::string &value) {
+ void putSaveOption(std::string_view key, std::string_view value) {
  this->putOption(key, value);
  this->saveServerTextFile(GameServer.ServerName);
  }
 
- std::string changeOption(const std::string &key, const std::string &value) {
+ std::string changeOption(std::string_view key, std::string_view value) {
  ServerOptions.ServerOption serverOption = this->getOptionByName(key);
  if (serverOption.empty()) {
  return "Option " + key + " doesn't exist.";
@@ -862,7 +863,7 @@ public
  return this->optionByName.get(name);
  }
 
- bool loadServerTextFile(const std::string &serverName) {
+ bool loadServerTextFile(std::string_view serverName) {
  ConfigFile configFile = new ConfigFile();
  std::string string = ZomboidFileSystem.instance.getCacheDir() +
  File.separator + "Server" + File.separator +
@@ -882,7 +883,7 @@ public
  }
  }
 
- bool saveServerTextFile(const std::string &serverName) {
+ bool saveServerTextFile(std::string_view serverName) {
  ConfigFile configFile = new ConfigFile();
  std::string string = ZomboidFileSystem.instance.getCacheDir() +
  File.separator + "Server" + File.separator +
@@ -904,7 +905,7 @@ public
  static class BooleanServerOption extends BooleanConfigOption implements
  ServerOptions.ServerOption {
  public
- BooleanServerOption(ServerOptions owner, const std::string &name,
+ BooleanServerOption(ServerOptions owner, std::string_view name,
  bool defaultValue) {
  super(name, defaultValue);
  owner.addOption(this);
@@ -922,7 +923,7 @@ public
  static class DoubleServerOption extends DoubleConfigOption implements
  ServerOptions.ServerOption {
  public
- DoubleServerOption(ServerOptions owner, const std::string &name, double min,
+ DoubleServerOption(ServerOptions owner, std::string_view name, double min,
  double max, double defaultValue) {
  super(name, min, max, defaultValue);
  owner.addOption(this);
@@ -949,7 +950,7 @@ public
  static class IntegerServerOption extends IntegerConfigOption implements
  ServerOptions.ServerOption {
  public
- IntegerServerOption(ServerOptions owner, const std::string &name, int min,
+ IntegerServerOption(ServerOptions owner, std::string_view name, int min,
  int max, int defaultValue) {
  super(name, min, max, defaultValue);
  owner.addOption(this);
@@ -981,8 +982,8 @@ public
  static class StringServerOption extends StringConfigOption implements
  ServerOptions.ServerOption {
  public
- StringServerOption(ServerOptions owner, const std::string &name,
- const std::string &defaultValue, int maxLength) {
+ StringServerOption(ServerOptions owner, std::string_view name,
+ std::string_view defaultValue, int maxLength) {
  super(name, defaultValue, maxLength);
  owner.addOption(this);
  }
@@ -999,8 +1000,8 @@ public
  static class TextServerOption extends StringConfigOption implements
  ServerOptions.ServerOption {
  public
- TextServerOption(ServerOptions owner, const std::string &name,
- const std::string &defaultValue, int maxLength) {
+ TextServerOption(ServerOptions owner, std::string_view name,
+ std::string_view defaultValue, int maxLength) {
  super(name, defaultValue, maxLength);
  owner.addOption(this);
  }

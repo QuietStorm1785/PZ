@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,11 +26,11 @@ public
  StorySoundEvent() { this("Unnamed"); }
 
 public
- StorySoundEvent(const std::string &_name) { this->name = _name; }
+ StorySoundEvent(std::string_view _name) { this->name = _name; }
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
 public
  ArrayList<EventSound> getEventSounds() { return this->eventSounds; }

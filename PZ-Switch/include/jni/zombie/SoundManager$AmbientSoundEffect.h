@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -73,7 +74,7 @@ class SoundManager {
       }
    }
 
-    void setName(const std::string& var1) {
+    void setName(std::string_view var1) {
       this.name = var1;
    }
 

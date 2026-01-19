@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,7 +18,7 @@ public:
  std::string m_path;
 
 public
- AssetPath(const std::string &path) { this->m_path = path; }
+ AssetPath(std::string_view path) { this->m_path = path; }
 
  bool isValid() { return !StringUtils.isNullOrEmpty(this->m_path); }
 

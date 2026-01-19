@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -33,9 +34,9 @@ private
  }
  }
 
- static void log(const std::string &string) { log(string, true); }
+ static void log(std::string_view string) { log(string, true); }
 
- static void log(const std::string &string, bool boolean0) {
+ static void log(std::string_view string, bool boolean0) {
  if (!GameClient.bClient) {
  if (boolean0) {
  DebugLog.log("WorldDictionary: " + string);
@@ -45,7 +46,7 @@ private
  }
  }
 
- static void saveLog(const std::string &string1) {
+ static void saveLog(std::string_view string1) {
  if (!GameClient.bClient) {
  bool boolean0 = false;
 

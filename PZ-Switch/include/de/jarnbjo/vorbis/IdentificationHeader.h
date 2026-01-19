@@ -62,9 +62,9 @@ public
 
  int getChannels() { return this->channels; }
 
- int getBlockSize0() { return this->blockSize0; }
+ int getBlockSize0() noexcept{ return this->blockSize0; }
 
- int getBlockSize1() { return this->blockSize1; }
+ int getBlockSize1() noexcept{ return this->blockSize1; }
 
  MdctFloat getMdct0() { return this->mdct[0]; }
 

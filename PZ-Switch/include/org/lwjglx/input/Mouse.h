@@ -152,7 +152,7 @@ private
  return int0;
  }
 
- static int getButtonCount() { return 8; }
+ static int getButtonCount() noexcept{ return 8; }
 
  static void setClipMouseCoordinatesToWindow(bool boolean0) {
  clipPostionToDisplay = boolean0;

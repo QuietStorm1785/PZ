@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,8 +24,8 @@ public:
  std::string containerItem;
 
 public
- StashContainer(const std::string &string0, const std::string &string1,
- const std::string &string2) {
+ StashContainer(std::string_view string0, std::string_view string1,
+ std::string_view string2) {
  if (string0.empty()) {
  this->room = "all";
  } else {

@@ -94,11 +94,11 @@ public:
  
  // Create animation from sprite sheet
  std::shared_ptr<zombie::animation::SpriteAnimation> createAnimation(
- const std::string& name, SDL_Texture* texture,
+ std::string_view name, SDL_Texture* texture,
  int frameWidth, int frameHeight, int frameCount, float frameDuration);
 
  // Get animation by name
- std::shared_ptr<zombie::animation::SpriteAnimation> getAnimation(const std::string& name);
+ std::shared_ptr<zombie::animation::SpriteAnimation> getAnimation(std::string_view name);
 
  // Preset animations
  enum class CharacterAnimation {
@@ -115,7 +115,7 @@ public:
 
  // Get or create character animation
  std::shared_ptr<zombie::animation::SpriteAnimation> getCharacterAnimation(
- CharacterAnimation anim, const std::string& characterType = "default");
+ CharacterAnimation anim, std::string_view characterType = "default");
 
 private:
  SDL_Renderer* renderer;

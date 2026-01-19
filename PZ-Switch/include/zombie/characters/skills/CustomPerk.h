@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ public
  int[] m_xp = new int[10];
 
 public
- CustomPerk(const std::string &string) { this->m_id = string; }
+ CustomPerk(std::string_view string) { this->m_id = string; }
 }
 } // namespace skills
 } // namespace characters

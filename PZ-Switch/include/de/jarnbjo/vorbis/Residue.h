@@ -97,7 +97,7 @@ protected
 
  int getEnd() { return this->end; }
 
- int getPartitionSize() { return this->partitionSize; }
+ int getPartitionSize() noexcept{ return this->partitionSize; }
 
  int getClassifications() { return this->classifications; }
 

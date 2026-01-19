@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  Vector2 m_deferredMovement = new Vector2();
 
 public
- AnimationTrackRecordingFrame(const std::string &fileKey) { super(fileKey); }
+ AnimationTrackRecordingFrame(std::string_view fileKey) { super(fileKey); }
 
  void reset() {
  super.reset();

@@ -62,7 +62,7 @@ private
 
  bool isKeyDown(int button) { return this->m_keyDownStates[button]; }
 
- int getKeyCount() { return this->m_keyDownStates.length; }
+ int getKeyCount() noexcept{ return this->m_keyDownStates.length; }
 
  KeyEventQueue getEventQueue() { return this->m_keyEventQueue; }
 }

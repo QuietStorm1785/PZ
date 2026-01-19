@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -123,13 +124,13 @@ protected
  static int[] priorityRight;
  static const int UNARY_PRIORITY = 8;
 
- static std::string LUA_QS(const std::string &string) {
+ static std::string LUA_QS(std::string_view string) {
  return "'" + string + "'";
  }
 
  static std::string LUA_QL(void *object) { return LUA_QS(); }
 
- static bool isReservedKeyword(const std::string &string) {
+ static bool isReservedKeyword(std::string_view string) {
  return RESERVED_LOCAL_VAR_KEYWORDS_TABLE.containsKey(string);
  }
 
@@ -146,8 +147,8 @@ protected
 
  bool isspace(int int0) { return int0 <= 32; }
 
- static Prototype compile(int int0, Reader reader, const std::string &string0,
- const std::string &string1) {
+ static Prototype compile(int int0, Reader reader, std::string_view string0,
+ std::string_view string1) {
  if (string0 != nullptr) {
  string1 = string0;
  } else {
@@ -170,7 +171,7 @@ protected
  }
 
 public
- LexState(Reader reader, int int0, const std::string &string) {
+ LexState(Reader reader, int int0, std::string_view string) {
  this->z = reader;
  this->buff = new byte[32];
  this->lookahead.token = 287;
@@ -228,7 +229,7 @@ public
  }
  }
 
- void lexerror(const std::string &string2, int int0) {
+ void lexerror(std::string_view string2, int int0) {
  std::string string0 = this->source;
  std::string string1;
  if (int0 != 0) {
@@ -241,12 +242,12 @@ public
  throw KahluaException(string1);
  }
 
- static std::string trim(const std::string &string, int int0) {
+ static std::string trim(std::string_view string, int int0) {
  return string.length() > int0 ? string.substring(0, int0 - 3) + "..."
  : string;
  }
 
- void syntaxerror(const std::string &string) {
+ void syntaxerror(std::string_view string) {
  this->lexerror(string, this->t.token);
  }
 
@@ -279,7 +280,7 @@ public
  }
  }
 
- bool check_next(const std::string &string) {
+ bool check_next(std::string_view string) {
  if (string.indexOf(this->current) < 0) {
  return false;
  } else {
@@ -288,7 +289,7 @@ public
  }
  }
 
- void str2d(const std::string &string, Token token) {
+ void str2d(std::string_view string, Token token) {
  try {
  double double0;
  if (string.startsWith("0x")) {
@@ -640,7 +641,7 @@ public
  this->next();
  }
 
- void check_condition(bool boolean0, const std::string &string) {
+ void check_condition(bool boolean0, std::string_view string) {
  if (!boolean0) {
  this->syntaxerror(string);
  }
@@ -665,7 +666,7 @@ public
  return string;
  }
 
- void codestring(ExpDesc expDesc, const std::string &string) {
+ void codestring(ExpDesc expDesc, std::string_view string) {
  expDesc.init(4, this->fs.stringK(string);
  }
 
@@ -673,7 +674,7 @@ public
  this->codestring(expDesc, this->str_checkname());
  }
 
- int registerlocalvar(const std::string &string) {
+ int registerlocalvar(std::string_view string) {
  FuncState funcState = this->fs;
  if (funcState.locvars.empty() ||
  funcState.nlocvars + 1 > funcState.locvars.length) {
@@ -685,11 +686,11 @@ public
  return funcState.nlocvars++;
  }
 
- void new_localvarliteral(const std::string &string, int int0) {
+ void new_localvarliteral(std::string_view string, int int0) {
  this->new_localvar(string, int0);
  }
 
- void new_localvar(const std::string &string, int int0, int var3) {
+ void new_localvar(std::string_view string, int int0, int var3) {
  FuncState funcState = this->fs;
  funcState.checklimit(funcState.nactvar + int0 + 1, 200, "local variables");
  funcState.actvar[funcState.nactvar + int0] =
@@ -700,7 +701,7 @@ public
  }
  }
 
- void new_localvar(const std::string &string, int int0) {
+ void new_localvar(std::string_view string, int int0) {
  FuncState funcState = this->fs;
  funcState.checklimit(funcState.nactvar + int0 + 1, 200, "local variables");
  funcState.actvar[funcState.nactvar + int0] =
@@ -1355,7 +1356,7 @@ public
  funcState.patchlist(boolean0 ? int3 : funcState.jump(), int0 + 1);
  }
 
- void fornum(const std::string &string, int int1) {
+ void fornum(std::string_view string, int int1) {
  FuncState funcState = this->fs;
  int int0 = funcState.freereg;
  this->new_localvarliteral("(for index)", 0);
@@ -1376,7 +1377,7 @@ public
  this->forbody(int0, int1, 1, true);
  }
 
- void forlist(const std::string &string) {
+ void forlist(std::string_view string) {
  FuncState funcState = this->fs;
  ExpDesc expDesc = new ExpDesc();
  int int0 = 0;

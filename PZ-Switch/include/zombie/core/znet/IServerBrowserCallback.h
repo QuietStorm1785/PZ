@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,11 +22,11 @@ public:
 
  void OnRefreshComplete();
 
- void OnServerResponded(const std::string &var1, int var2);
+ void OnServerResponded(std::string_view var1, int var2);
 
- void OnServerFailedToRespond(const std::string &var1, int var2);
+ void OnServerFailedToRespond(std::string_view var1, int var2);
 
- void OnSteamRulesRefreshComplete(const std::string &var1, int var2);
+ void OnSteamRulesRefreshComplete(std::string_view var1, int var2);
 }
 } // namespace znet
 } // namespace core

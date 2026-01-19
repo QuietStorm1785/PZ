@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ public:
 
  void destroyFile(IFile var1) {}
 
- InputStream createStream(const std::string &var1, InputStream var2) {
+ InputStream createStream(std::string_view var1, InputStream var2) {
  return nullptr;
  }
 
@@ -48,7 +49,7 @@ private
  this->m_write = false;
  }
 
- bool open(const std::string &string, int int0) {
+ bool open(std::string_view string, int int0) {
  assert this->m_buffer.empty();
 
  this->m_write = (int0 & 2) != 0;

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
 
  void destroyFile(IFile file);
 
- InputStream createStream(const std::string &path, InputStream child);
+ InputStream createStream(std::string_view path, InputStream child);
 
  void destroyStream(InputStream stream);
 

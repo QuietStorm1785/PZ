@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -36,12 +37,12 @@ class ActiveMods {
       return s_activeMods.get(var0);
    }
 
-    static ActiveMods getById(const std::string& var0) {
+    static ActiveMods getById(std::string_view var0) {
     int var1 = indexOf(var0);
     return var1 = = -1 ? create(var0) : s_activeMods.get(var1);
    }
 
-    static int indexOf(const std::string& var0) {
+    static int indexOf(std::string_view var0) {
       var0 = var0.trim();
       requireValidId(var0);
 
@@ -55,7 +56,7 @@ class ActiveMods {
       return -1;
    }
 
-    static ActiveMods create(const std::string& var0) {
+    static ActiveMods create(std::string_view var0) {
       requireValidId(var0);
       if (indexOf(var0) != -1) {
          throw IllegalStateException("id \"" + var0 + "\" exists");
@@ -66,7 +67,7 @@ class ActiveMods {
       }
    }
 
-    static void requireValidId(const std::string& var0) {
+    static void requireValidId(std::string_view var0) {
       if (StringUtils.isNullOrWhitespace(var0)) {
          throw IllegalArgumentException("id is nullptr or whitespace");
       }
@@ -118,7 +119,7 @@ class ActiveMods {
       s_loaded.clear();
    }
 
-     ActiveMods(const std::string& var1) {
+     ActiveMods(std::string_view var1) {
       requireValidId(var1);
       this.id = var1;
    }
@@ -143,7 +144,7 @@ class ActiveMods {
       this.mapOrder.addAll(var1.mapOrder);
    }
 
-    void setModActive(const std::string& var1, bool var2) {
+    void setModActive(std::string_view var1, bool var2) {
       var1 = var1.trim();
       if (!StringUtils.isNullOrWhitespace(var1)) {
          if (var2) {
@@ -156,17 +157,17 @@ class ActiveMods {
       }
    }
 
-    bool isModActive(const std::string& var1) {
+    bool isModActive(std::string_view var1) {
       var1 = var1.trim();
       return StringUtils.isNullOrWhitespace(var1) ? false : this.mods.contains(var1);
    }
 
-    void removeMod(const std::string& var1) {
+    void removeMod(std::string_view var1) {
       var1 = var1.trim();
       this.mods.remove(var1);
    }
 
-    void removeMapOrder(const std::string& var1) {
+    void removeMapOrder(std::string_view var1) {
       this.mapOrder.remove(var1);
    }
 

@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -63,14 +64,14 @@ public
  return chatSettings;
  }
 
- ChatMessage createInfoMessage(const std::string &string) {
+ ChatMessage createInfoMessage(std::string_view string) {
  ChatMessage chatMessage = this->createBubbleMessage(string);
  chatMessage.setLocal(true);
  chatMessage.setShowInChat(false);
  return chatMessage;
  }
 
- ChatMessage createCalloutMessage(const std::string &string) {
+ ChatMessage createCalloutMessage(std::string_view string) {
  ChatMessage chatMessage = this->createBubbleMessage(string);
  chatMessage.setLocal(false);
  chatMessage.setShouldAttractZombies(true);

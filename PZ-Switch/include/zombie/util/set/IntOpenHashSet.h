@@ -281,7 +281,7 @@ IntIterator iterator() {
  };
 }
 
-void trimToSize() {}
+void trimToSize() noexcept{}
 
 void *clone() {
  try {

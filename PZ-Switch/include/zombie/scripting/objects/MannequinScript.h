@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -33,41 +34,41 @@ public:
 
  std::string getModelScriptName() { return this->modelScriptName; }
 
- void setModelScriptName(const std::string &str) {
+ void setModelScriptName(std::string_view str) {
  this->modelScriptName = StringUtils.discardNullOrWhitespace(str);
  }
 
  std::string getTexture() { return this->texture; }
 
- void setTexture(const std::string &str) {
+ void setTexture(std::string_view str) {
  this->texture = StringUtils.discardNullOrWhitespace(str);
  }
 
  std::string getAnimSet() { return this->animSet; }
 
- void setAnimSet(const std::string &str) {
+ void setAnimSet(std::string_view str) {
  this->animSet = StringUtils.discardNullOrWhitespace(str);
  }
 
  std::string getAnimState() { return this->animState; }
 
- void setAnimState(const std::string &str) {
+ void setAnimState(std::string_view str) {
  this->animState = StringUtils.discardNullOrWhitespace(str);
  }
 
  std::string getPose() { return this->pose; }
 
- void setPose(const std::string &str) {
+ void setPose(std::string_view str) {
  this->pose = StringUtils.discardNullOrWhitespace(str);
  }
 
  std::string getOutfit() { return this->outfit; }
 
- void setOutfit(const std::string &str) {
+ void setOutfit(std::string_view str) {
  this->outfit = StringUtils.discardNullOrWhitespace(str);
  }
 
- void Load(const std::string &_name, const std::string &totalFile) {
+ void Load(std::string_view _name, std::string_view totalFile) {
  this->name = _name;
  ScriptParser.Block block = ScriptParser.parse(totalFile);
  block = block.children.get(0);

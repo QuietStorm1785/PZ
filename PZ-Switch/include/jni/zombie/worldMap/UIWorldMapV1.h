@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -82,7 +83,7 @@ class UIWorldMapV1 {
       return this.m_symbolsV1;
    }
 
-    void addData(const std::string& var1) {
+    void addData(std::string_view var1) {
     bool var2 = this.m_worldMap.hasData();
       this.m_worldMap.addData(var1);
       if (!var2) {
@@ -98,7 +99,7 @@ class UIWorldMapV1 {
       }
    }
 
-    int getDataCount() const {
+    int getDataCount() const noexcept {
       return this.m_worldMap.getDataCount();
    }
 
@@ -115,7 +116,7 @@ class UIWorldMapV1 {
       this.m_worldMap.endDirectoryData();
    }
 
-    void addImages(const std::string& var1) {
+    void addImages(std::string_view var1) {
     bool var2 = this.m_worldMap.hasImages();
       this.m_worldMap.addImages(var1);
       if (!var2) {
@@ -131,7 +132,7 @@ class UIWorldMapV1 {
       }
    }
 
-    int getImagesCount() const {
+    int getImagesCount() const noexcept {
       return this.m_worldMap.getImagesCount();
    }
 
@@ -366,7 +367,7 @@ class UIWorldMapV1 {
       WorldMapVisited.getInstance().setUnvisitedGridRGBA(var1, var2, var3, var4);
    }
 
-    int getOptionCount() const {
+    int getOptionCount() const noexcept {
       return this.m_renderer.getOptionCount();
    }
 
@@ -374,19 +375,19 @@ class UIWorldMapV1 {
       return this.m_renderer.getOptionByIndex(var1);
    }
 
-    void setBoolean(const std::string& var1, bool var2) {
+    void setBoolean(std::string_view var1, bool var2) {
       this.m_renderer.setBoolean(var1, var2);
    }
 
-    bool getBoolean(const std::string& var1) {
+    bool getBoolean(std::string_view var1) {
       return this.m_renderer.getBoolean(var1);
    }
 
-    void setDouble(const std::string& var1, double var2) {
+    void setDouble(std::string_view var1, double var2) {
       this.m_renderer.setDouble(var1, var2);
    }
 
-    double getDouble(const std::string& var1, double var2) {
+    double getDouble(std::string_view var1, double var2) {
       return this.m_renderer.getDouble(var1, var2);
    }
 }

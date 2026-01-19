@@ -12,6 +12,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,8 +33,8 @@ public:
 protected
  FileTask_AbstractLoadModel(FileSystem fileSystem,
  IFileTaskCallback iFileTaskCallback,
- const std::string &string0,
- const std::string &string1) {
+ std::string_view string0,
+ std::string_view string1) {
  super(fileSystem, iFileTaskCallback);
  this->m_mediaFilePath = string0;
  this->m_mediaFileXPath = string1;

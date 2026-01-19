@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public
  RadioGlobalInt(int int0) { super(int0, RadioGlobalType.Integer); }
 
 public
- RadioGlobalInt(const std::string &string, int int0) {
+ RadioGlobalInt(std::string_view string, int int0) {
  super(string, int0, RadioGlobalType.Integer);
  }
 

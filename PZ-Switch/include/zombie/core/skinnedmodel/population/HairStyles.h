@@ -16,6 +16,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -102,7 +103,7 @@ public:
  }
  }
 
- static HairStyles Parse(const std::string &filename) {
+ static HairStyles Parse(std::string_view filename) {
  try {
  return parse();
  } catch (FileNotFoundException fileNotFoundException) {
@@ -113,7 +114,7 @@ public:
  return nullptr;
  }
 
- static HairStyles parse(const std::string &filename) {
+ static HairStyles parse(std::string_view filename) {
  HairStyles hairStyles;
  try(FileInputStream fileInputStream = new FileInputStream(filename) {
  JAXBContext jAXBContext = JAXBContext.newInstance(HairStyles.class);
@@ -124,16 +125,16 @@ public:
  return hairStyles;
  }
 
- HairStyle FindMaleStyle(const std::string &name) {
+ HairStyle FindMaleStyle(std::string_view name) {
  return this->FindStyle(this->m_MaleStyles, name);
  }
 
- HairStyle FindFemaleStyle(const std::string &name) {
+ HairStyle FindFemaleStyle(std::string_view name) {
  return this->FindStyle(this->m_FemaleStyles, name);
  }
 
  HairStyle FindStyle(ArrayList<HairStyle> arrayList,
- const std::string &string) {
+ std::string_view string) {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  HairStyle hairStyle = (HairStyle)arrayList.get(int0);
  if (hairStyle.name.equalsIgnoreCase(string) {
@@ -148,18 +149,18 @@ public:
  return nullptr;
  }
 
- std::string getRandomMaleStyle(const std::string &outfitName) {
+ std::string getRandomMaleStyle(std::string_view outfitName) {
  return HairOutfitDefinitions.instance.getRandomHaircut(
  outfitName, this->m_MaleStyles);
  }
 
- std::string getRandomFemaleStyle(const std::string &outfitName) {
+ std::string getRandomFemaleStyle(std::string_view outfitName) {
  return HairOutfitDefinitions.instance.getRandomHaircut(
  outfitName, this->m_FemaleStyles);
  }
 
  HairStyle getAlternateForHat(HairStyle style,
- const std::string &category) {
+ std::string_view category) {
  if ("nohair".equalsIgnoreCase(category) ||
  "nohairnobeard".equalsIgnoreCase(category) {
  return nullptr;

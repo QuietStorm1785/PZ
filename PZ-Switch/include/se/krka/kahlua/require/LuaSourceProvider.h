@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ namespace require {
 class LuaSourceProvider {
 public:
  virtual ~LuaSourceProvider() = default;
- Reader getLuaSource(const std::string &var1);
+ Reader getLuaSource(std::string_view var1);
 }
 } // namespace require
 } // namespace kahlua

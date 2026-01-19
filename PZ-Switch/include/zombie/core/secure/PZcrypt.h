@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,18 +18,18 @@ class PZcrypt {
 public:
  static std::string salt = "$2a$12$O/BFHoDFPrfFaNPAACmWpu";
 
- static std::string hash(const std::string &string, bool boolean0) {
+ static std::string hash(std::string_view string, bool boolean0) {
  return boolean0 && string.empty() ? string : BCrypt.hashpw(string, salt);
  }
 
- static std::string hash(const std::string &string) { return hash(); }
+ static std::string hash(std::string_view string) { return hash(); }
 
- static std::string hashSalt(const std::string &string) {
+ static std::string hashSalt(std::string_view string) {
  return BCrypt.hashpw(string, BCrypt.gensalt(12);
  }
 
- static bool checkHashSalt(const std::string &string1,
- const std::string &string0) {
+ static bool checkHashSalt(std::string_view string1,
+ std::string_view string0) {
  return BCrypt.checkpw(string0, string1);
  }
 }

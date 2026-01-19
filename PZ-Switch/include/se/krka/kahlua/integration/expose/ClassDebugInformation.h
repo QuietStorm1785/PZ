@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -121,7 +122,7 @@ static bool isGlobal(LuaMethod luaMethod, bool boolean0) {
  return luaMethod != nullptr ? luaMethod.global() : boolean0;
 }
 
-static std::string getName(LuaMethod luaMethod, const std::string &string1) {
+static std::string getName(LuaMethod luaMethod, std::string_view string1) {
  if (luaMethod != nullptr) {
  std::string string0 = luaMethod.name();
  if (string0 != nullptr && string0.length() > 0) {
@@ -133,7 +134,7 @@ static std::string getName(LuaMethod luaMethod, const std::string &string1) {
 }
 
 static std::string getName(LuaConstructor luaConstructor,
- const std::string &string1) {
+ std::string_view string1) {
  if (luaConstructor != nullptr) {
  std::string string0 = luaConstructor.name();
  if (string0 != nullptr && string0.length() > 0) {

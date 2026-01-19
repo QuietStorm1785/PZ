@@ -15,6 +15,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -36,7 +37,7 @@ private
 private
  Map<String, ActionState> stateLookup;
 
- static ActionGroup getActionGroup(const std::string &name) {
+ static ActionGroup getActionGroup(std::string_view name) {
  name = name.toLowerCase();
  ActionGroup actionGroup = actionGroupMap.get(name);
  if (actionGroup.empty() && !actionGroupMap.containsKey(name) {
@@ -68,7 +69,7 @@ private
  }
  }
 
- void load(const std::string &string0) {
+ void load(std::string_view string0) {
  if (DebugLog.isEnabled(DebugType.ActionSystem) {
  DebugLog.ActionSystem.debugln("Loading ActionGroup: " + string0);
  }
@@ -175,7 +176,7 @@ void addState(ActionState state) {
  this->stateLookup = nullptr;
 }
 
-ActionState get(const std::string &state) {
+ActionState get(std::string_view state) {
  if (this->stateLookup.empty()) {
  this->rebuildLookup();
  }
@@ -183,7 +184,7 @@ ActionState get(const std::string &state) {
  return this->stateLookup.get(state.toLowerCase());
 }
 
-ActionState getOrCreate(const std::string &string) {
+ActionState getOrCreate(std::string_view string) {
  if (this->stateLookup.empty()) {
  this->rebuildLookup();
  }

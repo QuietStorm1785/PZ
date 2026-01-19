@@ -29,6 +29,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -121,7 +122,7 @@ private
  return y + this->yPos;
  }
 
- void renderString(float x, float y, const std::string &str, double r,
+ void renderString(float x, float y, std::string_view str, double r,
  double g, double b, double a) {
  float float0 = this->worldToScreenX(x);
  float float1 = this->worldToScreenY(y);
@@ -355,7 +356,7 @@ private
  }
  }
 
- ConfigOption getOptionByName(const std::string &name) {
+ ConfigOption getOptionByName(std::string_view name) {
  for (int int0 = 0; int0 < this->options.size(); int0++) {
  ConfigOption configOption = this->options.get(int0);
  if (configOption.getName() == name) {
@@ -366,18 +367,18 @@ private
  return nullptr;
  }
 
- int getOptionCount() { return this->options.size(); }
+ int getOptionCount() noexcept{ return this->options.size(); }
 
  ConfigOption getOptionByIndex(int index) { return this->options.get(index); }
 
- void setBoolean(const std::string &name, bool value) {
+ void setBoolean(std::string_view name, bool value) {
  ConfigOption configOption = this->getOptionByName(name);
  if (configOption instanceof BooleanConfigOption) {
  ((BooleanConfigOption)configOption).setValue(value);
  }
  }
 
- bool getBoolean(const std::string &name) {
+ bool getBoolean(std::string_view name) {
  ConfigOption configOption = this->getOptionByName(name);
  return configOption instanceof
  BooleanConfigOption ? ((BooleanConfigOption)configOption).getValue()
@@ -421,7 +422,7 @@ private
 
 class BooleanDebugOption extends BooleanConfigOption {
  public
- BooleanDebugOption(const std::string &string, bool boolean0) {
+ BooleanDebugOption(std::string_view string, bool boolean0) {
  super(string, boolean0);
  ZombiePopulationRenderer.this->options.add(this);
  }

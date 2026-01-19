@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -19,7 +20,7 @@ class FileTask_Exists :  FileTask {
 :
     std::string fileName;
 
-     FileTask_Exists(const std::string& var1, IFileTaskCallback var2, FileSystem var3) {
+     FileTask_Exists(std::string_view var1, IFileTaskCallback var2, FileSystem var3) {
       super(var3, var2);
       this.fileName = var1;
    }

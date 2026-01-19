@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  std::string fileName;
 
 public
- FileTask_Exists(const std::string &string,
+ FileTask_Exists(std::string_view string,
  IFileTaskCallback iFileTaskCallback, FileSystem fileSystem) {
  super(fileSystem, iFileTaskCallback);
  this->fileName = string;

@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
  Class < ? extends Object > m_class;
  std::string m_filename;
 
-public FileTask_ParseXML(Class<? extends, const std::string& string, IFileTaskCallback iFileTaskCallback, FileSystem fileSystem) {
+public FileTask_ParseXML(Class<? extends, std::string_view string, IFileTaskCallback iFileTaskCallback, FileSystem fileSystem) {
  super(fileSystem, iFileTaskCallback);
  this->m_class = clazz;
  this->m_filename = string;

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ public:
  virtual ~Talker() = default;
  bool IsSpeaking();
 
- void Say(const std::string &line);
+ void Say(std::string_view line);
 
  std::string getSayLine();
 

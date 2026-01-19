@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -43,8 +44,8 @@ private
  std::string partType = nullptr;
 
 public
- WeaponPart(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ WeaponPart(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  this->cat = ItemType.Weapon;
  }
@@ -83,7 +84,7 @@ public
 
  void setRecoilDelay(float _recoilDelay) { this->recoilDelay = _recoilDelay; }
 
- int getClipSize() { return this->clipSize; }
+ int getClipSize() noexcept{ return this->clipSize; }
 
  void setClipSize(int _clipSize) { this->clipSize = _clipSize; }
 
@@ -114,7 +115,7 @@ public
 
  std::string getPartType() { return this->partType; }
 
- void setPartType(const std::string &_partType) { this->partType = _partType; }
+ void setPartType(std::string_view _partType) { this->partType = _partType; }
 
  int getReloadTime() { return this->reloadTime; }
 

@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -66,7 +67,7 @@ protected
  this->spriteNameToIdMap.clear();
  }
 
- ItemInfo getItemInfoFromType(const std::string &string) {
+ ItemInfo getItemInfoFromType(std::string_view string) {
  return this->itemTypeToInfoMap.get(string);
  }
 
@@ -74,7 +75,7 @@ protected
  return this->itemIdToInfoMap.get(short0);
  }
 
- short getItemRegistryID(const std::string &string) {
+ short getItemRegistryID(std::string_view string) {
  ItemInfo itemInfo = this->itemTypeToInfoMap.get(string);
  if (itemInfo != nullptr) {
  return itemInfo.registryID;
@@ -118,7 +119,7 @@ protected
  return nullptr;
  }
 
- int getIdForSpriteName(const std::string &string) {
+ int getIdForSpriteName(std::string_view string) {
  if (string != nullptr) {
  if (this->spriteNameToIdMap.containsKey(string) {
  return this->spriteNameToIdMap.get(string);
@@ -149,7 +150,7 @@ protected
  return nullptr;
  }
 
- uint8_t getIdForObjectName(const std::string &string) {
+ uint8_t getIdForObjectName(std::string_view string) {
  if (string != nullptr) {
  if (this->objectNameToIdMap.containsKey(string) {
  return this->objectNameToIdMap.get(string);
@@ -509,7 +510,7 @@ for (Entry entry2 : this->spriteIdToNameMap.entrySet()) {
 }
 }
 
-void saveAsText(const std::string &string1) {
+void saveAsText(std::string_view string1) {
  if (!Core.getInstance().isNoSave()) {
  File file0 = new File(ZomboidFileSystem.instance.getCurrentSaveDir() +
  File.separator);

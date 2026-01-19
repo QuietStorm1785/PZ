@@ -28,7 +28,7 @@ public
  static ArrayList<IsoZombie> zombiesForDelete =
  std::make_unique<ArrayList<>>();
 
- static void startCount() {
+ static void startCount() noexcept{
  zombieCountForDelete =
  (int)(1.0F *
  Math.max(0, GameClient.IDToZombieMap.values().length - 500);

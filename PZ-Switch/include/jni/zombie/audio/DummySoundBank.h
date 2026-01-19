@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -14,17 +15,17 @@ namespace audio {
 
 class DummySoundBank :  BaseSoundBank {
 :
-    void addVoice(const std::string& var1, const std::string& var2, float var3) {
+    void addVoice(std::string_view var1, std::string_view var2, float var3) {
    }
 
-    void addFootstep(const std::string& var1, const std::string& var2, const std::string& var3, const std::string& var4, const std::string& var5) {
+    void addFootstep(std::string_view var1, std::string_view var2, std::string_view var3, std::string_view var4, std::string_view var5) {
    }
 
-    FMODVoice getVoice(const std::string& var1) {
+    FMODVoice getVoice(std::string_view var1) {
     return nullptr;
    }
 
-    FMODFootstep getFootstep(const std::string& var1) {
+    FMODFootstep getFootstep(std::string_view var1) {
     return nullptr;
    }
 }

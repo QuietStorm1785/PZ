@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -132,14 +133,14 @@ public
  return 1;
  }
 
- LuaClosure getFunction(LuaCallFrame luaCallFrame, const std::string &string) {
+ LuaClosure getFunction(LuaCallFrame luaCallFrame, std::string_view string) {
  void *object = KahluaUtil.getArg(luaCallFrame, 1, string);
  KahluaUtil.luaAssert(dynamic_cast<LuaClosure*>(object) != nullptr,
  "argument must be a lua function");
  return (LuaClosure)object;
  }
 
- Coroutine getCoroutine(LuaCallFrame luaCallFrame, const std::string &string) {
+ Coroutine getCoroutine(LuaCallFrame luaCallFrame, std::string_view string) {
  void *object = KahluaUtil.getArg(luaCallFrame, 1, string);
  KahluaUtil.luaAssert(dynamic_cast<Coroutine*>(object) != nullptr,
  "argument must be a coroutine");

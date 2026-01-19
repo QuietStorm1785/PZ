@@ -42,6 +42,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -561,7 +562,7 @@ private
  return byte0;
  }
 
- ConfigOption getOptionByName(const std::string &name) {
+ ConfigOption getOptionByName(std::string_view name) {
  for (int int0 = 0; int0 < this->options.size(); int0++) {
  ConfigOption configOption = this->options.get(int0);
  if (configOption.getName() == name) {
@@ -572,32 +573,32 @@ private
  return nullptr;
  }
 
- int getOptionCount() { return this->options.size(); }
+ int getOptionCount() noexcept{ return this->options.size(); }
 
  ConfigOption getOptionByIndex(int index) { return this->options.get(index); }
 
- void setBoolean(const std::string &name, bool value) {
+ void setBoolean(std::string_view name, bool value) {
  ConfigOption configOption = this->getOptionByName(name);
  if (configOption instanceof BooleanConfigOption) {
  ((BooleanConfigOption)configOption).setValue(value);
  }
  }
 
- bool getBoolean(const std::string &name) {
+ bool getBoolean(std::string_view name) {
  ConfigOption configOption = this->getOptionByName(name);
  return configOption instanceof
  BooleanConfigOption ? ((BooleanConfigOption)configOption).getValue()
  : false;
  }
 
- void setDouble(const std::string &name, double value) {
+ void setDouble(std::string_view name, double value) {
  ConfigOption configOption = this->getOptionByName(name);
  if (configOption instanceof DoubleConfigOption) {
  ((DoubleConfigOption)configOption).setValue(value);
  }
  }
 
- double getDouble(const std::string &name, double defaultValue) {
+ double getDouble(std::string_view name, double defaultValue) {
  ConfigOption configOption = this->getOptionByName(name);
  return configOption instanceof
  DoubleConfigOption ? ((DoubleConfigOption)configOption).getValue()
@@ -1730,7 +1731,7 @@ private
  }
 
  void renderZones(ArrayList<IsoMetaGrid.Zone> arrayList,
- const std::string &string, float float5, float float6,
+ std::string_view string, float float5, float float6,
  float float7, float float16) {
  WorldMapRenderer.m_vboLinesUV.flush();
  float float0 = this->m_worldScale;
@@ -2649,7 +2650,7 @@ private
 
  class WorldMapBooleanOption extends BooleanConfigOption {
  public
- WorldMapBooleanOption(const std::string &string, bool boolean0) {
+ WorldMapBooleanOption(std::string_view string, bool boolean0) {
  super(string, boolean0);
  WorldMapRenderer.this->options.add(this);
  }
@@ -2657,7 +2658,7 @@ private
 
  class WorldMapDoubleOption extends DoubleConfigOption {
  public
- WorldMapDoubleOption(const std::string &string, double double0,
+ WorldMapDoubleOption(std::string_view string, double double0,
  double double1, double double2) {
  super(string, double0, double1, double2);
  WorldMapRenderer.this->options.add(this);

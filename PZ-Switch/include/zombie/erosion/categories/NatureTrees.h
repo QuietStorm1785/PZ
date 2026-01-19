@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -285,7 +286,7 @@ class TreeInit {
  bool evergreen;
 
  public
- TreeInit(const std::string &string0, const std::string &string1,
+ TreeInit(std::string_view string0, std::string_view string1,
  bool boolean0) {
  this->name = string0;
  this->tile = string1;

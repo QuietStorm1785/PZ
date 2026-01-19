@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ public:
  static const int VERSION1 = 1;
  static const int VERSION = 1;
 
- bool read(const std::string &string0, LanguageFileData languageFileData) {
+ bool read(std::string_view string0, LanguageFileData languageFileData) {
  try {
  bool boolean0;
  try(FileReader fileReader = new FileReader(string0);
@@ -47,7 +48,7 @@ public:
  }
  }
 
- void fromString(const std::string &string,
+ void fromString(std::string_view string,
  LanguageFileData languageFileData) {
  string = ScriptParser.stripComments(string);
  ScriptParser.Block block = ScriptParser.parse(string);

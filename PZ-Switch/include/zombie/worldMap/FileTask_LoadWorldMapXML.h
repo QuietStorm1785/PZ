@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
  std::string m_filename;
 
 public
- FileTask_LoadWorldMapXML(WorldMapData worldMapData, const std::string &string,
+ FileTask_LoadWorldMapXML(WorldMapData worldMapData, std::string_view string,
  FileSystem fileSystem,
  IFileTaskCallback iFileTaskCallback) {
  super(fileSystem, iFileTaskCallback);

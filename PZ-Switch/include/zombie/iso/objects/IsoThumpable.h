@@ -53,6 +53,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -219,7 +220,7 @@ public
  /**
  * The sound that be played if this object is broken default "BreakDoor"
  */
- void setBreakSound(const std::string &pBreakSound) {
+ void setBreakSound(std::string_view pBreakSound) {
  this->breakSound = pBreakSound;
  }
 
@@ -250,12 +251,12 @@ public
 
  void setIsDoorFrame(bool pIsDoorFrame) { this->isDoorFrame = pIsDoorFrame; }
 
- void setSprite(const std::string &sprite) {
+ void setSprite(std::string_view sprite) {
  this->closedSprite = IsoSpriteManager.instance.getSprite(sprite);
  this->sprite = this->closedSprite;
  }
 
- void setSpriteFromName(const std::string &name) {
+ void setSpriteFromName(std::string_view name) {
  this->sprite = IsoSpriteManager.instance.getSprite(name);
  }
 
@@ -273,7 +274,7 @@ public
  */
 public
  IsoThumpable(IsoCell cell, IsoGridSquare gridSquare,
- const std::string &_closedSprite, const std::string &_openSprite,
+ std::string_view _closedSprite, std::string_view _openSprite,
  bool _north, KahluaTable _table) {
  this->OutlineOnMouseover = true;
  this->PushedMaxStrength = this->PushedStrength = 2500;
@@ -291,7 +292,7 @@ public
  */
 public
  IsoThumpable(IsoCell cell, IsoGridSquare gridSquare,
- const std::string &sprite, bool _north, KahluaTable _table) {
+ std::string_view sprite, bool _north, KahluaTable _table) {
  this->OutlineOnMouseover = true;
  this->PushedMaxStrength = this->PushedStrength = 2500;
  this->closedSprite = IsoSpriteManager.instance.getSprite(sprite);
@@ -1200,7 +1201,7 @@ public
  : IsoWindow.canAddSheetRope(this->square, this->north);
  }
 
- bool addSheetRope(IsoPlayer player, const std::string &itemType) {
+ bool addSheetRope(IsoPlayer player, std::string_view itemType) {
  return !this->canAddSheetRope()
  ? false
  : IsoWindow.addSheetRope(player, this->square, this->north,
@@ -1557,7 +1558,7 @@ public
 
  std::string getLightSourceFuel() { return this->lightSourceFuel; }
 
- void setLightSourceFuel(const std::string &_lightSourceFuel) {
+ void setLightSourceFuel(std::string_view _lightSourceFuel) {
  if (_lightSourceFuel != nullptr && _lightSourceFuel.empty()) {
  _lightSourceFuel = nullptr;
  }
@@ -1688,7 +1689,7 @@ public
  super.removeFromWorld();
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  super.saveChange(change, tbl, bb);
  if ("lightSource" == change) {
  bb.put((byte)(this->lightSourceOn ? 1 : 0);
@@ -1701,7 +1702,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  super.loadChange(change, bb);
  if ("lightSource" == change) {
  bool boolean0 = bb.get() == 1;
@@ -2319,7 +2320,7 @@ public
 
  std::string getThumpSound() { return this->thumpSound; }
 
- void setThumpSound(const std::string &_thumpSound) {
+ void setThumpSound(std::string_view _thumpSound) {
  this->thumpSound = _thumpSound;
  }
 
@@ -2377,7 +2378,7 @@ public
  }
 
  void playDoorSound(BaseCharacterSoundEmitter baseCharacterSoundEmitter,
- const std::string &string) {
+ std::string_view string) {
  baseCharacterSoundEmitter.playSound(this->getSoundPrefix() + string, this);
  }
 }

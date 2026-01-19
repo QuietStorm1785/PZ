@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -52,7 +53,7 @@ class MapGroups {
     return var1;
    }
 
-    static std::string addMissingVanillaDirectories(const std::string& var0) {
+    static std::string addMissingVanillaDirectories(std::string_view var0) {
     std::vector var1 = getVanillaMapDirectories(false);
     bool var2 = false;
       String[] var3 = var0.split(";");
@@ -221,7 +222,7 @@ class MapGroups {
       IsoWorld.instance.setMap(var3);
    }
 
-    void handleMapDirectory(const std::string& var1, const std::string& var2) {
+    void handleMapDirectory(std::string_view var1, std::string_view var2) {
     std::vector var3 = this.getLotDirectories(var2);
       if (var3 != nullptr) {
     MapDirectory var4 = new MapDirectory(this, var1, var2, var3);

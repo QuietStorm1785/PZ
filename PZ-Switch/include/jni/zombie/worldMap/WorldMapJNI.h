@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -14,7 +15,7 @@ class WorldMapJNI {
     static void init() {
    }
 
-    static void writeToStdErr(const std::string& var0) {
+    static void writeToStdErr(std::string_view var0) {
       System.err.println(var0);
    }
 }

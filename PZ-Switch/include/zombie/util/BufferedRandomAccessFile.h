@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,7 @@ private
  const int BUF_SIZE;
 
 public
- BufferedRandomAccessFile(const std::string &filename, const std::string &mode,
+ BufferedRandomAccessFile(std::string_view filename, std::string_view mode,
  int bufsize) {
  super(filename, mode);
  this->invalidate();
@@ -33,7 +34,7 @@ public
  }
 
 public
- BufferedRandomAccessFile(File file, const std::string &mode, int bufsize) {
+ BufferedRandomAccessFile(File file, std::string_view mode, int bufsize) {
  super(file, mode);
  this->invalidate();
  this->BUF_SIZE = bufsize;

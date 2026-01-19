@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -107,14 +108,14 @@ private
  }
 
 public
- MapItem(const std::string &module, const std::string &name,
- const std::string &type, const std::string &tex) {
+ MapItem(std::string_view module, std::string_view name,
+ std::string_view type, std::string_view tex) {
  super(module, name, type, tex);
  }
 
 public
- MapItem(const std::string &module, const std::string &name,
- const std::string &type, Item item) {
+ MapItem(std::string_view module, std::string_view name,
+ std::string_view type, Item item) {
  super(module, name, type, item);
  }
 
@@ -122,7 +123,7 @@ public
 
  bool IsMap() { return true; }
 
- void setMapID(const std::string &mapID) { this->m_mapID = mapID; }
+ void setMapID(std::string_view mapID) { this->m_mapID = mapID; }
 
  std::string getMapID() { return this->m_mapID; }
 

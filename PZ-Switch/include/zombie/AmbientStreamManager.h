@@ -52,6 +52,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -145,7 +146,7 @@ public
 private
  FMOD_STUDIO_EVENT_CALLBACK electricityShutOffEventCallback =
  std::make_unique<FMOD_STUDIO_EVENT_CALLBACK>(){
- void timelineMarker(long var1, const std::string &string, int int0){
+ void timelineMarker(long var1, std::string_view string, int int0){
  DebugLog.Sound.debugln("timelineMarker %s %d", string, int0);
  if ("ElectricityOff" == string) {
  IsoWorld.instance.setHydroPowerOn(false);
@@ -395,7 +396,7 @@ void addRandomAmbient() {
  }
 }
 
-void addBlend(const std::string &name, float vol, bool bIndoors, bool bRain,
+void addBlend(std::string_view name, float vol, bool bIndoors, bool bRain,
  bool bNight, bool bDay) {
  AmbientStreamManager.AmbientLoop ambientLoop =
  new AmbientStreamManager.AmbientLoop(0.0F, name, vol);
@@ -508,7 +509,7 @@ void stop() {
  this->initialized = false;
 }
 
-void addAmbient(const std::string &name, int x, int y, int radius,
+void addAmbient(std::string_view name, int x, int y, int radius,
  float volume) {
  if (GameClient.bClient) {
  AmbientStreamManager.Ambient ambientx =
@@ -517,7 +518,7 @@ void addAmbient(const std::string &name, int x, int y, int radius,
  }
 }
 
-void addAmbientEmitter(float x, float y, int z, const std::string &name) {
+void addAmbientEmitter(float x, float y, int z, std::string_view name) {
  AmbientStreamManager.WorldSoundEmitter worldSoundEmitter =
  this->freeEmitters.empty() ? new AmbientStreamManager.WorldSoundEmitter()
  : this->freeEmitters.pop();
@@ -540,7 +541,7 @@ void addAmbientEmitter(float x, float y, int z, const std::string &name) {
 }
 
 void addDaytimeAmbientEmitter(float x, float y, int z,
- const std::string &name) {
+ std::string_view name) {
  AmbientStreamManager.WorldSoundEmitter worldSoundEmitter =
  this->freeEmitters.empty() ? new AmbientStreamManager.WorldSoundEmitter()
  : this->freeEmitters.pop();
@@ -687,13 +688,13 @@ static class Ambient {
  const FMODSoundEmitter emitter = new FMODSoundEmitter();
 
 public
- Ambient(const std::string &string, float float0, float float1, float float2,
+ Ambient(std::string_view string, float float0, float float1, float float2,
  float float3) {
  this(string, float0, float1, float2, float3, false);
  }
 
 public
- Ambient(const std::string &string, float float0, float float1, float float2,
+ Ambient(std::string_view string, float float0, float float1, float float2,
  float float3, bool var6) {
  this->name = string;
  this->x = float0;
@@ -777,7 +778,7 @@ public static class AmbientLoop {
  const FMODSoundEmitter emitter = new FMODSoundEmitter();
 
 public
- AmbientLoop(float float1, const std::string &string, float float0) {
+ AmbientLoop(float float1, std::string_view string, float float0) {
  this->volumedelta = float0;
  this->channel = this->emitter.playAmbientLoopedImpl(string);
  this->targVol = float1;

@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,16 +25,16 @@ public:
  static const ITemplateBuilder builder = new TemplateTextBuilder();
  static const Random m_random = new Random(4397238L);
 
- static std::string Build(const std::string &input) {
+ static std::string Build(std::string_view input) {
  return builder.Build(input);
  }
 
- static std::string Build(const std::string &input,
+ static std::string Build(std::string_view input,
  IReplaceProvider replaceProvider) {
  return builder.Build(input, replaceProvider);
  }
 
- static std::string Build(const std::string &input, KahluaTableImpl table) {
+ static std::string Build(std::string_view input, KahluaTableImpl table) {
  try {
  return builder.Build(input, table);
  } catch (Exception exception) {
@@ -42,11 +43,11 @@ public:
  }
  }
 
- static void RegisterKey(const std::string &key, KahluaTableImpl table) {
+ static void RegisterKey(std::string_view key, KahluaTableImpl table) {
  builder.RegisterKey(key, table);
  }
 
- static void RegisterKey(const std::string &key, IReplace replace) {
+ static void RegisterKey(std::string_view key, IReplace replace) {
  builder.RegisterKey(key, replace);
  }
 

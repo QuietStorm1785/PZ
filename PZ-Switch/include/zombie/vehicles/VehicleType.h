@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,7 +49,7 @@ public
  std::make_unique<ArrayList<>>();
 
 public
- VehicleType(const std::string &_name) { this->name = _name; }
+ VehicleType(std::string_view _name) { this->name = _name; }
 
  static void init() {
  initNormal();
@@ -188,7 +189,7 @@ public
  }
  }
 
- static bool hasTypeForZone(const std::string &zoneName) {
+ static bool hasTypeForZone(std::string_view zoneName) {
  if (vehicles.empty()) {
  init();
  }
@@ -197,11 +198,11 @@ public
  return vehicles.containsKey(zoneName);
  }
 
- static VehicleType getRandomVehicleType(const std::string &zoneName) {
+ static VehicleType getRandomVehicleType(std::string_view zoneName) {
  return getRandomVehicleType();
  }
 
- static VehicleType getRandomVehicleType(const std::string &zoneName,
+ static VehicleType getRandomVehicleType(std::string_view zoneName,
  bool doNormalWhenSpecific) {
  if (vehicles.empty()) {
  init();
@@ -243,7 +244,7 @@ public
  }
  }
 
- static VehicleType getTypeFromName(const std::string &_name) {
+ static VehicleType getTypeFromName(std::string_view _name) {
  if (vehicles.empty()) {
  init();
  }
@@ -276,7 +277,7 @@ public
  float spawnChance = 0.0F;
 
  public
- VehicleTypeDefinition(const std::string &string, int int0, float float0) {
+ VehicleTypeDefinition(std::string_view string, int int0, float float0) {
  this->vehicleType = string;
  this->index = int0;
  this->spawnChance = float0;

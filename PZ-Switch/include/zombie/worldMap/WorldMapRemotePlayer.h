@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -64,9 +65,9 @@ public
  }
  }
 
- void setFullData(short short0, const std::string &string0,
- const std::string &string1, const std::string &string2,
- const std::string &string3, float float0, float float1,
+ void setFullData(short short0, std::string_view string0,
+ std::string_view string1, std::string_view string2,
+ std::string_view string3, float float0, float float1,
  bool boolean0) {
  this->changeCount = short0;
  this->username = string0;
@@ -94,7 +95,7 @@ public
 
  float getY() { return this->y; }
 
- short getChangeCount() { return this->changeCount; }
+ short getChangeCount() noexcept{ return this->changeCount; }
 
  bool isInvisible() { return this->invisible; }
 
@@ -129,7 +130,7 @@ public
  };
  }
 
- bool isAccessLevel(const std::string& string) {
+ bool isAccessLevel(std::string_view string) {
  return this->getAccessLevel().equalsIgnoreCase(string);
  }
 }

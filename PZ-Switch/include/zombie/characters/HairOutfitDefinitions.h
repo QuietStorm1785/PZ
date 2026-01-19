@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -96,7 +97,7 @@ private
  }
  }
 
- bool isHaircutValid(const std::string &string0, const std::string &string1) {
+ bool isHaircutValid(std::string_view string0, std::string_view string1) {
  instance.checkDirty();
  if (StringUtils.isNullOrEmpty(string0) {
  return true;
@@ -120,7 +121,7 @@ private
  }
  }
 
- void getValidHairStylesForOutfit(const std::string &string,
+ void getValidHairStylesForOutfit(std::string_view string,
  ArrayList<HairStyle> arrayList1,
  ArrayList<HairStyle> arrayList0) {
  arrayList0.clear();
@@ -134,7 +135,7 @@ private
  }
  }
 
- std::string getRandomHaircut(const std::string &string0,
+ std::string getRandomHaircut(std::string_view string0,
  ArrayList<HairStyle> arrayList1) {
  std::vector arrayList0 = this->m_tempHairStyles.get();
  this->getValidHairStylesForOutfit(string0, arrayList1, arrayList0);
@@ -178,7 +179,7 @@ private
  }
  }
 
- ImmutableColor getRandomHaircutColor(const std::string &string1) {
+ ImmutableColor getRandomHaircutColor(std::string_view string1) {
  ImmutableColor immutableColor = SurvivorDesc.HairCommonColors.get(
  OutfitRNG.Next(SurvivorDesc.HairCommonColors.size()));
  std::string string0 = nullptr;
@@ -222,7 +223,7 @@ private
  return immutableColor;
  }
 
- std::string getRandomBeard(const std::string &string1,
+ std::string getRandomBeard(std::string_view string1,
  ArrayList<BeardStyle> arrayList) {
  std::string string0 = OutfitRNG.pickRandom(arrayList).name;
  bool boolean0 = false;
@@ -299,7 +300,7 @@ public
  ArrayList<String> onlyFor;
 
 public
- HaircutDefinition(const std::string &string, int int0,
+ HaircutDefinition(std::string_view string, int int0,
  ArrayList<String> arrayList) {
  this->hairStyle = string;
  this->minWorldAge = int0;

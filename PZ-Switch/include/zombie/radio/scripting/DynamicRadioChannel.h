@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,17 +20,17 @@ namespace scripting {
 class DynamicRadioChannel : public RadioChannel {
 public:
 public
- DynamicRadioChannel(const std::string &n, int freq, ChannelCategory c) {
+ DynamicRadioChannel(std::string_view n, int freq, ChannelCategory c) {
  super(n, freq, c);
  }
 
 public
- DynamicRadioChannel(const std::string &n, int freq, ChannelCategory c,
- const std::string &guid) {
+ DynamicRadioChannel(std::string_view n, int freq, ChannelCategory c,
+ std::string_view guid) {
  super(n, freq, c, guid);
  }
 
- void LoadAiringBroadcast(const std::string &guid, int line) {}
+ void LoadAiringBroadcast(std::string_view guid, int line) {}
 }
 } // namespace scripting
 } // namespace radio

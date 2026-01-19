@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,7 +16,7 @@ namespace textures {
 class TextureNotFoundException : public RuntimeException {
 public:
 public
- TextureNotFoundException(const std::string &string) {
+ TextureNotFoundException(std::string_view string) {
  super("Image " + string + " not found! ");
  }
 }

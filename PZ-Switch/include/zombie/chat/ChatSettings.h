@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -95,9 +96,9 @@ public
 
  void setFont(UIFont _font) { this->font = _font; }
 
- std::string getFontSize() { return this->fontSize.toString().toLowerCase(); }
+ std::string getFontSize() noexcept{ return this->fontSize.toString().toLowerCase(); }
 
- void setFontSize(const std::string &_fontSize) {
+ void setFontSize(std::string_view _fontSize) {
  switch (_fontSize) {
  case "small":
  case "Small":

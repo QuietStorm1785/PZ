@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -76,8 +77,8 @@ public
  }
  }
 
- static AnimState Parse(const std::string &name,
- const std::string &statePath) {
+ static AnimState Parse(std::string_view name,
+ std::string_view statePath) {
  bool boolean0 = DebugLog.isEnabled(DebugType.Animation);
  AnimState animState = new AnimState();
  animState.m_Name = name;

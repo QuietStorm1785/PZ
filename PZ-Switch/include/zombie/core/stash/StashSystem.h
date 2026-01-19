@@ -37,6 +37,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -189,7 +190,7 @@ private
  /**
  * Used when you read an annoted map
  */
- static void prepareBuildingStash(const std::string &stashName) {
+ static void prepareBuildingStash(std::string_view stashName) {
  if (stashName != nullptr) {
  Stash stash = getStash(stashName);
  if (stash != nullptr && !alreadyReadMap.contains(stashName) {
@@ -446,7 +447,7 @@ private
  }
  }
 
- static Stash getStash(const std::string &stashName) {
+ static Stash getStash(std::string_view stashName) {
  for (int int0 = 0; int0 < allStashes.size(); int0++) {
  Stash stash = allStashes.get(int0);
  if (stash.name == stashName) {

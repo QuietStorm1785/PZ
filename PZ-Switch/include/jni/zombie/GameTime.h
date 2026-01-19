@@ -736,7 +736,7 @@ class GameTime {
       this.StartDay = var1;
    }
 
-    float getMaxZombieCountStart() const {
+    float getMaxZombieCountStart() const noexcept {
       return 0.0F;
    }
 
@@ -744,7 +744,7 @@ class GameTime {
       this.MaxZombieCountStart = var1;
    }
 
-    float getMinZombieCountStart() const {
+    float getMinZombieCountStart() const noexcept {
       return 0.0F;
    }
 
@@ -752,7 +752,7 @@ class GameTime {
       this.MinZombieCountStart = var1;
    }
 
-    float getMaxZombieCount() const {
+    float getMaxZombieCount() const noexcept {
       return this.MaxZombieCount;
    }
 
@@ -760,7 +760,7 @@ class GameTime {
       this.MaxZombieCount = var1;
    }
 
-    float getMinZombieCount() const {
+    float getMinZombieCount() const noexcept {
       return this.MinZombieCount;
    }
 

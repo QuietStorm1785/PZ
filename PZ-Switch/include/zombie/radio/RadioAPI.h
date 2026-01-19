@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -41,7 +42,7 @@ public:
 private
  RadioAPI() {}
 
- KahluaTable getChannels(const std::string &category) {
+ KahluaTable getChannels(std::string_view category) {
  std::unordered_map map =
  ZomboidRadio.getInstance().GetChannelList(category);
  KahluaTable table = LuaManager.platform.newTable();

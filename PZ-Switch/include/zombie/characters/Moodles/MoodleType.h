@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -45,7 +46,7 @@ enum class MoodleType {
  }
 } // namespace Moodles
 
-static MoodleType FromString(const std::string &str) {
+static MoodleType FromString(std::string_view str) {
  if (str == "Endurance")) {
  return Endurance;
  }

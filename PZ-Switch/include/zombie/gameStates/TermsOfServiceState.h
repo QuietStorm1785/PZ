@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -44,7 +45,7 @@ public
  Core.getInstance().EndFrameUI();
  }
 
- void *fromLua0(const std::string &arg0) {
+ void *fromLua0(std::string_view arg0) {
  switch (arg0) {
  case "created":
  this->bCreated = true;

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -55,11 +56,11 @@ class RandomizedWorldBase {
     std::string name = nullptr;
     std::string debugLine = "";
 
-    BaseVehicle addVehicle(Zone var1, IsoGridSquare var2, IsoChunk var3, const std::string& var4, const std::string& var5, IsoDirections var6) {
+    BaseVehicle addVehicle(Zone var1, IsoGridSquare var2, IsoChunk var3, std::string_view var4, std::string_view var5, IsoDirections var6) {
       return this.addVehicle(var1, var2, var3, var4, var5, nullptr, var6, nullptr);
    }
 
-    BaseVehicle addVehicleFlipped(Zone var1, IsoGridSquare var2, IsoChunk var3, const std::string& var4, const std::string& var5, int var6, IsoDirections var7, const std::string& var8) {
+    BaseVehicle addVehicleFlipped(Zone var1, IsoGridSquare var2, IsoChunk var3, std::string_view var4, std::string_view var5, int var6, IsoDirections var7, std::string_view var8) {
       if (var2 == nullptr) {
     return nullptr;
       } else {
@@ -72,7 +73,7 @@ class RandomizedWorldBase {
       }
    }
 
-    BaseVehicle addVehicleFlipped(Zone var1, float var2, float var3, float var4, float var5, const std::string& var6, const std::string& var7, int var8, const std::string& var9) {
+    BaseVehicle addVehicleFlipped(Zone var1, float var2, float var3, float var4, float var5, std::string_view var6, std::string_view var7, int var8, std::string_view var9) {
       if (StringUtils.isNullOrEmpty(var6)) {
          var6 = "junkyard";
       }
@@ -133,7 +134,7 @@ class RandomizedWorldBase {
       }
    }
 
-    BaseVehicle addVehicle(Zone var1, IsoGridSquare var2, IsoChunk var3, const std::string& var4, const std::string& var5, int var6, IsoDirections var7, const std::string& var8) {
+    BaseVehicle addVehicle(Zone var1, IsoGridSquare var2, IsoChunk var3, std::string_view var4, std::string_view var5, int var6, IsoDirections var7, std::string_view var8) {
       if (var2 == nullptr) {
     return nullptr;
       } else {
@@ -147,7 +148,7 @@ class RandomizedWorldBase {
       }
    }
 
-    BaseVehicle addVehicle(Zone var1, float var2, float var3, float var4, float var5, const std::string& var6, const std::string& var7, int var8, const std::string& var9) {
+    BaseVehicle addVehicle(Zone var1, float var2, float var3, float var4, float var5, std::string_view var6, std::string_view var7, int var8, std::string_view var9) {
       if (StringUtils.isNullOrEmpty(var6)) {
          var6 = "junkyard";
       }
@@ -309,7 +310,7 @@ class RandomizedWorldBase {
     return createRandomDeadBody();
    }
 
-    static IsoDeadBody createRandomDeadBody(IsoGridSquare var0, IsoDirections var1, int var2, int var3, const std::string& var4) {
+    static IsoDeadBody createRandomDeadBody(IsoGridSquare var0, IsoDirections var1, int var2, int var3, std::string_view var4) {
       if (var0 == nullptr) {
     return nullptr;
       } else {
@@ -324,7 +325,7 @@ class RandomizedWorldBase {
       }
    }
 
-    static IsoDeadBody createRandomDeadBody(float var0, float var1, float var2, float var3, bool var4, int var5, int var6, const std::string& var7) {
+    static IsoDeadBody createRandomDeadBody(float var0, float var1, float var2, float var3, bool var4, int var5, int var6, std::string_view var7) {
       if (IsoWorld.getZombiesDisabled()) {
     return nullptr;
       } else {
@@ -430,7 +431,7 @@ class RandomizedWorldBase {
       }
    }
 
-    void setAttachedItem(IsoZombie var1, const std::string& var2, const std::string& var3, const std::string& var4) {
+    void setAttachedItem(IsoZombie var1, std::string_view var2, std::string_view var3, std::string_view var4) {
     InventoryItem var5 = InventoryItemFactory.CreateItem(var3);
       if (var5 != nullptr) {
          var5.setCondition(Rand.Next(Math.max(2, var5.getConditionMax() - 5), var5.getConditionMax()));
@@ -578,7 +579,7 @@ class RandomizedWorldBase {
       }
    }
 
-    RoomDef getRoom(BuildingDef var1, const std::string& var2) {
+    RoomDef getRoom(BuildingDef var1, std::string_view var2) {
       for (int var3 = 0; var3 < var1.rooms.size(); var3++) {
     RoomDef var4 = (RoomDef)var1.rooms.get(var3);
          if (var4.getName().equalsIgnoreCase(var2)) {
@@ -620,7 +621,7 @@ class RandomizedWorldBase {
     return var1;
    }
 
-    BaseVehicle spawnCarOnNearestNav(const std::string& var1, BuildingDef var2) {
+    BaseVehicle spawnCarOnNearestNav(std::string_view var1, BuildingDef var2) {
     IsoGridSquare var3 = nullptr;
     int var4 = (var2.x + var2.x2) / 2;
     int var5 = (var2.y + var2.y2) / 2;
@@ -672,7 +673,7 @@ class RandomizedWorldBase {
       }
    }
 
-    BaseVehicle spawnCar(const std::string& var1, IsoGridSquare var2) {
+    BaseVehicle spawnCar(std::string_view var1, IsoGridSquare var2) {
     BaseVehicle var3 = new BaseVehicle(IsoWorld.instance.CurrentCell);
       var3.setScriptName(var1);
       var3.setX(var2.x + 0.5F);
@@ -693,7 +694,7 @@ class RandomizedWorldBase {
     return var3;
    }
 
-    InventoryItem addItemOnGround(IsoGridSquare var1, const std::string& var2) {
+    InventoryItem addItemOnGround(IsoGridSquare var1, std::string_view var2) {
       return var1 != nullptr && !StringUtils.isNullOrWhitespace(var2)
          ? var1.AddWorldInventoryItem(var2, Rand.Next(0.2F, 0.8F), Rand.Next(0.2F, 0.8F), 0.0F)
          : nullptr;
@@ -703,7 +704,7 @@ class RandomizedWorldBase {
       return var1 != nullptr && var2 != nullptr ? var1.AddWorldInventoryItem(var2, Rand.Next(0.2F, 0.8F), Rand.Next(0.2F, 0.8F), 0.0F) : nullptr;
    }
 
-    void addRandomItemsOnGround(RoomDef var1, const std::string& var2, int var3) {
+    void addRandomItemsOnGround(RoomDef var1, std::string_view var2, int var3) {
       for (int var4 = 0; var4 < var3; var4++) {
     IsoGridSquare var5 = getRandomSpawnSquare(var1);
          this.addItemOnGround(var5, var2);
@@ -726,7 +727,7 @@ class RandomizedWorldBase {
       }
    }
 
-    HandWeapon addWeapon(const std::string& var1, bool var2) {
+    HandWeapon addWeapon(std::string_view var1, bool var2) {
     HandWeapon var3 = (HandWeapon)InventoryItemFactory.CreateItem(var1);
       if (var3 == nullptr) {
     return nullptr;
@@ -788,7 +789,7 @@ class RandomizedWorldBase {
       return this.debugLine;
    }
 
-    void setDebugLine(const std::string& var1) {
+    void setDebugLine(std::string_view var1) {
       this.debugLine = var1;
    }
 
@@ -812,11 +813,11 @@ class RandomizedWorldBase {
       return IsoWorld.instance.getCell().getGridSquare(var1, var2, var3);
    }
 
-    IsoObject addTileObject(int var1, int var2, int var3, const std::string& var4) {
+    IsoObject addTileObject(int var1, int var2, int var3, std::string_view var4) {
       return this.addTileObject(this.getSq(var1, var2, var3), var4);
    }
 
-    IsoObject addTileObject(IsoGridSquare var1, const std::string& var2) {
+    IsoObject addTileObject(IsoGridSquare var1, std::string_view var2) {
       if (var1 == nullptr) {
     return nullptr;
       } else {
@@ -838,7 +839,7 @@ class RandomizedWorldBase {
       return this.addTileObject(var1, var2, var3, "camping_01_3");
    }
 
-    BaseVehicle addTrailer(BaseVehicle var1, Zone var2, IsoChunk var3, const std::string& var4, const std::string& var5, const std::string& var6) {
+    BaseVehicle addTrailer(BaseVehicle var1, Zone var2, IsoChunk var3, std::string_view var4, std::string_view var5, std::string_view var6) {
     IsoGridSquare var7 = var1.getSquare();
     IsoDirections var8 = var1.getDir();
     uint8_t var9 = 0;

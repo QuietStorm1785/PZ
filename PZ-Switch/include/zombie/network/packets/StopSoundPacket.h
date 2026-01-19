@@ -11,6 +11,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public:
  std::string name;
  bool trigger;
 
- void set(IsoMovingObject movingObject, const std::string &string,
+ void set(IsoMovingObject movingObject, std::string_view string,
  bool boolean0) {
  this->object.setMovingObject(movingObject);
  this->name = string;
@@ -68,7 +69,7 @@ public:
  byteBufferWriter.putUTF(this->name);
  }
 
- int getPacketSizeBytes() {
+ int getPacketSizeBytes() noexcept{
  return this->object.getPacketSizeBytes() + 2 + this->name.length();
  }
 

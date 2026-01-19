@@ -12,6 +12,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,25 +49,25 @@ public
  ArrayList<TextManager.DeferedTextDraw> todoTextList =
  std::make_unique<ArrayList<>>();
 
- void DrawString(double x, double y, const std::string &str) {
+ void DrawString(double x, double y, std::string_view str) {
  this->font.drawString((float)x, (float)y, str, 1.0F, 1.0F, 1.0F, 1.0F);
  }
 
- void DrawString(double x, double y, const std::string &str, double r,
+ void DrawString(double x, double y, std::string_view str, double r,
  double g, double b, double a) {
  this->font.drawString((float)x, (float)y, str, (float)r, (float)g, (float)b,
  (float)a);
  }
 
  void DrawString(UIFont _font, double x, double y, double zoom,
- const std::string &str, double r, double g, double b,
+ std::string_view str, double r, double g, double b,
  double a) {
  AngelCodeFont angelCodeFont = this->getFontFromEnum(_font);
  angelCodeFont.drawString((float)x, (float)y, (float)zoom, str, (float)r,
  (float)g, (float)b, (float)a);
  }
 
- void DrawString(UIFont _font, double x, double y, const std::string &str,
+ void DrawString(UIFont _font, double x, double y, std::string_view str,
  double r, double g, double b, double a) {
  AngelCodeFont angelCodeFont = this->getFontFromEnum(_font);
  angelCodeFont.drawString((float)x, (float)y, str, (float)r, (float)g,
@@ -74,14 +75,14 @@ public
  }
 
  void DrawStringUntrimmed(UIFont _font, double x, double y,
- const std::string &str, double r, double g, double b,
+ std::string_view str, double r, double g, double b,
  double a) {
  AngelCodeFont angelCodeFont = this->getFontFromEnum(_font);
  angelCodeFont.drawString((float)x, (float)y, str, (float)r, (float)g,
  (float)b, (float)a);
  }
 
- void DrawStringCentre(double x, double y, const std::string &str, double r,
+ void DrawStringCentre(double x, double y, std::string_view str, double r,
  double g, double b, double a) {
  x -= this->font.getWidth(str) / 2;
  this->font.drawString((float)x, (float)y, str, (float)r, (float)g, (float)b,
@@ -89,7 +90,7 @@ public
  }
 
  void DrawStringCentre(UIFont _font, double x, double y,
- const std::string &str, double r, double g, double b,
+ std::string_view str, double r, double g, double b,
  double a) {
  AngelCodeFont angelCodeFont = this->getFontFromEnum(_font);
  x -= angelCodeFont.getWidth(str) / 2;
@@ -98,7 +99,7 @@ public
  }
 
  void DrawStringCentreDefered(UIFont _font, double x, double y,
- const std::string &str, double r, double g,
+ std::string_view str, double r, double g,
  double b, double a) {
  this->todoTextList.add(
  new TextManager.DeferedTextDraw(_font, x, y, str, r, g, b, a);
@@ -116,14 +117,14 @@ public
  this->todoTextList.clear();
  }
 
- void DrawStringRight(double x, double y, const std::string &str, double r,
+ void DrawStringRight(double x, double y, std::string_view str, double r,
  double g, double b, double a) {
  x -= this->font.getWidth(str);
  this->font.drawString((float)x, (float)y, str, (float)r, (float)g, (float)b,
  (float)a);
  }
 
- TextDrawObject GetDrawTextObject(const std::string &str, int maxLineWidth,
+ TextDrawObject GetDrawTextObject(std::string_view str, int maxLineWidth,
  bool restrictImages) {
  return std::make_unique<TextDrawObject>();
  }
@@ -131,7 +132,7 @@ public
  void DrawTextObject(double x, double y, TextDrawObject td) {}
 
  void DrawStringBBcode(UIFont _font, double x, double y,
- const std::string &str, double r, double g, double b,
+ std::string_view str, double r, double g, double b,
  double a) {}
 
  AngelCodeFont getNormalFromFontSize(int points) {
@@ -152,7 +153,7 @@ public
  return angelCodeFont.getLineHeight();
  }
 
- void DrawStringRight(UIFont _font, double x, double y, const std::string &str,
+ void DrawStringRight(UIFont _font, double x, double y, std::string_view str,
  double r, double g, double b, double a) {
  AngelCodeFont angelCodeFont = this->getFontFromEnum(_font);
  x -= angelCodeFont.getWidth(str);
@@ -160,9 +161,9 @@ public
  (float)b, (float)a);
  }
 
- std::string getFontFilePath(const std::string &string3,
- const std::string &string0,
- const std::string &string2) {
+ std::string getFontFilePath(std::string_view string3,
+ std::string_view string0,
+ std::string_view string2) {
  if (string0 != nullptr) {
  std::string string1 =
  "media/fonts/" + string3 + "/" + string0 + "/" + string2;
@@ -306,7 +307,7 @@ public
  this->debugConsole = this->enumToFont[UIFont.DebugConsole.ordinal()];
  }
 
- int MeasureStringX(UIFont _font, const std::string &str) {
+ int MeasureStringX(UIFont _font, std::string_view str) {
  if (GameServer.bServer && !ServerGUI.isCreated()) {
  return 0;
  } else if (str.empty()) {
@@ -317,7 +318,7 @@ public
  }
  }
 
- int MeasureStringY(UIFont _font, const std::string &str) {
+ int MeasureStringY(UIFont _font, std::string_view str) {
  if (_font.empty() || str.empty()) {
  return 0;
  } else if (GameServer.bServer && !ServerGUI.isCreated()) {
@@ -361,7 +362,7 @@ public
 
  public
  DeferedTextDraw(UIFont uIFont, double double0, double double1,
- const std::string &string, double double2, double double3,
+ std::string_view string, double double2, double double3,
  double double4, double double5) {
  this->font = uIFont;
  this->x = double0;
@@ -375,7 +376,7 @@ public
  }
 
  public interface StringDrawer {
- void draw(UIFont var1, double var2, double var4, const std::string &var6,
+ void draw(UIFont var1, double var2, double var4, std::string_view var6,
  double var7, double var9, double var11, double var13);
  }
 }

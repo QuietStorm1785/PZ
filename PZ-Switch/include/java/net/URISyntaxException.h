@@ -1,6 +1,7 @@
 #pragma once
 #include <stdexcept>
 #include <string>
+#include <string_view>
 
 namespace java {
 namespace net {
@@ -11,19 +12,19 @@ namespace net {
  */
 class URISyntaxException : public std::runtime_error {
 public:
- URISyntaxException(const std::string& message)
+ URISyntaxException(std::string_view message)
  : std::runtime_error(message)
  , input("")
  , reason(message)
  , index(-1) {}
  
- URISyntaxException(const std::string& input, const std::string& reason)
+ URISyntaxException(std::string_view input, std::string_view reason)
  : std::runtime_error(reason + " in: " + input)
  , input(input)
  , reason(reason)
  , index(-1) {}
  
- URISyntaxException(const std::string& input, const std::string& reason, int index)
+ URISyntaxException(std::string_view input, std::string_view reason, int index)
  : std::runtime_error(reason + " at index " + std::to_string(index) + " in: " + input)
  , input(input)
  , reason(reason)

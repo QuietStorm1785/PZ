@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,7 +41,7 @@ private
  static const int LATEST_VERSION = 1;
 
 public
- SteamWorkshopItem(const std::string &_workshopFolder) {
+ SteamWorkshopItem(std::string_view _workshopFolder) {
  this->workshopFolder = _workshopFolder;
  }
 
@@ -52,7 +53,7 @@ public
  return new File(this->workshopFolder).getName();
  }
 
- void setID(const std::string &ID) {
+ void setID(std::string_view ID) {
  if (ID != nullptr && !SteamUtils.isValidSteamID(ID) {
  ID = nullptr;
  }
@@ -62,7 +63,7 @@ public
 
  std::string getID() { return this->PublishedFileId; }
 
- void setTitle(const std::string &_title) {
+ void setTitle(std::string_view _title) {
  if (_title.empty()) {
  _title = "";
  }
@@ -72,7 +73,7 @@ public
 
  std::string getTitle() { return this->title; }
 
- void setDescription(const std::string &_description) {
+ void setDescription(std::string_view _description) {
  if (_description.empty()) {
  _description = "";
  }
@@ -82,7 +83,7 @@ public
 
  std::string getDescription() { return this->description; }
 
- void setVisibility(const std::string &_visibility) {
+ void setVisibility(std::string_view _visibility) {
  this->visibility = _visibility;
  }
 
@@ -182,7 +183,7 @@ public
  return this->workshopFolder + File.separator + "preview.png";
  }
 
- void setChangeNote(const std::string &_changeNote) {
+ void setChangeNote(std::string_view _changeNote) {
  if (_changeNote.empty()) {
  _changeNote = "";
  }
@@ -515,7 +516,7 @@ catch (IOException iOException) {
 }
 }
 
-std::string getExtendedErrorInfo(const std::string &error) {
+std::string getExtendedErrorInfo(std::string_view error) {
  if ("FolderNotAllowedInContents" == error) {
  return "buildings/ creative/ mods/";
  }

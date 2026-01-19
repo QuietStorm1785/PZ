@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -36,7 +37,7 @@ public
 
 public
  PredicatedFileWatcher(
- const std::string &path,
+ std::string_view path,
  PredicatedFileWatcher.IPredicatedFileWatcherCallback callback) {
  this(path, nullptr, callback);
  }
@@ -52,7 +53,7 @@ public
 
 public
  PredicatedFileWatcher(
- const std::string &path, Predicate<String> predicate,
+ std::string_view path, Predicate<String> predicate,
  PredicatedFileWatcher.IPredicatedFileWatcherCallback callback) {
  this->m_path = this->processPath(path);
  this->m_predicate = predicate != nullptr ? predicate : this ::pathsEqual;
@@ -61,17 +62,17 @@ public
 
  std::string getPath() { return this->m_path; }
 
- std::string processPath(const std::string &string) {
+ std::string processPath(std::string_view string) {
  return string != nullptr
  ? ZomboidFileSystem.processFilePath(string, File.separatorChar)
  : nullptr;
  }
 
- bool pathsEqual(const std::string &string) {
+ bool pathsEqual(std::string_view string) {
  return string == this->m_path);
  }
 
- void onModified(const std::string &entryKey) {
+ void onModified(std::string_view entryKey) {
  if (this->m_predicate.test(entryKey) {
  this->m_callback.call(entryKey);
  }
@@ -95,7 +96,7 @@ public
  this->m_callback = iPredicatedDataPacketFileWatcherCallback;
  }
 
- void call(const std::string &string) {
+ void call(std::string_view string) {
  void *object;
  try {
  object = PZXmlUtil.parse(this->m_class, string);
@@ -114,7 +115,7 @@ public
 
 public
  interface IPredicatedFileWatcherCallback {
- void call(const std::string &entryKey);
+ void call(std::string_view entryKey);
  }
 }
 } // namespace zombie

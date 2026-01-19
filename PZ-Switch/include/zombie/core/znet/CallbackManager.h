@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
 public
  CallbackManager() { SteamUtils.addJoinRequestCallback(this); }
 
- void onJoinRequest(long var1, const std::string &string) {
+ void onJoinRequest(long var1, std::string_view string) {
  LuaEventManager.triggerEvent("OnAcceptInvite", string);
  }
 }

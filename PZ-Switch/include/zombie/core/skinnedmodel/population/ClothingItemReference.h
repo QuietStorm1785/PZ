@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,7 +30,7 @@ public
  ClothingItemReference.RandomData RandomData =
  new ClothingItemReference.RandomData();
 
- void setModID(const std::string &modID) {
+ void setModID(std::string_view modID) {
  this->itemGUID = modID + "-" + this->itemGUID;
 
  for (ClothingItemReference clothingItemReference : this->subItems) {

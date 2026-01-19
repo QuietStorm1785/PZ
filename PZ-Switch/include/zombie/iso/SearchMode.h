@@ -281,7 +281,7 @@ public
 
  void setExterior(float _exterior) { this->exterior = _exterior; }
 
- float getTargetExterior() { return this->targetExterior; }
+ float getTargetExterior() noexcept{ return this->targetExterior; }
 
  void setTargetExterior(float _targetExterior) {
  this->targetExterior = _targetExterior;
@@ -291,7 +291,7 @@ public
 
  void setInterior(float _interior) { this->interior = _interior; }
 
- float getTargetInterior() { return this->targetInterior; }
+ float getTargetInterior() noexcept{ return this->targetInterior; }
 
  void setTargetInterior(float _targetInterior) {
  this->targetInterior = _targetInterior;
@@ -325,7 +325,7 @@ public
 
  float getMax() { return this->max; }
 
- float getStepsize() { return this->stepsize; }
+ float getStepsize() noexcept{ return this->stepsize; }
  }
 }
 } // namespace iso

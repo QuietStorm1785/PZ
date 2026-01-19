@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  /**
  * Returns the specified variable slot. Creates a new slot if not found.
  */
- IAnimationVariableSlot getOrCreateVariable(const std::string &key);
+ IAnimationVariableSlot getOrCreateVariable(std::string_view key);
 
  /**
  * Set the specified animation variable slot. Overwriting an existing slot if
@@ -27,13 +28,13 @@ public:
  */
  void setVariable(IAnimationVariableSlot slot);
 
- void setVariable(const std::string &key, const std::string &value);
+ void setVariable(std::string_view key, std::string_view value);
 
- void setVariable(const std::string &key, bool value);
+ void setVariable(std::string_view key, bool value);
 
- void setVariable(const std::string &key, float value);
+ void setVariable(std::string_view key, float value);
 
- void clearVariable(const std::string &key);
+ void clearVariable(std::string_view key);
 
  void clearVariables();
 }

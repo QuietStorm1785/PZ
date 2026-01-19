@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -15,7 +16,7 @@ class AssetPath {
 :
     std::string m_path;
 
-     AssetPath(const std::string& var1) {
+     AssetPath(std::string_view var1) {
       this.m_path = var1;
    }
 

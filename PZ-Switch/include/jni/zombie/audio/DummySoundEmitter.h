@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -29,14 +30,14 @@ class DummySoundEmitter :  BaseSoundEmitter {
     void stopSoundLocal(long var1) {
    }
 
-    int stopSoundByName(const std::string& var1) {
+    int stopSoundByName(std::string_view var1) {
     return 0;
    }
 
     void stopOrTriggerSound(long var1) {
    }
 
-    void stopOrTriggerSoundByName(const std::string& var1) {
+    void stopOrTriggerSoundByName(std::string_view var1) {
    }
 
     void setVolume(long var1, float var3) {
@@ -52,7 +53,7 @@ class DummySoundEmitter :  BaseSoundEmitter {
     void setParameterValue(long var1, FMOD_STUDIO_PARAMETER_DESCRIPTION var3, float var4) {
    }
 
-    void setTimelinePosition(long var1, const std::string& var3) {
+    void setTimelinePosition(long var1, std::string_view var3) {
    }
 
     void triggerCue(long var1) {
@@ -67,39 +68,39 @@ class DummySoundEmitter :  BaseSoundEmitter {
     void stopAll() {
    }
 
-    long playSound(const std::string& var1) {
+    long playSound(std::string_view var1) {
     return 0L;
    }
 
-    long playSound(const std::string& var1, IsoGameCharacter var2) {
+    long playSound(std::string_view var1, IsoGameCharacter var2) {
     return 0L;
    }
 
-    long playSound(const std::string& var1, int var2, int var3, int var4) {
+    long playSound(std::string_view var1, int var2, int var3, int var4) {
     return 0L;
    }
 
-    long playSound(const std::string& var1, IsoGridSquare var2) {
+    long playSound(std::string_view var1, IsoGridSquare var2) {
     return 0L;
    }
 
-    long playSoundImpl(const std::string& var1, IsoGridSquare var2) {
+    long playSoundImpl(std::string_view var1, IsoGridSquare var2) {
     return 0L;
    }
 
-    long playSound(const std::string& var1, bool var2) {
+    long playSound(std::string_view var1, bool var2) {
     return 0L;
    }
 
-    long playSoundImpl(const std::string& var1, bool var2, IsoObject var3) {
+    long playSoundImpl(std::string_view var1, bool var2, IsoObject var3) {
     return 0L;
    }
 
-    long playSound(const std::string& var1, IsoObject var2) {
+    long playSound(std::string_view var1, IsoObject var2) {
     return 0L;
    }
 
-    long playSoundImpl(const std::string& var1, IsoObject var2) {
+    long playSoundImpl(std::string_view var1, IsoObject var2) {
     return 0L;
    }
 
@@ -107,7 +108,7 @@ class DummySoundEmitter :  BaseSoundEmitter {
     return 0L;
    }
 
-    long playAmbientSound(const std::string& var1) {
+    long playAmbientSound(std::string_view var1) {
     return 0L;
    }
 
@@ -126,7 +127,7 @@ class DummySoundEmitter :  BaseSoundEmitter {
     return false;
    }
 
-    bool isPlaying(const std::string& var1) {
+    bool isPlaying(std::string_view var1) {
     return false;
    }
 
@@ -134,15 +135,15 @@ class DummySoundEmitter :  BaseSoundEmitter {
     return false;
    }
 
-    long playSoundLooped(const std::string& var1) {
+    long playSoundLooped(std::string_view var1) {
     return 0L;
    }
 
-    long playSoundLoopedImpl(const std::string& var1) {
+    long playSoundLoopedImpl(std::string_view var1) {
     return 0L;
    }
 
-    long playAmbientLoopedImpl(const std::string& var1) {
+    long playAmbientLoopedImpl(std::string_view var1) {
     return 0L;
    }
 }

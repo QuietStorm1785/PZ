@@ -64,7 +64,7 @@ public:
  void update();
 
  // Statistics
- int getTileCount() const { return CHUNK_SIZE * CHUNK_SIZE; }
+ int getTileCount() const noexcept { return CHUNK_SIZE * CHUNK_SIZE; }
 
 private:
  IsoCell* cell;

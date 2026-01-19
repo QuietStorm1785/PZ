@@ -97,9 +97,9 @@ public
  return color;
  }
 
- int getWorldRegionCount() { return this->worldRegionCount; }
+ int getWorldRegionCount() noexcept{ return this->worldRegionCount; }
 
- int getChunkRegionCount() { return this->chunkRegionCount; }
+ int getChunkRegionCount() noexcept{ return this->chunkRegionCount; }
 }
 } // namespace regions
 } // namespace isoregion

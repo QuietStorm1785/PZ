@@ -35,6 +35,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -1504,7 +1505,7 @@ public
  }
 
  void sendPassengerPosition(BaseVehicle vehicle, int int0,
- const std::string &string) {
+ std::string_view string) {
  ByteBufferWriter byteBufferWriter = GameClient.connection.startPacket();
  PacketTypes.PacketType.Vehicles.doPacket(byteBufferWriter);
  byteBufferWriter.bb.put((byte)1);
@@ -1515,7 +1516,7 @@ public
  }
 
  void sendPassengerPosition(BaseVehicle vehicle, int int1,
- const std::string &string,
+ std::string_view string,
  UdpConnection udpConnection1) {
  for (int int0 = 0; int0 < GameServer.udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection0 = GameServer.udpEngine.connections.get(int0);
@@ -1674,8 +1675,8 @@ public
  }
 
  void sendTowing(UdpConnection udpConnection, BaseVehicle vehicle1,
- BaseVehicle vehicle0, const std::string &string0,
- const std::string &string1) {
+ BaseVehicle vehicle0, std::string_view string0,
+ std::string_view string1) {
  DebugLog.Vehicle.trace("vidA=%d vidB=%d", vehicle1.VehicleID,
  vehicle0.VehicleID);
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
@@ -1689,7 +1690,7 @@ public
  }
 
  void sendTowing(BaseVehicle vehicle0, BaseVehicle vehicle1,
- const std::string &string0, const std::string &string1) {
+ std::string_view string0, std::string_view string1) {
  if (!this->towedVehicleMap.containsKey(vehicle0.VehicleID) {
  this->towedVehicleMap.put(vehicle0.VehicleID, vehicle1.VehicleID);
 

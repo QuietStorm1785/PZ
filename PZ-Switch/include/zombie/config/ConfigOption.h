@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ public:
  const std::string name;
 
 public
- ConfigOption(const std::string &_name) {
+ ConfigOption(std::string_view _name) {
  if (_name != nullptr && !_name.empty() && !_name.contains("=")) {
  this->name = _name;
  } else {

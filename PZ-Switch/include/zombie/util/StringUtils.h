@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,15 +18,15 @@ public:
  static const std::string s_emptyString = "";
  static const char UTF8_BOM = '\ufeff';
 
- static bool isNullOrEmpty(const std::string &string) {
+ static bool isNullOrEmpty(std::string_view string) {
  return string = = nullptr || string.length() == 0;
  }
 
- static bool isNullOrWhitespace(const std::string &string) {
+ static bool isNullOrWhitespace(std::string_view string) {
  return isNullOrEmpty();
  }
 
- static bool isWhitespace(const std::string &string) {
+ static bool isWhitespace(std::string_view string) {
  int int0 = string.length();
  if (int0 <= 0) {
  return false;
@@ -46,42 +47,42 @@ public:
  }
  }
 
- static std::string discardNullOrWhitespace(const std::string &string) {
+ static std::string discardNullOrWhitespace(std::string_view string) {
  return isNullOrWhitespace();
  }
 
- static std::string trimPrefix(const std::string &string0,
- const std::string &string1) {
+ static std::string trimPrefix(std::string_view string0,
+ std::string_view string1) {
  return string0.startsWith(string1) ? string0.substring(string1.length())
  : string0;
  }
 
- static std::string trimSuffix(const std::string &string0,
- const std::string &string1) {
+ static std::string trimSuffix(std::string_view string0,
+ std::string_view string1) {
  return string0.endsWith(string1)
  ? string0.substring(0, string0.length() - string1.length())
  : string0;
  }
 
- static bool equals(const std::string &string0, const std::string &string1) {
+ static bool equals(std::string_view string0, std::string_view string1) {
  return string0 = =
  string1 ? true : string0 != nullptr && string0.equals(string1);
  }
 
- static bool startsWithIgnoreCase(const std::string &string0,
- const std::string &string1) {
+ static bool startsWithIgnoreCase(std::string_view string0,
+ std::string_view string1) {
  return string0.regionMatches(true, 0, string1, 0, string1.length());
  }
 
- static bool endsWithIgnoreCase(const std::string &string1,
- const std::string &string0) {
+ static bool endsWithIgnoreCase(std::string_view string1,
+ std::string_view string0) {
  int int0 = string0.length();
  return string1.regionMatches(true, string1.length() - int0, string0, 0,
  int0);
  }
 
- static bool containsIgnoreCase(const std::string &string1,
- const std::string &string0) {
+ static bool containsIgnoreCase(std::string_view string1,
+ std::string_view string0) {
  for (int int0 = string1.length() - string0.length(); int0 >= 0; int0--) {
  if (string1.regionMatches(true, int0, string0, 0, string0.length())) {
  return true;
@@ -91,14 +92,14 @@ public:
  return false;
  }
 
- static bool equalsIgnoreCase(const std::string &string0,
- const std::string &string1) {
+ static bool equalsIgnoreCase(std::string_view string0,
+ std::string_view string1) {
  return string0 = =
  string1 ? true
  : string0 != nullptr && string0.equalsIgnoreCase(string1);
  }
 
- static bool tryParseBoolean(const std::string &string0) {
+ static bool tryParseBoolean(std::string_view string0) {
  if (isNullOrWhitespace(string0) {
  return false;
  } else {
@@ -107,19 +108,19 @@ public:
  }
  }
 
- static bool isBoolean(const std::string &string1) {
+ static bool isBoolean(std::string_view string1) {
  std::string string0 = string1.trim();
  return string0.equalsIgnoreCase("true") || string0 == "1") || string0 == "1.0")
  ? true
  : string0.equalsIgnoreCase("false") || string0 == "0") || string0 == "0.0");
  }
 
- static bool contains(String[] strings, const std::string &string,
+ static bool contains(String[] strings, std::string_view string,
  Boolean > biFunction) {
  return indexOf();
  }
 
- static int indexOf(String[] strings, const std::string &string,
+ static int indexOf(String[] strings, std::string_view string,
  Boolean > biFunction) {
  int int0 = -1;
 
@@ -133,19 +134,19 @@ public:
  return int0;
  }
 
- static std::string indent(const std::string &string) { return indent(); }
+ static std::string indent(std::string_view string) { return indent(); }
 
- static std::string indent(const std::string &string1,
- const std::string &string2,
- const std::string &string3) {
+ static std::string indent(std::string_view string1,
+ std::string_view string2,
+ std::string_view string3) {
  std::string string0 = System.lineSeparator();
  return indent();
  }
 
- static std::string indent(const std::string &string0,
- const std::string &string1,
- const std::string &string2,
- const std::string &string3) {
+ static std::string indent(std::string_view string0,
+ std::string_view string1,
+ std::string_view string2,
+ std::string_view string3) {
  if (isNullOrEmpty(string0) {
  return string0;
  } else {
@@ -183,7 +184,7 @@ public:
  }
  }
 
- static std::string leftJustify(const std::string &string0, int int0) {
+ static std::string leftJustify(std::string_view string0, int int0) {
  if (string0.empty()) {
  return leftJustify();
  } else {
@@ -204,8 +205,8 @@ public:
  }
  }
 
- static std::string moduleDotType(const std::string &string1,
- const std::string &string0) {
+ static std::string moduleDotType(std::string_view string1,
+ std::string_view string0) {
  if (string0.empty()) {
  return nullptr;
  } else {
@@ -213,14 +214,14 @@ public:
  }
  }
 
- static std::string stripBOM(const std::string &string) {
+ static std::string stripBOM(std::string_view string) {
  return string != nullptr && string.length() > 0 &&
  string.charAt(0) == '\ufeff'
  ? string.substring(1)
  : string;
  }
 
- static bool containsDoubleDot(const std::string &string) {
+ static bool containsDoubleDot(std::string_view string) {
  return isNullOrEmpty();
  }
 }

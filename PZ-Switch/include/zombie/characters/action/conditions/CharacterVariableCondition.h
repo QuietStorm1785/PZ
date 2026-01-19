@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,7 +29,7 @@ private
  void *lhsValue;
  void *rhsValue;
 
- static void *parseValue(const std::string &string, bool boolean0) {
+ static void *parseValue(std::string_view string, bool boolean0) {
  if (string.length() <= 0) {
  return string;
  } else {
@@ -345,7 +346,7 @@ private
  std::string variableName;
 
  public
- CharacterVariableLookup(const std::string &string) {
+ CharacterVariableLookup(std::string_view string) {
  this->variableName = string;
  if (Core.bDebug) {
  AnimatorDebugMonitor.registerVariable(string);

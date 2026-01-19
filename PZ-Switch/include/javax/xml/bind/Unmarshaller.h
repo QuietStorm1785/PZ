@@ -9,7 +9,7 @@ namespace bind {
 
 class JAXBException : public std::runtime_error {
 public:
- JAXBException(const std::string& message)
+ JAXBException(std::string_view message)
  : std::runtime_error(message) {}
 };
 
@@ -19,7 +19,7 @@ public:
  
  // Unmarshalling operations would go here
  // For now, stub implementation
- virtual void* unmarshal(const std::string& source) {
+ virtual void* unmarshal(std::string_view source) {
  throw JAXBException("Unmarshaller.unmarshal() not implemented");
  }
 };

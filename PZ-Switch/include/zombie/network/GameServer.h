@@ -203,6 +203,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -356,7 +357,7 @@ public
  }
 
  static std::string parseIPFromCommandline(String[] strings0, int int0,
- const std::string &string) {
+ std::string_view string) {
  if (int0 == strings0.length - 1) {
  DebugLog.log("expected argument after \"" + string + "\"");
  System.exit(0);
@@ -391,7 +392,7 @@ public
  }
 
  static int parsePortFromCommandline(String[] strings, int int0,
- const std::string &string) {
+ std::string_view string) {
  if (int0 == strings.length - 1) {
  DebugLog.log("expected argument after \"" + string + "\"");
  System.exit(0);
@@ -411,7 +412,7 @@ public
  }
 
  static bool parseBooleanFromCommandline(String[] strings, int int0,
- const std::string &string0) {
+ std::string_view string0) {
  if (int0 == strings.length - 1) {
  DebugLog.log("expected argument after \"" + string0 + "\"");
  System.exit(0);
@@ -1300,7 +1301,7 @@ static void launchCommandHandler() {
  }
 }
 
-static std::string rcon(const std::string &string) {
+static std::string rcon(std::string_view string) {
  try {
  return handleServerCommand();
  } catch (Throwable throwable) {
@@ -1309,7 +1310,7 @@ static std::string rcon(const std::string &string) {
  }
 }
 
-static std::string handleServerCommand(const std::string &string0,
+static std::string handleServerCommand(std::string_view string0,
  UdpConnection udpConnection) {
  if (string0.empty()) {
  return nullptr;
@@ -3990,7 +3991,7 @@ static void receiveReceiveCommand(ByteBuffer byteBuffer,
  }
 }
 
-static std::string handleClientCommand(const std::string &string0,
+static std::string handleClientCommand(std::string_view string0,
  UdpConnection udpConnection) {
  if (string0.empty()) {
  return nullptr;
@@ -4313,7 +4314,7 @@ static void receivePlayWorldSound(ByteBuffer byteBuffer,
  }
 }
 
-static void PlayWorldSound(const std::string &string, IsoGridSquare square,
+static void PlayWorldSound(std::string_view string, IsoGridSquare square,
  float float0) {
  if (bServer && square != nullptr) {
  int int0 = square.getX();
@@ -4339,7 +4340,7 @@ static void PlayWorldSound(const std::string &string, IsoGridSquare square,
  }
 }
 
-static void PlayWorldSoundServer(const std::string &string, bool var1,
+static void PlayWorldSoundServer(std::string_view string, bool var1,
  IsoGridSquare square, float var3, float float0,
  float var5, bool var6) {
  PlayWorldSound(string, square, float0);
@@ -4355,22 +4356,22 @@ static void PlayWorldSoundServer(IsoGameCharacter character, String string,
  }
 }
 
-static void PlayWorldSoundWavServer(const std::string &string, bool var1,
+static void PlayWorldSoundWavServer(std::string_view string, bool var1,
  IsoGridSquare square, float var3,
  float float0, float var5, bool var6) {
  PlayWorldSound(string, square, float0);
 }
 
-static void PlaySoundAtEveryPlayer(const std::string &string, int int0,
+static void PlaySoundAtEveryPlayer(std::string_view string, int int0,
  int int1, int int2) {
  PlaySoundAtEveryPlayer(string, int0, int1, int2, false);
 }
 
-static void PlaySoundAtEveryPlayer(const std::string &string) {
+static void PlaySoundAtEveryPlayer(std::string_view string) {
  PlaySoundAtEveryPlayer(string, -1, -1, -1, true);
 }
 
-static void PlaySoundAtEveryPlayer(const std::string &string, int int1,
+static void PlaySoundAtEveryPlayer(std::string_view string, int int1,
  int int0, int int3, bool boolean0) {
  if (bServer) {
  if (boolean0) {
@@ -4664,7 +4665,7 @@ static IsoPlayer getPlayerFromConnection(UdpConnection udpConnection,
  return int0 >= 0 && int0 < 4 ? udpConnection.players[int0] : nullptr;
 }
 
-static IsoPlayer getPlayerByRealUserName(const std::string &string) {
+static IsoPlayer getPlayerByRealUserName(std::string_view string) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection = udpEngine.connections.get(int0);
 
@@ -4679,7 +4680,7 @@ static IsoPlayer getPlayerByRealUserName(const std::string &string) {
  return nullptr;
 }
 
-static IsoPlayer getPlayerByUserName(const std::string &string) {
+static IsoPlayer getPlayerByUserName(std::string_view string) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection = udpEngine.connections.get(int0);
 
@@ -4695,7 +4696,7 @@ static IsoPlayer getPlayerByUserName(const std::string &string) {
  return nullptr;
 }
 
-static IsoPlayer getPlayerByUserNameForCommand(const std::string &string) {
+static IsoPlayer getPlayerByUserNameForCommand(std::string_view string) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection = udpEngine.connections.get(int0);
 
@@ -5370,7 +5371,7 @@ static void sendItemsInContainer(IsoObject object, ItemContainer container) {
 }
 
 static void logDupeItem(UdpConnection udpConnection,
- const std::string &string1) {
+ std::string_view string1) {
  IsoPlayer player = nullptr;
 
  for (int int0 = 0; int0 < Players.size(); int0++) {
@@ -5788,7 +5789,7 @@ static void preventIndoorZombies(int int0, int int1, int int2) {
 
 static void receivePlayerConnect(ByteBuffer byteBuffer,
  UdpConnection udpConnection0,
- const std::string &string0) {
+ std::string_view string0) {
  ConnectionManager.log("receive-packet", "player-connect", udpConnection0);
  DebugLog.General.println("User:'" + string0 + "' ip:" + udpConnection0.ip +
  " is trying to connect");
@@ -6002,7 +6003,7 @@ static void coopAccessGranted(int int0, UdpConnection udpConnection) {
  PacketTypes.PacketType.AddCoopPlayer.send(udpConnection);
 }
 
-static void coopAccessDenied(const std::string &string, int int0,
+static void coopAccessDenied(std::string_view string, int int0,
  UdpConnection udpConnection) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.AddCoopPlayer.doPacket(byteBufferWriter);
@@ -6222,7 +6223,7 @@ static void sendSlowFactor(IsoGameCharacter character) {
  }
 }
 
-static void sendObjectChange(IsoObject object, const std::string &string,
+static void sendObjectChange(IsoObject object, std::string_view string,
  KahluaTable table, UdpConnection udpConnection) {
  if (object.getSquare() != nullptr) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
@@ -6260,7 +6261,7 @@ static void sendObjectChange(IsoObject object, const std::string &string,
  }
 }
 
-static void sendObjectChange(IsoObject object, const std::string &string,
+static void sendObjectChange(IsoObject object, std::string_view string,
  KahluaTable table) {
  if (!bSoftReset) {
  if (object != nullptr) {
@@ -6274,7 +6275,7 @@ static void sendObjectChange(IsoObject object, const std::string &string,
  }
 }
 
-static void sendObjectChange(IsoObject object0, const std::string &string,
+static void sendObjectChange(IsoObject object0, std::string_view string,
  Object... objects) {
  if (!bSoftReset) {
  if (objects.length == 0) {
@@ -7078,7 +7079,7 @@ static void receiveAddItemToMap(ByteBuffer byteBuffer,
  }
 }
 
-static void disconnect(UdpConnection udpConnection, const std::string &string) {
+static void disconnect(UdpConnection udpConnection, std::string_view string) {
  if (udpConnection.playerDownloadServer != nullptr) {
  try {
  udpConnection.playerDownloadServer.destroy();
@@ -7689,8 +7690,8 @@ static void receiveWorldSound(ByteBuffer byteBuffer,
  }
 }
 
-static void kick(UdpConnection udpConnection, const std::string &string1,
- const std::string &string0) {
+static void kick(UdpConnection udpConnection, std::string_view string1,
+ std::string_view string0) {
  DebugLog.General.warn("The player " + udpConnection.username +
  " was kicked. The reason was " + string1 + ", " +
  string0);
@@ -7930,8 +7931,8 @@ static void syncClock() {
  }
 }
 
-static void sendServerCommand(const std::string &string0,
- const std::string &string1, KahluaTable table,
+static void sendServerCommand(std::string_view string0,
+ std::string_view string1, KahluaTable table,
  UdpConnection udpConnection) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.ClientCommand.doPacket(byteBufferWriter);
@@ -7963,16 +7964,16 @@ static void sendServerCommand(const std::string &string0,
  PacketTypes.PacketType.ClientCommand.send(udpConnection);
 }
 
-static void sendServerCommand(const std::string &string0,
- const std::string &string1, KahluaTable table) {
+static void sendServerCommand(std::string_view string0,
+ std::string_view string1, KahluaTable table) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection = udpEngine.connections.get(int0);
  sendServerCommand(string0, string1, table, udpConnection);
  }
 }
 
-static void sendServerCommandV(const std::string &string0,
- const std::string &string1, Object... objects) {
+static void sendServerCommandV(std::string_view string0,
+ std::string_view string1, Object... objects) {
  if (objects.length == 0) {
  sendServerCommand(string0, string1, (KahluaTable) nullptr);
  } else if (objects.length % 2 != 0) {
@@ -7999,8 +8000,8 @@ static void sendServerCommandV(const std::string &string0,
  }
 }
 
-static void sendServerCommand(IsoPlayer player, const std::string &string0,
- const std::string &string1, KahluaTable table) {
+static void sendServerCommand(IsoPlayer player, std::string_view string0,
+ std::string_view string1, KahluaTable table) {
  if (PlayerToAddressMap.containsKey(player) {
  long long0 = PlayerToAddressMap.get(player);
  UdpConnection udpConnection = udpEngine.getActiveConnection(long0);
@@ -8034,7 +8035,7 @@ static ArrayList<IsoPlayer> getPlayers() {
  return getPlayers();
 }
 
-static int getPlayerCount() {
+static int getPlayerCount() noexcept{
  int int0 = 0;
 
  for (int int1 = 0; int1 < udpEngine.connections.size(); int1++) {
@@ -8050,7 +8051,7 @@ static int getPlayerCount() {
  return int0;
 }
 
-static void sendAmbient(const std::string &string, int int2, int int1, int int0,
+static void sendAmbient(std::string_view string, int int2, int int1, int int0,
  float float0) {
  DebugLog.log(DebugType.Sound, "ambient: sending " + string + " at " + int2 +
  "," + int1 + " radius=" + int0);
@@ -8589,7 +8590,7 @@ static void receiveAddWarningPoint(ByteBuffer byteBuffer,
  }
 }
 
-static void sendAdminMessage(const std::string &string, int int1, int int2,
+static void sendAdminMessage(std::string_view string, int int1, int int2,
  int int3) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection = udpEngine.connections.get(int0);
@@ -8674,7 +8675,7 @@ static void receiveGetTableResult(ByteBuffer byteBuffer,
 }
 
 static void doTableResult(UdpConnection udpConnection,
- const std::string &string0,
+ std::string_view string0,
  ArrayList<DBResult> arrayList, int int1, int int2) {
  int int0 = 0;
  bool boolean0 = true;
@@ -8788,7 +8789,7 @@ static void receiveViewTickets(ByteBuffer byteBuffer,
  sendTickets(string, udpConnection);
 }
 
-static void sendTickets(const std::string &string,
+static void sendTickets(std::string_view string,
  UdpConnection udpConnection1) {
  std::vector arrayList = ServerWorldDatabase.instance.getTickets(string);
 
@@ -9021,19 +9022,19 @@ static std::string isWorldVersionUnsupported() {
 
 std::string getPoisonousBerry() { return this->poisonousBerry; }
 
-void setPoisonousBerry(const std::string &string) {
+void setPoisonousBerry(std::string_view string) {
  this->poisonousBerry = string;
 }
 
 std::string getPoisonousMushroom() { return this->poisonousMushroom; }
 
-void setPoisonousMushroom(const std::string &string) {
+void setPoisonousMushroom(std::string_view string) {
  this->poisonousMushroom = string;
 }
 
 std::string getDifficulty() { return this->difficulty; }
 
-void setDifficulty(const std::string &string) { this->difficulty = string; }
+void setDifficulty(std::string_view string) { this->difficulty = string; }
 
 static void transmitBrokenGlass(IsoGridSquare square) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
@@ -9342,11 +9343,11 @@ static class CCFilter {
  bool allow;
  GameServer.CCFilter next;
 
- bool matches(const std::string &string) {
+ bool matches(std::string_view string) {
  return this->command == string) || "*" == this->command);
  }
 
- bool passes(const std::string &string) {
+ bool passes(std::string_view string) {
  if (this->matches(string) {
  return this->allow;
  } else {

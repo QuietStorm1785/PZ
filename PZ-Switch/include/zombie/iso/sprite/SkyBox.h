@@ -201,9 +201,9 @@ public
 
  int getShaderTime() { return this->SkyBoxTime; }
 
- float getShaderCloudCount() { return this->SkyBoxParamCloudCount; }
+ float getShaderCloudCount() noexcept{ return this->SkyBoxParamCloudCount; }
 
- float getShaderCloudSize() { return this->SkyBoxParamCloudSize; }
+ float getShaderCloudSize() noexcept{ return this->SkyBoxParamCloudSize; }
 
  Vector3f getShaderSunLight() { return this->SkyBoxParamSunLight; }
 

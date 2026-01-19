@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -30,7 +31,7 @@ public:
  int outer;
 
 public
- NineGridTexture(const std::string &base, int _outer) {
+ NineGridTexture(std::string_view base, int _outer) {
  this->outer = _outer;
  this->topLeft = Texture.getSharedTexture(base + "_topleft");
  this->topMid = Texture.getSharedTexture(base + "_topmid");

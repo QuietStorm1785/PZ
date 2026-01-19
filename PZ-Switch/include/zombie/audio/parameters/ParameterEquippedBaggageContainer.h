@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -34,7 +35,7 @@ public
  this->containerType = _containerType;
  }
 
- void setContainerType(const std::string &_containerType) {
+ void setContainerType(std::string_view _containerType) {
  if (_containerType != nullptr) {
  try {
  this->containerType =

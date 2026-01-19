@@ -56,6 +56,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -134,7 +135,7 @@ private
 public
  static Class[] getSubClasses() { return childrenClasses; }
 
- static Class findCommandCls(const std::string &string) {
+ static Class findCommandCls(std::string_view string) {
  for (auto &clazz : childrenClasses)
  if (!isDisabled(clazz) {
  CommandName[] commandNames =
@@ -175,7 +176,7 @@ static bool isDisabled(Class clazz) {
  return disabledCommand != nullptr;
 }
 
-static int accessLevelToInt(const std::string &string) {
+static int accessLevelToInt(std::string_view string) {
  switch (string) {
  case "admin":
  return 32;
@@ -193,8 +194,8 @@ static int accessLevelToInt(const std::string &string) {
 }
 
 protected
-CommandBase(const std::string &string0, const std::string &string2,
- const std::string &string1, UdpConnection udpConnection) {
+CommandBase(std::string_view string0, std::string_view string2,
+ std::string_view string1, UdpConnection udpConnection) {
  this->username = string0;
  this->command = string1;
  this->connection = udpConnection;
@@ -272,7 +273,7 @@ bool hasOptionalArg(int integer) {
  integer < this->commandArgs.length;
 }
 
-int getCommandArgsCount() { return this->commandArgs.length; }
+int getCommandArgsCount() noexcept{ return this->commandArgs.length; }
 
 protected
  String Command() throws SQLException;

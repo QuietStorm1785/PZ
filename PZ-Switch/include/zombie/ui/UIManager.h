@@ -34,6 +34,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -418,7 +419,7 @@ private
  }
  }
 
- static void resize() {
+ static void resize() noexcept{
  if (useUIFBO && UIFBO != nullptr) {
  CreateFBO(Core.getInstance().getScreenWidth(),
  Core.getInstance().getScreenHeight());
@@ -1301,7 +1302,7 @@ public
 
  static bool isShowLuaDebuggerOnError() { return bShowLuaDebuggerOnError; }
 
- static void debugBreakpoint(const std::string &filename, long pc) {
+ static void debugBreakpoint(std::string_view filename, long pc) {
  if (bShowLuaDebuggerOnError) {
  if (Core.CurrentTextEntryBox != nullptr) {
  Core.CurrentTextEntryBox.DoingTextEntry = false;

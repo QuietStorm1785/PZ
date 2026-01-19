@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -115,13 +116,13 @@ public
  desc.surname = Surnames.get(Rand.Next(Surnames.size()));
  }
 
- static void addSurname(const std::string &surName) { Surnames.add(surName); }
+ static void addSurname(std::string_view surName) { Surnames.add(surName); }
 
- static void addFemaleForename(const std::string &forename) {
+ static void addFemaleForename(std::string_view forename) {
  FemaleForenames.add(forename);
  }
 
- static void addMaleForename(const std::string &forename) {
+ static void addMaleForename(std::string_view forename) {
  MaleForenames.add(forename);
  }
 

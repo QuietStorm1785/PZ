@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -34,7 +35,7 @@ public
  int m_maxY;
  static const AssetType ASSET_TYPE = new AssetType("WorldMapData");
 
- static WorldMapData getOrCreateData(const std::string &fileName) {
+ static WorldMapData getOrCreateData(std::string_view fileName) {
  WorldMapData worldMapData = s_fileNameToData.get(fileName);
  if (worldMapData.empty() && Files.exists(Paths.get(fileName)) {
  worldMapData = (WorldMapData)WorldMapDataAssetManager.instance.load(

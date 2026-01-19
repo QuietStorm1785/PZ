@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -167,7 +168,7 @@ public LuaJavaInvoker(
  nullptr ? nullptr : this->manager.fromLuaToJava(object, clazzx);
  }
 
- std::string syntaxErrorMessage(const std::string &string1) {
+ std::string syntaxErrorMessage(std::string_view string1) {
  std::string string0 = this->getFunctionSyntax();
  if (string0 != nullptr) {
  string1 = string1 + " Correct syntax: " + string0;
@@ -176,7 +177,7 @@ public LuaJavaInvoker(
  return string1;
  }
 
- std::string newError(int int1, const std::string &string1) {
+ std::string newError(int int1, std::string_view string1) {
  int int0 = int1 + 1;
  std::string string0 = string1 + " at argument #" + int0;
  std::string string2 = this->getParameterName(int1);

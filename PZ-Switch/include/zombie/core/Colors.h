@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -231,7 +232,7 @@ private
  addColor("Brown", new Color(0.647F, 0.165F, 0.165F);
  static const Color Maroon = addColor("Maroon", new Color(0.502F, 0.0F, 0.0F);
 
- static Color addColor(const std::string &string, Color color) {
+ static Color addColor(std::string_view string, Color color) {
  colors.add(color);
  colorMap.put(string.toLowerCase(), color);
  colorNames.add(string);
@@ -245,16 +246,16 @@ private
 
  static Color GetColorFromIndex(int index) { return colors.get(index); }
 
- static int GetColorsCount() { return colors.size(); }
+ static int GetColorsCount() noexcept{ return colors.size(); }
 
- static Color GetColorByName(const std::string &name) {
+ static Color GetColorByName(std::string_view name) {
  return colorMap.get(name.toLowerCase());
  }
 
 public
  static ArrayList<String> GetColorNames() { return colorNames; }
 
- static bool ColorExists(const std::string &name) {
+ static bool ColorExists(std::string_view name) {
  return colorSet.contains(name.toLowerCase());
  }
 }

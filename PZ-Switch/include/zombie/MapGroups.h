@@ -13,6 +13,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -61,7 +62,7 @@ private
 }
 
 static std::string
-addMissingVanillaDirectories(const std::string &mapName) {
+addMissingVanillaDirectories(std::string_view mapName) {
  std::vector arrayList0 = getVanillaMapDirectories(false);
  bool boolean0 = false;
  String[] strings = mapName.split(";");
@@ -240,8 +241,8 @@ void setWorld(int groupIndex) {
  IsoWorld.instance.setMap(string);
 }
 
-void handleMapDirectory(const std::string &string1,
- const std::string &string0) {
+void handleMapDirectory(std::string_view string1,
+ std::string_view string0) {
  std::vector arrayList = this->getLotDirectories(string0);
  if (arrayList != nullptr) {
  MapGroups.MapDirectory mapDirectory =
@@ -334,13 +335,13 @@ class MapDirectory {
  ArrayList<String> conflicts = std::make_unique<ArrayList<>>();
 
 public
- MapDirectory(const std::string &string0, const std::string &string1) {
+ MapDirectory(std::string_view string0, std::string_view string1) {
  this->name = string0;
  this->path = string1;
  }
 
 public
- MapDirectory(const std::string &string0, const std::string &string1,
+ MapDirectory(std::string_view string0, std::string_view string1,
  ArrayList<String> arrayList) {
  this->name = string0;
  this->path = string1;
@@ -367,7 +368,7 @@ private
  LinkedList<MapGroups.MapDirectory> directories =
  std::make_unique<LinkedList<>>();
 
- void addDirectory(const std::string &string0, const std::string &string1) {
+ void addDirectory(std::string_view string0, std::string_view string1) {
  assert !this->hasDirectory(string0);
 
  MapGroups.MapDirectory mapDirectory =
@@ -375,7 +376,7 @@ private
  this->directories.add(mapDirectory);
  }
 
- void addDirectory(const std::string &string0, const std::string &string1,
+ void addDirectory(std::string_view string0, std::string_view string1,
  ArrayList<String> arrayList) {
  assert !this->hasDirectory(string0);
 
@@ -400,7 +401,7 @@ private
  return nullptr;
  }
 
- bool hasDirectory(const std::string &string) {
+ bool hasDirectory(std::string_view string) {
  return this->getDirectoryByName(string) != nullptr;
  }
 

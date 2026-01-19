@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -33,7 +34,7 @@ private
 
 public
  AnimationClip(float duration, List<Keyframe> keyframes,
- const std::string &name, bool bKeepLastFrame) {
+ std::string_view name, bool bKeepLastFrame) {
  this->Duration = duration;
  this->KeyframeArray = keyframes.toArray(new Keyframe[0]);
  this->Name = name;
@@ -62,7 +63,7 @@ public
  return this->m_KeyFramesByBoneIndex[idx].m_keyframes;
  }
 
- int getRootMotionFrameCount() { return this->m_rootMotionKeyframes.size(); }
+ int getRootMotionFrameCount() noexcept{ return this->m_rootMotionKeyframes.size(); }
 
  Keyframe getRootMotionFrameAt(int idx) {
  return this->m_rootMotionKeyframes.get(idx);

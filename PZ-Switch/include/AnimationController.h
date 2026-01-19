@@ -2,6 +2,7 @@
 #include "SpriteAnimation.h"
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 
 namespace zombie {
@@ -53,12 +54,12 @@ public:
  void update(float deltaTime);
  
  // Direct animation control (bypasses state system)
- void playAnimation(const std::string& name, bool loop = true);
+ void playAnimation(std::string_view name, bool loop = true);
  void stopAnimation();
  
  // Animation registration
- void registerAnimation(State state, Direction dir, const std::string& animName);
- void registerAnimation(const std::string& stateName, const std::string& animName);
+ void registerAnimation(State state, Direction dir, std::string_view animName);
+ void registerAnimation(std::string_view stateName, std::string_view animName);
  
  // Get current animation name
  std::string getCurrentAnimationName() const;

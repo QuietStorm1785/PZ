@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,30 +23,30 @@ public
 public
  HashMap<String, FMODFootstep> footstepMap = std::make_unique<HashMap<>>();
 
- void check(const std::string &string) {
+ void check(std::string_view string) {
  if (Core.bDebug &&
  javafmod.FMOD_Studio_System_GetEvent("event:/" + string) < 0L) {
  System.out.println("MISSING in .bank " + string);
  }
  }
 
- void addVoice(const std::string &arg0, const std::string &arg1, float arg2) {
+ void addVoice(std::string_view arg0, std::string_view arg1, float arg2) {
  FMODVoice fMODVoice = new FMODVoice(arg1, arg2);
  this->voiceMap.put(arg0, fMODVoice);
  }
 
- void addFootstep(const std::string &arg0, const std::string &arg1,
- const std::string &arg2, const std::string &arg3,
- const std::string &arg4) {
+ void addFootstep(std::string_view arg0, std::string_view arg1,
+ std::string_view arg2, std::string_view arg3,
+ std::string_view arg4) {
  FMODFootstep fMODFootstep = new FMODFootstep(arg1, arg2, arg3, arg4);
  this->footstepMap.put(arg0, fMODFootstep);
  }
 
- FMODVoice getVoice(const std::string &arg0) {
+ FMODVoice getVoice(std::string_view arg0) {
  return this->voiceMap.containsKey(arg0) ? this->voiceMap.get(arg0) : nullptr;
  }
 
- FMODFootstep getFootstep(const std::string &arg0) {
+ FMODFootstep getFootstep(std::string_view arg0) {
  if (this->footstepMap.containsKey(arg0) {
  return this->footstepMap.get(arg0);
  } else {

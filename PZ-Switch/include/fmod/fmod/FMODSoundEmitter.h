@@ -31,6 +31,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -130,7 +131,7 @@ public
  }
  }
 
- int stopSoundByName(const std::string &arg0) {
+ int stopSoundByName(std::string_view arg0) {
  GameSound gameSound = GameSounds.getSound(arg0);
  if (gameSound.empty()) {
  return 0;
@@ -178,7 +179,7 @@ public
  }
  }
 
- void stopOrTriggerSoundByName(const std::string &arg0) {
+ void stopOrTriggerSoundByName(std::string_view arg0) {
  GameSound gameSound = GameSounds.getSound(arg0);
  if (gameSound != nullptr) {
  for (int int0 = 0; int0 < this->ToStart.size(); int0++) {
@@ -333,7 +334,7 @@ public
  this->Instances.clear();
  }
 
- long playSound(const std::string &arg0) {
+ long playSound(std::string_view arg0) {
  if (GameClient.bClient) {
  if (this->parent instanceof IsoMovingObject) {
  if (!(this->parent instanceof IsoPlayer) ||
@@ -351,7 +352,7 @@ public
  : this->playSoundImpl(arg0, (IsoObject) nullptr);
  }
 
- long playSound(const std::string &arg0, IsoGameCharacter arg1) {
+ long playSound(std::string_view arg0, IsoGameCharacter arg1) {
  if (GameClient.bClient) {
  if (!arg1.isInvisible()) {
  GameClient.instance.PlaySound(arg0, false, arg1);
@@ -367,36 +368,36 @@ public
  }
  }
 
- long playSound(const std::string &arg0, int arg1, int arg2, int arg3) {
+ long playSound(std::string_view arg0, int arg1, int arg2, int arg3) {
  this->x = arg1;
  this->y = arg2;
  this->z = arg3;
  return this->playSound(arg0);
  }
 
- long playSound(const std::string &arg0, IsoGridSquare arg1) {
+ long playSound(std::string_view arg0, IsoGridSquare arg1) {
  this->x = arg1.x + 0.5F;
  this->y = arg1.y + 0.5F;
  this->z = arg1.z;
  return this->playSound(arg0);
  }
 
- long playSoundImpl(const std::string &arg0, IsoGridSquare arg1) {
+ long playSoundImpl(std::string_view arg0, IsoGridSquare arg1) {
  this->x = arg1.x + 0.5F;
  this->y = arg1.y + 0.5F;
  this->z = arg1.z + 0.5F;
  return this->playSoundImpl(arg0, (IsoObject) nullptr);
  }
 
- long playSound(const std::string &arg0, bool arg1) {
+ long playSound(std::string_view arg0, bool arg1) {
  return this->playSound(arg0);
  }
 
- long playSoundImpl(const std::string &arg0, bool arg1, IsoObject arg2) {
+ long playSoundImpl(std::string_view arg0, bool arg1, IsoObject arg2) {
  return this->playSoundImpl(arg0, arg2);
  }
 
- long playSoundLooped(const std::string &arg0) {
+ long playSoundLooped(std::string_view arg0) {
  if (GameClient.bClient) {
  if (this->parent instanceof IsoMovingObject) {
  GameClient.instance.PlaySound(arg0, true, (IsoMovingObject)this->parent);
@@ -409,11 +410,11 @@ public
  return this->playSoundLoopedImpl(arg0);
  }
 
- long playSoundLoopedImpl(const std::string &arg0) {
+ long playSoundLoopedImpl(std::string_view arg0) {
  return this->playSoundImpl(arg0, false, nullptr);
  }
 
- long playSound(const std::string &arg0, IsoObject arg1) {
+ long playSound(std::string_view arg0, IsoObject arg1) {
  if (GameClient.bClient) {
  if (arg1 instanceof IsoMovingObject) {
  GameClient.instance.PlaySound(arg0, false,
@@ -427,7 +428,7 @@ public
  return GameServer.bServer ? 0L : this->playSoundImpl(arg0, arg1);
  }
 
- long playSoundImpl(const std::string &arg0, IsoObject arg1) {
+ long playSoundImpl(std::string_view arg0, IsoObject arg1) {
  GameSound gameSound = GameSounds.getSound(arg0);
  if (gameSound.empty()) {
  return 0L;
@@ -442,7 +443,7 @@ public
  return sound = = nullptr ? 0L : sound.getRef();
  }
 
- long playAmbientSound(const std::string &arg0) {
+ long playAmbientSound(std::string_view arg0) {
  if (GameServer.bServer) {
  return 0L;
  } else {
@@ -462,7 +463,7 @@ public
  }
  }
 
- long playAmbientLoopedImpl(const std::string &arg0) {
+ long playAmbientLoopedImpl(std::string_view arg0) {
  if (GameServer.bServer) {
  return 0L;
  } else {
@@ -541,7 +542,7 @@ public
  return false;
  }
 
- bool isPlaying(const std::string &arg0) {
+ bool isPlaying(std::string_view arg0) {
  for (int int0 = 0; int0 < this->ToStart.size(); int0++) {
  if (arg0 == this->ToStart.get(int0).name) {
  return true;
@@ -578,7 +579,7 @@ public
  return -1;
  }
 
- int findInstance(const std::string &string) {
+ int findInstance(std::string_view string) {
  GameSound gameSound = GameSounds.getSound(string);
  if (gameSound.empty()) {
  return -1;
@@ -605,7 +606,7 @@ public
  return -1;
  }
 
- int findToStart(const std::string &string) {
+ int findToStart(std::string_view string) {
  GameSound gameSound = GameSounds.getSound(string);
  if (gameSound.empty()) {
  return -1;
@@ -672,7 +673,7 @@ public
  }
  }
 
- void setTimelinePosition(long arg0, const std::string &arg1) {
+ void setTimelinePosition(long arg0, std::string_view arg1) {
  if (arg0 != 0L) {
  int int0 = this->findToStart(arg0);
  if (int0 != -1) {
@@ -907,7 +908,7 @@ private
  }
  }
 
- void sendStopSound(const std::string &string, bool boolean0) {
+ void sendStopSound(std::string_view string, bool boolean0) {
  if (GameClient.bClient && this->parent instanceof IsoMovingObject) {
  GameClient.instance.StopSound((IsoMovingObject)this->parent, string,
  boolean0);
@@ -1023,7 +1024,7 @@ private
  }
  }
 
- void setTimelinePosition(const std::string &string) {
+ void setTimelinePosition(std::string_view string) {
  if (this->eventInstance != 0L && this->clip != nullptr &&
  this->clip.event != nullptr) {
  SoundTimelineScript soundTimelineScript =
@@ -1425,7 +1426,7 @@ private
  void setParameterValue(FMOD_STUDIO_PARAMETER_DESCRIPTION var1, float var2) {
  }
 
- void setTimelinePosition(const std::string &var1) {}
+ void setTimelinePosition(std::string_view var1) {}
 
  void triggerCue() {}
 

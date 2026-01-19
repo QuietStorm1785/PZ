@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -18,7 +19,7 @@ class SoundManager {
       this.this$0 = var1;
    }
 
-    void timelineMarker(long var1, const std::string& var3, int var4) {
+    void timelineMarker(long var1, std::string_view var3, int var4) {
       DebugLog.Sound.debugln("timelineMarker %s %d", var3, var4);
       if ("Lightning" == var3)) {
          MainScreenState.getInstance().lightningTimelineMarker = true;

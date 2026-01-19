@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -19,7 +20,7 @@ class FMODParameter {
     const FMOD_STUDIO_PARAMETER_DESCRIPTION m_parameterDescription;
     float m_currentValue = Float.NaN;
 
-     FMODParameter(const std::string& var1) {
+     FMODParameter(std::string_view var1) {
       this.m_name = var1;
       this.m_parameterDescription = FMODManager.instance.getParameterDescription(var1);
    }

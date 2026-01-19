@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -117,20 +118,20 @@ private
  }
 
  static std::string formatString(DebugType type, LogSeverity logSeverity,
- const std::string &prefix, void *affix,
- const std::string &formatNoParams) {
+ std::string_view prefix, void *affix,
+ std::string_view formatNoParams) {
  return isLogEnabled();
  }
 
  static std::string formatString(DebugType type, LogSeverity logSeverity,
- const std::string &prefix, void *affix,
- const std::string &format, void *param0) {
+ std::string_view prefix, void *affix,
+ std::string_view format, void *param0) {
  return isLogEnabled();
  }
 
  static std::string formatString(DebugType type, LogSeverity logSeverity,
- const std::string &prefix, void *affix,
- const std::string &format, void *param0,
+ std::string_view prefix, void *affix,
+ std::string_view format, void *param0,
  void *param1) {
  return isLogEnabled();
  }
@@ -209,8 +210,8 @@ public
 
  static std::string formatStringVarArgs(DebugType type,
  LogSeverity logSeverity,
- const std::string &prefix, void *affix,
- const std::string &format,
+ std::string_view prefix, void *affix,
+ std::string_view format,
  Object... params) {
  if (!isLogEnabled(logSeverity, type) {
  return nullptr;
@@ -230,7 +231,7 @@ public
  }
  }
 
- static void echoToLogFile(const std::string &string) {
+ static void echoToLogFile(std::string_view string) {
  if (s_logFileLogger.empty()) {
  if (s_initialized) {
  return;
@@ -253,7 +254,7 @@ public
  return m_enabledDebugTypes[type.ordinal()];
  }
 
- static void log(DebugType type, const std::string &str) {
+ static void log(DebugType type, std::string_view str) {
  std::string string =
  formatString(type, LogSeverity.General, "LOG : ", "", "%s", str);
  if (string != nullptr) {
@@ -267,7 +268,7 @@ public
 
  static void log(void *o) { log(DebugType.General, String.valueOf(o); }
 
- static void log(const std::string &str) { log(DebugType.General, str); }
+ static void log(std::string_view str) { log(DebugType.General, str); }
 
 public
  static ArrayList<DebugType> getDebugTypes() {

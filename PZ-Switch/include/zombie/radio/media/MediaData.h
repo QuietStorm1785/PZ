@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ private
  std::make_unique<ArrayList<>>();
 
 public
- MediaData(const std::string &_id, const std::string &_itemDisplayName,
+ MediaData(std::string_view _id, std::string_view _itemDisplayName,
  int _spawning) {
  this->itemDisplayName = _itemDisplayName;
  this->id = _id;
@@ -51,14 +52,14 @@ public
  }
  }
 
- void addLine(const std::string &text, float r, float g, float b,
- const std::string &codes) {
+ void addLine(std::string_view text, float r, float g, float b,
+ std::string_view codes) {
  MediaData.MediaLineData mediaLineData =
  new MediaData.MediaLineData(text, r, g, b, codes);
  this->lines.add(mediaLineData);
  }
 
- int getLineCount() { return this->lines.size(); }
+ int getLineCount() noexcept{ return this->lines.size(); }
 
  std::string getTranslatedItemDisplayName() {
  return Translator.getText(this->itemDisplayName);
@@ -66,7 +67,7 @@ public
 
  bool hasTitle() { return this->title != nullptr; }
 
- void setTitle(const std::string &_title) { this->title = _title; }
+ void setTitle(std::string_view _title) { this->title = _title; }
 
  std::string getTitleEN() {
  return this->title != nullptr ? Translator.getTextMediaEN(this->title)
@@ -79,7 +80,7 @@ public
 
  bool hasSubTitle() { return this->subtitle != nullptr; }
 
- void setSubtitle(const std::string &_subtitle) { this->subtitle = _subtitle; }
+ void setSubtitle(std::string_view _subtitle) { this->subtitle = _subtitle; }
 
  std::string getSubtitleEN() {
  return this->subtitle != nullptr ? Translator.getTextMediaEN(this->subtitle)
@@ -93,7 +94,7 @@ public
 
  bool hasAuthor() { return this->author != nullptr; }
 
- void setAuthor(const std::string &_author) { this->author = _author; }
+ void setAuthor(std::string_view _author) { this->author = _author; }
 
  std::string getAuthorEN() {
  return this->author != nullptr ? Translator.getTextMediaEN(this->author)
@@ -106,7 +107,7 @@ public
 
  bool hasExtra() { return this->extra != nullptr; }
 
- void setExtra(const std::string &_extra) { this->extra = _extra; }
+ void setExtra(std::string_view _extra) { this->extra = _extra; }
 
  std::string getExtraEN() {
  return this->extra != nullptr ? Translator.getTextMediaEN(this->extra)
@@ -125,7 +126,7 @@ public
 
  std::string getCategory() { return this->category; }
 
- void setCategory(const std::string &string) { this->category = string; }
+ void setCategory(std::string_view string) { this->category = string; }
 
  int getSpawning() { return this->spawning; }
 
@@ -152,8 +153,8 @@ public
  const std::string codes;
 
  public
- MediaLineData(const std::string &_text, float r, float g, float b,
- const std::string &_codes) {
+ MediaLineData(std::string_view _text, float r, float g, float b,
+ std::string_view _codes) {
  this->text = _text;
  this->codes = _codes;
  if (r == 0.0F && g == 0.0F && b == 0.0F) {

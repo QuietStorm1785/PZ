@@ -94,7 +94,7 @@ private
  controllerDisconnectedCallback = consumer;
  }
 
- static int getControllerCount() {
+ static int getControllerCount() noexcept{
  if (!isCreated()) {
  throw RuntimeException("Before calling 'getJoypadCount()' you should "
  "call 'create()' method");

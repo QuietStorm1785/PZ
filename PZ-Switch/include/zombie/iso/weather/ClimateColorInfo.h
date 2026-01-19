@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -259,9 +260,9 @@ public
  }
 
  static void writeSeasonColor(int int0, ClimateColorInfo climateColorInfo,
- const std::string &string2,
- const std::string &string0,
- const std::string &string1) {
+ std::string_view string2,
+ std::string_view string0,
+ std::string_view string1) {
  Color color = climateColorInfo.exterior;
  write(int0, "_clim:setSeasonColor" + string2 + "(" + string1 + "," +
  string0 + "," + color.r + "," + color.g + "," + color.b +
@@ -281,14 +282,14 @@ public
  "," + color.a + ");");
  }
 
- static void write(int int0, const std::string &string1) {
+ static void write(int int0, std::string_view string1) {
  std::string string0 = new String(new char[int0]).replace("\u0000", "\t");
  writer.write(string0);
  writer.write(string1);
  writer.newLine();
  }
 
- static void write(const std::string &string) {
+ static void write(std::string_view string) {
  writer.write(string);
  writer.newLine();
  }

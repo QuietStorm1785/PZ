@@ -13,6 +13,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -118,7 +119,7 @@ public
  }
  }
 
- void increasePain(const std::string &string) {
+ void increasePain(std::string_view string) {
  if ("arms" == string) {
  for (int int0 = BodyPartType.ForeArm_L.index();
  int0 < BodyPartType.UpperArm_R.index() + 1; int0++) {
@@ -150,7 +151,7 @@ public
  }
  }
 
- void setCurrentExercise(const std::string &type) {
+ void setCurrentExercise(std::string_view type) {
  this->currentExe = this->exercises.get(type);
  }
 
@@ -297,7 +298,7 @@ public
  this->regularityMap.clear();
  }
 
- void removeStiffnessValue(const std::string &type) {
+ void removeStiffnessValue(std::string_view type) {
  this->stiffnessIncMap.remove(type);
  this->stiffnessTimerMap.remove(type);
  }
@@ -384,14 +385,14 @@ public
 
  bool onGoingStiffness() { return !this->bodypartToIncStiffness.empty(); }
 
- int getCurrentExeStiffnessTimer(const std::string &type) {
+ int getCurrentExeStiffnessTimer(std::string_view type) {
  type = type.split(",")[0];
  return this->stiffnessTimerMap.get(type) != nullptr
  ? this->stiffnessTimerMap.get(type)
  : 0;
  }
 
- float getCurrentExeStiffnessInc(const std::string &type) {
+ float getCurrentExeStiffnessInc(std::string_view type) {
  type = type.split(",")[0];
  return this->stiffnessIncMap.get(type) != nullptr
  ? this->stiffnessIncMap.get(type)
@@ -402,7 +403,7 @@ public
 
  void setParent(IsoGameCharacter _parent) { this->parent = _parent; }
 
- float getRegularity(const std::string &type) {
+ float getRegularity(std::string_view type) {
  float float0 = this->regularityMap.get(type);
  if (float0.empty()) {
  float0 = 0.0F;

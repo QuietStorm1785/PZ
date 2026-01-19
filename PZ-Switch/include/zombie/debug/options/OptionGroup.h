@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,13 +23,13 @@ private
  ArrayList<IDebugOption> m_children = std::make_unique<ArrayList<>>();
 
 public
- OptionGroup(const std::string &string) {
+ OptionGroup(std::string_view string) {
  this->m_groupName = string;
  this->Group = this;
  }
 
 public
- OptionGroup(IDebugOptionGroup iDebugOptionGroup, const std::string &string) {
+ OptionGroup(IDebugOptionGroup iDebugOptionGroup, std::string_view string) {
  this->m_groupName = getCombinedName(iDebugOptionGroup, string);
  this->Group = this;
  iDebugOptionGroup.addChild(this);
@@ -61,31 +62,31 @@ public
  }
  }
 
- static BooleanDebugOption newOption(const std::string &string,
+ static BooleanDebugOption newOption(std::string_view string,
  bool boolean0) {
  return newOptionInternal();
  }
 
- static BooleanDebugOption newDebugOnlyOption(const std::string &string,
+ static BooleanDebugOption newDebugOnlyOption(std::string_view string,
  bool boolean0) {
  return newOptionInternal();
  }
 
  static BooleanDebugOption newOption(IDebugOptionGroup iDebugOptionGroup,
- const std::string &string,
+ std::string_view string,
  bool boolean0) {
  return newOptionInternal();
  }
 
  static BooleanDebugOption
  newDebugOnlyOption(IDebugOptionGroup iDebugOptionGroup,
- const std::string &string, bool boolean0) {
+ std::string_view string, bool boolean0) {
  return newOptionInternal();
  }
 
  static BooleanDebugOption
  newOptionInternal(IDebugOptionGroup iDebugOptionGroup,
- const std::string &string1, bool boolean0, bool boolean1) {
+ std::string_view string1, bool boolean0, bool boolean1) {
  std::string string0 = getCombinedName(iDebugOptionGroup, string1);
  BooleanDebugOption booleanDebugOption =
  new BooleanDebugOption(string0, boolean0, boolean1);
@@ -97,7 +98,7 @@ public
  }
 
  static std::string getCombinedName(IDebugOptionGroup iDebugOptionGroup,
- const std::string &string1) {
+ std::string_view string1) {
  std::string string0;
  if (iDebugOptionGroup != nullptr) {
  string0 = String.format("%s.%s", iDebugOptionGroup.getName(), string1);

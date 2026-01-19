@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -41,7 +42,7 @@ public
  Prototype() {}
 
 public
- Prototype(DataInputStream arg0, bool arg1, const std::string &arg2,
+ Prototype(DataInputStream arg0, bool arg1, std::string_view arg2,
  int arg3) {
  this->name = readLuaString(arg0, arg3, arg1);
  if (this->name.empty()) {
@@ -211,7 +212,7 @@ public
  }
 
  static void loadAssert(bool boolean0,
- const std::string &string) {
+ std::string_view string) {
  if (!boolean0) {
  throw IOException("Could not load bytecode:" + string);
  }
@@ -304,7 +305,7 @@ public
  dataOutputStream.writeInt(0);
  }
 
- static void dumpString(const std::string &string,
+ static void dumpString(std::string_view string,
  DataOutputStream dataOutputStream) {
  if (string.empty()) {
  dataOutputStream.writeShort(0);

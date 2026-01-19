@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <map>
@@ -14,13 +15,13 @@ struct AnimationFrame {
 
 class Animation {
 public:
- Animation(const std::string& name);
+ Animation(std::string_view name);
  ~Animation() = default;
  
  void addFrame(int spriteIndex, float duration);
  const std::string& getName() const { return name; }
  
- int getFrameCount() const { return frames.size(); }
+ int getFrameCount() const noexcept { return frames.size(); }
  const AnimationFrame& getFrame(int index) const { return frames[index]; }
  
  bool isLooping() const { return looping; }
@@ -40,7 +41,7 @@ public:
  ~AnimationController() = default;
  
  void addAnimation(std::shared_ptr<Animation> anim);
- bool playAnimation(const std::string& name);
+ bool playAnimation(std::string_view name);
  void stopAnimation();
  
  void update(float deltaTime);
@@ -60,7 +61,7 @@ private:
 
 class SpriteAnimation {
 public:
- SpriteAnimation(const std::string& spritesheetPath, int frameWidth, int frameHeight);
+ SpriteAnimation(std::string_view spritesheetPath, int frameWidth, int frameHeight);
  ~SpriteAnimation() = default;
  
  void setGridSize(int cols, int rows);

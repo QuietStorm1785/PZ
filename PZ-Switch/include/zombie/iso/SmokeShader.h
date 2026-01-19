@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ public:
  int FireTexture;
 
 public
- SmokeShader(const std::string &string) { super(string); }
+ SmokeShader(std::string_view string) { super(string); }
 
  void onCompileSuccess(ShaderProgram shaderProgram) {
  int int0 = shaderProgram.getShaderID();

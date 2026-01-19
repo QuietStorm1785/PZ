@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -192,7 +193,7 @@ public
  }
  }
 
- void formatTextInsideCircle(const std::string &string) {
+ void formatTextInsideCircle(std::string_view string) {
  UIFont uIFont = UIFont.Medium;
  AngelCodeFont angelCodeFont = TextManager.instance.getFontFromEnum(uIFont);
  int int0 = angelCodeFont.getLineHeight();
@@ -240,7 +241,7 @@ public
  this->deselectIndex = -1;
  }
 
- void addSlice(const std::string &text, Texture texture) {
+ void addSlice(std::string_view text, Texture texture) {
  RadialMenu.Slice slice = new RadialMenu.Slice();
  slice.text = text;
  slice.texture = texture;
@@ -253,7 +254,7 @@ private
  : nullptr;
  }
 
- void setSliceText(int sliceIndex, const std::string &text) {
+ void setSliceText(int sliceIndex, std::string_view text) {
  RadialMenu.Slice slice = this->getSlice(sliceIndex);
  if (slice != nullptr) {
  slice.text = text;

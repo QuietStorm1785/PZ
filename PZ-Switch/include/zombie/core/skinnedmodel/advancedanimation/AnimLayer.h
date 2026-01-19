@@ -22,6 +22,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -74,7 +75,7 @@ public
 
  bool isSubLayer() { return this->m_parentLayer != nullptr; }
 
- bool isCurrentState(const std::string &stateName) {
+ bool isCurrentState(std::string_view stateName) {
  return this->m_State != nullptr && StringUtils == this->m_State.m_Name, stateName);
  }
 
@@ -669,7 +670,7 @@ public
  return liveAnimNode0;
  }
 
- void startAnimTrack(const std::string &string, LiveAnimNode liveAnimNode) {
+ void startAnimTrack(std::string_view string, LiveAnimNode liveAnimNode) {
  AnimNode animNode = liveAnimNode.getSourceNode();
  float float0 = animNode.getSpeedScale(this->m_Character);
  float float1 = Rand.Next(0.0F, 1.0F);
@@ -701,7 +702,7 @@ public
  }
 
  AnimationTrack
- startAnimTrack(const std::string &string,
+ startAnimTrack(std::string_view string,
  AnimLayer.StartAnimTrackParameters startAnimTrackParameters) {
  AnimationPlayer animationPlayer = this->m_Character.getAnimationPlayer();
  if (!animationPlayer.isReady()) {

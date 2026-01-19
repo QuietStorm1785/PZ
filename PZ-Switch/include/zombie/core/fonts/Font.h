@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public:
  * @param y The y location at which to draw the string
  * @param text The text to be displayed
  */
- void drawString(float x, float y, const std::string &text);
+ void drawString(float x, float y, std::string_view text);
 
  /**
  * Draw a string to the screen
@@ -33,7 +34,7 @@ public:
  * @param text The text to be displayed
  * @param col The colour to draw with
  */
- void drawString(float x, float y, const std::string &text, Color col);
+ void drawString(float x, float y, std::string_view text, Color col);
 
  /**
  * Draw part of a string to the screen. Note that this will still position
@@ -46,7 +47,7 @@ public:
  * @param startIndex The index of the first character to draw
  * @param endIndex The index of the last character from the string to draw
  */
- void drawString(float x, float y, const std::string &text, Color col,
+ void drawString(float x, float y, std::string_view text, Color col,
  int startIndex, int endIndex);
 
  /**
@@ -55,7 +56,7 @@ public:
  * @param str The string to obtain the rendered with of
  * @return The width of the given string
  */
- int getHeight(const std::string &str);
+ int getHeight(std::string_view str);
 
  /**
  * get the width of the given string
@@ -63,13 +64,13 @@ public:
  * @param str The string to obtain the rendered with of
  * @return The width of the given string
  */
- int getWidth(const std::string &str);
+ int getWidth(std::string_view str);
 
- int getWidth(const std::string &str, bool xAdvance);
+ int getWidth(std::string_view str, bool xAdvance);
 
- int getWidth(const std::string &str, int startIndex, int endIndex);
+ int getWidth(std::string_view str, int startIndex, int endIndex);
 
- int getWidth(const std::string &str, int startIndex, int endIndex,
+ int getWidth(std::string_view str, int startIndex, int endIndex,
  bool xAdvance);
 
  /**

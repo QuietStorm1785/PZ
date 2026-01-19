@@ -169,6 +169,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -821,7 +822,7 @@ private
  }
  }
 
- void requestPacketCounts() {
+ void requestPacketCounts() noexcept{
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.PacketCounts.doPacket(byteBufferWriter);
  PacketTypes.PacketType.PacketCounts.send(connection);
@@ -952,7 +953,7 @@ private
  }
  }
 
- static void invMngRequestItem(int itemId, const std::string &itemType,
+ static void invMngRequestItem(int itemId, std::string_view itemType,
  IsoPlayer player) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.InvMngReqItem.doPacket(byteBufferWriter);
@@ -1461,7 +1462,7 @@ private
  WorldMapRemotePlayers.instance.Reset();
  }
 
- static void SendCommandToServer(const std::string &command) {
+ static void SendCommandToServer(std::string_view command) {
  if (ServerOptions.clientOptionsList.empty()) {
  ServerOptions.initClientCommandsHelp();
  }
@@ -2435,7 +2436,7 @@ public
  PacketTypes.PacketType.RemoveCorpseFromMap.send(connection);
  }
 
- static void sendEvent(IsoPlayer isoPlayer, const std::string &event) {
+ static void sendEvent(IsoPlayer isoPlayer, std::string_view event) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.EventPacket.doPacket(byteBufferWriter);
 
@@ -3991,7 +3992,7 @@ public
  this->disconnectTime = System.currentTimeMillis();
  }
 
- std::string getReconnectCountdownTimer() {
+ std::string getReconnectCountdownTimer() noexcept{
  return String.valueOf((int)Math.ceil(
  (10000L - System.currentTimeMillis() + this->disconnectTime) / 1000L);
  }
@@ -4023,7 +4024,7 @@ public
  }
  }
 
- void doDisconnect(const std::string &string) {
+ void doDisconnect(std::string_view string) {
  if (connection != nullptr) {
  connection.forceDisconnect(string);
  this->bConnected = false;
@@ -4116,12 +4117,12 @@ public
  PacketTypes.PacketType.Equip.send(connection);
  }
 
- void sendWorldMessage(const std::string &line) {
+ void sendWorldMessage(std::string_view line) {
  ChatManager.getInstance().showInfoMessage(line);
  }
 
- void convertGameSaveWorldDirectory(const std::string &string0,
- const std::string &string1) {
+ void convertGameSaveWorldDirectory(std::string_view string0,
+ std::string_view string1) {
  File file0 = new File(string0);
  if (file0.isDirectory()) {
  File file1 = new File(string1);
@@ -4136,10 +4137,10 @@ public
  }
  }
 
- void doConnect(const std::string &string0, const std::string &string1,
- const std::string &string2, const std::string &string3,
- const std::string &string4, const std::string &string5,
- const std::string &string6, bool boolean0) {
+ void doConnect(std::string_view string0, std::string_view string1,
+ std::string_view string2, std::string_view string3,
+ std::string_view string4, std::string_view string5,
+ std::string_view string6, bool boolean0) {
  username = string0.trim();
  password = string1.trim();
  ip = string2.trim();
@@ -4161,7 +4162,7 @@ public
  }
  }
 
- void doConnectCoop(const std::string &serverSteamID) {
+ void doConnectCoop(std::string_view serverSteamID) {
  username = SteamFriends.GetPersonaName();
  password = "";
  ip = serverSteamID;
@@ -4245,8 +4246,8 @@ public
  AmbientStreamManager.instance.addAmbient(string, int0, int1, int2, float0);
  }
 
- void sendClientCommand(IsoPlayer player, const std::string &module,
- const std::string &command, KahluaTable args) {
+ void sendClientCommand(IsoPlayer player, std::string_view module,
+ std::string_view command, KahluaTable args) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.ClientCommand.doPacket(byteBufferWriter);
  byteBufferWriter.putByte(
@@ -4279,8 +4280,8 @@ public
  PacketTypes.PacketType.ClientCommand.send(connection);
  }
 
- void sendClientCommandV(IsoPlayer player, const std::string &module,
- const std::string &command, Object... objects) {
+ void sendClientCommandV(IsoPlayer player, std::string_view module,
+ std::string_view command, Object... objects) {
  if (objects.length == 0) {
  this->sendClientCommand(player, module, command, (KahluaTable) nullptr);
  } else if (objects.length % 2 != 0) {
@@ -4307,7 +4308,7 @@ public
  }
  }
 
- void sendClothing(IsoPlayer player, const std::string &location,
+ void sendClothing(IsoPlayer player, std::string_view location,
  InventoryItem item) {
  if (player != nullptr && player.OnlineID != -1) {
  SyncClothingPacket syncClothingPacket = new SyncClothingPacket();
@@ -4324,7 +4325,7 @@ public
  syncClothingPacket.parse(byteBuffer, connection);
  }
 
- void sendAttachedItem(IsoPlayer player, const std::string &location,
+ void sendAttachedItem(IsoPlayer player, std::string_view location,
  InventoryItem item) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.PlayerAttachedItem.doPacket(byteBufferWriter);
@@ -4580,7 +4581,7 @@ public
  }
 
  void sendBandage(int onlineID, int i, bool bandaged, float bandageLife,
- bool isAlcoholic, const std::string &bandageType) {
+ bool isAlcoholic, std::string_view bandageType) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.Bandage.doPacket(byteBufferWriter);
  byteBufferWriter.putShort((short)onlineID);
@@ -4622,7 +4623,7 @@ public
  }
 
  void sendSplint(int onlineID, int i, bool doIt, float factor,
- const std::string &splintItem) {
+ std::string_view splintItem) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.Splint.doPacket(byteBufferWriter);
  byteBufferWriter.putShort((short)onlineID);
@@ -5258,7 +5259,7 @@ public
  }
  }
 
- void PlayWorldSound(const std::string &name, int x, int y, uint8_t z) {
+ void PlayWorldSound(std::string_view name, int x, int y, uint8_t z) {
  PlayWorldSoundPacket playWorldSoundPacket = new PlayWorldSoundPacket();
  playWorldSoundPacket.set(name, x, y, z);
  ByteBufferWriter byteBufferWriter = connection.startPacket();
@@ -5267,7 +5268,7 @@ public
  PacketTypes.PacketType.PlayWorldSound.send(connection);
  }
 
- void PlaySound(const std::string &name, bool loop, IsoMovingObject object) {
+ void PlaySound(std::string_view name, bool loop, IsoMovingObject object) {
  PlaySoundPacket playSoundPacket = new PlaySoundPacket();
  playSoundPacket.set(name, loop, object);
  ByteBufferWriter byteBufferWriter = connection.startPacket();
@@ -5276,7 +5277,7 @@ public
  PacketTypes.PacketType.PlaySound.send(connection);
  }
 
- void StopSound(IsoMovingObject object, const std::string &soundName,
+ void StopSound(IsoMovingObject object, std::string_view soundName,
  bool trigger) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.StopSound.doPacket(byteBufferWriter);
@@ -5413,7 +5414,7 @@ public
  PacketTypes.PacketType.KickOutOfSafehouse.send(connection);
  }
 
- IsoPlayer getPlayerFromUsername(const std::string &_username) {
+ IsoPlayer getPlayerFromUsername(std::string_view _username) {
  std::vector arrayList = this->getPlayers();
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
@@ -5703,7 +5704,7 @@ public
  }
  }
 
- void requestUserlog(const std::string &user) {
+ void requestUserlog(std::string_view user) {
  if (canSeePlayerStats()) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.Userlog.doPacket(byteBufferWriter);
@@ -5712,8 +5713,8 @@ public
  }
  }
 
- void addUserlog(const std::string &user, const std::string &type,
- const std::string &text) {
+ void addUserlog(std::string_view user, std::string_view type,
+ std::string_view text) {
  if (canSeePlayerStats()) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.AddUserlog.doPacket(byteBufferWriter);
@@ -5724,8 +5725,8 @@ public
  }
  }
 
- void removeUserlog(const std::string &user, const std::string &type,
- const std::string &text) {
+ void removeUserlog(std::string_view user, std::string_view type,
+ std::string_view text) {
  if (canModifyPlayerStats()) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.RemoveUserlog.doPacket(byteBufferWriter);
@@ -5736,7 +5737,7 @@ public
  }
  }
 
- void addWarningPoint(const std::string &user, const std::string &reason,
+ void addWarningPoint(std::string_view user, std::string_view reason,
  int amount) {
  if (canModifyPlayerStats()) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
@@ -5804,7 +5805,7 @@ public
  }
  }
 
- void getTableResult(const std::string &tableName, int numberPerPages) {
+ void getTableResult(std::string_view tableName, int numberPerPages) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.GetTableResult.doPacket(byteBufferWriter);
  byteBufferWriter.putInt(numberPerPages);
@@ -5840,7 +5841,7 @@ public
  LuaEventManager.triggerEvent("OnGetTableResult", arrayList0, int0, string0);
  }
 
- void executeQuery(const std::string &query, KahluaTable params) {
+ void executeQuery(std::string_view query, KahluaTable params) {
  if (connection.accessLevel == 32) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.ExecuteQuery.doPacket(byteBufferWriter);
@@ -5875,7 +5876,7 @@ public
  }
 
  static void sendFactionInvite(Faction faction, IsoPlayer host,
- const std::string &invited) {
+ std::string_view invited) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.SendFactionInvite.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(faction.getName());
@@ -5890,7 +5891,7 @@ public
  LuaEventManager.triggerEvent("ReceiveFactionInvite", string0, string1);
  }
 
- static void acceptFactionInvite(Faction faction, const std::string &host) {
+ static void acceptFactionInvite(Faction faction, std::string_view host) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.AcceptedFactionInvite.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(faction.getName());
@@ -5909,7 +5910,7 @@ public
  LuaEventManager.triggerEvent("AcceptedFactionInvite", string0, string1);
  }
 
- static void addTicket(const std::string &author, const std::string &message,
+ static void addTicket(std::string_view author, std::string_view message,
  int ticketID) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.AddTicket.doPacket(byteBufferWriter);
@@ -5919,7 +5920,7 @@ public
  PacketTypes.PacketType.AddTicket.send(connection);
  }
 
- static void getTickets(const std::string &author) {
+ static void getTickets(std::string_view author) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.ViewTickets.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(author);
@@ -5959,8 +5960,8 @@ public
  }
 
  static bool sendItemListNet(IsoPlayer sender, ArrayList<InventoryItem> items,
- IsoPlayer receiver, const std::string &sessionID,
- const std::string &custom) {
+ IsoPlayer receiver, std::string_view sessionID,
+ std::string_view custom) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.SendItemListNet.doPacket(byteBufferWriter);
  byteBufferWriter.putByte((byte)(receiver != nullptr ? 1 : 0);
@@ -6128,7 +6129,7 @@ public
  }
  }
 
- static void sendBuildingStashToDo(const std::string &stashName) {
+ static void sendBuildingStashToDo(std::string_view stashName) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.ReadAnnotedMap.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(stashName);
@@ -6436,7 +6437,7 @@ public
  }
 
  static void sendSafehouseInvite(SafeHouse safehouse, IsoPlayer host,
- const std::string &invited) {
+ std::string_view invited) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.SendSafehouseInvite.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(safehouse.getTitle());
@@ -6461,7 +6462,7 @@ public
  }
 
  static void acceptSafehouseInvite(SafeHouse safehouse,
- const std::string &host) {
+ std::string_view host) {
  ByteBufferWriter byteBufferWriter = connection.startPacket();
  PacketTypes.PacketType.AcceptedSafehouseInvite.doPacket(byteBufferWriter);
  byteBufferWriter.putUTF(safehouse.getTitle());

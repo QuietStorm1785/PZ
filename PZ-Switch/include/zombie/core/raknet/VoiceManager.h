@@ -37,6 +37,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -358,7 +359,7 @@ public:
  }
  }
 
- static void playerSetMute(const std::string &string) {
+ static void playerSetMute(std::string_view string) {
  std::vector arrayList = GameClient.instance.getPlayers();
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
@@ -373,7 +374,7 @@ public:
  }
  }
 
- static bool playerGetMute(const std::string &string) {
+ static bool playerGetMute(std::string_view string) {
  std::vector arrayList = GameClient.instance.getPlayers();
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {

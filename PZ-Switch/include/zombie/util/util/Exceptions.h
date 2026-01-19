@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,16 +23,16 @@ public:
  int0);
  }
 
- static void nullArgument(const std::string &string) {
+ static void nullArgument(std::string_view string) {
  throw NullPointerException("The specified " + string + " is nullptr");
  }
 
- static void negativeArgument(const std::string &string, void *object) {
+ static void negativeArgument(std::string_view string, void *object) {
  throw IllegalArgumentException(string +
  " cannot be negative: " + object);
  }
 
- static void negativeOrZeroArgument(const std::string &string, void *object) {
+ static void negativeOrZeroArgument(std::string_view string, void *object) {
  throw IllegalArgumentException(string +
  " must be a positive value: " + object);
  }
@@ -51,7 +52,7 @@ public:
  "Attempt to remove element from iterator that has no current element.");
  }
 
- static void noElementToGet() {
+ static void noElementToGet() noexcept{
  throw IllegalStateException(
  "Attempt to get element from iterator that has no current element. "
  "Call next() first.");
@@ -96,19 +97,19 @@ public:
  "Attempt to add a nullptr value to an adapted primitive set.");
  }
 
- static void cannotAdapt(const std::string &string) {
+ static void cannotAdapt(std::string_view string) {
  throw IllegalStateException(
  "The " + string +
  " contains values preventing it from being adapted to a primitive " +
  string);
  }
 
- static void unsupported(const std::string &string) {
+ static void unsupported(std::string_view string) {
  throw UnsupportedOperationException(
  "Attempt to invoke unsupported operation: " + string);
  }
 
- static void unmodifiable(const std::string &string) {
+ static void unmodifiable(std::string_view string) {
  throw UnsupportedOperationException("Attempt to modify unmodifiable " +
  string);
  }

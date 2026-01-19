@@ -20,6 +20,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -393,7 +394,7 @@ public
  return vertexPositionNormalTangentTextureSkin1;
  }
 
- void Draw(int int0, int int1, const std::string &string) {
+ void Draw(int int0, int int1, std::string_view string) {
  this->Draw(this->_handle, this->_vertexStride, this->_beginMode, nullptr, int0,
  int1, string);
  }
@@ -419,7 +420,7 @@ public
 
  void Draw(Vbo vbo, VertexStride[] vertexStrides,
  VertexBufferObject.BeginMode var3, Shader shader, int int1,
- int int0, const std::string &var7) {
+ int int0, std::string_view var7) {
  this->animOffset = int0 + this->elementCount * int1;
  int int2 = this->elementCount;
  int int3 = 33984;

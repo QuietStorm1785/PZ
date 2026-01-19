@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <unordered_map>
 #include <string>
+#include <string_view>
 #include <algorithm>
 
 namespace zombie { namespace config { struct SwitchConfig; } }
@@ -59,11 +60,11 @@ public:
  // Setters for live configuration
  void setControllerDeadzone(float deadzone) { controllerDeadzone = std::clamp(deadzone, 0.0f, 0.8f); }
  void setLookSensitivity(float sensitivity) { lookSensitivity = std::clamp(sensitivity, 0.1f, 2.0f); }
- void rebindAction(const std::string& action, const std::string& buttonName);
+ void rebindAction(std::string_view action, std::string_view buttonName);
 
  // Action bindings (controller)
- bool isActionDown(const std::string& action) const;
- bool isActionPressed(const std::string& action) const;
+ bool isActionDown(std::string_view action) const;
+ bool isActionPressed(std::string_view action) const;
  
  // Text input
  void startTextInput();

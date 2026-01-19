@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -48,7 +49,7 @@ public:
  return Languages.instance.getByIndex(_index);
  }
 
- static Language FromString(const std::string &str) {
+ static Language FromString(std::string_view str) {
  Language language = Languages.instance.getByName(str);
  if (language.empty()) {
  language = Languages.instance.getDefaultLanguage();

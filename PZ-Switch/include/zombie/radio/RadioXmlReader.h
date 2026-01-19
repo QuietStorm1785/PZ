@@ -27,6 +27,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -61,12 +62,12 @@ public
 public
  RadioXmlReader(bool boolean0) { this->printDebug = boolean0; }
 
- static RadioData ReadFileHeader(const std::string &var0) {
+ static RadioData ReadFileHeader(std::string_view var0) {
  new RadioXmlReader();
  return nullptr;
  }
 
- void readfileheader(const std::string &string) {
+ void readfileheader(std::string_view string) {
  File file = new File(string);
  DocumentBuilderFactory documentBuilderFactory =
  DocumentBuilderFactory.newInstance();
@@ -90,7 +91,7 @@ public
  }
  }
 
- static bool LoadFile(const std::string &string) {
+ static bool LoadFile(std::string_view string) {
  RadioXmlReader radioXmlReader = new RadioXmlReader(ZomboidRadio.DEBUG_XML);
 
  try {
@@ -124,7 +125,7 @@ public
  }
  }
 
- void print(const std::string &string) {
+ void print(std::string_view string) {
  if (this->printDebug) {
  DebugLog.log(DebugType.Radio, string);
  }
@@ -149,19 +150,19 @@ private
  return arrayList;
  }
 
- bool nodeNameIs(Node node, const std::string &string) {
+ bool nodeNameIs(Node node, std::string_view string) {
  return node.getNodeName() == string);
  }
 
- std::string getAttrib(Node node, const std::string &string, bool boolean0) {
+ std::string getAttrib(Node node, std::string_view string, bool boolean0) {
  return this->getAttrib(node, string, boolean0, false);
  }
 
- std::string getAttrib(Node node, const std::string &string) {
+ std::string getAttrib(Node node, std::string_view string) {
  return this->getAttrib(node, string, true, false).trim();
  }
 
- std::string getAttrib(Node node, const std::string &string1, bool boolean0,
+ std::string getAttrib(Node node, std::string_view string1, bool boolean0,
  bool boolean1) {
  std::string string0 =
  node.getAttributes().getNamedItem(string1).getTextContent();
@@ -176,7 +177,7 @@ private
  return string0;
  }
 
- RadioGlobal getGlobalFromQueue(const std::string &string) {
+ RadioGlobal getGlobalFromQueue(std::string_view string) {
  for (RadioGlobal radioGlobal : this->globalQueue) {
  if (radioGlobal != nullptr && radioGlobal.getName() == string) {
  return radioGlobal;
@@ -186,14 +187,14 @@ private
  return nullptr;
  }
 
- RadioGlobal createGlobal(const std::string &string0,
- const std::string &string1) {
+ RadioGlobal createGlobal(std::string_view string0,
+ std::string_view string1) {
  return this->createGlobal("", string0, string1);
  }
 
- RadioGlobal createGlobal(const std::string &string2,
- const std::string &string1,
- const std::string &string0) {
+ RadioGlobal createGlobal(std::string_view string2,
+ std::string_view string1,
+ std::string_view string0) {
  if (string2 != nullptr && string1 != nullptr && string0 != nullptr) {
  RadioGlobalType radioGlobalType = RadioGlobalType.valueOf(string1.trim());
  switch (radioGlobalType) {
@@ -253,7 +254,7 @@ private
  return arrayList;
  }
 
- void start(const std::string &string) {
+ void start(std::string_view string) {
  File file = new File(string);
  this->print("RadioDataFile: " + file.getAbsolutePath());
  DocumentBuilderFactory documentBuilderFactory =
@@ -486,7 +487,7 @@ private
  return radioBroadCast;
  }
 
- std::string simpleDecrypt(const std::string &string1) {
+ std::string simpleDecrypt(std::string_view string1) {
  std::string string0 = "";
 
  for (int int0 = 0; int0 < string1.length(); int0++) {

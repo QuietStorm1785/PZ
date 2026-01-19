@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -46,7 +47,7 @@ class ImagePyramid {
     int MAX_TEXTURES = 100;
     int MAX_REQUEST_NUMBER = Core.bDebug ? 10000 : Integer.MAX_VALUE;
 
-    void setDirectory(const std::string& var1) {
+    void setDirectory(std::string_view var1) {
       if (this.m_zipFile != nullptr) {
          this.m_zipFile = nullptr;
          if (this.m_zipFS != nullptr) {
@@ -62,7 +63,7 @@ class ImagePyramid {
       this.m_directory = var1;
    }
 
-    void setZipFile(const std::string& var1) {
+    void setZipFile(std::string_view var1) {
       this.m_directory = nullptr;
       this.m_zipFile = var1;
       this.m_zipFS = this.openZipFile();
@@ -167,7 +168,7 @@ class ImagePyramid {
       var2.dispose();
    }
 
-    void generateFiles(const std::string& var1, const std::string& var2) {
+    void generateFiles(std::string_view var1, std::string_view var2) {
     ImageData var3 = new ImageData(var1);
       if (var3 != nullptr) {
     short var4 = 256;
@@ -199,7 +200,7 @@ class ImagePyramid {
       }
    }
 
-    void generateZip(const std::string& var1, const std::string& var2) {
+    void generateZip(std::string_view var1, std::string_view var2) {
     ImageData var3 = new ImageData(var1);
       if (var3 != nullptr) {
     short var4 = 256;
@@ -256,7 +257,7 @@ class ImagePyramid {
     return var5;
    }
 
-    void writeImageToFile(BufferedImage var1, const std::string& var2, int var3, int var4, int var5) {
+    void writeImageToFile(BufferedImage var1, std::string_view var2, int var3, int var4, int var5) {
     File var6 = new File(var2 + File.separator + var5);
       if (var6.exists() || var6.mkdirs()) {
          var6 = new File(var6, String.format("tile%dx%d.png", var3, var4));
@@ -270,7 +271,7 @@ class ImagePyramid {
       var2.closeEntry();
    }
 
-    PyramidTexture checkTextureCache(const std::string& var1) {
+    PyramidTexture checkTextureCache(std::string_view var1) {
       if (this.m_textures.size() < this.MAX_TEXTURES) {
     PyramidTexture var5 = new PyramidTexture();
          var5.m_key = var1;

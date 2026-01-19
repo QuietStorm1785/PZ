@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -82,7 +83,7 @@ public
 private
  static class PacketAuthorization {
  static void unauthorizedPacketPolicyLogUser(UdpConnection udpConnection,
- const std::string &string) {
+ std::string_view string) {
  if (ServerOptions.instance.AntiCheatProtectionType8.getValue() &&
  PacketValidator.checkUser(udpConnection) {
  PacketValidator.doLogUser(udpConnection,
@@ -92,7 +93,7 @@ private
  }
 
  static void unauthorizedPacketPolicyKickUser(UdpConnection udpConnection,
- const std::string &string) {
+ std::string_view string) {
  if (ServerOptions.instance.AntiCheatProtectionType8.getValue() &&
  PacketValidator.checkUser(udpConnection) {
  PacketValidator.doKickUser(udpConnection, string, "Type8", nullptr);
@@ -100,7 +101,7 @@ private
  }
 
  static void unauthorizedPacketPolicyBanUser(UdpConnection udpConnection,
- const std::string &string) {
+ std::string_view string) {
  if (ServerOptions.instance.AntiCheatProtectionType8.getValue() &&
  PacketValidator.checkUser(udpConnection) {
  PacketValidator.doBanUser(udpConnection, string, "Type8");
@@ -141,13 +142,13 @@ private
  .UnauthorizedPacketPolicy unauthorizedPacketPolicy){
  this->policy = unauthorizedPacketPolicy;}
 
- void apply(UdpConnection udpConnection, const std::string &string) {
+ void apply(UdpConnection udpConnection, std::string_view string) {
  this->policy.call(udpConnection, string);
  }
  }
 
  public interface UnauthorizedPacketPolicy {
- void call(UdpConnection var1, const std::string &var2);
+ void call(UdpConnection var1, std::string_view var2);
  }
 }
 

@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -158,7 +159,7 @@ public
  _x, Core.getInstance().getOffscreenHeight(0) - 1 - _y);
  }
 
- static Cursor loadCursor(const std::string &filename) {
+ static Cursor loadCursor(std::string_view filename) {
  File file = ZomboidFileSystem.instance.getMediaFile("ui/" + filename);
  BufferedImage bufferedImage = nullptr;
 

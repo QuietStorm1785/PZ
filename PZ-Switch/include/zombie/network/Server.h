@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -36,35 +37,35 @@ public:
 
  std::string getPort() { return this->port; }
 
- void setPort(const std::string &_port) { this->port = _port; }
+ void setPort(std::string_view _port) { this->port = _port; }
 
  std::string getIp() { return this->ip; }
 
- void setIp(const std::string &_ip) { this->ip = _ip; }
+ void setIp(std::string_view _ip) { this->ip = _ip; }
 
  std::string getLocalIP() { return this->localIP; }
 
- void setLocalIP(const std::string &_ip) { this->localIP = _ip; }
+ void setLocalIP(std::string_view _ip) { this->localIP = _ip; }
 
  std::string getServerPassword() { return this->serverpwd; }
 
- void setServerPassword(const std::string &_pwd) {
+ void setServerPassword(std::string_view _pwd) {
  this->serverpwd = _pwd.empty() ? "" : _pwd;
  }
 
  std::string getDescription() { return this->description; }
 
- void setDescription(const std::string &_description) {
+ void setDescription(std::string_view _description) {
  this->description = _description;
  }
 
  std::string getUserName() { return this->userName; }
 
- void setUserName(const std::string &_userName) { this->userName = _userName; }
+ void setUserName(std::string_view _userName) { this->userName = _userName; }
 
  std::string getPwd() { return this->pwd; }
 
- void setPwd(const std::string &_pwd) { this->pwd = _pwd; }
+ void setPwd(std::string_view _pwd) { this->pwd = _pwd; }
 
  bool getUseSteamRelay() { return this->useSteamRelay; }
 
@@ -76,7 +77,7 @@ public:
 
  std::string getPlayers() { return this->players; }
 
- void setPlayers(const std::string &_players) { this->players = _players; }
+ void setPlayers(std::string_view _players) { this->players = _players; }
 
  bool isOpen() { return this->open; }
 
@@ -88,25 +89,25 @@ public:
 
  std::string getVersion() { return this->version; }
 
- void setVersion(const std::string &_version) { this->version = _version; }
+ void setVersion(std::string_view _version) { this->version = _version; }
 
  std::string getMaxPlayers() { return this->maxPlayers; }
 
- void setMaxPlayers(const std::string &_maxPlayers) {
+ void setMaxPlayers(std::string_view _maxPlayers) {
  this->maxPlayers = _maxPlayers;
  }
 
  std::string getMods() { return this->mods; }
 
- void setMods(const std::string &_mods) { this->mods = _mods; }
+ void setMods(std::string_view _mods) { this->mods = _mods; }
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  std::string getPing() { return this->ping; }
 
- void setPing(const std::string &_ping) { this->ping = _ping; }
+ void setPing(std::string_view _ping) { this->ping = _ping; }
 
  bool isPasswordProtected() { return this->passwordProtected; }
 
@@ -114,7 +115,7 @@ public:
 
  std::string getSteamId() { return this->steamId; }
 
- void setSteamId(const std::string &_steamId) { this->steamId = _steamId; }
+ void setSteamId(std::string_view _steamId) { this->steamId = _steamId; }
 
  bool isHosted() { return this->hosted; }
 

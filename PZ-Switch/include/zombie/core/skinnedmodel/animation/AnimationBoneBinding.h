@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public:
  SkinningData m_skinningData;
 
 public
- AnimationBoneBinding(const std::string &_boneName) {
+ AnimationBoneBinding(std::string_view _boneName) {
  this->boneName = _boneName;
  }
 

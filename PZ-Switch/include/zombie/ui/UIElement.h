@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -122,9 +123,9 @@ public
 
  void ClearChildren() { this->getControls().clear(); }
 
- void ButtonClicked(const std::string &name) { this->setClickedValue(name); }
+ void ButtonClicked(std::string_view name) { this->setClickedValue(name); }
 
- void DrawText(UIFont font, const std::string &text, double _x, double _y,
+ void DrawText(UIFont font, std::string_view text, double _x, double _y,
  double zoom, double r, double g, double b, double alpha) {
  TextManager.instance.DrawString(font,
  _x + this->getAbsoluteX() + this->xScroll,
@@ -132,21 +133,21 @@ public
  (float)zoom, text, r, g, b, alpha);
  }
 
- void DrawText(const std::string &text, double _x, double _y, double r,
+ void DrawText(std::string_view text, double _x, double _y, double r,
  double g, double b, double alpha) {
  TextManager.instance.DrawString(_x + this->getAbsoluteX() + this->xScroll,
  _y + this->getAbsoluteY() + this->yScroll,
  text, r, g, b, alpha);
  }
 
- void DrawText(const std::string &text, double _x, double _y, double _width,
+ void DrawText(std::string_view text, double _x, double _y, double _width,
  double _height, double r, double g, double b, double alpha) {
  TextManager.instance.DrawString(_x + this->getAbsoluteX() + this->xScroll,
  _y + this->getAbsoluteY() + this->yScroll,
  text, r, g, b, alpha);
  }
 
- void DrawText(UIFont font, const std::string &text, double _x, double _y,
+ void DrawText(UIFont font, std::string_view text, double _x, double _y,
  double r, double g, double b, double alpha) {
  if (text != nullptr) {
  int int0 = (int)(_y + this->getAbsoluteY() + this->yScroll);
@@ -158,7 +159,7 @@ public
  }
  }
 
- void DrawTextUntrimmed(UIFont font, const std::string &text, double _x,
+ void DrawTextUntrimmed(UIFont font, std::string_view text, double _x,
  double _y, double r, double g, double b,
  double alpha) {
  if (text != nullptr) {
@@ -168,28 +169,28 @@ public
  }
  }
 
- void DrawTextCentre(const std::string &text, double _x, double _y, double r,
+ void DrawTextCentre(std::string_view text, double _x, double _y, double r,
  double g, double b, double alpha) {
  TextManager.instance.DrawStringCentre(
  _x + this->getAbsoluteX() + this->xScroll,
  _y + this->getAbsoluteY() + this->yScroll, text, r, g, b, alpha);
  }
 
- void DrawTextCentre(UIFont font, const std::string &text, double _x,
+ void DrawTextCentre(UIFont font, std::string_view text, double _x,
  double _y, double r, double g, double b, double alpha) {
  TextManager.instance.DrawStringCentre(
  font, _x + this->getAbsoluteX() + this->xScroll,
  _y + this->getAbsoluteY() + this->yScroll, text, r, g, b, alpha);
  }
 
- void DrawTextRight(const std::string &text, double _x, double _y, double r,
+ void DrawTextRight(std::string_view text, double _x, double _y, double r,
  double g, double b, double alpha) {
  TextManager.instance.DrawStringRight(
  _x + this->getAbsoluteX() + this->xScroll,
  _y + this->getAbsoluteY() + this->yScroll, text, r, g, b, alpha);
  }
 
- void DrawTextRight(UIFont font, const std::string &text, double _x, double _y,
+ void DrawTextRight(UIFont font, std::string_view text, double _x, double _y,
  double r, double g, double b, double alpha) {
  TextManager.instance.DrawStringRight(
  font, _x + this->getAbsoluteX() + this->xScroll,
@@ -628,7 +629,7 @@ public
  *
  * @param _clickedValue the clickedValue to set
  */
- void setClickedValue(const std::string &_clickedValue) {
+ void setClickedValue(std::string_view _clickedValue) {
  this->clickedValue = _clickedValue;
  }
 
@@ -981,9 +982,9 @@ public
  }
  }
 
- void onresize() {}
+ void onresize() noexcept{}
 
- void onResize() {
+ void onResize() noexcept{
  if (this->Parent != nullptr && this->Parent.bResizeDirty) {
  double double0 = this->Parent.getWidth() - this->Parent.lastwidth;
  double double1 = this->Parent.getHeight() - this->Parent.lastheight;
@@ -1606,7 +1607,7 @@ public
 
  std::string getUIName() { return this->uiname; }
 
- void setUIName(const std::string &name) {
+ void setUIName(std::string_view name) {
  this->uiname = name != nullptr ? name : "";
  }
 
@@ -1712,7 +1713,7 @@ public
  : Boolean.FALSE;
  }
 
- void *tryGetTableValue(const std::string &string) {
+ void *tryGetTableValue(std::string_view string) {
  return this->getTable() == nullptr ? nullptr
  : this->getTable().rawget(string);
  }

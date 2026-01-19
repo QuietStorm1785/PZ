@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -14,10 +15,10 @@ namespace vecmath {
 class MismatchedSizeException : public RuntimeException {
 public:
 public
- MismatchedSizeException() {}
+ MismatchedSizeException() noexcept{}
 
 public
- MismatchedSizeException(const std::string &string) { super(string); }
+ MismatchedSizeException(std::string_view string) { super(string); }
 }
 } // namespace vecmath
 } // namespace javax

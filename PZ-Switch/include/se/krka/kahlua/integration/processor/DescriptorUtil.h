@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,7 +18,7 @@ namespace processor {
 
 class DescriptorUtil {
 public:
- static std::string getDescriptor(const std::string& string1, List<? extends) {
+ static std::string getDescriptor(std::string_view string1, List<? extends) {
  std::string string0 = "";
 
  for (auto &variableElement : list)

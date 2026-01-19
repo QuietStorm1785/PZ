@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -169,13 +170,13 @@ private
  }
  }
 
- std::string bankPath(const std::string &string) {
+ std::string bankPath(std::string_view string) {
  return new File("./media/sound/banks/Desktop/" + string + ".bank")
  .getCanonicalFile()
  .getPath();
  }
 
- long loadBank(const std::string &string1) {
+ long loadBank(std::string_view string1) {
  try {
  std::string string0 = this->bankPath(string1);
  long long0 = javafmod.FMOD_Studio_System_LoadBankFile(string0);
@@ -382,7 +383,7 @@ private
 
  int getNumListeners() { return this->numListeners; }
 
- long loadSound(const std::string &string) {
+ long loadSound(std::string_view string) {
  string = ZomboidFileSystem.instance.getAbsolutePath(string);
  if (string.empty()) {
  return 0L;
@@ -410,7 +411,7 @@ private
 
  bool isPlaying(long long0) { return javafmod.FMOD_Channel_IsPlaying(long0); }
 
- long loadSound(const std::string &string, bool boolean0) {
+ long loadSound(std::string_view string, bool boolean0) {
  string = ZomboidFileSystem.instance.getAbsolutePath(string);
  if (string.empty()) {
  return 0L;
@@ -549,23 +550,23 @@ private
  }
  }
 
- FMOD_STUDIO_EVENT_DESCRIPTION getEventDescription(const std::string &string) {
+ FMOD_STUDIO_EVENT_DESCRIPTION getEventDescription(std::string_view string) {
  return this->eventDescriptionMap.get(string.toLowerCase(Locale.ENGLISH);
  }
 
  FMOD_STUDIO_PARAMETER_DESCRIPTION
- getParameterDescription(const std::string &string) {
+ getParameterDescription(std::string_view string) {
  return this->parameterDescriptionMap.get(string);
  }
 
- FMOD_STUDIO_PARAMETER_ID getParameterID(const std::string &string) {
+ FMOD_STUDIO_PARAMETER_ID getParameterID(std::string_view string) {
  FMOD_STUDIO_PARAMETER_DESCRIPTION fmod_studio_parameter_description =
  this->getParameterDescription(string);
  return fmod_studio_parameter_description = =
  nullptr ? nullptr : fmod_studio_parameter_description.id;
  }
 
- int getParameterCount() { return this->parameterDescriptionMap.size(); }
+ int getParameterCount() noexcept{ return this->parameterDescriptionMap.size(); }
 
 public
  static class TestZombieInfo {

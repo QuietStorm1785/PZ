@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ private
  static ArrayList<InventoryItem> s_InventoryItems =
  std::make_unique<ArrayList<>>();
 
- void Load(const std::string &string0, String[] strings0) {
+ void Load(std::string_view string0, String[] strings0) {
  this->setName(string0);
 
  for (int int0 = 0; int0 < strings0.length; int0++) {
@@ -97,12 +98,12 @@ private
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
 public
  ArrayList<String> getRequiredItem() { return this->require; }
 
- void addRequiredItem(const std::string &_require) {
+ void addRequiredItem(std::string_view _require) {
  if (this->require.empty()) {
  this->require = std::make_unique<ArrayList<>>();
  }
@@ -228,7 +229,7 @@ public
  int numberOfUse = 1;
 
  public
- Fixer(const std::string &name, LinkedList<Fixing.FixerSkill> _skills,
+ Fixer(std::string_view name, LinkedList<Fixing.FixerSkill> _skills,
  int _numberOfUse) {
  this->fixerName = name;
  this->skills = _skills;
@@ -248,7 +249,7 @@ public
  int skillLvl = 0;
 
  public
- FixerSkill(const std::string &_skillName, int _skillLvl) {
+ FixerSkill(std::string_view _skillName, int _skillLvl) {
  this->skillName = _skillName;
  this->skillLvl = _skillLvl;
  }

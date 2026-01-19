@@ -18,6 +18,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -152,7 +153,7 @@ private
  }
 
  static void applyBoneTransform(ModelInstance parentInstance,
- const std::string &boneName,
+ std::string_view boneName,
  Matrix4f transform) {
  if (parentInstance != nullptr && parentInstance.AnimPlayer != nullptr) {
  if (!StringUtils.isNullOrWhitespace(boneName) {

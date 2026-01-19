@@ -25,6 +25,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -92,7 +93,7 @@ public:
  const FloatBuffer floatBuffer2 = BufferUtils.createFloatBuffer(16);
 
 public
- Shader(const std::string &_name, bool _bStatic) {
+ Shader(std::string_view _name, bool _bStatic) {
  this->name = _name;
  this->m_shaderProgram =
  ShaderProgram.createShaderProgram(_name, _bStatic, false);
@@ -242,7 +243,7 @@ public
 
  void compile() { this->m_shaderProgram.compile(); }
 
- void setTexture(Texture tex, const std::string &unitName, int textureUnit) {
+ void setTexture(Texture tex, std::string_view unitName, int textureUnit) {
  this->m_shaderProgram.setValue(unitName, tex, textureUnit);
  }
 

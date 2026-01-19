@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -71,7 +72,7 @@ private
  }
 
  static bool addSheetRope(IsoObject o, IsoPlayer player,
- const std::string &itemType) {
+ std::string_view itemType) {
  return !canAddSheetRope(o)
  ? false
  : IsoWindow.addSheetRope(player, o.getSquare(),

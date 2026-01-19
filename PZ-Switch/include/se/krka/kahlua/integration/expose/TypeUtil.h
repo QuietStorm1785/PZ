@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  static const Pattern pattern =
  Pattern.compile("([\\.a-z0-9]*)\\.([A-Za-z][A-Za-z0-9_]*)");
 
- static std::string removePackages(const std::string &string) {
+ static std::string removePackages(std::string_view string) {
  Matcher matcher = pattern.matcher(string);
  return matcher.replaceAll("$2");
  }
@@ -64,7 +65,7 @@ public:
  }
  }
 
- static std::string handleBounds(const std::string &string, Type[] types0,
+ static std::string handleBounds(std::string_view string, Type[] types0,
  Type[] types1) {
  if (types0 != nullptr) {
  if (types0.length == 1 && types0[0] == Object.class) {

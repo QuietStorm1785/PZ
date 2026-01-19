@@ -43,6 +43,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -117,8 +118,8 @@ public
  }
 
 public
- Food(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ Food(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  Texture.WarnFailFindTexture = false;
  this->texturerotten = Texture.trygetTexture(texName + "Rotten");
@@ -160,8 +161,8 @@ public
  }
 
 public
- Food(const std::string &module, const std::string &name,
- const std::string &itemType, Item item) {
+ Food(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item) {
  super(module, name, itemType, item);
  std::string string = item.ItemName;
  Texture.WarnFailFindTexture = false;
@@ -1561,7 +1562,7 @@ public
 
  std::string getUseOnConsume() { return this->useOnConsume; }
 
- void setUseOnConsume(const std::string &_useOnConsume) {
+ void setUseOnConsume(std::string_view _useOnConsume) {
  this->useOnConsume = _useOnConsume;
  }
 
@@ -1635,7 +1636,7 @@ public
 
  std::string getFoodType() { return this->FoodType; }
 
- void setFoodType(const std::string &foodType) { this->FoodType = foodType; }
+ void setFoodType(std::string_view foodType) { this->FoodType = foodType; }
 
  bool isRemoveNegativeEffectOnCooked() {
  return this->RemoveNegativeEffectOnCooked;
@@ -1651,21 +1652,21 @@ public
 
  std::string getCustomEatSound() { return this->CustomEatSound; }
 
- void setCustomEatSound(const std::string &customEatSound) {
+ void setCustomEatSound(std::string_view customEatSound) {
  this->CustomEatSound = customEatSound;
  }
 
  std::string getChef() { return this->Chef; }
 
- void setChef(const std::string &chef) { this->Chef = chef; }
+ void setChef(std::string_view chef) { this->Chef = chef; }
 
  std::string getOnCooked() { return this->OnCooked; }
 
- void setOnCooked(const std::string &onCooked) { this->OnCooked = onCooked; }
+ void setOnCooked(std::string_view onCooked) { this->OnCooked = onCooked; }
 
  std::string getHerbalistType() { return this->HerbalistType; }
 
- void setHerbalistType(const std::string &type) { this->HerbalistType = type; }
+ void setHerbalistType(std::string_view type) { this->HerbalistType = type; }
 
 public
  ArrayList<String> getSpices() { return this->spices; }
@@ -1791,7 +1792,7 @@ public
 
  std::string getReplaceOnRotten() { return this->replaceOnRotten; }
 
- void setReplaceOnRotten(const std::string &_replaceOnRotten) {
+ void setReplaceOnRotten(std::string_view _replaceOnRotten) {
  this->replaceOnRotten = _replaceOnRotten;
  }
 
@@ -1823,7 +1824,7 @@ public
 
  std::string getOnEat() { return this->onEat; }
 
- void setOnEat(const std::string &_onEat) { this->onEat = _onEat; }
+ void setOnEat(std::string_view _onEat) { this->onEat = _onEat; }
 
  bool isBadInMicrowave() { return this->badInMicrowave; }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <stdexcept>
 #include <string>
+#include <string_view>
 
 namespace java {
 namespace security {
@@ -11,11 +12,11 @@ namespace security {
  */
 class AccessControlException : public std::runtime_error {
 public:
- explicit AccessControlException(const std::string& message)
+ explicit AccessControlException(std::string_view message)
  : std::runtime_error(message)
  , permission("") {}
  
- AccessControlException(const std::string& message, const std::string& perm)
+ AccessControlException(std::string_view message, std::string_view perm)
  : std::runtime_error(message)
  , permission(perm) {}
  

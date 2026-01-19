@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -72,11 +73,11 @@ public
 
  std::string getOrder() { return this->order; }
 
- void setOrder(const std::string &_order) { this->order = _order; }
+ void setOrder(std::string_view _order) { this->order = _order; }
 
  SurvivorGroup getGroup() { return this->character.getDescriptor().getGroup(); }
 
- int getCloseZombieCount() {
+ int getCloseZombieCount() noexcept{
  this->character.getStats();
  return Stats.NumCloseZombies;
  }

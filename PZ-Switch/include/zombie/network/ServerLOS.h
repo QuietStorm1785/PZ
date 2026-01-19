@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -33,7 +34,7 @@ private
  bool bSuspended = false;
  bool bWasSuspended;
 
- void noise(const std::string &var1) {}
+ void noise(std::string_view var1) {}
 
  static void init() {
  instance = std::make_unique<ServerLOS>();
@@ -302,7 +303,7 @@ class LOSThread extends Thread {
 
  float darkMulti() { return 0.0F; }
 
- float targetDarkMulti() { return 0.0F; }
+ float targetDarkMulti() noexcept{ return 0.0F; }
 
  ColorInfo lightInfo() {
  lightInfo.r = 1.0F;
@@ -347,7 +348,7 @@ class LOSThread extends Thread {
 
  void targetDarkMulti(float var1) {}
 
- int resultLightCount() { return 0; }
+ int resultLightCount() noexcept{ return 0; }
 
  public
  IsoGridSquare.ResultLight getResultLight(int var1) { return nullptr; }

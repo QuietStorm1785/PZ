@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -43,11 +44,11 @@ class Comment {
     return true;
    }
 
-    void add(const std::string& var1) {
+    void add(std::string_view var1) {
       this.add(var1.getBytes());
    }
 
-    void add_tag(const std::string& var1, const std::string& var2) {
+    void add_tag(std::string_view var1, std::string_view var2) {
       if (var2 == nullptr) {
          var2 = "";
       }
@@ -86,11 +87,11 @@ class Comment {
       this.vendor = nullptr;
    }
 
-    std::string query(const std::string& var1) {
+    std::string query(std::string_view var1) {
       return this.query(var1, 0);
    }
 
-    std::string query(const std::string& var1, int var2) {
+    std::string query(std::string_view var1, int var2) {
     int var3 = this.query(var1.getBytes(), var2);
       if (var3 == -1) {
     return nullptr;

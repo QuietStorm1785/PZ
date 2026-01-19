@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ public
  !StringUtils.isNullOrWhitespace(this->texture);
  }
 
- std::string getAlternate(const std::string &category) {
+ std::string getAlternate(std::string_view category) {
  for (int int0 = 0; int0 < this->alternate.size(); int0++) {
  HairStyle.Alternate alternatex = this->alternate.get(int0);
  if (category.equalsIgnoreCase(alternatex.category) {

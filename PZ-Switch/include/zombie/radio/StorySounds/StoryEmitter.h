@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -39,7 +40,7 @@ public
 
  int stopSound(long channel) { return javafmod.FMOD_Channel_Stop(channel); }
 
- long playSound(const std::string &file, float baseVolume, float x, float y,
+ long playSound(std::string_view file, float baseVolume, float x, float y,
  float z, float minRange, float maxRange) {
  if (this->max != -1 &&
  this->max <= this->Instances.size() + this->ToStart.size()) {

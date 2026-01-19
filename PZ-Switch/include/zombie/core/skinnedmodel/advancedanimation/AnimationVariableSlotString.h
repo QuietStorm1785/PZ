@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
  std::string m_value;
 
 public
- AnimationVariableSlotString(const std::string &string) { super(string); }
+ AnimationVariableSlotString(std::string_view string) { super(string); }
 
  std::string getValueString() { return this->m_value; }
 
@@ -28,7 +29,7 @@ public
 
  bool getValueBool() { return StringUtils.tryParseBoolean(this->m_value); }
 
- void setValue(const std::string &string) { this->m_value = string; }
+ void setValue(std::string_view string) { this->m_value = string; }
 
  void setValue(float float0) { this->m_value = String.valueOf(float0); }
 
@@ -36,7 +37,7 @@ public
 
  AnimationVariableType getType() { return AnimationVariableType.String; }
 
- bool canConvertFrom(const std::string &var1) { return true; }
+ bool canConvertFrom(std::string_view var1) { return true; }
 
  void clear() { this->m_value = ""; }
 }

@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -64,7 +65,7 @@ private
 
  static GameProfiler getInstance() { return s_instance.get(); }
 
- void startFrame(const std::string &string) {
+ void startFrame(std::string_view string) {
  if (this->m_isInFrame) {
  throw RuntimeException("Already inside a frame.");
  } else {
@@ -98,7 +99,7 @@ private
  this->m_isInFrame = false;
  }
 
- void invokeAndMeasureFrame(const std::string &string, Runnable runnable) {
+ void invokeAndMeasureFrame(std::string_view string, Runnable runnable) {
  if (!isRunning()) {
  runnable.run();
  } else {
@@ -112,7 +113,7 @@ private
  }
  }
 
- void invokeAndMeasure(const std::string &string, Runnable runnable) {
+ void invokeAndMeasure(std::string_view string, Runnable runnable) {
  if (!isRunning()) {
  runnable.run();
  } else if (!this->m_isInFrame) {
@@ -222,7 +223,7 @@ public
  }
  }
 
- void renderPercent(const std::string &string, long long0, int int1, int int0,
+ void renderPercent(std::string_view string, long long0, int int1, int int0,
  float float3, float float2, float float1) {
  float float0 = (float)long0 / (float)this->m_previousFrame.m_totalTime;
  float0 *= 100.0F;

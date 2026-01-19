@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
 
  AnimationVariableHandle() {}
 
- static AnimationVariableHandle alloc(const std::string &name) {
+ static AnimationVariableHandle alloc(std::string_view name) {
  return AnimationVariableHandlePool.getOrCreate(name);
  }
 
@@ -28,7 +29,7 @@ public:
 
  int getVariableIndex() { return this->m_varIndex; }
 
- void setVariableName(const std::string &string) { this->m_name = string; }
+ void setVariableName(std::string_view string) { this->m_name = string; }
 
  void setVariableIndex(int int0) { this->m_varIndex = int0; }
 }

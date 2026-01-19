@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -74,7 +75,7 @@ private
  return string;
  }
 
- static int getKeyCode(const std::string &keyName) {
+ static int getKeyCode(std::string_view keyName) {
  if ("Right SHIFT" == keyName) {
  return 54;
  }
@@ -93,7 +94,7 @@ private
  * get a count of the number of controllers available
  * @return The number of controllers available
  */
- int getControllerCount() { return this->controllers.length; }
+ int getControllerCount() noexcept{ return this->controllers.length; }
 
  /**
  * get the number of axis that are avaiable on a given controller

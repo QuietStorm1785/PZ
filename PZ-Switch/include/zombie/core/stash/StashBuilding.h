@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  std::string stashName;
 
 public
- StashBuilding(const std::string &_stashName, int _buildingX, int _buildingY) {
+ StashBuilding(std::string_view _stashName, int _buildingX, int _buildingY) {
  this->stashName = _stashName;
  this->buildingX = _buildingX;
  this->buildingY = _buildingY;

@@ -70,6 +70,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -132,7 +133,7 @@ private
  }
 
  void doAttack(IsoPlayer player, float float0, bool boolean0,
- const std::string &string, AttackVars attackVars) {
+ std::string_view string, AttackVars attackVars) {
  player.setForceShove(boolean0);
  player.setClickSound(string);
  if (boolean0) {
@@ -764,7 +765,7 @@ private
 
  void getNearestTargetPosAndDot(IsoGameCharacter character,
  IsoMovingObject movingObject,
- const std::string &string, Vector2 vector1,
+ std::string_view string, Vector2 vector1,
  Vector4f vector4f) {
  Vector3 vector0 = getBoneWorldPos(movingObject, string, tempVectorBonePos);
  this->getNearestTargetPosAndDot(character, vector0, vector1, vector4f);
@@ -1384,7 +1385,7 @@ private
  }
 
  static Vector3 getBoneWorldPos(IsoMovingObject target,
- const std::string &boneName, Vector3 bonePos) {
+ std::string_view boneName, Vector3 bonePos) {
  IsoGameCharacter character = Type.tryCastTo(target, IsoGameCharacter.class);
  if (character != nullptr && boneName != nullptr) {
  AnimationPlayer animationPlayer = character.getAnimationPlayer();

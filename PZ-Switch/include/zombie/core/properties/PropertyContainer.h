@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -73,11 +74,11 @@ public
  return this->Is(IsoFlagType.fromIndex(flag.intValue()));
  }
 
- void Set(const std::string &propName, const std::string &propName2) {
+ void Set(std::string_view propName, std::string_view propName2) {
  this->Set(propName, propName2, true);
  }
 
- void Set(const std::string &propName, const std::string &propName2,
+ void Set(std::string_view propName, std::string_view propName2,
  bool checkIsoFlagType) {
  if (propName != nullptr) {
  if (checkIsoFlagType) {
@@ -106,9 +107,9 @@ public
  }
  }
 
- void Set(IsoFlagType flag, const std::string &ignored) { this->Set(flag); }
+ void Set(IsoFlagType flag, std::string_view ignored) { this->Set(flag); }
 
- void UnSet(const std::string &propName) {
+ void UnSet(std::string_view propName) {
  int int0 = TilePropertyAliasMap.instance.getIDFromPropertyName(propName);
  this->Properties.remove(int0);
  }
@@ -121,7 +122,7 @@ public
  }
  }
 
- std::string Val(const std::string &property) {
+ std::string Val(std::string_view property) {
  int int0 = TilePropertyAliasMap.instance.getIDFromPropertyName(property);
  return !this->Properties.containsKey(int0)
  ? nullptr
@@ -129,7 +130,7 @@ public
  int0, this->Properties.get(int0);
  }
 
- bool Is(const std::string &isoPropertyType) {
+ bool Is(std::string_view isoPropertyType) {
  int int0 =
  TilePropertyAliasMap.instance.getIDFromPropertyName(isoPropertyType);
  return this->Properties.containsKey(int0);

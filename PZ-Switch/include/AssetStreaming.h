@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <memory>
 #include <functional>
@@ -79,7 +80,7 @@ public:
  T& operator*() const { return *asset; }
  
  bool isValid() const { return asset != nullptr; }
- int getRefCount() const { return refCount ? *refCount : 0; }
+ int getRefCount() const noexcept { return refCount ? *refCount : 0; }
  
 private:
  T* asset;
@@ -137,23 +138,23 @@ public:
  * @param path - Path to texture file
  * @return Handle to texture (may be nullptr if loading)
  */
- AssetHandle<SDL_Texture> requestTexture(const std::string& path);
+ AssetHandle<SDL_Texture> requestTexture(std::string_view path);
 
  /**
  * Preload texture (async)
  * @param path - Path to texture file
  */
- void preloadTexture(const std::string& path);
+ void preloadTexture(std::string_view path);
 
  /**
  * Check if asset is loaded
  */
- bool isLoaded(const std::string& path) const;
+ bool isLoaded(std::string_view path) const;
 
  /**
  * Unload specific asset
  */
- void unload(const std::string& path);
+ void unload(std::string_view path);
 
  /**
  * Unload all unused assets
@@ -171,7 +172,7 @@ public:
  */
  size_t getCurrentMemoryUsage() const { return currentMemoryUsage; }
  size_t getMaxMemoryUsage() const { return config.maxMemoryBytes; }
- size_t getCachedAssetCount() const { return cachedTextures.size(); }
+ size_t getCachedAssetCount() const noexcept { return cachedTextures.size(); }
  
  /**
  * Get cache statistics
@@ -222,7 +223,7 @@ private:
  size_t cacheMisses;
  float globalTime;
 
- SDL_Texture* loadTextureImmediate(const std::string& path);
+ SDL_Texture* loadTextureImmediate(std::string_view path);
  void evictLRU();
  size_t estimateTextureMemory(SDL_Texture* texture);
 };
@@ -239,12 +240,12 @@ public:
  /**
  * Get texture (loads on-demand)
  */
- SDL_Texture* getTexture(const std::string& path);
+ SDL_Texture* getTexture(std::string_view path);
 
  /**
  * Preload texture
  */
- void preloadTexture(const std::string& path);
+ void preloadTexture(std::string_view path);
 
  /**
  * Update streaming (call each frame)

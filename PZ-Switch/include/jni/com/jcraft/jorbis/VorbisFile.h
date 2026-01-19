@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -60,7 +61,7 @@ class VorbisFile {
     Block vb = new Block(this.vd);
    Info[] vi;
 
-     VorbisFile(const std::string& var1) {
+     VorbisFile(std::string_view var1) {
     SeekableInputStream var2 = nullptr;
 
       try {

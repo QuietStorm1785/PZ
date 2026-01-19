@@ -26,6 +26,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -56,7 +57,7 @@ public:
  return this->dbSchema;
  }
 
- void executeQuery(const std::string &string, KahluaTable table) {
+ void executeQuery(std::string_view string, KahluaTable table) {
  PreparedStatement preparedStatement = this->conn.prepareStatement(string);
  KahluaTableIterator kahluaTableIterator = table.iterator();
  int int0 = 1;
@@ -150,7 +151,7 @@ public
  }
  }
 
- void saveTransactionID(const std::string &string, int integer) {
+ void saveTransactionID(std::string_view string, int integer) {
  try {
  if (!this->containsUser(string) {
  this->addUser(string, "");
@@ -167,7 +168,7 @@ public
  }
  }
 
- bool containsUser(const std::string &string) {
+ bool containsUser(std::string_view string) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ? AND world = ?");
@@ -187,7 +188,7 @@ public
  return false;
  }
 
- bool containsCaseinsensitiveUser(const std::string &string) {
+ bool containsCaseinsensitiveUser(std::string_view string) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE LOWER(username) = LOWER(?) AND world "
@@ -208,8 +209,8 @@ public
  return false;
  }
 
- std::string changeUsername(const std::string &string0,
- const std::string &string2) {
+ std::string changeUsername(std::string_view string0,
+ std::string_view string2) {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ? AND world = ?");
  preparedStatement.setString(1, string0);
@@ -233,7 +234,7 @@ public
  }
  }
 
- std::string addUser(const std::string &string0, const std::string &string1) {
+ std::string addUser(std::string_view string0, std::string_view string1) {
  if (this->containsCaseinsensitiveUser(string0) {
  return "A user with this name already exists";
  } else {
@@ -265,8 +266,8 @@ public
  }
  }
 
- void updateDisplayName(const std::string &string0,
- const std::string &string1) {
+ void updateDisplayName(std::string_view string0,
+ std::string_view string1) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ? AND world = ?");
@@ -289,7 +290,7 @@ public
  }
  }
 
- std::string getDisplayName(const std::string &string0) {
+ std::string getDisplayName(std::string_view string0) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ? AND world = ?");
@@ -310,7 +311,7 @@ public
  return nullptr;
  }
 
- std::string removeUser(const std::string &string) {
+ std::string removeUser(std::string_view string) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "DELETE FROM whitelist WHERE world = ? and username = ?");
@@ -325,8 +326,8 @@ public
  return "User " + string + " removed from white list";
  }
 
- void removeUserLog(const std::string &string0, const std::string &string1,
- const std::string &string2) {
+ void removeUserLog(std::string_view string0, std::string_view string1,
+ std::string_view string2) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "DELETE FROM userlog WHERE username = ? AND type = ? AND text = ?");
@@ -666,7 +667,7 @@ public
  }
  }
 
- static bool isValidUserName(const std::string &string) {
+ static bool isValidUserName(std::string_view string) {
  if (string.empty() || string.trim().empty() || string.contains(";") ||
  string.contains("@") || string.contains("$") || string.contains(",") ||
  string.contains("/") || string.contains(".") || string.contains("'") ||
@@ -900,7 +901,7 @@ public
  return logonResult;
  }
 
- bool isNewAccountAllowed(const std::string &var1, long long0) {
+ bool isNewAccountAllowed(std::string_view var1, long long0) {
  int int0 = ServerOptions.instance.MaxAccountsPerUser.getValue();
  if (int0 <= 0) {
  return true;
@@ -933,7 +934,7 @@ public
  }
  }
 
- static std::string encrypt(const std::string &string0) {
+ static std::string encrypt(std::string_view string0) {
  if (isNullOrEmpty(string0) {
  return "";
  } else {
@@ -962,8 +963,8 @@ public
  }
  }
 
- std::string changePwd(const std::string &string0, const std::string &string1,
- const std::string &string2) {
+ std::string changePwd(std::string_view string0, std::string_view string1,
+ std::string_view string2) {
  PreparedStatement preparedStatement =
  this->conn.prepareStatement("SELECT * FROM whitelist WHERE username = ? "
  "AND password = ? AND world = ?");
@@ -988,7 +989,7 @@ public
  }
  }
 
- std::string grantAdmin(const std::string &string, bool boolean0) {
+ std::string grantAdmin(std::string_view string, bool boolean0) {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ? AND world = ?");
  preparedStatement.setString(1, string);
@@ -1011,8 +1012,8 @@ public
  }
  }
 
- std::string setAccessLevel(const std::string &string1,
- const std::string &string0) {
+ std::string setAccessLevel(std::string_view string1,
+ std::string_view string0) {
  string0 = string0.trim();
  if (!this->containsUser(string1) {
  this->addUser(string1, "");
@@ -1064,8 +1065,8 @@ public
  return arrayList;
  }
 
- void addUserlog(const std::string &string1, Userlog.UserlogType userlogType,
- const std::string &string2, const std::string &string3,
+ void addUserlog(std::string_view string1, Userlog.UserlogType userlogType,
+ std::string_view string2, std::string_view string3,
  int int0) {
  try {
  bool boolean0 = true;
@@ -1142,7 +1143,7 @@ public
  }
  }
 
- std::string banUser(const std::string &string0, bool boolean1) {
+ std::string banUser(std::string_view string0, bool boolean1) {
  PreparedStatement preparedStatement0 = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ? AND world = ?");
  preparedStatement0.setString(1, string0);
@@ -1200,8 +1201,8 @@ public
  }
  }
 
- std::string banIp(const std::string &string0, const std::string &string1,
- const std::string &string2, bool boolean0) {
+ std::string banIp(std::string_view string0, std::string_view string1,
+ std::string_view string2, bool boolean0) {
  if (boolean0) {
  PreparedStatement preparedStatement0 = this->conn.prepareStatement(
  "INSERT INTO bannedip (ip, username, reason) VALUES (?, ?, ?)");
@@ -1229,7 +1230,7 @@ public
  return "";
  }
 
- std::string banSteamID(const std::string &string0, const std::string &string1,
+ std::string banSteamID(std::string_view string0, std::string_view string1,
  bool boolean0) {
  if (boolean0) {
  PreparedStatement preparedStatement0 = this->conn.prepareStatement(
@@ -1249,8 +1250,8 @@ public
  return "";
  }
 
- std::string setUserSteamID(const std::string &string0,
- const std::string &string1) {
+ std::string setUserSteamID(std::string_view string0,
+ std::string_view string1) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ?");
@@ -1275,7 +1276,7 @@ public
  return "User " + string0 + " SteamID set to " + string1;
  }
 
- void setPassword(const std::string &string1, const std::string &string0) {
+ void setPassword(std::string_view string1, std::string_view string0) {
  try {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "UPDATE whitelist SET pwdEncryptType = '2', password = ? WHERE "
@@ -1290,8 +1291,8 @@ public
  }
  }
 
- void updateLastConnectionDate(const std::string &string0,
- const std::string &string1) {
+ void updateLastConnectionDate(std::string_view string0,
+ std::string_view string1) {
  try {
  PreparedStatement preparedStatement =
  this->conn.prepareStatement("UPDATE whitelist SET lastConnection = ? "
@@ -1307,13 +1308,13 @@ public
  }
  }
 
- static bool isNullOrEmpty(const std::string &string) {
+ static bool isNullOrEmpty(std::string_view string) {
  return string = = nullptr || string.empty();
  }
 
- std::string addWarningPoint(const std::string &string0,
- const std::string &string1, int int0,
- const std::string &string2) {
+ std::string addWarningPoint(std::string_view string0,
+ std::string_view string1, int int0,
+ std::string_view string2) {
  PreparedStatement preparedStatement = this->conn.prepareStatement(
  "SELECT * FROM whitelist WHERE username = ? AND world = ?");
  preparedStatement.setString(1, string0);
@@ -1328,7 +1329,7 @@ public
  }
  }
 
- void addTicket(const std::string &string0, const std::string &string1,
+ void addTicket(std::string_view string0, std::string_view string1,
  int int0) {
  if (int0 > -1) {
  PreparedStatement preparedStatement0 = this->conn.prepareStatement(

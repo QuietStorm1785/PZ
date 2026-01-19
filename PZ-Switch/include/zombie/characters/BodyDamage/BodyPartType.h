@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -42,7 +43,7 @@ enum class BodyPartType {
 
 int index() { return ToIndex(); }
 
-static BodyPartType FromString(const std::string &str) {
+static BodyPartType FromString(std::string_view str) {
  if (str == "Hand_L")) {
  return Hand_L;
  }

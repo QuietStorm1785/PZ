@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,8 +33,8 @@ private
  }
 
 public
- ClassParameterInformation(const std::string &string0,
- const std::string &string1) {
+ ClassParameterInformation(std::string_view string0,
+ std::string_view string1) {
  this->packageName = string0;
  this->simpleClassName = string1;
  }

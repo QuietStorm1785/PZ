@@ -16,6 +16,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -102,7 +103,7 @@ public:
  }
  }
 
- static bool isPlayerAlive(const std::string &string0, int int0) {
+ static bool isPlayerAlive(std::string_view string0, int int0) {
  if (Core.getInstance().isNoSave()) {
  return false;
  } else {
@@ -185,7 +186,7 @@ public
  }
  }
 
- static void setPlayer1(const std::string &string0, int int0) {
+ static void setPlayer1(std::string_view string0, int int0) {
  if (!Core.getInstance().isNoSave()) {
  if (int0 != 1) {
  File file = new File(string0 + File.separator + "players.db");

@@ -35,6 +35,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -215,7 +216,7 @@ private
 
 public
  interface IImportPlayerFromOldDB {
- void accept(int var1, const std::string &var2, int var3, int var4,
+ void accept(int var1, std::string_view var2, int var3, int var4,
  float var5, float var6, float var7, int var8, byte[] var9,
  bool var10);
  }
@@ -874,7 +875,7 @@ private
  }
  }
 
- std::string searchPathForSqliteLib(const std::string &string1) {
+ std::string searchPathForSqliteLib(std::string_view string1) {
  for (String string0 : System.getProperty("java.library.path", "")
  .split(File.pathSeparator) {
  File file = new File(string0, string1);

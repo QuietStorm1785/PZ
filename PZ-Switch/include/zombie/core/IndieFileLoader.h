@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,11 +17,11 @@ namespace core {
 
 class IndieFileLoader {
 public:
- static InputStreamReader getStreamReader(const std::string &string) {
+ static InputStreamReader getStreamReader(std::string_view string) {
  return getStreamReader();
  }
 
- static InputStreamReader getStreamReader(const std::string &string,
+ static InputStreamReader getStreamReader(std::string_view string,
  bool boolean0) {
  InputStreamReader inputStreamReader = nullptr;
  void *object = nullptr;

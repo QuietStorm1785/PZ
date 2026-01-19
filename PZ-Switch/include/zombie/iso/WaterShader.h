@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -34,7 +35,7 @@ public:
  int WaterParamRainIntensity;
 
 public
- WaterShader(const std::string &string) { super(string); }
+ WaterShader(std::string_view string) { super(string); }
 
  void onCompileSuccess(ShaderProgram shaderProgram) {
  int int0 = shaderProgram.getShaderID();

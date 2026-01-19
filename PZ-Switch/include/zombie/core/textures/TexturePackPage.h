@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -52,11 +53,11 @@ public
  static ArrayList<String> tempFilenameCheck = std::make_unique<ArrayList<>>();
  static bool bIgnoreWorldItemTextures = true;
 
- static void LoadDir(const std::string &var0) {}
+ static void LoadDir(std::string_view var0) {}
 
  static void searchFolders(File var0) {}
 
- static Texture getTexture(const std::string &string) {
+ static Texture getTexture(std::string_view string) {
  if (string.contains(".png")) {
  return Texture.getSharedTexture(string);
  } else {
@@ -247,7 +248,7 @@ public
 
  public
  SubTextureInfo(int _x, int _y, int _w, int _h, int _ox, int _oy, int _fx,
- int _fy, const std::string &_name) {
+ int _fy, std::string_view _name) {
  this->x = _x;
  this->y = _y;
  this->w = _w;

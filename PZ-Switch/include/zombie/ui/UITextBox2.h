@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -79,7 +80,7 @@ public
 
 public
  UITextBox2(UIFont _font, int x, int y, int width, int height,
- const std::string &text, bool _HasFrame) {
+ std::string_view text, bool _HasFrame) {
  this->font = _font;
  this->x = x;
  this->y = y;
@@ -136,7 +137,7 @@ public
 
  bool isMasked() { return this->bMask; }
 
- void onresize() { this->Paginate(); }
+ void onresize() noexcept{ this->Paginate(); }
 
  void render() {
  if (this->isVisible()) {
@@ -749,7 +750,7 @@ void updateText() {
  }
 }
 
-void SetText(const std::string &text) {
+void SetText(std::string_view text) {
  this->internalText = text;
  if (this->bMask) {
  text = "";

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -25,7 +26,7 @@ class FileTask_LoadPackImage :  FileTask {
     bool bMask;
     int m_flags;
 
-     FileTask_LoadPackImage(const std::string& var1, const std::string& var2, FileSystem var3, IFileTaskCallback var4) {
+     FileTask_LoadPackImage(std::string_view var1, std::string_view var2, FileSystem var3, IFileTaskCallback var4) {
       super(var3, var4);
       this.m_pack_name = var1;
       this.m_image_name = var2;

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,9 +25,9 @@ private
  const std::string returnDescription;
 
 public
- MethodDebugInformation(const std::string &string0, bool boolean0,
- List<MethodParameter> list, const std::string &string2,
- const std::string &string1) {
+ MethodDebugInformation(std::string_view string0, bool boolean0,
+ List<MethodParameter> list, std::string_view string2,
+ std::string_view string1) {
  this->parameters = list;
  this->luaName = string0;
  this->isMethod = boolean0;

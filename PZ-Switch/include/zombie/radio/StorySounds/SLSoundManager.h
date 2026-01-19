@@ -12,6 +12,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -64,7 +65,7 @@ private
 public
  ArrayList<StorySound> getStorySounds() { return this->storySounds; }
 
- void print(const std::string &line) {
+ void print(std::string_view line) {
  if (DEBUG) {
  System.out.println(line);
  }
@@ -160,7 +161,7 @@ public
  }
  }
 
- void renderLine(UIFont uIFont, const std::string &string, int int1,
+ void renderLine(UIFont uIFont, std::string_view string, int int1,
  int int0) {
  TextManager.instance.DrawString(uIFont, int1 + 1, int0 + 1, string, 0.0,
  0.0, 0.0, 1.0);

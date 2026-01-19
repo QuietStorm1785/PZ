@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,8 +23,8 @@ public:
 
  static bool sendItemListNet(IsoPlayer player0,
  ArrayList<InventoryItem> arrayList,
- IsoPlayer player1, const std::string &string0,
- const std::string &string1) {
+ IsoPlayer player1, std::string_view string0,
+ std::string_view string1) {
  if (arrayList != nullptr) {
  string0 = string0 != nullptr ? string0 : "-1";
  if (GameClient.bClient) {

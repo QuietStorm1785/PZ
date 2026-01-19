@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,8 +28,8 @@ public:
  float clickedalpha = 1.0F;
 
 public
- HUDButton(const std::string &_name, double x, double y,
- const std::string &_texture, const std::string &_highlight,
+ HUDButton(std::string_view _name, double x, double y,
+ std::string_view _texture, std::string_view _highlight,
  UIElement _display) {
  if (!GameServer.bServer) {
  this->display = _display;
@@ -46,8 +47,8 @@ public
  }
 
 public
- HUDButton(const std::string &_name, float x, float y,
- const std::string &_texture, const std::string &_highlight,
+ HUDButton(std::string_view _name, float x, float y,
+ std::string_view _texture, std::string_view _highlight,
  UIEventHandler _handler) {
  if (!GameServer.bServer) {
  this->texture = Texture.getSharedTexture(_texture);
@@ -67,9 +68,9 @@ public
  }
 
 public
- HUDButton(const std::string &_name, float x, float y,
- const std::string &_texture, const std::string &_highlight,
- const std::string &_overicon, UIElement _display) {
+ HUDButton(std::string_view _name, float x, float y,
+ std::string_view _texture, std::string_view _highlight,
+ std::string_view _overicon, UIElement _display) {
  if (!GameServer.bServer) {
  this->overicon = Texture.getSharedTexture(_overicon);
  this->display = _display;
@@ -89,9 +90,9 @@ public
  }
 
 public
- HUDButton(const std::string &_name, float x, float y,
- const std::string &_texture, const std::string &_highlight,
- const std::string &_overicon, UIEventHandler _handler) {
+ HUDButton(std::string_view _name, float x, float y,
+ std::string_view _texture, std::string_view _highlight,
+ std::string_view _overicon, UIEventHandler _handler) {
  if (!GameServer.bServer) {
  this->texture = Texture.getSharedTexture(_texture);
  this->highlight = Texture.getSharedTexture(_highlight);

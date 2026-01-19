@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -16,7 +17,7 @@ class FMODLocalParameter :  FMODParameter {
 :
     const TLongArrayList m_instances = new TLongArrayList();
 
-     FMODLocalParameter(const std::string& var1) {
+     FMODLocalParameter(std::string_view var1) {
       super(var1);
       if (this.getParameterDescription() != nullptr && this.getParameterDescription().isGlobal()) {
     bool var2 = true;

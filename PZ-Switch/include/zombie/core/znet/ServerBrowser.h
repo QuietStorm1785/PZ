@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -41,7 +42,7 @@ public:
  }
  }
 
- static int GetServerCount() {
+ static int GetServerCount() noexcept{
  int int0 = 0;
  if (SteamUtils.isSteamModeEnabled()) {
  int0 = n_GetServerCount();
@@ -74,7 +75,7 @@ public:
  return boolean0;
  }
 
- static bool QueryServer(const std::string &string, int int0) {
+ static bool QueryServer(std::string_view string, int int0) {
  bool boolean0 = false;
  if (SteamUtils.isSteamModeEnabled()) {
  boolean0 = n_QueryServer(string, int0);
@@ -83,7 +84,7 @@ public:
  return boolean0;
  }
 
- static GameServerDetails GetServerDetails(const std::string &string,
+ static GameServerDetails GetServerDetails(std::string_view string,
  int int0) {
  GameServerDetails gameServerDetails = nullptr;
  if (SteamUtils.isSteamModeEnabled()) {
@@ -93,7 +94,7 @@ public:
  return gameServerDetails;
  }
 
- static void ReleaseServerQuery(const std::string &string, int int0) {
+ static void ReleaseServerQuery(std::string_view string, int int0) {
  if (SteamUtils.isSteamModeEnabled()) {
  n_ReleaseServerQuery(string, int0);
  }
@@ -123,7 +124,7 @@ public
  return arrayList;
  }
 
- static GameServerDetails GetServerDetailsSync(const std::string &string,
+ static GameServerDetails GetServerDetailsSync(std::string_view string,
  int int0) {
  GameServerDetails gameServerDetails = nullptr;
  if (SteamUtils.isSteamModeEnabled()) {
@@ -146,7 +147,7 @@ public
  return gameServerDetails;
  }
 
- static bool RequestServerRules(const std::string &string, int int0) {
+ static bool RequestServerRules(std::string_view string, int int0) {
  return n_RequestServerRules();
  }
 
@@ -165,7 +166,7 @@ private
  static void n_RefreshInternetServers();
 
 private
- static int n_GetServerCount();
+ static int n_GetServerCount() const ;
 
 private
  static GameServerDetails n_GetServerDetails(int var0);
@@ -210,7 +211,7 @@ private
  LuaEventManager.triggerEvent("OnSteamRefreshInternetServers");
  }
 
- static void onServerRespondedCallback(const std::string &string, int int0) {
+ static void onServerRespondedCallback(std::string_view string, int int0) {
  if (m_callbackInterface != nullptr) {
  m_callbackInterface.OnServerResponded(string, int0);
  }
@@ -250,7 +251,7 @@ private
  }
  }
 
- static void onServerFailedToRespondCallback(const std::string &string,
+ static void onServerFailedToRespondCallback(std::string_view string,
  int int0) {
  if (m_callbackInterface != nullptr) {
  m_callbackInterface.OnServerFailedToRespond(string, int0);
@@ -260,7 +261,7 @@ private
  (double)int0);
  }
 
- static void onRulesRefreshComplete(const std::string &string, int int0,
+ static void onRulesRefreshComplete(std::string_view string, int int0,
  String[] strings) {
  if (m_callbackInterface != nullptr) {
  m_callbackInterface.OnSteamRulesRefreshComplete(string, int0);

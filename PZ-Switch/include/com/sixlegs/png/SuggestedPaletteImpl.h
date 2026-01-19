@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ private
  const int sampleCount;
 
 public
- SuggestedPaletteImpl(const std::string &string, int int0, byte[] bytesx) {
+ SuggestedPaletteImpl(std::string_view string, int int0, byte[] bytesx) {
  this->name = string;
  this->sampleDepth = int0;
  this->bytes = bytesx;
@@ -32,7 +33,7 @@ public
 
  std::string getName() { return this->name; }
 
- int getSampleCount() { return this->sampleCount; }
+ int getSampleCount() noexcept{ return this->sampleCount; }
 
  int getSampleDepth() { return this->sampleDepth; }
 

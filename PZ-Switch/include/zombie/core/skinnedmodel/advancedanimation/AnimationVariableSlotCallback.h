@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ private
 
 protected
  AnimationVariableSlotCallback(
- const std::string &string,
+ std::string_view string,
  AnimationVariableSlotCallback.CallbackGet<VariableType> callbackGet) {
  this(string, callbackGet, nullptr);
  }

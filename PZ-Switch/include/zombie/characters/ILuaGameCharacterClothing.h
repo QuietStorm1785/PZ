@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,9 +18,9 @@ namespace characters {
 class ILuaGameCharacterClothing {
 public:
  virtual ~ILuaGameCharacterClothing() = default;
- void dressInNamedOutfit(const std::string &var1);
+ void dressInNamedOutfit(std::string_view var1);
 
- void dressInPersistentOutfit(const std::string &var1);
+ void dressInPersistentOutfit(std::string_view var1);
 
  void dressInPersistentOutfitID(int var1);
 
@@ -29,9 +30,9 @@ public:
 
  void setWornItems(WornItems var1);
 
- InventoryItem getWornItem(const std::string &var1);
+ InventoryItem getWornItem(std::string_view var1);
 
- void setWornItem(const std::string &var1, InventoryItem var2);
+ void setWornItem(std::string_view var1, InventoryItem var2);
 
  void removeWornItem(InventoryItem var1);
 

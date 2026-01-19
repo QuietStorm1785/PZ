@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -95,29 +96,29 @@ private
  }
  }
 
- static LuaClosure loadis(InputStream inputStream, const std::string &string,
+ static LuaClosure loadis(InputStream inputStream, std::string_view string,
  KahluaTable table) {
  return loadis();
  }
 
- static LuaClosure loadis(Reader reader, const std::string &string,
+ static LuaClosure loadis(Reader reader, std::string_view string,
  KahluaTable table) {
  return loadis();
  }
 
- static LuaClosure loadstring(const std::string &string1,
- const std::string &string0, KahluaTable table) {
+ static LuaClosure loadstring(std::string_view string1,
+ std::string_view string0, KahluaTable table) {
  return loadis(new ByteArrayInputStream(string1.getBytes("UTF-8");
  }
 
- static LuaClosure loadis(Reader reader, const std::string &string0,
- const std::string &string1, KahluaTable table) {
+ static LuaClosure loadis(Reader reader, std::string_view string0,
+ std::string_view string1, KahluaTable table) {
  return new LuaClosure(
  LexState.compile(reader.read(), reader, string0, string1), table);
  }
 
- static LuaClosure loadis(InputStream inputStream, const std::string &string0,
- const std::string &string1, KahluaTable table) {
+ static LuaClosure loadis(InputStream inputStream, std::string_view string0,
+ std::string_view string1, KahluaTable table) {
  return loadis(new InputStreamReader(inputStream);
  }
 

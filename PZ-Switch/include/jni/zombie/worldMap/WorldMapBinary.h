@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -26,7 +27,7 @@ class WorldMapBinary {
     const WorldMapProperties m_properties = new WorldMapProperties();
    private ArrayList<WorldMapProperties> m_sharedProperties = std::make_unique<ArrayList<>>();
 
-    bool read(const std::string& var1, WorldMapData var2) {
+    bool read(std::string_view var1, WorldMapData var2) {
       try (
     FileInputStream var3 = new FileInputStream(var1);
     BufferedInputStream var4 = new BufferedInputStream(var3);

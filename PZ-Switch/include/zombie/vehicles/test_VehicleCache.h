@@ -15,7 +15,7 @@ namespace vehicles {
 
 class test_VehicleCache : public Assert {
 public:
- void test_getInsertIndex() {
+ void test_getInsertIndex() noexcept{
  VehicleCache.vehicleUpdate((short)1, 10.0F, 20.0F, 0.0F);
  VehicleCache.vehicleUpdate((short)2, 10.0F, 21.0F, 0.0F);
  VehicleCache.vehicleUpdate((short)3, 15.0F, 22.0F, 0.0F);

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -31,7 +32,7 @@ class Block {
     DspState vd;
     int W;
 
-    static std::string asdsadsa(const std::string& var0, byte[] var1, int var2) {
+    static std::string asdsadsa(std::string_view var0, byte[] var1, int var2) {
       return var0 + Integer.toString((var1[var2] & 255) + 256, 16).substring(1);
    }
 

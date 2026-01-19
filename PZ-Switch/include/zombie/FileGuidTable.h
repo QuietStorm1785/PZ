@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ private
  Map<String, String> pathToGuid =
  new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
- void setModID(const std::string &string) {
+ void setModID(std::string_view string) {
  for (FileGuidPair fileGuidPair : this->files) {
  fileGuidPair.guid = string + "-" + fileGuidPair.guid;
  }
@@ -46,11 +47,11 @@ private
  this->pathToGuid.clear();
  }
 
- std::string getFilePathFromGuid(const std::string &string) {
+ std::string getFilePathFromGuid(std::string_view string) {
  return this->guidToPath.get(string);
  }
 
- std::string getGuidFromFilePath(const std::string &string) {
+ std::string getGuidFromFilePath(std::string_view string) {
  return this->pathToGuid.get(string);
  }
 }

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -43,7 +44,7 @@ public:
  /**
  * Set this variable's value
  */
- void setValue(const std::string &val);
+ void setValue(std::string_view val);
 
  /**
  * Set this variable's value
@@ -66,7 +67,7 @@ public:
  * data. Eg. If a String is given to a Float variable, and the string is
  * not of a numeric format, then the string value would be lost.
  */
- bool canConvertFrom(const std::string &val);
+ bool canConvertFrom(std::string_view val);
 
  /**
  * Clear this variable, its value is set to a nullptr-value. Blank for Strings, 0

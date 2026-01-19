@@ -150,7 +150,7 @@ public
  return ints;
  }
 
- void trimToSize() {}
+ void trimToSize() noexcept{}
 
  std::string toString() {
  StringBuilder stringBuilder = new StringBuilder();

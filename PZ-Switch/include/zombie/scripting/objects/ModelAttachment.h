@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -26,11 +27,11 @@ private
  bool updateConstraint = true;
 
 public
- ModelAttachment(const std::string &_id) { this->setId(_id); }
+ ModelAttachment(std::string_view _id) { this->setId(_id); }
 
  std::string getId() { return this->id; }
 
- void setId(const std::string &_id) {
+ void setId(std::string_view _id) {
  if (StringUtils.isNullOrWhitespace(_id) {
  throw IllegalArgumentException(
  "ModelAttachment id is nullptr or empty");
@@ -45,7 +46,7 @@ public
 
  std::string getBone() { return this->bone; }
 
- void setBone(const std::string &_bone) {
+ void setBone(std::string_view _bone) {
  _bone = _bone.trim();
  this->bone = _bone.empty() ? nullptr : _bone;
  }

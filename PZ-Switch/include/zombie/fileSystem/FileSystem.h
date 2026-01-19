@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -81,7 +82,7 @@ public
  TexturePackPage.SubTextureInfo m_info;
 
  public
- SubTexture(const std::string &packName, const std::string &pageName,
+ SubTexture(std::string_view packName, std::string_view pageName,
  TexturePackPage.SubTextureInfo info) {
  this->m_pack_name = packName;
  this->m_page_name = pageName;

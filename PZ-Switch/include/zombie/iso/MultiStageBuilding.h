@@ -17,6 +17,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -272,7 +273,7 @@ class Stage {
  return boolean0;
  }
 
- void Load(const std::string &string0, String[] strings0) {
+ void Load(std::string_view string0, String[] strings0) {
  this->recipeName = string0;
 
  for (int int0 = 0; int0 < strings0.length; int0++) {

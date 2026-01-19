@@ -63,6 +63,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -688,7 +689,7 @@ public
 }
 
 static std::string
-wmic(const std::string &string2, String[] strings0) {
+wmic(std::string_view string2, String[] strings0) {
  std::string string0 = "";
 
  try {

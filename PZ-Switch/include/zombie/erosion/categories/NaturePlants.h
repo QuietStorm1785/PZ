@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -282,7 +283,7 @@ class PlantInit {
  float bloomend;
 
  public
- PlantInit(const std::string &string, bool boolean0, float float0,
+ PlantInit(std::string_view string, bool boolean0, float float0,
  float float1) {
  this->name = string;
  this->hasFlower = boolean0;

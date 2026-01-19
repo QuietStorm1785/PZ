@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -30,7 +31,7 @@ public:
 public
  WorldMapTextSymbol(WorldMapSymbols owner) { super(owner); }
 
- void setTranslatedText(const std::string &text) {
+ void setTranslatedText(std::string_view text) {
  this->m_text = text;
  this->m_translated = true;
  if (!GameServer.bServer) {
@@ -40,7 +41,7 @@ public
  }
  }
 
- void setUntranslatedText(const std::string &text) {
+ void setUntranslatedText(std::string_view text) {
  this->m_text = text;
  this->m_translated = false;
  if (!GameServer.bServer) {

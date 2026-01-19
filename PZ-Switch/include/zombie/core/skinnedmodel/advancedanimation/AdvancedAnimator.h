@@ -22,6 +22,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -64,7 +65,7 @@ private
  LoadDefaults();
  }
 
- static bool isAnimSetFilePath(const std::string &string0) {
+ static bool isAnimSetFilePath(std::string_view string0) {
  if (string0.empty()) {
  return false;
  } else if (!string0.endsWith(".xml")) {
@@ -86,7 +87,7 @@ private
  }
  }
 
- static bool isActionGroupFilePath(const std::string &string0) {
+ static bool isActionGroupFilePath(std::string_view string0) {
  if (string0.empty()) {
  return false;
  } else if (!string0.endsWith(".xml")) {
@@ -108,12 +109,12 @@ private
  }
  }
 
- static void onActionGroupsRefreshTriggered(const std::string &string) {
+ static void onActionGroupsRefreshTriggered(std::string_view string) {
  DebugLog.General.println("DebugFileWatcher Hit. ActionGroups: " + string);
  actionGroupModificationTime = System.currentTimeMillis() + 1000L;
  }
 
- static void onAnimSetsRefreshTriggered(const std::string &string) {
+ static void onAnimSetsRefreshTriggered(std::string_view string) {
  DebugLog.General.println("DebugFileWatcher Hit. AnimSets: " + string);
  animSetModificationTime = System.currentTimeMillis() + 1000L;
  }
@@ -236,15 +237,15 @@ private
  : this->m_rootLayer.getCurrentStateName();
  }
 
- bool containsState(const std::string &stateName) {
+ bool containsState(std::string_view stateName) {
  return this->animSet != nullptr && this->animSet.containsState(stateName);
  }
 
- void SetState(const std::string &stateName) {
+ void SetState(std::string_view stateName) {
  this->SetState(stateName, PZArrayList.emptyList());
  }
 
- void SetState(const std::string &stateName, List<String> subStateNames) {
+ void SetState(std::string_view stateName, List<String> subStateNames) {
  if (this->animSet.empty()) {
  DebugLog.Animation.error("(" + stateName +
  ") Cannot set state. AnimSet is nullptr.");
@@ -365,7 +366,7 @@ protected
  }
  }
 
- void printDebugCharacterActions(const std::string &target) {
+ void printDebugCharacterActions(std::string_view target) {
  if (this->animSet != nullptr) {
  AnimState animState = this->animSet.GetState("actions");
  if (animState != nullptr) {
@@ -426,7 +427,7 @@ protected
  }
 
 public
- ArrayList<String> debugGetVariables() {
+ ArrayList<String> debugGetVariables() noexcept{
  std::vector arrayList = new ArrayList();
  if (this->animSet != nullptr) {
  for (Entry entry : this->animSet.states.entrySet()) {
@@ -454,7 +455,7 @@ public
 
  IAnimatable getCharacter() { return this->character; }
 
- void updateSpeedScale(const std::string &variable, float newSpeed) {
+ void updateSpeedScale(std::string_view variable, float newSpeed) {
  if (this->m_rootLayer != nullptr) {
  std::vector list = this->m_rootLayer.getLiveAnimNodes();
 
@@ -507,13 +508,13 @@ public
 
  AnimLayer getRootLayer() { return this->m_rootLayer; }
 
- int getSubLayerCount() { return this->m_subLayers.size(); }
+ int getSubLayerCount() noexcept{ return this->m_subLayers.size(); }
 
  AnimLayer getSubLayerAt(int idx) {
  return this->m_subLayers.get(idx).animLayer;
  }
 
- int getActiveSubLayerCount() {
+ int getActiveSubLayerCount() noexcept{
  int int0 = 0;
 
  for (int int1 = 0; int1 < this->m_subLayers.size(); int1++) {

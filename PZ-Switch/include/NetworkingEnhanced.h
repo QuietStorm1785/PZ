@@ -34,13 +34,13 @@ public:
  return instance;
  }
  
- void broadcastWorldEvent(WorldEventType eventType, const std::string& data);
+ void broadcastWorldEvent(WorldEventType eventType, std::string_view data);
  void queueWorldEvent(const WorldEvent& event);
  
  const std::queue<WorldEvent>& getPendingEvents() const { return eventQueue; }
  WorldEvent popEvent();
  
- int getPendingEventCount() const { return eventQueue.size(); }
+ int getPendingEventCount() const noexcept { return eventQueue.size(); }
  
 private:
  WorldStateManager() = default;
@@ -56,8 +56,8 @@ public:
  return instance;
  }
  
- void replicateEntityState(int entityId, const std::string& stateData);
- void replicateWorldChunk(int chunkX, int chunkY, const std::string& chunkData);
+ void replicateEntityState(int entityId, std::string_view stateData);
+ void replicateWorldChunk(int chunkX, int chunkY, std::string_view chunkData);
  
  void requestEntityState(int entityId);
  void requestWorldChunk(int chunkX, int chunkY);
@@ -77,12 +77,12 @@ public:
  return instance;
  }
  
- void createLobby(const std::string& lobbyName, int maxPlayers);
- void joinLobby(const std::string& lobbyId);
+ void createLobby(std::string_view lobbyName, int maxPlayers);
+ void joinLobby(std::string_view lobbyId);
  void leaveLobby();
  
  const std::string& getCurrentLobbyId() const { return currentLobbyId; }
- int getPlayerCount() const { return playerCount; }
+ int getPlayerCount() const noexcept { return playerCount; }
  
 private:
  LobbyManager() = default;

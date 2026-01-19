@@ -72,7 +72,7 @@ public:
  byteBufferWriter.putFloat(this->walkInjury);
  }
 
- int getPacketSizeBytes() { return 14; }
+ int getPacketSizeBytes() noexcept{ return 14; }
 
  std::string getDescription() {
  return "SyncInjuriesPacket: id=" + this->id +

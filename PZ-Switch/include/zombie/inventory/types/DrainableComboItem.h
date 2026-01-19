@@ -19,6 +19,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -51,14 +52,14 @@ public
  int LastCookMinute = 0;
 
 public
- DrainableComboItem(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ DrainableComboItem(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  }
 
 public
- DrainableComboItem(const std::string &module, const std::string &name,
- const std::string &itemType, Item item) {
+ DrainableComboItem(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item) {
  super(module, name, itemType, item);
  }
 
@@ -424,7 +425,7 @@ public
  */
  void setTicks(float _ticks) { this->ticks = _ticks; }
 
- void setReplaceOnDeplete(const std::string &_ReplaceOnDeplete) {
+ void setReplaceOnDeplete(std::string_view _ReplaceOnDeplete) {
  this->ReplaceOnDeplete = _ReplaceOnDeplete;
  this->ReplaceOnDepleteFullType = this->getReplaceOnDepleteFullType();
  }
@@ -504,7 +505,7 @@ public
  *
  * @param onCooked the onCooked to set
  */
- void setOnCooked(const std::string &onCooked) { this->OnCooked = onCooked; }
+ void setOnCooked(std::string_view onCooked) { this->OnCooked = onCooked; }
 }
 } // namespace types
 } // namespace inventory

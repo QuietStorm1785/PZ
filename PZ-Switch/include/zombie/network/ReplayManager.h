@@ -13,6 +13,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -63,7 +64,7 @@ public
  }
  }
 
- bool startRecordReplay(IsoPlayer playerx, const std::string &string) {
+ bool startRecordReplay(IsoPlayer playerx, std::string_view string) {
  File file = ZomboidFileSystem.instance.getFileInCurrentSave(string);
  if (this->player != nullptr && this->state == ReplayManager.State.Recording) {
  DebugLog.log("ReplayManager: record replay already active for " +
@@ -108,7 +109,7 @@ public
  }
  }
 
- bool startPlayReplay(IsoPlayer playerx, const std::string &string,
+ bool startPlayReplay(IsoPlayer playerx, std::string_view string,
  UdpConnection udpConnection) {
  File file = ZomboidFileSystem.instance.getFileInCurrentSave(string);
  if (this->state == ReplayManager.State.Playing) {

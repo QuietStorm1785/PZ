@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,9 +24,9 @@ public:
  const std::string id;
  std::string attachmentName;
 
- AttachedLocation(const AttachedLocationGroup* _group, const std::string &_id);
+ AttachedLocation(const AttachedLocationGroup* _group, std::string_view _id);
  
- void setAttachmentName(const std::string &_attachmentName);
+ void setAttachmentName(std::string_view _attachmentName);
  std::string getAttachmentName() const { return attachmentName; }
  std::string getId() const { return id; }
 

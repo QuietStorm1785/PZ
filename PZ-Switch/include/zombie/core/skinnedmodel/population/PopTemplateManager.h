@@ -17,6 +17,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -129,7 +130,7 @@ public
 
  void addHeadHairItem(IsoGameCharacter character,
  ModelManager.ModelSlot modelSlot,
- const std::string &string0, const std::string &string1,
+ std::string_view string0, std::string_view string1,
  ImmutableColor immutableColor) {
  if (StringUtils.isNullOrWhitespace(string0) {
  if (DebugLog.isEnabled(DebugType.Clothing) {
@@ -295,7 +296,7 @@ public
  }
  }
 
- std::string processModelFileName(const std::string &string) {
+ std::string processModelFileName(std::string_view string) {
  string = string.replaceAll("\\\\", "/");
  return string.toLowerCase(Locale.ENGLISH);
  }

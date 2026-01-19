@@ -16,6 +16,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -607,7 +608,7 @@ private
  }
  }
 
- void write(const std::string &string) {
+ void write(std::string_view string) {
  this->writer.write(string + System.lineSeparator());
  }
 

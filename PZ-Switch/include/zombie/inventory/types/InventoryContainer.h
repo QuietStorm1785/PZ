@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,8 +33,8 @@ public:
  std::string CanBeEquipped = "";
 
 public
- InventoryContainer(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ InventoryContainer(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  this->container.containingItem = this;
  this->container.type = itemType;
@@ -222,7 +223,7 @@ public
  return float0;
  }
 
- void setCanBeEquipped(const std::string &canBeEquipped) {
+ void setCanBeEquipped(std::string_view canBeEquipped) {
  this->CanBeEquipped = canBeEquipped.empty() ? "" : canBeEquipped;
  }
 

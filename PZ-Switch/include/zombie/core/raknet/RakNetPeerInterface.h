@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -198,8 +199,8 @@ public
 public
  void disconnect(long connectedGUID, String message);
 
- void connectionStateChangedCallback(const std::string &string0,
- const std::string &string1) {
+ void connectionStateChangedCallback(std::string_view string0,
+ std::string_view string1) {
  Thread thread = Thread.currentThread();
  if (thread == mainThread) {
  LuaEventManager.triggerEvent("OnConnectionStateChanged", string0,

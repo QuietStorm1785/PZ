@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -147,7 +148,7 @@ public
  return new ImmutableColor(color);
  }
 
- static ImmutableColor decode(const std::string &nm) {
+ static ImmutableColor decode(std::string_view nm) {
  return new ImmutableColor(Integer.decode(nm);
  }
 

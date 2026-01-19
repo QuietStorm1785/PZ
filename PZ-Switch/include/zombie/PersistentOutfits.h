@@ -27,6 +27,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -101,7 +102,7 @@ private
  }
 }
 
- void initOutfit(const std::string& string, bool boolean0, bool boolean1, PersistentOutfits.IOutfitter iOutfitter) {
+ void initOutfit(std::string_view string, bool boolean0, bool boolean1, PersistentOutfits.IOutfitter iOutfitter) {
  TreeMap treeMap = boolean0 ? this->m_outfitToFemale : this->m_outfitToMale;
  PersistentOutfits.Data data = this->m_outfitToData.get(string);
  if (data.empty()) {
@@ -157,7 +158,7 @@ int pickRandomMale() {
  }
 }
 
-int pickOutfitFemale(const std::string &string) {
+int pickOutfitFemale(std::string_view string) {
  PersistentOutfits.Data data = this->m_outfitToFemale.get(string);
  if (data.empty()) {
  return 0;
@@ -168,7 +169,7 @@ int pickOutfitFemale(const std::string &string) {
  }
 }
 
-int pickOutfitMale(const std::string &string) {
+int pickOutfitMale(std::string_view string) {
  PersistentOutfits.Data data = this->m_outfitToMale.get(string);
  if (data.empty()) {
  return 0;
@@ -179,7 +180,7 @@ int pickOutfitMale(const std::string &string) {
  }
 }
 
-int pickOutfit(const std::string &string, bool boolean0) {
+int pickOutfit(std::string_view string, bool boolean0) {
  return boolean0 ? this->pickOutfitFemale(string) : this->pickOutfitMale(string);
 }
 
@@ -279,18 +280,18 @@ void load(ByteBuffer byteBuffer) {
  }
 }
 
-void registerOutfitter(const std::string &string, bool boolean0,
+void registerOutfitter(std::string_view string, bool boolean0,
  PersistentOutfits.IOutfitter iOutfitter) {
  this->initOutfit(string, true, boolean0, iOutfitter);
  this->initOutfit(string, false, boolean0, iOutfitter);
 }
 
-static void ApplyOutfit(int int0, const std::string &string,
+static void ApplyOutfit(int int0, std::string_view string,
  IsoGameCharacter character) {
  instance.applyOutfit(int0, string, character);
 }
 
-void applyOutfit(int int0, const std::string &var2,
+void applyOutfit(int int0, std::string_view var2,
  IsoGameCharacter character) {
  bool boolean0 = (int0 & -2147483648) != 0;
  int0 &= Integer.MAX_VALUE;
@@ -378,7 +379,7 @@ private static class DataList extends ArrayList<PersistentOutfits.Data> {
 }
 
 public interface IOutfitter {
- void accept(int var1, const std::string &var2, IsoGameCharacter var3);
+ void accept(int var1, std::string_view var2, IsoGameCharacter var3);
 }
 }
 } // namespace zombie

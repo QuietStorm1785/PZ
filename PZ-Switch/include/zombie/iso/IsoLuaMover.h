@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ public
  }
  }
 
- void playAnim(const std::string &name, float seconds, bool looped,
+ void playAnim(std::string_view name, float seconds, bool looped,
  bool playing) {
  this->sprite.PlayAnim(name);
  float float0 = this->sprite.CurrentAnim.Frames.size();

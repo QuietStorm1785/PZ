@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,7 @@ public:
  int y;
  uint8_t z;
 
- void set(const std::string &string, int int0, int int1, uint8_t byte0) {
+ void set(std::string_view string, int int0, int int1, uint8_t byte0) {
  this->name = string;
  this->x = int0;
  this->y = int1;
@@ -58,7 +59,7 @@ public:
 
  bool isConsistent() { return this->name != nullptr && !this->name.empty(); }
 
- int getPacketSizeBytes() { return 12 + this->name.length(); }
+ int getPacketSizeBytes() noexcept{ return 12 + this->name.length(); }
 
  std::string getDescription() {
  return "\n\tPlayWorldSoundPacket [name=" + this->name + " | x=" + this->x +

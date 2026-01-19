@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -440,7 +441,7 @@ public
  * @param nm The number string to decode
  * @return The color generated from the number read
  */
- static Color decode(const std::string &nm) {
+ static Color decode(std::string_view nm) {
  return new Color(Integer.decode(nm);
  }
 

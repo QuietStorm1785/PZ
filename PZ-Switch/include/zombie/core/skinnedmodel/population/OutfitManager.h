@@ -25,6 +25,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -193,7 +194,7 @@ private
  this->m_clothingItemListeners.remove(iClothingItemListener);
  }
 
- void invokeClothingItemChangedEvent(const std::string &string) {
+ void invokeClothingItemChangedEvent(std::string_view string) {
  for (IClothingItemListener iClothingItemListener :
  this->m_clothingItemListeners) {
  iClothingItemListener.clothingItemChanged(string);
@@ -244,7 +245,7 @@ private
  return this->GetSpecificOutfit(boolean0, string);
  }
 
- Outfit GetSpecificOutfit(bool boolean0, const std::string &string) {
+ Outfit GetSpecificOutfit(bool boolean0, std::string_view string) {
  Outfit outfit;
  if (boolean0) {
  outfit = this->FindFemaleOutfit(string);
@@ -255,8 +256,8 @@ private
  return outfit;
  }
 
- static OutfitManager tryParse(const std::string &string0,
- const std::string &string1) {
+ static OutfitManager tryParse(std::string_view string0,
+ std::string_view string1) {
  try {
  return parse();
  } catch (PZXmlParserException pZXmlParserException) {
@@ -265,8 +266,8 @@ private
  }
  }
 
- static OutfitManager parse(const std::string &string0,
- const std::string &string1) {
+ static OutfitManager parse(std::string_view string0,
+ std::string_view string1) {
  if ("game" == string0) {
  string1 =
  ZomboidFileSystem.instance.base.getAbsolutePath() + File.separator +
@@ -300,7 +301,7 @@ private
  }
  }
 
- static void tryWrite(OutfitManager outfitManager, const std::string &string) {
+ static void tryWrite(OutfitManager outfitManager, std::string_view string) {
  try {
  write(outfitManager, string);
  } catch (IOException | JAXBException jAXBException) {
@@ -308,7 +309,7 @@ private
  }
  }
 
- static void write(OutfitManager outfitManager, const std::string &string) {
+ static void write(OutfitManager outfitManager, std::string_view string) {
  try(FileOutputStream fileOutputStream = new FileOutputStream(string) {
  JAXBContext jAXBContext = JAXBContext.newInstance(OutfitManager.class);
  Marshaller marshaller = jAXBContext.createMarshaller();
@@ -317,15 +318,15 @@ private
  }
  }
 
- Outfit FindMaleOutfit(const std::string &string) {
+ Outfit FindMaleOutfit(std::string_view string) {
  return this->m_maleOutfitMap.get(string);
  }
 
- Outfit FindFemaleOutfit(const std::string &string) {
+ Outfit FindFemaleOutfit(std::string_view string) {
  return this->m_femaleOutfitMap.get(string);
  }
 
- Outfit FindOutfit(ArrayList<Outfit> arrayList, const std::string &string) {
+ Outfit FindOutfit(ArrayList<Outfit> arrayList, std::string_view string) {
  Outfit outfit0 = nullptr;
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
@@ -339,7 +340,7 @@ private
  return outfit0;
  }
 
- ClothingItem getClothingItem(const std::string &string1) {
+ ClothingItem getClothingItem(std::string_view string1) {
  std::string string0 =
  ZomboidFileSystem.instance.getFilePathFromGuid(string1);
  if (string0.empty()) {
@@ -390,7 +391,7 @@ private
  }
  }
 
- std::string extractClothingItemName(const std::string &string1) {
+ std::string extractClothingItemName(std::string_view string1) {
  std::string string0 =
  StringUtils.trimPrefix(string1, "media/clothing/clothingItems/");
  return StringUtils.trimSuffix(string0, ".xml");

@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -36,7 +37,7 @@ private
  ErosionObjSprites.Stage[] sprites;
 
 public
- ErosionObjSprites(int int0, const std::string &string, bool boolean0,
+ ErosionObjSprites(int int0, std::string_view string, bool boolean0,
  bool boolean1, bool boolean2) {
  this->name = string;
  this->stages = int0;
@@ -82,7 +83,7 @@ public
  return this->hasChildSprite ? this->getSprite(int0, 3, int1) : nullptr;
  }
 
- void setSprite(int int1, int int0, const std::string &string, int int2) {
+ void setSprite(int int1, int int0, std::string_view string, int int2) {
  if (this->sprites[int1] != nullptr &&
  this->sprites[int1].sections[int0] != nullptr) {
  this->sprites[int1].sections[int0].seasons[int2] =
@@ -100,7 +101,7 @@ public
  }
  }
 
- void setBase(int int0, const std::string &string, int int1) {
+ void setBase(int int0, std::string_view string, int int1) {
  this->setSprite(int0, 0, string, int1);
  }
 
@@ -108,7 +109,7 @@ public
  this->setSprite(int0, 0, arrayList, int1);
  }
 
- void setFlower(int int0, const std::string &string) {
+ void setFlower(int int0, std::string_view string) {
  this->setSprite(int0, 2, string, 0);
  }
 
@@ -116,7 +117,7 @@ public
  this->setSprite(int0, 2, arrayList, 0);
  }
 
- void setChildSprite(int int0, const std::string &string, int int1) {
+ void setChildSprite(int int0, std::string_view string, int int1) {
  this->setSprite(int0, 3, string, int1);
  }
 
@@ -136,7 +137,7 @@ private
  int index = -1;
 
  public
- Sprites(const std::string &string) {
+ Sprites(std::string_view string) {
  if (Core.bDebug || GameServer.bServer && GameServer.bDebug) {
  IsoSprite sprite = IsoSpriteManager.instance.getSprite(string);
  if (sprite.CurrentAnim.Frames.size() == 0 ||

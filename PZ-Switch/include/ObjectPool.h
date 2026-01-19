@@ -108,8 +108,8 @@ public:
  /**
  * Get pool statistics
  */
- size_t getPoolSize() const { return pool.size(); }
- size_t getActiveCount() const { return activeObjects.size(); }
+ size_t getPoolSize() const noexcept { return pool.size(); }
+ size_t getActiveCount() const noexcept { return activeObjects.size(); }
  size_t getTotalCreated() const { return totalCreated; }
  size_t getTotalAcquired() const { return totalAcquired; }
  size_t getTotalReleased() const { return totalReleased; }

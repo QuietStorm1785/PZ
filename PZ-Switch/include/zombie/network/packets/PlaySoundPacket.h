@@ -13,6 +13,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,7 +30,7 @@ public:
  MovingObject object = std::make_unique<MovingObject>();
  bool loop;
 
- void set(const std::string &string, bool boolean0,
+ void set(std::string_view string, bool boolean0,
  IsoMovingObject movingObject) {
  this->name = string;
  this->loop = boolean0;
@@ -81,7 +82,7 @@ public:
 
  bool isConsistent() { return this->name != nullptr && !this->name.empty(); }
 
- int getPacketSizeBytes() { return 12 + this->name.length(); }
+ int getPacketSizeBytes() noexcept{ return 12 + this->name.length(); }
 
  std::string getDescription() {
  return "\n\tPlaySoundPacket [name=" + this->name +

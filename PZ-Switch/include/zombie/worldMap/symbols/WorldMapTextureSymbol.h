@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public:
 public
  WorldMapTextureSymbol(WorldMapSymbols owner) { super(owner); }
 
- void setSymbolID(const std::string &symbolID) { this->m_symbolID = symbolID; }
+ void setSymbolID(std::string_view symbolID) { this->m_symbolID = symbolID; }
 
  std::string getSymbolID() { return this->m_symbolID; }
 

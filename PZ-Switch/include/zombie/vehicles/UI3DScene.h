@@ -56,6 +56,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -429,7 +430,7 @@ private
  BaseVehicle.TL_vector3f_pool.get().release(vector3f);
  }
 
- void *fromLua0(const std::string &func) {
+ void *fromLua0(std::string_view func) {
  switch (func) {
  case "clearAABBs":
  s_aabbPool.release(this->m_aabb);
@@ -478,7 +479,7 @@ private
  }
  }
 
- void *fromLua1(const std::string &func, void *arg0) {
+ void *fromLua1(std::string_view func, void *arg0) {
  switch (func) {
  case "createCharacter":
  UI3DScene.SceneObject sceneObject8 =
@@ -717,7 +718,7 @@ private
  }
  }
 
- void *fromLua2(const std::string &func, void *arg0, void *arg1) {
+ void *fromLua2(std::string_view func, void *arg0, void *arg1) {
  switch (func) {
  case "addAttachment":
  UI3DScene.SceneModel sceneModel5 = this->getSceneObjectById(
@@ -1064,7 +1065,7 @@ private
  }
  }
 
- void *fromLua3(const std::string &func, void *arg0, void *arg1, void *arg2) {
+ void *fromLua3(std::string_view func, void *arg0, void *arg1, void *arg2) {
  switch (func) {
  case "addAxis":
  float float0 = ((Double)arg0).floatValue();
@@ -1130,7 +1131,7 @@ private
  }
  }
 
- void *fromLua4(const std::string &func, void *arg0, void *arg1, void *arg2,
+ void *fromLua4(std::string_view func, void *arg0, void *arg1, void *arg2,
  void *arg3) {
  switch (func) {
  case "setGizmoOrigin":
@@ -1226,7 +1227,7 @@ private
  }
  }
 
- void *fromLua6(const std::string &func, void *arg0, void *arg1, void *arg2,
+ void *fromLua6(std::string_view func, void *arg0, void *arg1, void *arg2,
  void *arg3, void *arg4, void *arg5) {
  switch (func) {
  case "addAABB":
@@ -1268,7 +1269,7 @@ private
  }
  }
 
- void *fromLua9(const std::string &func, void *arg0, void *arg1, void *arg2,
+ void *fromLua9(std::string_view func, void *arg0, void *arg1, void *arg2,
  void *arg3, void *arg4, void *arg5, void *arg6, void *arg7,
  void *arg8) {
  uint8_t byte0 = -1;
@@ -3160,7 +3161,7 @@ private
  }
  }
 
- Matrix4f getAttachmentTransform(const std::string &string,
+ Matrix4f getAttachmentTransform(std::string_view string,
  Matrix4f matrix4f0) {
  matrix4f0.identity();
  bool boolean0 = this->m_animatedModel.isFemale();
@@ -3277,7 +3278,7 @@ private
  }
  }
 
- Matrix4f getBoneMatrix(const std::string &string, Matrix4f matrix4f) {
+ Matrix4f getBoneMatrix(std::string_view string, Matrix4f matrix4f) {
  matrix4f.identity();
  if (this->m_animatedModel.getAnimationPlayer().modelTransforms.empty()) {
  return matrix4f;
@@ -3344,7 +3345,7 @@ private
  return matrix4f;
  }
 
- Matrix4f getAttachmentTransform(const std::string &string,
+ Matrix4f getAttachmentTransform(std::string_view string,
  Matrix4f matrix4f) {
  matrix4f.identity();
  ModelAttachment modelAttachment =
@@ -3434,7 +3435,7 @@ class SceneModelCamera extends ModelCamera {
  return matrix4f0;
  }
 
- Matrix4f getAttachmentTransform(const std::string &var1,
+ Matrix4f getAttachmentTransform(std::string_view var1,
  Matrix4f matrix4f) {
  matrix4f.identity();
  return matrix4f;
@@ -3495,7 +3496,7 @@ class SceneModelCamera extends ModelCamera {
  }
  }
 
- void setScriptName(const std::string &string) {
+ void setScriptName(std::string_view string) {
  this->m_scriptName = string;
  this->m_script = ScriptManager.instance.getVehicle(string);
  }

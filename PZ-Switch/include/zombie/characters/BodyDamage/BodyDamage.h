@@ -43,6 +43,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -1185,7 +1186,7 @@ public
  * surrounded can also trigger an instant death animation.
  */
  bool AddRandomDamageFromZombie(IsoZombie zombie,
- const std::string &hitReaction) {
+ std::string_view hitReaction) {
  if (StringUtils.isNullOrEmpty(hitReaction) {
  hitReaction = "Bite";
  }
@@ -1776,7 +1777,7 @@ public
  }
 
  void SetBandaged(int BodyPartIndex, bool Bandaged, float bandageLife,
- bool isAlcoholic, const std::string &bandageType) {
+ bool isAlcoholic, std::string_view bandageType) {
  this->getBodyParts()
  .get(BodyPartIndex)
  .setBandaged(Bandaged, bandageLife, isAlcoholic, bandageType);
@@ -2745,7 +2746,7 @@ public
  /**
  * @return the DamageModCount
  */
- int getDamageModCount() { return this->DamageModCount; }
+ int getDamageModCount() noexcept{ return this->DamageModCount; }
 
  /**
  *

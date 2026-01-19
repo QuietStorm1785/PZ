@@ -81,7 +81,7 @@ public
  return true;
  }
 
- int getSpriteCount() { return this->sprites.length; }
+ int getSpriteCount() noexcept{ return this->sprites.length; }
 
 public
  IsoSprite[] getSprites() { return this->sprites; }

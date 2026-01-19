@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -14,11 +15,11 @@ namespace ui {
 class UIEventHandler {
 public:
  virtual ~UIEventHandler() = default;
- void DoubleClick(const std::string &name, int x, int y);
+ void DoubleClick(std::string_view name, int x, int y);
 
- void ModalClick(const std::string &name, const std::string &chosen);
+ void ModalClick(std::string_view name, std::string_view chosen);
 
- void Selected(const std::string &name, int Selected, int LastSelected);
+ void Selected(std::string_view name, int Selected, int LastSelected);
 }
 } // namespace ui
 } // namespace zombie

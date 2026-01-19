@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -594,23 +595,23 @@ class SandboxOptions {
     return var1;
    }
 
-    BooleanSandboxOption newBooleanOption(const std::string& var1, bool var2) {
+    BooleanSandboxOption newBooleanOption(std::string_view var1, bool var2) {
       return new BooleanSandboxOption(this, var1, var2);
    }
 
-    DoubleSandboxOption newDoubleOption(const std::string& var1, double var2, double var4, double var6) {
+    DoubleSandboxOption newDoubleOption(std::string_view var1, double var2, double var4, double var6) {
       return new DoubleSandboxOption(this, var1, var2, var4, var6);
    }
 
-    EnumSandboxOption newEnumOption(const std::string& var1, int var2, int var3) {
+    EnumSandboxOption newEnumOption(std::string_view var1, int var2, int var3) {
       return new EnumSandboxOption(this, var1, var2, var3);
    }
 
-    IntegerSandboxOption newIntegerOption(const std::string& var1, int var2, int var3, int var4) {
+    IntegerSandboxOption newIntegerOption(std::string_view var1, int var2, int var3, int var4) {
       return new IntegerSandboxOption(this, var1, var2, var3, var4);
    }
 
-    StringSandboxOption newStringOption(const std::string& var1, const std::string& var2, int var3) {
+    StringSandboxOption newStringOption(std::string_view var1, std::string_view var2, int var3) {
       return new StringSandboxOption(this, var1, var2, var3);
    }
 
@@ -628,11 +629,11 @@ class SandboxOptions {
       return this.options.get(var1);
    }
 
-    SandboxOption getOptionByName(const std::string& var1) {
+    SandboxOption getOptionByName(std::string_view var1) {
       return this.optionByName.get(var1);
    }
 
-    void set(const std::string& var1, void* var2) {
+    void set(std::string_view var1, void* var2) {
       if (var1 != nullptr && var2 != nullptr) {
     SandboxOption var3 = this.optionByName.get(var1);
          if (var3 == nullptr) {
@@ -673,13 +674,13 @@ class SandboxOptions {
     return var1;
    }
 
-    static bool isValidPresetName(const std::string& var0) {
+    static bool isValidPresetName(std::string_view var0) {
       return var0 == nullptr || var0.isEmpty()
          ? false
          : !var0.contains("/") && !var0.contains("\\") && !var0.contains(":") && !var0.contains(";") && !var0.contains("\"") && !var0.contains(".");
    }
 
-    bool readTextFile(const std::string& var1, bool var2) {
+    bool readTextFile(std::string_view var1, bool var2) {
     ConfigFile var3 = new ConfigFile();
       if (!var3.read(var1)) {
     return false;
@@ -724,7 +725,7 @@ class SandboxOptions {
       }
    }
 
-    bool writeTextFile(const std::string& var1, int var2) {
+    bool writeTextFile(std::string_view var1, int var2) {
     ConfigFile var3 = new ConfigFile();
     std::vector var4 = new ArrayList();
 
@@ -735,11 +736,11 @@ class SandboxOptions {
       return var3.write(var1, var2, var4);
    }
 
-    bool loadServerTextFile(const std::string& var1) {
+    bool loadServerTextFile(std::string_view var1) {
       return this.readTextFile(ServerSettingsManager.instance.getNameInSettingsFolder(var1 + "_sandbox.ini"), false);
    }
 
-    bool loadServerLuaFile(const std::string& var1) {
+    bool loadServerLuaFile(std::string_view var1) {
     bool var2 = this.readLuaFile(ServerSettingsManager.instance.getNameInSettingsFolder(var1 + "_SandboxVars.lua"));
       if (this.Lore.Speed.getValue() == 1) {
          this.Lore.Speed.setValue(2);
@@ -748,19 +749,19 @@ class SandboxOptions {
     return var2;
    }
 
-    bool saveServerLuaFile(const std::string& var1) {
+    bool saveServerLuaFile(std::string_view var1) {
       return this.writeLuaFile(ServerSettingsManager.instance.getNameInSettingsFolder(var1 + "_SandboxVars.lua"), false);
    }
 
-    bool loadPresetFile(const std::string& var1) {
+    bool loadPresetFile(std::string_view var1) {
       return this.readTextFile(LuaManager.getSandboxCacheDir() + File.separator + var1 + ".cfg", true);
    }
 
-    bool savePresetFile(const std::string& var1) {
+    bool savePresetFile(std::string_view var1) {
       return !isValidPresetName(var1) ? false : this.writeTextFile(LuaManager.getSandboxCacheDir() + File.separator + var1 + ".cfg", 5);
    }
 
-    bool loadGameFile(const std::string& var1) {
+    bool loadGameFile(std::string_view var1) {
     File var2 = ZomboidFileSystem.instance.getMediaFile("lua/shared/Sandbox/" + var1 + ".lua");
       if (!var2.exists()) {
          throw RuntimeException("media/lua/shared/Sandbox/" + var1 + ".lua not found");
@@ -784,7 +785,7 @@ class SandboxOptions {
       }
    }
 
-    bool saveGameFile(const std::string& var1) {
+    bool saveGameFile(std::string_view var1) {
       return !Core.bDebug ? false : this.writeLuaFile("media/lua/shared/Sandbox/" + var1 + ".lua", true);
    }
 
@@ -854,7 +855,7 @@ class SandboxOptions {
       }
    }
 
-    bool loadServerZombiesFile(const std::string& var1) {
+    bool loadServerZombiesFile(std::string_view var1) {
     std::string var2 = ServerSettingsManager.instance.getNameInSettingsFolder(var1 + "_zombies.ini");
     ConfigFile var3 = new ConfigFile();
       if (var3.read(var2)) {
@@ -872,7 +873,7 @@ class SandboxOptions {
       }
    }
 
-    bool readLuaFile(const std::string& var1) {
+    bool readLuaFile(std::string_view var1) {
     File var2 = new File(var1).getAbsoluteFile();
       if (!var2.exists()) {
     return false;
@@ -928,7 +929,7 @@ class SandboxOptions {
       }
    }
 
-    bool writeLuaFile(const std::string& var1, bool var2) {
+    bool writeLuaFile(std::string_view var1, bool var2) {
     File var3 = new File(var1).getAbsoluteFile();
       DebugLog.log("writing " + var1);
 
@@ -1077,11 +1078,11 @@ class SandboxOptions {
       }
    }
 
-    std::string upgradeOptionName(const std::string& var1, int var2) {
+    std::string upgradeOptionName(std::string_view var1, int var2) {
     return var1;
    }
 
-    std::string upgradeOptionValue(const std::string& var1, const std::string& var2, int var3) {
+    std::string upgradeOptionValue(std::string_view var1, std::string_view var2, int var3) {
       if (var3 < 3 && "DayLength" == var1)) {
          this.DayLength.parse(var2);
          if (this.DayLength.getValue() == 8) {
@@ -1151,7 +1152,7 @@ class SandboxOptions {
     return var2;
    }
 
-    KahluaTable upgradeLuaTable(const std::string& var1, KahluaTable var2, int var3) {
+    KahluaTable upgradeLuaTable(std::string_view var1, KahluaTable var2, int var3) {
     KahluaTable var4 = LuaManager.platform.newTable();
     KahluaTableIterator var5 = var2.iterator();
 

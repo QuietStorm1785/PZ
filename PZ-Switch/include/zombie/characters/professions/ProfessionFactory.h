@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -75,9 +76,9 @@ public
  std::make_unique<HashMap<>>();
 
  public
- Profession(const std::string &_type, const std::string &_name,
- const std::string &IconPathname, int _cost,
- const std::string &desc) {
+ Profession(std::string_view _type, std::string_view _name,
+ std::string_view IconPathname, int _cost,
+ std::string_view desc) {
  this->type = _type;
  this->name = _name;
  this->IconPath = IconPathname;
@@ -91,7 +92,7 @@ public
 
  Texture getTexture() { return this->texture; }
 
- void addFreeTrait(const std::string &trait) {
+ void addFreeTrait(std::string_view trait) {
  this->FreeTraitStack.add(trait);
  }
 
@@ -137,7 +138,7 @@ public
  *
  * @param _type the type to set
  */
- void setType(const std::string &_type) { this->type = _type; }
+ void setType(std::string_view _type) { this->type = _type; }
 
  /**
  * @return the name
@@ -148,7 +149,7 @@ public
  *
  * @param _name the name to set
  */
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  /**
  * @return the cost
@@ -170,7 +171,7 @@ public
  *
  * @param _description the description to set
  */
- void setDescription(const std::string &_description) {
+ void setDescription(std::string_view _description) {
  this->description = _description;
  }
 
@@ -178,7 +179,7 @@ public
  *
  * @param _IconPath the IconPath to set
  */
- void setIconPath(const std::string &_IconPath) {
+ void setIconPath(std::string_view _IconPath) {
  this->IconPath = _IconPath;
  }
 

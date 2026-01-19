@@ -24,6 +24,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -46,8 +47,8 @@ public:
  int listenCnt = 0;
 
 public
- Radio(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ Radio(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  this->deviceData = new DeviceData(this);
  this->gameTime = GameTime.getInstance();
@@ -71,8 +72,8 @@ public
  }
  }
 
- void AddDeviceText(const std::string &line, float r, float g, float b,
- const std::string &guid, const std::string &codes,
+ void AddDeviceText(std::string_view line, float r, float g, float b,
+ std::string_view guid, std::string_view codes,
  int distance) {
  if (!ZomboidRadio.isStaticSound(line) {
  this->doReceiveSignal(distance);
@@ -93,7 +94,7 @@ public
  }
 
  void AddDeviceText(ChatMessage msg, float r, float g, float b,
- const std::string &guid, const std::string &codes,
+ std::string_view guid, std::string_view codes,
  int distance) {
  if (!ZomboidRadio.isStaticSound(msg.getText())) {
  this->doReceiveSignal(distance);
@@ -112,7 +113,7 @@ public
 
  bool HasPlayerInRange() { return false; }
 
- bool ReadFromWorldSprite(const std::string &sprite) {
+ bool ReadFromWorldSprite(std::string_view sprite) {
  if (StringUtils.isNullOrWhitespace(sprite) {
  return false;
  } else {
@@ -202,7 +203,7 @@ public
 
  bool IsSpeaking() { return false; }
 
- void Say(const std::string &line) {}
+ void Say(std::string_view line) {}
 
  std::string getSayLine() { return nullptr; }
 

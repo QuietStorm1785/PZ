@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -56,7 +57,7 @@ class javafmodJNI {
       }
    }
 
-    static void loadLibrary(const std::string& var0) {
+    static void loadLibrary(std::string_view var0) {
       for (String var4 : System.getProperty("java.library.path", "").split(File.pathSeparator)) {
     File var5 = new File(var4 + "/" + var0);
          if (var5.exists()) {
@@ -66,7 +67,7 @@ class javafmodJNI {
       }
    }
 
-    static void logPutsCallback(const std::string& var0) {
+    static void logPutsCallback(std::string_view var0) {
     long var1 = System.currentTimeMillis();
       System.out.print(var1 + " " + var0);
    }
@@ -261,7 +262,7 @@ class javafmodJNI {
 
     static native int FMOD_System_UnlockDSP(long var0);
 
-    static native int FMOD_System_GetRecordNumDrivers();
+    static native int FMOD_System_GetRecordNumDrivers() const ;
 
     static native int FMOD_System_GetRecordDriverInfo(int var0, FMOD_DriverInfo var1);
 
@@ -909,13 +910,13 @@ class javafmodJNI {
 
     static native void FMOD_Studio_System_FlushCommands();
 
-    static native int FMOD_Studio_System_GetBankCount();
+    static native int FMOD_Studio_System_GetBankCount() const ;
 
     static native int FMOD_Studio_System_GetBankList(long[] var0);
 
     static native long FMOD_Studio_System_GetBus(String var0);
 
-    static native int FMOD_Studio_System_GetParameterDescriptionCount();
+    static native int FMOD_Studio_System_GetParameterDescriptionCount() const ;
 
     static native int FMOD_Studio_System_GetParameterDescriptionList(long[] var0);
 

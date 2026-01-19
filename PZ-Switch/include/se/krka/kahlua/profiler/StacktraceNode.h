@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -67,7 +68,7 @@ void output(PrintWriter printWriter) {
  this->output(printWriter, "", this->time, this->time);
 }
 
-void output(PrintWriter printWriter, const std::string &string0, long long1,
+void output(PrintWriter printWriter, std::string_view string0, long long1,
  long long0) {
  printWriter.println(String.format(
  "%-40s %4d ms %5.1f%% of parent %5.1f%% of total",

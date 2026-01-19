@@ -1032,6 +1032,6 @@ public
  }
  }
 
- int reusableZombiesSize() { return this->ReusableZombies.size(); }
+ int reusableZombiesSize() noexcept{ return this->ReusableZombies.size(); }
 }
 } // namespace zombie

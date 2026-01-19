@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ private
  const IsoSpriteManager SprMngr;
  bool snowState;
 
- void addSprite(const std::string &_sprite, const std::string &_winterSprite) {
+ void addSprite(std::string_view _sprite, std::string_view _winterSprite) {
  IsoSprite sprite0 = this->SprMngr.getSprite(_sprite);
  IsoSprite sprite1 = this->SprMngr.getSprite(_winterSprite);
  if (sprite0 != nullptr && sprite1 != nullptr) {
@@ -448,8 +449,8 @@ private
  std::string winter;
 
  public
- Sprite(IsoSprite sprite1, const std::string &string0,
- const std::string &string1) {
+ Sprite(IsoSprite sprite1, std::string_view string0,
+ std::string_view string1) {
  this->sprite = sprite1;
  this->normal = string0;
  this->winter = string1;

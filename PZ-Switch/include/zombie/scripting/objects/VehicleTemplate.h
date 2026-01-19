@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,8 +21,8 @@ public:
  VehicleScript script;
 
 public
- VehicleTemplate(ScriptModule module, const std::string &_name,
- const std::string &_body) {
+ VehicleTemplate(ScriptModule module, std::string_view _name,
+ std::string_view _body) {
  ScriptManager scriptManager = ScriptManager.instance;
  if (!scriptManager.scriptsWithVehicleTemplates.contains(
  scriptManager.currentFileName) {

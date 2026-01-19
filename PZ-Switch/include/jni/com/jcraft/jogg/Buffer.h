@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -68,7 +69,7 @@ class Buffer {
     return var1;
    }
 
-    static void report(const std::string& var0) {
+    static void report(std::string_view var0) {
       System.err.println(var0);
       System.exit(1);
    }

@@ -36,7 +36,7 @@ private
 
  static void Clear() { flares.clear(); }
 
- static int getFlareCount() { return flares.size(); }
+ static int getFlareCount() noexcept{ return flares.size(); }
 
 public
  static WorldFlares.Flare getFlare(int index) { return flares.get(index); }

@@ -26,6 +26,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -417,7 +418,7 @@ public
  super.render(x, y, z, col, bDoChild, bWallLightingPass, shader);
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  if ("state" == change) {
  bb.putInt(this->getFuelAmount());
  bb.put((byte)(this->isLit() ? 1 : 0);
@@ -425,7 +426,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  if ("state" == change) {
  this->setFuelAmount(bb.getInt());
  this->setLit(bb.get() == 1);

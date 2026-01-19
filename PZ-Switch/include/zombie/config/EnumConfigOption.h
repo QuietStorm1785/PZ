@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -14,7 +15,7 @@ namespace config {
 class EnumConfigOption : public IntegerConfigOption {
 public:
 public
- EnumConfigOption(const std::string &name, int numValues, int defaultValue) {
+ EnumConfigOption(std::string_view name, int numValues, int defaultValue) {
  super(name, 1, numValues, defaultValue);
  }
 

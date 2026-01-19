@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -50,7 +51,7 @@ class SinglePlayerServer {
       }
    }
 
-    static void sendObjectChange(IsoObject var0, const std::string& var1, KahluaTable var2, UdpConnection var3) {
+    static void sendObjectChange(IsoObject var0, std::string_view var1, KahluaTable var2, UdpConnection var3) {
       if (var0.getSquare() != nullptr) {
     ByteBufferWriter var4 = var3.startPacket();
          PacketType.ObjectChange.doPacket(var4);
@@ -80,7 +81,7 @@ class SinglePlayerServer {
       }
    }
 
-    static void sendObjectChange(IsoObject var0, const std::string& var1, KahluaTable var2) {
+    static void sendObjectChange(IsoObject var0, std::string_view var1, KahluaTable var2) {
       if (var0 != nullptr) {
          for (int var3 = 0; var3 < udpEngine.connections.size(); var3++) {
     UdpConnection var4 = (UdpConnection)udpEngine.connections.get(var3);
@@ -91,7 +92,7 @@ class SinglePlayerServer {
       }
    }
 
-    static void sendObjectChange(IsoObject var0, const std::string& var1, Object... var2) {
+    static void sendObjectChange(IsoObject var0, std::string_view var1, Object... var2) {
       if (var2.length == 0) {
          sendObjectChange(var0, var1, (KahluaTable)nullptr);
       } else if (var2.length % 2 == 0) {
@@ -114,7 +115,7 @@ class SinglePlayerServer {
       }
    }
 
-    static void sendServerCommand(const std::string& var0, const std::string& var1, KahluaTable var2, UdpConnection var3) {
+    static void sendServerCommand(std::string_view var0, std::string_view var1, KahluaTable var2, UdpConnection var3) {
     ByteBufferWriter var4 = var3.startPacket();
       PacketType.ClientCommand.doPacket(var4);
       var4.putUTF(var0);
@@ -142,7 +143,7 @@ class SinglePlayerServer {
       var3.endPacketImmediate();
    }
 
-    static void sendServerCommand(const std::string& var0, const std::string& var1, KahluaTable var2) {
+    static void sendServerCommand(std::string_view var0, std::string_view var1, KahluaTable var2) {
       for (int var3 = 0; var3 < udpEngine.connections.size(); var3++) {
     UdpConnection var4 = (UdpConnection)udpEngine.connections.get(var3);
          sendServerCommand(var0, var1, var2, var4);

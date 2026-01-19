@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,7 @@ private
  int len = 0;
  bool recalculateLen;
 
- std::string getString(const std::string &string) {
+ std::string getString(std::string_view string) {
  return (String)this->rawget(string);
  }
 

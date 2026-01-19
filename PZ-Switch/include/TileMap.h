@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <string>
+#include <string_view>
 #include <vector>
 #include <unordered_map>
 
@@ -49,7 +50,7 @@ public:
  void setSize(int width, int height, int layers = 1);
  int getWidth() const { return width; }
  int getHeight() const { return height; }
- int getLayerCount() const { return layers; }
+ int getLayerCount() const noexcept { return layers; }
  
  // Tile management
  void setTile(int x, int y, int layer, int tileDefId);
@@ -62,7 +63,7 @@ public:
  
  // Properties
  void setTileSize(int size) { tileSize = size; }
- int getTileSize() const { return tileSize; }
+ int getTileSize() const noexcept { return tileSize; }
  
 private:
  int width, height, layers;
@@ -84,16 +85,16 @@ public:
  void init(assets::TextureManager* texMgr);
  
  // Register tile definitions
- int registerTile(const std::string& name, const std::string& texturePath, 
+ int registerTile(std::string_view name, std::string_view texturePath, 
  int srcX, int srcY, int srcW, int srcH);
  
  // Get tile definition
  const TileDef* getTileDef(int id) const;
- const TileDef* getTileDefByName(const std::string& name) const;
- int getTileId(const std::string& name) const;
+ const TileDef* getTileDefByName(std::string_view name) const;
+ int getTileId(std::string_view name) const;
  
  // Load tile definitions from scripts
- bool loadTileDefinitions(const std::string& path);
+ bool loadTileDefinitions(std::string_view path);
  
  // Cleanup
  void clear();
@@ -110,11 +111,11 @@ private:
  */
 class LotLoader {
 public:
- static bool loadFromFile(const std::string& path, TileMap* tileMap, 
+ static bool loadFromFile(std::string_view path, TileMap* tileMap, 
  TileRegistry* registry);
  
 private:
- static bool parseLotFile(const std::string& path,
+ static bool parseLotFile(std::string_view path,
  std::vector<std::string>& tileNames);
 };
 

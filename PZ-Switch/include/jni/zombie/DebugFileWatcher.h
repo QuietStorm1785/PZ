@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -59,7 +60,7 @@ class DebugFileWatcher {
       }
    }
 
-    void addWatchedFile(const std::string& var1) {
+    void addWatchedFile(std::string_view var1) {
       if (var1 != nullptr) {
          this.m_watchedFiles.put(this.m_fs.getPath(var1), var1);
       }
@@ -73,13 +74,13 @@ class DebugFileWatcher {
       }
    }
 
-    void addDirectory(const std::string& var1) {
+    void addDirectory(std::string_view var1) {
       if (var1 != nullptr) {
          this.registerDir(this.m_fs.getPath(var1));
       }
    }
 
-    void addDirectoryRecurse(const std::string& var1) {
+    void addDirectoryRecurse(std::string_view var1) {
       if (var1 != nullptr) {
          this.registerDirRecursive(this.m_fs.getPath(var1));
       }

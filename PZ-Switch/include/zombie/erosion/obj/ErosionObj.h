@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -164,7 +165,7 @@ public
  return this->getObject(square, true);
  }
 
- IsoSprite getSprite(const std::string &string) {
+ IsoSprite getSprite(std::string_view string) {
  return ErosionMain.getInstance().getSpriteManager().getSprite(string);
  }
 }

@@ -97,6 +97,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -540,7 +541,7 @@ public
  ZomboidFileSystem.instance.getFileNameInCurrentSave("thumb.png"));
  }
 
- void TakeFullScreenshot(const std::string &filename) {
+ void TakeFullScreenshot(std::string_view filename) {
  RenderThread.invokeOnRenderContext(
  filename, string->{
  GL11.glPixelStorei(3333, 1);
@@ -756,7 +757,7 @@ public
  this->setScreenSize(Display.getWidth(), Display.getHeight());
  }
 
- void setResolution(const std::string &res) {
+ void setResolution(std::string_view res) {
  String[] strings = res.split("x");
  int int0 = Integer.parseInt(strings[0].trim());
  int int1 = Integer.parseInt(strings[1].trim());
@@ -1316,14 +1317,14 @@ bool isDefaultOptions() { return !this->bLoadedOptions; }
 
 bool isDedicated() { return GameServer.bServer; }
 
-void copyPasteFolders(const std::string &string) {
+void copyPasteFolders(std::string_view string) {
  File file = new File(string).getAbsoluteFile();
  if (file.exists()) {
  this->searchFolders(file, string);
  }
 }
 
-void searchFolders(File file0, const std::string &string) {
+void searchFolders(File file0, std::string_view string) {
  if (file0.isDirectory()) {
  File file1 = new File(this->saveFolder + File.separator + string);
  file1.mkdir();
@@ -1339,7 +1340,7 @@ void searchFolders(File file0, const std::string &string) {
  }
 }
 
-void copyPasteFile(File file1, const std::string &string) {
+void copyPasteFile(File file1, std::string_view string) {
  FileOutputStream fileOutputStream = nullptr;
  FileInputStream fileInputStream = nullptr;
 
@@ -2646,7 +2647,7 @@ KahluaTable getScreenModes() {
 
  void reinitKeyMaps() { this->keyMaps = std::make_unique<HashMap<>>(); }
 
- int getKey(const std::string &keyName) {
+ int getKey(std::string_view keyName) {
  if (this->keyMaps.empty()) {
  return 0;
  } else {
@@ -2655,7 +2656,7 @@ KahluaTable getScreenModes() {
  }
  }
 
- void addKeyBinding(const std::string &keyName, int key) {
+ void addKeyBinding(std::string_view keyName, int key) {
  if (this->keyMaps.empty()) {
  this->keyMaps = std::make_unique<HashMap<>>();
  }
@@ -2887,7 +2888,7 @@ KahluaTable getScreenModes() {
  return OptionVoiceRecordDeviceName;
  }
 
- void setOptionVoiceRecordDeviceName(const std::string &option) {
+ void setOptionVoiceRecordDeviceName(std::string_view option) {
  OptionVoiceRecordDeviceName = option;
  VoiceManager.instance.UpdateRecordDevice();
  }
@@ -2947,7 +2948,7 @@ KahluaTable getScreenModes() {
 
  void setOptionRackProgress(bool b) { OptionRackProgress = b; }
 
- int getOptionFontSize() { return OptionFontSize; }
+ int getOptionFontSize() noexcept{ return OptionFontSize; }
 
  void setOptionFontSize(int size) {
  OptionFontSize = PZMath.clamp(size, 1, 5);
@@ -2955,17 +2956,17 @@ KahluaTable getScreenModes() {
 
  std::string getOptionContextMenuFont() { return OptionContextMenuFont; }
 
- void setOptionContextMenuFont(const std::string &font) {
+ void setOptionContextMenuFont(std::string_view font) {
  OptionContextMenuFont = font;
  }
 
  std::string getOptionInventoryFont() { return OptionInventoryFont; }
 
- void setOptionInventoryFont(const std::string &font) {
+ void setOptionInventoryFont(std::string_view font) {
  OptionInventoryFont = font;
  }
 
- int getOptionInventoryContainerSize() {
+ int getOptionInventoryContainerSize() noexcept{
  return OptionInventoryContainerSize;
  }
 
@@ -2975,20 +2976,20 @@ KahluaTable getScreenModes() {
 
  std::string getOptionTooltipFont() { return OptionTooltipFont; }
 
- void setOptionTooltipFont(const std::string &font) {
+ void setOptionTooltipFont(std::string_view font) {
  OptionTooltipFont = font;
  ObjectTooltip.checkFont();
  }
 
  std::string getOptionMeasurementFormat() { return OptionMeasurementFormat; }
 
- void setOptionMeasurementFormat(const std::string &format) {
+ void setOptionMeasurementFormat(std::string_view format) {
  OptionMeasurementFormat = format;
  }
 
  int getOptionClockFormat() { return OptionClockFormat; }
 
- int getOptionClockSize() { return OptionClockSize; }
+ int getOptionClockSize() noexcept{ return OptionClockSize; }
 
  void setOptionClockFormat(int fmt) {
  if (fmt < 1) {
@@ -3052,13 +3053,13 @@ KahluaTable getScreenModes() {
 
  void setOptionTexture2x(bool b) { OptionTexture2x = b; }
 
- int getOptionMaxTextureSize() { return OptionMaxTextureSize; }
+ int getOptionMaxTextureSize() noexcept{ return OptionMaxTextureSize; }
 
  void setOptionMaxTextureSize(int int0) {
  OptionMaxTextureSize = PZMath.clamp(int0, 1, 4);
  }
 
- int getOptionMaxVehicleTextureSize() { return OptionMaxVehicleTextureSize; }
+ int getOptionMaxVehicleTextureSize() noexcept{ return OptionMaxVehicleTextureSize; }
 
  void setOptionMaxVehicleTextureSize(int int0) {
  OptionMaxVehicleTextureSize = PZMath.clamp(int0, 1, 4);
@@ -3082,11 +3083,11 @@ KahluaTable getScreenModes() {
  };
  }
 
- int getMaxTextureSize() {
+ int getMaxTextureSize() noexcept{
  return this->getMaxTextureSizeFromOption(OptionMaxTextureSize);
  }
 
- int getMaxVehicleTextureSize() {
+ int getMaxVehicleTextureSize() noexcept{
  return this->getMaxTextureSizeFromOption(OptionMaxVehicleTextureSize);
  }
 
@@ -3102,14 +3103,14 @@ KahluaTable getScreenModes() {
  return OptionZoomLevels1x;
  }
 
- void setOptionZoomLevels1x(const std::string& levels) {
+ void setOptionZoomLevels1x(std::string_view levels) {
  OptionZoomLevels1x = levels.empty() ? "" :
  levels;
  }
 
  std::string getOptionZoomLevels2x() { return OptionZoomLevels2x; }
 
- void setOptionZoomLevels2x(const std::string &levels) {
+ void setOptionZoomLevels2x(std::string_view levels) {
  OptionZoomLevels2x = levels.empty() ? "" : levels;
  }
 
@@ -3130,7 +3131,7 @@ KahluaTable getScreenModes() {
  }
  }
 
- bool getOptionActiveController(const std::string &guid) {
+ bool getOptionActiveController(std::string_view guid) {
  return JoypadManager.instance.ActiveControllerGUIDs.contains(
  guid);
  }
@@ -3143,9 +3144,9 @@ KahluaTable getScreenModes() {
 
  bool isOptionShowChatTitle() { return OptionShowChatTitle; }
 
- std::string getOptionChatFontSize() { return OptionChatFontSize; }
+ std::string getOptionChatFontSize() noexcept{ return OptionChatFontSize; }
 
- void setOptionChatFontSize(const std::string &optionChatFontSize) {
+ void setOptionChatFontSize(std::string_view optionChatFontSize) {
  OptionChatFontSize = optionChatFontSize;
  }
 
@@ -3234,7 +3235,7 @@ KahluaTable getScreenModes() {
  return OptionCycleContainerKey;
  }
 
- void setOptionCycleContainerKey(const std::string &s) {
+ void setOptionCycleContainerKey(std::string_view s) {
  OptionCycleContainerKey = s;
  }
 
@@ -3356,7 +3357,7 @@ KahluaTable getScreenModes() {
  }
  }
 
- void readPerPlayerBoolean(const std::string &string,
+ void readPerPlayerBoolean(std::string_view string,
  boolean[] booleans) {
  Arrays.fill(booleans, false);
  String[] strings = string.split(",");
@@ -3371,12 +3372,12 @@ KahluaTable getScreenModes() {
  booleans[2], booleans[3]);
  }
 
- void ResetLua(bool sp, const std::string &reason) {
+ void ResetLua(bool sp, std::string_view reason) {
  this->ResetLua("default", reason);
  }
 
- void ResetLua(const std::string &activeMods,
- const std::string &reason) {
+ void ResetLua(std::string_view activeMods,
+ std::string_view reason) {
  if (SpriteRenderer.instance != nullptr) {
  GameWindow.DrawReloadingLua = true;
  GameWindow.render();
@@ -3455,8 +3456,8 @@ KahluaTable getScreenModes() {
  LuaEventManager.triggerEvent("OnResetLua", reason);
  }
 
- void DelayResetLua(const std::string &activeMods,
- const std::string &reason) {
+ void DelayResetLua(std::string_view activeMods,
+ std::string_view reason) {
  this->m_delayResetLua_activeMods = activeMods;
  this->m_delayResetLua_reason = reason;
  }
@@ -3487,7 +3488,7 @@ KahluaTable getScreenModes() {
 
  std::string getBlinkingMoodle() { return this->blinkingMoodle; }
 
- void setBlinkingMoodle(const std::string &_blinkingMoodle) {
+ void setBlinkingMoodle(std::string_view _blinkingMoodle) {
  this->blinkingMoodle = _blinkingMoodle;
  }
 
@@ -3528,7 +3529,7 @@ KahluaTable getScreenModes() {
 
  std::string getPoisonousBerry() { return this->poisonousBerry; }
 
- void setPoisonousBerry(const std::string &_poisonousBerry) {
+ void setPoisonousBerry(std::string_view _poisonousBerry) {
  this->poisonousBerry = _poisonousBerry;
  }
 
@@ -3536,13 +3537,13 @@ KahluaTable getScreenModes() {
  return this->poisonousMushroom;
  }
 
- void setPoisonousMushroom(const std::string &_poisonousMushroom) {
+ void setPoisonousMushroom(std::string_view _poisonousMushroom) {
  this->poisonousMushroom = _poisonousMushroom;
  }
 
  static std::string getDifficulty() { return difficulty; }
 
- static void setDifficulty(const std::string &vdifficulty) {
+ static void setDifficulty(std::string_view vdifficulty) {
  difficulty = vdifficulty;
  }
 
@@ -3629,7 +3630,7 @@ KahluaTable getScreenModes() {
 
  std::string getSeenUpdateText() { return this->seenUpdateText; }
 
- void setSeenUpdateText(const std::string &_seenUpdateText) {
+ void setSeenUpdateText(std::string_view _seenUpdateText) {
  this->seenUpdateText = _seenUpdateText;
  }
 
@@ -3827,7 +3828,7 @@ KahluaTable getScreenModes() {
  OptionProgressBar = optionProgressBar;
  }
 
- void setOptionLanguageName(const std::string &name) {
+ void setOptionLanguageName(std::string_view name) {
  OptionLanguageName = name;
  }
 
@@ -3853,11 +3854,11 @@ KahluaTable getScreenModes() {
 
  bool isOption3DGroundItem() { return Option3DGroundItem; }
 
- void *getOptionOnStartup(const std::string &name) {
+ void *getOptionOnStartup(std::string_view name) {
  return optionsOnStartup.get(name);
  }
 
- void setOptionOnStartup(const std::string &name, void *value) {
+ void setOptionOnStartup(std::string_view name, void *value) {
  optionsOnStartup.put(name, value);
  }
 

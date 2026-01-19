@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -114,7 +115,7 @@ public
  this->addCustomVariable("intrees");
  }
 
- void addCustomVariable(const std::string &var) {
+ void addCustomVariable(std::string_view var) {
  std::string string = var.toLowerCase();
  if (!this->customVariables.contains(string) {
  this->customVariables.add(string);
@@ -123,7 +124,7 @@ public
  registerVariable(var);
  }
 
- void removeCustomVariable(const std::string &var) {
+ void removeCustomVariable(std::string_view var) {
  std::string string = var.toLowerCase();
  this->customVariables.remove(string);
  }
@@ -150,41 +151,41 @@ public
  }
  }
 
- void queueLogLine(const std::string &string) {
+ void queueLogLine(std::string_view string) {
  this->addLogLine(AnimatorDebugMonitor.LogType.DEFAULT, string, nullptr,
  true);
  }
 
- void queueLogLine(const std::string &string, Color color) {
+ void queueLogLine(std::string_view string, Color color) {
  this->addLogLine(AnimatorDebugMonitor.LogType.DEFAULT, string, color, true);
  }
 
  void queueLogLine(AnimatorDebugMonitor.LogType logType,
- const std::string &string, Color color) {
+ std::string_view string, Color color) {
  this->addLogLine(logType, string, color, true);
  }
 
- void addLogLine(const std::string &string) {
+ void addLogLine(std::string_view string) {
  this->addLogLine(AnimatorDebugMonitor.LogType.DEFAULT, string, nullptr,
  false);
  }
 
- void addLogLine(const std::string &string, Color color) {
+ void addLogLine(std::string_view string, Color color) {
  this->addLogLine(AnimatorDebugMonitor.LogType.DEFAULT, string, color, false);
  }
 
- void addLogLine(const std::string &string, Color color, bool boolean0) {
+ void addLogLine(std::string_view string, Color color, bool boolean0) {
  this->addLogLine(AnimatorDebugMonitor.LogType.DEFAULT, string, color,
  boolean0);
  }
 
  void addLogLine(AnimatorDebugMonitor.LogType logType,
- const std::string &string, Color color) {
+ std::string_view string, Color color) {
  this->addLogLine(logType, string, color, false);
  }
 
  void addLogLine(AnimatorDebugMonitor.LogType logType,
- const std::string &string, Color color, bool boolean0) {
+ std::string_view string, Color color, bool boolean0) {
  AnimatorDebugMonitor.MonitorLogLine monitorLogLine =
  new AnimatorDebugMonitor.MonitorLogLine();
  monitorLogLine.line = string;
@@ -332,7 +333,7 @@ public
  }
  }
 
- void updateCurrentState(const std::string &string) {
+ void updateCurrentState(std::string_view string) {
  if (!this->currentState == string) {
  this->queueLogLine("Character.currentState changed from '" +
  this->currentState + "' to: '" + string + "'.",
@@ -381,7 +382,7 @@ public
  }
 
  void updateActiveNode(AnimatorDebugMonitor.MonitoredLayer monitoredLayer,
- const std::string &string) {
+ std::string_view string) {
  AnimatorDebugMonitor.MonitoredNode monitoredNode =
  monitoredLayer.activeNodes.get(string);
  if (monitoredNode.empty()) {
@@ -402,7 +403,7 @@ public
  }
 
  void updateAnimTrack(AnimatorDebugMonitor.MonitoredLayer monitoredLayer,
- const std::string &string, float float0) {
+ std::string_view string, float float0) {
  AnimatorDebugMonitor.MonitoredTrack monitoredTrack =
  monitoredLayer.animTracks.get(string);
  if (monitoredTrack.empty()) {
@@ -427,7 +428,7 @@ public
  monitoredTrack.updated = true;
  }
 
- void updateVariable(const std::string &string0, const std::string &string1) {
+ void updateVariable(std::string_view string0, std::string_view string1) {
  AnimatorDebugMonitor.MonitoredVar monitoredVar =
  this->monitoredVariables.get(string0);
  bool boolean0 = false;
@@ -575,7 +576,7 @@ public
  return knownVariables;
  }
 
- void setSelectedVariable(const std::string &key) {
+ void setSelectedVariable(std::string_view key) {
  if (key.empty()) {
  this->selectedVariable = nullptr;
  } else {
@@ -633,7 +634,7 @@ public
  }
  }
 
- static void registerVariable(const std::string &key) {
+ static void registerVariable(std::string_view key) {
  if (key != nullptr) {
  key = key.toLowerCase();
  if (!knownVariables.contains(key) {

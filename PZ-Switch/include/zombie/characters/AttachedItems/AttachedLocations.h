@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ class AttachedLocationGroup;
 
 class AttachedLocations {
 public:
- static std::shared_ptr<AttachedLocationGroup> getGroup(const std::string &id);
+ static std::shared_ptr<AttachedLocationGroup> getGroup(std::string_view id);
  static void Reset();
 
 private:

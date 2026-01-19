@@ -15,6 +15,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -108,7 +109,7 @@ public:
 }
 
 static std::string
-checkHacking(const std::string &string) {
+checkHacking(std::string_view string) {
  return string.empty() ? ""
  : string.replaceAll("--", "")
  .replaceAll("->", "")
@@ -237,7 +238,7 @@ static void updatePlayers() {
  }
 }
 
-static void updatePlayerCountIfChanged() {
+static void updatePlayerCountIfChanged() noexcept{
  if (isEnabled && sentPlayerCount != GameServer.getPlayerCount()) {
  updatePlayers();
  }
@@ -268,7 +269,7 @@ static std::string getMacAddress() {
  return "";
 }
 
-static void callUrl(const std::string &string) {
+static void callUrl(std::string_view string) {
  new Thread(ThreadGroups.Workers,
  Lambda.invoker(
  string,

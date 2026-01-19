@@ -20,7 +20,7 @@ public:
  int m_playerIndex = -1;
 
 public
- ParameterMusicZombiesTargeting() { super("MusicZombiesTargeting"); }
+ ParameterMusicZombiesTargeting() noexcept{ super("MusicZombiesTargeting"); }
 
  float calculateCurrentValue() {
  IsoPlayer player = this->choosePlayer();

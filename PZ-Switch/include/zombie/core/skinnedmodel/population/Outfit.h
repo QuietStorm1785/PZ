@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,7 +41,7 @@ public
 public
  Outfit.RandomData RandomData = new Outfit.RandomData();
 
- void setModID(const std::string &modID) {
+ void setModID(std::string_view modID) {
  this->m_modID = modID;
 
  for (ClothingItemReference clothingItemReference : this->m_items) {
@@ -88,7 +89,7 @@ public
  }
  }
 
- void randomizeItem(const std::string &itemGuid) {
+ void randomizeItem(std::string_view itemGuid) {
  ClothingItemReference clothingItemReference = PZArrayUtil.find(
  this->m_items,
  clothingItemReferencex->clothingItemReferencex.itemGUID.equals(
@@ -114,7 +115,7 @@ public
  return characterMask;
  }
 
- bool containsItemGuid(const std::string &itemGuid) {
+ bool containsItemGuid(std::string_view itemGuid) {
  bool boolean0 = false;
 
  for (int int0 = 0; int0 < this->m_items.size(); int0++) {
@@ -128,7 +129,7 @@ public
  return boolean0;
  }
 
- ClothingItemReference findItemByGUID(const std::string &itemGuid) {
+ ClothingItemReference findItemByGUID(std::string_view itemGuid) {
  for (int int0 = 0; int0 < this->m_items.size(); int0++) {
  ClothingItemReference clothingItemReference = this->m_items.get(int0);
  if (clothingItemReference.itemGUID == itemGuid) {

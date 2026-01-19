@@ -35,6 +35,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -56,8 +57,8 @@ public:
  std::string debugLine = "";
 
  BaseVehicle addVehicle(IsoMetaGrid.Zone zone, IsoGridSquare sq,
- IsoChunk chunk, const std::string &zoneName,
- const std::string &scriptName, IsoDirections dir) {
+ IsoChunk chunk, std::string_view zoneName,
+ std::string_view scriptName, IsoDirections dir) {
  return this->addVehicle(zone, sq, chunk, zoneName, scriptName, nullptr, dir,
  nullptr);
  }
@@ -362,7 +363,7 @@ public
 
  static IsoDeadBody createRandomDeadBody(IsoGridSquare sq, IsoDirections dir,
  int blood, int crawlerChance,
- const std::string &outfit) {
+ std::string_view outfit) {
  if (sq.empty()) {
  return nullptr;
  } else {
@@ -495,8 +496,8 @@ public
  }
  }
 
- void setAttachedItem(IsoZombie zombie, const std::string &location,
- const std::string &item, const std::string &ensureItem) {
+ void setAttachedItem(IsoZombie zombie, std::string_view location,
+ std::string_view item, std::string_view ensureItem) {
  InventoryItem _item = InventoryItemFactory.CreateItem(item);
  if (_item != nullptr) {
  _item.setCondition(Rand.Next(Math.max(2, _item.getConditionMax() - 5),
@@ -651,7 +652,7 @@ public
  /**
  * Return the wanted room
  */
- RoomDef getRoom(BuildingDef bDef, const std::string &roomName) {
+ RoomDef getRoom(BuildingDef bDef, std::string_view roomName) {
  for (int int0 = 0; int0 < bDef.rooms.size(); int0++) {
  RoomDef roomDef = bDef.rooms.get(int0);
  if (roomDef.getName().equalsIgnoreCase(roomName) {
@@ -702,7 +703,7 @@ public
  return square0;
  }
 
- BaseVehicle spawnCarOnNearestNav(const std::string &carName,
+ BaseVehicle spawnCarOnNearestNav(std::string_view carName,
  BuildingDef def) {
  IsoGridSquare square0 = nullptr;
  int int0 = (def.x + def.x2) / 2;
@@ -759,7 +760,7 @@ public
  }
  }
 
- BaseVehicle spawnCar(const std::string &string, IsoGridSquare square) {
+ BaseVehicle spawnCar(std::string_view string, IsoGridSquare square) {
  BaseVehicle vehicle = new BaseVehicle(IsoWorld.instance.CurrentCell);
  vehicle.setScriptName(string);
  vehicle.setX(square.x + 0.5F);
@@ -781,7 +782,7 @@ public
  return vehicle;
  }
 
- InventoryItem addItemOnGround(IsoGridSquare square, const std::string &type) {
+ InventoryItem addItemOnGround(IsoGridSquare square, std::string_view type) {
  return square != nullptr && !StringUtils.isNullOrWhitespace(type)
  ? square.AddWorldInventoryItem(type, Rand.Next(0.2F, 0.8F),
  Rand.Next(0.2F, 0.8F), 0.0F)
@@ -795,7 +796,7 @@ public
  : nullptr;
  }
 
- void addRandomItemsOnGround(RoomDef room, const std::string &type,
+ void addRandomItemsOnGround(RoomDef room, std::string_view type,
  int count) {
  for (int int0 = 0; int0 < count; int0++) {
  IsoGridSquare square = getRandomSpawnSquare(room);
@@ -825,7 +826,7 @@ public
  * Create and return a weapon, if it's ranged you can ask for some bullets in
  * it
  */
- HandWeapon addWeapon(const std::string &type, bool addRandomBullets) {
+ HandWeapon addWeapon(std::string_view type, bool addRandomBullets) {
  HandWeapon weapon = (HandWeapon)InventoryItemFactory.CreateItem(type);
  if (weapon.empty()) {
  return nullptr;
@@ -893,7 +894,7 @@ public
 
  std::string getDebugLine() { return this->debugLine; }
 
- void setDebugLine(const std::string &_debugLine) {
+ void setDebugLine(std::string_view _debugLine) {
  this->debugLine = _debugLine;
  }
 
@@ -909,11 +910,11 @@ public
  return IsoWorld.instance.getCell().getGridSquare(x, y, z);
  }
 
- IsoObject addTileObject(int x, int y, int z, const std::string &spriteName) {
+ IsoObject addTileObject(int x, int y, int z, std::string_view spriteName) {
  return this->addTileObject(this->getSq(x, y, z), spriteName);
  }
 
- IsoObject addTileObject(IsoGridSquare sq, const std::string &spriteName) {
+ IsoObject addTileObject(IsoGridSquare sq, std::string_view spriteName) {
  if (sq.empty()) {
  return nullptr;
  } else {
@@ -936,9 +937,9 @@ public
  }
 
  BaseVehicle addTrailer(BaseVehicle v, IsoMetaGrid.Zone zone, IsoChunk chunk,
- const std::string &zoneName,
- const std::string &vehicleDistrib,
- const std::string &trailerName) {
+ std::string_view zoneName,
+ std::string_view vehicleDistrib,
+ std::string_view trailerName) {
  IsoGridSquare square = v.getSquare();
  IsoDirections directions = v.getDir();
  uint8_t byte0 = 0;

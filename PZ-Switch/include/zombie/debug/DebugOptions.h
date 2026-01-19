@@ -28,6 +28,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -315,7 +316,7 @@ public
  PZXmlUtil.tryWrite(debugOptionsXml, new File(string);
  }
 
- void onTrigger_SetDebugOptions(const std::string &var1) {
+ void onTrigger_SetDebugOptions(std::string_view var1) {
  try {
  DebugOptionsXml debugOptionsXml = PZXmlUtil.parse(
  DebugOptionsXml.class, ZomboidFileSystem.instance.getMessagingDirSub(
@@ -384,14 +385,14 @@ public
  "DebugOptions is a root not. Cannot have a parent.");
  }
 
- BooleanDebugOption newOption(const std::string &string, bool boolean0) {
+ BooleanDebugOption newOption(std::string_view string, bool boolean0) {
  BooleanDebugOption booleanDebugOption =
  OptionGroup.newOption(string, boolean0);
  this->addChild(booleanDebugOption);
  return booleanDebugOption;
  }
 
- BooleanDebugOption newDebugOnlyOption(const std::string &string,
+ BooleanDebugOption newDebugOnlyOption(std::string_view string,
  bool boolean0) {
  BooleanDebugOption booleanDebugOption =
  OptionGroup.newDebugOnlyOption(string, boolean0);
@@ -404,7 +405,7 @@ public
  return (E)iDebugOptionGroup;
  }
 
- BooleanDebugOption getOptionByName(const std::string &name) {
+ BooleanDebugOption getOptionByName(std::string_view name) {
  for (int int0 = 0; int0 < this->options.size(); int0++) {
  BooleanDebugOption booleanDebugOption = this->options.get(int0);
  if (booleanDebugOption.getName() == name) {
@@ -415,20 +416,20 @@ public
  return nullptr;
  }
 
- int getOptionCount() { return this->options.size(); }
+ int getOptionCount() noexcept{ return this->options.size(); }
 
  BooleanDebugOption getOptionByIndex(int index) {
  return this->options.get(index);
  }
 
- void setBoolean(const std::string &name, bool value) {
+ void setBoolean(std::string_view name, bool value) {
  BooleanDebugOption booleanDebugOption = this->getOptionByName(name);
  if (booleanDebugOption != nullptr) {
  booleanDebugOption.setValue(value);
  }
  }
 
- bool getBoolean(const std::string &name) {
+ bool getBoolean(std::string_view name) {
  BooleanDebugOption booleanDebugOption = this->getOptionByName(name);
  return booleanDebugOption != nullptr ? booleanDebugOption.getValue()
  : false;

@@ -6,6 +6,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,9 +23,9 @@ public:
  virtual ~IClothingWasherDryerLogic() = default;
  void update();
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb);
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb);
 
- void loadChange(const std::string &change, ByteBuffer bb);
+ void loadChange(std::string_view change, ByteBuffer bb);
 
  ItemContainer getContainer();
 

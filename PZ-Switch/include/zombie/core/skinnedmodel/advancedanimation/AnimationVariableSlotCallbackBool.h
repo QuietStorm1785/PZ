@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
 
 public
  AnimationVariableSlotCallbackBool(
- const std::string &string,
+ std::string_view string,
  AnimationVariableSlotCallbackBool
  .CallbackGetStrongTyped callbackGetStrongTyped) {
  super(string, callbackGetStrongTyped);
@@ -38,7 +39,7 @@ public
 
 public
  AnimationVariableSlotCallbackBool(
- const std::string &string, bool boolean0,
+ std::string_view string, bool boolean0,
  AnimationVariableSlotCallbackBool
  .CallbackGetStrongTyped callbackGetStrongTyped) {
  super(string, callbackGetStrongTyped);
@@ -64,7 +65,7 @@ public
 
  bool getValueBool() { return this->getValue(); }
 
- void setValue(const std::string &string) {
+ void setValue(std::string_view string) {
  this->trySetValue(StringUtils.tryParseBoolean(string);
  }
 
@@ -74,7 +75,7 @@ public
 
  AnimationVariableType getType() { return AnimationVariableType.Boolean; }
 
- bool canConvertFrom(const std::string &string) {
+ bool canConvertFrom(std::string_view string) {
  return StringUtils.tryParseBoolean(string);
  }
 

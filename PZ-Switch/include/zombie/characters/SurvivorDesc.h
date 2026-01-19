@@ -24,6 +24,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -90,15 +91,15 @@ private
 
  WornItems getWornItems() { return this->wornItems; }
 
- void setWornItem(const std::string &bodyLocation, InventoryItem item) {
+ void setWornItem(std::string_view bodyLocation, InventoryItem item) {
  this->wornItems.setItem(bodyLocation, item);
  }
 
- InventoryItem getWornItem(const std::string &bodyLocation) {
+ InventoryItem getWornItem(std::string_view bodyLocation) {
  return this->wornItems.getItem(bodyLocation);
  }
 
- void dressInNamedOutfit(const std::string &outfitName) {
+ void dressInNamedOutfit(std::string_view outfitName) {
  ItemVisuals itemVisuals = new ItemVisuals();
  this->getHumanVisual().dressInNamedOutfit(outfitName, itemVisuals);
  this->getWornItems().setFromItemVisuals(itemVisuals);
@@ -111,7 +112,7 @@ private
  /**
  * @return the IDCount
  */
- static int getIDCount() { return IDCount; }
+ static int getIDCount() noexcept{ return IDCount; }
 
  void setProfessionSkills(ProfessionFactory.Profession profession) {
  this->getXPBoostMap().clear();
@@ -196,7 +197,7 @@ public
  }
  }
 
- bool hasObservation(const std::string &o) {
+ bool hasObservation(std::string_view o) {
  for (int int0 = 0; int0 < this->Observations.size(); int0++) {
  if (o == this->Observations.get(int0).getTraitID())) {
  return true;
@@ -321,7 +322,7 @@ private
  }
  }
 
- void addObservation(const std::string &obv) {
+ void addObservation(std::string_view obv) {
  ObservationFactory.Observation observation =
  ObservationFactory.getObservation(obv);
  if (observation != nullptr) {
@@ -355,7 +356,7 @@ private
  *
  * @param _forename the forename to set
  */
- void setForename(const std::string &_forename) { this->forename = _forename; }
+ void setForename(std::string_view _forename) { this->forename = _forename; }
 
  /**
  * @return the ID
@@ -388,7 +389,7 @@ private
  *
  * @param _surname the surname to set
  */
- void setSurname(const std::string &_surname) { this->surname = _surname; }
+ void setSurname(std::string_view _surname) { this->surname = _surname; }
 
  /**
  * @return the InventoryScript
@@ -399,7 +400,7 @@ private
  *
  * @param _InventoryScript the InventoryScript to set
  */
- void setInventoryScript(const std::string &_InventoryScript) {
+ void setInventoryScript(std::string_view _InventoryScript) {
  this->InventoryScript = _InventoryScript;
  }
 
@@ -412,13 +413,13 @@ private
  *
  * @param _torso the torso to set
  */
- void setTorso(const std::string &_torso) { this->torso = _torso; }
+ void setTorso(std::string_view _torso) { this->torso = _torso; }
 
  /**
  * @return the MetCount
  */
 public
- HashMap<Integer, Integer> getMetCount() { return this->MetCount; }
+ HashMap<Integer, Integer> getMetCount() noexcept{ return this->MetCount; }
 
  /**
  * @return the bravery
@@ -523,7 +524,7 @@ public
  *
  * @param _Profession the Profession to set
  */
- void setProfession(const std::string &_Profession) {
+ void setProfession(std::string_view _Profession) {
  this->Profession = _Profession;
  }
 

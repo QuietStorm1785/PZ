@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,19 +25,19 @@ private:
 public:
  const std::string id;
 
- AttachedLocationGroup(const std::string &_id);
+ AttachedLocationGroup(std::string_view _id);
 
- std::shared_ptr<AttachedLocation> getLocation(const std::string &locationId);
+ std::shared_ptr<AttachedLocation> getLocation(std::string_view locationId);
 
- std::shared_ptr<AttachedLocation> getOrCreateLocation(const std::string &locationId);
+ std::shared_ptr<AttachedLocation> getOrCreateLocation(std::string_view locationId);
 
  std::shared_ptr<AttachedLocation> getLocationByIndex(int index);
 
  int size() const;
 
- int indexOf(const std::string &locationId);
+ int indexOf(std::string_view locationId);
 
- void checkValid(const std::string &locationId);
+ void checkValid(std::string_view locationId);
 };
 } // namespace AttachedItems
 } // namespace characters

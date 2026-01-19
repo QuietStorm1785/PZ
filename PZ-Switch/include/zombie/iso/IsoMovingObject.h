@@ -67,6 +67,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -192,7 +193,7 @@ public
  /**
  * @return the IDCount
  */
- static int getIDCount() { return IDCount; }
+ static int getIDCount() noexcept{ return IDCount; }
 
  /**
  *
@@ -315,7 +316,7 @@ public
 
  float getScreenY() { return IsoUtils.YToScreen(this->x, this->y, this->z, 0); }
 
- Thumpable getThumpTarget() { return this->thumpTarget; }
+ Thumpable getThumpTarget() noexcept{ return this->thumpTarget; }
 
  /**
  *
@@ -2035,7 +2036,7 @@ public
  /**
  * @return the lastTargettedBy
  */
- IsoZombie getLastTargettedBy() { return this->lastTargettedBy; }
+ IsoZombie getLastTargettedBy() noexcept{ return this->lastTargettedBy; }
 
  /**
  *
@@ -2087,7 +2088,7 @@ public
  *
  * @param _ScriptModule the ScriptModule to set
  */
- void setScriptModule(const std::string &_ScriptModule) {
+ void setScriptModule(std::string_view _ScriptModule) {
  this->ScriptModule = _ScriptModule;
  }
 
@@ -2107,7 +2108,7 @@ public
  /**
  * @return the feelersize
  */
- float getFeelersize() { return this->feelersize; }
+ float getFeelersize() noexcept{ return this->feelersize; }
 
  /**
  *
@@ -2203,7 +2204,7 @@ public
 
  std::string getCollideType() { return this->collideType; }
 
- void setCollideType(const std::string &_collideType) {
+ void setCollideType(std::string_view _collideType) {
  this->collideType = _collideType;
  }
 

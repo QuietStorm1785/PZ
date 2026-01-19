@@ -30,6 +30,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -504,7 +505,7 @@ void loadSaveMap() {
 
  File file1 = IsoRegions.getDirectory();
  File[] files = file1.listFiles(std::make_unique<FilenameFilter>() {
- bool accept(File var1, const std::string& string) {
+ bool accept(File var1, std::string_view string) {
  return string.startsWith("datachunk_") && string.endsWith(".bin");
  }
 });

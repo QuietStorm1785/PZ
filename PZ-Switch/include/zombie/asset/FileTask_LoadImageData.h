@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ public:
  bool bMask = false;
 
 public
- FileTask_LoadImageData(const std::string &string, FileSystem fileSystem,
+ FileTask_LoadImageData(std::string_view string, FileSystem fileSystem,
  IFileTaskCallback iFileTaskCallback) {
  super(fileSystem, iFileTaskCallback);
  this->m_image_name = string;

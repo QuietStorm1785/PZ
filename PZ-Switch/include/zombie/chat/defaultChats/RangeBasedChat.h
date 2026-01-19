@@ -17,6 +17,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -57,7 +58,7 @@ private
 
  bool isSendingToRadio() { return true; }
 
- ChatMessage createMessage(const std::string &string) {
+ ChatMessage createMessage(std::string_view string) {
  ChatMessage chatMessage = super.createMessage(string);
  if (this->getMode() == ChatMode.SinglePlayer) {
  chatMessage.setShowInChat(false);
@@ -68,7 +69,7 @@ private
  return chatMessage;
  }
 
- ChatMessage createBubbleMessage(const std::string &string) {
+ ChatMessage createBubbleMessage(std::string_view string) {
  ChatMessage chatMessage = super.createMessage(string);
  chatMessage.setOverHeadSpeech(true);
  chatMessage.setShowInChat(false);
@@ -100,7 +101,7 @@ private
 
  ChatElement getSpeechBubble() { return overHeadChat; }
 
- UIFont selectFont(const std::string &string) {
+ UIFont selectFont(std::string_view string) {
  char[] chars = string.toCharArray();
  UIFont uIFont = UIFont.Dialogue;
  AngelCodeFont angelCodeFont = TextManager.instance.getFontFromEnum(uIFont);
@@ -158,7 +159,7 @@ private
  }
  }
 
- IsoPlayer getPlayer(const std::string &string) {
+ IsoPlayer getPlayer(std::string_view string) {
  IsoPlayer player = GameClient.bClient
  ? GameClient.instance.getPlayerFromUsername(string)
  : nullptr;

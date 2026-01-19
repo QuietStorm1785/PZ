@@ -39,6 +39,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -111,7 +112,7 @@ public
  void reset() { super.reset(); }
 
 public
- IsoTree(IsoGridSquare sq, const std::string &gid) {
+ IsoTree(IsoGridSquare sq, std::string_view gid) {
  super(sq, gid, false);
  this->initTree();
  }
@@ -271,7 +272,7 @@ public
 
  int getMaxHealth() { return this->LogYield * 80; }
 
- int getSize() { return this->size; }
+ int getSize() noexcept{ return this->size; }
 
  float getSlowFactor(IsoMovingObject chr) {
  float float0 = 1.0F;

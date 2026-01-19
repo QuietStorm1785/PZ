@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,7 +32,7 @@ private
  return instance;
  }
 
- void addTexture(const std::string &string0, const std::string &string1,
+ void addTexture(std::string_view string0, std::string_view string1,
  int int0, int int1) {
  MapSymbolDefinitions.MapSymbolDefinition mapSymbolDefinition =
  new MapSymbolDefinitions.MapSymbolDefinition();
@@ -43,7 +44,7 @@ private
  this->m_symbolByID.put(string0, mapSymbolDefinition);
  }
 
- void addTexture(const std::string &string1, const std::string &string0) {
+ void addTexture(std::string_view string1, std::string_view string0) {
  Texture texture = Texture.getSharedTexture(string0);
  if (texture.empty()) {
  this->addTexture(string1, string0, 18, 18);
@@ -53,7 +54,7 @@ private
  }
  }
 
- int getSymbolCount() { return this->m_symbolList.size(); }
+ int getSymbolCount() noexcept{ return this->m_symbolList.size(); }
 
 public
  MapSymbolDefinitions.MapSymbolDefinition getSymbolByIndex(int int0) {

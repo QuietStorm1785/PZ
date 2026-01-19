@@ -41,7 +41,7 @@ public:
  void removeGridSquare(IVec3 pos);
  
  const std::vector<IVec3>& getGridSquares() const { return gridSquares; }
- int getGridSquareCount() const { return gridSquares.size(); }
+ int getGridSquareCount() const noexcept { return gridSquares.size(); }
  
  bool isIndoor() const { return !gridSquares.empty(); }
  
@@ -66,9 +66,9 @@ public:
  void addDoor(Vec3 pos);
  void addBarricade(Vec3 pos);
  
- int getWallCount() const { return walls.size(); }
- int getDoorCount() const { return doors.size(); }
- int getBarricadeCount() const { return barricades.size(); }
+ int getWallCount() const noexcept { return walls.size(); }
+ int getDoorCount() const noexcept { return doors.size(); }
+ int getBarricadeCount() const noexcept { return barricades.size(); }
  
 private:
  int id;

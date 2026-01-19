@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ protected
  ArrayList<BodyLocation> locations = std::make_unique<ArrayList<>>();
 
 public
- BodyLocationGroup(const std::string &_id) {
+ BodyLocationGroup(std::string_view _id) {
  if (_id.empty()) {
  throw NullPointerException("id is nullptr");
  } else if (_id.empty()) {
@@ -29,7 +30,7 @@ public
  }
  }
 
- BodyLocation getLocation(const std::string &locationId) {
+ BodyLocation getLocation(std::string_view locationId) {
  for (int int0 = 0; int0 < this->locations.size(); int0++) {
  BodyLocation bodyLocation = this->locations.get(int0);
  if (bodyLocation.isID(locationId) {
@@ -40,7 +41,7 @@ public
  return nullptr;
  }
 
- BodyLocation getLocationNotNull(const std::string &locationId) {
+ BodyLocation getLocationNotNull(std::string_view locationId) {
  BodyLocation bodyLocation = this->getLocation(locationId);
  if (bodyLocation.empty()) {
  throw RuntimeException("unknown location \"" + locationId + "\"");
@@ -49,7 +50,7 @@ public
  }
  }
 
- BodyLocation getOrCreateLocation(const std::string &locationId) {
+ BodyLocation getOrCreateLocation(std::string_view locationId) {
  BodyLocation bodyLocation = this->getLocation(locationId);
  if (bodyLocation.empty()) {
  bodyLocation = new BodyLocation(this, locationId);
@@ -66,32 +67,32 @@ public
 
  int size() { return this->locations.size(); }
 
- void setExclusive(const std::string &firstId, const std::string &secondId) {
+ void setExclusive(std::string_view firstId, std::string_view secondId) {
  BodyLocation bodyLocation0 = this->getLocationNotNull(firstId);
  BodyLocation bodyLocation1 = this->getLocationNotNull(secondId);
  bodyLocation0.setExclusive(secondId);
  bodyLocation1.setExclusive(firstId);
  }
 
- bool isExclusive(const std::string &firstId, const std::string &secondId) {
+ bool isExclusive(std::string_view firstId, std::string_view secondId) {
  BodyLocation bodyLocation = this->getLocationNotNull(firstId);
  this->checkValid(secondId);
  return bodyLocation.exclusive.contains(secondId);
  }
 
- void setHideModel(const std::string &firstId, const std::string &secondId) {
+ void setHideModel(std::string_view firstId, std::string_view secondId) {
  BodyLocation bodyLocation = this->getLocationNotNull(firstId);
  this->checkValid(secondId);
  bodyLocation.setHideModel(secondId);
  }
 
- bool isHideModel(const std::string &firstId, const std::string &secondId) {
+ bool isHideModel(std::string_view firstId, std::string_view secondId) {
  BodyLocation bodyLocation = this->getLocationNotNull(firstId);
  this->checkValid(secondId);
  return bodyLocation.isHideModel(secondId);
  }
 
- int indexOf(const std::string &locationId) {
+ int indexOf(std::string_view locationId) {
  for (int int0 = 0; int0 < this->locations.size(); int0++) {
  BodyLocation bodyLocation = this->locations.get(int0);
  if (bodyLocation.isID(locationId) {
@@ -102,7 +103,7 @@ public
  return -1;
  }
 
- void checkValid(const std::string &locationId) {
+ void checkValid(std::string_view locationId) {
  if (locationId.empty()) {
  throw NullPointerException("locationId is nullptr");
  } else if (locationId.empty()) {
@@ -112,12 +113,12 @@ public
  }
  }
 
- void setMultiItem(const std::string &locationId, bool bMultiItem) {
+ void setMultiItem(std::string_view locationId, bool bMultiItem) {
  BodyLocation bodyLocation = this->getLocationNotNull(locationId);
  bodyLocation.setMultiItem(bMultiItem);
  }
 
- bool isMultiItem(const std::string &locationId) {
+ bool isMultiItem(std::string_view locationId) {
  BodyLocation bodyLocation = this->getLocationNotNull(locationId);
  return bodyLocation.isMultiItem();
  }

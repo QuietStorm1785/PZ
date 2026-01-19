@@ -38,6 +38,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -463,7 +464,7 @@ public
  }
  }
 
- void spawnItemsInContainers(BuildingDef def, const std::string &distribName,
+ void spawnItemsInContainers(BuildingDef def, std::string_view distribName,
  int _chance) {
  std::vector arrayList = new ArrayList();
  ItemPickerJava.ItemPickerRoom itemPickerRoom =
@@ -590,12 +591,12 @@ public
  }
  }
 
- InventoryItem addWorldItem(const std::string &item, IsoGridSquare sq,
+ InventoryItem addWorldItem(std::string_view item, IsoGridSquare sq,
  float xoffset, float yoffset, float zoffset) {
  return this->addWorldItem(item, sq, xoffset, yoffset, zoffset, 0);
  }
 
- InventoryItem addWorldItem(const std::string &item, IsoGridSquare sq,
+ InventoryItem addWorldItem(std::string_view item, IsoGridSquare sq,
  float xoffset, float yoffset, float zoffset,
  int worldZ) {
  if (item != nullptr && sq != nullptr) {
@@ -616,7 +617,7 @@ public
  }
  }
 
- InventoryItem addWorldItem(const std::string &item, IsoGridSquare sq,
+ InventoryItem addWorldItem(std::string_view item, IsoGridSquare sq,
  IsoObject obj) {
  if (item != nullptr && sq != nullptr) {
  float float0 = 0.0F;
@@ -658,7 +659,7 @@ public
  cell.getAddList().remove(this);
  }
 
- void dressInNamedOutfit(const std::string &string) {
+ void dressInNamedOutfit(std::string_view string) {
  this->getHumanVisual().dressInNamedOutfit(string, this->itemVisuals);
  this->getHumanVisual().synchWithOutfit(this->getHumanVisual().getOutfit());
  }

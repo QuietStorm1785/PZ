@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -275,7 +276,7 @@ static long getEventNanoseconds() {
 
 static std::string getKeyName(int arg0) { return keyName[arg0]; }
 
-static int getKeyIndex(const std::string &arg0) {
+static int getKeyIndex(std::string_view arg0) {
  int integer = keyMap.get(arg0);
  return integer = = nullptr ? 0 : integer;
 }

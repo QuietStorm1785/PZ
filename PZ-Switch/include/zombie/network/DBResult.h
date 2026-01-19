@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -25,7 +26,7 @@ public
 
  std::string getType() { return this->type; }
 
- void setType(const std::string &_type) { this->type = _type; }
+ void setType(std::string_view _type) { this->type = _type; }
 
 public
  ArrayList<String> getColumns() { return this->columns; }
@@ -34,7 +35,7 @@ public
 
  std::string getTableName() { return this->tableName; }
 
- void setTableName(const std::string &_tableName) {
+ void setTableName(std::string_view _tableName) {
  this->tableName = _tableName;
  }
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -219,12 +220,12 @@ class PngImage {
       }
    }
 
-    void* getProperty(const std::string& var1) {
+    void* getProperty(std::string_view var1) {
       this.assertRead();
       return this.props.get(var1);
    }
 
-    void* getProperty(const std::string& var1, Class var2, bool var3) {
+    void* getProperty(std::string_view var1, Class var2, bool var3) {
       this.assertRead();
     void* var4 = this.props.get(var1);
       if (var4 == nullptr) {
@@ -238,7 +239,7 @@ class PngImage {
     return var4;
    }
 
-    int getInt(const std::string& var1) {
+    int getInt(std::string_view var1) {
       return ((Number)this.getProperty(var1, Number.class, true)).intValue();
    }
 
@@ -246,7 +247,7 @@ class PngImage {
       return this.props;
    }
 
-    TextChunk getTextChunk(const std::string& var1) {
+    TextChunk getTextChunk(std::string_view var1) {
     std::vector var2 = (List)this.getProperty("text_chunks", List.class, false);
       if (var1 != nullptr && var2 != nullptr) {
     for (auto& var4 : var2)            if (var4.getKeyword() == var1)) {

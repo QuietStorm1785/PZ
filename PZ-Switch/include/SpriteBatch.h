@@ -33,8 +33,8 @@ public:
  void flush();
  
  // Stats
- int getDrawCallCount() const { return drawCallCount; }
- int getSpriteCount() const { return spriteCount; }
+ int getDrawCallCount() const noexcept { return drawCallCount; }
+ int getSpriteCount() const noexcept { return spriteCount; }
  void resetStats();
  
 private:

@@ -46,13 +46,13 @@ private
 
  long longValue() { return this->_cat.sum(0L); }
 
- long estimate_get() { return this->_cat.estimate_sum(0L); }
+ long estimate_get() noexcept{ return this->_cat.estimate_sum(0L); }
 
  std::string toString() { return this->_cat.toString(0L); }
 
  void print() { this->_cat.print(); }
 
- int internal_size() { return this->_cat._t.length; }
+ int internal_size() noexcept{ return this->_cat._t.length; }
 
  long add_if_mask(long long0, long long1) {
  return this->_cat.add_if_mask(long0, long1, hash(), this);

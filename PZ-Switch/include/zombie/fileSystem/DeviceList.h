@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -39,7 +40,7 @@ private
  return iFile;
  }
 
- InputStream createStream(const std::string &path) {
+ InputStream createStream(std::string_view path) {
  InputStream inputStream = nullptr;
 
  for (int int0 = 0;

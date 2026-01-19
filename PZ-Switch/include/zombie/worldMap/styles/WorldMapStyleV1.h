@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -62,7 +63,7 @@ public
  return worldMapTextureStyleLayerV1;
  }
 
- int getLayerCount() { return this->m_layers.size(); }
+ int getLayerCount() noexcept{ return this->m_layers.size(); }
 
 public
  WorldMapStyleV1.WorldMapStyleLayerV1 getLayerByIndex(int index) {
@@ -75,7 +76,7 @@ public
  return int0 = = -1 ? nullptr : this->m_layers.get(int0);
  }
 
- int indexOfLayer(const std::string &id) {
+ int indexOfLayer(std::string_view id) {
  for (int int0 = 0; int0 < this->m_layers.size(); int0++) {
  WorldMapStyleV1.WorldMapStyleLayerV1 worldMapStyleLayerV1 =
  this->m_layers.get(int0);
@@ -96,7 +97,7 @@ public
  this->m_layers.add(indexTo, worldMapStyleLayerV1);
  }
 
- void removeLayerById(const std::string &id) {
+ void removeLayerById(std::string_view id) {
  int int0 = this->indexOfLayer(id);
  if (int0 != -1) {
  this->removeLayerByIndex(int0);
@@ -130,7 +131,7 @@ public
  super(worldMapStyleV1, new WorldMapLineStyleLayer(string);
  }
 
- void setFilter(const std::string &string0, const std::string &string1) {
+ void setFilter(std::string_view string0, std::string_view string1) {
  this->m_lineStyle.m_filterKey = string0;
  this->m_lineStyle.m_filterValue = string1;
  this->m_lineStyle.m_filter = (worldMapFeature, var3) -> worldMapFeature.hasLineString() && string1 == worldMapFeature.m_properties.get(string0);
@@ -158,7 +159,7 @@ public
  super(worldMapStyleV1, new WorldMapPolygonStyleLayer(string);
  }
 
- void setFilter(const std::string &string0, const std::string &string1) {
+ void setFilter(std::string_view string0, std::string_view string1) {
  this->m_polygonStyle.m_filterKey = string0;
  this->m_polygonStyle.m_filterValue = string1;
  this->m_polygonStyle.m_filter = (worldMapFeature, var3) -> worldMapFeature.hasPolygon() && string1 == worldMapFeature.m_properties.get(string0);
@@ -178,7 +179,7 @@ public
  new WorldMapStyleLayer.FloatStop(float0, float1);
  }
 
- void addTexture(float float0, const std::string &string) {
+ void addTexture(float float0, std::string_view string) {
  this->m_polygonStyle.m_texture.add(
  new WorldMapStyleLayer.TextureStop(float0, string);
  }
@@ -240,7 +241,7 @@ public
  return this->m_polygonStyle.m_texture.get(int0).m_zoom;
  }
 
- void setTexturePath(int int0, const std::string &string) {
+ void setTexturePath(int int0, std::string_view string) {
  this->m_polygonStyle.m_texture.get(int0).texturePath = string;
  this->m_polygonStyle.m_texture.get(int0).texture =
  Texture.getTexture(string);
@@ -269,7 +270,7 @@ public
 
  std::string getTypeString() { return this->m_layer.getTypeString(); }
 
- void setId(const std::string &id) { this->m_layer.m_id = id; }
+ void setId(std::string_view id) { this->m_layer.m_id = id; }
 
  std::string getId() { return this->m_layer.m_id; }
 
@@ -293,7 +294,7 @@ public
  new WorldMapStyleLayer.ColorStop(float0, int0, int1, int2, int3);
  }
 
- void addTexture(float float0, const std::string &string) {
+ void addTexture(float float0, std::string_view string) {
  this->m_textureStyle.m_texture.add(
  new WorldMapStyleLayer.TextureStop(float0, string);
  }
@@ -392,7 +393,7 @@ public
  return this->m_textureStyle.m_texture.get(int0).m_zoom;
  }
 
- void setTexturePath(int int0, const std::string &string) {
+ void setTexturePath(int int0, std::string_view string) {
  this->m_textureStyle.m_texture.get(int0).texturePath = string;
  this->m_textureStyle.m_texture.get(int0).texture =
  Texture.getTexture(string);

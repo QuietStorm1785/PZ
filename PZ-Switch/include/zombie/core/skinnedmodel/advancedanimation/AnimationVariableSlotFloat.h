@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  float m_value = 0.0F;
 
 public
- AnimationVariableSlotFloat(const std::string &string) { super(string); }
+ AnimationVariableSlotFloat(std::string_view string) { super(string); }
 
  std::string getValueString() { return String.valueOf(this->m_value); }
 
@@ -27,7 +28,7 @@ public
 
  bool getValueBool() { return this->m_value != 0.0F; }
 
- void setValue(const std::string &string) {
+ void setValue(std::string_view string) {
  this->m_value = PZMath.tryParseFloat(string, 0.0F);
  }
 
@@ -37,7 +38,7 @@ public
 
  AnimationVariableType getType() { return AnimationVariableType.Float; }
 
- bool canConvertFrom(const std::string &string) {
+ bool canConvertFrom(std::string_view string) {
  return PZMath.canParseFloat(string);
  }
 

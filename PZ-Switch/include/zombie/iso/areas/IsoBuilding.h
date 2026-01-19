@@ -23,6 +23,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -497,7 +498,7 @@ public
 
  bool isResidential() { return this->containsRoom("bedroom"); }
 
- bool containsRoom(const std::string &room) {
+ bool containsRoom(std::string_view room) {
  for (int int0 = 0; int0 < this->Rooms.size(); int0++) {
  if (room == this->Rooms.get(int0).getName())) {
  return true;
@@ -507,7 +508,7 @@ public
  return false;
  }
 
- IsoRoom getRandomRoom(const std::string &room) {
+ IsoRoom getRandomRoom(std::string_view room) {
  tempo.clear();
 
  for (int int0 = 0; int0 < this->Rooms.size(); int0++) {
@@ -519,7 +520,7 @@ public
  return tempo.empty() ? nullptr : tempo.get(Rand.Next(tempo.size()));
  }
 
- ItemContainer getRandomContainer(const std::string &type) {
+ ItemContainer getRandomContainer(std::string_view type) {
  RandomContainerChoices.clear();
  String[] strings = nullptr;
  if (type != nullptr) {

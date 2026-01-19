@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -105,15 +106,15 @@ class SurvivorFactory {
       var0.surname = Surnames.get(Rand.Next(Surnames.size()));
    }
 
-    static void addSurname(const std::string& var0) {
+    static void addSurname(std::string_view var0) {
       Surnames.add(var0);
    }
 
-    static void addFemaleForename(const std::string& var0) {
+    static void addFemaleForename(std::string_view var0) {
       FemaleForenames.add(var0);
    }
 
-    static void addMaleForename(const std::string& var0) {
+    static void addMaleForename(std::string_view var0) {
       MaleForenames.add(var0);
    }
 

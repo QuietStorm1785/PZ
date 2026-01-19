@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -1006,7 +1007,7 @@ class WorldMapRenderer {
       this.renderZones(this.m_zones, "Vegitation", 1.0F, 1.0F, 0.0F, 0.25F);
    }
 
-    void renderZones(ArrayList<Zone> var1, const std::string& var2, float var3, float var4, float var5, float var6) {
+    void renderZones(ArrayList<Zone> var1, std::string_view var2, float var3, float var4, float var5, float var6) {
       WorldMapRenderer.m_vboLinesUV.flush();
     float var7 = this.m_worldScale;
       WorldMapRenderer.m_vboLines.setMode(4);

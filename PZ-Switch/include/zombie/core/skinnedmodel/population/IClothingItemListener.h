@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ namespace population {
 class IClothingItemListener {
 public:
  virtual ~IClothingItemListener() = default;
- void clothingItemChanged(const std::string &itemGuid);
+ void clothingItemChanged(std::string_view itemGuid);
 }
 } // namespace population
 } // namespace skinnedmodel

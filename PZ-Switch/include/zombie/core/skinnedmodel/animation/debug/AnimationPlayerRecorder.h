@@ -19,6 +19,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -79,7 +80,7 @@ public
  this->m_animationVariableFrame.closeAndDiscard();
  }
 
- static PrintStream openFileStream(const std::string &key, bool append,
+ static PrintStream openFileStream(std::string_view key, bool append,
  Consumer<String> fileNameConsumer) {
  std::string string = getTimeStampedFilePath(key);
 
@@ -96,12 +97,12 @@ public
  }
  }
 
- static std::string getTimeStampedFilePath(const std::string &string) {
+ static std::string getTimeStampedFilePath(std::string_view string) {
  return LoggerManager.getLogsDir() + File.separator +
  getTimeStampedFileName(string) + ".csv";
  }
 
- static std::string getTimeStampedFileName(const std::string &string) {
+ static std::string getTimeStampedFileName(std::string_view string) {
  return getStartupTimeStamp();
  }
 

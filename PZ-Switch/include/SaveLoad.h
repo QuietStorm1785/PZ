@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <cstdint>
@@ -32,7 +33,7 @@ struct WorldSaveData {
 
 class SaveFileWriter {
 public:
- SaveFileWriter(const std::string& filename);
+ SaveFileWriter(std::string_view filename);
  ~SaveFileWriter();
  
  // Legacy flat writes (deprecated)
@@ -55,7 +56,7 @@ public:
  std::vector<uint8_t> bytes; // file content
  };
 
- static bool writeSVIArchive(const std::string& outFile,
+ static bool writeSVIArchive(std::string_view outFile,
  const SVHeaderMeta& meta,
  const std::vector<SVIArchiveEntry>& entries);
  
@@ -66,7 +67,7 @@ private:
 
 class SaveFileReader {
 public:
- SaveFileReader(const std::string& filename);
+ SaveFileReader(std::string_view filename);
  ~SaveFileReader();
  
  bool readGameData(GameSaveData& outData);
@@ -85,15 +86,15 @@ public:
  return instance;
  }
  
- bool saveGame(const std::string& saveName, const GameSaveData& gameData, const WorldSaveData& worldData);
- bool saveGameSVI(const std::string& saveName, const GameSaveData& gameData, const WorldSaveData& worldData);
- bool loadGame(const std::string& saveName, GameSaveData& outGameData, WorldSaveData& outWorldData);
- bool loadGameSVI(const std::string& saveName, GameSaveData& outGameData, WorldSaveData& outWorldData);
+ bool saveGame(std::string_view saveName, const GameSaveData& gameData, const WorldSaveData& worldData);
+ bool saveGameSVI(std::string_view saveName, const GameSaveData& gameData, const WorldSaveData& worldData);
+ bool loadGame(std::string_view saveName, GameSaveData& outGameData, WorldSaveData& outWorldData);
+ bool loadGameSVI(std::string_view saveName, GameSaveData& outGameData, WorldSaveData& outWorldData);
  bool loadLatestGameSVI(GameSaveData& outGameData, WorldSaveData& outWorldData);
  std::string getLatestSVIPath() const;
  
  std::vector<std::string> listSaves() const;
- bool deleteSave(const std::string& saveName);
+ bool deleteSave(std::string_view saveName);
  
  std::string getSavePath() const;
  

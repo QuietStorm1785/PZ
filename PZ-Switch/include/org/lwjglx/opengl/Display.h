@@ -34,6 +34,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -368,7 +369,7 @@ public
 
  static DisplayMode getDesktopDisplayMode() { return desktopDisplayMode; }
 
- static bool wasResized() { return displayResized; }
+ static bool wasResized() noexcept{ return displayResized; }
 
  static int getX() { return displayX; }
 
@@ -382,7 +383,7 @@ public
 
  static int getFramebufferHeight() { return displayFramebufferHeight; }
 
- static void setTitle(const std::string &string) {
+ static void setTitle(std::string_view string) {
  windowTitle = string;
  if (isCreated()) {
  GLFW.glfwSetWindowTitle(Display.Window.handle, windowTitle);

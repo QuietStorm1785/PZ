@@ -27,6 +27,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -124,7 +125,7 @@ private
  this->loadList.clear();
  }
 
- File getCanonicalFile(File file, const std::string &string) {
+ File getCanonicalFile(File file, std::string_view string) {
  if (!file.isDirectory()) {
  return new File(file, string);
  } else {
@@ -148,34 +149,34 @@ private
  return this->getGameModeCacheDir() + File.separator + Core.GameSaveWorld;
  }
 
- std::string getFileNameInCurrentSave(const std::string &string) {
+ std::string getFileNameInCurrentSave(std::string_view string) {
  return this->getCurrentSaveDir() + File.separator + string;
  }
 
- std::string getFileNameInCurrentSave(const std::string &string1,
- const std::string &string0) {
+ std::string getFileNameInCurrentSave(std::string_view string1,
+ std::string_view string0) {
  return this->getFileNameInCurrentSave(string1 + File.separator + string0);
  }
 
- std::string getFileNameInCurrentSave(const std::string &string2,
- const std::string &string1,
- const std::string &string0) {
+ std::string getFileNameInCurrentSave(std::string_view string2,
+ std::string_view string1,
+ std::string_view string0) {
  return this->getFileNameInCurrentSave(string2 + File.separator + string1 +
  File.separator + string0);
  }
 
- File getFileInCurrentSave(const std::string &string) {
+ File getFileInCurrentSave(std::string_view string) {
  return new File(this->getFileNameInCurrentSave(string);
  }
 
- File getFileInCurrentSave(const std::string &string0,
- const std::string &string1) {
+ File getFileInCurrentSave(std::string_view string0,
+ std::string_view string1) {
  return new File(this->getFileNameInCurrentSave(string0, string1);
  }
 
- File getFileInCurrentSave(const std::string &string0,
- const std::string &string1,
- const std::string &string2) {
+ File getFileInCurrentSave(std::string_view string0,
+ std::string_view string1,
+ std::string_view string2) {
  return new File(this->getFileNameInCurrentSave(string0, string1, string2);
  }
 
@@ -185,7 +186,7 @@ private
  return string;
  }
 
- std::string getSaveDirSub(const std::string &string) {
+ std::string getSaveDirSub(std::string_view string) {
  return this->getSaveDir() + File.separator + string;
  }
 
@@ -195,11 +196,11 @@ private
  return string;
  }
 
- std::string getScreenshotDirSub(const std::string &string) {
+ std::string getScreenshotDirSub(std::string_view string) {
  return this->getScreenshotDir() + File.separator + string;
  }
 
- void setCacheDir(const std::string &string) {
+ void setCacheDir(std::string_view string) {
  string = string.replace("/", File.separator);
  this->cacheDir = new File(string).getAbsoluteFile();
  ensureFolderExists(this->cacheDir);
@@ -220,7 +221,7 @@ private
  return this->cacheDir.getPath();
  }
 
- std::string getCacheDirSub(const std::string &string) {
+ std::string getCacheDirSub(std::string_view string) {
  return this->getCacheDir() + File.separator + string;
  }
 
@@ -230,7 +231,7 @@ private
  return string;
  }
 
- std::string getMessagingDirSub(const std::string &string) {
+ std::string getMessagingDirSub(std::string_view string) {
  return this->getMessagingDir() + File.separator + string;
  }
 
@@ -242,13 +243,13 @@ private
 
  std::string getMediaRootPath() { return this->workdir.getPath(); }
 
- File getMediaFile(const std::string &string) {
+ File getMediaFile(std::string_view string) {
  assert this->workdir != nullptr;
 
  return new File(this->workdir, string);
  }
 
- std::string getMediaPath(const std::string &string) {
+ std::string getMediaPath(std::string_view string) {
  return this->getMediaFile(string).getPath();
  }
 
@@ -256,7 +257,7 @@ private
 
  std::string getLocalWorkDir() { return this->localWorkdir.getPath(); }
 
- std::string getLocalWorkDirSub(const std::string &string) {
+ std::string getLocalWorkDirSub(std::string_view string) {
  return this->getLocalWorkDir() + File.separator + string;
  }
 
@@ -264,7 +265,7 @@ private
 
  std::string getActionGroupsPath() { return this->actiongroups.getPath(); }
 
- static bool ensureFolderExists(const std::string &string) {
+ static bool ensureFolderExists(std::string_view string) {
  return ensureFolderExists(new File(string);
  }
 
@@ -364,7 +365,7 @@ public
  }
  }
 
- std::string getAbsolutePath(const std::string &string1) {
+ std::string getAbsolutePath(std::string_view string1) {
  std::string string0 = string1.toLowerCase(Locale.ENGLISH);
  return this->ActiveFileMap.get(string0);
  }
@@ -393,7 +394,7 @@ public
  }
  }
 
- File getCanonicalFile(const std::string &string) {
+ File getCanonicalFile(std::string_view string) {
  return this->getCanonicalFile(new File(string);
  }
 
@@ -405,11 +406,11 @@ public
  }
  }
 
- std::string getCanonicalPath(const std::string &string) {
+ std::string getCanonicalPath(std::string_view string) {
  return this->getCanonicalPath(new File(string);
  }
 
- URI getCanonicalURI(const std::string &string) {
+ URI getCanonicalURI(std::string_view string) {
  URI uri = this->CanonicalURIMap.get(string);
  if (uri.empty()) {
  uri = this->getCanonicalFile(string).toURI();
@@ -449,7 +450,7 @@ public
  }
 }
 
-void getAllModFoldersAux(const std::string &string0, List<String> list) {
+void getAllModFoldersAux(std::string_view string0, List<String> list) {
  Filter filter = std::make_unique<Filter<Path>>(){bool accept(Path path){
  return Files.isDirectory(path) && Files.exists(path.resolve("mod.info"));
 }
@@ -484,7 +485,7 @@ catch (Exception exception) {
 }
 }
 
-void setModFoldersOrder(const std::string &string) {
+void setModFoldersOrder(std::string_view string) {
  this->modFoldersOrder = new ArrayList<>(Arrays.asList(string.split(",")));
 }
 
@@ -599,7 +600,7 @@ ChooseGameInfo.Mod searchForModInfo(File file0, String string,
  return nullptr;
 }
 
-void loadMod(const std::string &string0) {
+void loadMod(std::string_view string0) {
  if (this->getModDir(string0) != nullptr) {
  if (CoopMaster.instance != nullptr) {
  CoopMaster.instance.update();
@@ -686,7 +687,7 @@ ActiveMods readDefaultModsTxt() {
  return activeMods;
 }
 
-void loadMods(const std::string &string) {
+void loadMods(std::string_view string) {
  if (Core.OptionModsEnabled) {
  if (GameClient.bClient) {
  std::vector arrayList = new ArrayList();
@@ -713,7 +714,7 @@ void loadMods(const std::string &string) {
  }
 }
 
-bool isTranslationMod(const std::string &string0) {
+bool isTranslationMod(std::string_view string0) {
  ChooseGameInfo.Mod mod = ChooseGameInfo.getAvailableModDetails(string0);
  if (mod.empty()) {
  return false;
@@ -769,7 +770,7 @@ void loadTranslationMods(ArrayList<String> arrayList1) {
 }
 }
 
-std::string loadModAndRequired(const std::string &string0,
+std::string loadModAndRequired(std::string_view string0,
  ArrayList<String> arrayList) {
  if (string0.empty()) {
  return nullptr;
@@ -829,7 +830,7 @@ for (String string1 : this->mods) {
 public
 ArrayList<String> getModIDs() { return this->mods; }
 
-std::string getModDir(const std::string &string) {
+std::string getModDir(std::string_view string) {
  return this->modIdToDir.get(string);
 }
 
@@ -848,7 +849,7 @@ std::string getRelativeFile(File file) {
  return this->getRelativeFile(this->baseURI, file.getAbsolutePath());
 }
 
-std::string getRelativeFile(const std::string &string) {
+std::string getRelativeFile(std::string_view string) {
  return this->getRelativeFile(this->baseURI, string);
 }
 
@@ -856,7 +857,7 @@ std::string getRelativeFile(URI uri, File file) {
  return this->getRelativeFile(uri, file.getAbsolutePath());
 }
 
-std::string getRelativeFile(URI uri2, const std::string &string0) {
+std::string getRelativeFile(URI uri2, std::string_view string0) {
  URI uri0 = this->getCanonicalURI(string0);
  URI uri1 = this->getCanonicalURI(uri2.getPath()).relativize(uri0);
  if (uri1 == uri0) {
@@ -889,8 +890,8 @@ std::string getAnimName(URI uri, File file) {
  return string1;
 }
 
-std::string resolveRelativePath(const std::string &string0,
- const std::string &string1) {
+std::string resolveRelativePath(std::string_view string0,
+ std::string_view string1) {
  Path path0 = Paths.get(string0);
  Path path1 = path0.getParent();
  Path path2 = path1.resolve(string1);
@@ -1066,19 +1067,19 @@ FileGuidTable getFileGuidTable() {
  return this->m_fileGuidTable;
 }
 
-std::string getFilePathFromGuid(const std::string &string) {
+std::string getFilePathFromGuid(std::string_view string) {
  FileGuidTable fileGuidTable = this->getFileGuidTable();
  return fileGuidTable != nullptr ? fileGuidTable.getFilePathFromGuid(string)
  : nullptr;
 }
 
-std::string getGuidFromFilePath(const std::string &string) {
+std::string getGuidFromFilePath(std::string_view string) {
  FileGuidTable fileGuidTable = this->getFileGuidTable();
  return fileGuidTable != nullptr ? fileGuidTable.getGuidFromFilePath(string)
  : nullptr;
 }
 
-std::string resolveFileOrGUID(const std::string &string1) {
+std::string resolveFileOrGUID(std::string_view string1) {
  std::string string0 = string1;
  std::string string2 = this->getFilePathFromGuid(string1);
  if (string2 != nullptr) {
@@ -1091,7 +1092,7 @@ std::string resolveFileOrGUID(const std::string &string1) {
  : string0;
 }
 
-bool isValidFilePathGuid(const std::string &string) {
+bool isValidFilePathGuid(std::string_view string) {
  return this->getFilePathFromGuid(string) != nullptr;
 }
 
@@ -1168,7 +1169,7 @@ static void listAllFilesInternal(File file0, FileFilter fileFilter,
 }
 
 void walkGameAndModFiles(
- const std::string &string0, bool boolean0,
+ std::string_view string0, bool boolean0,
  ZomboidFileSystem.IWalkFilesVisitor iWalkFilesVisitor) {
  this->walkGameAndModFilesInternal(this->base, string0, boolean0,
  iWalkFilesVisitor);
@@ -1184,7 +1185,7 @@ void walkGameAndModFiles(
 }
 
 void walkGameAndModFilesInternal(
- File file1, const std::string &string, bool boolean0,
+ File file1, std::string_view string, bool boolean0,
  ZomboidFileSystem.IWalkFilesVisitor iWalkFilesVisitor) {
  File file0 = new File(file1, string);
  if (file0.isDirectory()) {
@@ -1233,13 +1234,13 @@ String[] resolveAllFiles(String string, FileFilter fileFilter,
  return arrayList.toArray(new String[0]);
 }
 
-std::string normalizeFolderPath(const std::string &string) {
+std::string normalizeFolderPath(std::string_view string) {
  string = string.toLowerCase(Locale.ENGLISH).replace('\\', '/');
  string = string + "/";
  return string.replace("///", "/").replace("//", "/");
 }
 
-static std::string processFilePath(const std::string &string, char char0) {
+static std::string processFilePath(std::string_view string, char char0) {
  if (char0 != '\\') {
  string = string.replace('\\', char0);
  }
@@ -1251,7 +1252,7 @@ static std::string processFilePath(const std::string &string, char char0) {
  return string;
 }
 
-bool tryDeleteFile(const std::string &string) {
+bool tryDeleteFile(std::string_view string) {
  if (StringUtils.isNullOrWhitespace(string) {
  return false;
  } else {
@@ -1266,7 +1267,7 @@ bool tryDeleteFile(const std::string &string) {
  }
 }
 
-bool deleteFile(const std::string &string) {
+bool deleteFile(std::string_view string) {
  File file = new File(string).getAbsoluteFile();
  if (!file.isFile()) {
  throw FileNotFoundException(
@@ -1299,7 +1300,7 @@ void update() {
  }
 }
 
-bool isModFile(const std::string &string0) {
+bool isModFile(std::string_view string0) {
  if (this->m_modsChangedTime > 0L) {
  return false;
  } else if (this->modFolders.empty()) {
@@ -1322,7 +1323,7 @@ bool isModFile(const std::string &string0) {
  }
 }
 
-void onModFileChanged(const std::string &var1) {
+void onModFileChanged(std::string_view var1) {
  this->m_modsChangedTime = System.currentTimeMillis() + 2000L;
 }
 
@@ -1368,7 +1369,7 @@ catch (RuntimeException runtimeException) {
 }
 }
 
-void resetDefaultModsForNewRelease(const std::string &string1) {
+void resetDefaultModsForNewRelease(std::string_view string1) {
  ensureFolderExists(this->getCacheDirSub("mods"));
  std::string string0 = this->getCacheDirSub("mods") + File.separator +
  "reset-mods-" + string1 + ".txt";
@@ -1392,6 +1393,6 @@ void resetDefaultModsForNewRelease(const std::string &string1) {
 }
 
 public
-interface IWalkFilesVisitor { void visit(File var1, const std::string &var2); }
+interface IWalkFilesVisitor { void visit(File var1, std::string_view var2); }
 }
 } // namespace zombie

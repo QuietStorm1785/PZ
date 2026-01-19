@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,13 +33,13 @@ protected
  static HashMap<String, KahluaTable> initialState =
  std::make_unique<HashMap<>>();
 
- static void noise(const std::string &message) {
+ static void noise(std::string_view message) {
  if (Core.bDebug) {
  DebugLog.log("CGlobalObjects: " + message);
  }
  }
 
- static CGlobalObjectSystem registerSystem(const std::string &name) {
+ static CGlobalObjectSystem registerSystem(std::string_view name) {
  CGlobalObjectSystem cGlobalObjectSystem = getSystemByName(name);
  if (cGlobalObjectSystem.empty()) {
  cGlobalObjectSystem = newSystem(name);
@@ -86,7 +87,7 @@ protected
  return cGlobalObjectSystem;
  }
 
- static CGlobalObjectSystem newSystem(const std::string &name) {
+ static CGlobalObjectSystem newSystem(std::string_view name) {
  if (getSystemByName(name) != nullptr) {
  throw IllegalStateException("system with that name already exists");
  } else {
@@ -97,13 +98,13 @@ protected
  }
  }
 
- static int getSystemCount() { return systems.size(); }
+ static int getSystemCount() noexcept{ return systems.size(); }
 
  static CGlobalObjectSystem getSystemByIndex(int index) {
  return index >= 0 && index < systems.size() ? systems.get(index) : nullptr;
  }
 
- static CGlobalObjectSystem getSystemByName(const std::string &name) {
+ static CGlobalObjectSystem getSystemByName(std::string_view name) {
  for (int int0 = 0; int0 < systems.size(); int0++) {
  CGlobalObjectSystem cGlobalObjectSystem = systems.get(int0);
  if (cGlobalObjectSystem.name == name) {
@@ -131,8 +132,8 @@ protected
  }
  }
 
- static bool receiveServerCommand(const std::string &systemName,
- const std::string &command,
+ static bool receiveServerCommand(std::string_view systemName,
+ std::string_view command,
  KahluaTable args) {
  CGlobalObjectSystem cGlobalObjectSystem = getSystemByName(systemName);
  if (cGlobalObjectSystem.empty()) {

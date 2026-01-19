@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -53,35 +54,35 @@ public
  return element;
  }
 
- void setParameter(const std::string &key, bool value) {
+ void setParameter(std::string_view key, bool value) {
  this->m_storyParams.put(key, value ? Boolean.TRUE : Boolean.FALSE);
  }
 
- void setParameter(const std::string &key, float value) {
+ void setParameter(std::string_view key, float value) {
  this->m_storyParams.put(key, value);
  }
 
- void setParameter(const std::string &key, int value) {
+ void setParameter(std::string_view key, int value) {
  this->m_storyParams.put(key, value);
  }
 
- void setParameter(const std::string &key, void *value) {
+ void setParameter(std::string_view key, void *value) {
  this->m_storyParams.put(key, value);
  }
 
- bool getParameterBoolean(const std::string &key) {
+ bool getParameterBoolean(std::string_view key) {
  return this->getParameter(key, Boolean.class);
  }
 
- float getParameterFloat(const std::string &key) {
+ float getParameterFloat(std::string_view key) {
  return this->getParameter(key, Float.class);
  }
 
- int getParameterInteger(const std::string &key) {
+ int getParameterInteger(std::string_view key) {
  return this->getParameter(key, Integer.class);
  }
 
- std::string getParameterString(const std::string &key) {
+ std::string getParameterString(std::string_view key) {
  return this->getParameter(key, String.class);
  }
 

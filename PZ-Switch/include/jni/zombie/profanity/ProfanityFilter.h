@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -43,7 +44,7 @@ class ProfanityFilter {
       this.prePattern = Pattern.compile("(?<spaced>(?:(?:\\s|\\W)[\\w\\$@](?=\\s|\\W)){2,20})|(?<word>[\\w'\\$@_-]+)");
    }
 
-    static void printDebug(const std::string& var0) {
+    static void printDebug(std::string_view var0) {
       if (DEBUG) {
          System.out.println(var0);
       }
@@ -57,7 +58,7 @@ class ProfanityFilter {
       return this.enabled;
    }
 
-    int getFilterWordsCount() const {
+    int getFilterWordsCount() const noexcept {
       return this.locale != nullptr ? this.locale.getFilterWordsCount() : 0;
    }
 
@@ -77,31 +78,31 @@ class ProfanityFilter {
       return this.locale;
    }
 
-    void addWhiteListWord(const std::string& var1) {
+    void addWhiteListWord(std::string_view var1) {
       if (this.locale != nullptr) {
          this.locale.addWhiteListWord(var1);
       }
    }
 
-    void removeWhiteListWord(const std::string& var1) {
+    void removeWhiteListWord(std::string_view var1) {
       if (this.locale != nullptr) {
          this.locale.removeWhiteListWord(var1);
       }
    }
 
-    void addFilterWord(const std::string& var1) {
+    void addFilterWord(std::string_view var1) {
       if (this.locale != nullptr) {
          this.locale.addFilterWord(var1);
       }
    }
 
-    void removeFilterWord(const std::string& var1) {
+    void removeFilterWord(std::string_view var1) {
       if (this.locale != nullptr) {
          this.locale.removeFilterWord(var1);
       }
    }
 
-    void setLocale(const std::string& var1) {
+    void setLocale(std::string_view var1) {
       if (this.locales.containsKey(var1)) {
          this.locale = this.locales.get(var1);
       } else {
@@ -109,7 +110,7 @@ class ProfanityFilter {
       }
    }
 
-    std::string filterString(const std::string& var1) {
+    std::string filterString(std::string_view var1) {
       if (this.enabled && this.locale != nullptr && var1 != nullptr && this.locale.getFilterWordsCount() > 0) {
          try {
     StringBuffer var2 = new StringBuffer();
@@ -133,11 +134,11 @@ class ProfanityFilter {
     return var1;
    }
 
-    std::string validateString(const std::string& var1) {
+    std::string validateString(std::string_view var1) {
       return this.validateString(var1, true, true, true);
    }
 
-    std::string validateString(const std::string& var1, bool var2, bool var3, bool var4) {
+    std::string validateString(std::string_view var1, bool var2, bool var3, bool var4) {
       if (this.enabled && this.locale != nullptr && var1 != nullptr && this.locale.getFilterWordsCount() > 0) {
          try {
     void* var5 = nullptr;

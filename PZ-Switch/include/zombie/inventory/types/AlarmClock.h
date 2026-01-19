@@ -30,6 +30,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -56,8 +57,8 @@ public:
  static const OnceEvery sendEvery = new OnceEvery(2.0F);
 
 public
- AlarmClock(const std::string &module, const std::string &name,
- const std::string &itemType, const std::string &texName) {
+ AlarmClock(std::string_view module, std::string_view name,
+ std::string_view itemType, std::string_view texName) {
  super(module, name, itemType, texName);
  if (name.contains("Classic")) {
  this->isDigital = false;
@@ -68,8 +69,8 @@ public
  }
 
 public
- AlarmClock(const std::string &module, const std::string &name,
- const std::string &itemType, Item item) {
+ AlarmClock(std::string_view module, std::string_view name,
+ std::string_view itemType, Item item) {
  super(module, name, itemType, item);
  if (name.contains("Classic")) {
  this->isDigital = false;
@@ -382,7 +383,7 @@ public
 
  std::string getAlarmSound() { return this->alarmSound; }
 
- void setAlarmSound(const std::string &_alarmSound) {
+ void setAlarmSound(std::string_view _alarmSound) {
  this->alarmSound = _alarmSound;
  }
 

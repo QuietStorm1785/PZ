@@ -109,7 +109,7 @@ public
  this->write(byteBufferWriter.bb);
  }
 
- int getPacketSizeBytes() { return 55; }
+ int getPacketSizeBytes() noexcept{ return 55; }
 
  void copy(ZombiePacket zombiePacket0) {
  this->id = zombiePacket0.id;

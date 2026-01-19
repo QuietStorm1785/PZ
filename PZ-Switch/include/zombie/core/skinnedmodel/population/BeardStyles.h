@@ -16,6 +16,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -84,7 +85,7 @@ public:
  }
  }
 
- static BeardStyles Parse(const std::string &filename) {
+ static BeardStyles Parse(std::string_view filename) {
  try {
  return parse();
  } catch (FileNotFoundException fileNotFoundException) {
@@ -95,7 +96,7 @@ public:
  return nullptr;
  }
 
- static BeardStyles parse(const std::string &filename) {
+ static BeardStyles parse(std::string_view filename) {
  BeardStyles beardStyles;
  try(FileInputStream fileInputStream = new FileInputStream(filename) {
  JAXBContext jAXBContext =
@@ -107,7 +108,7 @@ public:
  return beardStyles;
  }
 
- BeardStyle FindStyle(const std::string &name) {
+ BeardStyle FindStyle(std::string_view name) {
  for (int int0 = 0; int0 < this->m_Styles.size(); int0++) {
  BeardStyle beardStyle = this->m_Styles.get(int0);
  if (beardStyle.name.equalsIgnoreCase(name) {
@@ -118,7 +119,7 @@ public:
  return nullptr;
  }
 
- std::string getRandomStyle(const std::string &outfitName) {
+ std::string getRandomStyle(std::string_view outfitName) {
  return HairOutfitDefinitions.instance.getRandomBeard(outfitName,
  this->m_Styles);
  }

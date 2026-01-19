@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -23,7 +24,7 @@ class Floor0 :  FuncFloor {
       return (float)Math.exp(var0 * 0.11512925);
    }
 
-    static void lpc_to_curve(float[] var0, float[] var1, float var2, LookFloor0 var3, const std::string& var4, int var5) {
+    static void lpc_to_curve(float[] var0, float[] var1, float var2, LookFloor0 var3, std::string_view var4, int var5) {
       float[] var6 = new float[Math.max(var3.ln * 2, var3.m * 2 + 2)];
       if (var2 == 0.0F) {
          for (int var8 = 0; var8 < var3.n; var8++) {

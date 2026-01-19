@@ -168,6 +168,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -652,7 +653,7 @@ public
 
  static bool hasInstance() { return instance != nullptr; }
 
- static void onTrigger_ResetIsoPlayerModel(const std::string &string) {
+ static void onTrigger_ResetIsoPlayerModel(std::string_view string) {
  if (instance != nullptr) {
  DebugLog.log(DebugType.General,
  "DebugFileWatcher Hit. Resetting player model: " + string);
@@ -666,7 +667,7 @@ public
 public
  static Stack<String> getStaticTraits() { return StaticTraits; }
 
- static int getFollowDeadCount() { return FollowDeadCount; }
+ static int getFollowDeadCount() noexcept{ return FollowDeadCount; }
 
  static void setFollowDeadCount(int aFollowDeadCount) {
  FollowDeadCount = aFollowDeadCount;
@@ -720,7 +721,7 @@ public
  return arrayList;
  }
 
- static bool isServerPlayerIDValid(const std::string &id) {
+ static bool isServerPlayerIDValid(std::string_view id) {
  if (GameClient.bClient) {
  std::string string = ServerOptions.instance.ServerPlayerID.getValue();
  return string != nullptr && !string.empty() ? string == id) : true;
@@ -1138,7 +1139,7 @@ public
  }
  }
 
- void save(const std::string &fileName) {
+ void save(std::string_view fileName) {
  this->SaveFileName = fileName;
  { std::lock_guard<std::mutex> __sync_lock__(SliceY.SliceBufferLock_mutex);
  SliceY.SliceBuffer.clear();
@@ -1159,7 +1160,7 @@ public
  }
  }
 
- void load(const std::string &fileName) {
+ void load(std::string_view fileName) {
  File file = new File(fileName).getAbsoluteFile();
  if (file.exists()) {
  this->SaveFileName = fileName;
@@ -3078,7 +3079,7 @@ public
  this->getBodyDamage().setBodyPartsLastState();
  }
 
- void highlightRangedTargets() {
+ void highlightRangedTargets() noexcept{
  if (this->isLocalPlayer() && !this->isNPC) {
  if (this->isAiming()) {
  if (Core.getInstance().getOptionAimOutline() != 1) {
@@ -3089,7 +3090,7 @@ public
  }
  }
 
- void highlightRangedTargetsInternal() {
+ void highlightRangedTargetsInternal() noexcept{
  HandWeapon weapon0 =
  Type.tryCastTo(this->getPrimaryHandItem(), HandWeapon.class);
  if (weapon0.empty() || weapon0.getSwingAnim() == nullptr ||
@@ -3187,7 +3188,7 @@ public
  }
  }
 
- void onIdlePerformFidgets() {
+ void onIdlePerformFidgets() noexcept{
  Moodles moodles = this->getMoodles();
  BodyDamage bodyDamage = this->getBodyDamage();
  if (moodles.getMoodleLevel(MoodleType.Hypothermia) > 0 &&
@@ -3678,7 +3679,7 @@ public
  return !this->isAttackAnimThrowTimeOut() ? "throwing" : this->WeaponT;
  }
 
- void setWeaponType(const std::string &string) { this->WeaponT = string; }
+ void setWeaponType(std::string_view string) { this->WeaponT = string; }
 
  int calculateCritChance(IsoGameCharacter target) {
  if (this->bDoShove) {
@@ -5549,7 +5550,7 @@ bool DoAttack(float chargeDelta) {
 }
 
 bool DoAttack(float chargeDelta, bool forceShove,
- const std::string &clickSound) {
+ std::string_view clickSound) {
  if (!this->authorizeMeleeAction) {
  return false;
  } else {
@@ -6312,7 +6313,7 @@ long getSteamID() { return this->steamID; }
 
 void setSteamID(long _steamID) { this->steamID = _steamID; }
 
-bool isTargetedByZombie() { return this->targetedByZombie; }
+bool isTargetedByZombie() noexcept{ return this->targetedByZombie; }
 
 bool isMaskClicked(int x, int y, bool flip) {
  return this->sprite.empty()
@@ -6345,7 +6346,7 @@ std::string getUsername(bool canShowFirstname) {
  return string;
 }
 
-void setUsername(const std::string &newUsername) {
+void setUsername(std::string_view newUsername) {
  this->username = newUsername;
 }
 
@@ -6771,7 +6772,7 @@ void setMeleeHitSurface(ParameterMeleeHitSurface.Material material) {
  this->parameterMeleeHitSurface.setMaterial(material);
 }
 
-void setMeleeHitSurface(const std::string &material) {
+void setMeleeHitSurface(std::string_view material) {
  try {
  this->parameterMeleeHitSurface.setMaterial(
  ParameterMeleeHitSurface.Material.valueOf(material);
@@ -6865,7 +6866,7 @@ void updateEquippedBaggageContainer() {
  }
 }
 
-void DoFootstepSound(const std::string &type) {
+void DoFootstepSound(std::string_view type) {
  ParameterCharacterMovementSpeed.MovementType movementType =
  ParameterCharacterMovementSpeed.MovementType.Walk;
  float float0 = 0.5F;
@@ -6973,7 +6974,7 @@ void setJoypadIgnoreAimUntilCentered(bool ignore) {
 bool canSeePlayerStats() { return this->accessLevel != ""; }
 
 ByteBufferWriter createPlayerStats(ByteBufferWriter b,
- const std::string &adminUsername) {
+ std::string_view adminUsername) {
  b.putShort(this->getOnlineID());
  b.putUTF(adminUsername);
  b.putUTF(this->getDisplayName());
@@ -6996,7 +6997,7 @@ ByteBufferWriter createPlayerStats(ByteBufferWriter b,
  return b;
 }
 
-std::string setPlayerStats(ByteBuffer bb, const std::string &adminUsername) {
+std::string setPlayerStats(ByteBuffer bb, std::string_view adminUsername) {
  std::string string0 = GameWindow.ReadString(bb);
  std::string string1 = GameWindow.ReadString(bb);
  std::string string2 = GameWindow.ReadString(bb);
@@ -7106,11 +7107,11 @@ std::string getAccessLevel() {
  }
 }
 
-bool isAccessLevel(const std::string &level) {
+bool isAccessLevel(std::string_view level) {
  return this->getAccessLevel().equalsIgnoreCase(level);
 }
 
-void setAccessLevel(const std::string &newLvl) {
+void setAccessLevel(std::string_view newLvl) {
  uint8_t byte0 = PlayerType.fromString(newLvl.trim().toLowerCase());
  if (byte0 == 1) {
  GameClient.SendCommandToServer("/setaccesslevel \"" + this->username +
@@ -7121,7 +7122,7 @@ void setAccessLevel(const std::string &newLvl) {
  }
 }
 
-void addMechanicsItem(const std::string &itemid, VehiclePart part, long milli) {
+void addMechanicsItem(std::string_view itemid, VehiclePart part, long milli) {
  uint8_t byte0 = 1;
  uint8_t byte1 = 1;
  if (this->mechanicsItem.get(Long.parseLong(itemid) == nullptr) {
@@ -7247,12 +7248,12 @@ void getItemVisuals(ItemVisuals _itemVisuals) {
  }
 }
 
-void dressInNamedOutfit(const std::string &outfitName) {
+void dressInNamedOutfit(std::string_view outfitName) {
  this->getHumanVisual().dressInNamedOutfit(outfitName, this->itemVisuals);
  this->onClothingOutfitPreviewChanged();
 }
 
-void dressInClothingItem(const std::string &itemGUID) {
+void dressInClothingItem(std::string_view itemGUID) {
  this->getHumanVisual().dressInClothingItem(itemGUID, this->itemVisuals);
  this->onClothingOutfitPreviewChanged();
 }
@@ -7337,11 +7338,11 @@ void setMaxWeightDelta(float _maxWeightDelta) {
 
 std::string getForname() { return this->Forname; }
 
-void setForname(const std::string &_Forname) { this->Forname = _Forname; }
+void setForname(std::string_view _Forname) { this->Forname = _Forname; }
 
 std::string getSurname() { return this->Surname; }
 
-void setSurname(const std::string &_Surname) { this->Surname = _Surname; }
+void setSurname(std::string_view _Surname) { this->Surname = _Surname; }
 
 bool isbChangeCharacterDebounce() { return this->bChangeCharacterDebounce; }
 
@@ -7392,7 +7393,7 @@ bool IsAiming() { return this->isAiming(); }
 
 std::string getTagPrefix() { return this->tagPrefix; }
 
-void setTagPrefix(const std::string &newTag) { this->tagPrefix = newTag; }
+void setTagPrefix(std::string_view newTag) { this->tagPrefix = newTag; }
 
 ColorInfo getTagColor() { return this->tagColor; }
 
@@ -7416,7 +7417,7 @@ std::string getDisplayName() {
  return this->displayName;
 }
 
-void setDisplayName(const std::string &_displayName) {
+void setDisplayName(std::string_view _displayName) {
  this->displayName = _displayName;
 }
 
@@ -7472,7 +7473,7 @@ void setForceOverrideAnim(bool forceOverride) {
  this->forceOverrideAnim = forceOverride;
 }
 
-long getMechanicsItem(const std::string &itemId) {
+long getMechanicsItem(std::string_view itemId) {
  return this->mechanicsItem.get(Long.parseLong(itemId);
 }
 
@@ -7661,7 +7662,7 @@ void setAllowRun(bool _allowRun) { this->allowRun = _allowRun; }
 
 std::string getAttackType() { return this->attackType; }
 
-void setAttackType(const std::string &_attackType) {
+void setAttackType(std::string_view _attackType) {
  this->attackType = _attackType;
 }
 

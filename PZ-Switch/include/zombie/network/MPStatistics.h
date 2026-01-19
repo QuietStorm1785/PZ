@@ -363,7 +363,7 @@ private
  }
  }
 
- static void resetPingCounters() {
+ static void resetPingCounters() noexcept{
  clientLastPing = -1;
  clientAvgPing = -1;
  clientMinPing = -1;
@@ -440,7 +440,7 @@ private
  return doKickWhileLoading();
  }
 
- static void resetServerHandledPingCounters() {
+ static void resetServerHandledPingCounters() noexcept{
  serverMinPing = 0L;
  serverMaxPing = 0L;
  serverAvgPing = 0L;

@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,13 +30,13 @@ public:
 
  static bool igdFound() { return _igd_found(); }
 
- static bool addMapping(int int0, int int1, const std::string &string0,
- const std::string &string1, int int2) {
+ static bool addMapping(int int0, int int1, std::string_view string0,
+ std::string_view string1, int int2) {
  return addMapping();
  }
 
- static bool addMapping(int int0, int int1, const std::string &string0,
- const std::string &string1, int int2, bool boolean1) {
+ static bool addMapping(int int0, int int1, std::string_view string0,
+ std::string_view string1, int int2, bool boolean1) {
  bool boolean0 = _add_mapping(int0, int1, string0, string1, int2, boolean1);
  if (!boolean0 && int2 != 0) {
  DebugLog.log(DebugType.Network,
@@ -46,7 +47,7 @@ public:
  return boolean0;
  }
 
- static bool removeMapping(int int0, const std::string &string) {
+ static bool removeMapping(int int0, std::string_view string) {
  return _remove_mapping();
  }
 

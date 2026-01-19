@@ -26,6 +26,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -65,7 +66,7 @@ public:
 
  IsoSpriteInstance getSpriteDef();
 
- bool hasItems(const std::string &type, int count);
+ bool hasItems(std::string_view type, int count);
 
  int getXpForLevel(int level);
 
@@ -89,9 +90,9 @@ public:
 
  void setSecondaryHandItem(InventoryItem rightHandItem);
 
- bool hasEquipped(const std::string &String);
+ bool hasEquipped(std::string_view String);
 
- bool hasEquippedTag(const std::string &tag);
+ bool hasEquippedTag(std::string_view tag);
 
  bool isHandItem(InventoryItem item);
 
@@ -115,17 +116,17 @@ public:
 
  int getMaxWeight();
 
- void PlayAnim(const std::string &string);
+ void PlayAnim(std::string_view string);
 
- void PlayAnimWithSpeed(const std::string &string,
+ void PlayAnimWithSpeed(std::string_view string,
  float framesSpeedPerFrame);
 
- void PlayAnimUnlooped(const std::string &string);
+ void PlayAnimUnlooped(std::string_view string);
 
- void StartTimedActionAnim(const std::string &event);
+ void StartTimedActionAnim(std::string_view event);
 
- void StartTimedActionAnim(const std::string &event,
- const std::string &type);
+ void StartTimedActionAnim(std::string_view event,
+ std::string_view type);
 
  void StopTimedActionAnim();
 
@@ -155,21 +156,21 @@ public:
 
  bool IsSpeaking();
 
- void Say(const std::string &line);
+ void Say(std::string_view line);
 
- void Say(const std::string &line, float r, float g, float b, UIFont font,
- float baseRange, const std::string &customTag);
+ void Say(std::string_view line, float r, float g, float b, UIFont font,
+ float baseRange, std::string_view customTag);
 
- void setHaloNote(const std::string &str);
+ void setHaloNote(std::string_view str);
 
- void setHaloNote(const std::string &str, float dispTime);
+ void setHaloNote(std::string_view str, float dispTime);
 
- void setHaloNote(const std::string &str, int r, int g, int b,
+ void setHaloNote(std::string_view str, int r, int g, int b,
  float dispTime);
 
  void initSpritePartsEmpty();
 
- bool HasTrait(const std::string &trait);
+ bool HasTrait(std::string_view trait);
 
  void changeState(State state);
 
@@ -237,9 +238,9 @@ public:
 
  void faceThisObjectAlt(IsoObject object);
 
- int getAlreadyReadPages(const std::string &fullType);
+ int getAlreadyReadPages(std::string_view fullType);
 
- void setAlreadyReadPages(const std::string &fullType, int pages);
+ void setAlreadyReadPages(std::string_view fullType, int pages);
 
  Safety getSafety();
 
@@ -273,19 +274,19 @@ public:
 
  bool isRecipeKnown(Recipe recipe);
 
- bool isRecipeKnown(const std::string &name);
+ bool isRecipeKnown(std::string_view name);
 
- void addKnownMediaLine(const std::string &guid);
+ void addKnownMediaLine(std::string_view guid);
 
- void removeKnownMediaLine(const std::string &guid);
+ void removeKnownMediaLine(std::string_view guid);
 
  void clearKnownMediaLines();
 
- bool isKnownMediaLine(const std::string &guid);
+ bool isKnownMediaLine(std::string_view guid);
 
- long playSound(const std::string &file);
+ long playSound(std::string_view file);
 
- long playSoundLocal(const std::string &file);
+ long playSoundLocal(std::string_view file);
 
  void stopOrTriggerSound(long eventInstance);
 
@@ -296,7 +297,7 @@ public:
 
  std::string getBedType();
 
- void setBedType(const std::string &bedType);
+ void setBedType(std::string_view bedType);
 
  PolygonalMap2.Path getPath2();
 
@@ -358,7 +359,7 @@ public:
 
  void setShowAdminTag(bool showAdminTag);
 
- void reportEvent(const std::string &name);
+ void reportEvent(std::string_view name);
 
  AnimatorDebugMonitor getDebugMonitor();
 

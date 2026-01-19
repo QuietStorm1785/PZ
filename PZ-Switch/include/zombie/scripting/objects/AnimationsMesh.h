@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public
  std::make_unique<ArrayList<>>();
  ModelMesh modelMesh = nullptr;
 
- void Load(const std::string &_name, const std::string &totalFile) {
+ void Load(std::string_view _name, std::string_view totalFile) {
  this->name = _name;
  ScriptParser.Block block = ScriptParser.parse(totalFile);
  block = block.children.get(0);

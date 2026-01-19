@@ -3,12 +3,13 @@
 
 #include <exception>
 #include <string>
+#include <string_view>
 
 namespace java { namespace net {
 
 class MalformedURLException : public std::exception {
 public:
- explicit MalformedURLException(const std::string& msg = "Malformed URL") : message(msg) {}
+ explicit MalformedURLException(std::string_view msg = "Malformed URL") : message(msg) {}
  const char* what() const noexcept override { return message.c_str(); }
 private:
  std::string message;

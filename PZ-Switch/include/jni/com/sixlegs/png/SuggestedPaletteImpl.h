@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -18,7 +19,7 @@ class SuggestedPaletteImpl {
     const int entrySize;
     const int sampleCount;
 
-     SuggestedPaletteImpl(const std::string& var1, int var2, byte[] var3) {
+     SuggestedPaletteImpl(std::string_view var1, int var2, byte[] var3) {
       this.name = var1;
       this.sampleDepth = var2;
       this.bytes = var3;
@@ -30,7 +31,7 @@ class SuggestedPaletteImpl {
       return this.name;
    }
 
-    int getSampleCount() const {
+    int getSampleCount() const noexcept {
       return this.sampleCount;
    }
 

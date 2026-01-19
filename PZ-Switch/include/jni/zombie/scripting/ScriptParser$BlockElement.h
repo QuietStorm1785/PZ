@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -19,7 +20,7 @@ class ScriptParser {
 
     Value asValue();
 
-    void prettyPrint(int var1, StringBuilder var2, const std::string& var3);
+    void prettyPrint(int var1, StringBuilder var2, std::string_view var3);
 }
 } // namespace scripting
 } // namespace zombie

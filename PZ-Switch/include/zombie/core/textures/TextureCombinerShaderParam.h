@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  float max;
 
 public
- TextureCombinerShaderParam(const std::string &string, float float0,
+ TextureCombinerShaderParam(std::string_view string, float float0,
  float float1) {
  this->name = string;
  this->min = float0;
@@ -27,7 +28,7 @@ public
  }
 
 public
- TextureCombinerShaderParam(const std::string &string, float float0) {
+ TextureCombinerShaderParam(std::string_view string, float float0) {
  this->name = string;
  this->min = float0;
  this->max = float0;

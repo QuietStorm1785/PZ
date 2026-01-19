@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,8 +25,8 @@ public:
  std::string woodCreak;
 
 public
- FMODFootstep(const std::string &arg0, const std::string &arg1,
- const std::string &arg2, const std::string &arg3) {
+ FMODFootstep(std::string_view arg0, std::string_view arg1,
+ std::string_view arg2, std::string_view arg3) {
  this->grass = arg0;
  this->wood = arg1;
  this->concrete = arg2;

@@ -48,6 +48,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -1127,14 +1128,14 @@ public
  : canAddSheetRope(this->square, this->north);
  }
 
- bool addSheetRope(IsoPlayer player, const std::string &itemType) {
+ bool addSheetRope(IsoPlayer player, std::string_view itemType) {
  return !this->canAddSheetRope()
  ? false
  : addSheetRope(player, this->square, this->north, itemType);
  }
 
  static bool addSheetRope(IsoPlayer player, IsoGridSquare sq, bool _north,
- const std::string &itemType) {
+ std::string_view itemType) {
  bool boolean0 = false;
  int int0 = 0;
  uint8_t byte0 = 0;

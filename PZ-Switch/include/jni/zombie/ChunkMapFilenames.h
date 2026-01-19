@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -45,7 +46,7 @@ class ChunkMapFilenames {
       }
    }
 
-    File getDir(const std::string& var1) {
+    File getDir(std::string_view var1) {
       if (this.cacheDir == nullptr) {
          this.cacheDir = ZomboidFileSystem.instance.getGameModeCacheDir();
       }

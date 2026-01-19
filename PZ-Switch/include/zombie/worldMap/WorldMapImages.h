@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ private
  std::string m_directory;
  ImagePyramid m_pyramid;
 
- static WorldMapImages getOrCreate(const std::string &directory) {
+ static WorldMapImages getOrCreate(std::string_view directory) {
  std::string string =
  ZomboidFileSystem.instance.getString(directory + "/pyramid.zip");
  if (!Files.exists(Paths.get(string)) {

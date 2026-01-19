@@ -14,6 +14,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -721,7 +722,7 @@ public
  }
 
  void setBandaged(bool Bandaged, float _bandageLife, bool isAlcoholic,
- const std::string &_bandageType) {
+ std::string_view _bandageType) {
  if (Bandaged) {
  if (this->bleeding) {
  this->bleeding = false;
@@ -1168,17 +1169,17 @@ public
 
  std::string getBandageType() { return this->bandageType; }
 
- void setBandageType(const std::string &_bandageType) {
+ void setBandageType(std::string_view _bandageType) {
  this->bandageType = _bandageType;
  }
 
- bool isGetBandageXp() { return this->getBandageXp; }
+ bool isGetBandageXp() const noexcept { return this->getBandageXp; }
 
  void setGetBandageXp(bool _getBandageXp) {
  this->getBandageXp = _getBandageXp;
  }
 
- bool isGetStitchXp() { return this->getStitchXp; }
+ bool isGetStitchXp() const noexcept { return this->getStitchXp; }
 
  void setGetStitchXp(bool _getStitchXp) { this->getStitchXp = _getStitchXp; }
 
@@ -1194,7 +1195,7 @@ public
  this->fractureTime = _fractureTime;
  }
 
- bool isGetSplintXp() { return this->getSplintXp; }
+ bool isGetSplintXp() const noexcept { return this->getSplintXp; }
 
  void setGetSplintXp(bool _getSplintXp) { this->getSplintXp = _getSplintXp; }
 
@@ -1338,7 +1339,7 @@ public
 
  std::string getSplintItem() { return this->splintItem; }
 
- void setSplintItem(const std::string &_splintItem) {
+ void setSplintItem(std::string_view _splintItem) {
  this->splintItem = _splintItem;
  }
 

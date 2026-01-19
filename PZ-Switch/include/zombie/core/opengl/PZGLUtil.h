@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ class PZGLUtil {
 public:
  static int test = 0;
 
- static void checkGLErrorThrow(const std::string &string, Object... objects) {
+ static void checkGLErrorThrow(std::string_view string, Object... objects) {
  int int0 = GL11.glGetError();
  if (int0 != 0) {
  test++;
@@ -31,7 +32,7 @@ public:
  }
  }
 
- static std::string createErrorMessage(int int0, const std::string &string1,
+ static std::string createErrorMessage(int int0, std::string_view string1,
  Object... objects) {
  std::string string0 = System.lineSeparator();
  return " GL Error code (" + int0 + ") encountered." + string0 +

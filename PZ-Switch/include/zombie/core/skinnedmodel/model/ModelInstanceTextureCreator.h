@@ -31,6 +31,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -311,7 +312,7 @@ private
 
  void addClothingItem(ModelInstance modelInstance, ItemVisual itemVisual,
  ClothingItem clothingItem, CharacterMask characterMask,
- const std::string &string1) {
+ std::string_view string1) {
  std::string string0 = modelInstance == nullptr
  ? itemVisual.getBaseTexture(clothingItem)
  : itemVisual.getTextureChoice(clothingItem);
@@ -721,7 +722,7 @@ private
 
  bool isRendered() { return this->testNotReady > 0 ? false : this->bRendered; }
 
- static Texture getTextureWithFlags(const std::string &string) {
+ static Texture getTextureWithFlags(std::string_view string) {
  return Texture.getSharedTexture(string,
  ModelManager.instance.getTextureFlags());
  }

@@ -35,6 +35,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -117,8 +118,8 @@ public
  return new IsoSprite(manager);
  }
 
- static IsoSprite CreateSpriteUsingCache(const std::string &objectName,
- const std::string &animName,
+ static IsoSprite CreateSpriteUsingCache(std::string_view objectName,
+ std::string_view animName,
  int numFrames) {
  IsoSprite sprite = CreateSprite(IsoSpriteManager.instance);
  return sprite.setFromCache(objectName, animName, numFrames);
@@ -155,7 +156,7 @@ public
  }
  }
 
- static IsoSprite getSprite(IsoSpriteManager manager, const std::string &_name,
+ static IsoSprite getSprite(IsoSpriteManager manager, std::string_view _name,
  int offset) {
  IsoSprite sprite = manager.NamedMap.get(_name);
  std::string string0 = sprite.name.substring(0, sprite.name.lastIndexOf(95);
@@ -172,7 +173,7 @@ public
 
  static void DisposeAll() { AnimNameSet.clear(); }
 
- static bool HasCache(const std::string &string) {
+ static bool HasCache(std::string_view string) {
  return AnimNameSet.containsKey(string);
  }
 
@@ -185,7 +186,7 @@ public
 
  std::string getParentObjectName() { return this->parentObjectName; }
 
- void setParentObjectName(const std::string &val) {
+ void setParentObjectName(std::string_view val) {
  this->parentObjectName = val;
  }
 
@@ -308,7 +309,7 @@ public
  }
  }
 
- Texture LoadFrameExplicit(const std::string &ObjectName) {
+ Texture LoadFrameExplicit(std::string_view ObjectName) {
  this->CurrentAnim = std::make_unique<IsoAnim>();
  this->AnimMap.put("default", this->CurrentAnim);
  this->CurrentAnim.ID = this->AnimStack.size();
@@ -316,7 +317,7 @@ public
  return this->CurrentAnim.LoadFrameExplicit(ObjectName);
  }
 
- void LoadFrames(const std::string &ObjectName, const std::string &AnimName,
+ void LoadFrames(std::string_view ObjectName, std::string_view AnimName,
  int nFrames) {
  if (!this->AnimMap.containsKey(AnimName) {
  this->CurrentAnim = std::make_unique<IsoAnim>();
@@ -327,9 +328,9 @@ public
  }
  }
 
- void LoadFramesReverseAltName(const std::string &ObjectName,
- const std::string &AnimName,
- const std::string &AltName, int nFrames) {
+ void LoadFramesReverseAltName(std::string_view ObjectName,
+ std::string_view AnimName,
+ std::string_view AltName, int nFrames) {
  if (!this->AnimMap.containsKey(AltName) {
  this->CurrentAnim = std::make_unique<IsoAnim>();
  this->AnimMap.put(AltName, this->CurrentAnim);
@@ -340,8 +341,8 @@ public
  }
  }
 
- void LoadFramesNoDirPage(const std::string &ObjectName,
- const std::string &AnimName, int nFrames) {
+ void LoadFramesNoDirPage(std::string_view ObjectName,
+ std::string_view AnimName, int nFrames) {
  this->CurrentAnim = std::make_unique<IsoAnim>();
  this->AnimMap.put(AnimName, this->CurrentAnim);
  this->CurrentAnim.ID = this->AnimStack.size();
@@ -349,8 +350,8 @@ public
  this->CurrentAnim.LoadFramesNoDirPage(ObjectName, AnimName, nFrames);
  }
 
- void LoadFramesNoDirPageDirect(const std::string &ObjectName,
- const std::string &AnimName, int nFrames) {
+ void LoadFramesNoDirPageDirect(std::string_view ObjectName,
+ std::string_view AnimName, int nFrames) {
  this->CurrentAnim = std::make_unique<IsoAnim>();
  this->AnimMap.put(AnimName, this->CurrentAnim);
  this->CurrentAnim.ID = this->AnimStack.size();
@@ -358,7 +359,7 @@ public
  this->CurrentAnim.LoadFramesNoDirPageDirect(ObjectName, AnimName, nFrames);
  }
 
- void LoadFramesNoDirPageSimple(const std::string &ObjectName) {
+ void LoadFramesNoDirPageSimple(std::string_view ObjectName) {
  if (this->AnimMap.containsKey("default")) {
  IsoAnim anim = this->AnimMap.get("default");
  this->AnimStack.remove(anim);
@@ -372,17 +373,17 @@ public
  this->CurrentAnim.LoadFramesNoDirPage(ObjectName);
  }
 
- void ReplaceCurrentAnimFrames(const std::string &ObjectName) {
+ void ReplaceCurrentAnimFrames(std::string_view ObjectName) {
  if (this->CurrentAnim != nullptr) {
  this->CurrentAnim.Frames.clear();
  this->CurrentAnim.LoadFramesNoDirPage(ObjectName);
  }
  }
 
- void LoadFramesPageSimple(const std::string &NObjectName,
- const std::string &SObjectName,
- const std::string &EObjectName,
- const std::string &WObjectName) {
+ void LoadFramesPageSimple(std::string_view NObjectName,
+ std::string_view SObjectName,
+ std::string_view EObjectName,
+ std::string_view WObjectName) {
  this->CurrentAnim = std::make_unique<IsoAnim>();
  this->AnimMap.put("default", this->CurrentAnim);
  this->CurrentAnim.ID = this->AnimStack.size();
@@ -391,7 +392,7 @@ public
  WObjectName);
  }
 
- void LoadFramesPcx(const std::string &ObjectName, const std::string &AnimName,
+ void LoadFramesPcx(std::string_view ObjectName, std::string_view AnimName,
  int nFrames) {
  if (!this->AnimMap.containsKey(AnimName) {
  this->CurrentAnim = std::make_unique<IsoAnim>();
@@ -408,13 +409,13 @@ public
  }
  }
 
- void PlayAnim(const std::string &_name) {
+ void PlayAnim(std::string_view _name) {
  if ((this->CurrentAnim.empty() || !this->CurrentAnim.name == _name) && this->AnimMap.containsKey(_name) {
  this->CurrentAnim = this->AnimMap.get(_name);
  }
  }
 
- void PlayAnimUnlooped(const std::string &_name) {
+ void PlayAnimUnlooped(std::string_view _name) {
  if (this->AnimMap.containsKey(_name) {
  if (this->CurrentAnim.empty() || !this->CurrentAnim.name == _name) {
  this->CurrentAnim = this->AnimMap.get(_name);
@@ -1055,7 +1056,7 @@ private
  }
  }
 
- void CacheAnims(const std::string &key) {
+ void CacheAnims(std::string_view key) {
  this->name = key;
  std::stack stack = new Stack();
 
@@ -1071,7 +1072,7 @@ private
  AnimNameSet.put(key, stack.toArray());
  }
 
- void LoadCache(const std::string &string) {
+ void LoadCache(std::string_view string) {
  Object[] objects = AnimNameSet.get(string);
  this->name = string;
 
@@ -1084,8 +1085,8 @@ private
  }
  }
 
- IsoSprite setFromCache(const std::string &objectName,
- const std::string &animName, int numFrames) {
+ IsoSprite setFromCache(std::string_view objectName,
+ std::string_view animName, int numFrames) {
  std::string string = objectName + animName;
  if (HasCache(string) {
  this->LoadCache(string);
@@ -1109,7 +1110,7 @@ private
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &string) { this->name = string; }
+ void setName(std::string_view string) { this->name = string; }
 
  ColorInfo getTintMod() { return this->TintMod; }
 
@@ -1127,7 +1128,7 @@ private
  return this->name != nullptr ? getSheetGridIdFromName(this->name) : -1;
  }
 
- static int getSheetGridIdFromName(const std::string &_name) {
+ static int getSheetGridIdFromName(std::string_view _name) {
  if (_name != nullptr) {
  int int0 = _name.lastIndexOf(95);
  if (int0 > 0 && int0 + 1 < _name.length()) {

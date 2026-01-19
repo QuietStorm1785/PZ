@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <string_view>
 #include <memory>
 #include <unordered_map>
 
@@ -65,12 +66,12 @@ public:
  /**
  * Get all items of type
  */
- std::vector<Item*> getItemsByType(const std::string& type);
+ std::vector<Item*> getItemsByType(std::string_view type);
 
  /**
  * Find item by name
  */
- Item* findItem(const std::string& name);
+ Item* findItem(std::string_view name);
 
  /**
  * Clear entire inventory
@@ -152,7 +153,7 @@ private:
  */
 class Item {
 public:
- Item(const std::string& name, int weight = 100);
+ Item(std::string_view name, int weight = 100);
  virtual ~Item() = default;
 
  const std::string& getName() const { return name; }
@@ -162,7 +163,7 @@ public:
  /**
  * Set item type for categorization
  */
- void setType(const std::string& t) { type = t; }
+ void setType(std::string_view t) { type = t; }
 
  /**
  * Get item description for UI

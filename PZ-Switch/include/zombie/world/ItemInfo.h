@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -114,7 +115,7 @@ public
  (this->modOverrides != nullptr ? this->modOverrides.size() : 0) + ",";
  }
 
- void saveAsText(FileWriter fileWriter, const std::string &string0) {
+ void saveAsText(FileWriter fileWriter, std::string_view string0) {
  fileWriter.write(string0 + "registryID = " + this->registryID + "," +
  System.lineSeparator());
  fileWriter.write(string0 + "fulltype = \"" + this->fullType + "\"," +

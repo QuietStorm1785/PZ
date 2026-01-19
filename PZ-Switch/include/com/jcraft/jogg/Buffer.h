@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -45,7 +46,7 @@ private
  return int0;
  }
 
- static void report(const std::string &string) {
+ static void report(std::string_view string) {
  System.err.println(string);
  System.exit(1);
  }

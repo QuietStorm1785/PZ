@@ -96,7 +96,7 @@ public
  }
  }
 
- bool updateZoomSize() {
+ bool updateZoomSize() noexcept{
  if (this->recalcSizeOnZoom && this->lastZoomMod != IsoWeatherFX.ZoomMod) {
  this->lastZoomMod = IsoWeatherFX.ZoomMod;
  this->oWidth = this->bounds.getWidth();

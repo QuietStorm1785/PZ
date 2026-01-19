@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -88,7 +89,7 @@ public
  std::make_unique<ArrayList<>>();
 
  public
- Region(int int0, const std::string &string, bool boolean0, bool boolean1,
+ Region(int int0, std::string_view string, bool boolean0, bool boolean1,
  bool boolean2) {
  this->ID = int0;
  this->tileNameMatch = string;

@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -100,7 +101,7 @@ public
 public
  static void n_init();
 
- static void writeToStdErr(const std::string &string) {
+ static void writeToStdErr(std::string_view string) {
  System.err.println(string);
  }
 }

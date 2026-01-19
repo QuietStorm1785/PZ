@@ -45,7 +45,7 @@ public
  this->chevronMax = maxChevrons;
  }
 
- int getChevronCount() { return this->chevronCount; }
+ int getChevronCount() noexcept{ return this->chevronCount; }
 
  bool isChevronIsUp() { return this->chevronIsUp; }
 

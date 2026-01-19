@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -30,11 +31,11 @@ public
 
  void unregister() {}
 
- long playVocals(const std::string &file) { return 0L; }
+ long playVocals(std::string_view file) { return 0L; }
 
- void playFootsteps(const std::string &file, float volume) {}
+ void playFootsteps(std::string_view file, float volume) {}
 
- long playSound(const std::string &file) {
+ long playSound(std::string_view file) {
  long long0 = Rand.Next(Integer.MAX_VALUE);
  this->sounds.put(long0, file);
  if (GameClient.bClient) {
@@ -44,11 +45,11 @@ public
  return long0;
  }
 
- long playSound(const std::string &file, IsoObject proxy) {
+ long playSound(std::string_view file, IsoObject proxy) {
  return this->playSound(file);
  }
 
- long playSoundImpl(const std::string &file, IsoObject proxy) {
+ long playSoundImpl(std::string_view file, IsoObject proxy) {
  long long0 = Rand.Next(Long.MAX_VALUE);
  this->sounds.put(long0, file);
  return long0;
@@ -89,7 +90,7 @@ public
  this->sounds.remove(handle);
  }
 
- void stopOrTriggerSoundByName(const std::string &name) {
+ void stopOrTriggerSoundByName(std::string_view name) {
  this->sounds.values().remove(name);
  }
 
@@ -103,7 +104,7 @@ public
  this->sounds.clear();
  }
 
- int stopSoundByName(const std::string &soundName) {
+ int stopSoundByName(std::string_view soundName) {
  this->sounds.values().remove(soundName);
  return 0;
  }
@@ -112,7 +113,7 @@ public
 
  bool isPlaying(long channel) { return this->sounds.containsKey(channel); }
 
- bool isPlaying(const std::string &alias) {
+ bool isPlaying(std::string_view alias) {
  return this->sounds.containsValue(alias);
  }
 

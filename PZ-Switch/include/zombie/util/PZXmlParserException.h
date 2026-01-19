@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,10 +18,10 @@ public
  PZXmlParserException() {}
 
 public
- PZXmlParserException(const std::string &string) { super(string); }
+ PZXmlParserException(std::string_view string) { super(string); }
 
 public
- PZXmlParserException(const std::string &string, std::exception throwable) {
+ PZXmlParserException(std::string_view string, std::exception throwable) {
  super(string, throwable);
  }
 

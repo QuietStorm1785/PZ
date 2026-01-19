@@ -41,7 +41,7 @@ public:
  void loadChunk(int chunkX, int chunkY, int z);
  void unloadChunk(int chunkX, int chunkY, int z);
  void unloadAllChunks();
- int getLoadedChunkCount() const { return chunks.size(); }
+ int getLoadedChunkCount() const noexcept { return chunks.size(); }
  
  // Convert world coordinates to chunk coordinates
  static int worldToChunkCoord(int worldCoord) { return worldCoord / 32; }
@@ -70,7 +70,7 @@ public:
  void notifyWalkabilityChanged(int x, int y, int z, bool walkable);
 
  // Runtime object management
- IsoObject* spawnObject(const std::string& type, int x, int y, int z, bool solid = false);
+ IsoObject* spawnObject(std::string_view type, int x, int y, int z, bool solid = false);
  void despawnObject(IsoObject* obj);
 
  // Spatial queries

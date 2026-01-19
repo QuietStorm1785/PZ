@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -54,7 +55,7 @@ else {
 } // namespace chat
 
 private
-ChatType(int integer, const std::string &string1) {
+ChatType(int integer, std::string_view string1) {
  this->value = integer;
  this->titleID = string1;
 }

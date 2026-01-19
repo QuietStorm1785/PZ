@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -36,7 +37,7 @@ public
 
 protected
  PerformanceProfileProbeList(
- const std::string &string, int int0, Class<Probe> clazz,
+ std::string_view string, int int0, Class<Probe> clazz,
  PerformanceProfileProbeList.Constructor<Probe> constructor) {
  this->m_prefix = string;
  this->layers = (Probe[])PZArrayUtil.newInstance(clazz, int0 + 1);
@@ -63,7 +64,7 @@ protected
 
 public
  interface Constructor<Probe extends PerformanceProfileProbe> {
- Probe get(const std::string &var1);
+ Probe get(std::string_view var1);
  }
 }
 } // namespace profiling

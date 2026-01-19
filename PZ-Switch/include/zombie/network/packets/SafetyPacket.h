@@ -14,6 +14,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -65,7 +66,7 @@ public
  super.save(byteBufferWriter.bb);
  }
 
- int getPacketSizeBytes() { return 12; }
+ int getPacketSizeBytes() noexcept{ return 12; }
 
  bool isConsistent() { return this->player != nullptr; }
 
@@ -77,7 +78,7 @@ public
  " id=" + this->id + " " + super.getDescription();
  }
 
- void log(UdpConnection var1, const std::string &string) {
+ void log(UdpConnection var1, std::string_view string) {
  if (this->isConsistent()) {
  if (Core.bDebug) {
  DebugLog.Combat.debugln(string + ": " + this->getDescription());

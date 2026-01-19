@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -45,7 +46,7 @@ public:
  Texture bulletTex;
 
 public
- UI_BodyPart(BodyPartType type, int x, int y, const std::string &part,
+ UI_BodyPart(BodyPartType type, int x, int y, std::string_view part,
  IsoGameCharacter character, bool RenderFlipped) {
  std::string string = "male";
  if (character.isFemale()) {

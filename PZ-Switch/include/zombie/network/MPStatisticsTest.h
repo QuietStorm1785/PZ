@@ -220,7 +220,7 @@ public:
  Assert.assertTrue(MPStatistics.doKickWhileLoading(this->connection, long0);
  }
 
- void TestTheLatestDataIsUsedForCounting() {
+ void TestTheLatestDataIsUsedForCounting() noexcept{
  this->connection.pingHistory.addFirst(100L);
  this->connection.pingHistory.addFirst(100L);
  this->connection.pingHistory.addFirst(100L);

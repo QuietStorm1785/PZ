@@ -28,6 +28,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -444,15 +445,15 @@ public
  this->remoteControlID = _remoteControlID;
  }
 
- std::string getCountDownSound() { return this->countDownSound; }
+ std::string getCountDownSound() noexcept{ return this->countDownSound; }
 
- void setCountDownSound(const std::string &sound) {
+ void setCountDownSound(std::string_view sound) {
  this->countDownSound = sound;
  }
 
  std::string getExplosionSound() { return this->explosionSound; }
 
- void setExplosionSound(const std::string &_explosionSound) {
+ void setExplosionSound(std::string_view _explosionSound) {
  this->explosionSound = _explosionSound;
  }
 

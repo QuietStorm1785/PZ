@@ -23,6 +23,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -123,7 +124,7 @@ private
  static void n_initMetaChunk(int var0, int var1, int var2, int var3,
  int var4);
 
- static void writeToStdErr(const std::string &string) {
+ static void writeToStdErr(std::string_view string) {
  System.err.println(string);
  }
 

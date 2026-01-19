@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ public:
 
  static void lpc_to_curve(float[] floats1, float[] floats2, float float0,
  Floor0.LookFloor0 lookFloor0,
- const std::string &var4, int var5) {
+ std::string_view var4, int var5) {
  float[] floats0 =
  new float[Math.max(lookFloor0.ln * 2, lookFloor0.m * 2 + 2)];
  if (float0 == 0.0F) {

@@ -40,7 +40,7 @@ public
 public
  byte[] buf() { return this->buf1; }
 
- long get_size() { return this->buf1size; }
+ long get_size() noexcept{ return this->buf1size; }
 
  long get_vad() { return this->vadStatus; }
 

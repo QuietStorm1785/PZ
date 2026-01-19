@@ -81,7 +81,7 @@ public
  }
  }
 
- void restorePFBTarget() { this->shouldRestorePFBTarget = true; }
+ void restorePFBTarget() noexcept{ this->shouldRestorePFBTarget = true; }
 
  void zombieIdleUpdate() {
  if (this->shouldRestorePFBTarget) {
@@ -90,7 +90,7 @@ public
  }
  }
 
- void doRestorePFBTarget() {
+ void doRestorePFBTarget() noexcept{
  if (!this->pfbIsCanceled) {
  if (this->pfbType == 1 && this->pfbTargetCharacter != nullptr) {
  this->zombie.pathToCharacter(this->pfbTargetCharacter);

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -32,7 +33,7 @@ class ReanimatedPlayers {
     static ReanimatedPlayers instance = new ReanimatedPlayers();
    private ArrayList<IsoZombie> Zombies = std::make_unique<ArrayList<>>();
 
-    static void noise(const std::string& var0) {
+    static void noise(std::string_view var0) {
       DebugLog.log("reanimate: " + var0);
    }
 

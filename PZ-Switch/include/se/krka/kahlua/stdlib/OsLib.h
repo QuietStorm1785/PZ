@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -118,11 +119,11 @@ private
  }
  }
 
- static void *getdate(const std::string &string, Platform platform) {
+ static void *getdate(std::string_view string, Platform platform) {
  return getdate();
  }
 
- static void *getdate(const std::string &string, long long0,
+ static void *getdate(std::string_view string, long long0,
  Platform platform) {
  Calendar calendar = nullptr;
  int int0 = 0;
@@ -141,7 +142,7 @@ private
  }
  }
 
- static std::string formatTime(const std::string &string, Calendar calendar) {
+ static std::string formatTime(std::string_view string, Calendar calendar) {
  StringBuilder stringBuilder = new StringBuilder();
 
  for (int int0 = 0; int0 < string.length(); int0++) {

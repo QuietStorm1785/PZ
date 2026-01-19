@@ -80,6 +80,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -586,7 +587,7 @@ void save(ByteBuffer output, bool IS_DEBUG_SAVE) {
 
 void softReset() { this->square.RemoveTileObject(this); }
 
-void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  if ("becomeSkeleton" == change) {
  bb.putInt(this->getHumanVisual().getSkinTextureIndex());
  }
@@ -598,7 +599,7 @@ void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
  }
 }
 
-void loadChange(const std::string &change, ByteBuffer bb) {
+void loadChange(std::string_view change, ByteBuffer bb) {
  if ("becomeSkeleton" == change) {
  int int0 = bb.getInt();
  this->getHumanVisual().setBeardModel("");
@@ -944,7 +945,7 @@ void checkClothing(InventoryItem removedItem) {
 
 bool IsSpeaking() { return this->Speaking; }
 
-void Say(const std::string &line) {
+void Say(std::string_view line) {
  this->SpeakTime = line.length() * 4;
  if (this->SpeakTime < 60.0F) {
  this->SpeakTime = 60.0F;

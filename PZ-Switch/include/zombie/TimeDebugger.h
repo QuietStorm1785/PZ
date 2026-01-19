@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  std::string name = "";
 
 public
- TimeDebugger(const std::string &string) { this->name = string; }
+ TimeDebugger(std::string_view string) { this->name = string; }
 
  void clear() {
  if (GameServer.bServer) {
@@ -44,14 +45,14 @@ public
  }
  }
 
- void record(const std::string &string) {
+ void record(std::string_view string) {
  if (GameServer.bServer) {
  this->records.add(System.currentTimeMillis());
  this->recordStrings.add(string);
  }
  }
 
- void recordTO(const std::string &string, int int0) {
+ void recordTO(std::string_view string, int int0) {
  if (GameServer.bServer &&
  this->records.get(this->records.size() - 1) -
  this->records.get(this->records.size() - 2) >

@@ -44,6 +44,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -555,7 +556,7 @@ public
  }
  }
 
- void removeZonesForLotDirectory(const std::string &lotDir) {
+ void removeZonesForLotDirectory(std::string_view lotDir) {
  if (!this->Zones.empty()) {
  File file = new File(ZomboidFileSystem.instance.getString(
  "media/maps/" + lotDir + "/"));
@@ -702,7 +703,7 @@ public
  }
 
  void registerRoomTone(
- const std::string &name, const std::string &type, int x, int y,
+ std::string_view name, std::string_view type, int x, int y,
  int z, int _width, int _height, KahluaTable properties) {
  if ("RoomTone" == type) {
  IsoMetaCell metaCell = this->getCellData(x / 300, y / 300);
@@ -1756,7 +1757,7 @@ void saveZone(ByteBuffer output) {
  }
 }
 
-void getLotDirectories(const std::string &string0,
+void getLotDirectories(std::string_view string0,
  ArrayList<String> arrayList) {
  if (!arrayList.contains(string0) {
  ChooseGameInfo.Map map = ChooseGameInfo.getMapDetails(string0);
@@ -1808,7 +1809,7 @@ ArrayList<String> getLotDirectories() {
  return arrayList;
 }
 
-static bool isPreferredZoneForSquare(const std::string &type) {
+static bool isPreferredZoneForSquare(std::string_view type) {
  return s_PreferredZoneTypes.contains(type);
 }
 
@@ -1988,7 +1989,7 @@ public static class Trigger {
 
 public
  Trigger(BuildingDef buildingDef, int int0, int int1,
- const std::string &string) {
+ std::string_view string) {
  this->def = buildingDef;
  this->triggerRange = int0;
  this->zombieExclusionRange = int1;
@@ -2005,7 +2006,7 @@ public static class VehicleZone extends IsoMetaGrid.Zone {
  short flags = 0;
 
 public
- VehicleZone(const std::string &string0, const std::string &string1, int int0,
+ VehicleZone(std::string_view string0, std::string_view string1, int int0,
  int int1, int int2, int int3, int int4, KahluaTable table) {
  super(string0, string1, int0, int1, int2, int3, int4);
  if (table != nullptr) {
@@ -2064,7 +2065,7 @@ public
  static const Vector2 L_lineSegmentIntersects = new Vector2();
 
 public
- Zone(const std::string &string0, const std::string &string1, int int0,
+ Zone(std::string_view string0, std::string_view string1, int int0,
  int int1, int int2, int int3, int int4) {
  this->id = Rand.Next(9999999) + 100000.0;
  this->originalName = string0;
@@ -2374,11 +2375,11 @@ public
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &string) { this->name = string; }
+ void setName(std::string_view string) { this->name = string; }
 
  std::string getType() { return this->type; }
 
- void setType(const std::string &string) { this->type = string; }
+ void setType(std::string_view string) { this->type = string; }
 
  int getLastActionTimestamp() { return this->lastActionTimestamp; }
 
@@ -2413,7 +2414,7 @@ public
 
  std::string getOriginalName() { return this->originalName; }
 
- void setOriginalName(const std::string &string) {
+ void setOriginalName(std::string_view string) {
  this->originalName = string;
  }
 

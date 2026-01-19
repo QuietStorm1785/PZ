@@ -35,6 +35,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -624,7 +625,7 @@ private
  }
  }
 
- void CreateShader(const std::string &name) {
+ void CreateShader(std::string_view name) {
  if (!ModelManager.NoOpenGL) {
  Lambda.invoke(
  RenderThread::invokeOnRenderContext, this, name,

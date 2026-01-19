@@ -28,6 +28,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -265,7 +266,7 @@ private
  float3, float4, float5, float6, int0);
  }
 
- void *fromLua0(const std::string &func) {
+ void *fromLua0(std::string_view func) {
  switch (func) {
  case "exit":
  this->bExit = true;
@@ -286,7 +287,7 @@ private
  }
  }
 
- void *fromLua1(const std::string &func, void *arg0) {
+ void *fromLua1(std::string_view func, void *arg0) {
  switch (func) {
  case "setPlayerIndex":
  this->m_playerIndex = PZMath.clamp(((Double)arg0).intValue(), 0, 3);
@@ -300,7 +301,7 @@ private
  }
  }
 
- void *fromLua2(const std::string &func, void *arg0, void *arg1) {
+ void *fromLua2(std::string_view func, void *arg0, void *arg1) {
  uint8_t byte0 = -1;
  switch (func.hashCode()) {
  case -1879300743:

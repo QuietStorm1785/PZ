@@ -19,6 +19,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -54,7 +55,7 @@ private
  static FloatBuffer floatBuffer;
 
 private
- ShaderProgram(const std::string &string, bool boolean0) {
+ ShaderProgram(std::string_view string, bool boolean0) {
  this->m_name = string;
  this->m_isStatic = boolean0;
  }
@@ -212,7 +213,7 @@ private
  }
 
  void registerFileWatcherInternal(
- const std::string &string,
+ std::string_view string,
  PredicatedFileWatcher
  .IPredicatedFileWatcherCallback iPredicatedFileWatcherCallback) {
  string = ZomboidFileSystem.instance.getString(string);
@@ -263,11 +264,11 @@ private
  : "media/shaders/" + this->getName() + ".vert";
  }
 
- std::string getRootFragFileName(const std::string &string) {
+ std::string getRootFragFileName(std::string_view string) {
  return "media/shaders/" + string + ".frag";
  }
 
- ShaderUnit addShader(const std::string &fileName, ShaderUnit.Type unitType) {
+ ShaderUnit addShader(std::string_view fileName, ShaderUnit.Type unitType) {
  ShaderUnit shaderUnit = this->findShader(fileName, unitType);
  if (shaderUnit != nullptr) {
  return shaderUnit;
@@ -285,7 +286,7 @@ private
  ShaderUnit.Type.Vert ? this->m_vertexUnits : this->m_fragmentUnits;
  }
 
- ShaderUnit findShader(const std::string &string, ShaderUnit.Type type) {
+ ShaderUnit findShader(std::string_view string, ShaderUnit.Type type) {
  std::vector arrayList = this->getShaderList(type);
  ShaderUnit shaderUnit0 = nullptr;
 
@@ -311,7 +312,7 @@ private
  * compiled properly. Check the result using isCompiled() function.
  */
 static ShaderProgram
-createShaderProgram(const std::string &name, bool isStatic, bool compile) {
+createShaderProgram(std::string_view name, bool isStatic, bool compile) {
  ShaderProgram shaderProgram = new ShaderProgram(name, isStatic);
  if (compile) {
  shaderProgram.compile();
@@ -324,7 +325,7 @@ createShaderProgram(const std::string &name, bool isStatic, bool compile) {
  * Creates a vertex shader unit. Deprecated: Use
  * ShaderProgram.createShaderProgram instead.
  */
-static int createVertShader(const std::string &fileName) {
+static int createVertShader(std::string_view fileName) {
  ShaderUnit shaderUnit = new ShaderUnit(nullptr, fileName, ShaderUnit.Type.Vert);
  shaderUnit.compile();
  return shaderUnit.getGLID();
@@ -334,7 +335,7 @@ static int createVertShader(const std::string &fileName) {
  * Creates a fragment shader unit. Deprecated: Use
  * ShaderProgram.createShaderProgram instead.
  */
-static int createFragShader(const std::string &fileName) {
+static int createFragShader(std::string_view fileName) {
  ShaderUnit shaderUnit = new ShaderUnit(nullptr, fileName, ShaderUnit.Type.Frag);
  shaderUnit.compile();
  return shaderUnit.getGLID();
@@ -406,7 +407,7 @@ void Start() { ARBShaderObjects.glUseProgramObjectARB(this->getShaderID()); }
 
 void End() { ARBShaderObjects.glUseProgramObjectARB(0); }
 
-void setSamplerUnit(const std::string &loc, int textureUnit) {
+void setSamplerUnit(std::string_view loc, int textureUnit) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 35678);
  if (uniform != nullptr) {
  uniform.sampler = textureUnit;
@@ -414,54 +415,54 @@ void setSamplerUnit(const std::string &loc, int textureUnit) {
  }
 }
 
-void setValueColor(const std::string &loc, int rgba) {
+void setValueColor(std::string_view loc, int rgba) {
  this->setVector4(loc, 0.003921569F * (rgba >> 24 & 0xFF),
  0.003921569F * (rgba >> 16 & 0xFF),
  0.003921569F * (rgba >> 8 & 0xFF),
  0.003921569F * (rgba & 0xFF);
 }
 
-void setValueColorRGB(const std::string &loc, int rgb) {
+void setValueColorRGB(std::string_view loc, int rgb) {
  this->setValueColor(loc, rgb & 0xFF);
 }
 
-void setValue(const std::string &loc, float val) {
+void setValue(std::string_view loc, float val) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 5126);
  if (uniform != nullptr) {
  ARBShaderObjects.glUniform1fARB(uniform.loc, val);
  }
 }
 
-void setValue(const std::string &loc, int val) {
+void setValue(std::string_view loc, int val) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 5124);
  if (uniform != nullptr) {
  ARBShaderObjects.glUniform1iARB(uniform.loc, val);
  }
 }
 
-void setValue(const std::string &loc, Vector3 val) {
+void setValue(std::string_view loc, Vector3 val) {
  this->setVector3(loc, val.x, val.y, val.z);
 }
 
-void setValue(const std::string &loc, Vector2 val) {
+void setValue(std::string_view loc, Vector2 val) {
  this->setVector2(loc, val.x, val.y);
 }
 
-void setVector2(const std::string &loc, float val_x, float val_y) {
+void setVector2(std::string_view loc, float val_x, float val_y) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 35664);
  if (uniform != nullptr) {
  this->setVector2(uniform.loc, val_x, val_y);
  }
 }
 
-void setVector3(const std::string &loc, float val_x, float val_y, float val_z) {
+void setVector3(std::string_view loc, float val_x, float val_y, float val_z) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 35665);
  if (uniform != nullptr) {
  this->setVector3(uniform.loc, val_x, val_y, val_z);
  }
 }
 
-void setVector4(const std::string &loc, float val_x, float val_y, float val_z,
+void setVector4(std::string_view loc, float val_x, float val_y, float val_z,
  float val_w) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 35666);
  if (uniform != nullptr) {
@@ -492,14 +493,14 @@ ShaderProgram.Uniform getUniform(String loc, int type, boolean bWarn) {
  }
 }
 
-void setValue(const std::string &loc, Matrix4f matrix4f) {
+void setValue(std::string_view loc, Matrix4f matrix4f) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 35676);
  if (uniform != nullptr) {
  this->setTransformMatrix(uniform.loc, matrix4f);
  }
 }
 
-void setValue(const std::string &loc, Texture tex, int samplerUnit) {
+void setValue(std::string_view loc, Texture tex, int samplerUnit) {
  ShaderProgram.Uniform uniform = this->getUniform(loc, 35678);
  if (uniform != nullptr && tex != nullptr) {
  if (uniform.sampler != samplerUnit) {

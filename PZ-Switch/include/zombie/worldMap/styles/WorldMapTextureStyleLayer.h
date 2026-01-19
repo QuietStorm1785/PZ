@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -30,7 +31,7 @@ public
  bool m_tile = false;
 
 public
- WorldMapTextureStyleLayer(const std::string &string) { super(string); }
+ WorldMapTextureStyleLayer(std::string_view string) { super(string); }
 
  std::string getTypeString() { return "Texture"; }
 

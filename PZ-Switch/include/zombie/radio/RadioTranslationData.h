@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -32,7 +33,7 @@ private
  Map<String, String> translations = std::make_unique<HashMap<>>();
 
 public
- RadioTranslationData(const std::string &file) { this->filePath = file; }
+ RadioTranslationData(std::string_view file) { this->filePath = file; }
 
  std::string getFilePath() { return this->filePath; }
 
@@ -44,7 +45,7 @@ public
 
  int getVersion() { return this->version; }
 
- int getTranslationCount() { return this->translations.size(); }
+ int getTranslationCount() noexcept{ return this->translations.size(); }
 
 public
  ArrayList<String> getTranslators() { return this->translators; }
@@ -134,12 +135,12 @@ public
 }
 
 std::string
-getTranslation(const std::string &_guid) {
+getTranslation(std::string_view _guid) {
  return this->translations.containsKey(_guid) ? this->translations.get(_guid)
  : nullptr;
 }
 
-static RadioTranslationData ReadFile(const std::string &file) {
+static RadioTranslationData ReadFile(std::string_view file) {
  RadioTranslationData radioTranslationData = new RadioTranslationData(file);
  File _file = new File(file);
  if (_file.exists() && !_file.isDirectory()) {

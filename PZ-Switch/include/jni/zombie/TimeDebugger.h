@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -17,7 +18,7 @@ class TimeDebugger {
    ArrayList<String> recordStrings = std::make_unique<ArrayList<>>();
     std::string name = "";
 
-     TimeDebugger(const std::string& var1) {
+     TimeDebugger(std::string_view var1) {
       this.name = var1;
    }
 
@@ -44,14 +45,14 @@ class TimeDebugger {
       }
    }
 
-    void record(const std::string& var1) {
+    void record(std::string_view var1) {
       if (GameServer.bServer) {
          this.records.add(System.currentTimeMillis());
          this.recordStrings.add(var1);
       }
    }
 
-    void recordTO(const std::string& var1, int var2) {
+    void recordTO(std::string_view var1, int var2) {
       if (GameServer.bServer && this.records.get(this.records.size() - 1) - this.records.get(this.records.size() - 2) > var2) {
          this.records.add(System.currentTimeMillis());
          this.recordStrings.add(var1);

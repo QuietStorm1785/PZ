@@ -48,6 +48,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -867,7 +868,7 @@ private
  }
 
  void doProfessionStory(BuildingDef def,
- const std::string &professionChoosed) {
+ std::string_view professionChoosed) {
  this->spawnItemsInContainers(def, professionChoosed, 70);
  }
 

@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
  int max;
 
 public
- IntegerConfigOption(const std::string &name, int _min, int _max,
+ IntegerConfigOption(std::string_view name, int _min, int _max,
  int _defaultValue) {
  super(name);
  if (_defaultValue >= _min && _defaultValue <= _max) {
@@ -43,7 +44,7 @@ public
 
  void setDefaultToCurrentValue() { this->defaultValue = this->value; }
 
- void parse(const std::string &s) {
+ void parse(std::string_view s) {
  try {
  double double0 = Double.parseDouble(s);
  this->setValue((int)double0);
@@ -65,7 +66,7 @@ public
 
  void *getValueAsObject() { return (double)this->value; }
 
- bool isValidString(const std::string &s) {
+ bool isValidString(std::string_view s) {
  try {
  int int0 = Integer.parseInt(s);
  return int0 >= this->min && int0 <= this->max;

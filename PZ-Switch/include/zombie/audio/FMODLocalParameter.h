@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  const TLongArrayList m_instances = new TLongArrayList();
 
 public
- FMODLocalParameter(const std::string &string) {
+ FMODLocalParameter(std::string_view string) {
  super(string);
  if (this->getParameterDescription() != nullptr &&
  this->getParameterDescription().isGlobal()) {

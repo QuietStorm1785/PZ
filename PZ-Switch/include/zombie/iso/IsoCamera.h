@@ -181,7 +181,7 @@ public
  /**
  * @return the TargetTileX
  */
- static int getTargetTileX() { return TargetTileX; }
+ static int getTargetTileX() noexcept{ return TargetTileX; }
 
  /**
  *
@@ -192,7 +192,7 @@ public
  /**
  * @return the TargetTileY
  */
- static int getTargetTileY() { return TargetTileY; }
+ static int getTargetTileY() noexcept{ return TargetTileY; }
 
  /**
  *

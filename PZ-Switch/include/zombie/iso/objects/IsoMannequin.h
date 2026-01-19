@@ -55,6 +55,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -142,7 +143,7 @@ public
 
  std::string getMannequinScriptName() { return this->mannequinScriptName; }
 
- void setMannequinScriptName(const std::string &name) {
+ void setMannequinScriptName(std::string_view name) {
  if (!StringUtils.isNullOrWhitespace(name) {
  if (ScriptManager.instance.getMannequinScript(name) != nullptr) {
  this->mannequinScriptName = name;
@@ -200,7 +201,7 @@ public
  }
  }
 
- void saveChange(const std::string &change, KahluaTable tbl, ByteBuffer bb) {
+ void saveChange(std::string_view change, KahluaTable tbl, ByteBuffer bb) {
  if ("rotate" == change) {
  bb.put((byte)this->dir.index());
  }
@@ -209,7 +210,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  if ("rotate" == change) {
  uint8_t byte0 = bb.get();
  this->rotate(IsoDirections.fromIndex(byte0);
@@ -858,7 +859,7 @@ public
  std::string outfit = nullptr;
 
  public
- MannequinZone(const std::string &string0, const std::string &string1,
+ MannequinZone(std::string_view string0, std::string_view string1,
  int int0, int int1, int int2, int int3, int int4,
  KahluaTable table) {
  super(string0, string1, int0, int1, int2, int3, int4);

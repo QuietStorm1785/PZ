@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL_net.h>
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <functional>
@@ -71,7 +72,7 @@ public:
  PacketType getType() const { return type; }
  void setType(PacketType t) { type = t; }
  
- uint32_t getSize() const { return static_cast<uint32_t>(data.size()); }
+ uint32_t getSize() const noexcept { return static_cast<uint32_t>(data.size()); }
  const uint8_t* getData() const { return data.data(); }
  
  // Write operations
@@ -82,7 +83,7 @@ public:
  void writeInt16(int16_t value);
  void writeInt32(int32_t value);
  void writeFloat(float value);
- void writeString(const std::string& str);
+ void writeString(std::string_view str);
  void writeBytes(const uint8_t* bytes, size_t length);
  
  // Read operations
@@ -181,7 +182,7 @@ public:
  void stop();
  
  bool isRunning() const { return running; }
- int getClientCount() const { return static_cast<int>(clients.size()); }
+ int getClientCount() const noexcept { return static_cast<int>(clients.size()); }
  
  // Update
  void update(float deltaTime) override;
@@ -222,7 +223,7 @@ public:
  ~NetworkClient();
  
  // Connection
- bool connect(const std::string& hostname, uint16_t port, const std::string& playerName);
+ bool connect(std::string_view hostname, uint16_t port, std::string_view playerName);
  void disconnect();
  
  bool isConnected() const { return connected; }
@@ -263,7 +264,7 @@ public:
  uint32_t playerId, float health, float maxHealth);
  
  static std::unique_ptr<Packet> createPlayerJoinPacket(
- uint32_t playerId, const std::string& name);
+ uint32_t playerId, std::string_view name);
  
  static std::unique_ptr<Packet> createPlayerLeavePacket(uint32_t playerId);
  
@@ -278,7 +279,7 @@ public:
  
  // Chat packets
  static std::unique_ptr<Packet> createChatMessagePacket(
- uint32_t playerId, const std::string& message);
+ uint32_t playerId, std::string_view message);
  
  // World packets
  static std::unique_ptr<Packet> createWorldStatePacket(

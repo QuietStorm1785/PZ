@@ -21,6 +21,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -68,7 +69,7 @@ public:
  }
  }
 
- static void makeBackupFile(const std::string &string2,
+ static void makeBackupFile(std::string_view string2,
  ZipBackup.BackupTypes backupTypes) {
  std::string string0 = ZomboidFileSystem.instance.getCacheDir() +
  File.separator + "backups" + File.separator +
@@ -176,7 +177,7 @@ public:
  }
  }
 
- static std::string getBackupReadme(const std::string &string0) {
+ static std::string getBackupReadme(std::string_view string0) {
  SimpleDateFormat simpleDateFormat =
  new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
  Date date = new Date(System.currentTimeMillis());
@@ -198,7 +199,7 @@ public:
  string1;
  }
 
- static int getWorldVersion(const std::string &string) {
+ static int getWorldVersion(std::string_view string) {
  File file = new File(ZomboidFileSystem.instance.getSaveDir() +
  File.separator + "Multiplayer" + File.separator +
  string + File.separator + "map_t.bin");
@@ -228,8 +229,8 @@ public:
  return -2;
  }
 
- static void putTextFile(const std::string &string0,
- const std::string &string1) {
+ static void putTextFile(std::string_view string0,
+ std::string_view string1) {
  try {
  Path path = Paths.get(string0);
  Files.createDirectories(path.getParent());
@@ -245,7 +246,7 @@ public:
  }
  }
 
- static std::string getStringFromZip(const std::string &string1) {
+ static std::string getStringFromZip(std::string_view string1) {
  std::string string0 = nullptr;
 
  try {
@@ -261,8 +262,8 @@ public:
  return string0;
  }
 
- static void zipTextFile(const std::string &string1,
- const std::string &string0) {
+ static void zipTextFile(std::string_view string1,
+ std::string_view string0) {
  InputStreamSupplier inputStreamSupplier =
  ()->new ByteArrayInputStream(string0.getBytes(StandardCharsets.UTF_8);
  ZipArchiveEntry zipArchiveEntry = new ZipArchiveEntry(string1);
@@ -270,7 +271,7 @@ public:
  scatterZipCreator.addArchiveEntry(zipArchiveEntry, inputStreamSupplier);
  }
 
- static void zipFile(const std::string &string1, const std::string &string0) {
+ static void zipFile(std::string_view string1, std::string_view string0) {
  Path path = Paths.get(ZomboidFileSystem.instance.getCacheDir() +
  File.separator + string0);
  if (Files.exists(path) {
@@ -291,7 +292,7 @@ public:
  }
  }
 
- static void zipDir(const std::string &string2, const std::string &string0) {
+ static void zipDir(std::string_view string2, std::string_view string0) {
  Path path = Paths.get(ZomboidFileSystem.instance.getCacheDir() +
  File.separator + string0);
  if (Files.exists(path) {

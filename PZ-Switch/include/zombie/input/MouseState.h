@@ -82,7 +82,7 @@ private
  : this->m_buttonDownStates[button];
  }
 
- int getButtonCount() {
+ int getButtonCount() noexcept{
  return this->isCreated() ? this->m_buttonDownStates.length : 0;
  }
 

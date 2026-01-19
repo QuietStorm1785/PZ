@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,7 +36,7 @@ enum class WeaponType {
  std::string type = ""; public List<String> possibleAttack;
  bool canMiss = true; bool isRanged = false;
 
- private WeaponType(const std::string &string1, List<String> list,
+ private WeaponType(std::string_view string1, List<String> list,
  bool boolean0, bool boolean1){
  this->type = string1; this->possibleAttack = list; this->canMiss = boolean0;
  this->isRanged = boolean1;}

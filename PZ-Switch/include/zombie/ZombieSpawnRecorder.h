@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -42,7 +43,7 @@ public:
  }
  }
 
- void record(IsoZombie zombie0, const std::string &string) {
+ void record(IsoZombie zombie0, std::string_view string) {
  if (zombie0 != nullptr && zombie0.getCurrentSquare() != nullptr) {
  if (this->m_logger != nullptr) {
  IsoGridSquare square = zombie0.getCurrentSquare();
@@ -69,7 +70,7 @@ public:
  }
  }
 
- void record(ArrayList<IsoZombie> arrayList, const std::string &string) {
+ void record(ArrayList<IsoZombie> arrayList, std::string_view string) {
  if (arrayList != nullptr) {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  this->record((IsoZombie)arrayList.get(int0), string);

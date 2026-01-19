@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -49,7 +50,7 @@ private
 private
  static HashMap<String, Event> EventMap = std::make_unique<HashMap<>>();
 
- static Event checkEvent(const std::string &string) {
+ static Event checkEvent(std::string_view string) {
  Event event = EventMap.get(string);
  if (event.empty()) {
  DebugLog.log("LuaEventManager: adding unknown event \"" + string + "\"");
@@ -59,7 +60,7 @@ private
  return event.callbacks.empty() ? nullptr : event;
  }
 
- static void triggerEvent(const std::string &event) {
+ static void triggerEvent(std::string_view event) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
  Event _event = checkEvent(event);
  if (_event != nullptr) {
@@ -68,7 +69,7 @@ private
  }
  }
 
- static void triggerEvent(const std::string &event, void *param1) {
+ static void triggerEvent(std::string_view event, void *param1) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
  Event _event = checkEvent(event);
  if (_event != nullptr) {
@@ -94,15 +95,15 @@ private
  }
  }
 
- static void triggerEventGarbage(const std::string &event, void *param1) {
+ static void triggerEventGarbage(std::string_view event, void *param1) {
  triggerEvent(event, param1);
  }
 
- static void triggerEventUnique(const std::string &event, void *param1) {
+ static void triggerEventUnique(std::string_view event, void *param1) {
  triggerEvent(event, param1);
  }
 
- static void triggerEvent(const std::string &event, void *param1,
+ static void triggerEvent(std::string_view event, void *param1,
  void *param2) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
  Event _event = checkEvent(event);
@@ -131,12 +132,12 @@ private
  }
  }
 
- static void triggerEventGarbage(const std::string &event, void *param1,
+ static void triggerEventGarbage(std::string_view event, void *param1,
  void *param2) {
  triggerEvent(event, param1, param2);
  }
 
- static void triggerEvent(const std::string &event, void *param1, void *param2,
+ static void triggerEvent(std::string_view event, void *param1, void *param2,
  void *param3) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
  Event _event = checkEvent(event);
@@ -167,12 +168,12 @@ private
  }
  }
 
- static void triggerEventGarbage(const std::string &event, void *param1,
+ static void triggerEventGarbage(std::string_view event, void *param1,
  void *param2, void *param3) {
  triggerEvent(event, param1, param2, param3);
  }
 
- static void triggerEvent(const std::string &event, void *param1, void *param2,
+ static void triggerEvent(std::string_view event, void *param1, void *param2,
  void *param3, void *param4) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
  Event _event = checkEvent(event);
@@ -205,12 +206,12 @@ private
  }
  }
 
- static void triggerEventGarbage(const std::string &event, void *param1,
+ static void triggerEventGarbage(std::string_view event, void *param1,
  void *param2, void *param3, void *param4) {
  triggerEvent(event, param1, param2, param3, param4);
  }
 
- static void triggerEvent(const std::string &event, void *param1, void *param2,
+ static void triggerEvent(std::string_view event, void *param1, void *param2,
  void *param3, void *param4, void *param5) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
  Event _event = checkEvent(event);
@@ -245,7 +246,7 @@ private
  }
  }
 
- static void triggerEvent(const std::string &event, void *param1, void *param2,
+ static void triggerEvent(std::string_view event, void *param1, void *param2,
  void *param3, void *param4, void *param5,
  void *param6) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
@@ -283,7 +284,7 @@ private
  }
  }
 
- static void triggerEvent(const std::string &event, void *param1, void *param2,
+ static void triggerEvent(std::string_view event, void *param1, void *param2,
  void *param3, void *param4, void *param5,
  void *param6, void *param7) {
  { std::lock_guard<std::mutex> __sync_lock__(EventMap_mutex);
@@ -366,7 +367,7 @@ public
  }
  }
 
- static Event AddEvent(const std::string &name) {
+ static Event AddEvent(std::string_view name) {
  Event event = EventMap.get(name);
  if (event != nullptr) {
  return event;

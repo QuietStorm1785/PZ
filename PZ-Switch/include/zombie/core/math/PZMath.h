@@ -52,7 +52,7 @@ public:
  : 0.5F + lerpFunc_EaseInQuad(2.0F * x - 1.0F) / 2.0F;
  }
 
- static double tryParseDouble(const std::string &varStr, double defaultVal) {
+ static double tryParseDouble(std::string_view varStr, double defaultVal) {
  if (StringUtils.isNullOrWhitespace(varStr) {
  return defaultVal;
  } else {
@@ -64,7 +64,7 @@ public:
  }
  }
 
- static float tryParseFloat(const std::string &varStr, float defaultVal) {
+ static float tryParseFloat(std::string_view varStr, float defaultVal) {
  if (StringUtils.isNullOrWhitespace(varStr) {
  return defaultVal;
  } else {
@@ -76,7 +76,7 @@ public:
  }
  }
 
- static bool canParseFloat(const std::string &varStr) {
+ static bool canParseFloat(std::string_view varStr) {
  if (StringUtils.isNullOrWhitespace(varStr) {
  return false;
  } else {
@@ -89,7 +89,7 @@ public:
  }
  }
 
- static int tryParseInt(const std::string &varStr, int defaultVal) {
+ static int tryParseInt(std::string_view varStr, int defaultVal) {
  if (StringUtils.isNullOrWhitespace(varStr) {
  return defaultVal;
  } else {
@@ -311,8 +311,8 @@ public
  }
 
  static void logResult(float float2, float float1, float float0,
- const std::string &string0,
- const std::string &string1) {
+ std::string_view string0,
+ std::string_view string1) {
  DebugLog.General.println("%f, %f, %f, %s, %s", float2, float1, float0,
  string0, string1);
  }

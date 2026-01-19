@@ -1,17 +1,18 @@
 #pragma once
 
 #include <string>
+#include <string_view>
 
 namespace java {
 namespace text {
 
 class SimpleDateFormat {
 public:
- SimpleDateFormat(const std::string& pattern);
+ SimpleDateFormat(std::string_view pattern);
  virtual ~SimpleDateFormat() = default;
 
  std::string format(long time) const;
- long parse(const std::string& dateStr) const;
+ long parse(std::string_view dateStr) const;
 
 private:
  std::string pattern_;

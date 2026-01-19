@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,7 +24,7 @@ public:
  bool m_isProfilerRunning = false;
 
 protected
- AbstractPerformanceProfileProbe(const std::string &string) {
+ AbstractPerformanceProfileProbe(std::string_view string) {
  this->Name = string;
  }
 

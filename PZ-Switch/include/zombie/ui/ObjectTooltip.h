@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -70,21 +71,21 @@ public
 
  int getLineSpacing() { return lineSpacing; }
 
- void DrawText(UIFont _font, const std::string &text, double x, double y,
+ void DrawText(UIFont _font, std::string_view text, double x, double y,
  double r, double g, double b, double _alpha) {
  if (!this->measureOnly) {
  super.DrawText(_font, text, x, y, r, g, b, _alpha);
  }
  }
 
- void DrawTextCentre(UIFont _font, const std::string &text, double x, double y,
+ void DrawTextCentre(UIFont _font, std::string_view text, double x, double y,
  double r, double g, double b, double _alpha) {
  if (!this->measureOnly) {
  super.DrawTextCentre(_font, text, x, y, r, g, b, _alpha);
  }
  }
 
- void DrawTextRight(UIFont _font, const std::string &text, double x, double y,
+ void DrawTextRight(UIFont _font, std::string_view text, double x, double y,
  double r, double g, double b, double _alpha) {
  if (!this->measureOnly) {
  super.DrawTextRight(_font, text, x, y, r, g, b, _alpha);
@@ -244,7 +245,7 @@ public
  this->setVisible(true);
  }
 
- void adjustWidth(int textX, const std::string &text) {
+ void adjustWidth(int textX, std::string_view text) {
  int int0 = TextManager.instance.MeasureStringX(font, text);
  if (textX + int0 + this->padRight > this->width) {
  this->setWidth(textX + int0 + this->padRight);
@@ -398,7 +399,7 @@ public
  this->progressFraction = -1.0F;
  }
 
- void setLabel(const std::string &_label, float r, float g, float b,
+ void setLabel(std::string_view _label, float r, float g, float b,
  float a) {
  this->label = _label;
  this->r0 = r;
@@ -407,7 +408,7 @@ public
  this->a0 = a;
  }
 
- void setValue(const std::string &_label, float r, float g, float b,
+ void setValue(std::string_view _label, float r, float g, float b,
  float a) {
  this->value = _label;
  this->r1 = r;
@@ -468,7 +469,7 @@ public
  this->hasValue = true;
  }
 
- void calcSizes() {
+ void calcSizes() noexcept{
  this->labelWidth = this->valueWidth = this->valueWidthRight =
  this->progressWidth = 0;
  if (this->label != nullptr) {

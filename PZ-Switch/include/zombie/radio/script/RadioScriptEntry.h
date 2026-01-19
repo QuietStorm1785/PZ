@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,12 +21,12 @@ public:
  int Delay = 0;
 
 public
- RadioScriptEntry(const std::string &string, int int0) {
+ RadioScriptEntry(std::string_view string, int int0) {
  this(string, int0, 0, 100);
  }
 
 public
- RadioScriptEntry(const std::string &string, int int2, int int0, int int1) {
+ RadioScriptEntry(std::string_view string, int int2, int int0, int int1) {
  this->scriptName = string;
  this->setChanceMin(int0);
  this->setChanceMax(int1);
@@ -46,7 +47,7 @@ public
 
  std::string getScriptName() { return this->scriptName; }
 
- void setScriptName(const std::string &string) { this->scriptName = string; }
+ void setScriptName(std::string_view string) { this->scriptName = string; }
 
  int getDelay() { return this->Delay; }
 

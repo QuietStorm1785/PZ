@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,15 +20,15 @@ namespace templating {
 class ITemplateBuilder {
 public:
  virtual ~ITemplateBuilder() = default;
- std::string Build(const std::string &input);
+ std::string Build(std::string_view input);
 
- std::string Build(const std::string &input, IReplaceProvider replaceProvider);
+ std::string Build(std::string_view input, IReplaceProvider replaceProvider);
 
- std::string Build(const std::string &input, KahluaTableImpl table);
+ std::string Build(std::string_view input, KahluaTableImpl table);
 
- void RegisterKey(const std::string &key, KahluaTableImpl table);
+ void RegisterKey(std::string_view key, KahluaTableImpl table);
 
- void RegisterKey(const std::string &key, IReplace replace);
+ void RegisterKey(std::string_view key, IReplace replace);
 
  void Reset();
 }

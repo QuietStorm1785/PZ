@@ -13,6 +13,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -82,7 +83,7 @@ private
 
  static void Reset() { instance.m_perks.clear(); }
 
- bool readFile(const std::string &string0) {
+ bool readFile(std::string_view string0) {
  try {
  bool boolean0;
  try(FileReader fileReader = new FileReader(string0);
@@ -107,7 +108,7 @@ private
  }
  }
 
- void parse(const std::string &string) {
+ void parse(std::string_view string) {
  string = ScriptParser.stripComments(string);
  ScriptParser.Block block0 = ScriptParser.parse(string);
  int int0 = -1;

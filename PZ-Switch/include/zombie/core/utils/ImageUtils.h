@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -121,12 +122,12 @@ private
  return byteBuffer;
  }
 
- static void saveBmpImage(Texture texture, const std::string &string) {
+ static void saveBmpImage(Texture texture, std::string_view string) {
  saveImage(texture, string, "bmp");
  }
 
- static void saveImage(Texture texture, const std::string &string,
- const std::string &var2) {
+ static void saveImage(Texture texture, std::string_view string,
+ std::string_view var2) {
  BufferedImage bufferedImage =
  new BufferedImage(texture.getWidth(), texture.getHeight(), 1);
  WritableRaster writableRaster = bufferedImage.getRaster();
@@ -159,11 +160,11 @@ private
  }
  }
 
- static void saveJpgImage(Texture texture, const std::string &string) {
+ static void saveJpgImage(Texture texture, std::string_view string) {
  saveImage(texture, string, "jpg");
  }
 
- static void savePngImage(Texture texture, const std::string &string) {
+ static void savePngImage(Texture texture, std::string_view string) {
  saveImage(texture, string, "png");
  }
 }

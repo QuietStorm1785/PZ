@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,7 +30,7 @@ public:
 private
  static byte[] bytes = new byte[1024];
 
- static void noise(const std::string &var0) {
+ static void noise(std::string_view var0) {
  if (Core.bDebug) {
  }
  }
@@ -89,7 +90,7 @@ private
  MPStatistic.getInstance().ChunkChecksum.End();
  }
 
- static long createChecksum(const std::string &string) {
+ static long createChecksum(std::string_view string) {
  MPStatistic.getInstance().ChunkChecksum.Start();
  File file = new File(string);
  if (!file.exists()) {

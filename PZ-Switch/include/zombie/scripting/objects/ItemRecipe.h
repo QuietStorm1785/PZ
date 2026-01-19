@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ public:
  int getUse() { return this->use; }
 
 public
- ItemRecipe(const std::string &_name, const std::string &_module, int _use) {
+ ItemRecipe(std::string_view _name, std::string_view _module, int _use) {
  this->name = _name;
  this->use = _use;
  this->setModule(_module);
@@ -32,7 +33,7 @@ public
 
  std::string getModule() { return this->module; }
 
- void setModule(const std::string &_module) { this->module = _module; }
+ void setModule(std::string_view _module) { this->module = _module; }
 
  std::string getFullType() { return this->module + "." + this->name; }
 }

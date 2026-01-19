@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -448,7 +449,7 @@ protected
 
  bool isNew() { return this->m_isNew; }
 
- int getPlayingTrackCount() {
+ int getPlayingTrackCount() noexcept{
  int int0 = 0;
  if (this->isMainAnimActive()) {
  int0 += this->m_AnimationTracks.size();
@@ -513,7 +514,7 @@ public
  }
 
  AnimTransition findTransitionTo(IAnimationVariableSource varSource,
- const std::string &name) {
+ std::string_view name) {
  return this->m_sourceNode.findTransitionTo(varSource, name);
  }
 

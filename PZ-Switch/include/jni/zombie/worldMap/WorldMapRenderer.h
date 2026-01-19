@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -482,7 +483,7 @@ class WorldMapRenderer {
     return var8;
    }
 
-    ConfigOption getOptionByName(const std::string& var1) {
+    ConfigOption getOptionByName(std::string_view var1) {
       for (int var2 = 0; var2 < this.options.size(); var2++) {
     ConfigOption var3 = this.options.get(var2);
          if (var3.getName() == var1)) {
@@ -493,7 +494,7 @@ class WorldMapRenderer {
     return nullptr;
    }
 
-    int getOptionCount() const {
+    int getOptionCount() const noexcept {
       return this.options.size();
    }
 
@@ -501,26 +502,26 @@ class WorldMapRenderer {
       return this.options.get(var1);
    }
 
-    void setBoolean(const std::string& var1, bool var2) {
+    void setBoolean(std::string_view var1, bool var2) {
     ConfigOption var3 = this.getOptionByName(var1);
       if (var3 instanceof BooleanConfigOption) {
          ((BooleanConfigOption)var3).setValue(var2);
       }
    }
 
-    bool getBoolean(const std::string& var1) {
+    bool getBoolean(std::string_view var1) {
     ConfigOption var2 = this.getOptionByName(var1);
       return var2 instanceof BooleanConfigOption ? ((BooleanConfigOption)var2).getValue() : false;
    }
 
-    void setDouble(const std::string& var1, double var2) {
+    void setDouble(std::string_view var1, double var2) {
     ConfigOption var4 = this.getOptionByName(var1);
       if (var4 instanceof DoubleConfigOption) {
          ((DoubleConfigOption)var4).setValue(var2);
       }
    }
 
-    double getDouble(const std::string& var1, double var2) {
+    double getDouble(std::string_view var1, double var2) {
     ConfigOption var4 = this.getOptionByName(var1);
       return var4 instanceof DoubleConfigOption ? ((DoubleConfigOption)var4).getValue() : var2;
    }

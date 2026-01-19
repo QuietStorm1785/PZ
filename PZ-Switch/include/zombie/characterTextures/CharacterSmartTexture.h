@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -308,7 +309,7 @@ public
  return intensity;
  }
 
- void addShirtDecal(const std::string &dec) {
+ void addShirtDecal(std::string_view dec) {
  GL11.glTexParameteri(3553, 10241, 9729);
  GL11.glTexParameteri(3553, 10240, 9729);
  this->addRect(dec, 102, 118, 52, 52);

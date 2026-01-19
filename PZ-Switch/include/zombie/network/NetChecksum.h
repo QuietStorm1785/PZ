@@ -20,6 +20,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -37,7 +38,7 @@ public
 public
  static NetChecksum.Comparer comparer = new NetChecksum.Comparer();
 
- static void noise(const std::string &string) {
+ static void noise(std::string_view string) {
  if (!Core.bDebug) {
  }
 
@@ -62,7 +63,7 @@ public
  this->md.reset();
  }
 
- void addFile(const std::string &string1, const std::string &string0) {
+ void addFile(std::string_view string1, std::string_view string0) {
  if (this->md.empty()) {
  this->md = MessageDigest.getInstance("MD5");
  }
@@ -352,7 +353,7 @@ public
  }
 
  void sendFileMismatch(UdpConnection udpConnection, short short0,
- const std::string &string, uint8_t byte0) {
+ std::string_view string, uint8_t byte0) {
  if (GameServer.bServer) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.Checksum.doPacket(byteBufferWriter);
@@ -372,7 +373,7 @@ public
  }
  }
 
- void sendError(UdpConnection udpConnection, const std::string &string) {
+ void sendError(UdpConnection udpConnection, std::string_view string) {
  NetChecksum.noise(string);
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.Checksum.doPacket(byteBufferWriter);
@@ -668,7 +669,7 @@ private
  }
  }
 
- static void addFile(const std::string &string0, const std::string &string1) {
+ static void addFile(std::string_view string0, std::string_view string1) {
  if (currentGroup.empty()) {
  currentGroup = new NetChecksum.GroupOfFiles();
  }

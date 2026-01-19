@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -232,7 +233,7 @@ public
 
  int getFrontType() { return this->frontCache.getType(); }
 
- void print(const std::string &string) {
+ void print(std::string_view string) {
  if (PRINT_STUFF && !this->isDummy) {
  DebugLog.log(string);
  }

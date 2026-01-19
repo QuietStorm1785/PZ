@@ -13,6 +13,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -1028,7 +1029,7 @@ public
  this->timeCount = 0L;
  }
 
- std::string PrintTitle(const std::string &string) {
+ std::string PrintTitle(std::string_view string) {
  return string + "Work; " + string + "Max; " + string + "Count;";
  }
 
@@ -1070,7 +1071,7 @@ public
  this->QuitThreadTasksAdded = 0;
  }
 
- std::string PrintTitle(const std::string &string) {
+ std::string PrintTitle(std::string_view string) {
  return string + "SaveUnloadedAdded; " + string + "SaveLoadedAdded; " +
  string + "SaveGameTimeAdded; " + string + "QuitThreadAdded; " +
  string + "Processed; ";
@@ -1101,7 +1102,7 @@ public
  this->canceled = 0L;
  }
 
- std::string PrintTitle(const std::string &string) {
+ std::string PrintTitle(std::string_view string) {
  return string + "Added; " + string + "Canceled; ";
  }
 
@@ -1123,7 +1124,7 @@ public
  this->processed = 0L;
  }
 
- std::string PrintTitle(const std::string &string) {
+ std::string PrintTitle(std::string_view string) {
  return string + "Added; " + string + "Processed; ";
  }
 
@@ -1149,7 +1150,7 @@ public
  this->timeCount = 0L;
  }
 
- std::string PrintTitle(const std::string &string) {
+ std::string PrintTitle(std::string_view string) {
  return string + "Work; " + string + "Max; " + string + "Sleep; " +
  string + "Count;";
  }

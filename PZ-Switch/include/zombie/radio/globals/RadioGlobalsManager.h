@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,21 +41,21 @@ private
 
  void reset() { instance = nullptr; }
 
- bool exists(const std::string &string) {
+ bool exists(std::string_view string) {
  return this->globals.containsKey(string);
  }
 
- RadioGlobalType getType(const std::string &string) {
+ RadioGlobalType getType(std::string_view string) {
  return this->globals.containsKey(string) ? this->globals.get(string).getType()
  : RadioGlobalType.Invalid;
  }
 
- std::string getString(const std::string &string) {
+ std::string getString(std::string_view string) {
  RadioGlobal radioGlobal = this->getGlobal(string);
  return radioGlobal != nullptr ? radioGlobal.getString() : nullptr;
  }
 
- bool addGlobal(const std::string &string, RadioGlobal radioGlobal) {
+ bool addGlobal(std::string_view string, RadioGlobal radioGlobal) {
  if (!this->exists(string) && radioGlobal != nullptr) {
  this->globals.put(string, radioGlobal);
  return true;
@@ -66,51 +67,51 @@ private
  }
  }
 
- bool addGlobalString(const std::string &string0, const std::string &string1) {
+ bool addGlobalString(std::string_view string0, std::string_view string1) {
  return this->addGlobal(string0, new RadioGlobalString(string0, string1);
  }
 
- bool addGlobalBool(const std::string &string, bool boolean0) {
+ bool addGlobalBool(std::string_view string, bool boolean0) {
  return this->addGlobal(string, new RadioGlobalBool(string, boolean0);
  }
 
- bool addGlobalInt(const std::string &string, int int0) {
+ bool addGlobalInt(std::string_view string, int int0) {
  return this->addGlobal(string, new RadioGlobalInt(string, int0);
  }
 
- bool addGlobalFloat(const std::string &string, float float0) {
+ bool addGlobalFloat(std::string_view string, float float0) {
  return this->addGlobal(string, new RadioGlobalFloat(string, float0);
  }
 
- RadioGlobal getGlobal(const std::string &string) {
+ RadioGlobal getGlobal(std::string_view string) {
  return this->exists(string) ? this->globals.get(string) : nullptr;
  }
 
- RadioGlobalString getGlobalString(const std::string &string) {
+ RadioGlobalString getGlobalString(std::string_view string) {
  RadioGlobal radioGlobal = this->getGlobal(string);
  return radioGlobal != nullptr && radioGlobal instanceof
  RadioGlobalString ? (RadioGlobalString)radioGlobal : nullptr;
  }
 
- RadioGlobalInt getGlobalInt(const std::string &string) {
+ RadioGlobalInt getGlobalInt(std::string_view string) {
  RadioGlobal radioGlobal = this->getGlobal(string);
  return radioGlobal != nullptr && radioGlobal instanceof
  RadioGlobalInt ? (RadioGlobalInt)radioGlobal : nullptr;
  }
 
- RadioGlobalFloat getGlobalFloat(const std::string &string) {
+ RadioGlobalFloat getGlobalFloat(std::string_view string) {
  RadioGlobal radioGlobal = this->getGlobal(string);
  return radioGlobal != nullptr && radioGlobal instanceof
  RadioGlobalFloat ? (RadioGlobalFloat)radioGlobal : nullptr;
  }
 
- RadioGlobalBool getGlobalBool(const std::string &string) {
+ RadioGlobalBool getGlobalBool(std::string_view string) {
  RadioGlobal radioGlobal = this->getGlobal(string);
  return radioGlobal != nullptr && radioGlobal instanceof
  RadioGlobalBool ? (RadioGlobalBool)radioGlobal : nullptr;
  }
 
- bool setGlobal(const std::string &string, RadioGlobal radioGlobal1,
+ bool setGlobal(std::string_view string, RadioGlobal radioGlobal1,
  EditGlobalOps editGlobalOps) {
  RadioGlobal radioGlobal0 = this->getGlobal(string);
  return radioGlobal0 != nullptr && radioGlobal1 != nullptr
@@ -118,22 +119,22 @@ private
  : false;
  }
 
- bool setGlobal(const std::string &string1, const std::string &string0) {
+ bool setGlobal(std::string_view string1, std::string_view string0) {
  this->bufferString.setValue(string0);
  return this->setGlobal(string1, this->bufferString, EditGlobalOps.set);
  }
 
- bool setGlobal(const std::string &string, int int0) {
+ bool setGlobal(std::string_view string, int int0) {
  this->bufferInt.setValue(int0);
  return this->setGlobal(string, this->bufferInt, EditGlobalOps.set);
  }
 
- bool setGlobal(const std::string &string, float float0) {
+ bool setGlobal(std::string_view string, float float0) {
  this->bufferFloat.setValue(float0);
  return this->setGlobal(string, this->bufferFloat, EditGlobalOps.set);
  }
 
- bool setGlobal(const std::string &string, bool boolean0) {
+ bool setGlobal(std::string_view string, bool boolean0) {
  this->bufferBoolean.setValue(boolean0);
  return this->setGlobal(string, this->bufferBoolean, EditGlobalOps.set);
  }
@@ -145,7 +146,7 @@ private
  : CompareResult.Invalid;
  }
 
- CompareResult compare(const std::string &string1, const std::string &string0,
+ CompareResult compare(std::string_view string1, std::string_view string0,
  CompareMethod compareMethod) {
  return this->compare(this->getGlobal(string1), this->getGlobal(string0),
  compareMethod);

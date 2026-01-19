@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -113,7 +114,7 @@ class PngConstants {
       return "" + (char)(var0 >>> 24 & 0xFF) + (char)(var0 >>> 16 & 0xFF) + (char)(var0 >>> 8 & 0xFF) + (char)(var0 & 0xFF);
    }
 
-    static int getChunkType(const std::string& var0) {
+    static int getChunkType(std::string_view var0) {
       return (var0.charAt(0) & 0xFF) << 24 | (var0.charAt(1) & 0xFF) << 16 | (var0.charAt(2) & 0xFF) << 8 | var0.charAt(3) & 0xFF;
    }
 }

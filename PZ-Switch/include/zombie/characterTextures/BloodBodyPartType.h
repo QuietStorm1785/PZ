@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -117,7 +118,7 @@ static int ToIndex(BloodBodyPartType BPT) {
  }
 }
 
-static BloodBodyPartType FromString(const std::string &str) {
+static BloodBodyPartType FromString(std::string_view str) {
  if (str == "Hand_L")) {
  return Hand_L;
  }

@@ -14,6 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -42,7 +43,7 @@ private
  static const int k_EFloatingGamepadTextInputModeEmail = 2;
  static const int k_EFloatingGamepadTextInputModeNumeric = 3;
 
- static void loadLibrary(const std::string &string) {
+ static void loadLibrary(std::string_view string) {
  DebugLog.log("Loading " + string + "...");
  System.loadLibrary(string);
  }
@@ -180,7 +181,7 @@ private
  return bigInteger.toString();
  }
 
- static bool isValidSteamID(const std::string &string) {
+ static bool isValidSteamID(std::string_view string) {
  try {
  BigInteger bigInteger = new BigInteger(string);
  return bigInteger.signum() >= 0 && bigInteger.compareTo(MAX_ULONG) <= 0;
@@ -189,7 +190,7 @@ private
  }
  }
 
- static long convertStringToSteamID(const std::string &string) {
+ static long convertStringToSteamID(std::string_view string) {
  try {
  BigInteger bigInteger = new BigInteger(string);
  return bigInteger.signum() >= 0 && bigInteger.compareTo(MAX_ULONG) <= 0
@@ -213,8 +214,8 @@ private
  static bool isRunningOnSteamDeck() { return n_IsSteamRunningOnSteamDeck(); }
 
  static bool showGamepadTextInput(bool boolean1, bool boolean0,
- const std::string &string0, int int0,
- const std::string &string1) {
+ std::string_view string0, int int0,
+ std::string_view string1) {
  return n_ShowGamepadTextInput(boolean1 ?, boolean0 ?);
  }
 
@@ -257,7 +258,7 @@ private
  int var2, int var3,
  int var4);
 
- static void joinRequestCallback(long long0, const std::string &string0) {
+ static void joinRequestCallback(long long0, std::string_view string0) {
  DebugLog.log("Got Join Request");
 
  for (auto &iJoinRequestCallback : m_joinRequestCallbacks)
@@ -295,7 +296,7 @@ static int validateOwnerCallback(long long0, long long1) {
  }
 }
 
-static void gamepadTextInputDismissedCallback(const std::string &string) {
+static void gamepadTextInputDismissedCallback(std::string_view string) {
  if (string.empty()) {
  DebugLog.log("nullptr");
  } else {

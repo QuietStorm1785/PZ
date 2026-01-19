@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -54,7 +55,7 @@ private
 
 public
  ChatElement(ChatElementOwner chatowner, int numberoflines,
- const std::string &talkertype) {
+ std::string_view talkertype) {
  this->owner = chatowner;
  this->setMaxChatLines(numberoflines);
  this->setMaxCharsPerLine(75);
@@ -89,7 +90,7 @@ public
 
  std::string getTalkerType() { return this->talkerType; }
 
- void setTalkerType(const std::string &type) {
+ void setTalkerType(std::string_view type) {
  this->talkerType = type.empty() ? "" : type;
  }
 
@@ -126,7 +127,7 @@ public
  player.getY() < this->owner.getY() + float0;
  }
 
- void SayDebug(int n, const std::string &text) {
+ void SayDebug(int n, std::string_view text) {
  if (!GameServer.bServer && n >= 0 && n < this->maxChatLines) {
  for (int int0 = 0; int0 < IsoPlayer.numPlayers; int0++) {
  IsoPlayer player = IsoPlayer.players[int0];
@@ -159,18 +160,18 @@ public
  }
  }
 
- void Say(const std::string &line) {
+ void Say(std::string_view line) {
  this->addChatLine(line, 1.0F, 1.0F, 1.0F, UIFont.Dialogue, 25.0F, "default",
  false, false, false, false, false, true);
  }
 
- void addChatLine(const std::string &msg, float r, float g, float b,
+ void addChatLine(std::string_view msg, float r, float g, float b,
  float baseRange) {
  this->addChatLine(msg, r, g, b, UIFont.Dialogue, baseRange, "default", false,
  false, false, false, false, true);
  }
 
- void addChatLine(const std::string &msg, float r, float g, float b) {
+ void addChatLine(std::string_view msg, float r, float g, float b) {
  this->addChatLine(msg, r, g, b, UIFont.Dialogue, 25.0F, "default", false,
  false, false, false, false, true);
  }
@@ -389,7 +390,7 @@ public
  }
  }
 
- static void addNoLogText(const std::string &text) {
+ static void addNoLogText(std::string_view text) {
  if (text != nullptr && !text.empty()) {
  noLogText.add(text);
  }

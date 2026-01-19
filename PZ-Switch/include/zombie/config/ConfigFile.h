@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,12 +21,12 @@ protected
  ArrayList<ConfigOption> options;
  int version;
 
- void fileError(const std::string &string1, int int0,
- const std::string &string0) {
+ void fileError(std::string_view string1, int int0,
+ std::string_view string0) {
  DebugLog.log(string1 + ":" + int0 + " " + string0);
  }
 
- bool read(const std::string &string0) {
+ bool read(std::string_view string0) {
  this->options = std::make_unique<ArrayList<>>();
  this->version = 0;
  File file = new File(string0);
@@ -76,7 +77,7 @@ protected
  }
  }
 
- bool write(const std::string& string0, int int0, ArrayList<? extends) {
+ bool write(std::string_view string0, int int0, ArrayList<? extends) {
  File file = new File(string0);
  DebugLog.log("writing " + string0);
 

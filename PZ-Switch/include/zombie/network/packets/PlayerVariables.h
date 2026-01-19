@@ -75,7 +75,7 @@ public
  }
  }
 
- int getPacketSizeBytes() { return 1 + this->count * 5; }
+ int getPacketSizeBytes() noexcept{ return 1 + this->count * 5; }
 
  std::string getDescription() {
  std::string string = "PlayerVariables: ";

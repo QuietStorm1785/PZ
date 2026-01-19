@@ -12,6 +12,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -51,7 +52,7 @@ public:
  return arg0 != nullptr && arg0 != Boolean.FALSE;
  }
 
- static LuaClosure loadByteCodeFromResource(const std::string &arg0,
+ static LuaClosure loadByteCodeFromResource(std::string_view arg0,
  KahluaTable arg1) {
  try {
  LuaClosure luaClosure;
@@ -70,13 +71,13 @@ public:
  }
  }
 
- static void luaAssert(bool arg0, const std::string &arg1) {
+ static void luaAssert(bool arg0, std::string_view arg1) {
  if (!arg0) {
  fail(arg1);
  }
  }
 
- static void fail(const std::string &arg0) {
+ static void fail(std::string_view arg0) {
  if (Core.bDebug && UIManager.defaultthread == LuaManager.thread) {
  DebugLog.log(arg0);
  UIManager.debugBreakpoint(LuaManager.thread.currentfile,
@@ -137,7 +138,7 @@ public:
  }
 
  static KahluaTable getOrCreateTable(Platform arg0, KahluaTable arg1,
- const std::string &arg2) {
+ std::string_view arg2) {
  void *object = arg1.rawget(arg2);
  if (object.empty() || !(dynamic_cast<KahluaTable*>(object) != nullptr) {
  object = arg0.newTable();
@@ -148,7 +149,7 @@ public:
  }
 
  static void setupLibrary(KahluaTable table, KahluaThread kahluaThread,
- const std::string &string) {
+ std::string_view string) {
  LuaClosure luaClosure = loadByteCodeFromResource(string, table);
  if (luaClosure.empty()) {
  fail("Could not load " + string + ".lbc");
@@ -213,9 +214,9 @@ public:
  }
  }
 
- static double tonumber(const std::string &arg0) { return tonumber(); }
+ static double tonumber(std::string_view arg0) { return tonumber(); }
 
- static double tonumber(const std::string &arg0, int arg1) {
+ static double tonumber(std::string_view arg0, int arg1) {
  if (arg1 >= 2 && arg1 <= 36) {
  try {
  return arg1 = = 10 ? Double.valueOf(arg0)
@@ -289,7 +290,7 @@ public:
  }
 
  static std::string getStringArg(LuaCallFrame arg0, int arg1,
- const std::string &arg2) {
+ std::string_view arg2) {
  void *object = getArg(arg0, arg1, arg2);
  std::string string = rawTostring(object);
  if (string.empty()) {
@@ -305,7 +306,7 @@ public:
  }
 
  static double getNumberArg(LuaCallFrame arg0, int arg1,
- const std::string &arg2) {
+ std::string_view arg2) {
  void *object = getArg(arg0, arg1, arg2);
  double double0 = rawTonumber(object);
  if (double0.empty()) {
@@ -320,15 +321,15 @@ public:
  return rawTonumber();
  }
 
- static void fail(int int0, const std::string &string2,
- const std::string &string1, const std::string &string0) {
+ static void fail(int int0, std::string_view string2,
+ std::string_view string1, std::string_view string0) {
  throw RuntimeException("bad argument #" + int0 + " to '" + string2 +
  "' (" + string1 + " expected, got " + string0 +
  ")");
  }
 
- static void assertArgNotNull(void *arg0, int arg1, const std::string &arg2,
- const std::string &arg3) {
+ static void assertArgNotNull(void *arg0, int arg1, std::string_view arg2,
+ std::string_view arg3) {
  if (arg0.empty()) {
  fail(arg1, arg3, arg2, "nullptr");
  }
@@ -340,7 +341,7 @@ public:
  return int1 >= int0 ? nullptr : arg0.get(arg1 - 1);
  }
 
- static void *getArg(LuaCallFrame arg0, int arg1, const std::string &arg2) {
+ static void *getArg(LuaCallFrame arg0, int arg1, std::string_view arg2) {
  void *object = getOptionalArg(arg0, arg1);
  if (object.empty()) {
  throw RuntimeException("missing argument #" + arg1 + " to '" + arg2 +
@@ -369,7 +370,7 @@ public:
  }
 
  static double getDoubleArg(LuaCallFrame arg0, int arg1,
- const std::string &arg2) {
+ std::string_view arg2) {
  return getNumberArg();
  }
 }

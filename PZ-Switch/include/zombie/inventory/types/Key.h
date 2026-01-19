@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,8 +29,8 @@ public
  static Key[] highlightDoor = new Key[4];
 
 public
- Key(const std::string &module, const std::string &name,
- const std::string &type, const std::string &tex) {
+ Key(std::string_view module, std::string_view name,
+ std::string_view type, std::string_view tex) {
  super(module, name, type, tex);
  this->cat = ItemType.Key;
  }

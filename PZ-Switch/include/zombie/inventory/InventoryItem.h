@@ -63,6 +63,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -264,7 +265,7 @@ public
 
  float getJobDelta() { return this->jobDelta; }
 
- void setJobType(const std::string &_type) { this->jobType = _type; }
+ void setJobType(std::string_view _type) { this->jobType = _type; }
 
  std::string getJobType() { return this->jobType; }
 
@@ -318,8 +319,8 @@ public
  float getB() { return this->col.b; }
 
 public
- InventoryItem(const std::string &_module, const std::string &_name,
- const std::string &_type, const std::string &tex) {
+ InventoryItem(std::string_view _module, std::string_view _name,
+ std::string_view _type, std::string_view tex) {
  this->col = Color.white;
  this->texture = Texture.trygetTexture(tex);
  if (this->texture.empty()) {
@@ -337,8 +338,8 @@ public
  }
 
 public
- InventoryItem(const std::string &_module, const std::string &_name,
- const std::string &_type, Item item) {
+ InventoryItem(std::string_view _module, std::string_view _name,
+ std::string_view _type, Item item) {
  this->col = Color.white;
  this->texture = item.NormalTexture;
  this->module = _module;
@@ -1634,7 +1635,7 @@ public
  *
  * @param _name the name to set
  */
- void setName(const std::string &_name) {
+ void setName(std::string_view _name) {
  if (_name.length() > 256) {
  _name = _name.substring(0, Math.min(_name.length(), 256);
  }
@@ -1651,7 +1652,7 @@ public
  *
  * @param _replaceOnUse the replaceOnUse to set
  */
- void setReplaceOnUse(const std::string &_replaceOnUse) {
+ void setReplaceOnUse(std::string_view _replaceOnUse) {
  this->replaceOnUse = _replaceOnUse;
  this->replaceOnUseFullType =
  StringUtils.moduleDotType(this->getModule(), _replaceOnUse);
@@ -1742,7 +1743,7 @@ public
  *
  * @param _type the type to set
  */
- void setType(const std::string &_type) {
+ void setType(std::string_view _type) {
  this->type = _type;
  this->fullType = this->module + "." + _type;
  }
@@ -1911,7 +1912,7 @@ public
  *
  * @param _WorldTexture the WorldTexture to set
  */
- void setWorldTexture(const std::string &_WorldTexture) {
+ void setWorldTexture(std::string_view _WorldTexture) {
  this->WorldTexture = _WorldTexture;
  }
 
@@ -1924,7 +1925,7 @@ public
  *
  * @param _Description the Description to set
  */
- void setDescription(const std::string &_Description) {
+ void setDescription(std::string_view _Description) {
  this->Description = _Description;
  }
 
@@ -1960,7 +1961,7 @@ public
  *
  * @param _OffString the OffString to set
  */
- void setOffString(const std::string &_OffString) {
+ void setOffString(std::string_view _OffString) {
  this->OffString = _OffString;
  }
 
@@ -1973,7 +1974,7 @@ public
  *
  * @param _CookedString the CookedString to set
  */
- void setCookedString(const std::string &_CookedString) {
+ void setCookedString(std::string_view _CookedString) {
  this->CookedString = _CookedString;
  }
 
@@ -1986,7 +1987,7 @@ public
  *
  * @param _UnCookedString the UnCookedString to set
  */
- void setUnCookedString(const std::string &_UnCookedString) {
+ void setUnCookedString(std::string_view _UnCookedString) {
  this->UnCookedString = _UnCookedString;
  }
 
@@ -1999,7 +2000,7 @@ public
  *
  * @param _BurntString the BurntString to set
  */
- void setBurntString(const std::string &_BurntString) {
+ void setBurntString(std::string_view _BurntString) {
  this->BurntString = _BurntString;
  }
 
@@ -2012,7 +2013,7 @@ public
  *
  * @param _module the module to set
  */
- void setModule(const std::string &_module) {
+ void setModule(std::string_view _module) {
  this->module = _module;
  this->fullType = _module + "." + this->type;
  }
@@ -2071,7 +2072,7 @@ public
 public
  ArrayList<String> getTags() { return this->ScriptItem.getTags(); }
 
- bool hasTag(const std::string &tag) {
+ bool hasTag(std::string_view tag) {
  std::vector arrayList = this->getTags();
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
@@ -2119,7 +2120,7 @@ public
  this->newPlaceDir = _newPlaceDir;
  }
 
- void setReplaceOnUseOn(const std::string &_ReplaceOnUseOn) {
+ void setReplaceOnUseOn(std::string_view _ReplaceOnUseOn) {
  this->ReplaceOnUseOn = _ReplaceOnUseOn;
  }
 
@@ -2146,11 +2147,11 @@ public
  return this->getScriptItem().getReplaceTypesMap();
  }
 
- std::string getReplaceType(const std::string &key) {
+ std::string getReplaceType(std::string_view key) {
  return this->getScriptItem().getReplaceType(key);
  }
 
- bool hasReplaceType(const std::string &key) {
+ bool hasReplaceType(std::string_view key) {
  return this->getScriptItem().hasReplaceType(key);
  }
 
@@ -2179,7 +2180,7 @@ public
  }
  }
 
- int getCount() { return this->Count; }
+ int getCount() noexcept{ return this->Count; }
 
  void setCount(int count) { this->Count = count; }
 
@@ -2268,17 +2269,17 @@ public
 
  std::string getCustomMenuOption() { return this->customMenuOption; }
 
- void setCustomMenuOption(const std::string &_customMenuOption) {
+ void setCustomMenuOption(std::string_view _customMenuOption) {
  this->customMenuOption = _customMenuOption;
  }
 
- void setTooltip(const std::string &_tooltip) { this->tooltip = _tooltip; }
+ void setTooltip(std::string_view _tooltip) { this->tooltip = _tooltip; }
 
  std::string getTooltip() { return this->tooltip; }
 
  std::string getDisplayCategory() { return this->displayCategory; }
 
- void setDisplayCategory(const std::string &_displayCategory) {
+ void setDisplayCategory(std::string_view _displayCategory) {
  this->displayCategory = _displayCategory;
  }
 
@@ -2296,7 +2297,7 @@ public
 
  bool isTrap() { return this->getScriptItem().Trap; }
 
- void addExtraItem(const std::string &_type) {
+ void addExtraItem(std::string_view _type) {
  if (this->extraItems.empty()) {
  this->extraItems = std::make_unique<ArrayList<>>();
  }
@@ -2358,7 +2359,7 @@ public
 
  std::string getBreakSound() { return this->breakSound; }
 
- void setBreakSound(const std::string &_breakSound) {
+ void setBreakSound(std::string_view _breakSound) {
  this->breakSound = _breakSound;
  }
 
@@ -2370,7 +2371,7 @@ public
  return this->getScriptItem().getPlaceMultipleSound();
  }
 
- std::string getSoundByID(const std::string &ID) {
+ std::string getSoundByID(std::string_view ID) {
  return this->getScriptItem().getSoundByID(ID);
  }
 
@@ -2486,13 +2487,13 @@ public
 
  std::string getExplosionSound() { return this->explosionSound; }
 
- void setExplosionSound(const std::string &_explosionSound) {
+ void setExplosionSound(std::string_view _explosionSound) {
  this->explosionSound = _explosionSound;
  }
 
- std::string getCountDownSound() { return this->countDownSound; }
+ std::string getCountDownSound() noexcept{ return this->countDownSound; }
 
- void setCountDownSound(const std::string &sound) {
+ void setCountDownSound(std::string_view sound) {
  this->countDownSound = sound;
  }
 
@@ -2510,7 +2511,7 @@ public
 
  std::string getEvolvedRecipeName() { return this->evolvedRecipeName; }
 
- void setEvolvedRecipeName(const std::string &_evolvedRecipeName) {
+ void setEvolvedRecipeName(std::string_view _evolvedRecipeName) {
  this->evolvedRecipeName = _evolvedRecipeName;
  }
 
@@ -2550,7 +2551,7 @@ public
 
  std::string getWorker() { return this->worker; }
 
- void setWorker(const std::string &_worker) { this->worker = _worker; }
+ void setWorker(std::string_view _worker) { this->worker = _worker; }
 
  int getID() { return this->id; }
 
@@ -2566,7 +2567,7 @@ public
 
  std::string getItemWhenDry() { return this->itemWhenDry; }
 
- void setItemWhenDry(const std::string &_itemWhenDry) {
+ void setItemWhenDry(std::string_view _itemWhenDry) {
  this->itemWhenDry = _itemWhenDry;
  }
 
@@ -2598,7 +2599,7 @@ public
  }
  }
 
- void setStashMap(const std::string &_stashMap) { this->stashMap = _stashMap; }
+ void setStashMap(std::string_view _stashMap) { this->stashMap = _stashMap; }
 
  int getMechanicType() { return this->getScriptItem().vehicleType; }
 
@@ -2771,19 +2772,19 @@ public
 
  std::string getAmmoType() { return this->ammoType; }
 
- void setAmmoType(const std::string &_ammoType) { this->ammoType = _ammoType; }
+ void setAmmoType(std::string_view _ammoType) { this->ammoType = _ammoType; }
 
  int getMaxAmmo() { return this->maxAmmo; }
 
  void setMaxAmmo(int maxAmmoCount) { this->maxAmmo = maxAmmoCount; }
 
- int getCurrentAmmoCount() { return this->currentAmmoCount; }
+ int getCurrentAmmoCount() noexcept{ return this->currentAmmoCount; }
 
  void setCurrentAmmoCount(int ammo) { this->currentAmmoCount = ammo; }
 
  std::string getGunType() { return this->gunType; }
 
- void setGunType(const std::string &_gunType) { this->gunType = _gunType; }
+ void setGunType(std::string_view _gunType) { this->gunType = _gunType; }
 
  bool hasBlood() {
  if (this instanceof Clothing) {
@@ -2841,7 +2842,7 @@ public
 
  std::string getAttachmentType() { return this->attachmentType; }
 
- void setAttachmentType(const std::string &_attachmentType) {
+ void setAttachmentType(std::string_view _attachmentType) {
  this->attachmentType = _attachmentType;
  }
 
@@ -2860,19 +2861,19 @@ public
 
  std::string getAttachedSlotType() { return this->attachedSlotType; }
 
- void setAttachedSlotType(const std::string &_attachedSlotType) {
+ void setAttachedSlotType(std::string_view _attachedSlotType) {
  this->attachedSlotType = _attachedSlotType;
  }
 
  std::string getAttachmentReplacement() { return this->attachmentReplacement; }
 
- void setAttachmentReplacement(const std::string &attachementReplacement) {
+ void setAttachmentReplacement(std::string_view attachementReplacement) {
  this->attachmentReplacement = attachementReplacement;
  }
 
  std::string getAttachedToModel() { return this->attachedToModel; }
 
- void setAttachedToModel(const std::string &_attachedToModel) {
+ void setAttachedToModel(std::string_view _attachedToModel) {
  this->attachedToModel = _attachedToModel;
  }
 
@@ -3039,7 +3040,7 @@ public
  }
  }
 
- std::string getSoundParameter(const std::string &parameterName) {
+ std::string getSoundParameter(std::string_view parameterName) {
  return this->getScriptItem().getSoundParameter(parameterName);
  }
 }

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,7 +17,7 @@ class BaseScriptObject {
 public:
  ScriptModule module = nullptr;
 
- void Load(const std::string &var1, String[] var2) {}
+ void Load(std::string_view var1, String[] var2) {}
 
  ScriptModule getModule() { return this->module; }
 }

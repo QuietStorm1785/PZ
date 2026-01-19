@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,7 +16,7 @@ namespace skinnedmodel {
 class IAnimatable {
 public:
  virtual ~IAnimatable() = default;
- void Play(const std::string &var1);
+ void Play(std::string_view var1);
 
  void Update(float var1);
 }

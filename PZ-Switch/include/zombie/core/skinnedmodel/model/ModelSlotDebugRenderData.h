@@ -19,6 +19,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -93,7 +94,7 @@ private
  }
  }
 
- void initBoneAxis(const std::string &string) {
+ void initBoneAxis(std::string_view string) {
  int integer =
  this->m_slotData.animPlayer.getSkinningData().BoneIndices.get(string);
  if (integer != nullptr) {

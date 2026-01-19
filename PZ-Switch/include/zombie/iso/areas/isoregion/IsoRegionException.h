@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -16,10 +17,10 @@ namespace isoregion {
 class IsoRegionException : public Exception {
 public:
 public
- IsoRegionException(const std::string &string) { super(string); }
+ IsoRegionException(std::string_view string) { super(string); }
 
 public
- IsoRegionException(const std::string &string, std::exception throwable) {
+ IsoRegionException(std::string_view string, std::exception throwable) {
  super(string, throwable);
  }
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <memory>
 #include <stdexcept>
 
@@ -21,7 +22,7 @@ public:
  virtual ~JAXBContext() = default;
  
  // Factory method to create context for given classes
- static std::shared_ptr<JAXBContext> newInstance(const std::string& contextPath) {
+ static std::shared_ptr<JAXBContext> newInstance(std::string_view contextPath) {
  return std::make_shared<JAXBContext>();
  }
  
@@ -45,7 +46,7 @@ public:
  
  // Unmarshal from file
  template<typename T>
- T* unmarshal(const std::string& xmlFile) {
+ T* unmarshal(std::string_view xmlFile) {
  throw std::runtime_error("JAXB unmarshalling not implemented in C++ stub");
  }
 };
@@ -58,12 +59,12 @@ public:
  virtual ~Marshaller() = default;
  
  // Marshal to file
- void marshal(void* obj, const std::string& xmlFile) {
+ void marshal(void* obj, std::string_view xmlFile) {
  throw std::runtime_error("JAXB marshalling not implemented in C++ stub");
  }
  
  // Set property
- void setProperty(const std::string& name, bool value) {
+ void setProperty(std::string_view name, bool value) {
  // Stub - properties ignored
  }
 };

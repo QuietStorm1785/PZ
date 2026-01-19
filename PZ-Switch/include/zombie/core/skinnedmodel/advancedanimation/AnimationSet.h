@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,7 +29,7 @@ public
  HashMap<String, AnimState> states = std::make_unique<HashMap<>>();
  std::string m_Name = "";
 
- static AnimationSet GetAnimationSet(const std::string &name, bool reload) {
+ static AnimationSet GetAnimationSet(std::string_view name, bool reload) {
  AnimationSet animationSet = setMap.get(name);
  if (animationSet != nullptr && !reload) {
  return animationSet;
@@ -48,7 +49,7 @@ public
  setMap.clear();
  }
 
- AnimState GetState(const std::string &name) {
+ AnimState GetState(std::string_view name) {
  AnimState animState = this->states.get(name.toLowerCase(Locale.ENGLISH);
  if (animState != nullptr) {
  return animState;
@@ -58,11 +59,11 @@ public
  }
  }
 
- bool containsState(const std::string &name) {
+ bool containsState(std::string_view name) {
  return this->states.containsKey(name.toLowerCase(Locale.ENGLISH);
  }
 
- bool Load(const std::string &name) {
+ bool Load(std::string_view name) {
  if (DebugLog.isEnabled(DebugType.Animation) {
  DebugLog.Animation.println("Loading AnimSet: " + name);
  }

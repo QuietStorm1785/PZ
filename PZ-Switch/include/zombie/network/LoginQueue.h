@@ -12,6 +12,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -123,7 +124,7 @@ private
  }
 
  static void sendAccessDenied(UdpConnection udpConnection,
- const std::string &string) {
+ std::string_view string) {
  if (Core.bDebug) {
  DebugLog.log("sendAccessDenied: (ip:" + udpConnection.ip +
  " message:" + string + ")");

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -61,7 +62,7 @@ public:
  Info[] vi;
 
 public
- VorbisFile(const std::string &string) {
+ VorbisFile(std::string_view string) {
  VorbisFile.SeekableInputStream seekableInputStream = nullptr;
 
  try {

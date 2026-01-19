@@ -19,6 +19,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -47,7 +48,7 @@ public:
  int MAX_TEXTURES = 100;
  int MAX_REQUEST_NUMBER = Core.bDebug ? 10000 : Integer.MAX_VALUE;
 
- void setDirectory(const std::string &directory) {
+ void setDirectory(std::string_view directory) {
  if (this->m_zipFile != nullptr) {
  this->m_zipFile = nullptr;
  if (this->m_zipFS != nullptr) {
@@ -63,7 +64,7 @@ public:
  this->m_directory = directory;
  }
 
- void setZipFile(const std::string &zipFile) {
+ void setZipFile(std::string_view zipFile) {
  this->m_directory = nullptr;
  this->m_zipFile = zipFile;
  this->m_zipFS = this->openZipFile();
@@ -182,8 +183,8 @@ void replaceTextureData(ImagePyramid.PyramidTexture pyramidTexture,
  imageData.dispose();
 }
 
-void generateFiles(const std::string &imageFile,
- const std::string &outputDirectory) {
+void generateFiles(std::string_view imageFile,
+ std::string_view outputDirectory) {
  ImageData imageData = new ImageData(imageFile);
  if (imageData != nullptr) {
  short short0 = 256;
@@ -217,7 +218,7 @@ FileSystem openZipFile() {
  }
 }
 
-void generateZip(const std::string &imageFile, const std::string &zipFile) {
+void generateZip(std::string_view imageFile, std::string_view zipFile) {
  ImageData imageData = new ImageData(imageFile);
  if (imageData != nullptr) {
  short short0 = 256;
@@ -277,7 +278,7 @@ BufferedImage getBufferedImage(MipMapLevel mipMapLevel, int int3, int int2,
  return bufferedImage;
 }
 
-void writeImageToFile(BufferedImage bufferedImage, const std::string &string,
+void writeImageToFile(BufferedImage bufferedImage, std::string_view string,
  int int2, int int1, int int0) {
  File file = new File(string + File.separator + int0);
  if (file.exists() || file.mkdirs()) {

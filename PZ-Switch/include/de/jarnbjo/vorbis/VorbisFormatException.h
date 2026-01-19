@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public
  VorbisFormatException() {}
 
 public
- VorbisFormatException(const std::string &string) { super(string); }
+ VorbisFormatException(std::string_view string) { super(string); }
 }
 } // namespace vorbis
 } // namespace jarnbjo

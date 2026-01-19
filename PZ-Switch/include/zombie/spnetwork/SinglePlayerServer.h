@@ -21,6 +21,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -56,7 +57,7 @@ public
  { std::lock_guard<std::mutex> __sync_lock__(MainLoopNetData_mutex); MainLoopNetData.add(zomboidNetData); }
  }
 
- static void sendObjectChange(IsoObject object, const std::string &string,
+ static void sendObjectChange(IsoObject object, std::string_view string,
  KahluaTable table, UdpConnection udpConnection) {
  if (object.getSquare() != nullptr) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
@@ -89,7 +90,7 @@ public
  }
  }
 
- static void sendObjectChange(IsoObject object, const std::string &string,
+ static void sendObjectChange(IsoObject object, std::string_view string,
  KahluaTable table) {
  if (object != nullptr) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
@@ -101,7 +102,7 @@ public
  }
  }
 
- static void sendObjectChange(IsoObject object0, const std::string &string,
+ static void sendObjectChange(IsoObject object0, std::string_view string,
  Object... objects) {
  if (objects.length == 0) {
  sendObjectChange(object0, string, (KahluaTable) nullptr);
@@ -125,8 +126,8 @@ public
  }
  }
 
- static void sendServerCommand(const std::string &string0,
- const std::string &string1, KahluaTable table,
+ static void sendServerCommand(std::string_view string0,
+ std::string_view string1, KahluaTable table,
  UdpConnection udpConnection) {
  ByteBufferWriter byteBufferWriter = udpConnection.startPacket();
  PacketTypes.PacketType.ClientCommand.doPacket(byteBufferWriter);
@@ -158,8 +159,8 @@ public
  udpConnection.endPacketImmediate();
  }
 
- static void sendServerCommand(const std::string &string0,
- const std::string &string1, KahluaTable table) {
+ static void sendServerCommand(std::string_view string0,
+ std::string_view string1, KahluaTable table) {
  for (int int0 = 0; int0 < udpEngine.connections.size(); int0++) {
  UdpConnection udpConnection = udpEngine.connections.get(int0);
  sendServerCommand(string0, string1, table, udpConnection);

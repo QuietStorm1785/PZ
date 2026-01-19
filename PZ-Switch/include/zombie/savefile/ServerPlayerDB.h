@@ -19,6 +19,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -181,8 +182,8 @@ public
  }
  }
 
- void serverConvertNetworkCharacter(const std::string &string2,
- const std::string &string1) {
+ void serverConvertNetworkCharacter(std::string_view string2,
+ std::string_view string1) {
  try {
  std::string string0 =
  "UPDATE networkPlayers SET steamid=? WHERE username=? AND world=? "

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -23,9 +24,9 @@ private
  int boredomBonus = 0;
 
 public
- UniqueRecipe(const std::string &_name) { this->setName(_name); }
+ UniqueRecipe(std::string_view _name) { this->setName(_name); }
 
- void Load(const std::string &var1, String[] strings0) {
+ void Load(std::string_view var1, String[] strings0) {
  for (int int0 = 0; int0 < strings0.length; int0++) {
  if (!strings0[int0].trim().empty() && strings0[int0].contains(":")) {
  String[] strings1 = strings0[int0].split(":");
@@ -52,11 +53,11 @@ public
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  std::string getBaseRecipe() { return this->baseRecipe; }
 
- void setBaseRecipe(const std::string &_baseRecipe) {
+ void setBaseRecipe(std::string_view _baseRecipe) {
  this->baseRecipe = _baseRecipe;
  }
 

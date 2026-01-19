@@ -18,6 +18,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -50,7 +51,7 @@ private
  }
 
  static void readTitleDotTxt(ChooseGameInfo.Map map,
- const std::string &string1, Language language) {
+ std::string_view string1, Language language) {
  std::string string0 = "media/lua/shared/Translate/" + language.toString() +
  "/" + string1 + "/title.txt";
  File file = new File(ZomboidFileSystem.instance.getString(string0);
@@ -71,7 +72,7 @@ private
  }
 
  static void readDescriptionDotTxt(ChooseGameInfo.Map map,
- const std::string &string1,
+ std::string_view string1,
  Language language) {
  std::string string0 = "media/lua/shared/Translate/" + language.toString() +
  "/" + string1 + "/description.txt";
@@ -426,7 +427,7 @@ public
 
  std::string getDirectory() { return this->dir; }
 
- void setDirectory(const std::string &string) { this->dir = string; }
+ void setDirectory(std::string_view string) { this->dir = string; }
 
  Texture getThumbnail() { return this->thumb; }
 
@@ -434,14 +435,14 @@ public
 
  std::string getTitle() { return this->title; }
 
- void setTitle(const std::string &string) { this->title = string; }
+ void setTitle(std::string_view string) { this->title = string; }
 
  public
  ArrayList<String> getLotDirectories() { return this->lotsDir; }
 
  std::string getDescription() { return this->desc; }
 
- void setDescription(const std::string &string) { this->desc = string; }
+ void setDescription(std::string_view string) { this->desc = string; }
 
  bool isFixed2x() { return this->bFixed2x; }
 
@@ -479,7 +480,7 @@ public
  bool bValid = false;
 
  public
- Mod(const std::string &_dir) {
+ Mod(std::string_view _dir) {
  this->dir = _dir;
  File file0 = new File(_dir).getAbsoluteFile();
 
@@ -527,7 +528,7 @@ public
 
  void setTexture(Texture _tex) { this->tex = _tex; }
 
- int getPosterCount() { return this->posters.size(); }
+ int getPosterCount() noexcept{ return this->posters.size(); }
 
  std::string getPoster(int index) {
  return index >= 0 && index < this->posters.size() ? this->posters.get(index)
@@ -536,7 +537,7 @@ public
 
  std::string getName() { return this->name; }
 
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  std::string getDir() { return this->dir; }
 
@@ -549,7 +550,7 @@ public
 
  std::string getId() { return this->id; }
 
- void setId(const std::string &_id) { this->id = _id; }
+ void setId(std::string_view _id) { this->id = _id; }
 
  bool isAvailable() {
  if (this->bAvailableDone) {
@@ -613,7 +614,7 @@ public
 
  std::string getUrl() { return this->url.empty() ? "" : this->url; }
 
- void setUrl(const std::string &_url) {
+ void setUrl(std::string_view _url) {
  if (_url.startsWith("http://theindiestone.com") ||
  _url.startsWith("http://www.theindiestone.com") ||
  _url.startsWith("http://pz-mods.net") ||
@@ -626,11 +627,11 @@ public
 
  GameVersion getVersionMax() { return this->versionMax; }
 
- void addPack(const std::string &_name, int flags) {
+ void addPack(std::string_view _name, int flags) {
  this->packs.add(new ChooseGameInfo.PackFile(_name, flags);
  }
 
- void addTileDef(const std::string &_name, int fileNumber) {
+ void addTileDef(std::string_view _name, int fileNumber) {
  this->tileDefs.add(new ChooseGameInfo.TileDef(_name, fileNumber);
  }
 
@@ -648,7 +649,7 @@ public
  const int flags;
 
  public
- PackFile(const std::string &string, int int0) {
+ PackFile(std::string_view string, int int0) {
  this->name = string;
  this->flags = int0;
  }
@@ -674,7 +675,7 @@ public
  int fileNumber;
 
  public
- TileDef(const std::string &string, int int0) {
+ TileDef(std::string_view string, int int0) {
  this->name = string;
  this->fileNumber = int0;
  }

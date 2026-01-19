@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -15,7 +16,7 @@ namespace audio {
 class FMODGlobalParameter : public FMODParameter {
 public:
 public
- FMODGlobalParameter(const std::string &string) {
+ FMODGlobalParameter(std::string_view string) {
  super(string);
  if (this->getParameterDescription() != nullptr &&
  !this->getParameterDescription().isGlobal()) {

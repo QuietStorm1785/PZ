@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -49,9 +50,9 @@ public
  return true;
  }
 
- void add(const std::string &string) { this->add(string.getBytes()); }
+ void add(std::string_view string) { this->add(string.getBytes()); }
 
- void add_tag(const std::string &string1, const std::string &string0) {
+ void add_tag(std::string_view string1, std::string_view string0) {
  if (string0.empty()) {
  string0 = "";
  }
@@ -93,9 +94,9 @@ public
  this->vendor = nullptr;
  }
 
- std::string query(const std::string &string) { return this->query(string, 0); }
+ std::string query(std::string_view string) { return this->query(string, 0); }
 
- std::string query(const std::string &string, int int1) {
+ std::string query(std::string_view string, int int1) {
  int int0 = this->query(string.getBytes(), int1);
  if (int0 == -1) {
  return nullptr;

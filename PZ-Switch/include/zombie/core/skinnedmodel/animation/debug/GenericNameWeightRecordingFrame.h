@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ private
  float[] m_weights = new float[0];
 
 public
- GenericNameWeightRecordingFrame(const std::string &string) {
+ GenericNameWeightRecordingFrame(std::string_view string) {
  super(string, "_weights");
  }
 
@@ -29,12 +30,12 @@ public
  this->m_weights = PZArrayUtil.add(this->m_weights, 0.0F);
  }
 
- void logWeight(const std::string &string, int int1, float float0) {
+ void logWeight(std::string_view string, int int1, float float0) {
  int int0 = this->getOrCreateColumn(string, int1);
  this->m_weights[int0] = this->m_weights[int0] + float0;
  }
 
- int getOrCreateColumn(const std::string &string2, int int0) {
+ int getOrCreateColumn(std::string_view string2, int int0) {
  std::string string0 = int0 != 0 ? int0 + ":" : "";
  std::string string1 = String.format("%s%s", string0, string2);
  int int1 = super.getOrCreateColumn(string1);

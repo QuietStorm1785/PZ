@@ -12,6 +12,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -40,7 +41,7 @@ public
  return int0 < this->m_Items.size() ? this->m_Items.get(int0) : nullptr;
  }
 
- static ItemManager Parse(const std::string &string) {
+ static ItemManager Parse(std::string_view string) {
  try {
  return parse();
  } catch (JAXBException jAXBException) {
@@ -52,7 +53,7 @@ public
  return nullptr;
  }
 
- static ItemManager parse(const std::string &string) {
+ static ItemManager parse(std::string_view string) {
  ItemManager itemManager0;
  try(FileInputStream fileInputStream = new FileInputStream(string) {
  JAXBContext jAXBContext = JAXBContext.newInstance(ItemManager.class);
@@ -65,7 +66,7 @@ public
  return itemManager0;
  }
 
- static void Write(ItemManager itemManager, const std::string &string) {
+ static void Write(ItemManager itemManager, std::string_view string) {
  try {
  write(itemManager, string);
  } catch (JAXBException jAXBException) {
@@ -75,7 +76,7 @@ public
  }
  }
 
- static void write(ItemManager itemManager, const std::string &string) {
+ static void write(ItemManager itemManager, std::string_view string) {
  try(FileOutputStream fileOutputStream = new FileOutputStream(string) {
  JAXBContext jAXBContext = JAXBContext.newInstance(ItemManager.class);
  Marshaller marshaller = jAXBContext.createMarshaller();

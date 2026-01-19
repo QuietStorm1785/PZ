@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -55,9 +56,9 @@ private
  return regionLog;
  }
 
- void log(const std::string &string) { this->log(string, nullptr); }
+ void log(std::string_view string) { this->log(string, nullptr); }
 
- void log(const std::string &string, Color color) {
+ void log(std::string_view string, Color color) {
  if (Core.bDebug) {
  if (this->consolePrint) {
  DebugLog.IsoRegion.println(string);
@@ -71,7 +72,7 @@ private
  }
  }
 
- void warn(const std::string &string) {
+ void warn(std::string_view string) {
  DebugLog.IsoRegion.warn(string);
  if (Core.bDebug) {
  IsoRegionsLogger.IsoRegionLog regionLog = this->getLog();

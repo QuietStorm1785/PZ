@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -67,7 +68,7 @@ private
 
  void destroyAsset(Asset var1) {}
 
- static bool isWatched(const std::string &string0) {
+ static bool isWatched(std::string_view string0) {
  if (!StringUtils.endsWithIgnoreCase(string0, ".fbx") &&
  !StringUtils.endsWithIgnoreCase(string0, ".x")) {
  return false;
@@ -77,7 +78,7 @@ private
  }
  }
 
- static void watchedFileChanged(const std::string &string0) {
+ static void watchedFileChanged(std::string_view string0) {
  DebugLog.Asset.printf("%s changed\n", string0);
  std::string string1 = ZomboidFileSystem.instance.getString(string0);
  instance.getAssetTable().forEachValue(asset->{
@@ -95,7 +96,7 @@ private
  });
  }
 
- void addWatchedFile(const std::string &string) {
+ void addWatchedFile(std::string_view string) {
  this->m_watchedFiles.add(string);
  }
 }

@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  bool defaultValue;
 
 public
- BooleanConfigOption(const std::string &name, bool _defaultValue) {
+ BooleanConfigOption(std::string_view name, bool _defaultValue) {
  super(name);
  this->value = _defaultValue;
  this->defaultValue = _defaultValue;
@@ -30,7 +31,7 @@ public
 
  void setDefaultToCurrentValue() { this->defaultValue = this->value; }
 
- void parse(const std::string &s) {
+ void parse(std::string_view s) {
  if (this->isValidString(s) {
  this->setValue(s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"));
  } else {
@@ -53,7 +54,7 @@ public
 
  void *getValueAsObject() { return this->value; }
 
- bool isValidString(const std::string &s) {
+ bool isValidString(std::string_view s) {
  return s != nullptr &&
  (s.equalsIgnoreCase("true") || s.equalsIgnoreCase("false") ||
  s.equalsIgnoreCase("1") || s.equalsIgnoreCase("0"));

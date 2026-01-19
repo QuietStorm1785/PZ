@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -73,7 +74,7 @@ public
  "get-parameter",
  "external-ip",
  new ICoopServerMessageListener() {
- void OnCoopServerMessage(const std::string& var1, const std::string& var2, const std::string& string0) {
+ void OnCoopServerMessage(std::string_view var1, std::string_view var2, std::string_view string0) {
  UIServerToolbox.this->externalAddress = string0;
  String string1 = "nullptr" == UIServerToolbox.this->externalAddress)
  ? Translator.getText("IGUI_ServerToolBox_IPUnknown")
@@ -86,7 +87,7 @@ public
  );
  if (SteamUtils.isSteamModeEnabled()) {
  CoopMaster.instance.invokeServer("get-parameter", "steam-id", std::make_unique<ICoopServerMessageListener>() {
- void OnCoopServerMessage(const std::string& var1, const std::string& var2, const std::string& string) {
+ void OnCoopServerMessage(std::string_view var1, std::string_view var2, std::string_view string) {
  UIServerToolbox.this->steamID = string;
  UIServerToolbox.this->PrintLine(Translator.getText("IGUI_ServerToolBox_SteamID", UIServerToolbox.this->steamID);
  UIServerToolbox.this->PrintLine("");
@@ -170,7 +171,7 @@ public
  }
  }
 
- void PrintLine(const std::string &string) {
+ void PrintLine(std::string_view string) {
  this->OutputLog.SetText(this->OutputLog.Text + string + "\n");
  this->UpdateViewPos();
  }
@@ -181,12 +182,12 @@ public
  }
  }
 
- void DoubleClick(const std::string &var1, int var2, int var3) {}
+ void DoubleClick(std::string_view var1, int var2, int var3) {}
 
- void ModalClick(const std::string &var1,
- const std::string &var2) {}
+ void ModalClick(std::string_view var1,
+ std::string_view var2) {}
 
- void Selected(const std::string &string0, int var2, int var3) {
+ void Selected(std::string_view string0, int var2, int var3) {
  if (Objects == string0, "accept")) {
  std::string string1 = this->incomingConnections.get(0);
  this->incomingConnections.remove(0);

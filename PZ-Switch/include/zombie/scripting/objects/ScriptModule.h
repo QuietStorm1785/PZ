@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -76,7 +77,7 @@ public
  ArrayList<String> Imports = std::make_unique<ArrayList<>>();
  bool disabled = false;
 
- void Load(const std::string &_name, const std::string &strArray) {
+ void Load(std::string_view _name, std::string_view strArray) {
  this->name = _name;
  this->value = strArray.trim();
  ScriptManager.instance.CurrentLoadingModule = this;
@@ -85,7 +86,7 @@ public
  this->value = "";
  }
 
- std::string GetTokenType(const std::string &string0) {
+ std::string GetTokenType(std::string_view string0) {
  int int0 = string0.indexOf(123);
  if (int0 == -1) {
  return nullptr;
@@ -103,7 +104,7 @@ public
  }
  }
 
- void CreateFromTokenPP(const std::string &string0) {
+ void CreateFromTokenPP(std::string_view string0) {
  string0 = string0.trim();
  std::string string1 = this->GetTokenType(string0);
  if (string1 != nullptr) {
@@ -242,7 +243,7 @@ public
  }
  }
 
- void CreateFromToken(const std::string &string0) {
+ void CreateFromToken(std::string_view string0) {
  string0 = string0.trim();
  std::string string1 = this->GetTokenType(string0);
  if (string1 != nullptr) {
@@ -479,7 +480,7 @@ public
  }
  }
 
- void ParseScript(const std::string &totalFile) {
+ void ParseScript(std::string_view totalFile) {
  std::vector arrayList = ScriptParser.parseTokens(totalFile);
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
@@ -488,7 +489,7 @@ public
  }
  }
 
- void ParseScriptPP(const std::string &totalFile) {
+ void ParseScriptPP(std::string_view totalFile) {
  std::vector arrayList = ScriptParser.parseTokens(totalFile);
 
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
@@ -497,7 +498,7 @@ public
  }
  }
 
- Item getItem(const std::string &_name) {
+ Item getItem(std::string_view _name) {
  if (_name.contains(".")) {
  return ScriptManager.instance.getItem(_name);
  } else if (!this->ItemMap.containsKey(_name) {
@@ -516,7 +517,7 @@ public
  }
  }
 
- ModelScript getModelScript(const std::string &_name) {
+ ModelScript getModelScript(std::string_view _name) {
  if (_name.contains(".")) {
  return ScriptManager.instance.getModelScript(_name);
  } else {
@@ -538,7 +539,7 @@ public
  }
  }
 
- Recipe getRecipe(const std::string &_name) {
+ Recipe getRecipe(std::string_view _name) {
  if (_name.contains(".") && !this->RecipesWithDotInName.containsKey(_name) {
  return ScriptManager.instance.getRecipe(_name);
  } else {
@@ -562,7 +563,7 @@ public
  }
  }
 
- VehicleScript getVehicle(const std::string &_name) {
+ VehicleScript getVehicle(std::string_view _name) {
  if (_name.contains(".")) {
  return ScriptManager.instance.getVehicle(_name);
  } else if (!this->VehicleMap.containsKey(_name) {
@@ -581,7 +582,7 @@ public
  }
  }
 
- VehicleTemplate getVehicleTemplate(const std::string &_name) {
+ VehicleTemplate getVehicleTemplate(std::string_view _name) {
  if (_name.contains(".")) {
  return ScriptManager.instance.getVehicleTemplate(_name);
  } else if (!this->VehicleTemplateMap.containsKey(_name) {
@@ -600,7 +601,7 @@ public
  }
  }
 
- VehicleEngineRPM getVehicleEngineRPM(const std::string &_name) {
+ VehicleEngineRPM getVehicleEngineRPM(std::string_view _name) {
  return _name.contains(".")
  ? ScriptManager.instance.getVehicleEngineRPM(_name)
  : this->VehicleEngineRPMMap.get(_name);
@@ -631,7 +632,7 @@ public
  this->Imports.clear();
  }
 
- Item getSpecificItem(const std::string &_name) {
+ Item getSpecificItem(std::string_view _name) {
  return this->ItemMap.get(_name);
  }
 }

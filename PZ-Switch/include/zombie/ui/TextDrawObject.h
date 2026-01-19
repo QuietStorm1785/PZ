@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -144,7 +145,7 @@ public
  this->equalizeLineHeights = _equalizeLineHeights;
  }
 
- void setCustomTag(const std::string &tag) { this->customTag = tag; }
+ void setCustomTag(std::string_view tag) { this->customTag = tag; }
 
  std::string getCustomTag() { return this->customTag; }
 
@@ -203,7 +204,7 @@ public
  this->defaultA = a;
  }
 
- void setHorizontalAlign(const std::string &horz) {
+ void setHorizontalAlign(std::string_view horz) {
  if (horz == "left")) {
  this->defaultHorz = TextDrawHorizontal.Left;
  }
@@ -303,7 +304,7 @@ public
 
  int getHearRange() { return this->hearRange; }
 
- bool isValidFont(const std::string &string1) {
+ bool isValidFont(std::string_view string1) {
  for (String string0 : this->validFonts) {
  if (string1 == string0) && UIFont.FromString(string1) != nullptr) {
  return true;
@@ -313,7 +314,7 @@ public
  return false;
  }
 
- bool isValidImage(const std::string &string1) {
+ bool isValidImage(std::string_view string1) {
  for (String string0 : this->validImages) {
  if (string1 == string0) {
  return true;
@@ -323,7 +324,7 @@ public
  return false;
  }
 
- int tryColorInt(const std::string &string) {
+ int tryColorInt(std::string_view string) {
  if (string.length() > 0 && string.length() <= 3) {
  try {
  int int0 = Integer.parseInt(string);
@@ -376,12 +377,12 @@ public
  this->currentLine.addElement(this->currentElement);
  }
 
- void addText(const std::string &string) {
+ void addText(std::string_view string) {
  this->currentElement.addText(string);
  this->currentLine.charW = this->currentLine.charW + string.length();
  }
 
- void addWord(const std::string &string) {
+ void addWord(std::string_view string) {
  if (this->maxCharsLine > 0 &&
  this->currentLine.charW + string.length() >= this->maxCharsLine) {
  for (int int0 = 0; int0 < string.length() / this->maxCharsLine + 1;
@@ -412,7 +413,7 @@ public
  }
  }
 
- int readTag(char[] chars, int int0, const std::string &string0) {
+ int readTag(char[] chars, int int0, std::string_view string0) {
  if (this->allowFonts && string0 == "fnt")) {
  std::string string1 = this->readTagValue(chars, int0);
  if (string1 != nullptr && this->isValidFont(string1) {
@@ -537,15 +538,15 @@ public
  }
  }
 
- void ReadString(const std::string &str) {
+ void ReadString(std::string_view str) {
  this->ReadString(this->defaultFontEnum, str, this->maxCharsLine);
  }
 
- void ReadString(const std::string &str, int maxLineWidth) {
+ void ReadString(std::string_view str, int maxLineWidth) {
  this->ReadString(this->defaultFontEnum, str, maxLineWidth);
  }
 
- void ReadString(UIFont font, const std::string &str, int maxLineWidth) {
+ void ReadString(UIFont font, std::string_view str, int maxLineWidth) {
  if (str.empty()) {
  str = "";
  }
@@ -937,7 +938,7 @@ private
  this->charWidth = 0;
  }
 
- void addText(const std::string &string) {
+ void addText(std::string_view string) {
  this->text = this->text + string;
  this->charWidth = this->text.length();
  }

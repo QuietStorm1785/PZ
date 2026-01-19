@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,36 +22,36 @@ public:
  return this->isLogEnabled(logSeverity);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &var2,
- const std::string &string0, const std::string &string1) {
+ std::string format(LogSeverity logSeverity, std::string_view var2,
+ std::string_view string0, std::string_view string1) {
  return DebugLog.formatString(DebugType.General, logSeverity,
  "ERROR: ", string0, string1);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &var2,
- const std::string &string0, const std::string &string1,
+ std::string format(LogSeverity logSeverity, std::string_view var2,
+ std::string_view string0, std::string_view string1,
  void *object) {
  return DebugLog.formatString(DebugType.General, logSeverity,
  "ERROR: ", string0, string1, object);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &var2,
- const std::string &string0, const std::string &string1,
+ std::string format(LogSeverity logSeverity, std::string_view var2,
+ std::string_view string0, std::string_view string1,
  void *object0, void *object1) {
  return DebugLog.formatString(DebugType.General, logSeverity,
  "ERROR: ", string0, string1, object0, object1);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &var2,
- const std::string &string0, const std::string &string1,
+ std::string format(LogSeverity logSeverity, std::string_view var2,
+ std::string_view string0, std::string_view string1,
  void *object0, void *object1, void *object2) {
  return DebugLog.formatString(DebugType.General, logSeverity,
  "ERROR: ", string0, string1, object0, object1,
  object2);
  }
 
- std::string format(LogSeverity logSeverity, const std::string &var2,
- const std::string &string0, const std::string &string1,
+ std::string format(LogSeverity logSeverity, std::string_view var2,
+ std::string_view string0, std::string_view string1,
  void *object0, void *object1, void *object2,
  void *object3) {
  return DebugLog.formatString(DebugType.General, logSeverity,

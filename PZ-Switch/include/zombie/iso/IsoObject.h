@@ -112,6 +112,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -228,7 +229,7 @@ public
  }
 
 public
- IsoObject(IsoCell cell, IsoGridSquare _square, const std::string &gid) {
+ IsoObject(IsoCell cell, IsoGridSquare _square, std::string_view gid) {
  this();
  this->sprite = IsoSpriteManager.instance.getSprite(gid);
  this->square = _square;
@@ -236,8 +237,8 @@ public
  }
 
 public
- IsoObject(IsoGridSquare _square, const std::string &_tile,
- const std::string &_name) {
+ IsoObject(IsoGridSquare _square, std::string_view _tile,
+ std::string_view _name) {
  this();
  this->sprite = IsoSpriteManager.instance.getSprite(_tile);
  this->square = _square;
@@ -247,8 +248,8 @@ public
  }
 
 public
- IsoObject(IsoGridSquare _square, const std::string &_tile,
- const std::string &_name, bool bShareTilesWithMap) {
+ IsoObject(IsoGridSquare _square, std::string_view _tile,
+ std::string_view _name, bool bShareTilesWithMap) {
  this();
  if (bShareTilesWithMap) {
  this->sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
@@ -269,7 +270,7 @@ public
  }
 
 public
- IsoObject(IsoGridSquare _square, const std::string &_tile,
+ IsoObject(IsoGridSquare _square, std::string_view _tile,
  bool bShareTilesWithMap) {
  this();
  if (bShareTilesWithMap) {
@@ -284,15 +285,15 @@ public
  }
 
 public
- IsoObject(IsoGridSquare _square, const std::string &_tile) {
+ IsoObject(IsoGridSquare _square, std::string_view _tile) {
  this();
  this->sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  this->sprite.LoadFramesNoDirPageSimple(_tile);
  this->square = _square;
  }
 
- static IsoObject getNew(IsoGridSquare sq, const std::string &_spriteName,
- const std::string &_name, bool bShareTilesWithMap) {
+ static IsoObject getNew(IsoGridSquare sq, std::string_view _spriteName,
+ std::string_view _name, bool bShareTilesWithMap) {
  IsoObject object = nullptr;
  { std::lock_guard<std::mutex> __sync_lock__(CellLoader.isoObjectCache_mutex);
  if (CellLoader.isoObjectCache.empty()) {
@@ -567,7 +568,7 @@ public
  });
  }
 
- static uint8_t factoryGetClassID(const std::string &_name) {
+ static uint8_t factoryGetClassID(std::string_view _name) {
  IsoObject.IsoObjectFactory objectFactory =
  hashCodeToObjectMap.get(_name.hashCode());
  return objectFactory != nullptr ? objectFactory.classID
@@ -1758,7 +1759,7 @@ public
  this->checkMoveWithWind();
  }
 
- void setSprite(const std::string &_name) {
+ void setSprite(std::string_view _name) {
  this->sprite = IsoSprite.CreateSprite(IsoSpriteManager.instance);
  this->sprite.LoadFramesNoDirPageSimple(_name);
  this->tile = _name;
@@ -1767,7 +1768,7 @@ public
  this->checkMoveWithWind();
  }
 
- void setSpriteFromName(const std::string &_name) {
+ void setSpriteFromName(std::string_view _name) {
  this->sprite = IsoSpriteManager.instance.getSprite(_name);
  this->windRenderEffects = nullptr;
  this->checkMoveWithWind();
@@ -1776,7 +1777,7 @@ public
  /**
  * @return the targetAlpha
  */
- float getTargetAlpha() {
+ float getTargetAlpha() noexcept{
  return this->getTargetAlpha(IsoPlayer.getPlayerIndex());
  }
 
@@ -1806,7 +1807,7 @@ public
  * Returns TRUE if both Alpha nad TargetAlpha are transparent, or
  * near-zero.
  */
- bool isAlphaAndTargetZero() {
+ bool isAlphaAndTargetZero() noexcept{
  int int0 = IsoPlayer.getPlayerIndex();
  return this->isAlphaAndTargetZero(int0);
  }
@@ -2017,7 +2018,7 @@ public
  }
  }
 
- void SetName(const std::string &_name) { this->name = _name; }
+ void SetName(std::string_view _name) { this->name = _name; }
 
  std::string getName() { return this->name; }
 
@@ -2025,7 +2026,7 @@ public
  *
  * @param _name the name to set
  */
- void setName(const std::string &_name) { this->name = _name; }
+ void setName(std::string_view _name) { this->name = _name; }
 
  std::string getSpriteName() { return this->spriteName; }
 
@@ -2755,7 +2756,7 @@ public
  return IsoWindow.canAddSheetRope(this->square, this->isNorthHoppable());
  }
 
- bool addSheetRope(IsoPlayer player, const std::string &itemType) {
+ bool addSheetRope(IsoPlayer player, std::string_view itemType) {
  return !this->canAddSheetRope()
  ? false
  : IsoWindow.addSheetRope(player, this->square,
@@ -3807,7 +3808,7 @@ public
  }
  }
 
- void sendObjectChange(const std::string &change) {
+ void sendObjectChange(std::string_view change) {
  if (GameServer.bServer) {
  GameServer.sendObjectChange(this, change, (KahluaTable) nullptr);
  } else if (GameClient.bClient) {
@@ -3818,7 +3819,7 @@ public
  }
  }
 
- void sendObjectChange(const std::string &change, KahluaTable tbl) {
+ void sendObjectChange(std::string_view change, KahluaTable tbl) {
  if (GameServer.bServer) {
  GameServer.sendObjectChange(this, change, tbl);
  } else if (GameClient.bClient) {
@@ -3828,7 +3829,7 @@ public
  }
  }
 
- void sendObjectChange(const std::string &change, Object... args) {
+ void sendObjectChange(std::string_view change, Object... args) {
  if (GameServer.bServer) {
  GameServer.sendObjectChange(this, change, args);
  } else if (GameClient.bClient) {
@@ -3838,7 +3839,7 @@ public
  }
  }
 
- void saveChange(const std::string &change, KahluaTable tbl,
+ void saveChange(std::string_view change, KahluaTable tbl,
  ByteBuffer bb) {
  if ("containers" == change) {
  bb.put((byte)this->getContainerCount());
@@ -3889,7 +3890,7 @@ public
  }
  }
 
- void loadChange(const std::string &change, ByteBuffer bb) {
+ void loadChange(std::string_view change, ByteBuffer bb) {
  if ("containers" == change) {
  for (int int0 = 0; int0 < this->getContainerCount(); int0++) {
  ItemContainer container0 = this->getContainerByIndex(int0);
@@ -4102,11 +4103,11 @@ public
 
  IsoSprite getOverlaySprite() { return this->overlaySprite; }
 
- void setOverlaySprite(const std::string &_spriteName) {
+ void setOverlaySprite(std::string_view _spriteName) {
  this->setOverlaySprite(_spriteName, -1.0F, -1.0F, -1.0F, -1.0F, true);
  }
 
- void setOverlaySprite(const std::string &_spriteName, bool bTransmit) {
+ void setOverlaySprite(std::string_view _spriteName, bool bTransmit) {
  this->setOverlaySprite(_spriteName, -1.0F, -1.0F, -1.0F, -1.0F,
  bTransmit);
  }
@@ -4117,12 +4118,12 @@ public
 
  ColorInfo getOverlaySpriteColor() { return this->overlaySpriteColor; }
 
- void setOverlaySprite(const std::string &_spriteName, float r, float g,
+ void setOverlaySprite(std::string_view _spriteName, float r, float g,
  float b, float a) {
  this->setOverlaySprite(_spriteName, r, g, b, a, true);
  }
 
- bool setOverlaySprite(const std::string &_spriteName, float r, float g,
+ bool setOverlaySprite(std::string_view _spriteName, float r, float g,
  float b, float a, bool bTransmit) {
  if (StringUtils.isNullOrWhitespace(_spriteName) {
  if (this->overlaySprite.empty()) {
@@ -4270,7 +4271,7 @@ public
  }
  }
 
- int getContainerCount() {
+ int getContainerCount() noexcept{
  int int0 = this->container == nullptr ? 0 : 1;
  int int1 = this->secondaryContainers == nullptr
  ? 0
@@ -4298,7 +4299,7 @@ public
  }
  }
 
- ItemContainer getContainerByType(const std::string &type) {
+ ItemContainer getContainerByType(std::string_view type) {
  for (int int0 = 0; int0 < this->getContainerCount(); int0++) {
  ItemContainer containerx = this->getContainerByIndex(int0);
  if (containerx.getType() == type) {
@@ -4309,8 +4310,8 @@ public
  return nullptr;
  }
 
- ItemContainer getContainerByEitherType(const std::string &type1,
- const std::string &type2) {
+ ItemContainer getContainerByEitherType(std::string_view type1,
+ std::string_view type2) {
  for (int int0 = 0; int0 < this->getContainerCount(); int0++) {
  ItemContainer containerx = this->getContainerByIndex(int0);
  if (containerx.getType() == type1) || containerx.getType() == type2) {
@@ -4810,7 +4811,7 @@ public
  const int hashCode;
 
  public
- IsoObjectFactory(uint8_t _classID, const std::string &_objectName) {
+ IsoObjectFactory(uint8_t _classID, std::string_view _objectName) {
  this->classID = _classID;
  this->objectName = _objectName;
  this->hashCode = _objectName.hashCode();

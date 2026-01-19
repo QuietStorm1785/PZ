@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -18,7 +19,7 @@ class TextChunkImpl {
     const std::string translated;
     const int type;
 
-     TextChunkImpl(const std::string& var1, const std::string& var2, const std::string& var3, const std::string& var4, int var5) {
+     TextChunkImpl(std::string_view var1, std::string_view var2, std::string_view var3, std::string_view var4, int var5) {
       this.keyword = var1;
       this.text = var2;
       this.language = var3;

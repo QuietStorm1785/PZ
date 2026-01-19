@@ -40,8 +40,8 @@ public:
  void clear();
 
  // Statistics
- int getRegisteredCount() const { return registeredCount; }
- int getGridCellCount() const { return gridWidth * gridHeight; }
+ int getRegisteredCount() const noexcept { return registeredCount; }
+ int getGridCellCount() const noexcept { return gridWidth * gridHeight; }
 
 private:
  int gridSize;

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -44,7 +45,7 @@ public:
  }
 
 public
- TexturePackDevice(const std::string &string, int int0) {
+ TexturePackDevice(std::string_view string, int int0) {
  this->m_name = string;
  this->m_filename = ZomboidFileSystem.instance.getString(
  "media/texturepacks/" + string + ".pack");
@@ -55,7 +56,7 @@ public
 
  void destroyFile(IFile var1) {}
 
- InputStream createStream(const std::string &string, InputStream var2) {
+ InputStream createStream(std::string_view string, InputStream var2) {
  this->initMetaData();
  return new TexturePackDevice.TexturePackInputStream(string, this);
  }
@@ -158,7 +159,7 @@ private
  return page;
  }
 
- bool isAlpha(const std::string &string) {
+ bool isAlpha(std::string_view string) {
  TexturePackDevice.Page page = this->m_pagemap.get(string);
  return page.m_has_alpha;
  }

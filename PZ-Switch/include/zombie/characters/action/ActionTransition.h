@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,7 +32,7 @@ public:
  bool forceParent;
  List<IActionCondition> conditions = std::make_unique<ArrayList<>>();
 
- static bool parse(Element element, const std::string &string,
+ static bool parse(Element element, std::string_view string,
  List<ActionTransition> list) {
  if (element.getNodeName() == "transitions")) {
  parseTransitions(element, string, list);
@@ -54,7 +55,7 @@ public:
  }
  }
 
- static void parseTransitions(Element element, const std::string &string,
+ static void parseTransitions(Element element, std::string_view string,
  List<ActionTransition> list) {
  list.clear();
  Lambda.forEachFrom(

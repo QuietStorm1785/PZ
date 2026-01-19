@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  const std::string m_name;
 
 public
- DiskFileDevice(const std::string &string) { this->m_name = string; }
+ DiskFileDevice(std::string_view string) { this->m_name = string; }
 
  IFile createFile(IFile iFile) {
  return new DiskFileDevice.DiskFile(iFile, this);
@@ -27,7 +28,7 @@ public
 
  void destroyFile(IFile var1) {}
 
- InputStream createStream(const std::string &string, InputStream var2) {
+ InputStream createStream(std::string_view string, InputStream var2) {
  return new FileInputStream(string);
  }
 
@@ -49,7 +50,7 @@ private
  this->m_use_fallthrough = false;
  }
 
- bool open(const std::string &string, int int0) {
+ bool open(std::string_view string, int int0) {
  File file = new File(string);
  bool boolean0 = (int0 & 1) != 0;
  if (boolean0 && !file.exists() && this->m_fallthrough != nullptr) {

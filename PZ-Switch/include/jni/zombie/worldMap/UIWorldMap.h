@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -301,7 +302,7 @@ class UIWorldMap :  UIElement {
       this.DrawTextureScaledColor(nullptr, var6 - 3.0, var7 - 3.0, 6.0, 6.0, 1.0, 0.0, 0.0, 1.0);
    }
 
-    void renderPlayerName(float var1, float var2, const std::string& var3) {
+    void renderPlayerName(float var1, float var2, std::string_view var3) {
       if (this.m_renderer.getBoolean("PlayerNames")) {
          if (!StringUtils.isNullOrWhitespace(var3)) {
     float var4 = this.m_renderer.getDisplayZoomF();

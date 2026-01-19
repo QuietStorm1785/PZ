@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -222,12 +223,12 @@ public
  }
  }
 
- void *getProperty(const std::string &string) {
+ void *getProperty(std::string_view string) {
  this->assertRead();
  return this->props.get(string);
  }
 
- void *getProperty(const std::string &string, Class clazz, bool boolean0) {
+ void *getProperty(std::string_view string, Class clazz, bool boolean0) {
  this->assertRead();
  void *object = this->props.get(string);
  if (object.empty()) {
@@ -244,13 +245,13 @@ public
  return object;
  }
 
- int getInt(const std::string &string) {
+ int getInt(std::string_view string) {
  return ((Number)this->getProperty(string, Number.class, true).intValue();
  }
 
  std::unordered_map getProperties() { return this->props; }
 
- TextChunk getTextChunk(const std::string &string) {
+ TextChunk getTextChunk(std::string_view string) {
  std::vector list = (List)this->getProperty("text_chunks", List.class, false);
  if (string != nullptr && list != nullptr) {
  for (auto &textChunk : list)

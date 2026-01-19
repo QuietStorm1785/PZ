@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -43,13 +44,13 @@ public
  }
  }
 
- int getIDFromPropertyName(const std::string &string) {
+ int getIDFromPropertyName(std::string_view string) {
  return !this->PropertyToID.containsKey(string)
  ? -1
  : this->PropertyToID.get(string);
  }
 
- int getIDFromPropertyValue(int int0, const std::string &string) {
+ int getIDFromPropertyValue(int int0, std::string_view string) {
  TilePropertyAliasMap.TileProperty tileProperty = this->Properties.get(int0);
  if (tileProperty.possibleValues.empty()) {
  return 0;

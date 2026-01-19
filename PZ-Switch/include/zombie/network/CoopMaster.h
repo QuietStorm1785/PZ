@@ -22,6 +22,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -73,17 +74,17 @@ private
 
  int getServerPort() { return this->serverPort; }
 
- void launchServer(const std::string &string0, const std::string &string1,
+ void launchServer(std::string_view string0, std::string_view string1,
  int int0) {
  this->launchServer(string0, string1, int0, false);
  }
 
- void softreset(const std::string &string0, const std::string &string1,
+ void softreset(std::string_view string0, std::string_view string1,
  int int0) {
  this->launchServer(string0, string1, int0, true);
  }
 
- void launchServer(const std::string &string3, const std::string &string1,
+ void launchServer(std::string_view string3, std::string_view string1,
  int int0, bool boolean0) {
  std::string string0 =
  Paths.get(System.getProperty("java.home"), "bin", "java")
@@ -240,7 +241,7 @@ CoopMaster.TerminationReason terminationReason() {
  return this->serverTerminationReason;
 }
 
-void storeMessage(const std::string &string) {
+void storeMessage(std::string_view string) {
  { std::lock_guard<std::mutex> __sync_lock__(incomingMessages_mutex); this->incomingMessages.add(string); }
 }
 
@@ -264,7 +265,7 @@ void sendMessage(String string0, String string1, String string2) {
  }
 }
 
-void sendMessage(const std::string &string0, const std::string &string1) {
+void sendMessage(std::string_view string0, std::string_view string1) {
  this->sendMessage(string0, nullptr, string1);
 }
 
@@ -314,8 +315,8 @@ void update() {
  }
 }
 
-void handleMessage(const std::string &string0, const std::string &string1,
- const std::string &string2) {
+void handleMessage(std::string_view string0, std::string_view string1,
+ std::string_view string2) {
  if (Objects == string0, "ping")) {
  this->sendMessage("ping", string1, "pong");
  }
@@ -521,9 +522,9 @@ void register(Platform platform, KahluaTable table1) {
  }
  }
 
- void invokeListeners(const std::string &string0,
- const std::string &string1,
- const std::string &string2) {
+ void invokeListeners(std::string_view string0,
+ std::string_view string1,
+ std::string_view string2) {
  { std::lock_guard<std::mutex> __sync_lock__(listeners_mutex);
  Iterator iterator = this->listeners.iterator();
 
@@ -554,11 +555,11 @@ void register(Platform platform, KahluaTable table1) {
 
  std::string getServerName() { return this->serverName; }
 
- std::string getServerSaveFolder(const std::string &string) {
+ std::string getServerSaveFolder(std::string_view string) {
  return LuaManager.GlobalObject.sanitizeWorldName(string);
  }
 
- std::string getPlayerSaveFolder(const std::string &string) {
+ std::string getPlayerSaveFolder(std::string_view string) {
  return LuaManager.GlobalObject.sanitizeWorldName(string + "_player");
  }
 
@@ -568,21 +569,21 @@ void register(Platform platform, KahluaTable table1) {
  bool autoRemove = false;
 
  public
- ListenerOptions(const std::string &string0,
- const std::string &string1, bool boolean0) {
+ ListenerOptions(std::string_view string0,
+ std::string_view string1, bool boolean0) {
  this->tag = string0;
  this->cookie = string1;
  this->autoRemove = boolean0;
  }
 
  public
- ListenerOptions(const std::string &string0,
- const std::string &string1) {
+ ListenerOptions(std::string_view string0,
+ std::string_view string1) {
  this(string0, string1, false);
  }
 
  public
- ListenerOptions(const std::string &string) {
+ ListenerOptions(std::string_view string) {
  this(string, nullptr, false);
  }
  }

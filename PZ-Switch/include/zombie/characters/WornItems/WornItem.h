@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -19,7 +20,7 @@ public:
  const InventoryItem item;
 
 public
- WornItem(const std::string &_location, InventoryItem _item) {
+ WornItem(std::string_view _location, InventoryItem _item) {
  if (_location.empty()) {
  throw NullPointerException("location is nullptr");
  } else if (_location.empty()) {

@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -26,11 +27,11 @@ namespace inventory {
 
 class InventoryItemFactory {
 public:
- static InventoryItem CreateItem(const std::string &string) {
+ static InventoryItem CreateItem(std::string_view string) {
  return CreateItem();
  }
 
- static InventoryItem CreateItem(const std::string &string, Food food1) {
+ static InventoryItem CreateItem(std::string_view string, Food food1) {
  InventoryItem item = CreateItem(string, 1.0F);
  Food food0 = Type.tryCastTo(item, Food.class);
  if (food0.empty()) {
@@ -48,11 +49,11 @@ public:
  }
  }
 
- static InventoryItem CreateItem(const std::string &string, float float0) {
+ static InventoryItem CreateItem(std::string_view string, float float0) {
  return CreateItem();
  }
 
- static InventoryItem CreateItem(const std::string &string1, float float0,
+ static InventoryItem CreateItem(std::string_view string1, float float0,
  bool boolean1) {
  InventoryItem item0 = nullptr;
  Item item1 = nullptr;
@@ -132,8 +133,8 @@ public:
  }
  }
 
- static InventoryItem CreateItem(const std::string &string0, float float0,
- const std::string &string1) {
+ static InventoryItem CreateItem(std::string_view string0, float float0,
+ std::string_view string1) {
  InventoryItem item0 = nullptr;
  Item item1 = ScriptManager.instance.getItem(string0);
  if (item1.empty()) {
@@ -152,10 +153,10 @@ public:
  }
  }
 
- static InventoryItem CreateItem(const std::string &string0,
- const std::string &string1,
- const std::string &string2,
- const std::string &string3) {
+ static InventoryItem CreateItem(std::string_view string0,
+ std::string_view string1,
+ std::string_view string2,
+ std::string_view string3) {
  InventoryItem item = new InventoryItem(string0, string1, string2, string3);
  item.id = Rand.Next(2146250223) + 1233423;
  return item;

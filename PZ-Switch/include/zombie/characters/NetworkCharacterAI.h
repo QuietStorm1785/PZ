@@ -18,6 +18,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -111,7 +112,7 @@ void setTeleportDebug(NetworkTeleport.NetworkTeleportDebug _teleportDebug) {
  }
 }
 
-void addTeleportData(int time, const std::string &prediction) {
+void addTeleportData(int time, std::string_view prediction) {
  this->debugData.put(time, prediction);
 }
 
@@ -132,7 +133,7 @@ bool isSetDeadBody() {
  return this->deadBody != nullptr && this->deadBody.isConsistent();
 }
 
-void setPerformingAction(const std::string &animation) {
+void setPerformingAction(std::string_view animation) {
  this->performingAction = animation;
 }
 
@@ -155,8 +156,8 @@ void stopAction() {
  }
 }
 
-void setOverride(bool override, const std::string &primaryHandModel,
- const std::string &secondaryHandModel) {
+void setOverride(bool override, std::string_view primaryHandModel,
+ std::string_view secondaryHandModel) {
  if (this->action != nullptr) {
  this->action.chr.forceNullOverride = override;
  this->action.chr.overridePrimaryHandModel = primaryHandModel;

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -26,7 +27,7 @@ class ProfanityTest {
       );
    }
 
-    static void testString(int var0, const std::string& var1) {
+    static void testString(int var0, std::string_view var1) {
     ProfanityFilter var2 = ProfanityFilter.getInstance();
     std::string var3 = "";
       System.out.println("Benchmarking " + var0 + " iterations: ");

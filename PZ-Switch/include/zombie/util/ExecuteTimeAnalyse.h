@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public:
  int listIndex = 0;
 
 public
- ExecuteTimeAnalyse(const std::string &string, int int0) {
+ ExecuteTimeAnalyse(std::string_view string, int int0) {
  this->caption = string;
  this->list = new ExecuteTimeAnalyse.TimeStamp[int0];
 
@@ -29,7 +30,7 @@ public
 
  void reset() { this->listIndex = 0; }
 
- void add(const std::string &string) {
+ void add(std::string_view string) {
  this->list[this->listIndex].time = System.nanoTime();
  this->list[this->listIndex].comment = string;
  this->listIndex++;
@@ -67,7 +68,7 @@ public
  std::string comment;
 
  public
- TimeStamp(const std::string &string) {
+ TimeStamp(std::string_view string) {
  this->comment = string;
  this->time = System.nanoTime();
  }

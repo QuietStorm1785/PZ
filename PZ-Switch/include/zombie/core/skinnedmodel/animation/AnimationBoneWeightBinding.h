@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,7 +29,7 @@ public
  }
 
 public
- AnimationBoneWeightBinding(const std::string &string, float float0,
+ AnimationBoneWeightBinding(std::string_view string, float float0,
  bool boolean0) {
  super(string);
  this->m_weight = float0;

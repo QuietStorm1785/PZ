@@ -13,6 +13,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,7 +32,7 @@ private
  ThreadLocal<SharedStrings> sharedStrings =
  ThreadLocal.withInitial(SharedStrings::new);
 
- ModelTxt loadTxt(const std::string &string0, bool boolean0, bool boolean1,
+ ModelTxt loadTxt(std::string_view string0, bool boolean0, bool boolean1,
  SkinningData skinningData) {
  ModelTxt modelTxt = new ModelTxt();
  modelTxt.bStatic = boolean0;
@@ -425,7 +426,7 @@ private
  return arrayList0;
  }
 
- Vector3f getVector(const std::string &string) {
+ Vector3f getVector(std::string_view string) {
  Vector3f vector3f = new Vector3f();
  String[] strings = string.split(",");
  vector3f.x = Float.parseFloat(strings[0]);
@@ -434,7 +435,7 @@ private
  return vector3f;
  }
 
- Quaternion getQuaternion(const std::string &string) {
+ Quaternion getQuaternion(std::string_view string) {
  Quaternion quaternion = new Quaternion();
  String[] strings = string.split(",");
  quaternion.x = Float.parseFloat(strings[0]);
@@ -444,8 +445,8 @@ private
  return quaternion;
  }
 
- Matrix4f getMatrix(const std::string &string0, const std::string &string1,
- const std::string &string2, const std::string &string3) {
+ Matrix4f getMatrix(std::string_view string0, std::string_view string1,
+ std::string_view string2, std::string_view string3) {
  Matrix4f matrix4f = new Matrix4f();
  bool boolean0 = false;
  String[] strings = string0.split(",");

@@ -135,7 +135,7 @@ private
 
  State getPrevious() { return this->m_previousState; }
 
- int getSubStateCount() { return this->m_subStates.size(); }
+ int getSubStateCount() noexcept{ return this->m_subStates.size(); }
 
  State getSubStateAt(int idx) { return this->m_subStates.get(idx).getState(); }
 

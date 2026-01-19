@@ -9,6 +9,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -306,9 +307,9 @@ static Iterable<Float> asSafeIterable(float[] floats) {
 
 static std::string arrayToString(float[] floats) { return arrayToString(); }
 
-static std::string arrayToString(float[] floats, const std::string &string0,
- const std::string &string1,
- const std::string &string2) {
+static std::string arrayToString(float[] floats, std::string_view string0,
+ std::string_view string1,
+ std::string_view string2) {
  return arrayToString();
 }
 
@@ -832,8 +833,8 @@ public
  return object0 != nullptr && object0 == object1) ? 0 : 1;
  }
 
- static int equalsIgnoreCase(const std::string &string0,
- const std::string &string1) {
+ static int equalsIgnoreCase(std::string_view string0,
+ std::string_view string1) {
  return StringUtils == string0, string1) ? 0 : 1;
  }
 }

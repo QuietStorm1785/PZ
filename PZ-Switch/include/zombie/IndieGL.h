@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -172,7 +173,7 @@ private
  }
  }
 
- static void shaderSetSamplerUnit(Shader shader, const std::string &string,
+ static void shaderSetSamplerUnit(Shader shader, std::string_view string,
  int int0) {
  ShaderProgram.Uniform uniform = getShaderUniform(shader, string, 35678);
  if (uniform != nullptr) {
@@ -181,7 +182,7 @@ private
  }
  }
 
- static void shaderSetValue(Shader shader, const std::string &string,
+ static void shaderSetValue(Shader shader, std::string_view string,
  float float0) {
  ShaderProgram.Uniform uniform = getShaderUniform(shader, string, 5126);
  if (uniform != nullptr) {
@@ -189,7 +190,7 @@ private
  }
  }
 
- static void shaderSetValue(Shader shader, const std::string &string,
+ static void shaderSetValue(Shader shader, std::string_view string,
  int int0) {
  ShaderProgram.Uniform uniform = getShaderUniform(shader, string, 5124);
  if (uniform != nullptr) {
@@ -197,23 +198,23 @@ private
  }
  }
 
- static void shaderSetValue(Shader shader, const std::string &string,
+ static void shaderSetValue(Shader shader, std::string_view string,
  Vector2 vector) {
  shaderSetVector2(shader, string, vector.x, vector.y);
  }
 
- static void shaderSetValue(Shader shader, const std::string &string,
+ static void shaderSetValue(Shader shader, std::string_view string,
  Vector3 vector) {
  shaderSetVector3(shader, string, vector.x, vector.y, vector.z);
  }
 
- static void shaderSetValue(Shader shader, const std::string &string,
+ static void shaderSetValue(Shader shader, std::string_view string,
  Vector4 vector4) {
  shaderSetVector4(shader, string, vector4.x, vector4.y, vector4.z,
  vector4.w);
  }
 
- static void shaderSetVector2(Shader shader, const std::string &string,
+ static void shaderSetVector2(Shader shader, std::string_view string,
  float float0, float float1) {
  ShaderProgram.Uniform uniform = getShaderUniform(shader, string, 35664);
  if (uniform != nullptr) {
@@ -221,7 +222,7 @@ private
  }
  }
 
- static void shaderSetVector3(Shader shader, const std::string &string,
+ static void shaderSetVector3(Shader shader, std::string_view string,
  float float0, float float1, float float2) {
  ShaderProgram.Uniform uniform = getShaderUniform(shader, string, 35665);
  if (uniform != nullptr) {
@@ -229,7 +230,7 @@ private
  }
  }
 
- static void shaderSetVector4(Shader shader, const std::string &string,
+ static void shaderSetVector4(Shader shader, std::string_view string,
  float float0, float float1, float float2,
  float float3) {
  ShaderProgram.Uniform uniform = getShaderUniform(shader, string, 35666);

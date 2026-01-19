@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <vector>
 #include <memory>
@@ -67,14 +68,14 @@ public:
  ~TextureAtlas();
  
  // Add sprite from existing texture
- bool addSprite(const std::string& name, SDL_Texture* texture, 
+ bool addSprite(std::string_view name, SDL_Texture* texture, 
  int width, int height);
  
  // Add sprite from surface
- bool addSprite(const std::string& name, SDL_Surface* surface);
+ bool addSprite(std::string_view name, SDL_Surface* surface);
  
  // Add sprite from file
- bool addSprite(const std::string& name, const std::string& filePath);
+ bool addSprite(std::string_view name, std::string_view filePath);
  
  // Build the atlas texture (call after adding all sprites)
  bool build();
@@ -83,12 +84,12 @@ public:
  bool rebuild();
  
  // Get region for a sprite
- const AtlasRegion* getRegion(const std::string& name) const;
+ const AtlasRegion* getRegion(std::string_view name) const;
  
  // Get atlas texture
  SDL_Texture* getTexture() const { return atlasTexture; }
  SDL_Texture* getMipTexture(int level) const;
- int getMipCount() const { return static_cast<int>(atlasMipTextures.size()); }
+ int getMipCount() const noexcept { return static_cast<int>(atlasMipTextures.size()); }
  
  // Get atlas dimensions
  int getWidth() const { return atlasWidth; }
@@ -100,15 +101,15 @@ public:
  }
  
  // Statistics
- int getSpriteCount() const { return static_cast<int>(sprites.size()); }
+ int getSpriteCount() const noexcept { return static_cast<int>(sprites.size()); }
  float getUsedSpace() const; // Returns 0-1 (percentage of atlas used)
  
  // Clear atlas (for rebuilding)
  void clear();
 
  // Dynamic add and rebuild helper (requires keepSpriteSurfaces)
- bool addSpriteAndRebuild(const std::string& name, SDL_Surface* surface);
- bool addSpriteAndRebuild(const std::string& name, const std::string& filePath);
+ bool addSpriteAndRebuild(std::string_view name, SDL_Surface* surface);
+ bool addSpriteAndRebuild(std::string_view name, std::string_view filePath);
  
 private:
  struct SpriteData {
@@ -167,12 +168,12 @@ public:
  ~AtlasBuilder() = default;
  
  // Add sprites from directory
- bool addSpritesFromDirectory(const std::string& dirPath, 
- const std::string& pattern = "*.png");
+ bool addSpritesFromDirectory(std::string_view dirPath, 
+ std::string_view pattern = "*.png");
  
  // Add sprites with prefix
- bool addSpritesWithPrefix(const std::string& dirPath,
- const std::string& prefix);
+ bool addSpritesWithPrefix(std::string_view dirPath,
+ std::string_view prefix);
  
  // Build atlas
  std::shared_ptr<TextureAtlas> build(const TextureAtlas::Config& config = TextureAtlas::Config());

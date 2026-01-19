@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -39,7 +40,7 @@ public:
  static int lastWid = 0;
  static int lastHei = 0;
 
- int loadDDSFile(const std::string &string) {
+ int loadDDSFile(std::string_view string) {
  File file = new File(string);
 
  try {

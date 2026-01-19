@@ -7,6 +7,7 @@
 #include <SDL2/SDL.h>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <vector>
 #include <glm/glm.hpp>
 
@@ -66,9 +67,9 @@ public:
  void setThirst(float value) { thirst = value; }
  
  // Inventory
- void addItem(const std::string& itemType);
- void removeItem(const std::string& itemType);
- bool hasItem(const std::string& itemType) const;
+ void addItem(std::string_view itemType);
+ void removeItem(std::string_view itemType);
+ bool hasItem(std::string_view itemType) const;
  
  std::string getType() const override { return "IsoGameCharacter"; }
  
@@ -115,7 +116,7 @@ public:
  
  // Player actions
  void interact();
- void useItem(const std::string& itemType);
+ void useItem(std::string_view itemType);
  void attackNearestZombie();
 
  // World binding
@@ -128,10 +129,10 @@ public:
  void setPlayerNum(int num) { playerNum = num; }
  int getPlayerNum() const { return playerNum; }
  
- void setSurname(const std::string& name) { surname = name; }
+ void setSurname(std::string_view name) { surname = name; }
  std::string getSurname() const { return surname; }
  
- void setForename(const std::string& name) { forename = name; }
+ void setForename(std::string_view name) { forename = name; }
  std::string getForename() const { return forename; }
  
  // Experience and skills

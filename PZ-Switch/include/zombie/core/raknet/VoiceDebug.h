@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -51,7 +52,7 @@ public
  static JFrame frame;
 
 public
- VoiceDebug(List<Integer> list, const std::string &string) {
+ VoiceDebug(List<Integer> list, std::string_view string) {
  this->scores = list;
  this->title = string;
  this->psize = list.size();
@@ -123,7 +124,7 @@ public
  graphics2D.drawString("Last/Read: " + this->last, 30, 45);
  }
 
- Dimension getPreferredSize() { return new Dimension(400, 200); }
+ Dimension getPreferredSize() noexcept{ return new Dimension(400, 200); }
 
  static void createAndShowGui() {
  std::vector arrayList0 = new ArrayList();

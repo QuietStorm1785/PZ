@@ -40,6 +40,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -811,8 +812,8 @@ class Atlas {
  this->initLights(nullptr);
  }
 
- void init(IHumanVisual arg0, IsoDirections arg1, const std::string &arg2,
- const std::string &arg3, float arg4) {
+ void init(IHumanVisual arg0, IsoDirections arg1, std::string_view arg2,
+ std::string_view arg3, float arg4) {
  this->humanVisual = arg0.getHumanVisual();
  arg0.getItemVisuals(this->itemVisuals);
  this->dir = arg1;
@@ -986,7 +987,7 @@ private
  this->md.update((byte)(arg0 >> 24 & 0xFF);
  }
 
- void update(const std::string &arg0) {
+ void update(std::string_view arg0) {
  if (arg0 != nullptr && !arg0.empty()) {
  this->md.update(arg0.getBytes());
  }

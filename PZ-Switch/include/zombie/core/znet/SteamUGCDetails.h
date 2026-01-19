@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,7 @@ private
  long[] childIDs;
 
 public
- SteamUGCDetails(long long0, const std::string &string, long long1, long long2,
+ SteamUGCDetails(long long0, std::string_view string, long long1, long long2,
  int int0, long[] longs) {
  this->ID = long0;
  this->title = string;
@@ -46,7 +47,7 @@ public
 
  long getTimeUpdated() { return this->timeUpdated; }
 
- int getFileSize() { return this->fileSize; }
+ int getFileSize() noexcept{ return this->fileSize; }
 
 public
  long[] getChildren() { return this->childIDs; }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -324,7 +325,7 @@ class AmbientStreamManager :  BaseAmbientStreamManager {
       }
    }
 
-    void addBlend(const std::string& var1, float var2, bool var3, bool var4, bool var5, bool var6) {
+    void addBlend(std::string_view var1, float var2, bool var3, bool var4, bool var5, bool var6) {
     AmbientLoop var7 = new AmbientLoop(0.0F, var1, var2);
       this.allAmbient.add(var7);
       if (var3) {
@@ -432,14 +433,14 @@ class AmbientStreamManager :  BaseAmbientStreamManager {
       this.initialized = false;
    }
 
-    void addAmbient(const std::string& var1, int var2, int var3, int var4, float var5) {
+    void addAmbient(std::string_view var1, int var2, int var3, int var4, float var5) {
       if (GameClient.bClient) {
     Ambient var6 = new Ambient(var1, var2, var3, var4, var5, true);
          this.ambient.add(var6);
       }
    }
 
-    void addAmbientEmitter(float var1, float var2, int var3, const std::string& var4) {
+    void addAmbientEmitter(float var1, float var2, int var3, std::string_view var4) {
     WorldSoundEmitter var5 = this.freeEmitters.isEmpty() ? new WorldSoundEmitter() : this.freeEmitters.pop();
       var5.x = var1;
       var5.y = var2;
@@ -458,7 +459,7 @@ class AmbientStreamManager :  BaseAmbientStreamManager {
       this.worldEmitters.add(var5);
    }
 
-    void addDaytimeAmbientEmitter(float var1, float var2, int var3, const std::string& var4) {
+    void addDaytimeAmbientEmitter(float var1, float var2, int var3, std::string_view var4) {
     WorldSoundEmitter var5 = this.freeEmitters.isEmpty() ? new WorldSoundEmitter() : this.freeEmitters.pop();
       var5.x = var1;
       var5.y = var2;

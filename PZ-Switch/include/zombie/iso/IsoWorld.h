@@ -157,6 +157,7 @@
 #include <iterator>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -340,7 +341,7 @@ public
  height);
  }
 
- void removeZonesForLotDirectory(const std::string &lotDir) {
+ void removeZonesForLotDirectory(std::string_view lotDir) {
  this->MetaGrid.removeZonesForLotDirectory(lotDir);
  }
 
@@ -410,7 +411,7 @@ public
  height, properties);
  }
 
- void registerRoomTone(const std::string &name, const std::string &type,
+ void registerRoomTone(std::string_view name, std::string_view type,
  int _x, int _y, int z, int width, int height,
  KahluaTable properties) {
  this->MetaGrid.registerRoomTone(name, type, _x, _y, z, width, height,
@@ -434,7 +435,7 @@ public
 
  void checkVehiclesZones() { this->MetaGrid.checkVehiclesZones(); }
 
- void setGameMode(const std::string &mode) {
+ void setGameMode(std::string_view mode) {
  Core.GameMode = mode;
  Core.bLastStand = "LastStand" == mode);
  Core.getInstance().setChallenge(false);
@@ -443,9 +444,9 @@ public
 
  std::string getGameMode() { return Core.GameMode; }
 
- void setWorld(const std::string &world) { Core.GameSaveWorld = world.trim(); }
+ void setWorld(std::string_view world) { Core.GameSaveWorld = world.trim(); }
 
- void setMap(const std::string &world) { Core.GameMap = world; }
+ void setMap(std::string_view world) { Core.GameMap = world; }
 
  std::string getMap() { return Core.GameMap; }
 
@@ -559,7 +560,7 @@ public
  : stringBuilder.toString();
  }
 
- void LoadTileDefinitions(IsoSpriteManager sprMan, const std::string &filename,
+ void LoadTileDefinitions(IsoSpriteManager sprMan, std::string_view filename,
  int fileNumber) {
  DebugLog.log("tiledef: loading " + filename);
  bool boolean0 = filename.endsWith(".patch.tiles");
@@ -1344,7 +1345,7 @@ void GenerateTilePropertyLookupTables() {
 }
 
 void LoadTileDefinitionsPropertyStrings(IsoSpriteManager sprMan,
- const std::string &filename,
+ std::string_view filename,
  int fileNumber) {
  DebugLog.log("tiledef: loading " + filename);
  if (!GameServer.bServer) {
@@ -1425,7 +1426,7 @@ void SetCustomPropertyValues() {
  PropertyValueMap.get("lightB").add("0");
 }
 
-void setOpenDoorProperties(const std::string &string2,
+void setOpenDoorProperties(std::string_view string2,
  ArrayList<IsoSprite> arrayList) {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  IsoSprite sprite0 = (IsoSprite)arrayList.get(int0);
@@ -1495,7 +1496,7 @@ void saveMovableStats(ArrayList < String >> map, int int0, int int1, int int2,
 }
 
 void addJumboTreeTileset(IsoSpriteManager spriteManager, int int5,
- const std::string &string1, int int4, int int1,
+ std::string_view string1, int int4, int int1,
  int int6) {
  uint8_t byte0 = 2;
 
@@ -2282,7 +2283,7 @@ ArrayList<String> getLuaTraits() {
  return this->luatraits;
 }
 
-void addLuaTrait(const std::string &trait) { this->getLuaTraits().add(trait); }
+void addLuaTrait(std::string_view trait) { this->getLuaTraits().add(trait); }
 
 SurvivorDesc getLuaPlayerDesc() { return this->luaDesc; }
 
@@ -2669,7 +2670,7 @@ void setGlobalTemperature(float globalTemperature) {}
 
 std::string getWeather() { return this->weather; }
 
-void setWeather(const std::string &_weather) { this->weather = _weather; }
+void setWeather(std::string_view _weather) { this->weather = _weather; }
 
 int getLuaSpawnCellX() { return this->luaSpawnCellX; }
 
@@ -2723,7 +2724,7 @@ ArrayList<RandomizedVehicleStoryBase> getRandomizedVehicleStoryList() {
 }
 
 RandomizedVehicleStoryBase
-getRandomizedVehicleStoryByName(const std::string &name) {
+getRandomizedVehicleStoryByName(std::string_view name) {
  for (int int0 = 0; int0 < this->randomizedVehicleStoryList.size(); int0++) {
  RandomizedVehicleStoryBase randomizedVehicleStoryBase =
  this->randomizedVehicleStoryList.get(int0);
@@ -2739,7 +2740,7 @@ RandomizedBuildingBase getRBBasic() { return this->RBBasic; }
 
 std::string getDifficulty() { return Core.getDifficulty(); }
 
-void setDifficulty(const std::string &difficulty) {
+void setDifficulty(std::string_view difficulty) {
  Core.setDifficulty(difficulty);
 }
 

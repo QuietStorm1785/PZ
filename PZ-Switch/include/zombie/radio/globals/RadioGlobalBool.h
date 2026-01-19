@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -18,7 +19,7 @@ public
  RadioGlobalBool(bool boolean0) { super(boolean0, RadioGlobalType.Boolean); }
 
 public
- RadioGlobalBool(const std::string &string, bool boolean0) {
+ RadioGlobalBool(std::string_view string, bool boolean0) {
  super(string, boolean0, RadioGlobalType.Boolean);
  }
 

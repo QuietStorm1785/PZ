@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -28,7 +29,7 @@ public
  Class<Enum> getJavaType() { return Enum.class; }
  });
  kahluaConverterManager.addLuaConverter(new LuaToJavaConverter<String, Enum>() {
- Enum fromLuaToJava(const std::string& string, Class<Enum> clazz) {
+ Enum fromLuaToJava(std::string_view string, Class<Enum> clazz) {
  return Enum.valueOf(clazz, string);
  } // namespace converter
 

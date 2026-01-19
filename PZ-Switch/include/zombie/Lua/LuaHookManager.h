@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -33,7 +34,7 @@ private
 private
  static HashMap<String, Event> EventMap = std::make_unique<HashMap<>>();
 
- static bool TriggerHook(const std::string &string) {
+ static bool TriggerHook(std::string_view string) {
  if (EventMap.containsKey(string) {
  Event event = EventMap.get(string);
  a[0] = nullptr;
@@ -43,7 +44,7 @@ private
  }
  }
 
- static bool TriggerHook(const std::string &string, void *object) {
+ static bool TriggerHook(std::string_view string, void *object) {
  if (EventMap.containsKey(string) {
  Event event = EventMap.get(string);
  a[0] = object;
@@ -53,7 +54,7 @@ private
  }
  }
 
- static bool TriggerHook(const std::string &string, void *object0,
+ static bool TriggerHook(std::string_view string, void *object0,
  void *object1) {
  if (EventMap.containsKey(string) {
  Event event = EventMap.get(string);
@@ -65,7 +66,7 @@ private
  }
  }
 
- static bool TriggerHook(const std::string &string, void *object0,
+ static bool TriggerHook(std::string_view string, void *object0,
  void *object1, void *object2) {
  if (EventMap.containsKey(string) {
  Event event = EventMap.get(string);
@@ -78,7 +79,7 @@ private
  }
  }
 
- static bool TriggerHook(const std::string &string, void *object0,
+ static bool TriggerHook(std::string_view string, void *object0,
  void *object1, void *object2, void *object3) {
  if (EventMap.containsKey(string) {
  Event event = EventMap.get(string);
@@ -92,7 +93,7 @@ private
  }
  }
 
- static bool TriggerHook(const std::string &string, void *object0,
+ static bool TriggerHook(std::string_view string, void *object0,
  void *object1, void *object2, void *object3,
  void *object4) {
  if (EventMap.containsKey(string) {
@@ -108,7 +109,7 @@ private
  }
  }
 
- static bool TriggerHook(const std::string &string, void *object0,
+ static bool TriggerHook(std::string_view string, void *object0,
  void *object1, void *object2, void *object3,
  void *object4, void *object5) {
  if (EventMap.containsKey(string) {
@@ -125,7 +126,7 @@ private
  }
  }
 
- static void AddEvent(const std::string &string) {
+ static void AddEvent(std::string_view string) {
  if (!EventMap.containsKey(string) {
  Event event = new Event(string, EventList.size());
  EventList.add(event);

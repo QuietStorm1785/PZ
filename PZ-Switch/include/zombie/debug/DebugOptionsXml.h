@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -29,7 +30,7 @@ public
  OptionNode() {}
 
  public
- OptionNode(const std::string &string, bool boolean0) {
+ OptionNode(std::string_view string, bool boolean0) {
  this->name = string;
  this->value = boolean0;
  }

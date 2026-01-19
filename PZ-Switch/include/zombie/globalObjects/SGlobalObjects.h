@@ -20,6 +20,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -35,13 +36,13 @@ protected
  static ArrayList<SGlobalObjectSystem> systems =
  std::make_unique<ArrayList<>>();
 
- static void noise(const std::string &message) {
+ static void noise(std::string_view message) {
  if (Core.bDebug) {
  DebugLog.log("SGlobalObjects: " + message);
  }
  }
 
- static SGlobalObjectSystem registerSystem(const std::string &name) {
+ static SGlobalObjectSystem registerSystem(std::string_view name) {
  SGlobalObjectSystem sGlobalObjectSystem = getSystemByName(name);
  if (sGlobalObjectSystem.empty()) {
  sGlobalObjectSystem = newSystem(name);
@@ -51,7 +52,7 @@ protected
  return sGlobalObjectSystem;
  }
 
- static SGlobalObjectSystem newSystem(const std::string &name) {
+ static SGlobalObjectSystem newSystem(std::string_view name) {
  if (getSystemByName(name) != nullptr) {
  throw IllegalStateException("system with that name already exists");
  } else {
@@ -62,13 +63,13 @@ protected
  }
  }
 
- static int getSystemCount() { return systems.size(); }
+ static int getSystemCount() noexcept{ return systems.size(); }
 
  static SGlobalObjectSystem getSystemByIndex(int index) {
  return index >= 0 && index < systems.size() ? systems.get(index) : nullptr;
  }
 
- static SGlobalObjectSystem getSystemByName(const std::string &name) {
+ static SGlobalObjectSystem getSystemByName(std::string_view name) {
  for (int int0 = 0; int0 < systems.size(); int0++) {
  SGlobalObjectSystem sGlobalObjectSystem = systems.get(int0);
  if (sGlobalObjectSystem.name == name) {
@@ -148,8 +149,8 @@ protected
  }
  }
 
- static bool receiveClientCommand(const std::string &systemName,
- const std::string &command,
+ static bool receiveClientCommand(std::string_view systemName,
+ std::string_view command,
  IsoPlayer playerObj, KahluaTable args) {
  noise("receiveClientCommand " + systemName + " " + command +
  " OnlineID=" + playerObj.getOnlineID());
@@ -171,7 +172,7 @@ protected
  }
  }
 
- static void OnIsoObjectChangedItself(const std::string &systemName,
+ static void OnIsoObjectChangedItself(std::string_view systemName,
  IsoObject isoObject) {
  if (!GameClient.bClient) {
  SGlobalObjectSystem sGlobalObjectSystem = getSystemByName(systemName);

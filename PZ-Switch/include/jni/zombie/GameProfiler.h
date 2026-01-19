@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <vector>
 #include <memory>
 #include <unordered_map>
@@ -50,7 +51,7 @@ class GameProfiler {
       return s_instance.get();
    }
 
-    void startFrame(const std::string& var1) {
+    void startFrame(std::string_view var1) {
       if (this.m_isInFrame) {
          throw RuntimeException("Already inside a frame.");
       } else {
@@ -83,7 +84,7 @@ class GameProfiler {
       this.m_isInFrame = false;
    }
 
-    void invokeAndMeasureFrame(const std::string& var1, Runnable var2) {
+    void invokeAndMeasureFrame(std::string_view var1, Runnable var2) {
       if (!isRunning()) {
          var2.run();
       } else {
@@ -97,7 +98,7 @@ class GameProfiler {
       }
    }
 
-    void invokeAndMeasure(const std::string& var1, Runnable var2) {
+    void invokeAndMeasure(std::string_view var1, Runnable var2) {
       if (!isRunning()) {
          var2.run();
       } else if (!this.m_isInFrame) {
@@ -151,7 +152,7 @@ class GameProfiler {
       }
    }
 
-    ProfileArea start(const std::string& var1) {
+    ProfileArea start(std::string_view var1) {
     long var2 = getTimeNs();
     ProfileArea var4 = ProfileArea.alloc();
       var4.Key = var1;
@@ -189,7 +190,7 @@ class GameProfiler {
       }
    }
 
-    void renderPercent(const std::string& var1, long var2, int var4, int var5, float var6, float var7, float var8) {
+    void renderPercent(std::string_view var1, long var2, int var4, int var5, float var6, float var7, float var8) {
     float var9 = (float)var2 / (float)this.m_previousFrame.m_totalTime;
       var9 *= 100.0F;
       var9 = (int)(var9 * 10.0F) / 10.0F;

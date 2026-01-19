@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,8 +23,8 @@ public:
  const AnimationBoneBinding boneBindingB;
 
 public
- AnimationBoneBindingPair(const std::string &string0,
- const std::string &string1) {
+ AnimationBoneBindingPair(std::string_view string0,
+ std::string_view string1) {
  this->boneBindingA = new AnimationBoneBinding(string0);
  this->boneBindingB = new AnimationBoneBinding(string1);
  }
@@ -41,7 +42,7 @@ public
  return this->getBoneA() != nullptr && this->getBoneB() != nullptr;
  }
 
- bool matches(const std::string &string1, const std::string &string0) {
+ bool matches(std::string_view string1, std::string_view string0) {
  return StringUtils.equalsIgnoreCase(this->boneBindingA.boneName, string1) &&
  StringUtils.equalsIgnoreCase(this->boneBindingB.boneName, string0);
  }

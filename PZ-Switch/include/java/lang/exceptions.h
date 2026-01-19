@@ -1,6 +1,7 @@
 #pragma once
 #include <stdexcept>
 #include <string>
+#include <string_view>
 
 namespace java {
 namespace lang {
@@ -14,7 +15,7 @@ public:
  NullPointerException()
  : std::runtime_error("Null pointer") {}
  
- explicit NullPointerException(const std::string& message)
+ explicit NullPointerException(std::string_view message)
  : std::runtime_error(message) {}
 };
 
@@ -27,7 +28,7 @@ public:
  IllegalArgumentException()
  : std::runtime_error("Illegal argument") {}
  
- explicit IllegalArgumentException(const std::string& message)
+ explicit IllegalArgumentException(std::string_view message)
  : std::runtime_error(message) {}
 };
 
@@ -40,7 +41,7 @@ public:
  IllegalStateException()
  : std::runtime_error("Illegal state") {}
  
- explicit IllegalStateException(const std::string& message)
+ explicit IllegalStateException(std::string_view message)
  : std::runtime_error(message) {}
 };
 
@@ -53,7 +54,7 @@ public:
  UnsupportedOperationException()
  : std::runtime_error("Unsupported operation") {}
  
- explicit UnsupportedOperationException(const std::string& message)
+ explicit UnsupportedOperationException(std::string_view message)
  : std::runtime_error(message) {}
 };
 
@@ -66,7 +67,7 @@ public:
  RuntimeException()
  : std::runtime_error("Runtime exception") {}
  
- explicit RuntimeException(const std::string& message)
+ explicit RuntimeException(std::string_view message)
  : std::runtime_error(message) {}
 };
 

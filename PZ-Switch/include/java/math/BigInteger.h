@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <string_view>
 #include <cstdint>
 
 namespace java {
@@ -8,7 +9,7 @@ class BigInteger {
 public:
  BigInteger() = default;
  explicit BigInteger(long long v) : value_(std::to_string(v) {}
- explicit BigInteger(const std::string& s) : value_(s) {}
+ explicit BigInteger(std::string_view s) : value_(s) {}
 
  std::string toString() const { return value_; }
 

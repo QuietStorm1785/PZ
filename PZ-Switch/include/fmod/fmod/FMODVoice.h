@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -17,7 +18,7 @@ public:
  float priority;
 
 public
- FMODVoice(const std::string &arg0, float arg1) {
+ FMODVoice(std::string_view arg0, float arg1) {
  this->priority = arg1;
  this->sound = arg0;
  }

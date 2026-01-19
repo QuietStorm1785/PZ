@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -223,7 +224,7 @@ private
  }
 
  void tryRemoveAttachedSprite(ArrayList<IsoSpriteInstance> arrayList,
- const std::string &string) {
+ std::string_view string) {
  for (int int0 = 0; int0 < arrayList.size(); int0++) {
  IsoSpriteInstance spriteInstance = (IsoSpriteInstance)arrayList.get(int0);
  if (string == spriteInstance.getName())) {
@@ -242,7 +243,7 @@ private
  ArrayList<TileOverlays.TileOverlayEntry> entries =
  std::make_unique<ArrayList<>>();
 
- void getEntries(const std::string &string, IsoGridSquare square,
+ void getEntries(std::string_view string, IsoGridSquare square,
  ArrayList<TileOverlays.TileOverlayEntry> arrayList) {
  arrayList.clear();
 
@@ -298,7 +299,7 @@ private
  float alpha = -1.0F;
  bool bTableTop = false;
 
- bool parse(const std::string &string0) {
+ bool parse(std::string_view string0) {
  this->usage = string0.trim();
  if (StringUtils.isNullOrWhitespace(this->usage) {
  return true;

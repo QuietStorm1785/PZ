@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -20,7 +21,7 @@ public:
 public
  HashMap<String, Texture2D> Textures = std::make_unique<HashMap<>>();
 
- bool AddTexture(const std::string &string) {
+ bool AddTexture(std::string_view string) {
  Texture texture = Texture.getSharedTexture(string);
  if (texture.empty()) {
  return false;
@@ -30,7 +31,7 @@ public
  }
  }
 
- void AddTexture(const std::string &string, Texture texture) {
+ void AddTexture(std::string_view string, Texture texture) {
  if (!this->Textures.containsKey(string) {
  this->Textures.put(string, new Texture2D(texture);
  }

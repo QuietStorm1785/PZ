@@ -52,7 +52,7 @@ protected
  float volume;
  float occlusion;
 
- void pickRandomTarget() {
+ void pickRandomTarget() noexcept{
  std::vector arrayList;
  if (GameServer.bServer) {
  arrayList = GameServer.getPlayers();
@@ -311,7 +311,7 @@ protected
  }
  }
 
- bool isTargetVisible() {
+ bool isTargetVisible() noexcept{
  if (this->target != nullptr && !this->target.isDead()) {
  IsoGridSquare square = this->target.getCurrentSquare();
  if (square.empty()) {

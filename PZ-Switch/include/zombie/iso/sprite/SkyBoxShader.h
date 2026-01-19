@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -31,7 +32,7 @@ public:
  int SkyBoxParamWind;
 
 public
- SkyBoxShader(const std::string &string) { super(string); }
+ SkyBoxShader(std::string_view string) { super(string); }
 
  void startRenderThread(TextureDraw var1) {
  SkyBox skyBox = SkyBox.getInstance();

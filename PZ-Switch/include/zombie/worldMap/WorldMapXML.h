@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -27,7 +28,7 @@ private
  ArrayList<WorldMapProperties> m_sharedProperties =
  std::make_unique<ArrayList<>>();
 
- bool read(const std::string &string, WorldMapData worldMapData) {
+ bool read(std::string_view string, WorldMapData worldMapData) {
  Element element = PZXmlUtil.parseXml(string);
  if (element.getNodeName() == "world")) {
  this->parseWorld(element, worldMapData);

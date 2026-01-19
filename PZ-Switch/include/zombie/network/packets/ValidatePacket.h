@@ -18,6 +18,7 @@
 #include <filesystem>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -174,7 +175,7 @@ public:
  }
  }
 
- void log(UdpConnection udpConnection, const std::string &string) {
+ void log(UdpConnection udpConnection, std::string_view string) {
  if (this->flags != 0) {
  ConnectionManager.log(string,
  String.format("checksum-packet-%d", this->flags),

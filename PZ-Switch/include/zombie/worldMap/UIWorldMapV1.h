@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -78,7 +79,7 @@ public
  return this->m_symbolsV1;
  }
 
- void addData(const std::string &fileName) {
+ void addData(std::string_view fileName) {
  bool boolean0 = this->m_worldMap.hasData();
  this->m_worldMap.addData(fileName);
  if (!boolean0) {
@@ -90,7 +91,7 @@ public
  }
  }
 
- int getDataCount() { return this->m_worldMap.getDataCount(); }
+ int getDataCount() noexcept{ return this->m_worldMap.getDataCount(); }
 
  std::string getDataFileByIndex(int index) {
  WorldMapData worldMapData = this->m_worldMap.getDataByIndex(index);
@@ -101,7 +102,7 @@ public
 
  void endDirectoryData() { this->m_worldMap.endDirectoryData(); }
 
- void addImages(const std::string &directory) {
+ void addImages(std::string_view directory) {
  bool boolean0 = this->m_worldMap.hasImages();
  this->m_worldMap.addImages(directory);
  if (!boolean0) {
@@ -113,7 +114,7 @@ public
  }
  }
 
- int getImagesCount() { return this->m_worldMap.getImagesCount(); }
+ int getImagesCount() noexcept{ return this->m_worldMap.getImagesCount(); }
 
  void setBoundsInCells(int minX, int minY, int maxX, int maxY) {
  boolean boolean0 = minX * 300 != this->m_worldMap.m_minX ||
@@ -320,25 +321,25 @@ public
  WorldMapVisited.getInstance().setUnvisitedGridRGBA(r, g, b, a);
  }
 
- int getOptionCount() { return this->m_renderer.getOptionCount(); }
+ int getOptionCount() noexcept{ return this->m_renderer.getOptionCount(); }
 
  ConfigOption getOptionByIndex(int index) {
  return this->m_renderer.getOptionByIndex(index);
  }
 
- void setBoolean(const std::string &name, bool value) {
+ void setBoolean(std::string_view name, bool value) {
  this->m_renderer.setBoolean(name, value);
  }
 
- bool getBoolean(const std::string &name) {
+ bool getBoolean(std::string_view name) {
  return this->m_renderer.getBoolean(name);
  }
 
- void setDouble(const std::string &name, double value) {
+ void setDouble(std::string_view name, double value) {
  this->m_renderer.setDouble(name, value);
  }
 
- double getDouble(const std::string &name, double defaultValue) {
+ double getDouble(std::string_view name, double defaultValue) {
  return this->m_renderer.getDouble(name, defaultValue);
  }
 }

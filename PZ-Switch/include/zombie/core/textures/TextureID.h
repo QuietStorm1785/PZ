@@ -26,6 +26,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -119,7 +120,7 @@ public
  }
 
 public
- TextureID(const std::string &pcx, const std::string &palette) {
+ TextureID(std::string_view pcx, std::string_view palette) {
  super(nullptr, TextureIDAssetManager.instance);
  this->assetParams = nullptr;
  this->data = new ImageData(pcx, palette);
@@ -129,7 +130,7 @@ public
  }
 
 public
- TextureID(const std::string &string, int[] ints) {
+ TextureID(std::string_view string, int[] ints) {
  super(nullptr, TextureIDAssetManager.instance);
  this->assetParams = nullptr;
  this->data = new ImageData(string, ints);
@@ -139,7 +140,7 @@ public
  }
 
 public
- TextureID(const std::string &path, int red, int green, int blue) {
+ TextureID(std::string_view path, int red, int green, int blue) {
  super(nullptr, TextureIDAssetManager.instance);
  this->assetParams = nullptr;
  if (path.startsWith("/")) {
@@ -164,7 +165,7 @@ public
  }
 
 public
- TextureID(const std::string &path) {
+ TextureID(std::string_view path) {
  super(nullptr, TextureIDAssetManager.instance);
  this->assetParams = nullptr;
  if (path.toLowerCase().contains(".pcx")) {
@@ -181,7 +182,7 @@ public
  }
 
 public
- TextureID(BufferedInputStream b, const std::string &path, bool bDoMask,
+ TextureID(BufferedInputStream b, std::string_view path, bool bDoMask,
  Texture.PZFileformat format) {
  super(nullptr, TextureIDAssetManager.instance);
  this->assetParams = nullptr;
@@ -207,7 +208,7 @@ public
  }
 
 public
- TextureID(BufferedInputStream b, const std::string &path, bool bDoMask) {
+ TextureID(BufferedInputStream b, std::string_view path, bool bDoMask) {
  super(nullptr, TextureIDAssetManager.instance);
  this->assetParams = nullptr;
  this->data = new ImageData(b, bDoMask);

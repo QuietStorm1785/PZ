@@ -49,7 +49,7 @@ class Asset {
       this.m_priv.onCreated(var1);
    }
 
-    int getRefCount() const {
+    int getRefCount() const noexcept {
       return this.m_ref_count;
    }
 

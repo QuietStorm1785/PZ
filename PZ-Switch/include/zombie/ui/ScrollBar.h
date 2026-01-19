@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -49,7 +50,7 @@ public:
  std::string name;
 
 public
- ScrollBar(const std::string &_name, UIEventHandler messages, int x_pos,
+ ScrollBar(std::string_view _name, UIEventHandler messages, int x_pos,
  int y_pos, int Length, bool IsVertical) {
  this->messageParent = messages;
  this->name = _name;

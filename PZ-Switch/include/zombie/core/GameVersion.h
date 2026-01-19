@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -21,7 +22,7 @@ public:
  const std::string m_string;
 
 public
- GameVersion(int major, int minor, const std::string &suffix) {
+ GameVersion(int major, int minor, std::string_view suffix) {
  if (major < 0) {
  throw IllegalArgumentException(
  "major version must be greater than zero");
@@ -70,7 +71,7 @@ public
 
  std::string toString() { return this->m_string; }
 
- static GameVersion parse(const std::string &str) {
+ static GameVersion parse(std::string_view str) {
  Matcher matcher = Pattern.compile("([0-9]+)\\.([0-9]+)(.*)").matcher(str);
  if (matcher.matches()) {
  int int0 = PZMath.tryParseInt(matcher.group(1), 0);

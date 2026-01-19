@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -99,7 +100,7 @@ public
 
  std::string getFullType() { return this->module + "." + this->originalname; }
 
- void Load(const std::string &string0, String[] strings0) {
+ void Load(std::string_view string0, String[] strings0) {
  this->name = Translator.getRecipeName(string0);
  this->originalname = string0;
  bool boolean0 = false;
@@ -260,7 +261,7 @@ public
  }
  }
 
- void DoSource(const std::string &type) {
+ void DoSource(std::string_view type) {
  Recipe.Source source = new Recipe.Source();
  if (type.contains("=")) {
  source.count = new Float(type.split("=")[1].trim());
@@ -298,7 +299,7 @@ public
  }
  }
 
- void DoResult(const std::string &type) {
+ void DoResult(std::string_view type) {
  Recipe.Result result = new Recipe.Result();
  if (type.contains("=")) {
  String[] strings0 = type.split("=");
@@ -327,11 +328,11 @@ public
 
  std::string getSound() { return this->Sound; }
 
- void setSound(const std::string &sound) { this->Sound = sound; }
+ void setSound(std::string_view sound) { this->Sound = sound; }
 
  std::string getOriginalname() { return this->originalname; }
 
- void setOriginalname(const std::string &_originalname) {
+ void setOriginalname(std::string_view _originalname) {
  this->originalname = _originalname;
  }
 
@@ -343,7 +344,7 @@ public
 
  std::string getCategory() { return this->category; }
 
- void setCategory(const std::string &_category) { this->category = _category; }
+ void setCategory(std::string_view _category) { this->category = _category; }
 
 public
  ArrayList<String> getRequiredSkills() {
@@ -366,7 +367,7 @@ public
  return arrayList;
  }
 
- int getRequiredSkillCount() {
+ int getRequiredSkillCount() noexcept{
  return this->skillRequired.empty() ? 0 : this->skillRequired.size();
  }
 
@@ -407,7 +408,7 @@ public
  return nullptr;
  }
 
- bool isDestroy(const std::string &sourceFullType) {
+ bool isDestroy(std::string_view sourceFullType) {
  Recipe.Source source = this->findSource(sourceFullType);
  if (source != nullptr) {
  return source.isDestroy();
@@ -417,7 +418,7 @@ public
  }
  }
 
- bool isKeep(const std::string &sourceFullType) {
+ bool isKeep(std::string_view sourceFullType) {
  Recipe.Source source = this->findSource(sourceFullType);
  if (source != nullptr) {
  return source.isKeep();
@@ -450,35 +451,35 @@ public
 
  std::string getNearItem() { return this->nearItem; }
 
- void setNearItem(const std::string &_nearItem) { this->nearItem = _nearItem; }
+ void setNearItem(std::string_view _nearItem) { this->nearItem = _nearItem; }
 
  std::string getCanPerform() { return this->LuaCanPerform; }
 
- void setCanPerform(const std::string &functionName) {
+ void setCanPerform(std::string_view functionName) {
  this->LuaCanPerform = functionName;
  }
 
  std::string getLuaTest() { return this->LuaTest; }
 
- void setLuaTest(const std::string &functionName) {
+ void setLuaTest(std::string_view functionName) {
  this->LuaTest = functionName;
  }
 
  std::string getLuaCreate() { return this->LuaCreate; }
 
- void setLuaCreate(const std::string &functionName) {
+ void setLuaCreate(std::string_view functionName) {
  this->LuaCreate = functionName;
  }
 
  std::string getLuaGrab() { return this->LuaGrab; }
 
- void setLuaGrab(const std::string &functionName) {
+ void setLuaGrab(std::string_view functionName) {
  this->LuaGrab = functionName;
  }
 
  std::string getLuaGiveXP() { return this->LuaGiveXP; }
 
- void setLuaGiveXP(const std::string &functionName) {
+ void setLuaGiveXP(std::string_view functionName) {
  this->LuaGiveXP = functionName;
  }
 
@@ -490,15 +491,15 @@ public
 
  std::string getAnimNode() { return this->AnimNode; }
 
- void setAnimNode(const std::string &animNode) { this->AnimNode = animNode; }
+ void setAnimNode(std::string_view animNode) { this->AnimNode = animNode; }
 
  std::string getProp1() { return this->Prop1; }
 
- void setProp1(const std::string &prop1) { this->Prop1 = prop1; }
+ void setProp1(std::string_view prop1) { this->Prop1 = prop1; }
 
  std::string getProp2() { return this->Prop2; }
 
- void setProp2(const std::string &prop2) { this->Prop2 = prop2; }
+ void setProp2(std::string_view prop2) { this->Prop2 = prop2; }
 
  std::string getTooltip() { return this->tooltip; }
 
@@ -542,19 +543,19 @@ public
 
  std::string getType() { return this->type; }
 
- void setType(const std::string &_type) { this->type = _type; }
+ void setType(std::string_view _type) { this->type = _type; }
 
- int getCount() { return this->count; }
+ int getCount() noexcept{ return this->count; }
 
  void setCount(int _count) { this->count = _count; }
 
  std::string getModule() { return this->module; }
 
- void setModule(const std::string &_module) { this->module = _module; }
+ void setModule(std::string_view _module) { this->module = _module; }
 
  std::string getFullType() { return this->module + "." + this->type; }
 
- int getDrainableCount() { return this->drainableCount; }
+ int getDrainableCount() noexcept{ return this->drainableCount; }
 
  void setDrainableCount(int _count) { this->drainableCount = _count; }
  }
@@ -575,7 +576,7 @@ public
 
  void setKeep(bool _keep) { this->keep = _keep; }
 
- float getCount() { return this->count; }
+ float getCount() noexcept{ return this->count; }
 
  void setCount(float _count) { this->count = _count; }
 

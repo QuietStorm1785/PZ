@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -22,7 +23,7 @@ public:
 
 public
  TextBox(UIFont uIFont, int int0, int int1, int int2,
- const std::string &string) {
+ std::string_view string) {
  this->font = uIFont;
  this->x = int0;
  this->y = int1;
@@ -31,7 +32,7 @@ public
  this->Paginate();
  }
 
- void onresize() { this->Paginate(); }
+ void onresize() noexcept{ this->Paginate(); }
 
  void render() {
  if (this->isVisible()) {
@@ -108,7 +109,7 @@ public
  }
 }
 
- void SetText(const std::string& string) {
+ void SetText(std::string_view string) {
  this->Text = string;
  this->Paginate();
 }

@@ -39,6 +39,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -293,7 +294,7 @@ public
  }
  }
 
- void pathToVehicleArea(BaseVehicle vehicle, const std::string &string) {
+ void pathToVehicleArea(BaseVehicle vehicle, std::string_view string) {
  Vector2 vector = vehicle.getAreaCenter(string);
  if (vector.empty()) {
  this->targetX = this->chr.getX();
@@ -420,11 +421,11 @@ public
  this->actualPos.clear();
  }
 
- float getTargetX() { return this->targetX; }
+ float getTargetX() noexcept{ return this->targetX; }
 
- float getTargetY() { return this->targetY; }
+ float getTargetY() noexcept{ return this->targetY; }
 
- float getTargetZ() { return this->targetZ; }
+ float getTargetZ() noexcept{ return this->targetZ; }
 
  float getPathLength() {
  if (this->path != nullptr && this->path.nodes.size() != 0) {
@@ -459,7 +460,7 @@ public
  }
  }
 
- IsoGameCharacter getTargetChar() {
+ IsoGameCharacter getTargetChar() noexcept{
  return this->goal == PathFindBehavior2.Goal.Character ? this->goalCharacter
  : nullptr;
  }
@@ -850,7 +851,7 @@ public
  }
  }
 
- bool shouldGetUpFromCrawl() {
+ bool shouldGetUpFromCrawl() const noexcept {
  return this->chr.getVariableBoolean("ShouldStandUp");
  }
 
