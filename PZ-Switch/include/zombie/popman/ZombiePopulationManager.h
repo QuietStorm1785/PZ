@@ -6,8 +6,10 @@
 #include "zombie/popman/OptimizedZombieManager.h"
 #include "zombie/popman/SIMDZombieOptimizer.h"
 #include "zombie/popman/MultithreadingZombieOptimizer.h"
+#include "zombie/popman/LockFreeZombieOptimizer.h"
 #include "SIMDOptimization.h"
 #include "MultithreadingFramework.h"
+#include "LockFreeStructures.h"
 #include "zombie/DebugFileWatcher.h"
 #include "zombie/GameTime.h"
 #include "zombie/MapCollisionData.h"
@@ -84,6 +86,9 @@ public:
  // Multithreading optimization state (Day 7)
  ::threading::ThreadPool* thread_pool_ = nullptr;
  bool multithreading_enabled_ = false;
+
+ // Lock-free optimization state (Day 8)
+ bool lockfree_enabled_ = false;
  short[] realZombieCount;
 private
  short[] realZombieCount2;
@@ -1040,6 +1045,137 @@ private
  if (!multithreading_enabled_) return 0.0;
  return threading_optimizer::MultithreadingZombieOptimizer::parallel_collision_detection(
  positions, zombie_count, collision_func, radius);
+ }
+
+ // =========================================================================
+ // LOCK-FREE OPTIMIZATION METHODS (Day 8 - Advanced Optimizations Phase 2)
+ // =========================================================================
+
+ /**
+  * @brief Initialize lock-free optimization layer
+  * 
+  * Called during game startup to initialize lock-free queues and stacks
+  * for audio commands, collision events, and entity pool management.
+  * 
+  * Eliminates mutex contention in high-frequency operations.
+  * Performance Target: +5-10% FPS from reduced lock contention
+  */
+ void initialize_lockfree_optimizations() noexcept {
+ try {
+ lockfree_optimizer::LockFreeZombieOptimizer::initialize();
+ 
+ // Pre-allocate some entities in the pool
+ lockfree_optimizer::LockFreeZombieOptimizer::preallocate_entities(256);
+ 
+ printf("Lock-Free Optimization: Initializing...\n");
+ lockfree_optimizer::LockFreeZombieOptimizer::log_config();
+ 
+ lockfree_enabled_ = true;
+ printf("Lock-Free Optimization: Active\n");
+ } catch (const std::exception& e) {
+ printf("Lock-Free Optimization: Failed to initialize (%s)\n", 
+        e.what());
+ lockfree_enabled_ = false;
+ }
+ }
+
+ /**
+  * @brief Check if lock-free optimizations are enabled
+  */
+ bool is_lockfree_enabled() const noexcept {
+ return lockfree_enabled_;
+ }
+
+ /**
+  * @brief Enqueue an audio command lock-free
+  * 
+  * Safe to call from multiple threads without blocking.
+  * 
+  * @param cmd Audio command
+  * @return true if queued, false if queue full
+  */
+ bool enqueue_audio_command(
+ const lockfree_optimizer::AudioCommand& cmd) noexcept {
+ 
+ if (!lockfree_enabled_) return false;
+ return lockfree_optimizer::LockFreeZombieOptimizer::enqueue_audio_command(cmd);
+ }
+
+ /**
+  * @brief Process all queued audio commands
+  * 
+  * Drains the lock-free audio queue.
+  * 
+  * @param handler Function called for each command
+  * @return Number of commands processed
+  */
+ size_t process_audio_commands(
+ std::function<void(const lockfree_optimizer::AudioCommand&)> handler) noexcept {
+ 
+ if (!lockfree_enabled_) return 0;
+ return lockfree_optimizer::LockFreeZombieOptimizer::process_audio_commands(handler);
+ }
+
+ /**
+  * @brief Enqueue a collision event lock-free
+  * 
+  * Multiple collision threads can write without contention.
+  * 
+  * @param evt Collision event
+  * @return true if queued, false if queue full
+  */
+ bool enqueue_collision_event(
+ const lockfree_optimizer::CollisionEvent& evt) noexcept {
+ 
+ if (!lockfree_enabled_) return false;
+ return lockfree_optimizer::LockFreeZombieOptimizer::enqueue_collision_event(evt);
+ }
+
+ /**
+  * @brief Process all queued collision events
+  * 
+  * Drains the lock-free collision queue.
+  * 
+  * @param handler Function called for each event
+  * @return Number of events processed
+  */
+ size_t process_collision_events(
+ std::function<void(const lockfree_optimizer::CollisionEvent&)> handler) noexcept {
+ 
+ if (!lockfree_enabled_) return 0;
+ return lockfree_optimizer::LockFreeZombieOptimizer::process_collision_events(handler);
+ }
+
+ /**
+  * @brief Allocate an entity from lock-free pool
+  * 
+  * @return Entity handle from pool, or invalid if empty
+  */
+ lockfree_optimizer::PooledEntityHandle allocate_entity() noexcept {
+ if (!lockfree_enabled_) return lockfree_optimizer::PooledEntityHandle{0, 0};
+ return lockfree_optimizer::LockFreeZombieOptimizer::allocate_entity();
+ }
+
+ /**
+  * @brief Return an entity to lock-free pool
+  * 
+  * @param handle Entity handle to deallocate
+  */
+ void deallocate_entity(
+ const lockfree_optimizer::PooledEntityHandle& handle) noexcept {
+ 
+ if (!lockfree_enabled_) return;
+ lockfree_optimizer::LockFreeZombieOptimizer::deallocate_entity(handle);
+ }
+
+ /**
+  * @brief Get lock-free queue statistics
+  */
+ lockfree_optimizer::LockFreeZombieOptimizer::QueueStats get_lockfree_stats() const noexcept {
+ if (!lockfree_enabled_) {
+ return lockfree_optimizer::LockFreeZombieOptimizer::QueueStats{0, 0, false, false};
+ }
+ return lockfree_optimizer::LockFreeZombieOptimizer::get_queue_stats();
  }
 
 private:

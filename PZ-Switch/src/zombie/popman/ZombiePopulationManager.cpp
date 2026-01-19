@@ -15,6 +15,9 @@ ZombiePopulationManager::ZombiePopulationManager()
     
     // Initialize multithreading optimizations on construction (Day 7)
     initialize_multithreading_optimizations();
+    
+    // Initialize lock-free optimizations on construction (Day 8)
+    initialize_lockfree_optimizations();
 }
 
 void ZombiePopulationManager::noise(const std::string &string) {
