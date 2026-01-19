@@ -9,3 +9,4 @@ PZ-Switch/build-switch/*.zip
 logs/
 Jars/
 .cache/
+JavaSrc/
