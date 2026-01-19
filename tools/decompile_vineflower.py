@@ -38,7 +38,7 @@ except ImportError:
 class RosettaDocumentation:
     """Load and provide access to Rosetta documentation"""
     def __init__(self, rosetta_base: str = None, cache_path: Optional[str] = None):
-        self.rosetta_base = rosetta_base or "/workspaces/PZ/pz-rosetta-source-main/rosetta/java"
+        self.rosetta_base = rosetta_base or "/workspaces/PZ/tools/pz-rosetta-source-main/rosetta/java"
         self.class_docs = {}
         self.methods_docs = defaultdict(dict)
         self.fields_docs = defaultdict(dict)

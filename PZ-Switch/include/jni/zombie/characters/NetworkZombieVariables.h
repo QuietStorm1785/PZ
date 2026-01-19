@@ -1,0 +1,110 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/ai/states/ZombieTurnAlerted.h"
+#include "zombie/core/skinnedmodel/advancedanimation/IAnimatable.h"
+#include "zombie/network/GameClient.h"
+#include "zombie/network/GameServer.h"
+
+namespace zombie {
+namespace characters {
+
+
+class NetworkZombieVariables {
+:
+    static int getInt(IsoZombie var0, short var1) {
+      switch (var1) {
+         case 0:
+            return (int)(var0.Health * 1000.0F);
+         case 1:
+            if (var0.target == nullptr) {
+               return -1;
+            }
+
+            return ((IAnimatable)var0.target).getOnlineID();
+         case 2:
+            return (int)(var0.speedMod * 1000.0F);
+         case 3:
+            return (int)var0.TimeSinceSeenFlesh;
+         case 4:
+    float var2 = (Float)var0.getStateMachineParams(ZombieTurnAlerted.instance()).get(ZombieTurnAlerted.PARAM_TARGET_ANGLE);
+            if (var2 == nullptr) {
+    return 0;
+            }
+
+            return var2.intValue();
+         default:
+    return 0;
+      }
+   }
+
+    static void setInt(IsoZombie var0, short var1, int var2) {
+      switch (var1) {
+         case 0:
+            var0.Health = var2 / 1000.0F;
+            break;
+         case 1:
+            if (var2 == -1) {
+               var0.setTargetSeenTime(0.0F);
+               var0.target = nullptr;
+            } else {
+    IsoPlayer var3 = (IsoPlayer)GameClient.IDToPlayerMap.get((short)var2);
+               if (GameServer.bServer) {
+                  var3 = (IsoPlayer)GameServer.IDToPlayerMap.get((short)var2);
+               }
+
+               if (var3 != var0.target) {
+                  var0.setTargetSeenTime(0.0F);
+                  var0.target = var3;
+               }
+            }
+            break;
+         case 2:
+            var0.speedMod = var2 / 1000.0F;
+            break;
+         case 3:
+            var0.TimeSinceSeenFlesh = var2;
+            break;
+         case 4:
+            var0.getStateMachineParams(ZombieTurnAlerted.instance()).put(ZombieTurnAlerted.PARAM_TARGET_ANGLE, (float)var2);
+      }
+   }
+
+    static short getBooleanVariables(IsoZombie var0) {
+    short var1 = 0;
+      var1 = (short)(var1 | (var0.isFakeDead() ? 1 : 0));
+      var1 = (short)(var1 | (var0.bLunger ? 2 : 0));
+      var1 = (short)(var1 | (var0.bRunning ? 4 : 0));
+      var1 = (short)(var1 | (var0.isCrawling() ? 8 : 0));
+      var1 = (short)(var1 | (var0.isSitAgainstWall() ? 16 : 0));
+      var1 = (short)(var1 | (var0.isReanimatedPlayer() ? 32 : 0));
+      var1 = (short)(var1 | (var0.isOnFire() ? 64 : 0));
+      var1 = (short)(var1 | (var0.isUseless() ? 128 : 0));
+      return (short)(var1 | (var0.isOnFloor() ? 256 : 0));
+   }
+
+    static void setBooleanVariables(IsoZombie var0, short var1) {
+      var0.setFakeDead((var1 & 1) != 0);
+      var0.bLunger = (var1 & 2) != 0;
+      var0.bRunning = (var1 & 4) != 0;
+      var0.setCrawler((var1 & 8) != 0);
+      var0.setSitAgainstWall((var1 & 16) != 0);
+      var0.setReanimatedPlayer((var1 & 32) != 0);
+      if ((var1 & 64) != 0) {
+         var0.SetOnFire();
+      } else {
+         var0.StopBurning();
+      }
+
+      var0.setUseless((var1 & 128) != 0);
+      if (var0.isReanimatedPlayer()) {
+         var0.setOnFloor((var1 & 256) != 0);
+      }
+   }
+}
+} // namespace characters
+} // namespace zombie

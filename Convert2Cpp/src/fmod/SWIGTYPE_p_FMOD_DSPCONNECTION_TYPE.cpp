@@ -1,0 +1,20 @@
+#include "fmod/SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE.h"
+
+namespace fmod {
+
+protected SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE::SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE(long var1, bool var3) {
+    // TODO: Implement SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE
+    return nullptr;
+}
+
+protected SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE::SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE() {
+    // TODO: Implement SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE
+    return nullptr;
+}
+
+long SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE::getCPtr(SWIGTYPE_p_FMOD_DSPCONNECTION_TYPE var0) {
+    // TODO: Implement getCPtr
+    return 0;
+}
+
+} // namespace fmod

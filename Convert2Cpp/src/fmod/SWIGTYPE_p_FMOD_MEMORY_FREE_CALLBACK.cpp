@@ -1,0 +1,20 @@
+#include "fmod/SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK.h"
+
+namespace fmod {
+
+protected SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK::SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK(long var1, bool var3) {
+    // TODO: Implement SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK
+    return nullptr;
+}
+
+protected SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK::SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK() {
+    // TODO: Implement SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK
+    return nullptr;
+}
+
+long SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK::getCPtr(SWIGTYPE_p_FMOD_MEMORY_FREE_CALLBACK var0) {
+    // TODO: Implement getCPtr
+    return 0;
+}
+
+} // namespace fmod

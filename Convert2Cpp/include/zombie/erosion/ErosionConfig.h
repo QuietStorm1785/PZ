@@ -1,0 +1,313 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/core/Core.h"
+#include "zombie/debug/DebugLog.h"
+#include "zombie/erosion/ErosionConfig/Debug.h"
+#include "zombie/erosion/ErosionConfig/Season.h"
+#include "zombie/erosion/ErosionConfig/Seeds.h"
+#include "zombie/erosion/ErosionConfig/Time.h"
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+
+namespace zombie {
+namespace erosion {
+
+
+class ErosionConfig {
+public:
+    const Seeds seeds = new Seeds();
+    const Time time = new Time();
+    const Debug debug = new Debug();
+    const Season season = new Season();
+
+    void save(ByteBuffer var1) {
+      var1.putInt(this.seeds.seedMain_0);
+      var1.putInt(this.seeds.seedMain_1);
+      var1.putInt(this.seeds.seedMain_2);
+      var1.putInt(this.seeds.seedMoisture_0);
+      var1.putInt(this.seeds.seedMoisture_1);
+      var1.putInt(this.seeds.seedMoisture_2);
+      var1.putInt(this.seeds.seedMinerals_0);
+      var1.putInt(this.seeds.seedMinerals_1);
+      var1.putInt(this.seeds.seedMinerals_2);
+      var1.putInt(this.seeds.seedKudzu_0);
+      var1.putInt(this.seeds.seedKudzu_1);
+      var1.putInt(this.seeds.seedKudzu_2);
+      var1.putInt(this.time.tickunit);
+      var1.putInt(this.time.ticks);
+      var1.putInt(this.time.eticks);
+      var1.putInt(this.time.epoch);
+      var1.putInt(this.season.lat);
+      var1.putInt(this.season.tempMax);
+      var1.putInt(this.season.tempMin);
+      var1.putInt(this.season.tempDiff);
+      var1.putInt(this.season.seasonLag);
+      var1.putFloat(this.season.noon);
+      var1.putInt(this.season.seedA);
+      var1.putInt(this.season.seedB);
+      var1.putInt(this.season.seedC);
+      var1.putFloat(this.season.jan);
+      var1.putFloat(this.season.feb);
+      var1.putFloat(this.season.mar);
+      var1.putFloat(this.season.apr);
+      var1.putFloat(this.season.may);
+      var1.putFloat(this.season.jun);
+      var1.putFloat(this.season.jul);
+      var1.putFloat(this.season.aug);
+      var1.putFloat(this.season.sep);
+      var1.putFloat(this.season.oct);
+      var1.putFloat(this.season.nov);
+      var1.putFloat(this.season.dec);
+   }
+
+    void load(ByteBuffer var1) {
+      this.seeds.seedMain_0 = var1.getInt();
+      this.seeds.seedMain_1 = var1.getInt();
+      this.seeds.seedMain_2 = var1.getInt();
+      this.seeds.seedMoisture_0 = var1.getInt();
+      this.seeds.seedMoisture_1 = var1.getInt();
+      this.seeds.seedMoisture_2 = var1.getInt();
+      this.seeds.seedMinerals_0 = var1.getInt();
+      this.seeds.seedMinerals_1 = var1.getInt();
+      this.seeds.seedMinerals_2 = var1.getInt();
+      this.seeds.seedKudzu_0 = var1.getInt();
+      this.seeds.seedKudzu_1 = var1.getInt();
+      this.seeds.seedKudzu_2 = var1.getInt();
+      this.time.tickunit = var1.getInt();
+      this.time.ticks = var1.getInt();
+      this.time.eticks = var1.getInt();
+      this.time.epoch = var1.getInt();
+      this.season.lat = var1.getInt();
+      this.season.tempMax = var1.getInt();
+      this.season.tempMin = var1.getInt();
+      this.season.tempDiff = var1.getInt();
+      this.season.seasonLag = var1.getInt();
+      this.season.noon = var1.getFloat();
+      this.season.seedA = var1.getInt();
+      this.season.seedB = var1.getInt();
+      this.season.seedC = var1.getInt();
+      this.season.jan = var1.getFloat();
+      this.season.feb = var1.getFloat();
+      this.season.mar = var1.getFloat();
+      this.season.apr = var1.getFloat();
+      this.season.may = var1.getFloat();
+      this.season.jun = var1.getFloat();
+      this.season.jul = var1.getFloat();
+      this.season.aug = var1.getFloat();
+      this.season.sep = var1.getFloat();
+      this.season.oct = var1.getFloat();
+      this.season.nov = var1.getFloat();
+      this.season.dec = var1.getFloat();
+   }
+
+    void writeFile(const std::string& var1) {
+      try {
+         if (Core.getInstance().isNoSave()) {
+            return;
+         }
+
+    File var2 = new File(var1);
+         if (!var2.exists()) {
+            var2.createNewFile();
+         }
+
+    FileWriter var3 = new FileWriter(var2, false);
+         var3.write("seeds.seedMain_0 = " + this.seeds.seedMain_0 + "\n");
+         var3.write("seeds.seedMain_1 = " + this.seeds.seedMain_1 + "\n");
+         var3.write("seeds.seedMain_2 = " + this.seeds.seedMain_2 + "\n");
+         var3.write("seeds.seedMoisture_0 = " + this.seeds.seedMoisture_0 + "\n");
+         var3.write("seeds.seedMoisture_1 = " + this.seeds.seedMoisture_1 + "\n");
+         var3.write("seeds.seedMoisture_2 = " + this.seeds.seedMoisture_2 + "\n");
+         var3.write("seeds.seedMinerals_0 = " + this.seeds.seedMinerals_0 + "\n");
+         var3.write("seeds.seedMinerals_1 = " + this.seeds.seedMinerals_1 + "\n");
+         var3.write("seeds.seedMinerals_2 = " + this.seeds.seedMinerals_2 + "\n");
+         var3.write("seeds.seedKudzu_0 = " + this.seeds.seedKudzu_0 + "\n");
+         var3.write("seeds.seedKudzu_1 = " + this.seeds.seedKudzu_1 + "\n");
+         var3.write("seeds.seedKudzu_2 = " + this.seeds.seedKudzu_2 + "\n");
+         var3.write("\n");
+         var3.write("time.tickunit = " + this.time.tickunit + "\n");
+         var3.write("time.ticks = " + this.time.ticks + "\n");
+         var3.write("time.eticks = " + this.time.eticks + "\n");
+         var3.write("time.epoch = " + this.time.epoch + "\n");
+         var3.write("\n");
+         var3.write("season.lat = " + this.season.lat + "\n");
+         var3.write("season.tempMax = " + this.season.tempMax + "\n");
+         var3.write("season.tempMin = " + this.season.tempMin + "\n");
+         var3.write("season.tempDiff = " + this.season.tempDiff + "\n");
+         var3.write("season.seasonLag = " + this.season.seasonLag + "\n");
+         var3.write("season.noon = " + this.season.noon + "\n");
+         var3.write("season.seedA = " + this.season.seedA + "\n");
+         var3.write("season.seedB = " + this.season.seedB + "\n");
+         var3.write("season.seedC = " + this.season.seedC + "\n");
+         var3.write("season.jan = " + this.season.jan + "\n");
+         var3.write("season.feb = " + this.season.feb + "\n");
+         var3.write("season.mar = " + this.season.mar + "\n");
+         var3.write("season.apr = " + this.season.apr + "\n");
+         var3.write("season.may = " + this.season.may + "\n");
+         var3.write("season.jun = " + this.season.jun + "\n");
+         var3.write("season.jul = " + this.season.jul + "\n");
+         var3.write("season.aug = " + this.season.aug + "\n");
+         var3.write("season.sep = " + this.season.sep + "\n");
+         var3.write("season.oct = " + this.season.oct + "\n");
+         var3.write("season.nov = " + this.season.nov + "\n");
+         var3.write("season.dec = " + this.season.dec + "\n");
+         var3.write("\n");
+         var3.write("debug.enabled = " + this.debug.enabled + "\n");
+         var3.write("debug.startday = " + this.debug.startday + "\n");
+         var3.write("debug.startmonth = " + this.debug.startmonth + "\n");
+         var3.close();
+      } catch (Exception var4) {
+         var4.printStackTrace();
+      }
+   }
+
+    bool readFile(const std::string& var1) {
+      try {
+    File var2 = new File(var1);
+         if (!var2.exists()) {
+    return false;
+         } else {
+    BufferedReader var3 = new BufferedReader(new FileReader(var2));
+
+            while (true) {
+    std::string var4 = var3.readLine();
+               if (var4 == nullptr) {
+                  var3.close();
+    return true;
+               }
+
+               if (!var4.trim().startsWith("--")) {
+                  if (!var4.contains("=")) {
+                     if (!var4.trim().isEmpty()) {
+                        DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
+                     }
+                  } else {
+                     String[] var5 = var4.split("=");
+                     if (var5.length != 2) {
+                        DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
+                     } else {
+    std::string var6 = var5[0].trim();
+    std::string var7 = var5[1].trim();
+                        if (var6.startsWith("seeds.")) {
+                           if ("seeds.seedMain_0" == var6)) {
+                              this.seeds.seedMain_0 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMain_1" == var6)) {
+                              this.seeds.seedMain_1 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMain_2" == var6)) {
+                              this.seeds.seedMain_2 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMoisture_0" == var6)) {
+                              this.seeds.seedMoisture_0 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMoisture_1" == var6)) {
+                              this.seeds.seedMoisture_1 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMoisture_2" == var6)) {
+                              this.seeds.seedMoisture_2 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMinerals_0" == var6)) {
+                              this.seeds.seedMinerals_0 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMinerals_1" == var6)) {
+                              this.seeds.seedMinerals_1 = Integer.parseInt(var7);
+                           } else if ("seeds.seedMinerals_2" == var6)) {
+                              this.seeds.seedMinerals_2 = Integer.parseInt(var7);
+                           } else if ("seeds.seedKudzu_0" == var6)) {
+                              this.seeds.seedKudzu_0 = Integer.parseInt(var7);
+                           } else if ("seeds.seedKudzu_1" == var6)) {
+                              this.seeds.seedKudzu_1 = Integer.parseInt(var7);
+                           } else if ("seeds.seedKudzu_2" == var6)) {
+                              this.seeds.seedKudzu_2 = Integer.parseInt(var7);
+                           } else {
+                              DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
+                           }
+                        } else if (var6.startsWith("time.")) {
+                           if ("time.tickunit" == var6)) {
+                              this.time.tickunit = Integer.parseInt(var7);
+                           } else if ("time.ticks" == var6)) {
+                              this.time.ticks = Integer.parseInt(var7);
+                           } else if ("time.eticks" == var6)) {
+                              this.time.eticks = Integer.parseInt(var7);
+                           } else if ("time.epoch" == var6)) {
+                              this.time.epoch = Integer.parseInt(var7);
+                           } else {
+                              DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
+                           }
+                        } else if (var6.startsWith("season.")) {
+                           if ("season.lat" == var6)) {
+                              this.season.lat = Integer.parseInt(var7);
+                           } else if ("season.tempMax" == var6)) {
+                              this.season.tempMax = Integer.parseInt(var7);
+                           } else if ("season.tempMin" == var6)) {
+                              this.season.tempMin = Integer.parseInt(var7);
+                           } else if ("season.tempDiff" == var6)) {
+                              this.season.tempDiff = Integer.parseInt(var7);
+                           } else if ("season.seasonLag" == var6)) {
+                              this.season.seasonLag = Integer.parseInt(var7);
+                           } else if ("season.noon" == var6)) {
+                              this.season.noon = Float.parseFloat(var7);
+                           } else if ("season.seedA" == var6)) {
+                              this.season.seedA = Integer.parseInt(var7);
+                           } else if ("season.seedB" == var6)) {
+                              this.season.seedB = Integer.parseInt(var7);
+                           } else if ("season.seedC" == var6)) {
+                              this.season.seedC = Integer.parseInt(var7);
+                           } else if ("season.jan" == var6)) {
+                              this.season.jan = Float.parseFloat(var7);
+                           } else if ("season.feb" == var6)) {
+                              this.season.feb = Float.parseFloat(var7);
+                           } else if ("season.mar" == var6)) {
+                              this.season.mar = Float.parseFloat(var7);
+                           } else if ("season.apr" == var6)) {
+                              this.season.apr = Float.parseFloat(var7);
+                           } else if ("season.may" == var6)) {
+                              this.season.may = Float.parseFloat(var7);
+                           } else if ("season.jun" == var6)) {
+                              this.season.jun = Float.parseFloat(var7);
+                           } else if ("season.jul" == var6)) {
+                              this.season.jul = Float.parseFloat(var7);
+                           } else if ("season.aug" == var6)) {
+                              this.season.aug = Float.parseFloat(var7);
+                           } else if ("season.sep" == var6)) {
+                              this.season.sep = Float.parseFloat(var7);
+                           } else if ("season.oct" == var6)) {
+                              this.season.oct = Float.parseFloat(var7);
+                           } else if ("season.nov" == var6)) {
+                              this.season.nov = Float.parseFloat(var7);
+                           } else if ("season.dec" == var6)) {
+                              this.season.dec = Float.parseFloat(var7);
+                           } else {
+                              DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
+                           }
+                        } else if (var6.startsWith("debug.")) {
+                           if ("debug.enabled" == var6)) {
+                              this.debug.enabled = Boolean.parseBoolean(var7);
+                           } else if ("debug.startday" == var6)) {
+                              this.debug.startday = Integer.parseInt(var7);
+                           } else if ("debug.startmonth" == var6)) {
+                              this.debug.startmonth = Integer.parseInt(var7);
+                           }
+                        } else {
+                           DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      } catch (Exception var8) {
+         var8.printStackTrace();
+    return false;
+      }
+   }
+
+    Debug getDebug() {
+      return this.debug;
+   }
+
+    void consolePrint() {
+   }
+}
+} // namespace erosion
+} // namespace zombie

@@ -1,0 +1,18 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "gnu/trove/map/hash/THashMap.h"
+
+namespace zombie {
+namespace asset {
+
+
+class AssetManager {
+public:
+}
+} // namespace asset
+} // namespace zombie
