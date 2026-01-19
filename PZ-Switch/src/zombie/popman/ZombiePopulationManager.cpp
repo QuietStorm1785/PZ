@@ -12,6 +12,9 @@ ZombiePopulationManager::ZombiePopulationManager()
     }
     // Initialize SIMD optimizations on construction
     initialize_simd_optimizations();
+    
+    // Initialize multithreading optimizations on construction (Day 7)
+    initialize_multithreading_optimizations();
 }
 
 void ZombiePopulationManager::noise(const std::string &string) {

@@ -5,7 +5,9 @@
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "zombie/popman/OptimizedZombieManager.h"
 #include "zombie/popman/SIMDZombieOptimizer.h"
+#include "zombie/popman/MultithreadingZombieOptimizer.h"
 #include "SIMDOptimization.h"
+#include "MultithreadingFramework.h"
 #include "zombie/DebugFileWatcher.h"
 #include "zombie/GameTime.h"
 #include "zombie/MapCollisionData.h"
@@ -78,7 +80,10 @@ public:
  const LoadedAreas loadedServerCells = new LoadedAreas(true);
  const PlayerSpawns playerSpawns = new PlayerSpawns();
  std::unique_ptr<OptimizedZombieManager> zombie_pool_manager;
-private
+
+ // Multithreading optimization state (Day 7)
+ ::threading::ThreadPool* thread_pool_ = nullptr;
+ bool multithreading_enabled_ = false;
  short[] realZombieCount;
 private
  short[] realZombieCount2;
@@ -921,6 +926,120 @@ private
   */
  int get_simd_level() const noexcept {
  return SIMDZombieOptimizer::get_simd_level();
+ }
+
+ // =========================================================================
+ // MULTITHREADING OPTIMIZATION METHODS (Day 7 - Advanced Optimizations Phase 2)
+ // =========================================================================
+
+ /**
+  * @brief Initialize multithreading optimization layer
+  * 
+  * Called during game startup to initialize thread pool and set up
+  * parallel processing infrastructure for zombie AI, collision detection,
+  * and pathfinding. 
+  * 
+  * Performance Target: +10-20% FPS from parallelization
+  */
+ void initialize_multithreading_optimizations() noexcept {
+ try {
+ // Get or create global thread pool
+ thread_pool_ = &::threading::get_global_thread_pool();
+ 
+ // Initialize the zombie-specific optimizer
+ threading_optimizer::MultithreadingZombieOptimizer::initialize(*thread_pool_);
+ 
+ // Log configuration
+ printf("Multithreading Optimization: Initializing...\n");
+ printf("  Worker threads: %zu\n", 
+        threading_optimizer::MultithreadingZombieOptimizer::get_worker_count());
+ 
+ multithreading_enabled_ = true;
+ printf("Multithreading Optimization: Active\n");
+ } catch (const std::exception& e) {
+ printf("Multithreading Optimization: Failed to initialize (%s)\n", 
+        e.what());
+ multithreading_enabled_ = false;
+ }
+ }
+
+ /**
+  * @brief Check if multithreading optimizations are enabled
+  */
+ bool is_multithreading_enabled() const noexcept {
+ return multithreading_enabled_;
+ }
+
+ /**
+  * @brief Get number of worker threads in pool
+  */
+ size_t get_worker_thread_count() const noexcept {
+ return threading_optimizer::MultithreadingZombieOptimizer::get_worker_count();
+ }
+
+ /**
+  * @brief Get thread pool utilization (0.0 to 1.0)
+  */
+ double get_thread_pool_utilization() const noexcept {
+ return threading_optimizer::MultithreadingZombieOptimizer::get_utilization();
+ }
+
+ /**
+  * @brief Get number of pending tasks in thread pool
+  */
+ size_t get_pending_tasks() const noexcept {
+ return threading_optimizer::MultithreadingZombieOptimizer::get_pending_tasks();
+ }
+
+ /**
+  * @brief Wait for all pending thread pool tasks
+  */
+ void wait_thread_pool() noexcept {
+ if (multithreading_enabled_) {
+ threading_optimizer::MultithreadingZombieOptimizer::wait_all();
+ }
+ }
+
+ /**
+  * @brief Parallel update of zombie AI states
+  * 
+  * Distributes zombie AI computation across thread pool.
+  * 
+  * @param zombie_count Number of zombies to update
+  * @param update_func Function to call for each zombie: f(size_t index)
+  * @param batch_size Zombies per task
+  * @return Time elapsed in milliseconds
+  */
+ double parallel_update_zombie_ai(
+ size_t zombie_count,
+ std::function<void(size_t)> update_func,
+ size_t batch_size = 32) noexcept {
+ 
+ if (!multithreading_enabled_) return 0.0;
+ return threading_optimizer::MultithreadingZombieOptimizer::parallel_update_ai(
+ zombie_count, update_func, batch_size);
+ }
+
+ /**
+  * @brief Parallel collision detection using spatial hashing
+  * 
+  * Processes collision detection in parallel across grid cells.
+  * 
+  * @param positions Zombie positions (x, y, z per zombie)
+  * @param zombie_count Number of zombies
+  * @param collision_func Function called for collisions: f(idx1, idx2, dist_sq)
+  * @param radius Collision detection radius
+  * @return Time elapsed in milliseconds
+  */
+ double parallel_collision_detection(
+ const float* positions,
+ size_t zombie_count,
+ std::function<void(size_t, size_t, float)> collision_func,
+ float radius = 2.0f) noexcept {
+ 
+ if (!multithreading_enabled_) return 0.0;
+ return threading_optimizer::MultithreadingZombieOptimizer::parallel_collision_detection(
+ positions, zombie_count, collision_func, radius);
  }
 
 private:
