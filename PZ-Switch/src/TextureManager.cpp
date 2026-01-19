@@ -27,6 +27,7 @@ TextureManager::TextureManager()
  , atlasGenerateMipmaps(false)
  , atlasMaxMipLevels(4)
  , streamingEnabled(false)
+ , texture_cache_manager(std::make_unique<OptimizedTextureManager>(128 * 1024 * 1024))
 {
 }
 
@@ -41,6 +42,11 @@ bool TextureManager::init(SDL_Renderer* r) {
  }
  
  renderer = r;
+
+ // Initialize texture cache (Day 2 Optimization)
+ if (texture_cache_manager) {
+     texture_cache_manager->initialize(renderer);
+ }
 
  // Bring up streaming system with default budget; can be toggled via setStreamingEnabled
  if (!streamingSystem) {
@@ -60,6 +66,11 @@ bool TextureManager::init(SDL_Renderer* r) {
 }
 
 void TextureManager::shutdown() {
+ // Shutdown texture cache (Day 2 Optimization)
+ if (texture_cache_manager) {
+     texture_cache_manager->shutdown();
+ }
+ 
  clearCache();
  IMG_Quit();
  renderer = nullptr;
@@ -77,6 +88,14 @@ void TextureManager::setStreamingEnabled(bool enabled) {
 void TextureManager::updateStreaming(float deltaTime) {
  if (streamingEnabled && streamingSystem) {
  streamingSystem->update(deltaTime);
+ }
+ 
+ // Periodically log cache diagnostics (Day 2 Optimization)
+ static float diagnosticTimer = 0.0f;
+ diagnosticTimer += deltaTime;
+ if (diagnosticTimer > 10.0f) {  // Log every 10 seconds
+     diagnosticTimer = 0.0f;
+     print_texture_cache_status();
  }
 }
 
@@ -656,6 +675,11 @@ bool TextureManager::loadTexturePack(
  if (buildAtlas && !spritePaths.empty()) {
  std::string atlasName = packName + "_atlas";
  createAtlas(atlasName, spritePaths, atlasMaxWidth, atlasMaxHeight);
+ }
+
+ // Preload all textures into cache (Day 2 Optimization)
+ if (texture_cache_manager && !spritePaths.empty()) {
+     preload_level_textures(spritePaths);
  }
 
  std::cout << "Loaded texture pack '" << packName << "' with "

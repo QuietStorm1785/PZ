@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 #include "AssetStreaming.h"
+#include "zombie/assets/OptimizedTextureManager.h"
 
 namespace zombie {
 
@@ -31,6 +32,37 @@ public:
  
  TextureManager();
  ~TextureManager();
+ 
+ // Texture cache management (Day 2 Optimization)
+ void initialize_texture_cache(size_t cache_size = 128 * 1024 * 1024) noexcept {
+     if (!texture_cache_manager) {
+         texture_cache_manager = std::make_unique<OptimizedTextureManager>(cache_size);
+     }
+ }
+ 
+ void preload_level_textures(const std::vector<std::string>& texture_paths) noexcept {
+     if (texture_cache_manager) {
+         texture_cache_manager->preload_textures(texture_paths);
+     }
+ }
+ 
+ void print_texture_cache_status() const noexcept {
+     if (texture_cache_manager) {
+         texture_cache_manager->print_cache_status();
+     }
+ }
+ 
+ double get_texture_cache_hit_rate() const noexcept {
+     return texture_cache_manager ? texture_cache_manager->get_hit_rate() : 0.0;
+ }
+ 
+ uint32_t get_texture_cache_item_count() const noexcept {
+     return texture_cache_manager ? texture_cache_manager->get_cache_item_count() : 0;
+ }
+ 
+ size_t get_texture_cache_memory_usage() const noexcept {
+     return texture_cache_manager ? texture_cache_manager->get_cache_memory_usage() : 0;
+ }
  
  // Initialize with renderer
  bool init(SDL_Renderer* renderer);
@@ -125,6 +157,7 @@ private:
  
  SDL_Renderer* renderer;
  std::string mediaPath;
+ std::unique_ptr<OptimizedTextureManager> texture_cache_manager;
 
  SDL_PixelFormatEnum preferredAtlasFormat;
  bool atlasGenerateMipmaps;
