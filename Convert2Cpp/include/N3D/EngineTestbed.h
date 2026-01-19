@@ -27,7 +27,7 @@ public:
 
       try {
          GameWindow.InitDisplay();
-      } catch (IOException var2) {
+      } catch (const jni::JavaException& var2) {
          var2.printStackTrace();
       } catch (LWJGLException var3) {
          var3.printStackTrace();

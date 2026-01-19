@@ -108,7 +108,7 @@ void TileRegistry::init(assets::TextureManager* tm) {
 int TileRegistry::registerTile(const std::string& name, const std::string& texturePath,
  int srcX, int srcY, int srcW, int srcH) {
  if (!texMgr) {
- std::cerr << "TileRegistry: TextureManager not initialized" << std::endl;
+ std::cerr << "TileRegistry: TextureManager not initialized" << '\n';
  return -1;
  }
  
@@ -121,7 +121,7 @@ int TileRegistry::registerTile(const std::string& name, const std::string& textu
  // Load texture
  SDL_Texture* texture = texMgr->getTexture(texturePath);
  if (!texture) {
- std::cerr << "Failed to load tile texture: " << texturePath << std::endl;
+ std::cerr << "Failed to load tile texture: " << texturePath << '\n';
  return -1;
  }
  
@@ -172,7 +172,7 @@ bool TileRegistry::loadTileDefinitions(const std::string& path) {
  // Example: Register some common floor tiles
  // These would come from parsing the actual tile definition files
  
- std::cout << "TileRegistry: Tile definitions would be loaded from " << path << std::endl;
+ std::cout << "TileRegistry: Tile definitions would be loaded from " << path << '\n';
  
  return true;
 }
@@ -193,12 +193,12 @@ bool LotLoader::loadFromFile(const std::string& path, TileMap* tileMap,
  
  std::vector<std::string> tileNames;
  if (!parseLotFile(path, tileNames)) {
- std::cerr << "Failed to parse lot file: " << path << std::endl;
+ std::cerr << "Failed to parse lot file: " << path << '\n';
  return false;
  }
  
  if (tileNames.empty()) {
- std::cerr << "No tiles found in lot file: " << path << std::endl;
+ std::cerr << "No tiles found in lot file: " << path << '\n';
  return false;
  }
  
@@ -223,7 +223,7 @@ bool LotLoader::loadFromFile(const std::string& path, TileMap* tileMap,
  }
  }
  
- std::cout << "Loaded lot with " << tileNames.size() << " tile types" << std::endl;
+ std::cout << "Loaded lot with " << tileNames.size() << " tile types" << '\n';
  
  return true;
 }

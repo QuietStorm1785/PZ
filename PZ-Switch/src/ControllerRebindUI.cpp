@@ -17,7 +17,7 @@ void ControllerRebindUI::startRebind(const std::string& actionName) {
  currentAction = actionName;
  rebinding = true;
  rebindTimeout = 0.0f;
- std::cout << "Rebinding action: " << actionName << " - Press any controller button..." << std::endl;
+ std::cout << "Rebinding action: " << actionName << " - Press any controller button..." << '\n';
 }
 
 void ControllerRebindUI::cancelRebind() {

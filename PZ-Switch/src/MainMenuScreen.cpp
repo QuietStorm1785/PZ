@@ -22,12 +22,12 @@ void MainMenuScreen::enter() {
  optionsRequested = false;
  quitRequested = false;
  buildUI();
- std::cout << "Entering Main Menu Screen" << std::endl;
+ std::cout << "Entering Main Menu Screen" << '\n';
 }
 
 void MainMenuScreen::exit() {
  clearUI();
- std::cout << "Exiting Main Menu Screen" << std::endl;
+ std::cout << "Exiting Main Menu Screen" << '\n';
 }
 
 gameStates::StateAction MainMenuScreen::update() {

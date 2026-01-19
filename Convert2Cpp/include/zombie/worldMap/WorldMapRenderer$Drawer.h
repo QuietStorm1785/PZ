@@ -1125,7 +1125,7 @@ public:
          PZGLUtil.pushAndLoadMatrix(5889, this.m_projection);
          PZGLUtil.pushAndLoadMatrix(5888, this.m_modelView);
          this.renderInternal();
-      } catch (Exception var5) {
+      } catch (const jni::JavaException& var5) {
          ExceptionLogger.logException(var5);
       } finally {
          PZGLUtil.popMatrix(5889);

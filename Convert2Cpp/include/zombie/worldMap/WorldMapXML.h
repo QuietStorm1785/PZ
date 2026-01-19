@@ -57,7 +57,7 @@ public:
     WorldMapFeature var5 = this.parseFeature(var2, var2x);
                var3.m_features.add(var5);
             }
-         } catch (Exception var6) {
+         } catch (const jni::JavaException& var6) {
             DebugLog.General.error("Error while parsing xml element: " + var2x.getNodeName());
             DebugLog.General.error(var6);
          }
@@ -78,7 +78,7 @@ public:
             if ("properties".equalsIgnoreCase(var3x)) {
                this.parseFeatureProperties(var1x, var2x);
             }
-         } catch (Exception var5) {
+         } catch (const jni::JavaException& var5) {
             DebugLog.General.error("Error while parsing xml element: " + var1x.getNodeName());
             DebugLog.General.error(var5);
          }
@@ -96,7 +96,7 @@ public:
     std::string var5 = this.m_sharedStrings.get(var1x.getAttribute("value"));
                this.m_properties.put(var4, var5);
             }
-         } catch (Exception var6) {
+         } catch (const jni::JavaException& var6) {
             DebugLog.General.error("Error while parsing xml element: " + var1x.getNodeName());
             DebugLog.General.error(var6);
          }
@@ -128,7 +128,7 @@ public:
                this.parseGeometryCoordinates(var1x, var4);
                var2x.m_points.add(var4);
             }
-         } catch (Exception var5) {
+         } catch (const jni::JavaException& var5) {
             DebugLog.General.error("Error while parsing xml element: " + var1x.getNodeName());
             DebugLog.General.error(var5);
          }
@@ -146,7 +146,7 @@ public:
                var2x.add(var4.x);
                var2x.add(var4.y);
             }
-         } catch (Exception var5) {
+         } catch (const jni::JavaException& var5) {
             DebugLog.General.error("Error while parsing xml element: " + var1x.getNodeName());
             DebugLog.General.error(var5);
          }

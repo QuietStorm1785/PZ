@@ -182,7 +182,7 @@ bool AnimationLoader::loadFromFile(const std::string& txtPath,
  // Load texture
  SDL_Texture* texture = texMgr->loadTexture(pngPath);
  if (!texture) {
- std::cerr << "Failed to load animation texture: " << pngPath << std::endl;
+ std::cerr << "Failed to load animation texture: " << pngPath << '\n';
  return false;
  }
  
@@ -191,7 +191,7 @@ bool AnimationLoader::loadFromFile(const std::string& txtPath,
  // Parse animation data
  std::unordered_map<std::string, Animation> animations;
  if (!parseAnimationFile(txtPath, animations)) {
- std::cerr << "Failed to parse animation file: " << txtPath << std::endl;
+ std::cerr << "Failed to parse animation file: " << txtPath << '\n';
  return false;
  }
  

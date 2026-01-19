@@ -1007,14 +1007,14 @@ public:
 
       try {
          instance.save(var3);
-      } catch (IOException var6) {
+      } catch (const jni::JavaException& var6) {
          var6.printStackTrace();
       }
 
       try {
          var3.flush();
          var3.close();
-      } catch (IOException var5) {
+      } catch (const jni::JavaException& var5) {
          var5.printStackTrace();
       }
    }
@@ -1164,7 +1164,7 @@ public:
             this.load(var6);
          }
       } catch (FileNotFoundException var13) {
-      } catch (Exception var14) {
+      } catch (const jni::JavaException& var14) {
          ExceptionLogger.logException(var14);
       }
    }

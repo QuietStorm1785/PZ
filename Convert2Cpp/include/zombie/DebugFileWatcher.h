@@ -35,7 +35,7 @@ public:
          this.m_watcher = this.m_fs.newWatchService();
          this.registerDirRecursive(this.m_fs.getPath(ZomboidFileSystem.instance.getMediaRootPath()));
          this.registerDirRecursive(this.m_fs.getPath(ZomboidFileSystem.instance.getMessagingDir()));
-      } catch (IOException var2) {
+      } catch (const jni::JavaException& var2) {
          this.m_watcher = nullptr;
       }
    }
@@ -43,7 +43,7 @@ public:
     void registerDirRecursive(Path var1) {
       try {
          Files.walkFileTree(var1, new 1(this));
-      } catch (IOException var3) {
+      } catch (const jni::JavaException& var3) {
          ExceptionLogger.logException(var3);
          this.m_watcher = nullptr;
       }
@@ -53,7 +53,7 @@ public:
       try {
     WatchKey var2 = var1.register(this.m_watcher, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.ENTRY_CREATE);
          this.m_watchkeyMapping.put(var2, var1);
-      } catch (IOException var3) {
+      } catch (const jni::JavaException& var3) {
          ExceptionLogger.logException(var3);
          this.m_watcher = nullptr;
       }

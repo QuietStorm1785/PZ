@@ -364,7 +364,7 @@ public:
     File getCanonicalFile(File var1) {
       try {
          return var1.getCanonicalFile();
-      } catch (Exception var3) {
+      } catch (const jni::JavaException& var3) {
          return var1.getAbsoluteFile();
       }
    }
@@ -376,7 +376,7 @@ public:
     std::string getCanonicalPath(File var1) {
       try {
          return var1.getCanonicalPath();
-      } catch (Exception var3) {
+      } catch (const jni::JavaException& var3) {
          return var1.getAbsolutePath();
       }
    }
@@ -446,7 +446,7 @@ public:
                   var2.add(var8);
                }
             }
-         } catch (Exception var12) {
+         } catch (const jni::JavaException& var12) {
             var12.printStackTrace();
          }
       }
@@ -605,14 +605,14 @@ public:
                   var3.add(var6);
                }
             }
-         } catch (Exception var13) {
+         } catch (const jni::JavaException& var13) {
             ExceptionLogger.logException(var13);
             var3 = nullptr;
          }
 
          try {
             var2.delete();
-         } catch (Exception var8) {
+         } catch (const jni::JavaException& var8) {
             ExceptionLogger.logException(var8);
          }
 
@@ -635,7 +635,7 @@ public:
     auto var4 = std::make_shared<ActiveModsFile>();
          if (var4.read(var3, var1)) {
          }
-      } catch (Exception var5) {
+      } catch (const jni::JavaException& var5) {
          ExceptionLogger.logException(var5);
       }
 
@@ -661,7 +661,7 @@ public:
                   var2.checkMissingMaps();
                   ActiveMods.setLoadedMods(var2);
                   this.loadMods(var2.getMods());
-               } catch (Exception var4) {
+               } catch (const jni::JavaException& var4) {
                   ExceptionLogger.logException(var4);
                }
             }
@@ -852,7 +852,7 @@ public:
     std::string var1 = Core.getMyDocumentFolder() + File.separator + "mods" + File.separator + "default.txt";
     auto var2 = std::make_shared<ActiveModsFile>();
          var2.write(var1, ActiveMods.getById("default"));
-      } catch (Exception var3) {
+      } catch (const jni::JavaException& var3) {
          ExceptionLogger.logException(var3);
       }
    }
@@ -876,7 +876,7 @@ public:
                   }
                }
             }
-         } catch (Exception var8) {
+         } catch (const jni::JavaException& var8) {
             ExceptionLogger.logException(var8);
          }
       }
@@ -908,7 +908,7 @@ public:
                   }
                }
             }
-         } catch (Exception var9) {
+         } catch (const jni::JavaException& var9) {
             var9.printStackTrace();
          }
       }
@@ -938,7 +938,7 @@ public:
                   }
                }
             }
-         } catch (Exception var9) {
+         } catch (const jni::JavaException& var9) {
             var9.printStackTrace();
          }
       }
@@ -970,12 +970,12 @@ public:
                   var8.setModID(var5);
                   this.m_fileGuidTable.mergeFrom(var8);
                } catch (FileNotFoundException var13) {
-               } catch (Exception var14) {
+               } catch (const jni::JavaException& var14) {
                   ExceptionLogger.logException(var14);
                }
             }
          }
-      } catch (Exception var17) {
+      } catch (const jni::JavaException& var17) {
          ExceptionLogger.logException(var17);
       }
 
@@ -1246,7 +1246,7 @@ public:
                            var0.toFile().delete();
                         }
                      });
-                  } catch (IOException var11) {
+                  } catch (const jni::JavaException& var11) {
                      throw new RuntimeException(var11);
                   }
                }
@@ -1268,7 +1268,7 @@ public:
          ) {
     std::string var6 = "If this file does not exist, default.txt will be reset to empty (no mods active).";
             var5.write(var6);
-         } catch (Exception var12) {
+         } catch (const jni::JavaException& var12) {
             ExceptionLogger.logException(var12);
             return;
          }

@@ -76,7 +76,7 @@ bool loadSwitchConfig(const std::string& path, SwitchConfig& outConfig) {
 
  std::ifstream file(path);
  if (!file.is_open()) {
- std::cerr << "Switch config not found: " << path << " (using defaults)" << std::endl;
+ std::cerr << "Switch config not found: " << path << " (using defaults)" << '\n';
  outConfig = cfg;
  return false;
  }
@@ -131,7 +131,7 @@ bool loadSwitchConfig(const std::string& path, SwitchConfig& outConfig) {
  }
 
  outConfig = cfg;
- std::cout << "Loaded Switch config: " << path << std::endl;
+ std::cout << "Loaded Switch config: " << path << '\n';
  return true;
 }
 
@@ -139,7 +139,7 @@ bool loadOptionsConfig(const std::string& path, GraphicsAudioOptions& outConfig)
  GraphicsAudioOptions cfg;
  std::ifstream file(path);
  if (!file.is_open()) {
- std::cerr << "Options.ini not found: " << path << " (using defaults)" << std::endl;
+ std::cerr << "Options.ini not found: " << path << " (using defaults)" << '\n';
  outConfig = cfg;
  return false;
  }
@@ -181,14 +181,14 @@ bool loadOptionsConfig(const std::string& path, GraphicsAudioOptions& outConfig)
  }
 
  outConfig = cfg;
- std::cout << "Loaded Options.ini: " << path << std::endl;
+ std::cout << "Loaded Options.ini: " << path << '\n';
  return true;
 }
 
 bool saveOptionsConfig(const std::string& path, const GraphicsAudioOptions& cfg) {
  std::ofstream file(path, std::ios::trunc);
  if (!file.is_open()) {
- std::cerr << "Failed to write Options.ini at " << path << std::endl;
+ std::cerr << "Failed to write Options.ini at " << path << '\n';
  return false;
  }
 
@@ -213,7 +213,7 @@ bool saveOptionsConfig(const std::string& path, const GraphicsAudioOptions& cfg)
  file << "Show_Survival_Guide=" << (cfg.showSurvivalGuide ? "true" : "false") << "\n";
  file << "Autosave_Enabled=" << (cfg.autosaveEnabled ? "true" : "false") << "\n";
 
- std::cout << "Saved Options.ini to " << path << std::endl;
+ std::cout << "Saved Options.ini to " << path << '\n';
  return true;
 }
 
@@ -221,7 +221,7 @@ bool loadKeysConfig(const std::string& path, ControllerKeys& outKeys) {
  ControllerKeys cfg;
  std::ifstream file(path);
  if (!file.is_open()) {
- std::cerr << "keys.ini not found: " << path << " (using defaults)" << std::endl;
+ std::cerr << "keys.ini not found: " << path << " (using defaults)" << '\n';
  outKeys = cfg;
  return false;
  }
@@ -240,14 +240,14 @@ bool loadKeysConfig(const std::string& path, ControllerKeys& outKeys) {
  }
 
  outKeys = cfg;
- std::cout << "Loaded keys.ini: " << path << std::endl;
+ std::cout << "Loaded keys.ini: " << path << '\n';
  return true;
 }
 
 bool saveKeysConfig(const std::string& path, const ControllerKeys& keys) {
  std::ofstream file(path, std::ios::trunc);
  if (!file.is_open()) {
- std::cerr << "Failed to write keys.ini at " << path << std::endl;
+ std::cerr << "Failed to write keys.ini at " << path << '\n';
  return false;
  }
 
@@ -256,7 +256,7 @@ bool saveKeysConfig(const std::string& path, const ControllerKeys& keys) {
  file << pair.first << "=" << pair.second << "\n";
  }
 
- std::cout << "Saved keys.ini to " << path << std::endl;
+ std::cout << "Saved keys.ini to " << path << '\n';
  return true;
 }
 

@@ -243,7 +243,7 @@ void InputManager::configureFromSwitchConfig(const zombie::config::SwitchConfig&
  for (const auto& pair : cfg.controllerBindings) {
  SDL_GameControllerButton btn = stringToButton(pair.first);
  if (btn == SDL_CONTROLLER_BUTTON_INVALID) {
- std::cerr << "InputManager: Unknown controller binding key '" << pair.first << "'" << std::endl;
+ std::cerr << "InputManager: Unknown controller binding key '" << pair.first << "'" << '\n';
  continue;
  }
  actionBindings[pair.second] = btn; // action name from config value
@@ -279,7 +279,7 @@ void InputManager::openFirstGamepad() {
  if (SDL_IsGameController(i)) {
  gamepad = SDL_GameControllerOpen(i);
  if (gamepad) {
- std::cout << "Opened gamepad: " << SDL_GameControllerName(gamepad) << std::endl;
+ std::cout << "Opened gamepad: " << SDL_GameControllerName(gamepad) << '\n';
  break;
  }
  }
@@ -292,12 +292,12 @@ void InputManager::rebindAction(const std::string& action, const std::string& bu
  
  SDL_GameControllerButton btn = stringToButton(lower);
  if (btn == SDL_CONTROLLER_BUTTON_INVALID) {
- std::cerr << "InputManager: Invalid button name '" << buttonName << "'" << std::endl;
+ std::cerr << "InputManager: Invalid button name '" << buttonName << "'" << '\n';
  return;
  }
  
  actionBindings[action] = btn;
- std::cout << "InputManager: Rebound '" << action << "' to button '" << buttonName << "'" << std::endl;
+ std::cout << "InputManager: Rebound '" << action << "' to button '" << buttonName << "'" << '\n';
 }
 
 } // namespace input

@@ -16,9 +16,9 @@ AssetStreamingSystem::AssetStreamingSystem(const Config& cfg)
  , cacheMisses(0)
  , globalTime(0.0f)
 {
- std::cout << "AssetStreamingSystem initialized" << std::endl;
- std::cout << " Max memory: " << (config.maxMemoryBytes / (1024*1024)) << " MB" << std::endl;
- std::cout << " Max cached assets: " << config.maxCachedAssets << std::endl;
+ std::cout << "AssetStreamingSystem initialized" << '\n';
+ std::cout << " Max memory: " << (config.maxMemoryBytes / (1024*1024)) << " MB" << '\n';
+ std::cout << " Max cached assets: " << config.maxCachedAssets << '\n';
 }
 
 AssetStreamingSystem::~AssetStreamingSystem() {
@@ -118,7 +118,7 @@ void AssetStreamingSystem::unloadUnused() {
  }
  
  if (!toUnload.empty()) {
- std::cout << "Unloaded " << toUnload.size() << " unused assets" << std::endl;
+ std::cout << "Unloaded " << toUnload.size() << " unused assets" << '\n';
  }
 }
 
@@ -179,7 +179,7 @@ SDL_Texture* AssetStreamingSystem::loadTextureImmediate(const std::string& path)
  
  SDL_Surface* surface = IMG_Load(path.c_str());
  if (!surface) {
- std::cerr << "Failed to load image: " << path << " - " << IMG_GetError() << std::endl;
+ std::cerr << "Failed to load image: " << path << " - " << IMG_GetError() << '\n';
  return nullptr;
  }
  
@@ -187,7 +187,7 @@ SDL_Texture* AssetStreamingSystem::loadTextureImmediate(const std::string& path)
  SDL_FreeSurface(surface);
  
  if (!texture) {
- std::cerr << "Failed to create texture: " << path << " - " << SDL_GetError() << std::endl;
+ std::cerr << "Failed to create texture: " << path << " - " << SDL_GetError() << '\n';
  return nullptr;
  }
  
@@ -207,7 +207,7 @@ void AssetStreamingSystem::evictLRU() {
  }
  
  if (!lruPath.empty()) {
- std::cout << "Evicting LRU asset: " << lruPath << std::endl;
+ std::cout << "Evicting LRU asset: " << lruPath << '\n';
  unload(lruPath);
  }
 }
@@ -276,15 +276,15 @@ float StreamingTextureManager::getCacheHitRate() const {
 }
 
 void StreamingTextureManager::printStats() const {
- std::cout << "\n=== Asset Streaming Statistics ===" << std::endl;
+ std::cout << "\n=== Asset Streaming Statistics ===" << '\n';
  std::cout << "Memory Usage: " << (streamingSystem->getCurrentMemoryUsage() / (1024*1024)) 
- << " / " << (streamingSystem->getMaxMemoryUsage() / (1024*1024)) << " MB" << std::endl;
- std::cout << "Cached Assets: " << streamingSystem->getCachedAssetCount() << std::endl;
- std::cout << "Cache Hit Rate: " << streamingSystem->getCacheHitRate() << "%" << std::endl;
- std::cout << "Total Requests: " << streamingSystem->getTotalRequests() << std::endl;
- std::cout << "Cache Hits: " << streamingSystem->getCacheHits() << std::endl;
- std::cout << "Cache Misses: " << streamingSystem->getCacheMisses() << std::endl;
- std::cout << "==================================\n" << std::endl;
+ << " / " << (streamingSystem->getMaxMemoryUsage() / (1024*1024)) << " MB" << '\n';
+ std::cout << "Cached Assets: " << streamingSystem->getCachedAssetCount() << '\n';
+ std::cout << "Cache Hit Rate: " << streamingSystem->getCacheHitRate() << "%" << '\n';
+ std::cout << "Total Requests: " << streamingSystem->getTotalRequests() << '\n';
+ std::cout << "Cache Hits: " << streamingSystem->getCacheHits() << '\n';
+ std::cout << "Cache Misses: " << streamingSystem->getCacheMisses() << '\n';
+ std::cout << "==================================\n" << '\n';
 }
 
 } // namespace assets

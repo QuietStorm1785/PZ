@@ -213,7 +213,7 @@ public:
          data.saveAsText("WorldDictionaryReadable.lua");
          data.save();
          data.deleteBackupCurrentDataSet();
-      } catch (Exception var6) {
+      } catch (const jni::JavaException& var6) {
          var0 = false;
          var6.printStackTrace();
          log("Warning: error occurred loading dictionary!");
@@ -229,7 +229,7 @@ public:
       try {
          WorldDictionaryLogger.saveLog("WorldDictionaryLog.lua");
          WorldDictionaryLogger.reset();
-      } catch (Exception var5) {
+      } catch (const jni::JavaException& var5) {
          var5.printStackTrace();
       }
 

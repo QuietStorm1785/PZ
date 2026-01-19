@@ -38,7 +38,7 @@ bool TextureAtlas::addSprite(const std::string& name, SDL_Texture* texture,
  0, width, height, 32, SDL_PIXELFORMAT_RGBA32);
  
  if (!surface) {
- std::cerr << "Failed to create surface for sprite: " << name << std::endl;
+ std::cerr << "Failed to create surface for sprite: " << name << '\n';
  return false;
  }
  
@@ -73,7 +73,7 @@ bool TextureAtlas::addSprite(const std::string& name, SDL_Surface* surface) {
  if (surface->format->format != SDL_PIXELFORMAT_RGBA32) {
  rgbaSurface = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGBA32, 0);
  if (!rgbaSurface) {
- std::cerr << "Failed to convert surface format for: " << name << std::endl;
+ std::cerr << "Failed to convert surface format for: " << name << '\n';
  return false;
  }
  }
@@ -97,7 +97,7 @@ bool TextureAtlas::addSprite(const std::string& name, SDL_Surface* surface) {
 bool TextureAtlas::addSprite(const std::string& name, const std::string& filePath) {
  SDL_Surface* surface = IMG_Load(filePath.c_str());
  if (!surface) {
- std::cerr << "Failed to load sprite: " << filePath << " - " << IMG_GetError() << std::endl;
+ std::cerr << "Failed to load sprite: " << filePath << " - " << IMG_GetError() << '\n';
  return false;
  }
  
@@ -108,7 +108,7 @@ bool TextureAtlas::addSprite(const std::string& name, const std::string& filePat
 
 bool TextureAtlas::build() {
  if (sprites.empty()) {
- std::cerr << "Cannot build empty atlas" << std::endl;
+ std::cerr << "Cannot build empty atlas" << '\n';
  return false;
  }
 
@@ -118,13 +118,13 @@ bool TextureAtlas::build() {
 
  // Pack sprites
  if (!packSprites()) {
- std::cerr << "Failed to pack sprites into atlas" << std::endl;
+ std::cerr << "Failed to pack sprites into atlas" << '\n';
  return false;
  }
 
  // Render to atlas texture
  if (!renderToAtlas()) {
- std::cerr << "Failed to render atlas texture" << std::endl;
+ std::cerr << "Failed to render atlas texture" << '\n';
  return false;
  }
 
@@ -160,14 +160,14 @@ bool TextureAtlas::build() {
 
  std::cout << "Atlas built: " << atlasWidth << "x" << atlasHeight
  << " (" << sprites.size() << " sprites, "
- << (getUsedSpace() * 100.0f) << "% filled)" << std::endl;
+ << (getUsedSpace() * 100.0f) << "% filled)" << '\n';
 
  return true;
 }
 
 bool TextureAtlas::rebuild() {
  if (!config.keepSpriteSurfaces) {
- std::cerr << "Rebuild requested but keepSpriteSurfaces is disabled" << std::endl;
+ std::cerr << "Rebuild requested but keepSpriteSurfaces is disabled" << '\n';
  return false;
  }
  return build();
@@ -175,7 +175,7 @@ bool TextureAtlas::rebuild() {
 
 bool TextureAtlas::addSpriteAndRebuild(const std::string& name, SDL_Surface* surface) {
  if (!config.keepSpriteSurfaces) {
- std::cerr << "addSpriteAndRebuild requires keepSpriteSurfaces=true" << std::endl;
+ std::cerr << "addSpriteAndRebuild requires keepSpriteSurfaces=true" << '\n';
  return false;
  }
  if (!addSprite(name, surface)) {
@@ -186,7 +186,7 @@ bool TextureAtlas::addSpriteAndRebuild(const std::string& name, SDL_Surface* sur
 
 bool TextureAtlas::addSpriteAndRebuild(const std::string& name, const std::string& filePath) {
  if (!config.keepSpriteSurfaces) {
- std::cerr << "addSpriteAndRebuild requires keepSpriteSurfaces=true" << std::endl;
+ std::cerr << "addSpriteAndRebuild requires keepSpriteSurfaces=true" << '\n';
  return false;
  }
  if (!addSprite(name, filePath)) {
@@ -246,7 +246,7 @@ bool TextureAtlas::packSpritesShelf() {
  }
 
  if (currentY + spriteHeight > config.maxHeight) {
- std::cerr << "Atlas full! Cannot fit sprite: " << sprite.name << std::endl;
+ std::cerr << "Atlas full! Cannot fit sprite: " << sprite.name << '\n';
  return false;
  }
 
@@ -317,7 +317,7 @@ bool TextureAtlas::packSpritesMaxRects() {
  }
 
  if (bestIndex == -1) {
- std::cerr << "Atlas full! Cannot fit sprite: " << sprite.name << std::endl;
+ std::cerr << "Atlas full! Cannot fit sprite: " << sprite.name << '\n';
  return false;
  }
 
@@ -395,7 +395,7 @@ bool TextureAtlas::renderToAtlas() {
  }
 
  if (!atlasTexture) {
- std::cerr << "Failed to create atlas texture: " << SDL_GetError() << std::endl;
+ std::cerr << "Failed to create atlas texture: " << SDL_GetError() << '\n';
  return false;
  }
 
@@ -456,7 +456,7 @@ bool TextureAtlas::renderToAtlas() {
 
  SDL_Texture* tempTex = SDL_CreateTextureFromSurface(renderer, surfaceToUse);
  if (!tempTex) {
- std::cerr << "Failed to create temp texture for: " << sprite.name << std::endl;
+ std::cerr << "Failed to create temp texture for: " << sprite.name << '\n';
  if (rotatedSurface) {
  SDL_FreeSurface(rotatedSurface);
  }

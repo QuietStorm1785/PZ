@@ -589,7 +589,7 @@ public:
                if (SandboxOptions.getInstance().Map.MapAllKnown.getValue()) {
                   instance.setKnownInCells(var0.getMinX(), var0.getMinY(), var0.getMaxX(), var0.getMaxY());
                }
-            } catch (Throwable var2) {
+            } catch (const std::exception& var2) {
                ExceptionLogger.logException(var2);
             }
          }
@@ -645,7 +645,7 @@ public:
       if (var0 != nullptr) {
          try {
             var0.save();
-         } catch (Exception var2) {
+         } catch (const jni::JavaException& var2) {
             ExceptionLogger.logException(var2);
          }
       }

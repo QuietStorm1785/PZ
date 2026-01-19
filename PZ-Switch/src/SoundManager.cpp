@@ -35,7 +35,7 @@ bool SoundManager::init(int frequency, int channels) {
  
  // Initialize SDL_mixer
  if (Mix_OpenAudio(frequency, MIX_DEFAULT_FORMAT, channels, 2048) < 0) {
- std::cerr << "SDL_mixer initialization failed: " << Mix_GetError() << std::endl;
+ std::cerr << "SDL_mixer initialization failed: " << Mix_GetError() << '\n';
  return false;
  }
  
@@ -43,7 +43,7 @@ bool SoundManager::init(int frequency, int channels) {
  Mix_AllocateChannels(16);
  
  initialized = true;
- std::cout << "SoundManager initialized: " << frequency << "Hz, " << channels << " channels" << std::endl;
+ std::cout << "SoundManager initialized: " << frequency << "Hz, " << channels << " channels" << '\n';
 
  // Apply any preconfigured volumes after initialization
  applyVolumes();
@@ -65,7 +65,7 @@ void SoundManager::shutdown() {
 
 bool SoundManager::loadMusic(const std::string& name, const std::string& path) {
  if (!initialized) {
- std::cerr << "SoundManager not initialized" << std::endl;
+ std::cerr << "SoundManager not initialized" << '\n';
  return false;
  }
  
@@ -79,12 +79,12 @@ bool SoundManager::loadMusic(const std::string& name, const std::string& path) {
  Mix_Music* music = Mix_LoadMUS(fullPath.c_str());
  
  if (!music) {
- std::cerr << "Failed to load music: " << fullPath << " - " << Mix_GetError() << std::endl;
+ std::cerr << "Failed to load music: " << fullPath << " - " << Mix_GetError() << '\n';
  return false;
  }
  
  musicCache[name] = music;
- std::cout << "Loaded music: " << name << std::endl;
+ std::cout << "Loaded music: " << name << '\n';
  
  return true;
 }
@@ -94,7 +94,7 @@ void SoundManager::playMusic(const std::string& name, int loops) {
  
  auto it = musicCache.find(name);
  if (it == musicCache.end()) {
- std::cerr << "Music not found: " << name << std::endl;
+ std::cerr << "Music not found: " << name << '\n';
  return;
  }
  
@@ -106,7 +106,7 @@ void SoundManager::playMusic(const std::string& name, int loops) {
  currentMusicName = name;
  
  if (Mix_PlayMusic(currentMusic, loops) < 0) {
- std::cerr << "Failed to play music: " << Mix_GetError() << std::endl;
+ std::cerr << "Failed to play music: " << Mix_GetError() << '\n';
  }
 }
 
@@ -141,7 +141,7 @@ bool SoundManager::isMusicPlaying() const {
 
 bool SoundManager::loadSound(const std::string& name, const std::string& path) {
  if (!initialized) {
- std::cerr << "SoundManager not initialized" << std::endl;
+ std::cerr << "SoundManager not initialized" << '\n';
  return false;
  }
  
@@ -155,12 +155,12 @@ bool SoundManager::loadSound(const std::string& name, const std::string& path) {
  Mix_Chunk* sound = Mix_LoadWAV(fullPath.c_str());
  
  if (!sound) {
- std::cerr << "Failed to load sound: " << fullPath << " - " << Mix_GetError() << std::endl;
+ std::cerr << "Failed to load sound: " << fullPath << " - " << Mix_GetError() << '\n';
  return false;
  }
  
  soundCache[name] = sound;
- std::cout << "Loaded sound: " << name << std::endl;
+ std::cout << "Loaded sound: " << name << '\n';
  
  return true;
 }
@@ -170,13 +170,13 @@ void SoundManager::playSound(const std::string& name, int loops) {
  
  auto it = soundCache.find(name);
  if (it == soundCache.end()) {
- std::cerr << "Sound not found: " << name << std::endl;
+ std::cerr << "Sound not found: " << name << '\n';
  return;
  }
  
  // Play on first available channel (-1)
  if (Mix_PlayChannel(-1, it->second, loops) < 0) {
- std::cerr << "Failed to play sound: " << Mix_GetError() << std::endl;
+ std::cerr << "Failed to play sound: " << Mix_GetError() << '\n';
  }
 }
 

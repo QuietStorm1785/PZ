@@ -227,7 +227,7 @@ public:
 
                         try {
                            CompressIdenticalItems.save(var7.bb, newItems, nullptr);
-                        } catch (Exception var9) {
+                        } catch (const jni::JavaException& var9) {
                            var9.printStackTrace();
                         }
 

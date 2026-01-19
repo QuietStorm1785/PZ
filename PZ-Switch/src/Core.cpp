@@ -41,7 +41,7 @@ bool Core::init(int w, int h, const char* title) {
  
  // Initialize SDL video subsystem
  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER) < 0) {
- std::cerr << "SDL initialization failed: " << SDL_GetError() << std::endl;
+ std::cerr << "SDL initialization failed: " << SDL_GetError() << '\n';
  return false;
  }
  
@@ -57,7 +57,7 @@ bool Core::init(int w, int h, const char* title) {
  );
  
  if (!window) {
- std::cerr << "Window creation failed: " << SDL_GetError() << std::endl;
+ std::cerr << "Window creation failed: " << SDL_GetError() << '\n';
  return false;
  }
  
@@ -69,7 +69,7 @@ bool Core::init(int w, int h, const char* title) {
  );
  
  if (!renderer) {
- std::cerr << "Renderer creation failed: " << SDL_GetError() << std::endl;
+ std::cerr << "Renderer creation failed: " << SDL_GetError() << '\n';
  return false;
  }
  
@@ -79,7 +79,7 @@ bool Core::init(int w, int h, const char* title) {
  // Apply initial vsync state (may disable if configured off)
  setVSyncEnabled(vsyncEnabled);
  
- std::cout << "Core initialized: " << width << "x" << height << std::endl;
+ std::cout << "Core initialized: " << width << "x" << height << '\n';
  return true;
 }
 
@@ -205,7 +205,7 @@ bool Core::setVSyncEnabled(bool enabled) {
 #if SDL_VERSION_ATLEAST(2,0,18)
  if (renderer) {
  if (SDL_RenderSetVSync(renderer, enabled ? 1 : 0) != 0) {
- std::cerr << "SDL_RenderSetVSync failed: " << SDL_GetError() << std::endl;
+ std::cerr << "SDL_RenderSetVSync failed: " << SDL_GetError() << '\n';
  return false;
  }
  }

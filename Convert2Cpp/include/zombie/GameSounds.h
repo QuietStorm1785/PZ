@@ -201,7 +201,7 @@ public:
                   if (!var12.contains(var10)) {
                      var17.add(var10);
                   }
-               } catch (Exception var11) {
+               } catch (const jni::JavaException& var11) {
                   DebugLog.General.warn("FMOD cannot get path for " + var21[var9] + " event");
                }
             }
@@ -227,7 +227,7 @@ public:
                addSound(var3.gameSound);
             }
          }
-      } catch (Throwable var4) {
+      } catch (const std::exception& var4) {
          ExceptionLogger.logException(var4);
       }
    }

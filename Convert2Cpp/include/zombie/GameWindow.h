@@ -228,7 +228,7 @@ public:
       if (GameClient.bClient) {
          try {
             GameClient.instance.update();
-         } catch (Exception var3) {
+         } catch (const jni::JavaException& var3) {
             ExceptionLogger.logException(var3);
          }
       }
@@ -236,7 +236,7 @@ public:
       try {
          SinglePlayerServer.update();
          SinglePlayerClient.update();
-      } catch (Throwable var2) {
+      } catch (const std::exception& var2) {
          ExceptionLogger.logException(var2);
       }
 
@@ -434,7 +434,7 @@ public:
 
       try {
          ZomboidFileSystem.instance.init();
-      } catch (Exception var7) {
+      } catch (const jni::JavaException& var7) {
          throw new RuntimeException(var7);
       }
 
@@ -453,7 +453,7 @@ public:
       try {
          renameSaveFolders();
          init();
-      } catch (Exception var6) {
+      } catch (const jni::JavaException& var6) {
          throw new RuntimeException(var6);
       }
    }
@@ -619,7 +619,7 @@ public:
          }
       } catch (OpenGLException var5) {
          RenderThread.logGLException(var5);
-      } catch (Exception var6) {
+      } catch (const jni::JavaException& var6) {
          ExceptionLogger.logException(var6);
       } finally {
          s_performance.frameStep.end();
@@ -644,7 +644,7 @@ public:
       if (OkToSaveOnExit) {
          try {
             WorldStreamer.instance.quit();
-         } catch (Exception var7) {
+         } catch (const jni::JavaException& var7) {
             var7.printStackTrace();
          }
 
@@ -663,7 +663,7 @@ public:
             }
 
             save(true);
-         } catch (Throwable var6) {
+         } catch (const std::exception& var6) {
             var6.printStackTrace();
          }
 
@@ -671,7 +671,7 @@ public:
             if (IsoWorld.instance.CurrentCell != nullptr) {
                LuaEventManager.triggerEvent("OnPostSave");
             }
-         } catch (Exception var5) {
+         } catch (const jni::JavaException& var5) {
             var5.printStackTrace();
          }
 
@@ -679,7 +679,7 @@ public:
             if (IsoWorld.instance.CurrentCell != nullptr) {
                LuaEventManager.triggerEvent("OnPostSave");
             }
-         } catch (Exception var4) {
+         } catch (const jni::JavaException& var4) {
             var4.printStackTrace();
          }
 
@@ -689,7 +689,7 @@ public:
             ZombiePopulationManager.instance.stop();
             PolygonalMap2.instance.stop();
             ZombieSpawnRecorder.instance.quit();
-         } catch (Exception var3) {
+         } catch (const jni::JavaException& var3) {
             var3.printStackTrace();
          }
       }
@@ -701,7 +701,7 @@ public:
 
          try {
             Thread.sleep(500L);
-         } catch (InterruptedException var2) {
+         } catch (const std::exception& var2) {
             var2.printStackTrace();
          }
       }
@@ -821,7 +821,7 @@ public:
          }
 
          DebugLog.log("texturepack: finished loading " + var0);
-      } catch (Exception var9) {
+      } catch (const jni::JavaException& var9) {
          DebugLog.log("media/texturepacks/" + var0 + ".pack");
          var9.printStackTrace();
       }
@@ -944,7 +944,7 @@ public:
 
          try {
             Thread.sleep(10L);
-         } catch (InterruptedException var1) {
+         } catch (const std::exception& var1) {
          }
       }
    }
@@ -984,7 +984,7 @@ public:
                      if (Thread.currentThread() == GameThread) {
                         SavefileThumbnail.create();
                      }
-                  } catch (Exception var14) {
+                  } catch (const jni::JavaException& var14) {
                      ExceptionLogger.logException(var14);
                   }
 
@@ -993,7 +993,7 @@ public:
                   try (FileOutputStream var25 = new FileOutputStream(var1)) {
     auto var27 = std::make_shared<DataOutputStream>(var25);
                      IsoWorld.instance.CurrentCell.save(var27, var0);
-                  } catch (Exception var13) {
+                  } catch (const jni::JavaException& var13) {
                      ExceptionLogger.logException(var13);
                   }
 
@@ -1002,7 +1002,7 @@ public:
                      if (!bLoadedAsClient) {
                         SGlobalObjects.save();
                      }
-                  } catch (Exception var10) {
+                  } catch (const jni::JavaException& var10) {
                      ExceptionLogger.logException(var10);
                   }
 
@@ -1010,7 +1010,7 @@ public:
                   GlobalModData.instance.save();
                   MapItem.SaveWorldMap();
                   WorldMapVisited.SaveAll();
-               } catch (IOException var15) {
+               } catch (const jni::JavaException& var15) {
                   throw new RuntimeException(var15);
                }
             } catch (RuntimeException var20) {

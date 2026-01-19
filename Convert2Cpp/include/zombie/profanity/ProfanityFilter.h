@@ -125,7 +125,7 @@ public:
 
             var3.appendTail(var2);
             return var2.toString();
-         } catch (Exception var4) {
+         } catch (const jni::JavaException& var4) {
             System.out.println("Profanity failed for: " + var1);
          }
       }
@@ -170,7 +170,7 @@ public:
             }
 
             return var6 ? var7.toString() : nullptr;
-         } catch (Exception var9) {
+         } catch (const jni::JavaException& var9) {
             System.out.println("Profanity validate string failed for: " + var1);
             var9.printStackTrace();
          }

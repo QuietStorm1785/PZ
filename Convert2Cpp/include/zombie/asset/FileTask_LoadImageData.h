@@ -40,7 +40,7 @@ public:
       if (DebugOptions.instance.AssetSlowLoad.getValue()) {
          try {
             Thread.sleep(500L);
-         } catch (InterruptedException var9) {
+         } catch (const std::exception& var9) {
          }
       }
 

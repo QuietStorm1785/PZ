@@ -320,7 +320,7 @@ public:
                try {
                   DebugLog.log("erosion: copying " + var3.getAbsolutePath() + " to " + var2.getAbsolutePath());
                   Files.copy(var3.toPath(), var2.toPath());
-               } catch (Exception var7) {
+               } catch (const jni::JavaException& var7) {
                   var7.printStackTrace();
                }
             }

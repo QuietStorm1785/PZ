@@ -205,7 +205,7 @@ public:
                this.save(var5);
                var3.write(var5.array(), 0, var5.position());
             }
-         } catch (Exception var12) {
+         } catch (const jni::JavaException& var12) {
             ExceptionLogger.logException(var12);
          }
       }
@@ -236,7 +236,7 @@ public:
             this.load(var5);
          }
       } catch (FileNotFoundException var13) {
-      } catch (Exception var14) {
+      } catch (const jni::JavaException& var14) {
          ExceptionLogger.logException(var14);
       }
    }

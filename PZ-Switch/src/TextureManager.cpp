@@ -36,7 +36,7 @@ TextureManager::~TextureManager() {
 
 bool TextureManager::init(SDL_Renderer* r) {
  if (!r) {
- std::cerr << "TextureManager: Invalid renderer" << std::endl;
+ std::cerr << "TextureManager: Invalid renderer" << '\n';
  return false;
  }
  
@@ -51,11 +51,11 @@ bool TextureManager::init(SDL_Renderer* r) {
  // Initialize SDL_image for PNG loading
  int imgFlags = IMG_INIT_PNG;
  if (!(IMG_Init(imgFlags) & imgFlags)) {
- std::cerr << "SDL_image init failed: " << IMG_GetError() << std::endl;
+ std::cerr << "SDL_image init failed: " << IMG_GetError() << '\n';
  return false;
  }
  
- std::cout << "TextureManager initialized with media path: " << mediaPath << std::endl;
+ std::cout << "TextureManager initialized with media path: " << mediaPath << '\n';
  return true;
 }
 
@@ -102,7 +102,7 @@ SDL_Texture* TextureManager::loadTexture(const std::string& path) {
  entry.streamingHandle = handle;
  textureCache[path] = entry;
  registerUsage(path);
- std::cout << "Streamed texture: " << path << std::endl;
+ std::cout << "Streamed texture: " << path << '\n';
  return streamed;
  }
  }
@@ -114,7 +114,7 @@ SDL_Texture* TextureManager::loadTexture(const std::string& path) {
  entry.texture = texture;
  textureCache[path] = entry;
  registerUsage(path);
- std::cout << "Loaded texture: " << path << std::endl;
+ std::cout << "Loaded texture: " << path << '\n';
  }
  
  return texture;
@@ -165,14 +165,14 @@ void TextureManager::clearCache() {
 
 SDL_Texture* TextureManager::loadFromFile(const std::string& fullPath) {
  if (!renderer) {
- std::cerr << "TextureManager: No renderer set" << std::endl;
+ std::cerr << "TextureManager: No renderer set" << '\n';
  return nullptr;
  }
  
  // Load image
  SDL_Surface* surface = IMG_Load(fullPath.c_str());
  if (!surface) {
- std::cerr << "Failed to load image: " << fullPath << " - " << IMG_GetError() << std::endl;
+ std::cerr << "Failed to load image: " << fullPath << " - " << IMG_GetError() << '\n';
  return nullptr;
  }
  
@@ -181,7 +181,7 @@ SDL_Texture* TextureManager::loadFromFile(const std::string& fullPath) {
  SDL_FreeSurface(surface);
  
  if (!texture) {
- std::cerr << "Failed to create texture: " << fullPath << " - " << SDL_GetError() << std::endl;
+ std::cerr << "Failed to create texture: " << fullPath << " - " << SDL_GetError() << '\n';
  return nullptr;
  }
  
@@ -194,7 +194,7 @@ void TextureManager::registerUsage(const std::string& path) {
 
 zombie::graphics::AnimatedSprite* TextureManager::loadAnimatedSprite(const std::string& baseName) {
  if (!renderer) {
- std::cerr << "TextureManager: No renderer set" << std::endl;
+ std::cerr << "TextureManager: No renderer set" << '\n';
  return nullptr;
  }
  
@@ -202,7 +202,7 @@ zombie::graphics::AnimatedSprite* TextureManager::loadAnimatedSprite(const std::
  std::string pngPath = baseName + ".png";
  SDL_Texture* texture = loadTexture(pngPath);
  if (!texture) {
- std::cerr << "Failed to load texture: " << pngPath << std::endl;
+ std::cerr << "Failed to load texture: " << pngPath << '\n';
  return nullptr;
  }
  
@@ -219,9 +219,9 @@ zombie::graphics::AnimatedSprite* TextureManager::loadAnimatedSprite(const std::
  sprite->addAnimation(pair.first, pair.second);
  }
  std::cout << "Loaded animated sprite: " << baseName << " (" 
- << animations.size() << " animations)" << std::endl;
+ << animations.size() << " animations)" << '\n';
  } else {
- std::cerr << "Warning: No animation file found for " << baseName << std::endl;
+ std::cerr << "Warning: No animation file found for " << baseName << '\n';
  }
  
  return sprite;
@@ -321,7 +321,7 @@ TextureAtlas* TextureManager::createAtlas(const std::string& name,
  }
  
  if (!renderer) {
- std::cerr << "TextureManager: No renderer for atlas creation" << std::endl;
+ std::cerr << "TextureManager: No renderer for atlas creation" << '\n';
  return nullptr;
  }
  
@@ -350,7 +350,7 @@ TextureAtlas* TextureManager::createAtlas(const std::string& name,
  atlas->addSprite(path, surface);
  SDL_FreeSurface(surface);
  } else {
- std::cerr << "Failed to load sprite for atlas: " << path << std::endl;
+ std::cerr << "Failed to load sprite for atlas: " << path << '\n';
  }
  }
  
@@ -358,7 +358,7 @@ TextureAtlas* TextureManager::createAtlas(const std::string& name,
  if (atlas->build()) {
  atlasCache[name] = atlas;
  std::cout << "Created atlas '" << name << "' with " 
- << spritePaths.size() << " sprites" << std::endl;
+ << spritePaths.size() << " sprites" << '\n';
  return atlas;
  }
  
@@ -392,7 +392,7 @@ zombie::graphics::AnimatedSprite* TextureManager::loadCharacterSpriteSheet(
  SDL_Texture* baseTexture = loadTexture(firstTexPath);
  
  if (!baseTexture) {
- std::cerr << "Failed to load character base texture: " << firstTexPath << std::endl;
+ std::cerr << "Failed to load character base texture: " << firstTexPath << '\n';
  return nullptr;
  }
  
@@ -451,7 +451,7 @@ zombie::graphics::AnimatedSprite* TextureManager::loadCharacterSpriteSheet(
  animSprite->setAnimation("Idle_S");
  animSprite->play();
  
- std::cout << "Loaded character sprite sheet: " << outfit << std::endl;
+ std::cout << "Loaded character sprite sheet: " << outfit << '\n';
  return animSprite;
 }
 
@@ -461,7 +461,7 @@ SDL_Texture* TextureManager::loadTileTexture(const std::string& tileName) {
  
  SDL_Texture* tex = loadTexture(tilePath);
  if (!tex) {
- std::cerr << "Failed to load tile texture: " << tileName << std::endl;
+ std::cerr << "Failed to load tile texture: " << tileName << '\n';
  // Create fallback colored texture
  SDL_Surface* surface = SDL_CreateRGBSurface(0, 32, 32, 32, 0, 0, 0, 0);
  if (surface) {
@@ -480,7 +480,7 @@ SDL_Texture* TextureManager::loadObjectTexture(const std::string& objectName) {
  
  SDL_Texture* tex = loadTexture(objPath);
  if (!tex) {
- std::cerr << "Failed to load object texture: " << objectName << std::endl;
+ std::cerr << "Failed to load object texture: " << objectName << '\n';
  // Create fallback colored texture
  SDL_Surface* surface = SDL_CreateRGBSurface(0, 64, 64, 32, 0, 0, 0, 0);
  if (surface) {
@@ -523,7 +523,7 @@ TextureAtlas* TextureManager::createCharacterAtlas(
  TextureAtlas* atlas = createAtlas(atlasName, spritePaths, 2048, 2048);
  
  if (atlas) {
- std::cout << "Created character atlas for: " << outfit << std::endl;
+ std::cout << "Created character atlas for: " << outfit << '\n';
  }
  
  return atlas;
@@ -550,7 +550,7 @@ TextureAtlas* TextureManager::createTileAtlas(
  TextureAtlas* atlas = createAtlas(atlasName, tilePaths, 4096, 4096);
  
  if (atlas) {
- std::cout << "Created tile atlas with " << tileNames.size() << " tiles" << std::endl;
+ std::cout << "Created tile atlas with " << tileNames.size() << " tiles" << '\n';
  }
  
  return atlas;
@@ -572,7 +572,7 @@ TextureAtlas* TextureManager::buildUsageAtlas(
  }
 
  if (ranked.empty()) {
- std::cerr << "Usage atlas request yielded no candidates (minUsage=" << minUsage << ")" << std::endl;
+ std::cerr << "Usage atlas request yielded no candidates (minUsage=" << minUsage << ")" << '\n';
  return nullptr;
  }
 
@@ -587,7 +587,7 @@ TextureAtlas* TextureManager::buildUsageAtlas(
  }
 
  std::cout << "Building usage-driven atlas '" << atlasName << "' with "
- << spritePaths.size() << " sprites (minUsage=" << minUsage << ")" << std::endl;
+ << spritePaths.size() << " sprites (minUsage=" << minUsage << ")" << '\n';
 
  return createAtlas(atlasName, spritePaths, maxWidth, maxHeight);
 }
@@ -595,7 +595,7 @@ TextureAtlas* TextureManager::buildUsageAtlas(
 bool TextureManager::addSpriteToAtlas(const std::string& atlasName, const std::string& spritePath) {
  auto it = atlasCache.find(atlasName);
  if (it == atlasCache.end()) {
- std::cerr << "Atlas not found: " << atlasName << std::endl;
+ std::cerr << "Atlas not found: " << atlasName << '\n';
  return false;
  }
 
@@ -607,7 +607,7 @@ bool TextureManager::addSpriteToAtlas(const std::string& atlasName, const std::s
  std::string fullPath = mediaPath + spritePath;
  SDL_Surface* surface = IMG_Load(fullPath.c_str());
  if (!surface) {
- std::cerr << "Failed to load sprite for atlas update: " << spritePath << " - " << IMG_GetError() << std::endl;
+ std::cerr << "Failed to load sprite for atlas update: " << spritePath << " - " << IMG_GetError() << '\n';
  return false;
  }
 
@@ -629,7 +629,7 @@ bool TextureManager::loadTexturePack(
  // Resolve directory relative to media path
  fs::path packDir = fs::path(mediaPath) / packName;
  if (!fs::exists(packDir) || !fs::is_directory(packDir)) {
- std::cerr << "Texture pack directory not found: " << packDir << std::endl;
+ std::cerr << "Texture pack directory not found: " << packDir << '\n';
  return false;
  }
 
@@ -659,7 +659,7 @@ bool TextureManager::loadTexturePack(
  }
 
  std::cout << "Loaded texture pack '" << packName << "' with "
- << outSprites.size() << " sprites" << std::endl;
+ << outSprites.size() << " sprites" << '\n';
  return !outSprites.empty();
 }
 

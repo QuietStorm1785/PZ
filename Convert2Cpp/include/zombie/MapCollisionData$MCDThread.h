@@ -32,7 +32,7 @@ public:
       while (!this.bStop) {
          try {
             this.runInner();
-         } catch (Exception var2) {
+         } catch (const jni::JavaException& var2) {
             ExceptionLogger.logException(var2);
          }
       }
@@ -66,7 +66,7 @@ public:
 
             try {
                this.notifier.wait();
-            } catch (InterruptedException var5) {
+            } catch (const std::exception& var5) {
             }
          }
       }

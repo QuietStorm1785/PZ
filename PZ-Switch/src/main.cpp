@@ -10,10 +10,10 @@
 #include <SDL2/SDL.h>
 
 int main(int argc, char* argv[]) {
- std::cout << "=== Project Zomboid C++ Port ===" << std::endl;
- std::cout << "Target Platform: Nintendo Switch (SDL2)" << std::endl;
- std::cout << "Build: " << __DATE__ << " " << __TIME__ << std::endl;
- std::cout << "====================================" << std::endl;
+ std::cout << "=== Project Zomboid C++ Port ===" << '\n';
+ std::cout << "Target Platform: Nintendo Switch (SDL2)" << '\n';
+ std::cout << "Build: " << __DATE__ << " " << __TIME__ << '\n';
+ std::cout << "====================================" << '\n';
  
  // Load Switch configuration (defaults baked into struct)
  zombie::config::SwitchConfig switchConfig;
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
  
  // Initialize
  if (!gameWindow.init(width, height, fullscreen, switchConfig.mediaPath)) {
- std::cerr << "Failed to initialize game" << std::endl;
+ std::cerr << "Failed to initialize game" << '\n';
  return 1;
  }
 
@@ -86,7 +86,7 @@ int main(int argc, char* argv[]) {
  gameWindow.run();
  
  // Cleanup (handled by destructors)
- std::cout << "Game exited cleanly" << std::endl;
+ std::cout << "Game exited cleanly" << '\n';
  
  return 0;
 }

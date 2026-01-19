@@ -133,13 +133,13 @@ public:
                   this.buf.append(static_cast<String>(var5));
                   this.buf.append('\n');
                }
-            } catch (Exception var17) {
+            } catch (const jni::JavaException& var17) {
                DebugLog.Script.error("Exception thrown reading file " + var1 + "\n  " + var17);
             } finally {
                try {
                   var4.close();
                   var3.close();
-               } catch (Exception var16) {
+               } catch (const jni::JavaException& var16) {
                   DebugLog.Script.error("Exception thrown closing file " + var1 + "\n  " + var16);
                   var16.printStackTrace(DebugLog.Script);
                }
@@ -678,7 +678,7 @@ public:
                DebugLog.General.println("scriptChecksum: " + this.checksum);
             }
          }
-      } catch (Exception var13) {
+      } catch (const jni::JavaException& var13) {
          ExceptionLogger.logException(var13);
       }
 

@@ -777,7 +777,7 @@ public:
 
     return true;
             }
-         } catch (Exception var5) {
+         } catch (const jni::JavaException& var5) {
             ExceptionLogger.logException(var5);
     return false;
          }
@@ -800,7 +800,7 @@ public:
             this.save(SliceY.SliceBuffer);
             var3.write(SliceY.SliceBuffer.array(), 0, SliceY.SliceBuffer.position());
          }
-      } catch (Exception var11) {
+      } catch (const jni::JavaException& var11) {
          ExceptionLogger.logException(var11);
       }
    }
@@ -830,7 +830,7 @@ public:
                DebugLog.log("deleting " + var2.getAbsolutePath());
                var2.delete();
                this.saveCurrentGameBinFile();
-            } catch (Exception var4) {
+            } catch (const jni::JavaException& var4) {
                ExceptionLogger.logException(var4);
             }
          }
@@ -847,7 +847,7 @@ public:
                DebugLog.log("deleting " + var2.getAbsolutePath());
                var2.delete();
                this.saveServerLuaFile(GameServer.ServerName);
-            } catch (Exception var3) {
+            } catch (const jni::JavaException& var3) {
                ExceptionLogger.logException(var3);
             }
          }
@@ -915,7 +915,7 @@ public:
             }
 
             var7 = false;
-         } catch (Exception var14) {
+         } catch (const jni::JavaException& var14) {
             ExceptionLogger.logException(var14);
     return false;
          } finally {
@@ -977,7 +977,7 @@ public:
                            if (var13 != nullptr) {
                               var4.write("    -- " + var12 + " = " + var13.replace("\\\"", "\"") + var20);
                            }
-                        } catch (Exception var17) {
+                        } catch (const jni::JavaException& var17) {
                            ExceptionLogger.logException(var17);
                         }
                      }
@@ -1005,7 +1005,7 @@ public:
                               if (var14 != nullptr) {
                                  var4.write("        -- " + var31 + " = " + var14 + var20);
                               }
-                           } catch (Exception var16) {
+                           } catch (const jni::JavaException& var16) {
                               ExceptionLogger.logException(var16);
                            }
                         }
@@ -1022,7 +1022,7 @@ public:
          }
 
     return true;
-      } catch (Exception var19) {
+      } catch (const jni::JavaException& var19) {
          ExceptionLogger.logException(var19);
     return false;
       }
@@ -1049,7 +1049,7 @@ public:
 
          return;
       } catch (FileNotFoundException var12) {
-      } catch (Exception var13) {
+      } catch (const jni::JavaException& var13) {
          ExceptionLogger.logException(var13);
       }
 
@@ -1072,7 +1072,7 @@ public:
          }
 
          this.toLua();
-      } catch (Exception var12) {
+      } catch (const jni::JavaException& var12) {
          ExceptionLogger.logException(var12);
       }
    }

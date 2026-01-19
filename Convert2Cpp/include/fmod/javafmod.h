@@ -435,7 +435,7 @@ public:
     static long FMOD_System_CreateChannelGroup(const std::string& var0) {
       try {
          return javafmodJNI.FMOD_System_CreateChannelGroup(var0);
-      } catch (Throwable var2) {
+      } catch (const std::exception& var2) {
          DebugLog.log("ERROR: FMOD_System_CreateChannelGroup exception:" + var2.getMessage());
     return 0L;
       }

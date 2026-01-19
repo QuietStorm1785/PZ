@@ -40,7 +40,7 @@ public:
                      )) {
     for (auto& var8 : var6)                        var1.add(var5 + "/" + var8.getFileName().toString());
                      }
-                  } catch (Exception var11) {
+                  } catch (const jni::JavaException& var11) {
                   }
                }
             } else {
@@ -251,7 +251,7 @@ public:
             }
 
     return var3;
-         } catch (Exception var12) {
+         } catch (const jni::JavaException& var12) {
             ExceptionLogger.logException(var12);
     return null;
          }

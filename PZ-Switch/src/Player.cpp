@@ -59,7 +59,7 @@ void Player::stopMoving() {
 void Player::attack() {
  // Simple melee attack - damage entities within range
  // This would be expanded with weapon handling, animations, etc.
- std::cout << "Player attacks!" << std::endl;
+ std::cout << "Player attacks!" << '\n';
  
  // Attack range of 50 pixels
  const float attackRange = 50.0f;
@@ -71,7 +71,7 @@ void Player::attack() {
 
 void Player::interact() {
  // Interact with nearby objects (doors, containers, items)
- std::cout << "Player interacts!" << std::endl;
+ std::cout << "Player interacts!" << '\n';
  
  const float interactRange = 64.0f;
  

@@ -12,7 +12,7 @@ IsoTree::IsoTree() {
 
 void IsoTree::onInteract(zombie::characters::IsoPlayer* player) {
  IsoObject::onInteract(player); // Plays tree sound
- std::cout << "You rustle the tree leaves." << std::endl;
+ std::cout << "You rustle the tree leaves." << '\n';
 }
 
 IsoFurniture::IsoFurniture() {
@@ -22,7 +22,7 @@ IsoFurniture::IsoFurniture() {
 
 void IsoFurniture::onInteract(zombie::characters::IsoPlayer* player) {
  IsoObject::onInteract(player); // Plays furniture sound
- std::cout << "You bump into the furniture." << std::endl;
+ std::cout << "You bump into the furniture." << '\n';
 }
 
 IsoContainer::IsoContainer() {
@@ -36,7 +36,7 @@ void IsoContainer::onInteract(zombie::characters::IsoPlayer* player) {
  (void)player;
  
  if (locked) {
- std::cout << "The container is locked." << std::endl;
+ std::cout << "The container is locked." << '\n';
  return;
  }
  
@@ -45,12 +45,12 @@ void IsoContainer::onInteract(zombie::characters::IsoPlayer* player) {
  audio->playObjectSound("container", "open", getX(), getY());
  
  if (items.empty()) {
- std::cout << "You check the container. It's empty." << std::endl;
+ std::cout << "You check the container. It's empty." << '\n';
  } else {
- std::cout << "Container contains " << items.size() << " items." << std::endl;
+ std::cout << "Container contains " << items.size() << " items." << '\n';
  for (const auto* item : items) {
  if (item) {
- std::cout << " - " << item->getName() << std::endl;
+ std::cout << " - " << item->getName() << '\n';
  }
  }
  }

@@ -40,7 +40,7 @@ public:
             }
 
     return true;
-         } catch (Exception var12) {
+         } catch (const jni::JavaException& var12) {
             ExceptionLogger.logException(var12);
     return false;
          }
@@ -90,7 +90,7 @@ public:
     return true;
       } catch (FileNotFoundException var11) {
     return false;
-      } catch (Exception var12) {
+      } catch (const jni::JavaException& var12) {
          ExceptionLogger.logException(var12);
     return false;
       }

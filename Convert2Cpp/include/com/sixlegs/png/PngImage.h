@@ -84,7 +84,7 @@ public:
                      this.readChunk(var8, var6, var6.getOffset(), var6.getRemaining());
                   } catch (PngException var15) {
     throw var15;
-                  } catch (IOException var16) {
+                  } catch (const jni::JavaException& var16) {
                      throw new PngException("Malformed " + PngConstants.getChunkName(var8) + " chunk", var16, !PngConstants.isAncillary(var8));
                   }
 

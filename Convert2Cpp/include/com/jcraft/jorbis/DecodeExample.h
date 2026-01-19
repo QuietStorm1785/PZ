@@ -27,7 +27,7 @@ public:
       if (var0.length > 0) {
          try {
             var1 = new FileInputStream(var0[0]);
-         } catch (Exception var28) {
+         } catch (const jni::JavaException& var28) {
             System.err.println(var28);
          }
       }
@@ -50,7 +50,7 @@ public:
 
          try {
             var11 = var1.read(var10, var13, 4096);
-         } catch (Exception var26) {
+         } catch (const jni::JavaException& var26) {
             System.err.println(var26);
             System.exit(-1);
          }
@@ -117,7 +117,7 @@ public:
 
             try {
                var11 = var1.read(var10, var13, 4096);
-            } catch (Exception var25) {
+            } catch (const jni::JavaException& var25) {
                System.err.println(var25);
                System.exit(1);
             }
@@ -211,7 +211,7 @@ public:
 
                try {
                   var11 = var1.read(var10, var13, 4096);
-               } catch (Exception var27) {
+               } catch (const jni::JavaException& var27) {
                   System.err.println(var27);
                   System.exit(1);
                }

@@ -32,7 +32,7 @@ public:
          Rand.init();
          ZomboidFileSystem.instance.init();
          LuaManager.init();
-      } catch (IOException var1) {
+      } catch (const jni::JavaException& var1) {
          var1.printStackTrace();
       }
    }

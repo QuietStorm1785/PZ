@@ -69,13 +69,13 @@ public:
          if (var3 == -1) {
             throw new JOrbisException("VorbisFile: open return -1");
          }
-      } catch (Exception var11) {
+      } catch (const jni::JavaException& var11) {
          throw new JOrbisException("VorbisFile: " + var11.toString());
       } finally {
          if (var2 != nullptr) {
             try {
                var2.close();
-            } catch (IOException var10) {
+            } catch (const jni::JavaException& var10) {
                var10.printStackTrace();
             }
          }
@@ -96,7 +96,7 @@ public:
             } else if (var3 == 2) {
                var4.seek(var4.getLength() - var1);
             }
-         } catch (Exception var6) {
+         } catch (const jni::JavaException& var6) {
          }
 
     return 0;
@@ -108,7 +108,7 @@ public:
 
             var0.skip(var1);
     return 0;
-         } catch (Exception var7) {
+         } catch (const jni::JavaException& var7) {
             return -1;
          }
       }
@@ -119,7 +119,7 @@ public:
          if (var0 instanceof SeekableInputStream var1) {
             return var1.tell();
          }
-      } catch (Exception var2) {
+      } catch (const jni::JavaException& var2) {
       }
 
     return 0L;
@@ -921,7 +921,7 @@ public:
 
       try {
          var3 = this.datasource.read(var2, var1, 8500);
-      } catch (Exception var5) {
+      } catch (const jni::JavaException& var5) {
          return -128;
       }
 

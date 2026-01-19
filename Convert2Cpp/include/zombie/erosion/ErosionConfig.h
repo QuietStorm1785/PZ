@@ -162,7 +162,7 @@ public:
          var3.write("debug.startday = " + this.debug.startday + "\n");
          var3.write("debug.startmonth = " + this.debug.startmonth + "\n");
          var3.close();
-      } catch (Exception var4) {
+      } catch (const jni::JavaException& var4) {
          var4.printStackTrace();
       }
    }
@@ -296,7 +296,7 @@ public:
                }
             }
          }
-      } catch (Exception var8) {
+      } catch (const jni::JavaException& var8) {
          var8.printStackTrace();
     return false;
       }

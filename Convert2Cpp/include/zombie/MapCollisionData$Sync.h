@@ -32,7 +32,7 @@ public:
       if (var5 > 0L) {
          try {
             Thread.sleep(var5 / 1000000L);
-         } catch (InterruptedException var8) {
+         } catch (const std::exception& var8) {
          }
 
          this.overSleepTime = System.nanoTime() - var1 - var5;

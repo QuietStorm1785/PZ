@@ -104,7 +104,7 @@ public:
             var8.printStackTrace();
          } catch (TextureFormatException var9) {
             var9.printStackTrace();
-         } catch (IOException var10) {
+         } catch (const jni::JavaException& var10) {
             var10.printStackTrace();
          }
       } finally {
@@ -137,7 +137,7 @@ public:
       try {
          this.ddsFileChannel.read(imageData.array(), 0, (int)this.ddsDesc2.pitchOrLinearSize);
          imageData.flip();
-      } catch (IOException var5) {
+      } catch (const jni::JavaException& var5) {
          var5.printStackTrace();
       }
 

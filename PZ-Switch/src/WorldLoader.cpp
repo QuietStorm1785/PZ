@@ -8,13 +8,13 @@
 
 bool WorldLoader::loadLotFile(const std::string& path, IsoCell* cell, int defaultZ) {
  if (!cell) {
- std::cerr << "WorldLoader: cell is null, cannot load lot file." << std::endl;
+ std::cerr << "WorldLoader: cell is null, cannot load lot file." << '\n';
  return false;
  }
 
  std::ifstream file(path);
  if (!file.is_open()) {
- std::cerr << "WorldLoader: failed to open lot file: " << path << std::endl;
+ std::cerr << "WorldLoader: failed to open lot file: " << path << '\n';
  return false;
  }
 
@@ -34,7 +34,7 @@ bool WorldLoader::loadLotFile(const std::string& path, IsoCell* cell, int defaul
  int solidFlag = 0;
 
  if (!(ss >> type >> x >> y)) {
- std::cerr << "WorldLoader: parse error at line " << lineNo << " in " << path << std::endl;
+ std::cerr << "WorldLoader: parse error at line " << lineNo << " in " << path << '\n';
  continue;
  }
 
@@ -50,7 +50,7 @@ bool WorldLoader::loadLotFile(const std::string& path, IsoCell* cell, int defaul
 
  IsoObject* obj = IsoWorldObjectFactory::create(type, solidFlag != 0);
  if (!obj) {
- std::cerr << "WorldLoader: unknown object type '" << type << "' at line " << lineNo << std::endl;
+ std::cerr << "WorldLoader: unknown object type '" << type << "' at line " << lineNo << '\n';
  continue;
  }
 
@@ -60,7 +60,7 @@ bool WorldLoader::loadLotFile(const std::string& path, IsoCell* cell, int defaul
 
  IsoGridSquare* sq = cell->getGridSquare(x, y, z);
  if (!sq) {
- std::cerr << "WorldLoader: missing square for coords (" << x << ", " << y << ", " << z << ")" << std::endl;
+ std::cerr << "WorldLoader: missing square for coords (" << x << ", " << y << ", " << z << ")" << '\n';
  delete obj;
  continue;
  }
@@ -69,6 +69,6 @@ bool WorldLoader::loadLotFile(const std::string& path, IsoCell* cell, int defaul
  placed++;
  }
 
- std::cout << "WorldLoader: placed " << placed << " objects from " << path << std::endl;
+ std::cout << "WorldLoader: placed " << placed << " objects from " << path << '\n';
  return placed > 0;
 }

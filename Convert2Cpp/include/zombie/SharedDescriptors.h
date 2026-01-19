@@ -92,7 +92,7 @@ public:
                      PacketType.ZombieDescriptors.doPacket(var7);
                      var3.save(var7.bb);
                      PacketType.ZombieDescriptors.send(var14);
-                  } catch (Exception var9) {
+                  } catch (const jni::JavaException& var9) {
                      var9.printStackTrace();
                      var14.cancelPacket();
                   }

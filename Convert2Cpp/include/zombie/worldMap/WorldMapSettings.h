@@ -117,7 +117,7 @@ public:
                   if (var5 != nullptr) {
                      var5.parse(var4.getValueAsString());
                   }
-               } catch (Exception var6) {
+               } catch (const jni::JavaException& var6) {
                }
             }
          }

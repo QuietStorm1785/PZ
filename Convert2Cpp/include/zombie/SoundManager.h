@@ -295,7 +295,7 @@ public:
          for (int var4 = 0; var4 < this.pausedEventCount; var4++) {
             try {
                javafmodJNI.FMOD_Studio_EventInstance_SetPaused(this.pausedEventInstances[var4], false);
-            } catch (Throwable var6) {
+            } catch (const std::exception& var6) {
                var6.printStackTrace();
             }
          }

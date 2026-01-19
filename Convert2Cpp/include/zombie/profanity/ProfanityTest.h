@@ -70,7 +70,7 @@ public:
          var4.close();
          System.out.println("Profanity filter tested " + var2.getFilterWordsCount() + " blacklisted words against " + var9 + " words from dictionary.");
          System.out.println("Found " + var10 + " matches.");
-      } catch (IOException var12) {
+      } catch (const jni::JavaException& var12) {
          var12.printStackTrace();
       }
 

@@ -21,7 +21,7 @@ public:
     static Method getInitCause() {
       try {
          return PngException.class.getMethod("initCause", Throwable.class);
-      } catch (Exception var1) {
+      } catch (const jni::JavaException& var1) {
     return null;
       }
    }
@@ -38,7 +38,7 @@ public:
             initCause.invoke(this, var2);
          } catch (RuntimeException var5) {
     throw var5;
-         } catch (Exception var6) {
+         } catch (const jni::JavaException& var6) {
             throw new IllegalStateException("Error invoking initCause: " + var6.getMessage());
          }
       }

@@ -36,7 +36,7 @@ OptionsScreen::OptionsScreen(BackCallback onBack)
 }
 
 void OptionsScreen::enter() {
- std::cout << "Entering Options Screen" << std::endl;
+ std::cout << "Entering Options Screen" << '\n';
  // Sync from global config on enter
  auto* inputMgr = input::InputManager::getInstance();
  sensitivity = inputMgr->getLookSensitivity();
@@ -60,7 +60,7 @@ void OptionsScreen::enter() {
 }
 
 void OptionsScreen::exit() {
- std::cout << "Exiting Options Screen" << std::endl;
+ std::cout << "Exiting Options Screen" << '\n';
  clearUI();
 }
 
@@ -104,7 +104,7 @@ void OptionsScreen::buildUI() {
  auto sensInc = std::make_shared<UIButton>("sens_inc", sensIncBounds, "+");
  sensInc->setOnClick([this]() {
  sensitivity = std::min(2.0f, sensitivity + 0.1f);
- std::cout << "Sensitivity: " << sensitivity << std::endl;
+ std::cout << "Sensitivity: " << sensitivity << '\n';
  });
  uiMgr.addElement(sensInc);
  elementIds.push_back("sens_inc");
@@ -113,7 +113,7 @@ void OptionsScreen::buildUI() {
  auto sensDec = std::make_shared<UIButton>("sens_dec", sensDecBounds, "-");
  sensDec->setOnClick([this]() {
  sensitivity = std::max(0.1f, sensitivity - 0.1f);
- std::cout << "Sensitivity: " << sensitivity << std::endl;
+ std::cout << "Sensitivity: " << sensitivity << '\n';
  });
  uiMgr.addElement(sensDec);
  elementIds.push_back("sens_dec");
@@ -129,7 +129,7 @@ void OptionsScreen::buildUI() {
  auto deadzInc = std::make_shared<UIButton>("deadz_inc", deadzIncBounds, "+");
  deadzInc->setOnClick([this]() {
  deadzone = std::min(0.8f, deadzone + 0.05f);
- std::cout << "Deadzone: " << deadzone << std::endl;
+ std::cout << "Deadzone: " << deadzone << '\n';
  });
  uiMgr.addElement(deadzInc);
  elementIds.push_back("deadz_inc");
@@ -138,7 +138,7 @@ void OptionsScreen::buildUI() {
  auto deadzDec = std::make_shared<UIButton>("deadz_dec", deadzDecBounds, "-");
  deadzDec->setOnClick([this]() {
  deadzone = std::max(0.0f, deadzone - 0.05f);
- std::cout << "Deadzone: " << deadzone << std::endl;
+ std::cout << "Deadzone: " << deadzone << '\n';
  });
  uiMgr.addElement(deadzDec);
  elementIds.push_back("deadz_dec");
@@ -154,7 +154,7 @@ void OptionsScreen::buildUI() {
  auto brightInc = std::make_shared<UIButton>("bright_inc", brightIncBounds, "+");
  brightInc->setOnClick([this]() {
  brightness = std::min(1.0f, brightness + 0.05f);
- std::cout << "Brightness: " << brightness << std::endl;
+ std::cout << "Brightness: " << brightness << '\n';
  });
  uiMgr.addElement(brightInc);
  elementIds.push_back("bright_inc");
@@ -163,7 +163,7 @@ void OptionsScreen::buildUI() {
  auto brightDec = std::make_shared<UIButton>("bright_dec", brightDecBounds, "-");
  brightDec->setOnClick([this]() {
  brightness = std::max(0.0f, brightness - 0.05f);
- std::cout << "Brightness: " << brightness << std::endl;
+ std::cout << "Brightness: " << brightness << '\n';
  });
  uiMgr.addElement(brightDec);
  elementIds.push_back("bright_dec");
@@ -179,7 +179,7 @@ void OptionsScreen::buildUI() {
  auto masterInc = std::make_shared<UIButton>("master_inc", masterIncBounds, "+");
  masterInc->setOnClick([this]() {
  masterVolume = std::min(1.0f, masterVolume + 0.05f);
- std::cout << "Master Volume: " << masterVolume << std::endl;
+ std::cout << "Master Volume: " << masterVolume << '\n';
  });
  uiMgr.addElement(masterInc);
  elementIds.push_back("master_inc");
@@ -188,7 +188,7 @@ void OptionsScreen::buildUI() {
  auto masterDec = std::make_shared<UIButton>("master_dec", masterDecBounds, "-");
  masterDec->setOnClick([this]() {
  masterVolume = std::max(0.0f, masterVolume - 0.05f);
- std::cout << "Master Volume: " << masterVolume << std::endl;
+ std::cout << "Master Volume: " << masterVolume << '\n';
  });
  uiMgr.addElement(masterDec);
  elementIds.push_back("master_dec");
@@ -203,7 +203,7 @@ void OptionsScreen::buildUI() {
  auto musicInc = std::make_shared<UIButton>("music_inc", musicIncBounds, "+");
  musicInc->setOnClick([this]() {
  musicVolume = std::min(1.0f, musicVolume + 0.05f);
- std::cout << "Music Volume: " << musicVolume << std::endl;
+ std::cout << "Music Volume: " << musicVolume << '\n';
  });
  uiMgr.addElement(musicInc);
  elementIds.push_back("music_inc");
@@ -212,7 +212,7 @@ void OptionsScreen::buildUI() {
  auto musicDec = std::make_shared<UIButton>("music_dec", musicDecBounds, "-");
  musicDec->setOnClick([this]() {
  musicVolume = std::max(0.0f, musicVolume - 0.05f);
- std::cout << "Music Volume: " << musicVolume << std::endl;
+ std::cout << "Music Volume: " << musicVolume << '\n';
  });
  uiMgr.addElement(musicDec);
  elementIds.push_back("music_dec");
@@ -227,7 +227,7 @@ void OptionsScreen::buildUI() {
  auto sfxInc = std::make_shared<UIButton>("sfx_inc", sfxIncBounds, "+");
  sfxInc->setOnClick([this]() {
  sfxVolume = std::min(1.0f, sfxVolume + 0.05f);
- std::cout << "SFX Volume: " << sfxVolume << std::endl;
+ std::cout << "SFX Volume: " << sfxVolume << '\n';
  });
  uiMgr.addElement(sfxInc);
  elementIds.push_back("sfx_inc");
@@ -236,7 +236,7 @@ void OptionsScreen::buildUI() {
  auto sfxDec = std::make_shared<UIButton>("sfx_dec", sfxDecBounds, "-");
  sfxDec->setOnClick([this]() {
  sfxVolume = std::max(0.0f, sfxVolume - 0.05f);
- std::cout << "SFX Volume: " << sfxVolume << std::endl;
+ std::cout << "SFX Volume: " << sfxVolume << '\n';
  });
  uiMgr.addElement(sfxDec);
  elementIds.push_back("sfx_dec");
@@ -254,7 +254,7 @@ void OptionsScreen::buildUI() {
  vsyncBtn->setOnClick([this, vsyncBtn, makeBoolLabel]() {
  vsyncEnabled = !vsyncEnabled;
  vsyncBtn->setLabel(makeBoolLabel("VSync: ", vsyncEnabled));
- std::cout << "VSync: " << (vsyncEnabled ? "On" : "Off") << std::endl;
+ std::cout << "VSync: " << (vsyncEnabled ? "On" : "Off") << '\n';
  });
  uiMgr.addElement(vsyncBtn);
  elementIds.push_back("vsync_toggle");
@@ -282,7 +282,7 @@ void OptionsScreen::buildUI() {
  isoIndex = (isoIndex + 1) % static_cast<int>(isoOptions.size());
  isoCursorVisibility = isoOptions[isoIndex];
  isoBtn->setLabel(formatIso());
- std::cout << "Iso Cursor visibility: " << isoCursorVisibility << std::endl;
+ std::cout << "Iso Cursor visibility: " << isoCursorVisibility << '\n';
  });
  uiMgr.addElement(isoBtn);
  elementIds.push_back("iso_cursor");
@@ -293,7 +293,7 @@ void OptionsScreen::buildUI() {
  showAimBtn->setOnClick([this, showAimBtn, makeBoolLabel]() {
  showCursorWhileAiming = !showCursorWhileAiming;
  showAimBtn->setLabel(makeBoolLabel("Show Cursor While Aiming: ", showCursorWhileAiming));
- std::cout << "Show cursor while aiming: " << (showCursorWhileAiming ? "On" : "Off") << std::endl;
+ std::cout << "Show cursor while aiming: " << (showCursorWhileAiming ? "On" : "Off") << '\n';
  });
  uiMgr.addElement(showAimBtn);
  elementIds.push_back("show_cursor_aim");
@@ -310,7 +310,7 @@ void OptionsScreen::buildUI() {
  outlineIndex = (outlineIndex + 1) % static_cast<int>(outlineOptions.size());
  aimOutlineMode = outlineIndex;
  outlineBtn->setLabel(formatOutline());
- std::cout << "Aim outline mode: " << aimOutlineMode << std::endl;
+ std::cout << "Aim outline mode: " << aimOutlineMode << '\n';
  });
  uiMgr.addElement(outlineBtn);
  elementIds.push_back("aim_outline");
@@ -321,7 +321,7 @@ void OptionsScreen::buildUI() {
  lockBtn->setOnClick([this, lockBtn, makeBoolLabel]() {
  lockCursor = !lockCursor;
  lockBtn->setLabel(makeBoolLabel("Lock Cursor To Window: ", lockCursor));
- std::cout << "Lock cursor: " << (lockCursor ? "On" : "Off") << std::endl;
+ std::cout << "Lock cursor: " << (lockCursor ? "On" : "Off") << '\n';
  });
  uiMgr.addElement(lockBtn);
  elementIds.push_back("lock_cursor");
@@ -332,7 +332,7 @@ void OptionsScreen::buildUI() {
  offscreenBtn->setOnClick([this, offscreenBtn, makeBoolLabel]() {
  uiOffscreenRendering = !uiOffscreenRendering;
  offscreenBtn->setLabel(makeBoolLabel("UI Offscreen Rendering: ", uiOffscreenRendering));
- std::cout << "UI offscreen rendering: " << (uiOffscreenRendering ? "On" : "Off") << std::endl;
+ std::cout << "UI offscreen rendering: " << (uiOffscreenRendering ? "On" : "Off") << '\n';
  });
  uiMgr.addElement(offscreenBtn);
  elementIds.push_back("ui_offscreen");
@@ -359,7 +359,7 @@ void OptionsScreen::buildUI() {
  fpsIndex = (fpsIndex + 1) % static_cast<int>(fpsOptions.size());
  uiRenderingFps = fpsOptions[fpsIndex];
  fpsBtn->setLabel(formatFps());
- std::cout << "UI rendering FPS: " << uiRenderingFps << std::endl;
+ std::cout << "UI rendering FPS: " << uiRenderingFps << '\n';
  });
  uiMgr.addElement(fpsBtn);
  elementIds.push_back("ui_fps");
@@ -376,7 +376,7 @@ void OptionsScreen::buildUI() {
  invIndex = (invIndex + 1) % static_cast<int>(invSizes.size());
  inventoryButtonSize = invIndex;
  invBtn->setLabel(formatInv());
- std::cout << "Inventory button size: " << inventoryButtonSize << std::endl;
+ std::cout << "Inventory button size: " << inventoryButtonSize << '\n';
  });
  uiMgr.addElement(invBtn);
  elementIds.push_back("inv_size");
@@ -387,7 +387,7 @@ void OptionsScreen::buildUI() {
  modInfoBtn->setOnClick([this, modInfoBtn, makeBoolLabel]() {
  showModInfoTooltip = !showModInfoTooltip;
  modInfoBtn->setLabel(makeBoolLabel("Show Mod Info Tooltips: ", showModInfoTooltip));
- std::cout << "Show mod info tooltip: " << (showModInfoTooltip ? "On" : "Off") << std::endl;
+ std::cout << "Show mod info tooltip: " << (showModInfoTooltip ? "On" : "Off") << '\n';
  });
  uiMgr.addElement(modInfoBtn);
  elementIds.push_back("mod_info");
@@ -398,7 +398,7 @@ void OptionsScreen::buildUI() {
  guideBtn->setOnClick([this, guideBtn, makeBoolLabel]() {
  showSurvivalGuide = !showSurvivalGuide;
  guideBtn->setLabel(makeBoolLabel("Show Survival Guide: ", showSurvivalGuide));
- std::cout << "Show survival guide: " << (showSurvivalGuide ? "On" : "Off") << std::endl;
+ std::cout << "Show survival guide: " << (showSurvivalGuide ? "On" : "Off") << '\n';
  });
  uiMgr.addElement(guideBtn);
  elementIds.push_back("survival_guide");
@@ -409,7 +409,7 @@ void OptionsScreen::buildUI() {
  autosaveBtn->setOnClick([this, autosaveBtn, makeBoolLabel]() {
  autosaveEnabled = !autosaveEnabled;
  autosaveBtn->setLabel(makeBoolLabel("Autosave: ", autosaveEnabled));
- std::cout << "Autosave: " << (autosaveEnabled ? "On" : "Off") << std::endl;
+ std::cout << "Autosave: " << (autosaveEnabled ? "On" : "Off") << '\n';
  });
  uiMgr.addElement(autosaveBtn);
  elementIds.push_back("autosave_toggle");
@@ -427,7 +427,7 @@ void OptionsScreen::buildUI() {
  auto& mgr = saveload::SaveGameManager::getInstance();
  bool ok = mgr.saveGameSVI("manual", g, w);
  std::cout << (ok ? "Manual save completed" : "Manual save failed")
- << " at " << mgr.getSavePath() << std::endl;
+ << " at " << mgr.getSavePath() << '\n';
  });
  uiMgr.addElement(saveNowBtn);
  elementIds.push_back("save_now");
@@ -543,7 +543,7 @@ void OptionsScreen::applySettings() {
  << ", invBtnSize=" << inventoryButtonSize
  << ", modInfo=" << (showModInfoTooltip ? "on" : "off")
  << ", survivalGuide=" << (showSurvivalGuide ? "on" : "off")
- << std::endl;
+ << '\n';
 }
 
 void OptionsScreen::onRebindComplete(const std::string& action, const std::string& buttonName) {
@@ -551,7 +551,7 @@ void OptionsScreen::onRebindComplete(const std::string& action, const std::strin
  inputMgr->rebindAction(action, buttonName);
  // Track in keys config for persistence
  zombie::config::gKeysConfig.bindings[action] = buttonName;
- std::cout << "Rebound action '" << action << "' to button '" << buttonName << "'" << std::endl;
+ std::cout << "Rebound action '" << action << "' to button '" << buttonName << "'" << '\n';
 }
 
 gameStates::GameState* OptionsScreen::redirectState() {

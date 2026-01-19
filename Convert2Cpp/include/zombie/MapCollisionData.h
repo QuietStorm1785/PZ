@@ -291,7 +291,7 @@ public:
                n_squareUpdateTask(this.squareUpdateBuffer.position() / 9, this.squareUpdateBuffer);
                this.squareUpdateBuffer.clear();
             }
-         } catch (Exception var3) {
+         } catch (const jni::JavaException& var3) {
             ExceptionLogger.logException(var3);
          }
       }
@@ -312,7 +312,7 @@ public:
             while (this.thread.bSave) {
                try {
                   Thread.sleep(5L);
-               } catch (InterruptedException var3) {
+               } catch (const std::exception& var3) {
                }
             }
 
@@ -331,7 +331,7 @@ public:
          while (this.thread.isAlive()) {
             try {
                Thread.sleep(5L);
-            } catch (InterruptedException var3) {
+            } catch (const std::exception& var3) {
             }
          }
 

@@ -387,7 +387,7 @@ void IsoZombie::takeDamage(float damage) {
  
  if (health <= 0.0f) {
  health = 0.0f;
- std::cout << "Zombie died!" << std::endl;
+ std::cout << "Zombie died!" << '\n';
  // TODO: Play death animation
  // TODO: Spawn loot
  }

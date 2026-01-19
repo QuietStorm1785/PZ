@@ -30,7 +30,7 @@ SpriteLoader::~SpriteLoader() {
 
 void SpriteLoader::init(TextureManager* texMgr) {
  textureManager = texMgr;
- std::cout << "SpriteLoader initialized" << std::endl;
+ std::cout << "SpriteLoader initialized" << '\n';
 }
 
 // === Character Sprite Loading ===
@@ -39,7 +39,7 @@ zombie::graphics::AnimatedSprite* SpriteLoader::loadCharacter(
  const std::string& outfit) {
  
  if (!textureManager) {
- std::cerr << "SpriteLoader: TextureManager not initialized" << std::endl;
+ std::cerr << "SpriteLoader: TextureManager not initialized" << '\n';
  return nullptr;
  }
  
@@ -47,7 +47,7 @@ zombie::graphics::AnimatedSprite* SpriteLoader::loadCharacter(
  auto* sprite = textureManager->loadCharacterSpriteSheet("character", outfit);
  
  if (sprite) {
- std::cout << "Loaded character: " << outfit << std::endl;
+ std::cout << "Loaded character: " << outfit << '\n';
  }
  
  return sprite;
@@ -104,7 +104,7 @@ void SpriteLoader::setupPlayer(
  sprite->setAnimation("Idle_S");
  sprite->play();
  
- std::cout << "Setup player with atlas: " << outfit << std::endl;
+ std::cout << "Setup player with atlas: " << outfit << '\n';
  }
  } else {
  // Load without atlas
@@ -113,7 +113,7 @@ void SpriteLoader::setupPlayer(
  
  if (sprite) {
  player->setSprite(std::shared_ptr<zombie::graphics::AnimatedSprite>(sprite));
- std::cout << "Player sprite configured" << std::endl;
+ std::cout << "Player sprite configured" << '\n';
  }
 }
 
@@ -121,7 +121,7 @@ void SpriteLoader::setupPlayer(
 
 zombie::graphics::Sprite* SpriteLoader::loadTile(const std::string& tileName) {
  if (!textureManager) {
- std::cerr << "SpriteLoader: TextureManager not initialized" << std::endl;
+ std::cerr << "SpriteLoader: TextureManager not initialized" << '\n';
  return nullptr;
  }
  
@@ -150,7 +150,7 @@ zombie::assets::TextureAtlas* SpriteLoader::loadCommonTiles() {
  
  if (atlas) {
  commonTilesLoaded = true;
- std::cout << "Loaded common tiles atlas" << std::endl;
+ std::cout << "Loaded common tiles atlas" << '\n';
  }
  
  return atlas;
@@ -185,7 +185,7 @@ std::vector<std::string> SpriteLoader::getCommonTileNames() {
 
 zombie::graphics::Sprite* SpriteLoader::loadObject(const std::string& objectType) {
  if (!textureManager) {
- std::cerr << "SpriteLoader: TextureManager not initialized" << std::endl;
+ std::cerr << "SpriteLoader: TextureManager not initialized" << '\n';
  return nullptr;
  }
  
@@ -222,7 +222,7 @@ void SpriteLoader::setupObject(
  
  if (sprite) {
  object->setSprite(std::shared_ptr<zombie::graphics::Sprite>(sprite));
- std::cout << "Object sprite configured: " << objectType << std::endl;
+ std::cout << "Object sprite configured: " << objectType << '\n';
  }
 }
 
@@ -230,11 +230,11 @@ void SpriteLoader::setupObject(
 
 void SpriteLoader::preloadCommonAssets() {
  if (!textureManager) {
- std::cerr << "SpriteLoader: Cannot preload, TextureManager not initialized" << std::endl;
+ std::cerr << "SpriteLoader: Cannot preload, TextureManager not initialized" << '\n';
  return;
  }
  
- std::cout << "\n=== Preloading Common Assets ===" << std::endl;
+ std::cout << "\n=== Preloading Common Assets ===" << '\n';
  
  // Load tile atlas
  preloadTileAtlas();
@@ -242,7 +242,7 @@ void SpriteLoader::preloadCommonAssets() {
  // Load default character
  preloadCharacterAtlases({"Bob", "Kate"});
  
- std::cout << "=== Preload Complete ===\n" << std::endl;
+ std::cout << "=== Preload Complete ===\n" << '\n';
 }
 
 void SpriteLoader::preloadCharacterAtlases(const std::vector<std::string>& outfits) {
@@ -250,9 +250,9 @@ void SpriteLoader::preloadCharacterAtlases(const std::vector<std::string>& outfi
  auto* atlas = textureManager->createCharacterAtlas("character", outfit);
  if (atlas) {
  loadedCharacters.push_back(outfit);
- std::cout << " ✓ Preloaded character atlas: " << outfit << std::endl;
+ std::cout << " ✓ Preloaded character atlas: " << outfit << '\n';
  } else {
- std::cout << " ✗ Failed to preload character: " << outfit << std::endl;
+ std::cout << " ✗ Failed to preload character: " << outfit << '\n';
  }
  }
 }
@@ -260,9 +260,9 @@ void SpriteLoader::preloadCharacterAtlases(const std::vector<std::string>& outfi
 void SpriteLoader::preloadTileAtlas() {
  auto* atlas = loadCommonTiles();
  if (atlas) {
- std::cout << " ✓ Preloaded tile atlas" << std::endl;
+ std::cout << " ✓ Preloaded tile atlas" << '\n';
  } else {
- std::cout << " ✗ Failed to preload tile atlas" << std::endl;
+ std::cout << " ✗ Failed to preload tile atlas" << '\n';
  }
 }
 

@@ -158,7 +158,7 @@ public:
             var6.write(var2.array(), 0, var2.position());
             var6.flush();
             var6.close();
-         } catch (Exception var7) {
+         } catch (const jni::JavaException& var7) {
             ExceptionLogger.logException(var7);
             return;
          }
@@ -185,7 +185,7 @@ public:
             }
          } catch (FileNotFoundException var13) {
             return;
-         } catch (Exception var14) {
+         } catch (const jni::JavaException& var14) {
             ExceptionLogger.logException(var14);
             return;
          }

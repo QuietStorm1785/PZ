@@ -132,7 +132,7 @@ public:
             }
 
             TableNetworkUtils.save(var2, var4.bb);
-         } catch (IOException var6) {
+         } catch (const jni::JavaException& var6) {
             var6.printStackTrace();
          }
       } else {
@@ -211,7 +211,7 @@ public:
 
          try {
             TableNetworkUtils.load(var6, var0);
-         } catch (Exception var8) {
+         } catch (const jni::JavaException& var8) {
             var8.printStackTrace();
             return;
          }

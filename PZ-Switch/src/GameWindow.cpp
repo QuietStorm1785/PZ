@@ -44,7 +44,7 @@ public:
  MainMenuState() : timer(0.0f) {}
  
  void enter() override {
- std::cout << "Entering Main Menu State" << std::endl;
+ std::cout << "Entering Main Menu State" << '\n';
  timer = 0.0f;
  
  // Create logo sprite
@@ -71,7 +71,7 @@ public:
  }
  
  void exit() override {
- std::cout << "Exiting Main Menu State" << std::endl;
+ std::cout << "Exiting Main Menu State" << '\n';
  logoSprite.reset();
  }
  
@@ -221,7 +221,7 @@ public:
  }
  
  void enter() override {
- std::cout << "Entering Ingame State" << std::endl;
+ std::cout << "Entering Ingame State" << '\n';
 
  remotePlayers.clear();
  remoteZombies.clear();
@@ -332,13 +332,13 @@ public:
  visibilityChecker->setWorld(isoCell.get());
  fogSystem = std::make_unique<::FogOfWarSystem>(300, 300, 8); // 300x300 grid, 8 Z levels
  
- std::cout << "Visibility and fog of war systems initialized" << std::endl;
+ std::cout << "Visibility and fog of war systems initialized" << '\n';
  
  // Initialize pathfinding thread pool with auto-detected thread count
  auto* pathfindingPool = ::PathfindingThreadPool::getInstance();
  int optimalThreads = PathfindingThreadPool::getOptimalThreadCount();
  pathfindingPool->initialize(optimalThreads); // 0 = auto-detect
- std::cout << "Pathfinding thread pool initialized with " << optimalThreads << " workers" << std::endl;
+ std::cout << "Pathfinding thread pool initialized with " << optimalThreads << " workers" << '\n';
 
  // Apply pending save data (player position, health, tile map) if Continue was selected
  applyPendingLoad();
@@ -373,16 +373,16 @@ public:
  }
  }
  
- std::cout << "Gameplay systems initialized" << std::endl;
- std::cout << "=== WORLD SYSTEM ACTIVE ===" << std::endl;
- std::cout << "IsoCell: 300x300 tiles (4x4 chunks loaded)" << std::endl;
- std::cout << "IsoPlayer: Position (" << isoPlayer->getX() << ", " << isoPlayer->getY() << ")" << std::endl;
- std::cout << "IsoZombies: 8 spawned" << std::endl;
- std::cout << "Controls:" << std::endl;
- std::cout << " WASD - Move player" << std::endl;
- std::cout << " Hold B - Run" << std::endl;
- std::cout << " Arrow Keys - Pan camera" << std::endl;
- std::cout << " ESC - Quit" << std::endl;
+ std::cout << "Gameplay systems initialized" << '\n';
+ std::cout << "=== WORLD SYSTEM ACTIVE ===" << '\n';
+ std::cout << "IsoCell: 300x300 tiles (4x4 chunks loaded)" << '\n';
+ std::cout << "IsoPlayer: Position (" << isoPlayer->getX() << ", " << isoPlayer->getY() << ")" << '\n';
+ std::cout << "IsoZombies: 8 spawned" << '\n';
+ std::cout << "Controls:" << '\n';
+ std::cout << " WASD - Move player" << '\n';
+ std::cout << " Hold B - Run" << '\n';
+ std::cout << " Arrow Keys - Pan camera" << '\n';
+ std::cout << " ESC - Quit" << '\n';
 
  // Final media check marker
  mediaChecked = true;
@@ -419,7 +419,7 @@ public:
  }
  auto& mgr = saveload::SaveGameManager::getInstance();
  bool ok = mgr.saveGameSVI("pause_save", g, w);
- std::cout << (ok ? "Saved game" : "Save failed") << " to " << mgr.getSavePath() << std::endl;
+ std::cout << (ok ? "Saved game" : "Save failed") << " to " << mgr.getSavePath() << '\n';
  }},
  {"quit", "Quit", "Quit", [](const std::string&) {
  SDL_Event quitEvt{};
@@ -435,10 +435,10 @@ public:
  quickActionMenu = std::make_shared<ui::RadialMenu>("quick_action_menu");
  std::vector<ui::RadialOption> quickOpts = {
  {"shout", "Shout", "Shout", [] (const std::string&) {
- std::cout << "Player shouts!" << std::endl;
+ std::cout << "Player shouts!" << '\n';
  }},
  {"vehicle", "Vehicle", "Vehicle", [] (const std::string&) {
- std::cout << "Vehicle menu requested" << std::endl;
+ std::cout << "Vehicle menu requested" << '\n';
  }}
  };
  quickActionMenu->setOptions(quickOpts);
@@ -447,7 +447,7 @@ public:
  }
  
  void exit() override {
- std::cout << "Exiting Ingame State" << std::endl;
+ std::cout << "Exiting Ingame State" << '\n';
  
  // All unique_ptr members are automatically cleaned up
  mouseSprite.reset();
@@ -643,7 +643,7 @@ public:
  if (!pathfindingPool->isQueueHealthy()) {
  std::cout << "WARNING: Pathfinding queue bottleneck detected! "
  << "Pending requests: " << pathfindingPool->getPendingRequestCount() 
- << std::endl;
+ << '\n';
  }
  
  cleanupTimer = 0.0f;
@@ -676,7 +676,7 @@ public:
  // Use profile-aware root and SVI format
  bool ok = mgr.saveGameSVI("autosave", g, w);
  std::cout << (ok ? "Autosave completed" : "Autosave failed")
- << " at " << mgr.getSavePath() << std::endl;
+ << " at " << mgr.getSavePath() << '\n';
  }
  autosaveTimer = 0.0f;
  }
@@ -1160,17 +1160,17 @@ GameWindow::~GameWindow() {
 
 bool GameWindow::init(int width, int height, bool fullscreen, const std::string& mediaPath) {
  (void)fullscreen;
- std::cout << "Project Zomboid C++ Port v" << VERSION << std::endl;
+ std::cout << "Project Zomboid C++ Port v" << VERSION << '\n';
  
  // Initialize core graphics
  if (!core::Core::getInstance()->init(width, height, "Project Zomboid")) {
- std::cerr << "Failed to initialize Core" << std::endl;
+ std::cerr << "Failed to initialize Core" << '\n';
  return false;
  }
  
  // Initialize texture manager with media assets
  if (!assets::TextureManager::getInstance()->init(core::Core::getInstance()->getRenderer())) {
- std::cerr << "Failed to initialize TextureManager" << std::endl;
+ std::cerr << "Failed to initialize TextureManager" << '\n';
  return false;
  }
 
@@ -1191,12 +1191,12 @@ bool GameWindow::init(int width, int height, bool fullscreen, const std::string&
  // Initialize networking (optional)
  networkReady = initNetworking();
  if (!networkReady) {
- std::cerr << "Networking initialization failed; continuing offline" << std::endl;
+ std::cerr << "Networking initialization failed; continuing offline" << '\n';
  }
  
  initialized = true;
- std::cout << "GameWindow initialized successfully" << std::endl;
- std::cout << "Media path: " << assets::TextureManager::getInstance()->getMediaPath() << std::endl;
+ std::cout << "GameWindow initialized successfully" << '\n';
+ std::cout << "Media path: " << assets::TextureManager::getInstance()->getMediaPath() << '\n';
  return true;
 }
 
@@ -1213,15 +1213,15 @@ void GameWindow::initStates() {
  bool ok = mgr.loadLatestGameSVI(g, w);
  if (ok && ingameState) {
  ingameState->setPendingLoad(g, w);
- std::cout << "Loaded latest save for Continue from: " << mgr.getLatestSVIPath() << std::endl;
+ std::cout << "Loaded latest save for Continue from: " << mgr.getLatestSVIPath() << '\n';
  } else if (!ok) {
- std::cout << "No SVI save found for Continue" << std::endl;
+ std::cout << "No SVI save found for Continue" << '\n';
  }
  return ok;
  },
  []() {
  // Options callback; actual transition handled by state machine
- std::cout << "Options requested from main menu" << std::endl;
+ std::cout << "Options requested from main menu" << '\n';
  },
  [this]() {
  closeRequested = true;
@@ -1230,7 +1230,7 @@ void GameWindow::initStates() {
  auto options = std::make_unique<ui::OptionsScreen>(
  []() {
  // Back to menu callback; handled by state machine
- std::cout << "Returning to main menu from options" << std::endl;
+ std::cout << "Returning to main menu from options" << '\n';
  });
  
  auto ingame = std::make_unique<IngameState>();
@@ -1260,7 +1260,7 @@ bool GameWindow::initNetworking() {
 
  // Start server
  if (!networkServer->start(port)) {
- std::cerr << "Failed to start local server on port " << port << std::endl;
+ std::cerr << "Failed to start local server on port " << port << '\n';
  return false;
  }
 
@@ -1311,12 +1311,12 @@ bool GameWindow::initNetworking() {
  p.resetRead();
  uint32_t sender = p.readUint32();
  std::string msg = p.readString();
- std::cout << "[CHAT] (" << sender << ") " << msg << std::endl;
+ std::cout << "[CHAT] (" << sender << ") " << msg << '\n';
  });
 
  // Connect to local server
  if (!networkClient->connect("127.0.0.1", port, "Player")) {
- std::cerr << "Failed to connect to local server" << std::endl;
+ std::cerr << "Failed to connect to local server" << '\n';
  return false;
  }
 
@@ -1331,17 +1331,17 @@ bool GameWindow::initNetworking() {
  ingameState->setNetworking(networkServer.get(), networkClient.get());
  }
 
- std::cout << "Networking ready on port " << port << " (local host)" << std::endl;
+ std::cout << "Networking ready on port " << port << " (local host)" << '\n';
  return true;
 }
 
 void GameWindow::run() {
  if (!initialized) {
- std::cerr << "Cannot run - not initialized" << std::endl;
+ std::cerr << "Cannot run - not initialized" << '\n';
  return;
  }
  
- std::cout << "Starting main game loop..." << std::endl;
+ std::cout << "Starting main game loop..." << '\n';
  
  SDL_Event event;
  auto* inputMgr = input::InputManager::getInstance();
@@ -1393,7 +1393,7 @@ void GameWindow::run() {
  }
  }
  
- std::cout << "Exiting game loop" << std::endl;
+ std::cout << "Exiting game loop" << '\n';
 }
 
 void GameWindow::logic() {
@@ -1471,7 +1471,7 @@ void GameWindow::updateFPS() {
  
  // Print FPS every second (debug)
  if (now - lastFPS > 1000) {
- std::cout << "FPS: " << average10FPS << std::endl;
+ std::cout << "FPS: " << average10FPS << '\n';
  lastFPS = now;
  }
 }

@@ -23,7 +23,7 @@ public:
          } else {
             var1 = new VorbisFile(System.in, nullptr, -1);
          }
-      } catch (Exception var5) {
+      } catch (const jni::JavaException& var5) {
          System.err.println(var5);
          return;
       }

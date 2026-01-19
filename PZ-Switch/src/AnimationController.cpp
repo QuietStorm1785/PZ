@@ -104,7 +104,7 @@ void AnimationController::updateSpriteAnimation() {
  }
  
  // No animation found
- std::cerr << "AnimationController: No animation registered for " << key << std::endl;
+ std::cerr << "AnimationController: No animation registered for " << key << '\n';
 }
 
 // ===== Animation Helper Functions =====

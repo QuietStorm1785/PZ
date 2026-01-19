@@ -36,12 +36,12 @@ bool BitmapFont::loadFromFile(const std::string& fntPath, SDL_Renderer* renderer
  cleanup();
  
  if (!parseFntFile(fntPath)) {
- std::cerr << "Failed to parse font file: " << fntPath << std::endl;
+ std::cerr << "Failed to parse font file: " << fntPath << '\n';
  return false;
  }
  
  std::cout << "Loaded font: " << face << " size=" << size 
- << " glyphs=" << glyphs.size() << std::endl;
+ << " glyphs=" << glyphs.size() << '\n';
  
  return !pageTextures.empty() && !glyphs.empty();
 }
@@ -106,7 +106,7 @@ void BitmapFont::parsePage(const std::string& line, const std::string& basePath,
  // Load texture
  SDL_Surface* surface = IMG_Load(fullPath.c_str());
  if (!surface) {
- std::cerr << "Failed to load font texture: " << fullPath << std::endl;
+ std::cerr << "Failed to load font texture: " << fullPath << '\n';
  return;
  }
  
@@ -114,7 +114,7 @@ void BitmapFont::parsePage(const std::string& line, const std::string& basePath,
  SDL_FreeSurface(surface);
  
  if (!texture) {
- std::cerr << "Failed to create font texture: " << fullPath << std::endl;
+ std::cerr << "Failed to create font texture: " << fullPath << '\n';
  return;
  }
  
@@ -122,7 +122,7 @@ void BitmapFont::parsePage(const std::string& line, const std::string& basePath,
  SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
  
  pageTextures[pageId] = texture;
- std::cout << "Loaded font page " << pageId << ": " << file << std::endl;
+ std::cout << "Loaded font page " << pageId << ": " << file << '\n';
 }
 
 void BitmapFont::parseChar(const std::string& line) {

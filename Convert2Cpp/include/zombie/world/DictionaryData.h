@@ -330,7 +330,7 @@ public:
             if (var10.exists()) {
                Files.copy(var10, var11);
             }
-         } catch (Exception var12) {
+         } catch (const jni::JavaException& var12) {
             var12.printStackTrace();
          }
       }
@@ -354,7 +354,7 @@ public:
                   var4.limit(var5);
                   this.loadFromByteBuffer(var4);
                }
-            } catch (Exception var8) {
+            } catch (const jni::JavaException& var8) {
                var8.printStackTrace();
                throw new WorldDictionaryException("Error loading WorldDictionary.", var8);
             }
@@ -430,7 +430,7 @@ public:
     auto var5 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin"));
             Files.copy(var3, var5);
             var3.delete();
-         } catch (Exception var6) {
+         } catch (const jni::JavaException& var6) {
             var6.printStackTrace();
             throw new WorldDictionaryException("Error saving WorldDictionary.", var6);
          }
@@ -513,7 +513,7 @@ public:
                }
 
                var5.write("}" + System.lineSeparator());
-            } catch (Exception var10) {
+            } catch (const jni::JavaException& var10) {
                var10.printStackTrace();
                throw new WorldDictionaryException("Error saving WorldDictionary as text.", var10);
             }

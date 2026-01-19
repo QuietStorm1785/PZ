@@ -52,7 +52,7 @@ public:
          if (this.m_zipFS != nullptr) {
             try {
                this.m_zipFS.close();
-            } catch (IOException var3) {
+            } catch (const jni::JavaException& var3) {
             }
 
             this.m_zipFS = nullptr;
@@ -77,7 +77,7 @@ public:
                   this.m_maxZ = PZMath.max(this.m_maxZ, var5);
                }
             }
-         } catch (IOException var8) {
+         } catch (const jni::JavaException& var8) {
             ExceptionLogger.logException(var8);
          }
       }
@@ -142,7 +142,7 @@ public:
             } catch (NoSuchFileException var12) {
                this.m_missing.add(var4);
             }
-         } catch (Exception var13) {
+         } catch (const jni::JavaException& var13) {
             this.m_missing.add(var4);
             var13.printStackTrace();
          }
@@ -193,7 +193,7 @@ public:
     FileSystem openZipFile() {
       try {
          return FileSystems.newFileSystem(Paths.get(this.m_zipFile));
-      } catch (IOException var2) {
+      } catch (const jni::JavaException& var2) {
          var2.printStackTrace();
     return null;
       }
@@ -340,7 +340,7 @@ public:
                   this.m_resolution = PZMath.tryParseFloat(var5, 1.0F);
                }
             }
-         } catch (Exception var13) {
+         } catch (const jni::JavaException& var13) {
             var13.printStackTrace();
          }
       }
@@ -350,7 +350,7 @@ public:
       if (this.m_zipFS != nullptr) {
          try {
             this.m_zipFS.close();
-         } catch (IOException var2) {
+         } catch (const jni::JavaException& var2) {
          }
 
          this.m_zipFS = nullptr;

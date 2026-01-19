@@ -176,7 +176,7 @@ NetworkManager::~NetworkManager() {
 
 bool NetworkManager::init() {
  if (SDLNet_Init() < 0) {
- std::cerr << "SDLNet_Init failed: " << SDLNet_GetError() << std::endl;
+ std::cerr << "SDLNet_Init failed: " << SDLNet_GetError() << '\n';
  return false;
  }
  
@@ -218,7 +218,7 @@ bool NetworkManager::sendPacketToPeer(const Packet& packet, NetworkPeer* peer) {
  int result = SDLNet_TCP_Send(peer->socket, buffer.data(), static_cast<int>(buffer.size()));
  
  if (result < static_cast<int>(buffer.size())) {
- std::cerr << "SDLNet_TCP_Send failed: " << SDLNet_GetError() << std::endl;
+ std::cerr << "SDLNet_TCP_Send failed: " << SDLNet_GetError() << '\n';
  peer->connected = false;
  return false;
  }
@@ -251,7 +251,7 @@ std::unique_ptr<Packet> NetworkManager::receivePacketFromPeer(NetworkPeer* peer)
  dataSize |= static_cast<uint32_t>(header[4]);
  
  if (dataSize > 1024 * 1024) { // 1MB max packet size
- std::cerr << "Packet too large: " << dataSize << " bytes" << std::endl;
+ std::cerr << "Packet too large: " << dataSize << " bytes" << '\n';
  peer->connected = false;
  return nullptr;
  }
@@ -305,20 +305,20 @@ bool NetworkServer::start(uint16_t serverPort, int max) {
  // Create server socket
  IPaddress ip;
  if (SDLNet_ResolveHost(&ip, nullptr, port) < 0) {
- std::cerr << "SDLNet_ResolveHost failed: " << SDLNet_GetError() << std::endl;
+ std::cerr << "SDLNet_ResolveHost failed: " << SDLNet_GetError() << '\n';
  return false;
  }
  
  serverSocket = SDLNet_TCP_Open(&ip);
  if (!serverSocket) {
- std::cerr << "SDLNet_TCP_Open failed: " << SDLNet_GetError() << std::endl;
+ std::cerr << "SDLNet_TCP_Open failed: " << SDLNet_GetError() << '\n';
  return false;
  }
  
  // Create socket set
  socketSet = SDLNet_AllocSocketSet(maxClients + 1);
  if (!socketSet) {
- std::cerr << "SDLNet_AllocSocketSet failed: " << SDLNet_GetError() << std::endl;
+ std::cerr << "SDLNet_AllocSocketSet failed: " << SDLNet_GetError() << '\n';
  SDLNet_TCP_Close(serverSocket);
  return false;
  }
@@ -326,7 +326,7 @@ bool NetworkServer::start(uint16_t serverPort, int max) {
  SDLNet_TCP_AddSocket(socketSet, serverSocket);
  
  running = true;
- std::cout << "Server started on port " << port << std::endl;
+ std::cout << "Server started on port " << port << '\n';
  return true;
 }
 
@@ -355,7 +355,7 @@ void NetworkServer::stop() {
  }
  
  running = false;
- std::cout << "Server stopped" << std::endl;
+ std::cout << "Server stopped" << '\n';
 }
 
 void NetworkServer::update(float deltaTime) {
@@ -390,7 +390,7 @@ void NetworkServer::acceptNewClients() {
  
  SDLNet_TCP_AddSocket(socketSet, newSocket);
  
- std::cout << "Client " << client->id << " connected" << std::endl;
+ std::cout << "Client " << client->id << " connected" << '\n';
  
  // Send connection response
  Packet response(PacketType::CONNECT_RESPONSE);
@@ -399,7 +399,7 @@ void NetworkServer::acceptNewClients() {
  
  clients.push_back(std::move(client));
  } else {
- std::cout << "Server full, rejecting connection" << std::endl;
+ std::cout << "Server full, rejecting connection" << '\n';
  SDLNet_TCP_Close(newSocket);
  }
  }
@@ -414,7 +414,7 @@ void NetworkServer::updateClients(float deltaTime) {
  
  // Check timeout
  if (currentTime - client->lastHeartbeat > CLIENT_TIMEOUT * 1000) {
- std::cout << "Client " << client->id << " timed out" << std::endl;
+ std::cout << "Client " << client->id << " timed out" << '\n';
  disconnectClient(client.get());
  it = clients.erase(it);
  continue;
@@ -434,7 +434,7 @@ void NetworkServer::updateClients(float deltaTime) {
  }
  } else if (!client->connected) {
  // Disconnected
- std::cout << "Client " << client->id << " disconnected" << std::endl;
+ std::cout << "Client " << client->id << " disconnected" << '\n';
  disconnectClient(client.get());
  it = clients.erase(it);
  continue;
@@ -515,14 +515,14 @@ bool NetworkClient::connect(const std::string& hostname, uint16_t port, const st
  
  // Resolve host
  if (SDLNet_ResolveHost(&serverAddress, hostname.c_str(), port) < 0) {
- std::cerr << "SDLNet_ResolveHost failed: " << SDLNet_GetError() << std::endl;
+ std::cerr << "SDLNet_ResolveHost failed: " << SDLNet_GetError() << '\n';
  return false;
  }
  
  // Connect to server
  socket = SDLNet_TCP_Open(&serverAddress);
  if (!socket) {
- std::cerr << "SDLNet_TCP_Open failed: " << SDLNet_GetError() << std::endl;
+ std::cerr << "SDLNet_TCP_Open failed: " << SDLNet_GetError() << '\n';
  return false;
  }
  
@@ -541,7 +541,7 @@ bool NetworkClient::connect(const std::string& hostname, uint16_t port, const st
  if (response && response->getType() == PacketType::CONNECT_RESPONSE) {
  clientId = response->readUint32();
  connected = true;
- std::cout << "Connected to server as client " << clientId << std::endl;
+ std::cout << "Connected to server as client " << clientId << '\n';
  return true;
  }
  
@@ -563,7 +563,7 @@ void NetworkClient::disconnect() {
  }
  
  connected = false;
- std::cout << "Disconnected from server" << std::endl;
+ std::cout << "Disconnected from server" << '\n';
 }
 
 void NetworkClient::update(float deltaTime) {
@@ -600,7 +600,7 @@ void NetworkClient::receivePackets() {
  }
  } else if (!serverPeer.connected) {
  connected = false;
- std::cout << "Lost connection to server" << std::endl;
+ std::cout << "Lost connection to server" << '\n';
  }
  }
  

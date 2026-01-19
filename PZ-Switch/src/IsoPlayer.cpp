@@ -110,7 +110,7 @@ void IsoGameCharacter::hit(float damage, IsoGameCharacter* attacker) {
 void IsoGameCharacter::die() {
  setActive(false);
  setVisible(false);
- std::cout << "Character died!" << std::endl;
+ std::cout << "Character died!" << '\n';
 }
 
 void IsoGameCharacter::addItem(const std::string& itemType) {
@@ -365,17 +365,17 @@ void IsoPlayer::interact() {
  }
 
  if (!square) {
- std::cout << forename << " " << surname << " interacts with nothing." << std::endl;
+ std::cout << forename << " " << surname << " interacts with nothing." << '\n';
  return;
  }
 
  const auto& objs = square->getObjects();
  if (objs.empty()) {
- std::cout << forename << " " << surname << " finds no interactable objects here." << std::endl;
+ std::cout << forename << " " << surname << " finds no interactable objects here." << '\n';
  return;
  }
 
- std::cout << forename << " " << surname << " interacts with " << objs.size() << " object(s)." << std::endl;
+ std::cout << forename << " " << surname << " interacts with " << objs.size() << " object(s)." << '\n';
  for (auto* obj : objs) {
  if (obj) {
  obj->onInteract(this);
@@ -385,11 +385,11 @@ void IsoPlayer::interact() {
 
 void IsoPlayer::useItem(const std::string& itemType) {
  if (!hasItem(itemType)) {
- std::cout << "Don't have item: " << itemType << std::endl;
+ std::cout << "Don't have item: " << itemType << '\n';
  return;
  }
  
- std::cout << "Using item: " << itemType << std::endl;
+ std::cout << "Using item: " << itemType << '\n';
  
  // Basic item usage logic
  if (itemType == "FirstAidKit" || itemType == "Bandage") {
@@ -397,35 +397,35 @@ void IsoPlayer::useItem(const std::string& itemType) {
  float healAmount = (itemType == "FirstAidKit") ? 30.0f : 15.0f;
  setHealth(std::min(getMaxHealth(), getHealth() + healAmount));
  removeItem(itemType);
- std::cout << forename << " heals for " << healAmount << " HP" << std::endl;
+ std::cout << forename << " heals for " << healAmount << " HP" << '\n';
  }
  else if (itemType == "Food" || itemType == "CannedFood") {
  // Reduce hunger
  hunger -= 20.0f;
  hunger = std::max(0.0f, hunger);
  removeItem(itemType);
- std::cout << forename << " eats and reduces hunger" << std::endl;
+ std::cout << forename << " eats and reduces hunger" << '\n';
  }
  else if (itemType == "Water" || itemType == "WaterBottle") {
  // Reduce thirst
  thirst -= 25.0f;
  thirst = std::max(0.0f, thirst);
  removeItem(itemType);
- std::cout << forename << " drinks and reduces thirst" << std::endl;
+ std::cout << forename << " drinks and reduces thirst" << '\n';
  }
  else {
- std::cout << "Don't know how to use: " << itemType << std::endl;
+ std::cout << "Don't know how to use: " << itemType << '\n';
  }
 }
 
 void IsoPlayer::attackNearestZombie() {
- std::cout << forename << " " << surname << " attacks!" << std::endl;
+ std::cout << forename << " " << surname << " attacks!" << '\n';
  
  if (!world) return;
  
  const auto& zombies = world->getZombies();
  if (zombies.empty()) {
- std::cout << "No zombies nearby" << std::endl;
+ std::cout << "No zombies nearby" << '\n';
  return;
  }
  
@@ -451,12 +451,12 @@ void IsoPlayer::attackNearestZombie() {
  float damage = 10.0f; // Base unarmed damage
  
  nearestZombie->takeDamage(damage);
- std::cout << forename << " hits zombie for " << damage << " damage!" << std::endl;
+ std::cout << forename << " hits zombie for " << damage << " damage!" << '\n';
  
  // TODO: Play attack animation
  // TODO: Play attack sound
  } else {
- std::cout << "No zombie in range" << std::endl;
+ std::cout << "No zombie in range" << '\n';
  }
 }
 
