@@ -3,6 +3,7 @@
 #include "gnu/trove/list/array/TIntArrayList.h"
 #include "gnu/trove/set/hash/TIntHashSet.h"
 #include "se/krka/kahlua/vm/KahluaTable.h"
+#include "zombie/popman/OptimizedZombieManager.h"
 #include "zombie/DebugFileWatcher.h"
 #include "zombie/GameTime.h"
 #include "zombie/MapCollisionData.h"
@@ -74,6 +75,7 @@ public:
  const LoadedAreas loadedAreas = new LoadedAreas(false);
  const LoadedAreas loadedServerCells = new LoadedAreas(true);
  const PlayerSpawns playerSpawns = new PlayerSpawns();
+ std::unique_ptr<OptimizedZombieManager> zombie_pool_manager;
 private
  short[] realZombieCount;
 private
@@ -96,7 +98,30 @@ private
  ArrayList<IsoDirections> m_sittingDirections =
  std::make_unique<ArrayList<>>();
 
- ZombiePopulationManager() { this->newChunks.setAutoCompactionFactor(0.0F); }
+ ZombiePopulationManager();
+
+ // Pool management methods
+ void initialize_zombie_pool() noexcept {
+     if (zombie_pool_manager) {
+         zombie_pool_manager->initialize_pools();
+     }
+ }
+
+ void check_zombie_pool_health() noexcept {
+     if (zombie_pool_manager) {
+         zombie_pool_manager->check_pool_health();
+     }
+ }
+
+ void print_zombie_pool_status() const noexcept {
+     if (zombie_pool_manager) {
+         zombie_pool_manager->print_pool_status();
+     }
+ }
+
+ float get_zombie_pool_utilization() const noexcept {
+     return zombie_pool_manager ? zombie_pool_manager->get_pool_utilization() : 0.0f;
+ }
 
 private
  static void n_init(boolean var0, boolean var1, int var2, int var3,

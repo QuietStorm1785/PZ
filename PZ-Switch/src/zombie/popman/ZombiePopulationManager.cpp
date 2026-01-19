@@ -3,6 +3,15 @@
 namespace zombie {
 namespace popman {
 
+// Constructor implementation
+ZombiePopulationManager::ZombiePopulationManager()
+    : zombie_pool_manager(std::make_unique<OptimizedZombieManager>(4096)) {
+    newChunks.setAutoCompactionFactor(0.0F);
+    if (zombie_pool_manager) {
+        zombie_pool_manager->initialize_pools();
+    }
+}
+
 void ZombiePopulationManager::noise(const std::string &string) {
  // TODO: Implement noise
 }
@@ -80,6 +89,8 @@ void ZombiePopulationManager::updateRealZombieCount() {
 
 void ZombiePopulationManager::updateMain() {
  // TODO: Implement updateMain
+ // TODO: Add pool health monitoring to main update loop
+ check_zombie_pool_health();
 }
 
 void ZombiePopulationManager::addZombieStanding(float float2, float float1,
