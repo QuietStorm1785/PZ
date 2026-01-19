@@ -41,7 +41,7 @@ namespace zombie {
 
 class ZomboidFileSystem {
 public:
-    static const ZomboidFileSystem instance = new ZomboidFileSystem();
+    static auto instance = std::make_shared<ZomboidFileSystem>();
    private final ArrayList<String> loadList = std::make_unique<ArrayList<>>();
    private final Map<String, String> modIdToDir = std::make_unique<HashMap<>>();
    private final Map<String, Mod> modDirToMod = std::make_unique<HashMap<>>();
@@ -70,7 +70,7 @@ public:
    private final HashSet<String> LoadedPacks = std::make_unique<HashSet<>>();
     FileGuidTable m_fileGuidTable = null;
     bool m_fileGuidTableWatcherActive = false;
-    const PredicatedFileWatcher m_modFileWatcher = new PredicatedFileWatcher(this::isModFile, this::onModFileChanged);
+    auto m_modFileWatcher = std::make_shared<PredicatedFileWatcher>(this::isModFile, this::onModFileChanged);
    private final HashSet<String> m_watchedModFolders = std::make_unique<HashSet<>>();
     long m_modsChangedTime = 0L;
 
@@ -95,7 +95,7 @@ public:
 
       for (int var1 = 0; var1 < this.loadList.size(); var1++) {
     std::string var2 = this.getRelativeFile(this.loadList.get(var1));
-    File var3 = new File(this.loadList.get(var1)).getAbsoluteFile();
+    auto var3 = std::make_shared<File>(this.loadList.get(var1)).getAbsoluteFile();
     std::string var4 = var3.getAbsolutePath();
          if (var3.isDirectory()) {
             var4 = var4 + File.separator;
@@ -112,7 +112,7 @@ public:
       if (!var1.isDirectory()) {
          return new File(var1, var2);
       } else {
-         File[] var3 = var1.listFiles((var1x, var2x) -> var2x.equalsIgnoreCase(var2));
+         std::vector<File> var3 = var1.listFiles((var1x, var2x) -> var2x.equalsIgnoreCase(var2));
          return var3 != nullptr && var3.length != 0 ? var3[0] : new File(var1, var2);
       }
    }
@@ -268,7 +268,7 @@ public:
             this.loadList.add(var2);
          }
 
-         String[] var3 = var1.list();
+         std::vector<String> var3 = var1.list();
 
          for (int var4 = 0; var4 < var3.length; var4++) {
             this.searchFolders(new File(var1.getAbsolutePath() + File.separator + var3[var4]));
@@ -282,8 +282,8 @@ public:
     std::vector var2 = new ArrayList();
 
       for (Entry var4 : this.ActiveFileMap.entrySet()) {
-         if (((String)var4.getKey()).contains(var1)) {
-            var2.add((String)var4.getValue());
+         if ((static_cast<String>(var4).getKey()).contains(var1)) {
+            var2.add(static_cast<String>(var4).getValue());
          }
       }
 
@@ -294,15 +294,15 @@ public:
     std::vector var3 = new ArrayList();
 
       for (Entry var5 : this.ActiveFileMap.entrySet()) {
-         if (((String)var5.getKey()).contains(var1) && ((String)var5.getKey()).contains(var2)) {
-            var3.add((String)var5.getValue());
+         if ((static_cast<String>(var5).getKey()).contains(var1) && (static_cast<String>(var5).getKey()).contains(var2)) {
+            var3.add(static_cast<String>(var5).getValue());
          }
       }
 
       return var3.toArray();
    }
 
-   public synchronized String getString(String var1) {
+   public /* THREAD_SAFE */ String getString(String var1) {
       if (this.IgnoreActiveFileMap.get()) {
     return var1;
       } else {
@@ -321,7 +321,7 @@ public:
       }
    }
 
-   public synchronized boolean isKnownFile(String var1) {
+   public /* THREAD_SAFE */ boolean isKnownFile(String var1) {
       if (this.AllAbsolutePaths.contains(var1)) {
     return true;
       } else {
@@ -401,9 +401,9 @@ public:
 
     void getInstalledItemModsFolders(ArrayList<String> var1) {
       if (SteamUtils.isSteamModeEnabled()) {
-         String[] var2 = SteamWorkshop.instance.GetInstalledItemFolders();
+         std::vector<String> var2 = SteamWorkshop.instance.GetInstalledItemFolders();
          if (var2 != nullptr) {
-    for (auto& var6 : var2)    File var7 = new File(var6 + File.separator + "mods");
+    for (auto& var6 : var2)    auto var7 = std::make_shared<File>(var6 + File.separator + "mods");
                if (var7.exists()) {
                   var1.add(var7.getAbsolutePath());
                }
@@ -417,7 +417,7 @@ public:
     std::vector var2 = SteamWorkshop.instance.getStageFolders();
 
          for (int var3 = 0; var3 < var2.size(); var3++) {
-    File var4 = new File((String)var2.get(var3) + File.separator + "Contents" + File.separator + "mods");
+    auto var4 = std::make_shared<File>(static_cast<String>(var2).get(var3) + File.separator + "Contents" + File.separator + "mods");
             if (var4.exists()) {
                var1.add(var4.getAbsolutePath());
             }
@@ -426,7 +426,7 @@ public:
    }
 
     void getAllModFoldersAux(const std::string& var1, List<String> var2) {
-    1 var3 = new 1(this);
+    auto var3 = std::make_shared<1>(this);
     Path var4 = FileSystems.getDefault().getPath(var1);
       if (Files.exists(var4)) {
          try (DirectoryStream var5 = Files.newDirectoryStream(var4, var3)) {
@@ -481,7 +481,7 @@ public:
          }
 
          for (int var5 = 0; var5 < var2.size(); var5++) {
-    std::string var6 = (String)var2.get(var5);
+    std::string var6 = static_cast<String>(var2).get(var5);
             if (!this.m_watchedModFolders.contains(var6)) {
                this.m_watchedModFolders.add(var6);
                DebugFileWatcher.instance.addDirectory(var6);
@@ -506,9 +506,9 @@ public:
          if (var4 == nullptr) {
     return var3;
          } else {
-    File var5 = new File(var4 + File.separator + "mods");
+    auto var5 = std::make_shared<File>(var4 + File.separator + "mods");
             if (var5.exists() && var5.isDirectory()) {
-               File[] var6 = var5.listFiles();
+               std::vector<File> var6 = var5.listFiles();
 
     for (auto& var10 : var6)                  if (var10.isDirectory()) {
     Mod var11 = ChooseGameInfo.readModInfo(var10.getAbsolutePath());
@@ -528,13 +528,13 @@ public:
 
     Mod searchForModInfo(File var1, const std::string& var2, ArrayList<Mod> var3) {
       if (var1.isDirectory()) {
-         String[] var4 = var1.list();
+         std::vector<String> var4 = var1.list();
          if (var4 == nullptr) {
     return null;
          }
 
          for (int var5 = 0; var5 < var4.length; var5++) {
-    File var6 = new File(var1.getAbsolutePath() + File.separator + var4[var5]);
+    auto var6 = std::make_shared<File>(var1.getAbsolutePath() + File.separator + var4[var5]);
     Mod var7 = this.searchForModInfo(var6, var2, var3);
             if (var7 != nullptr) {
     return var7;
@@ -566,7 +566,7 @@ public:
          }
 
          DebugLog.Mod.println("loading " + var1);
-    File var2 = new File(this.getModDir(var1));
+    auto var2 = std::make_shared<File>(this.getModDir(var1));
     URI var3 = var2.toURI();
          this.loadList.clear();
          this.searchFolders(var2);
@@ -589,15 +589,15 @@ public:
 
    private ArrayList<String> readLoadedDotTxt() {
     std::string var1 = Core.getMyDocumentFolder() + File.separator + "mods" + File.separator + "loaded.txt";
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
       if (!var2.exists()) {
     return null;
       } else {
     std::vector var3 = new ArrayList();
 
          try (
-    FileReader var4 = new FileReader(var1);
-    BufferedReader var5 = new BufferedReader(var4);
+    auto var4 = std::make_shared<FileReader>(var1);
+    auto var5 = std::make_shared<BufferedReader>(var4);
          ) {
             for (String var6 = var5.readLine(); var6 != nullptr; var6 = var5.readLine()) {
                var6 = var6.trim();
@@ -632,7 +632,7 @@ public:
     std::string var3 = Core.getMyDocumentFolder() + File.separator + "mods" + File.separator + "default.txt";
 
       try {
-    ActiveModsFile var4 = new ActiveModsFile();
+    auto var4 = std::make_shared<ActiveModsFile>();
          if (var4.read(var3, var1)) {
          }
       } catch (Exception var5) {
@@ -675,7 +675,7 @@ public:
     return false;
       } else {
     bool var3 = false;
-    File var4 = new File(var2.getDir());
+    auto var4 = std::make_shared<File>(var2.getDir());
     URI var5 = var4.toURI();
          this.loadList.clear();
          this.searchFolders(var4);
@@ -850,7 +850,7 @@ public:
       try {
          ensureFolderExists(Core.getMyDocumentFolder() + File.separator + "mods");
     std::string var1 = Core.getMyDocumentFolder() + File.separator + "mods" + File.separator + "default.txt";
-    ActiveModsFile var2 = new ActiveModsFile();
+    auto var2 = std::make_shared<ActiveModsFile>();
          var2.write(var1, ActiveMods.getById("default"));
       } catch (Exception var3) {
          ExceptionLogger.logException(var3);
@@ -948,9 +948,9 @@ public:
     File var1 = instance.getMediaFile("fileGuidTable.xml");
 
       try (FileInputStream var2 = new FileInputStream(var1)) {
-    JAXBContext var3 = JAXBContext.newInstance(new Class[]{FileGuidTable.class});
+    JAXBContext var3 = JAXBContext.newInstance(std::make_shared<std::vector<Class>>(){FileGuidTable.class});
     Unmarshaller var4 = var3.createUnmarshaller();
-         this.m_fileGuidTable = (FileGuidTable)var4.unmarshal(var2);
+         this.m_fileGuidTable = static_cast<FileGuidTable>(var4).unmarshal(var2);
          this.m_fileGuidTable.setModID("game");
       } catch (IOException | JAXBException var16) {
          System.err.println("Failed to load file Guid table.");
@@ -959,14 +959,14 @@ public:
       }
 
       try {
-    JAXBContext var18 = JAXBContext.newInstance(new Class[]{FileGuidTable.class});
+    JAXBContext var18 = JAXBContext.newInstance(std::make_shared<std::vector<Class>>(){FileGuidTable.class});
     Unmarshaller var19 = var18.createUnmarshaller();
 
          for (String var5 : this.getModIDs()) {
     Mod var6 = ChooseGameInfo.getAvailableModDetails(var5);
             if (var6 != nullptr) {
                try (FileInputStream var7 = new FileInputStream(this.getModDir(var5) + "/media/fileGuidTable.xml")) {
-    FileGuidTable var8 = (FileGuidTable)var19.unmarshal(var7);
+    FileGuidTable var8 = static_cast<FileGuidTable>(var19).unmarshal(var7);
                   var8.setModID(var5);
                   this.m_fileGuidTable.mergeFrom(var8);
                } catch (FileNotFoundException var13) {
@@ -1020,22 +1020,22 @@ public:
    }
 
    public static File[] listAllDirectories(String var0, FileFilter var1, boolean var2) {
-    File var3 = new File(var0).getAbsoluteFile();
+    auto var3 = std::make_shared<File>(var0).getAbsoluteFile();
     return listAllDirectories();
    }
 
    public static File[] listAllDirectories(File var0, FileFilter var1, boolean var2) {
       if (!var0.isDirectory()) {
-         return new File[0];
+         return std::make_shared<std::array<File, 0>>();
       } else {
     std::vector var3 = new ArrayList();
          listAllDirectoriesInternal(var0, var1, var2, var3);
-         return var3.toArray(new File[0]);
+         return var3.toArray(std::make_shared<std::array<File, 0>>());
       }
    }
 
     static void listAllDirectoriesInternal(File var0, FileFilter var1, bool var2, ArrayList<File> var3) {
-      File[] var4 = var0.listFiles();
+      std::vector<File> var4 = var0.listFiles();
       if (var4 != nullptr) {
     for (auto& var8 : var4)            if (!var8.isFile() && var8.isDirectory()) {
                if (var1.accept(var8)) {
@@ -1051,22 +1051,22 @@ public:
    }
 
    public static File[] listAllFiles(String var0, FileFilter var1, boolean var2) {
-    File var3 = new File(var0).getAbsoluteFile();
+    auto var3 = std::make_shared<File>(var0).getAbsoluteFile();
     return listAllFiles();
    }
 
    public static File[] listAllFiles(File var0, FileFilter var1, boolean var2) {
       if (!var0.isDirectory()) {
-         return new File[0];
+         return std::make_shared<std::array<File, 0>>();
       } else {
     std::vector var3 = new ArrayList();
          listAllFilesInternal(var0, var1, var2, var3);
-         return var3.toArray(new File[0]);
+         return var3.toArray(std::make_shared<std::array<File, 0>>());
       }
    }
 
     static void listAllFilesInternal(File var0, FileFilter var1, bool var2, ArrayList<File> var3) {
-      File[] var4 = var0.listFiles();
+      std::vector<File> var4 = var0.listFiles();
       if (var4 != nullptr) {
     for (auto& var8 : var4)            if (var8.isFile()) {
                if (var1.accept(var8)) {
@@ -1084,7 +1084,7 @@ public:
     std::vector var4 = this.getModIDs();
 
       for (int var5 = 0; var5 < var4.size(); var5++) {
-    std::string var6 = this.getModDir((String)var4.get(var5));
+    std::string var6 = this.getModDir(static_cast<String>(var4).get(var5));
          if (var6 != nullptr) {
             this.walkGameAndModFilesInternal(new File(var6), var1, var2, var3);
          }
@@ -1092,9 +1092,9 @@ public:
    }
 
     void walkGameAndModFilesInternal(File var1, const std::string& var2, bool var3, IWalkFilesVisitor var4) {
-    File var5 = new File(var1, var2);
+    auto var5 = std::make_shared<File>(var1, var2);
       if (var5.isDirectory()) {
-         File[] var6 = var5.listFiles();
+         std::vector<File> var6 = var5.listFiles();
          if (var6 != nullptr) {
     for (auto& var10 : var6)               var4.visit(var10, var2);
                if (var3 && var10.isDirectory()) {
@@ -1115,7 +1115,7 @@ public:
             }
          }
       });
-      return var4.toArray(new String[0]);
+      return var4.toArray(std::make_shared<std::array<String, 0>>());
    }
 
    public String[] resolveAllFiles(String var1, FileFilter var2, boolean var3) {
@@ -1128,7 +1128,7 @@ public:
             }
          }
       });
-      return var4.toArray(new String[0]);
+      return var4.toArray(std::make_shared<std::array<String, 0>>());
    }
 
     std::string normalizeFolderPath(const std::string& var1) {
@@ -1163,7 +1163,7 @@ public:
    }
 
     bool deleteFile(const std::string& var1) {
-    File var2 = new File(var1).getAbsoluteFile();
+    auto var2 = std::make_shared<File>(var1).getAbsoluteFile();
       if (!var2.isFile()) {
          throw new FileNotFoundException(String.format("File path not found: \"%s\"", var1));
       } else if (var2.delete()) {
@@ -1224,17 +1224,17 @@ public:
       DebugLog.FileIO.println("Start cleaning save fs");
     std::string var1 = this.getSaveDir();
     std::string var2 = var1 + File.separator + "Multiplayer" + File.separator;
-    File var3 = new File(var2);
+    auto var3 = std::make_shared<File>(var2);
       if (!var3.exists()) {
          var3.mkdir();
       }
 
       try {
-         File[] var4 = var3.listFiles();
+         std::vector<File> var4 = var3.listFiles();
 
     for (auto& var8 : var4)            DebugLog.FileIO.println("Checking " + var8.getAbsoluteFile() + " dir");
             if (var8.isDirectory()) {
-    File var9 = new File(var8.toString() + File.separator + "map.bin");
+    auto var9 = std::make_shared<File>(var8.toString() + File.separator + "map.bin");
                if (var9.exists()) {
                   DebugLog.FileIO.println("Processing " + var8.getAbsoluteFile() + " dir");
 
@@ -1260,11 +1260,11 @@ public:
     void resetDefaultModsForNewRelease(const std::string& var1) {
       ensureFolderExists(this.getCacheDirSub("mods"));
     std::string var2 = this.getCacheDirSub("mods") + File.separator + "reset-mods-" + var1 + ".txt";
-    File var3 = new File(var2);
+    auto var3 = std::make_shared<File>(var2);
       if (!var3.exists()) {
          try (
-    FileWriter var4 = new FileWriter(var3);
-    BufferedWriter var5 = new BufferedWriter(var4);
+    auto var4 = std::make_shared<FileWriter>(var3);
+    auto var5 = std::make_shared<BufferedWriter>(var4);
          ) {
     std::string var6 = "If this file does not exist, default.txt will be reset to empty (no mods active).";
             var5.write(var6);

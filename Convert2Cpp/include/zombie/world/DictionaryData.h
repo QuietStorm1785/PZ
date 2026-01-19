@@ -160,16 +160,16 @@ public:
       var1.clear();
 
       for (Entry var3 : this.itemIdToInfoMap.entrySet()) {
-         if (!var1.contains(((ItemInfo)var3.getValue()).modID)) {
-            var1.add(((ItemInfo)var3.getValue()).modID);
+         if (!var1.contains((static_cast<ItemInfo>(var3).getValue()).modID)) {
+            var1.add((static_cast<ItemInfo>(var3).getValue()).modID);
          }
 
-         if (((ItemInfo)var3.getValue()).modOverrides != nullptr) {
-    std::vector var4 = ((ItemInfo)var3.getValue()).modOverrides;
+         if ((static_cast<ItemInfo>(var3).getValue()).modOverrides != nullptr) {
+    std::vector var4 = (static_cast<ItemInfo>(var3).getValue()).modOverrides;
 
             for (int var5 = 0; var5 < var4.size(); var5++) {
                if (!var1.contains(var4.get(var5))) {
-                  var1.add((String)var4.get(var5));
+                  var1.add(static_cast<String>(var4).get(var5));
                }
             }
          }
@@ -178,15 +178,15 @@ public:
 
     void getModuleList(List<String> var1) {
       for (Entry var3 : this.itemIdToInfoMap.entrySet()) {
-         if (!var1.contains(((ItemInfo)var3.getValue()).moduleName)) {
-            var1.add(((ItemInfo)var3.getValue()).moduleName);
+         if (!var1.contains((static_cast<ItemInfo>(var3).getValue()).moduleName)) {
+            var1.add((static_cast<ItemInfo>(var3).getValue()).moduleName);
          }
       }
    }
 
     void parseItemLoadList(ItemInfo> var1) {
       for (Entry var3 : var1.entrySet()) {
-    ItemInfo var4 = (ItemInfo)var3.getValue();
+    ItemInfo var4 = static_cast<ItemInfo>(var3).getValue();
     ItemInfo var5 = this.itemTypeToInfoMap.get(var4.fullType);
          if (var5 == nullptr) {
             if (!var4.obsolete) {
@@ -226,7 +226,7 @@ public:
 
     void parseCurrentItemSet() {
       for (Entry var2 : this.itemTypeToInfoMap.entrySet()) {
-    ItemInfo var3 = (ItemInfo)var2.getValue();
+    ItemInfo var3 = static_cast<ItemInfo>(var2).getValue();
          if (!var3.isLoaded) {
             var3.removed = true;
             WorldDictionaryLogger.log(new RemovedItem(var3.copy(), false));
@@ -247,7 +247,7 @@ public:
 
     void parseObjectNameLoadList(List<String> var1) {
       for (int var2 = 0; var2 < var1.size(); var2++) {
-    std::string var3 = (String)var1.get(var2);
+    std::string var3 = static_cast<String>(var1).get(var2);
          if (!this.objectNameToIdMap.containsKey(var3)) {
             if (this.NextObjectNameID >= 127) {
                WorldDictionaryLogger.log("Max value for object names reached.");
@@ -267,7 +267,7 @@ public:
     void backupCurrentDataSet() {
       this.dataBackupPath = nullptr;
       if (!Core.getInstance().isNoSave()) {
-    File var1 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin"));
+    auto var1 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin"));
          if (var1.exists()) {
     long var2 = Instant.now().getEpochSecond();
             this.dataBackupPath = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary_" + var2 + ".bak"));
@@ -295,7 +295,7 @@ public:
     long var1 = Instant.now().getEpochSecond();
     std::string var3 = ZomboidFileSystem.instance.getFileNameInCurrentSave("WD_ERROR_" + var1) + File.separator;
             WorldDictionary.log("path = " + var3);
-    File var4 = new File(var3);
+    auto var4 = std::make_shared<File>(var3);
     bool var5 = true;
             if (!var4.exists()) {
                var5 = var4.mkdir();
@@ -307,26 +307,26 @@ public:
             }
 
             if (this.dataBackupPath != nullptr) {
-    File var6 = new File(var3 + "WorldDictionary_backup.bin");
+    auto var6 = std::make_shared<File>(var3 + "WorldDictionary_backup.bin");
                if (this.dataBackupPath.exists()) {
                   Files.copy(this.dataBackupPath, var6);
                }
             }
 
-    File var13 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionaryLog.lua"));
-    File var7 = new File(var3 + "WorldDictionaryLog.lua");
+    auto var13 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionaryLog.lua"));
+    auto var7 = std::make_shared<File>(var3 + "WorldDictionaryLog.lua");
             if (var13.exists()) {
                Files.copy(var13, var7);
             }
 
-    File var8 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionaryReadable.lua"));
-    File var9 = new File(var3 + "WorldDictionaryReadable.lua");
+    auto var8 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionaryReadable.lua"));
+    auto var9 = std::make_shared<File>(var3 + "WorldDictionaryReadable.lua");
             if (var8.exists()) {
                Files.copy(var8, var9);
             }
 
-    File var10 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin"));
-    File var11 = new File(var3 + "WorldDictionary.bin");
+    auto var10 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin"));
+    auto var11 = std::make_shared<File>(var3 + "WorldDictionary.bin");
             if (var10.exists()) {
                Files.copy(var10, var11);
             }
@@ -339,7 +339,7 @@ public:
     void load() {
       if (!Core.getInstance().isNoSave()) {
     std::string var1 = ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin");
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
          if (!var2.exists()) {
             if (!WorldDictionary.isIsNewGame()) {
                throw new WorldDictionaryException("WorldDictionary data file is missing from world folder.");
@@ -383,7 +383,7 @@ public:
     int var13 = var1.getInt();
 
       for (int var7 = 0; var7 < var13; var7++) {
-    ItemInfo var8 = new ItemInfo();
+    auto var8 = std::make_shared<ItemInfo>();
          var8.load(var1, 195, var2, var12);
          this.itemIdToInfoMap.put(var8.registryID, var8);
          this.itemTypeToInfoMap.put(var8.fullType, var8);
@@ -411,7 +411,7 @@ public:
     void save() {
       if (!Core.getInstance().isNoSave()) {
          try {
-            byte[] var1 = new byte[5242880];
+            std::vector<byte> var1 = std::make_shared<std::array<byte, 5242880>>();
     ByteBuffer var2 = ByteBuffer.wrap(var1);
             this.saveToByteBuffer(var2);
             var2.flip();
@@ -421,13 +421,13 @@ public:
                this.serverDataCache = var1;
             }
 
-    File var3 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.tmp"));
-    FileOutputStream var4 = new FileOutputStream(var3);
+    auto var3 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.tmp"));
+    auto var4 = std::make_shared<FileOutputStream>(var3);
             var4.getChannel().truncate(0L);
             var4.write(var2.array(), 0, var2.limit());
             var4.flush();
             var4.close();
-    File var5 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin"));
+    auto var5 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("WorldDictionary.bin"));
             Files.copy(var3, var5);
             var3.delete();
          } catch (Exception var6) {
@@ -458,31 +458,31 @@ public:
       var1.putInt(this.itemIdToInfoMap.size());
 
       for (Entry var12 : this.itemIdToInfoMap.entrySet()) {
-    ItemInfo var6 = (ItemInfo)var12.getValue();
+    ItemInfo var6 = static_cast<ItemInfo>(var12).getValue();
          var6.save(var1, var2, var7);
       }
 
       var1.putInt(this.objectIdToNameMap.size());
 
       for (Entry var13 : this.objectIdToNameMap.entrySet()) {
-         var1.put((Byte)var13.getKey());
-         GameWindow.WriteString(var1, (String)var13.getValue());
+         var1.put(static_cast<Byte>(var13).getKey());
+         GameWindow.WriteString(var1, static_cast<String>(var13).getValue());
       }
 
       var1.putInt(this.spriteIdToNameMap.size());
 
       for (Entry var14 : this.spriteIdToNameMap.entrySet()) {
-         var1.putInt((Integer)var14.getKey());
-         GameWindow.WriteString(var1, (String)var14.getValue());
+         var1.putInt(static_cast<Integer>(var14).getKey());
+         GameWindow.WriteString(var1, static_cast<String>(var14).getValue());
       }
    }
 
     void saveAsText(const std::string& var1) {
       if (!Core.getInstance().isNoSave()) {
-    File var2 = new File(ZomboidFileSystem.instance.getCurrentSaveDir() + File.separator);
+    auto var2 = std::make_shared<File>(ZomboidFileSystem.instance.getCurrentSaveDir() + File.separator);
          if (var2.exists() && var2.isDirectory()) {
     std::string var3 = ZomboidFileSystem.instance.getFileNameInCurrentSave(var1);
-    File var4 = new File(var3);
+    auto var4 = std::make_shared<File>(var3);
 
             try (FileWriter var5 = new FileWriter(var4, false)) {
                var5.write("--[[ ---- ITEMS ---- --]]" + System.lineSeparator());
@@ -490,7 +490,7 @@ public:
 
                for (Entry var7 : this.itemIdToInfoMap.entrySet()) {
                   var5.write("\t{" + System.lineSeparator());
-                  ((ItemInfo)var7.getValue()).saveAsText(var5, "\t\t");
+                  (static_cast<ItemInfo>(var7).getValue()).saveAsText(var5, "\t\t");
                   var5.write("\t}," + System.lineSeparator());
                }
 
@@ -500,7 +500,7 @@ public:
                var5.write("objects = {" + System.lineSeparator());
 
                for (Entry var13 : this.objectIdToNameMap.entrySet()) {
-                  var5.write("\t" + var13.getKey() + " = \"" + (String)var13.getValue() + "\"," + System.lineSeparator());
+                  var5.write("\t" + var13.getKey() + " = \"" + static_cast<String>(var13).getValue() + "\"," + System.lineSeparator());
                }
 
                var5.write("}" + System.lineSeparator());
@@ -509,7 +509,7 @@ public:
                var5.write("sprites = {" + System.lineSeparator());
 
                for (Entry var14 : this.spriteIdToNameMap.entrySet()) {
-                  var5.write("\t" + var14.getKey() + " = \"" + (String)var14.getValue() + "\"," + System.lineSeparator());
+                  var5.write("\t" + var14.getKey() + " = \"" + static_cast<String>(var14).getValue() + "\"," + System.lineSeparator());
                }
 
                var5.write("}" + System.lineSeparator());

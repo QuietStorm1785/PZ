@@ -21,7 +21,7 @@ namespace zombie {
 class GameProfileRecording : public GenericNameValueRecordingFrame {
 public:
     long m_startTime;
-    const Row m_rootRow = new Row();
+    auto m_rootRow = std::make_shared<Row>();
    private final HashMap<String, Integer> m_keyValueTable = std::make_unique<HashMap<>>();
     PrintStream m_outSegment = null;
     long m_firstFrameNo = -1L;
@@ -78,7 +78,7 @@ public:
     int var8 = 0;
 
       for (int var9 = var1.Children.size(); var8 < var9; var8++) {
-    ProfileArea var10 = (ProfileArea)var1.Children.get(var8);
+    ProfileArea var10 = static_cast<ProfileArea>(var1).Children.get(var8);
     Span var11 = this.allocSpan(var10);
          var7.Children.add(var11);
       }
@@ -159,7 +159,7 @@ public:
     int var3 = 0;
 
       for (int var4 = var2.Spans.size(); var3 < var4; var3++) {
-    Span var5 = (Span)var2.Spans.get(var3);
+    Span var5 = static_cast<Span>(var2).Spans.get(var3);
          this.writeSpan(var1, var2, var5);
       }
    }
@@ -180,7 +180,7 @@ public:
     int var8 = 0;
 
       for (int var9 = var3.Children.size(); var8 < var9; var8++) {
-    Span var10 = (Span)var3.Children.get(var8);
+    Span var10 = static_cast<Span>(var3).Children.get(var8);
          this.writeSpan(var1, var2, var10);
       }
    }
@@ -195,13 +195,13 @@ public:
       this.m_outHeader.println();
       this.m_outHeader.println("KeyNamesTable");
       this.m_outHeader.println("Index,Name");
-    StringBuilder var1 = new StringBuilder();
+    auto var1 = std::make_shared<StringBuilder>();
 
       for (Entry var3 : this.m_keyValueTable.entrySet()) {
          var1.setLength(0);
          var1.append(var3.getValue());
          var1.append(",");
-         var1.append((String)var3.getKey());
+         var1.append(static_cast<String>(var3).getKey());
          this.m_outHeader.println(var1);
       }
    }

@@ -20,9 +20,9 @@ namespace worldMap {
 
 class WorldMapXML {
 public:
-    const SharedStrings m_sharedStrings = new SharedStrings();
-    const WorldMapPoint m_point = new WorldMapPoint();
-    const WorldMapProperties m_properties = new WorldMapProperties();
+    auto m_sharedStrings = std::make_shared<SharedStrings>();
+    auto m_point = std::make_shared<WorldMapPoint>();
+    auto m_properties = std::make_shared<WorldMapProperties>();
    private final ArrayList<WorldMapProperties> m_sharedProperties = std::make_unique<ArrayList<>>();
 
     bool read(const std::string& var1, WorldMapData var2) {
@@ -47,7 +47,7 @@ public:
    }
 
     WorldMapCell parseCell(Element var1) {
-    WorldMapCell var2 = new WorldMapCell();
+    auto var2 = std::make_shared<WorldMapCell>();
       var2.m_x = PZMath.tryParseInt(var1.getAttribute("x"), 0);
       var2.m_y = PZMath.tryParseInt(var1.getAttribute("y"), 0);
       Lambda.forEachFrom(PZXmlUtil::forEachElement, var1, var2, (var2x, var3) -> {
@@ -66,7 +66,7 @@ public:
    }
 
     WorldMapFeature parseFeature(WorldMapCell var1, Element var2) {
-    WorldMapFeature var3 = new WorldMapFeature(var1);
+    auto var3 = std::make_shared<WorldMapFeature>(var1);
       Lambda.forEachFrom(PZXmlUtil::forEachElement, var2, var3, (var1x, var2x) -> {
          try {
     std::string var3x = var1x.getNodeName();
@@ -111,20 +111,20 @@ public:
          }
       }
 
-    WorldMapProperties var3 = new WorldMapProperties();
+    auto var3 = std::make_shared<WorldMapProperties>();
       var3.putAll(var1);
       this.m_sharedProperties.add(var3);
     return var3;
    }
 
     WorldMapGeometry parseGeometry(Element var1) {
-    WorldMapGeometry var2 = new WorldMapGeometry();
+    auto var2 = std::make_shared<WorldMapGeometry>();
       var2.m_type = Type.valueOf(var1.getAttribute("type"));
       Lambda.forEachFrom(PZXmlUtil::forEachElement, var1, var2, (var1x, var2x) -> {
          try {
     std::string var3 = var1x.getNodeName();
             if ("coordinates".equalsIgnoreCase(var3)) {
-    WorldMapPoints var4 = new WorldMapPoints();
+    auto var4 = std::make_shared<WorldMapPoints>();
                this.parseGeometryCoordinates(var1x, var4);
                var2x.m_points.add(var4);
             }

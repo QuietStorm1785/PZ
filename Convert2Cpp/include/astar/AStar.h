@@ -22,9 +22,9 @@ public:
     int numSearchSteps;
     ISearchNode bestNodeAfterSearch;
    private ArrayList<ISearchNode> successorNodes = std::make_unique<ArrayList<>>();
-    const IOpenSet openSet = new OpenSet(new SearchNodeComparator());
-    const IClosedSet closedSetHash = new ClosedSetHash(new SearchNodeComparator());
-    const IClosedSet closedSetNoHash = new ClosedSet(new SearchNodeComparator());
+    auto openSet = std::make_shared<OpenSet>(new SearchNodeComparator());
+    auto closedSetHash = std::make_shared<ClosedSetHash>(new SearchNodeComparator());
+    auto closedSetNoHash = std::make_shared<ClosedSet>(new SearchNodeComparator());
 
    public ArrayList<ISearchNode> shortestPath(ISearchNode var1, IGoalNode var2) {
     ISearchNode var3 = this.search(var1, var2);

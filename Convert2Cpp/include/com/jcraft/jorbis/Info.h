@@ -17,7 +17,7 @@ class Info {
 public:
     static const int OV_EBADPACKET = -136;
     static const int OV_ENOTAUDIO = -135;
-   private static byte[] _vorbis = "vorbis".getBytes();
+   private static std::vector<byte> _vorbis = "vorbis".getBytes();
     static const int VI_TIMEB = 1;
     static const int VI_FLOORB = 2;
     static const int VI_RESB = 3;
@@ -29,31 +29,31 @@ public:
     int bitrate_lower;
     int bitrate_nominal;
     int bitrate_upper;
-   int[] blocksizes = new int[2];
-   StaticCodeBook[] book_param = nullptr;
+   std::vector<int> blocksizes = std::make_shared<std::array<int, 2>>();
+   std::vector<StaticCodeBook> book_param = nullptr;
     int books;
     int envelopesa;
-   Object[] floor_param = nullptr;
-   int[] floor_type = nullptr;
+   std::vector<Object> floor_param = nullptr;
+   std::vector<int> floor_type = nullptr;
     int floors;
-   Object[] map_param = nullptr;
-   int[] map_type = nullptr;
+   std::vector<Object> map_param = nullptr;
+   std::vector<int> map_type = nullptr;
     int maps;
-   InfoMode[] mode_param = nullptr;
+   std::vector<InfoMode> mode_param = nullptr;
     int modes;
     float preecho_clamp;
     float preecho_thresh;
-   PsyInfo[] psy_param = new PsyInfo[64];
+   std::vector<PsyInfo> psy_param = std::make_shared<std::array<PsyInfo, 64>>();
     int psys;
-   Object[] residue_param = nullptr;
-   int[] residue_type = nullptr;
+   std::vector<Object> residue_param = nullptr;
+   std::vector<int> residue_type = nullptr;
     int residues;
-   Object[] time_param = nullptr;
-   int[] time_type = nullptr;
+   std::vector<Object> time_param = nullptr;
+   std::vector<int> time_type = nullptr;
     int times;
 
     int blocksize(Packet var1) {
-    Buffer var2 = new Buffer();
+    auto var2 = std::make_shared<Buffer>();
       var2.readinit(var1.packet_base, var1.packet, var1.bytes);
       if (var2.read(1) != 0) {
          return -135;
@@ -119,10 +119,10 @@ public:
    }
 
     int synthesis_headerin(Comment var1, Packet var2) {
-    Buffer var3 = new Buffer();
+    auto var3 = std::make_shared<Buffer>();
       if (var2 != nullptr) {
          var3.readinit(var2.packet_base, var2.packet, var2.bytes);
-         byte[] var4 = new byte[6];
+         std::vector<byte> var4 = std::make_shared<std::array<byte, 6>>();
     int var5 = var3.read(8);
          var3.read(var4, 6);
          if (var4[0] != 118 || var4[1] != 111 || var4[2] != 114 || var4[3] != 98 || var4[4] != 105 || var4[5] != 115) {

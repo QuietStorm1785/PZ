@@ -40,7 +40,7 @@ public:
    }
 
     void createIdentifierString() {
-      byte[] var1 = new byte[]{(byte)this.identifier, (byte)(this.identifier >> 8), (byte)(this.identifier >> 16), (byte)(this.identifier >> 24)};
+      std::vector<byte> var1 = std::make_shared<std::vector<byte>>(){(byte)this.identifier, (byte)(this.identifier >> 8), (byte)(this.identifier >> 16), (byte)(this.identifier >> 24)};
       this.identifierString = new String(var1);
       if (!this.identifierString.equalsIgnoreCase("DDS ")) {
          throw new TextureFormatException("The DDS Identifier is wrong. Have to be \"DDS \"!");

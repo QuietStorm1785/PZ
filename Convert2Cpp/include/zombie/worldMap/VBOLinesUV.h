@@ -300,7 +300,7 @@ public:
    }
 
     void startRun(TextureID var1) {
-    Run var2 = (Run)this.m_runPool.alloc();
+    Run var2 = static_cast<Run>(this).m_runPool.alloc();
       var2.start = this.m_elements == nullptr ? 0 : this.m_elements.position() / 36;
       var2.count = 0;
       var2.textureID = var1;

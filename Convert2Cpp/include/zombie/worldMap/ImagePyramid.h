@@ -88,7 +88,7 @@ public:
       if (this.m_missing.contains(var4)) {
     return null;
       } else {
-    File var5 = new File(this.m_directory, String.format("%s%d%stile%dx%d.png", File.separator, var3, File.separator, var1, var2));
+    auto var5 = std::make_shared<File>(this.m_directory, String.format("%s%d%stile%dx%d.png", File.separator, var3, File.separator, var1, var2));
          if (!var5.exists()) {
             this.m_missing.add(var4);
     return null;
@@ -111,7 +111,7 @@ public:
       } else if (this.m_missing.contains(var4)) {
     return null;
       } else if (this.m_zipFile == nullptr) {
-    File var14 = new File(this.m_directory, String.format("%s%d%stile%dx%d.png", File.separator, var3, File.separator, var1, var2));
+    auto var14 = std::make_shared<File>(this.m_directory, String.format("%s%d%stile%dx%d.png", File.separator, var3, File.separator, var1, var2));
          if (!var14.exists()) {
             this.m_missing.add(var4);
     return null;
@@ -126,7 +126,7 @@ public:
             try {
     TextureID var17;
                try (InputStream var6 = Files.newInputStream(var5)) {
-    ImageData var7 = new ImageData(var6, false);
+    auto var7 = std::make_shared<ImageData>(var6, false);
     PyramidTexture var8 = this.checkTextureCache(var4);
                   if (var8.m_textureID == nullptr) {
                      var17 = new TextureID(var7);
@@ -168,7 +168,7 @@ public:
    }
 
     void generateFiles(const std::string& var1, const std::string& var2) {
-    ImageData var3 = new ImageData(var1);
+    auto var3 = std::make_shared<ImageData>(var1);
       if (var3 != nullptr) {
     short var4 = 256;
     uint8_t var5 = 5;
@@ -200,14 +200,14 @@ public:
    }
 
     void generateZip(const std::string& var1, const std::string& var2) {
-    ImageData var3 = new ImageData(var1);
+    auto var3 = std::make_shared<ImageData>(var1);
       if (var3 != nullptr) {
     short var4 = 256;
 
          try (
-    FileOutputStream var5 = new FileOutputStream(var2);
-    BufferedOutputStream var6 = new BufferedOutputStream(var5);
-    ZipOutputStream var7 = new ZipOutputStream(var6);
+    auto var5 = std::make_shared<FileOutputStream>(var2);
+    auto var6 = std::make_shared<BufferedOutputStream>(var5);
+    auto var7 = std::make_shared<ZipOutputStream>(var6);
          ) {
     uint8_t var8 = 5;
 
@@ -234,8 +234,8 @@ public:
    }
 
     BufferedImage getBufferedImage(MipMapLevel var1, int var2, int var3, int var4) {
-    BufferedImage var5 = new BufferedImage(var4, var4, 2);
-      int[] var6 = new int[var4];
+    auto var5 = std::make_shared<BufferedImage>(var4, var4, 2);
+      std::vector<int> var6 = new int[var4];
     IntBuffer var7 = var1.getBuffer().asIntBuffer();
 
       for (int var8 = 0; var8 < var4; var8++) {
@@ -257,7 +257,7 @@ public:
    }
 
     void writeImageToFile(BufferedImage var1, const std::string& var2, int var3, int var4, int var5) {
-    File var6 = new File(var2 + File.separator + var5);
+    auto var6 = std::make_shared<File>(var2 + File.separator + var5);
       if (var6.exists() || var6.mkdirs()) {
          var6 = new File(var6, String.format("tile%dx%d.png", var3, var4));
          ImageIO.write(var1, "png", var6);
@@ -272,7 +272,7 @@ public:
 
     PyramidTexture checkTextureCache(const std::string& var1) {
       if (this.m_textures.size() < this.MAX_TEXTURES) {
-    PyramidTexture var5 = new PyramidTexture();
+    auto var5 = std::make_shared<PyramidTexture>();
          var5.m_key = var1;
          var5.m_requestNumber = this.m_requestNumber++;
          this.m_textures.put(var1, var5);
@@ -320,15 +320,15 @@ public:
     std::string var5;
          try (
     InputStream var2 = Files.newInputStream(var1);
-    InputStreamReader var3 = new InputStreamReader(var2);
-    BufferedReader var4 = new BufferedReader(var3);
+    auto var3 = std::make_shared<InputStreamReader>(var2);
+    auto var4 = std::make_shared<BufferedReader>(var3);
          ) {
             while ((var5 = var4.readLine()) != nullptr) {
                if (var5.startsWith("VERSION=")) {
                   var5 = var5.substring("VERSION=".length());
                } else if (var5.startsWith("bounds=")) {
                   var5 = var5.substring("bounds=".length());
-                  String[] var6 = var5.split(" ");
+                  std::vector<String> var6 = var5.split(" ");
                   if (var6.length == 4) {
                      this.m_minX = PZMath.tryParseInt(var6[0], -1);
                      this.m_minY = PZMath.tryParseInt(var6[1], -1);

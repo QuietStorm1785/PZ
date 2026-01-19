@@ -14,17 +14,17 @@ namespace scripting {
 
 class ScriptParser {
 public:
-    static StringBuilder stringBuilder = new StringBuilder();
+    static auto stringBuilder = std::make_shared<StringBuilder>();
 
     static int readBlock(const std::string& var0, int var1, Block var2) {
     int var3;
       for (var3 = var1; var3 < var0.length(); var3++) {
          if (var0.charAt(var3) == '{') {
-    Block var4 = new Block();
+    auto var4 = std::make_shared<Block>();
             var2.children.add(var4);
             var2.elements.add(var4);
     std::string var5 = var0.substring(var1, var3).trim();
-            String[] var6 = var5.split("\\s+");
+            std::vector<String> var6 = var5.split("\\s+");
             var4.type = var6[0];
             var4.id = var6.length > 1 ? var6[1] : nullptr;
             var3 = readBlock(var0, var3 + 1, var4);
@@ -35,7 +35,7 @@ public:
             }
 
             if (var0.charAt(var3) == ',') {
-    Value var7 = new Value();
+    auto var7 = std::make_shared<Value>();
                var7.string = var0.substring(var1, var3);
                var2.values.add(var7);
                var2.elements.add(var7);
@@ -48,7 +48,7 @@ public:
    }
 
     static Block parse(const std::string& var0) {
-    Block var1 = new Block();
+    auto var1 = std::make_shared<Block>();
       readBlock(var0, 0, var1);
     return var1;
    }

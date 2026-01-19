@@ -15,8 +15,8 @@ namespace jorbis {
 
 class Comment {
 public:
-   private static byte[] _vorbis = "vorbis".getBytes();
-   private static byte[] _vendor = "Xiphophorus libVorbis I 20000508".getBytes();
+   private static std::vector<byte> _vorbis = "vorbis".getBytes();
+   private static std::vector<byte> _vendor = "Xiphophorus libVorbis I 20000508".getBytes();
     static const int OV_EIMPL = -130;
    public int[] comment_lengths;
     int comments;
@@ -64,7 +64,7 @@ public:
    }
 
     int header_out(Packet var1) {
-    Buffer var2 = new Buffer();
+    auto var2 = std::make_shared<Buffer>();
       var2.writeinit();
       if (this.pack(var2) != 0) {
          return -130;
@@ -95,7 +95,7 @@ public:
       if (var3 == -1) {
     return null;
       } else {
-         byte[] var4 = this.user_comments[var3];
+         std::vector<byte> var4 = this.user_comments[var3];
 
          for (int var5 = 0; var5 < this.comment_lengths[var3]; var5++) {
             if (var4[var5] == 61) {
@@ -192,13 +192,13 @@ public:
       }
 
       this.user_comments = var2;
-      int[] var3 = new int[this.comments + 2];
+      std::vector<int> var3 = new int[this.comments + 2];
       if (this.comment_lengths != nullptr) {
          System.arraycopy(this.comment_lengths, 0, var3, 0, this.comments);
       }
 
       this.comment_lengths = var3;
-      byte[] var4 = new byte[var1.length + 1];
+      std::vector<byte> var4 = new byte[var1.length + 1];
       System.arraycopy(var1, 0, var4, 0, var1.length);
       this.user_comments[this.comments] = var4;
       this.comment_lengths[this.comments] = var1.length;
@@ -210,7 +210,7 @@ public:
     bool var3 = false;
     int var4 = 0;
     int var5 = var1.length + 1;
-      byte[] var6 = new byte[var5];
+      std::vector<byte> var6 = new byte[var5];
       System.arraycopy(var1, 0, var6, 0, var1.length);
       var6[var1.length] = 61;
 

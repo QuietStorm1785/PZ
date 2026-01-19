@@ -20,7 +20,7 @@ namespace png {
 
 class PngImage {
 public:
-    static const PngConfig DEFAULT_CONFIG = new Builder().build();
+    static auto DEFAULT_CONFIG = std::make_shared<Builder>().build();
     const PngConfig config;
     const std::unordered_map props = new HashMap();
     bool read = false;
@@ -49,10 +49,10 @@ public:
          this.props.clear();
     int var3 = this.config.getReadLimit();
     BufferedImage var4 = null;
-    StateMachine var5 = new StateMachine(this);
+    auto var5 = std::make_shared<StateMachine>(this);
 
          try {
-    PngInputStream var6 = new PngInputStream(var1);
+    auto var6 = std::make_shared<PngInputStream>(var1);
     std::unordered_set var7 = new HashSet();
 
             while (var5.getState() != 6) {
@@ -67,7 +67,7 @@ public:
                         case 3:
                            break;
                         default:
-    ImageDataInputStream var9 = new ImageDataInputStream(var6, var5);
+    auto var9 = std::make_shared<ImageDataInputStream>(var6, var5);
                            var4 = this.createImage(var9, new Dimension(this.getWidth(), this.getHeight()));
 
                            while ((var8 = var5.getType()) == 1229209940) {
@@ -173,7 +173,7 @@ public:
 
     float getGamma() {
       this.assertRead();
-      return this.props.containsKey("gamma") ? ((Number)this.getProperty("gamma", Number.class, true)).floatValue() : this.config.getDefaultGamma();
+      return this.props.containsKey("gamma") ? (static_cast<Number>(this).getProperty("gamma", Number.class, true)).floatValue() : this.config.getDefaultGamma();
    }
 
    public short[] getGammaTable() {
@@ -183,7 +183,7 @@ public:
 
    static short[] createGammaTable(float var0, float var1, boolean var2) {
     int var3 = 1 << (var2 ? 16 : 8);
-      short[] var4 = new short[var3];
+      std::vector<short> var4 = new short[var3];
     double var5 = 1.0 / ((double)var0 * var1);
 
       for (int var7 = 0; var7 < var3; var7++) {
@@ -194,7 +194,7 @@ public:
    }
 
     Color getBackground() {
-      int[] var1 = (int[])this.getProperty("background_rgb", int[].class, false);
+      std::vector<int> var1 = (int[])this.getProperty("background_rgb", int[].class, false);
       if (var1 == nullptr) {
     return null;
       } else {
@@ -212,7 +212,7 @@ public:
 
                return new Color(var1[0], var1[1], var1[2]);
             case 3:
-               byte[] var2 = (byte[])this.getProperty("palette", byte[].class, true);
+               std::vector<byte> var2 = (byte[])this.getProperty("palette", byte[].class, true);
     int var3 = var1[0] * 3;
                return new Color(255 & var2[var3 + 0], 255 & var2[var3 + 1], 255 & var2[var3 + 2]);
          }
@@ -239,7 +239,7 @@ public:
    }
 
     int getInt(const std::string& var1) {
-      return ((Number)this.getProperty(var1, Number.class, true)).intValue();
+      return (static_cast<Number>(this).getProperty(var1, Number.class, true)).intValue();
    }
 
     std::unordered_map getProperties() {
@@ -247,7 +247,7 @@ public:
    }
 
     TextChunk getTextChunk(const std::string& var1) {
-    std::vector var2 = (List)this.getProperty("text_chunks", List.class, false);
+    std::vector var2 = static_cast<List>(this).getProperty("text_chunks", List.class, false);
       if (var1 != nullptr && var2 != nullptr) {
     for (auto& var4 : var2)            if (var4.getKeyword() == var1)) {
     return var4;

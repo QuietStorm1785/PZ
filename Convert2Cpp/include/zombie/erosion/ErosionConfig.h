@@ -21,10 +21,10 @@ namespace erosion {
 
 class ErosionConfig {
 public:
-    const Seeds seeds = new Seeds();
-    const Time time = new Time();
-    const Debug debug = new Debug();
-    const Season season = new Season();
+    auto seeds = std::make_shared<Seeds>();
+    auto time = std::make_shared<Time>();
+    auto debug = std::make_shared<Debug>();
+    auto season = std::make_shared<Season>();
 
     void save(ByteBuffer var1) {
       var1.putInt(this.seeds.seedMain_0);
@@ -112,12 +112,12 @@ public:
             return;
          }
 
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
          if (!var2.exists()) {
             var2.createNewFile();
          }
 
-    FileWriter var3 = new FileWriter(var2, false);
+    auto var3 = std::make_shared<FileWriter>(var2, false);
          var3.write("seeds.seedMain_0 = " + this.seeds.seedMain_0 + "\n");
          var3.write("seeds.seedMain_1 = " + this.seeds.seedMain_1 + "\n");
          var3.write("seeds.seedMain_2 = " + this.seeds.seedMain_2 + "\n");
@@ -169,11 +169,11 @@ public:
 
     bool readFile(const std::string& var1) {
       try {
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
          if (!var2.exists()) {
     return false;
          } else {
-    BufferedReader var3 = new BufferedReader(new FileReader(var2));
+    auto var3 = std::make_shared<BufferedReader>(new FileReader(var2));
 
             while (true) {
     std::string var4 = var3.readLine();
@@ -188,7 +188,7 @@ public:
                         DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
                      }
                   } else {
-                     String[] var5 = var4.split("=");
+                     std::vector<String> var5 = var4.split("=");
                      if (var5.length != 2) {
                         DebugLog.log("ErosionConfig: unknown \"" + var4 + "\"");
                      } else {

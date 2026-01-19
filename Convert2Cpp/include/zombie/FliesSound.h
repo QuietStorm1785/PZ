@@ -26,9 +26,9 @@ namespace zombie {
 
 class FliesSound {
 public:
-    static const FliesSound instance = new FliesSound();
-   private static final IsoGridSquare[] tempSquares = new IsoGridSquare[100];
-   private final PlayerData[] playerData = new PlayerData[4];
+    static auto instance = std::make_shared<FliesSound>();
+   private static final std::vector<IsoGridSquare> tempSquares = std::make_shared<std::array<IsoGridSquare, 100>>();
+   private final std::vector<PlayerData> playerData = std::make_shared<std::array<PlayerData, 4>>();
    private final ArrayList<FadeEmitter> fadeEmitters = std::make_unique<ArrayList<>>();
     float fliesVolume = -1.0F;
 
@@ -126,7 +126,7 @@ public:
             }
          }
       } else {
-         DebugLog.General.error("invalid z-coordinate %d,%d,%d", new Object[]{var1, var2, var3});
+         DebugLog.General.error("invalid z-coordinate %d,%d,%d", std::make_shared<std::vector<Object>>(){var1, var2, var3});
       }
    }
 
@@ -143,7 +143,7 @@ public:
             }
          }
       } else {
-         DebugLog.General.error("invalid z-coordinate %d,%d,%d", new Object[]{var1, var2, var3});
+         DebugLog.General.error("invalid z-coordinate %d,%d,%d", std::make_shared<std::vector<Object>>(){var1, var2, var3});
       }
    }
 
@@ -164,7 +164,7 @@ public:
                if (var4 == nullptr) {
                   var5 += var9.corpseCount;
                } else if (var9.buildingCorpseCount != nullptr) {
-    int var10 = (Integer)var9.buildingCorpseCount.get(var4);
+    int var10 = static_cast<Integer>(var9).buildingCorpseCount.get(var4);
                   if (var10 != nullptr) {
                      var5 += var10;
                   }

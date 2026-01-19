@@ -43,7 +43,7 @@ namespace zombie {
 
 class GameTime {
 public:
-    static GameTime instance = new GameTime();
+    static auto instance = std::make_shared<GameTime>();
     static const float MULTIPLIER = 0.8F;
     static long serverTimeShift = 0L;
     static bool serverTimeShiftIsSet = false;
@@ -86,7 +86,7 @@ public:
     int TargetZombies = (int)this.MinZombieCountStart;
     bool RainingToday = true;
     bool bGunFireEventToday = false;
-   private float[] GunFireTimes = new float[5];
+   private std::vector<float> GunFireTimes = std::make_shared<std::array<float, 5>>();
     int NumGunFireEvents = 1;
     long lastPing = 0L;
     long lastClockSync = 0L;
@@ -214,7 +214,7 @@ public:
          this.updateCalendar(this.getYear(), this.getMonth(), this.getDay(), (int)this.getTimeOfDay(), this.getMinutes());
       }
 
-      int[] var3 = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+      std::vector<int> var3 = std::make_shared<std::vector<int>>(){31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
       var3[1] += this.getCalender().isLeapYear(var1) ? 1 : 0;
       return var3[var2];
    }
@@ -300,7 +300,7 @@ public:
          var2 = var12 + " " + Translator.getText("IGUI_Gametime_minutes") + ", " + var13 + " " + Translator.getText("IGUI_Gametime_secondes");
       }
 
-      return (String)var2;
+      return static_cast<String>(var2);
    }
 
     std::string getZombieKilledText(IsoPlayer var1) {
@@ -361,7 +361,7 @@ public:
     void RemoveZombiesIndiscriminate(int var1) {
       if (var1 != 0) {
          for (int var2 = 0; var2 < IsoWorld.instance.CurrentCell.getZombieList().size(); var2++) {
-    IsoZombie var3 = (IsoZombie)IsoWorld.instance.CurrentCell.getZombieList().get(0);
+    IsoZombie var3 = static_cast<IsoZombie>(IsoWorld).instance.CurrentCell.getZombieList().get(0);
             IsoWorld.instance.CurrentCell.getZombieList().remove(var2);
             IsoWorld.instance.CurrentCell.getRemoveList().add(var3);
             var3.getCurrentSquare().getMovingObjects().remove(var3);
@@ -537,7 +537,7 @@ public:
     std::vector var14 = GameClient.instance.getPlayers();
 
             for (int var18 = 0; var18 < var14.size(); var18++) {
-    IsoPlayer var10 = (IsoPlayer)var14.get(var18);
+    IsoPlayer var10 = static_cast<IsoPlayer>(var14).get(var18);
                var10.setHoursSurvived(var10.getHoursSurvived() + var7);
             }
          }
@@ -546,7 +546,7 @@ public:
     std::vector var15 = GameClient.instance.getPlayers();
 
             for (int var19 = 0; var19 < var15.size(); var19++) {
-    IsoPlayer var22 = (IsoPlayer)var15.get(var19);
+    IsoPlayer var22 = static_cast<IsoPlayer>(var15).get(var19);
                if (var22 != nullptr && !var22.isDead() && !var22.isLocalPlayer()) {
                   var22.setHoursSurvived(var22.getHoursSurvived() + var7);
                }
@@ -623,7 +623,7 @@ public:
       this.setMinutesStamp();
     int var17 = (int)((this.getTimeOfDay() - (int)this.getTimeOfDay()) * 60.0F);
       if (var17 / 10 != this.minutesMod) {
-         IsoPlayer[] var21 = IsoPlayer.players;
+         std::vector<IsoPlayer> var21 = IsoPlayer.players;
 
          for (int var23 = 0; var23 < var21.length; var23++) {
     IsoPlayer var11 = var21[var23];
@@ -993,7 +993,7 @@ public:
    }
 
     void save() {
-    File var1 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("map_t.bin"));
+    auto var1 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("map_t.bin"));
     void* var2 = null;
 
       try {
@@ -1003,7 +1003,7 @@ public:
          return;
       }
 
-    DataOutputStream var3 = new DataOutputStream(new BufferedOutputStream((OutputStream)var2));
+    auto var3 = std::make_shared<DataOutputStream>(new BufferedOutputStream(static_cast<OutputStream>(var2)));
 
       try {
          instance.save(var3);
@@ -1153,14 +1153,14 @@ public:
     File var1 = ZomboidFileSystem.instance.getFileInCurrentSave("map_t.bin");
 
       try (
-    FileInputStream var2 = new FileInputStream(var1);
-    BufferedInputStream var3 = new BufferedInputStream(var2);
+    auto var2 = std::make_shared<FileInputStream>(var1);
+    auto var3 = std::make_shared<BufferedInputStream>(var2);
       ) {
          synchronized (SliceY.SliceBufferLock) {
             SliceY.SliceBuffer.clear();
     int var5 = var3.read(SliceY.SliceBuffer.array());
             SliceY.SliceBuffer.limit(var5);
-    DataInputStream var6 = new DataInputStream(new ByteArrayInputStream(SliceY.SliceBuffer.array(), 0, var5));
+    auto var6 = std::make_shared<DataInputStream>(new ByteArrayInputStream(SliceY.SliceBuffer.array(), 0, var5));
             this.load(var6);
          }
       } catch (FileNotFoundException var13) {

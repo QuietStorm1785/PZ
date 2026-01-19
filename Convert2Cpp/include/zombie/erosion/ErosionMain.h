@@ -61,7 +61,7 @@ public:
     int month = 0;
     int year = 0;
     int epoch = 0;
-   private static final int[][] soilTable = new int[][]{
+   private static final int[][] soilTable = std::make_shared<std::vector<int>>()[]{
       {1, 1, 1, 1, 1, 4, 4, 4, 4, 4},
       {1, 1, 1, 1, 2, 5, 4, 4, 4, 4},
       {1, 1, 1, 2, 2, 5, 5, 4, 4, 4},
@@ -142,7 +142,7 @@ public:
 
          if (GameServer.bServer) {
             for (int var3 = 0; var3 < ServerMap.instance.LoadedCells.size(); var3++) {
-    ServerCell var4 = (ServerCell)ServerMap.instance.LoadedCells.get(var3);
+    ServerCell var4 = static_cast<ServerCell>(ServerMap).instance.LoadedCells.get(var3);
                if (var4.bLoaded) {
                   for (int var5 = 0; var5 < 5; var5++) {
                      for (int var6 = 0; var6 < 5; var6++) {
@@ -303,7 +303,7 @@ public:
       } else {
          this.cfg = std::make_unique<ErosionConfig>();
          this.cfgPath = ZomboidFileSystem.instance.getFileNameInCurrentSave(var1);
-    File var2 = new File(this.cfgPath);
+    auto var2 = std::make_shared<File>(this.cfgPath);
          if (var2.exists()) {
             DebugLog.log("erosion: reading " + var2.getAbsolutePath());
             if (this.cfg.readFile(var2.getAbsolutePath())) {

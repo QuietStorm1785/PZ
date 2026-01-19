@@ -26,7 +26,7 @@ public:
 
     static void LoadGridsquare(IsoGridSquare var0) {
       if (ItemPicker.instance.begin(var0)) {
-         IsoObject[] var1 = (IsoObject[])var0.getObjects().getElements();
+         std::vector<IsoObject> var1 = (IsoObject[])var0.getObjects().getElements();
     int var2 = var0.getObjects().size();
 
          for (int var3 = 0; var3 < var2; var3++) {

@@ -30,7 +30,7 @@ public:
     uint8_t magicNumByte;
     float magicNum;
    public final ArrayList<Data> regions = std::make_unique<ArrayList<>>();
-   private static final int[] rands = new int[]{
+   private static final std::vector<int> rands = std::make_shared<std::vector<int>>(){
       33,
       83,
       22,

@@ -26,7 +26,7 @@ public:
 
     void parseCurrentItemSet() {
       for (Entry var2 : this.itemTypeToInfoMap.entrySet()) {
-    ItemInfo var3 = (ItemInfo)var2.getValue();
+    ItemInfo var3 = static_cast<ItemInfo>(var2).getValue();
          if (!var3.removed && var3.scriptItem == nullptr) {
             var3.scriptItem = ScriptManager.instance.getSpecificItem(var3.fullType);
          }

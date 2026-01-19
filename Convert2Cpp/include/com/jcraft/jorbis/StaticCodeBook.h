@@ -251,7 +251,7 @@ public:
       } else {
     float var2 = float32_unpack(this.q_min);
     float var3 = float32_unpack(this.q_delta);
-         float[] var4 = new float[this.entries * this.dim];
+         std::vector<float> var4 = new float[this.entries * this.dim];
          switch (this.maptype) {
             case 1:
     int var1 = this.maptype1_quantvals();

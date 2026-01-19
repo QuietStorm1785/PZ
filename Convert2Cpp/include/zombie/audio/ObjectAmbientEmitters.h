@@ -36,7 +36,7 @@ class ObjectAmbientEmitters {
 public:
    private final HashMap<String, PowerPolicy> powerPolicyMap = std::make_unique<HashMap<>>();
     static ObjectAmbientEmitters instance = null;
-    static const Vector2 tempVector2 = new Vector2();
+    static auto tempVector2 = std::make_shared<Vector2>();
    private final HashMap<IsoObject, ObjectWithDistance> m_added = std::make_unique<HashMap<>>();
    private final ObjectPool<ObjectWithDistance> m_objectPool = new ObjectPool(ObjectWithDistance::new);
    private final ArrayList<ObjectWithDistance> m_objects = std::make_unique<ArrayList<>>();
@@ -90,7 +90,7 @@ public:
             }
 
             if (var3) {
-    ObjectWithDistance var7 = (ObjectWithDistance)this.m_objectPool.alloc();
+    ObjectWithDistance var7 = static_cast<ObjectWithDistance>(this).m_objectPool.alloc();
                var7.object = var1;
                var7.logic = var2;
                this.m_objects.add(var7);
@@ -186,7 +186,7 @@ public:
     IsoChunk var7 = var2.getChunk(var3 + var6, var4 + var5);
                   if (var7 != nullptr) {
                      for (IsoObject var10 : var7.m_objectEmitterData.m_objects.keySet()) {
-                        this.addObject(var10, (PerObjectLogic)var7.m_objectEmitterData.m_objects.get(var10));
+                        this.addObject(var10, static_cast<PerObjectLogic>(var7).m_objectEmitterData.m_objects.get(var10));
                      }
                   }
                }

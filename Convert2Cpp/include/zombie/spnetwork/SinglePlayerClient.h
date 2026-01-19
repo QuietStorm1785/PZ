@@ -38,8 +38,8 @@ namespace spnetwork {
 class SinglePlayerClient {
 public:
    private static final ArrayList<ZomboidNetData> MainLoopNetData = std::make_unique<ArrayList<>>();
-    static const UdpEngine udpEngine = new UdpEngineClient();
-    static const UdpConnection connection = new UdpConnection(udpEngine);
+    static auto udpEngine = std::make_shared<UdpEngineClient>();
+    static auto connection = std::make_shared<UdpConnection>(udpEngine);
 
     static void addIncoming(short var0, ByteBuffer var1) {
     ZomboidNetData var2;
@@ -83,7 +83,7 @@ public:
     ByteBuffer var1 = var0.buffer;
 
       try {
-    PacketType var2 = (PacketType)PacketTypes.packetTypes.get(var0.type);
+    PacketType var2 = static_cast<PacketType>(PacketTypes).packetTypes.get(var0.type);
          switch (1.$SwitchMap$zombie$network$PacketTypes$PacketType[var2.ordinal()]) {
             case 1:
                receiveServerCommand(var1);
@@ -152,7 +152,7 @@ public:
          }
 
          for (int var8 = 0; var8 < var7.getWorldObjects().size(); var8++) {
-    IsoWorldInventoryObject var9 = (IsoWorldInventoryObject)var7.getWorldObjects().get(var8);
+    IsoWorldInventoryObject var9 = static_cast<IsoWorldInventoryObject>(var7).getWorldObjects().get(var8);
             if (var9.getItem() != nullptr && var9.getItem().getID() == var5) {
                var9.loadChange(var6, var0);
                return;
@@ -179,7 +179,7 @@ public:
          }
 
          if (var19 >= 0 && var19 < var21.getObjects().size()) {
-    IsoObject var22 = (IsoObject)var21.getObjects().get(var19);
+    IsoObject var22 = static_cast<IsoObject>(var21).getObjects().get(var19);
             var22.loadChange(var20, var0);
          } else if (Core.bDebug) {
             DebugLog.log("receiveObjectChange: index=" + var19 + " is invalid x,y,z=" + var12 + "," + var15 + "," + var18);

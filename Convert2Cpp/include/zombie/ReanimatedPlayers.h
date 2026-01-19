@@ -29,7 +29,7 @@ namespace zombie {
 
 class ReanimatedPlayers {
 public:
-    static ReanimatedPlayers instance = new ReanimatedPlayers();
+    static auto instance = std::make_shared<ReanimatedPlayers>();
    private final ArrayList<IsoZombie> Zombies = std::make_unique<ArrayList<>>();
 
     static void noise(const std::string& var0) {
@@ -92,7 +92,7 @@ public:
     std::vector var2 = var1.AttachedAnimSprite;
 
             for (int var3 = 0; var3 < var2.size(); var3++) {
-    IsoSpriteInstance var4 = (IsoSpriteInstance)var2.get(var3);
+    IsoSpriteInstance var4 = static_cast<IsoSpriteInstance>(var2).get(var3);
                IsoSpriteInstance.add(var4);
             }
 
@@ -153,8 +153,8 @@ public:
             }
 
     File var9 = ZomboidFileSystem.instance.getFileInCurrentSave("reanimated.bin");
-    FileOutputStream var11 = new FileOutputStream(var9);
-    BufferedOutputStream var6 = new BufferedOutputStream(var11);
+    auto var11 = std::make_shared<FileOutputStream>(var9);
+    auto var6 = std::make_shared<BufferedOutputStream>(var11);
             var6.write(var2.array(), 0, var2.position());
             var6.flush();
             var6.close();
@@ -173,8 +173,8 @@ public:
     File var1 = ZomboidFileSystem.instance.getFileInCurrentSave("reanimated.bin");
 
          try (
-    FileInputStream var2 = new FileInputStream(var1);
-    BufferedInputStream var3 = new BufferedInputStream(var2);
+    auto var2 = std::make_shared<FileInputStream>(var1);
+    auto var3 = std::make_shared<BufferedInputStream>(var2);
          ) {
             synchronized (SliceY.SliceBufferLock) {
     ByteBuffer var5 = SliceY.SliceBuffer;

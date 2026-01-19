@@ -24,13 +24,13 @@ public:
 
    Mapping0$InfoMapping0(Mapping0 var1) {
       this.this$0 = var1;
-      this.chmuxlist = new int[256];
-      this.coupling_ang = new int[256];
-      this.coupling_mag = new int[256];
-      this.floorsubmap = new int[16];
-      this.psysubmap = new int[16];
-      this.residuesubmap = new int[16];
-      this.timesubmap = new int[16];
+      this.chmuxlist = std::make_shared<std::array<int, 256>>();
+      this.coupling_ang = std::make_shared<std::array<int, 256>>();
+      this.coupling_mag = std::make_shared<std::array<int, 256>>();
+      this.floorsubmap = std::make_shared<std::array<int, 16>>();
+      this.psysubmap = std::make_shared<std::array<int, 16>>();
+      this.residuesubmap = std::make_shared<std::array<int, 16>>();
+      this.timesubmap = std::make_shared<std::array<int, 16>>();
    }
 
     void free() {

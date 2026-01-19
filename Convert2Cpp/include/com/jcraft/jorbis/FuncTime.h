@@ -14,7 +14,7 @@ namespace jorbis {
 
 class FuncTime {
 public:
-   public static FuncTime[] time_P = new FuncTime[]{std::make_unique<Time0>()};
+   public static std::vector<FuncTime> time_P = std::make_shared<std::vector<FuncTime>>(){std::make_unique<Time0>()};
 
    abstract void free_info(Object var1);
 

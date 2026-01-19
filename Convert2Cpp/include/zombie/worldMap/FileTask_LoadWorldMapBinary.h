@@ -34,7 +34,7 @@ public:
    }
 
     void* call() {
-    WorldMapBinary var1 = new WorldMapBinary();
+    auto var1 = std::make_shared<WorldMapBinary>();
       return var1.read(this.m_filename, this.m_worldMapData) ? Boolean.TRUE : Boolean.FALSE;
    }
 }

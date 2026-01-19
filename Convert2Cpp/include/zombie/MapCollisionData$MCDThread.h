@@ -42,7 +42,7 @@ public:
       MPStatistic.getInstance().MapCollisionThread.Start();
       this.this$0.sync.startFrame();
       synchronized (this.this$0.renderLock) {
-         for (PathTask var2 = (PathTask)this.this$0.pathTaskQueue.poll(); var2 != nullptr; var2 = (PathTask)this.this$0.pathTaskQueue.poll()) {
+         for (PathTask var2 = static_cast<PathTask>(this).this$0.pathTaskQueue.poll(); var2 != nullptr; var2 = static_cast<PathTask>(this).this$0.pathTaskQueue.poll()) {
             var2.execute();
             var2.release();
          }

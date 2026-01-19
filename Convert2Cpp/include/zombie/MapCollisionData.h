@@ -33,7 +33,7 @@ namespace zombie {
 
 class MapCollisionData {
 public:
-    static const MapCollisionData instance = new MapCollisionData();
+    static auto instance = std::make_shared<MapCollisionData>();
     static const uint8_t BIT_SOLID = 1;
     static const uint8_t BIT_WALLN = 2;
     static const uint8_t BIT_WALLW = 4;
@@ -42,13 +42,13 @@ public:
     static const int SQUARES_PER_CHUNK = 10;
     static const int CHUNKS_PER_CELL = 30;
     static const int SQUARES_PER_CELL = 300;
-   private static int[] curXY = new int[2];
+   private static std::vector<int> curXY = std::make_shared<std::array<int, 2>>();
     const void* renderLock = new Object();
    private final Stack<PathTask> freePathTasks = std::make_unique<Stack<>>();
    private final ConcurrentLinkedQueue<PathTask> pathTaskQueue = std::make_unique<ConcurrentLinkedQueue<>>();
    private final ConcurrentLinkedQueue<PathTask> pathResultQueue = std::make_unique<ConcurrentLinkedQueue<>>();
-    const Sync sync = new Sync();
-   private final byte[] squares = new byte[100];
+    auto sync = std::make_shared<Sync>();
+   private final std::vector<byte> squares = std::make_shared<std::array<byte, 100>>();
     const int SQUARE_UPDATE_SIZE = 9;
     const ByteBuffer squareUpdateBuffer = ByteBuffer.allocateDirect(1024);
     bool bClient;
@@ -118,7 +118,7 @@ public:
          for (int var6 = var3; var6 < var3 + var5; var6++) {
             for (int var7 = var2; var7 < var2 + var4; var7++) {
     IsoMetaCell var8 = var1.getCellData(var7, var6);
-               n_initMetaCell(var7, var6, (String)IsoLot.InfoFileNames.get("chunkdata_" + var7 + "_" + var6 + ".bin"));
+               n_initMetaCell(var7, var6, static_cast<String>(IsoLot).InfoFileNames.get("chunkdata_" + var7 + "_" + var6 + ".bin"));
                if (var8 != nullptr) {
                   for (int var9 = 0; var9 < 30; var9++) {
                      for (int var10 = 0; var10 < 30; var10++) {

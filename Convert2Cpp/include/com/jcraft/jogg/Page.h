@@ -12,7 +12,7 @@ namespace jogg {
 
 class Page {
 public:
-   private static int[] crc_lookup = new int[256];
+   private static std::vector<int> crc_lookup = std::make_shared<std::array<int, 256>>();
     int body;
    public byte[] body_base;
     int body_len;
@@ -43,7 +43,7 @@ public:
    }
 
     Page copy(Page var1) {
-      byte[] var2 = new byte[this.header_len];
+      std::vector<byte> var2 = new byte[this.header_len];
       System.arraycopy(this.header_base, this.header, var2, 0, this.header_len);
       var1.header_len = this.header_len;
       var1.header_base = var2;

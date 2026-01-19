@@ -17,9 +17,9 @@ namespace spnetwork {
 class UdpConnection {
 public:
     const UdpEngine engine;
-    const Lock bufferLock = new ReentrantLock();
+    auto bufferLock = std::make_shared<ReentrantLock>();
     const ByteBuffer bb = ByteBuffer.allocate(1000000);
-    const ByteBufferWriter bbw = new ByteBufferWriter(this.bb);
+    auto bbw = std::make_shared<ByteBufferWriter>(this.bb);
    public final IsoPlayer[] players;
 
     public UdpConnection(UdpEngine var1) {

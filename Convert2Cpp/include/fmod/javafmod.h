@@ -18,7 +18,7 @@ namespace fmod {
 class javafmod {
 public:
    static HashMap<String, Long> map = std::make_unique<HashMap<>>();
-   private static int[] reverb = new int[4];
+   private static std::vector<int> reverb = std::make_shared<std::array<int, 4>>();
 
    public static int FMOD_Memory_Initialize(
       SWIGTYPE_p_void var0,
@@ -397,7 +397,7 @@ public:
    }
 
     static int FMOD_System_RAWPlayData(long var0, byte[] var2, long var3) {
-      short[] var5 = new short[var2.length / 2];
+      std::vector<short> var5 = new short[var2.length / 2];
       ByteBuffer.wrap(var2).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(var5);
       return javafmodJNI.FMOD_System_RAWPlayData(var0, var5, var3 / 2L);
    }

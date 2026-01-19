@@ -14,7 +14,7 @@ namespace jorbis {
 
 class FuncFloor {
 public:
-   public static FuncFloor[] floor_P = new FuncFloor[]{std::make_unique<Floor0>(), std::make_unique<Floor1>()};
+   public static std::vector<FuncFloor> floor_P = std::make_shared<std::vector<FuncFloor>>(){std::make_unique<Floor0>(), std::make_unique<Floor1>()};
 
    abstract int forward(Block var1, Object var2, float[] var3, float[] var4, Object var5);
 

@@ -24,8 +24,8 @@ namespace png {
 
 class ImageFactory {
 public:
-   private static short[] GAMMA_TABLE_45455 = PngImage.createGammaTable(0.45455F, 2.2F, false);
-   private static short[] GAMMA_TABLE_100000 = PngImage.createGammaTable(1.0F, 2.2F, false);
+   private static std::vector<short> GAMMA_TABLE_45455 = PngImage.createGammaTable(0.45455F, 2.2F, false);
+   private static std::vector<short> GAMMA_TABLE_100000 = PngImage.createGammaTable(1.0F, 2.2F, false);
 
     static BufferedImage createImage(PngImage var0, InputStream var1) {
     return createImage(new Dimension(var0.getWidth();
@@ -40,7 +40,7 @@ public:
     bool var8 = var0.isInterlaced();
     bool var9 = isIndexed(var0);
     bool var10 = var9 && var3.getConvertIndexed();
-      short[] var11 = var3.getGammaCorrect() ? getGammaTable(var0) : nullptr;
+      std::vector<short> var11 = var3.getGammaCorrect() ? getGammaTable(var0) : nullptr;
     ColorModel var12 = createColorModel(var0, var11, var10);
     int var13 = var4;
     int var14 = var5;
@@ -69,13 +69,13 @@ public:
       }
 
       if (var15 != nullptr) {
-         var16 = new SourceRegionDestination((Destination)var16, var15);
+         var16 = new SourceRegionDestination(static_cast<Destination>(var16), var15);
       }
 
-    BufferedImage var24 = new BufferedImage(var12, var16.getRaster(), false, null);
+    auto var24 = std::make_shared<BufferedImage>(var12, var16.getRaster(), false, null);
     void* var25 = null;
       if (!var9) {
-         int[] var27 = (int[])var0.getProperty("transparency", int[].class, false);
+         std::vector<int> var27 = (int[])var0.getProperty("transparency", int[].class, false);
     int var30 = var6 == 16 && var3.getReduce16() ? 8 : 0;
          if (var30 != 0 || var27 != nullptr || var11 != nullptr) {
             if (var11 == nullptr) {
@@ -83,29 +83,29 @@ public:
             }
 
             if (var27 != nullptr) {
-               var25 = new TransGammaPixelProcessor((Destination)var16, var11, var27, var30);
+               var25 = new TransGammaPixelProcessor(static_cast<Destination>(var16), var11, var27, var30);
             } else {
-               var25 = new GammaPixelProcessor((Destination)var16, var11, var30);
+               var25 = new GammaPixelProcessor(static_cast<Destination>(var16), var11, var30);
             }
          }
       }
 
       if (var10) {
-    IndexColorModel var28 = (IndexColorModel)createColorModel(var0, var11, false);
-         var16 = new ConvertIndexedDestination((Destination)var16, var4, var28, (ComponentColorModel)var12);
+    IndexColorModel var28 = static_cast<IndexColorModel>(createColorModel)(var0, var11, false);
+         var16 = new ConvertIndexedDestination(static_cast<Destination>(var16), var4, var28, static_cast<ComponentColorModel>(var12));
       }
 
       if (var25 == nullptr) {
-         var25 = new BasicPixelProcessor((Destination)var16, var7);
+         var25 = new BasicPixelProcessor(static_cast<Destination>(var16), var7);
       }
 
       if (var3.getProgressive() && var8 && !var10) {
-         var25 = new ProgressivePixelProcessor((Destination)var16, (PixelProcessor)var25, var4, var5);
+         var25 = new ProgressivePixelProcessor(static_cast<Destination>(var16), static_cast<PixelProcessor>(var25), var4, var5);
       }
 
-      var25 = new ProgressUpdater(var0, var24, (PixelProcessor)var25);
-    InflaterInputStream var29 = new InflaterInputStream(var1, new Inflater(), 4096);
-    Defilterer var31 = new Defilterer(var29, var6, var7, var4, (PixelProcessor)var25);
+      var25 = new ProgressUpdater(var0, var24, static_cast<PixelProcessor>(var25));
+    auto var29 = std::make_shared<InflaterInputStream>(var1, new Inflater(), 4096);
+    auto var31 = std::make_shared<Defilterer>(var29, var6, var7, var4, static_cast<PixelProcessor>(var25));
       if (var8) {
          if (var31.defilter(0, 0, 8, 8, (var4 + 7) / 8, (var5 + 7) / 8)
             && var0.handlePass(var24, 0)
@@ -175,7 +175,7 @@ public:
          byte[] var15;
          byte[] var16;
          if (var4 == 3) {
-            byte[] var10 = (byte[])var0.getProperty("palette", byte[].class, true);
+            std::vector<byte> var10 = (byte[])var0.getProperty("palette", byte[].class, true);
     int var11 = var10.length / 3;
             var14 = new byte[var11];
             var15 = new byte[var11];
@@ -203,8 +203,8 @@ public:
          }
 
          if (var3.containsKey("palette_alpha")) {
-            byte[] var19 = (byte[])var0.getProperty("palette_alpha", byte[].class, true);
-            byte[] var21 = new byte[var14.length];
+            std::vector<byte> var19 = (byte[])var0.getProperty("palette_alpha", byte[].class, true);
+            std::vector<byte> var21 = new byte[var14.length];
             Arrays.fill(var21, var19.length, var14.length, (byte)-1);
             System.arraycopy(var19, 0, var21, 0, var19.length);
             return new IndexColorModel(var6, var14.length, var14, var15, var16, var21);
@@ -234,7 +234,7 @@ public:
 
    private static short[] getIdentityTable(int var0) {
     int var1 = 1 << var0;
-      short[] var2 = new short[var1];
+      std::vector<short> var2 = new short[var1];
 
       for (int var3 = 0; var3 < var1; var3++) {
          var2[var3] = (short)var3;

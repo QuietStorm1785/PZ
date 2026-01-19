@@ -26,7 +26,7 @@ public:
 
    public SandboxOptions$EnumSandboxOption(SandboxOptions var1, String var2, int var3, int var4) {
       super(var2, var3, var4);
-      String[] var5 = SandboxOptions.parseName(var2);
+      std::vector<String> var5 = SandboxOptions.parseName(var2);
       this.tableName = var5[0];
       this.shortName = var5[1];
       var1.addOption(this);

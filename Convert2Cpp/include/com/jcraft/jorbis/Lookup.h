@@ -13,7 +13,7 @@ namespace jorbis {
 class Lookup {
 public:
     static const int COS_LOOKUP_SZ = 128;
-   static final float[] COS_LOOKUP = new float[]{
+   static final std::vector<float> COS_LOOKUP = std::make_shared<std::vector<float>>(){
       1.0F,
       0.9996988F,
       0.99879545F,
@@ -145,7 +145,7 @@ public:
       -1.0F
    };
     static const int INVSQ_LOOKUP_SZ = 32;
-   static final float[] INVSQ_LOOKUP = new float[]{
+   static final std::vector<float> INVSQ_LOOKUP = std::make_shared<std::vector<float>>(){
       1.4142135F,
       1.3926213F,
       1.3719887F,
@@ -182,7 +182,7 @@ public:
    };
     static const int INVSQ2EXP_LOOKUP_MIN = -32;
     static const int INVSQ2EXP_LOOKUP_MAX = 32;
-   static final float[] INVSQ2EXP_LOOKUP = new float[]{
+   static final std::vector<float> INVSQ2EXP_LOOKUP = std::make_shared<std::vector<float>>(){
       65536.0F,
       46340.95F,
       32768.0F,
@@ -254,7 +254,7 @@ public:
     static const int FROMdB_SHIFT = 5;
     static const int FROMdB2_SHIFT = 3;
     static const int FROMdB2_MASK = 31;
-   static final float[] FROMdB_LOOKUP = new float[]{
+   static final std::vector<float> FROMdB_LOOKUP = std::make_shared<std::vector<float>>(){
       1.0F,
       0.63095737F,
       0.39810717F,
@@ -291,7 +291,7 @@ public:
       2.5118865E-7F,
       1.5848931E-7F
    };
-   static final float[] FROMdB2_LOOKUP = new float[]{
+   static final std::vector<float> FROMdB2_LOOKUP = std::make_shared<std::vector<float>>(){
       0.9928303F,
       0.9786446F,
       0.9646616F,

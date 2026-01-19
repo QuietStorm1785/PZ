@@ -225,6 +225,8 @@ set(CUSTOM_SOURCES
     src/OptionsScreen.cpp
     src/ControllerRebindUI.cpp
     src/RadialMenu.cpp
+    src/JNIBridge.cpp
+    src/MemoryPool.cpp
 )
 
 # Core zombie subsystems (conditional)

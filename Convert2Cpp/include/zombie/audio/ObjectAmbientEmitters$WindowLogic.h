@@ -31,7 +31,7 @@ public:
    }
 
     void checkParameters(BaseSoundEmitter var1, long var2) {
-    IsoWindow var4 = (IsoWindow)Type.tryCastTo(this.object, IsoWindow.class);
+    IsoWindow var4 = static_cast<IsoWindow>(Type).tryCastTo(this.object, IsoWindow.class);
     float var5 = !var4.IsOpen() && !var4.isDestroyed() ? 0.0F : 1.0F;
       this.setParameterValue1(var1, var2, "DoorWindowOpen", var5);
    }

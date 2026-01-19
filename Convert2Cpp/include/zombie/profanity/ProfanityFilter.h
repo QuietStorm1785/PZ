@@ -112,7 +112,7 @@ public:
     std::string filterString(const std::string& var1) {
       if (this.enabled && this.locale != nullptr && var1 != nullptr && this.locale.getFilterWordsCount() > 0) {
          try {
-    StringBuffer var2 = new StringBuffer();
+    auto var2 = std::make_shared<StringBuffer>();
     Matcher var3 = this.prePattern.matcher(var1);
 
             while (var3.find()) {
@@ -142,7 +142,7 @@ public:
          try {
     void* var5 = null;
     bool var6 = false;
-    StringBuilder var7 = new StringBuilder();
+    auto var7 = std::make_shared<StringBuilder>();
     Matcher var8 = this.prePattern.matcher(var1);
 
             while (var8.find()) {
@@ -153,7 +153,7 @@ public:
                         var7.append(", ");
                      }
 
-                     var7.append((String)var5);
+                     var7.append(static_cast<String>(var5));
                      var6 = true;
                   }
                } else if (var4 && var8.group("spaced") != nullptr) {
@@ -163,7 +163,7 @@ public:
                         var7.append(", ");
                      }
 
-                     var7.append((String)var5);
+                     var7.append(static_cast<String>(var5));
                      var6 = true;
                   }
                }

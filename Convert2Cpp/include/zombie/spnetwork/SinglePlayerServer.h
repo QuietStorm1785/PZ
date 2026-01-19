@@ -34,7 +34,7 @@ namespace spnetwork {
 class SinglePlayerServer {
 public:
    private static final ArrayList<ZomboidNetData> MainLoopNetData = std::make_unique<ArrayList<>>();
-    static const UdpEngineServer udpEngine = new UdpEngineServer();
+    static auto udpEngine = std::make_shared<UdpEngineServer>();
 
     static void addIncoming(short var0, ByteBuffer var1, UdpConnection var2) {
     ZomboidNetData var3;
@@ -56,16 +56,16 @@ public:
          PacketType.ObjectChange.doPacket(var4);
          if (var0 instanceof IsoPlayer) {
             var4.putByte((byte)1);
-            var4.putShort(((IsoPlayer)var0).OnlineID);
+            var4.putShort((static_cast<IsoPlayer>(var0)).OnlineID);
          } else if (var0 instanceof BaseVehicle) {
             var4.putByte((byte)2);
-            var4.putShort(((BaseVehicle)var0).getId());
+            var4.putShort((static_cast<BaseVehicle>(var0)).getId());
          } else if (var0 instanceof IsoWorldInventoryObject) {
             var4.putByte((byte)3);
             var4.putInt(var0.getSquare().getX());
             var4.putInt(var0.getSquare().getY());
             var4.putInt(var0.getSquare().getZ());
-            var4.putInt(((IsoWorldInventoryObject)var0).getItem().getID());
+            var4.putInt((static_cast<IsoWorldInventoryObject>(var0)).getItem().getID());
          } else {
             var4.putByte((byte)0);
             var4.putInt(var0.getSquare().getX());
@@ -83,7 +83,7 @@ public:
     static void sendObjectChange(IsoObject var0, const std::string& var1, KahluaTable var2) {
       if (var0 != nullptr) {
          for (int var3 = 0; var3 < udpEngine.connections.size(); var3++) {
-    UdpConnection var4 = (UdpConnection)udpEngine.connections.get(var3);
+    UdpConnection var4 = static_cast<UdpConnection>(udpEngine).connections.get(var3);
             if (var4.ReleventTo(var0.getX(), var0.getY())) {
                sendObjectChange(var0, var1, var2, var4);
             }
@@ -93,18 +93,18 @@ public:
 
     static void sendObjectChange(IsoObject var0, const std::string& var1, Object... var2) {
       if (var2.length == 0) {
-         sendObjectChange(var0, var1, (KahluaTable)nullptr);
+         sendObjectChange(var0, var1, static_cast<KahluaTable>(nullptr));
       } else if (var2.length % 2 == 0) {
     KahluaTable var3 = LuaManager.platform.newTable();
 
          for (byte var4 = 0; var4 < var2.length; var4 += 2) {
     void* var5 = var2[var4 + 1];
             if (var5 instanceof Float) {
-               var3.rawset(var2[var4], ((Float)var5).doubleValue());
+               var3.rawset(var2[var4], (static_cast<Float>(var5)).doubleValue());
             } else if (var5 instanceof Integer) {
-               var3.rawset(var2[var4], ((Integer)var5).doubleValue());
+               var3.rawset(var2[var4], (static_cast<Integer>(var5)).doubleValue());
             } else if (var5 instanceof Short) {
-               var3.rawset(var2[var4], ((Short)var5).doubleValue());
+               var3.rawset(var2[var4], (static_cast<Short>(var5)).doubleValue());
             } else {
                var3.rawset(var2[var4], var5);
             }
@@ -144,7 +144,7 @@ public:
 
     static void sendServerCommand(const std::string& var0, const std::string& var1, KahluaTable var2) {
       for (int var3 = 0; var3 < udpEngine.connections.size(); var3++) {
-    UdpConnection var4 = (UdpConnection)udpEngine.connections.get(var3);
+    UdpConnection var4 = static_cast<UdpConnection>(udpEngine).connections.get(var3);
          sendServerCommand(var0, var1, var2, var4);
       }
    }
@@ -173,7 +173,7 @@ public:
     ByteBuffer var1 = var0.buffer;
 
       try {
-    PacketType var2 = (PacketType)PacketTypes.packetTypes.get(var0.type);
+    PacketType var2 = static_cast<PacketType>(PacketTypes).packetTypes.get(var0.type);
          switch (1.$SwitchMap$zombie$network$PacketTypes$PacketType[var2.ordinal()]) {
             case 1:
                receiveClientCommand(var1, var0.connection);

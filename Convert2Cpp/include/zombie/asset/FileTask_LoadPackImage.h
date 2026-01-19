@@ -42,7 +42,7 @@ public:
 
     ImageData var4;
       try (InputStream var2 = this.m_file_system.openStream(var1, this.m_image_name)) {
-    ImageData var3 = new ImageData(var2, this.bMask);
+    auto var3 = std::make_shared<ImageData>(var2, this.bMask);
          if ((this.m_flags & 64) != 0) {
             var3.initMipMaps();
          }

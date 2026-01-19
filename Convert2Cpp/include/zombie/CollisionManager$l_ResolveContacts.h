@@ -14,10 +14,10 @@ namespace zombie {
 
 class CollisionManager {
 public:
-    static const Vector2 vel = new Vector2();
-    static const Vector2 vel2 = new Vector2();
+    static auto vel = std::make_shared<Vector2>();
+    static auto vel2 = std::make_shared<Vector2>();
    static final List<IsoPushableObject> pushables = std::make_unique<ArrayList<>>();
-   static IsoMovingObject[] objectListInvoking = new IsoMovingObject[1024];
+   static std::vector<IsoMovingObject> objectListInvoking = std::make_shared<std::array<IsoMovingObject, 1024>>();
 
    private CollisionManager$l_ResolveContacts() {
    }

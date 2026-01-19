@@ -13,7 +13,7 @@ namespace zombie {
 
 class IntArrayCache {
 public:
-    static IntArrayCache instance = new IntArrayCache();
+    static auto instance = std::make_shared<IntArrayCache>();
    TIntObjectHashMap<Stack<Integer[]>> Map = std::make_unique<TIntObjectHashMap>();
 
     void Init() {
@@ -28,7 +28,7 @@ public:
 
     void put(Integer[] var1) {
       if (this.Map.containsKey(var1.length)) {
-         ((Stack)this.Map.get(var1.length)).push(var1);
+         (static_cast<Stack>(this).Map.get(var1.length)).push(var1);
       } else {
     std::stack var2 = new Stack();
          var2.push(var1);
@@ -38,7 +38,7 @@ public:
 
    public Integer[] get(int var1) {
       if (this.Map.containsKey(var1)) {
-    std::stack var2 = (Stack)this.Map.get(var1);
+    std::stack var2 = static_cast<Stack>(this).Map.get(var1);
          if (!var2.isEmpty()) {
             return (Integer[])var2.pop();
          }

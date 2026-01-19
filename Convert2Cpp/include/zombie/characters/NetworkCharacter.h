@@ -19,10 +19,10 @@ public:
     float minMovement;
     float maxMovement;
     long deltaTime;
-    const Transform transform = new Transform();
-    const Vector2 movement = new Vector2();
-    const Point d1 = new Point();
-    const Point d2 = new Point();
+    auto transform = std::make_shared<Transform>();
+    auto movement = std::make_shared<Vector2>();
+    auto d1 = std::make_shared<Point>();
+    auto d2 = std::make_shared<Point>();
 
     public NetworkCharacter() {
       this.minMovement = 0.075F;

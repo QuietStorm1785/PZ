@@ -79,34 +79,34 @@ public:
     FMODSoundEmitter electricityShutOffEmitter = null;
     long electricityShutOffEvent = 0L;
     int electricityShutOffState = -1;
-    const ParameterFogIntensity parameterFogIntensity = new ParameterFogIntensity();
-    const ParameterRainIntensity parameterRainIntensity = new ParameterRainIntensity();
-    const ParameterSeason parameterSeason = new ParameterSeason();
-    const ParameterSnowIntensity parameterSnowIntensity = new ParameterSnowIntensity();
-    const ParameterStorm parameterStorm = new ParameterStorm();
-    const ParameterTimeOfDay parameterTimeOfDay = new ParameterTimeOfDay();
-    const ParameterTemperature parameterTemperature = new ParameterTemperature();
-    const ParameterWeatherEvent parameterWeatherEvent = new ParameterWeatherEvent();
-    const ParameterWindIntensity parameterWindIntensity = new ParameterWindIntensity();
-    const ParameterZone parameterZoneDeepForest = new ParameterZone("ZoneDeepForest", "DeepForest");
-    const ParameterZone parameterZoneFarm = new ParameterZone("ZoneFarm", "Farm");
-    const ParameterZone parameterZoneForest = new ParameterZone("ZoneForest", "Forest");
-    const ParameterZone parameterZoneNav = new ParameterZone("ZoneNav", "Nav");
-    const ParameterZone parameterZoneTown = new ParameterZone("ZoneTown", "TownZone");
-    const ParameterZone parameterZoneTrailerPark = new ParameterZone("ZoneTrailerPark", "TrailerPark");
-    const ParameterZone parameterZoneVegetation = new ParameterZone("ZoneVegetation", "Vegitation");
-    const ParameterZoneWaterSide parameterZoneWaterSide = new ParameterZoneWaterSide();
-    const ParameterCameraZoom parameterCameraZoom = new ParameterCameraZoom();
-    const ParameterClosestWallDistance parameterClosestWallDistance = new ParameterClosestWallDistance();
-    const ParameterHardOfHearing parameterHardOfHearing = new ParameterHardOfHearing();
-    const ParameterInside parameterInside = new ParameterInside();
-    const ParameterMoodlePanic parameterMoodlePanic = new ParameterMoodlePanic();
-    const ParameterPowerSupply parameterPowerSupply = new ParameterPowerSupply();
-    const ParameterRoomSize parameterRoomSize = new ParameterRoomSize();
-    const ParameterRoomType parameterRoomType = new ParameterRoomType();
-    const ParameterWaterSupply parameterWaterSupply = new ParameterWaterSupply();
-    const Vector2 tempo = new Vector2();
-    const FMOD_STUDIO_EVENT_CALLBACK electricityShutOffEventCallback = new 1(this);
+    auto parameterFogIntensity = std::make_shared<ParameterFogIntensity>();
+    auto parameterRainIntensity = std::make_shared<ParameterRainIntensity>();
+    auto parameterSeason = std::make_shared<ParameterSeason>();
+    auto parameterSnowIntensity = std::make_shared<ParameterSnowIntensity>();
+    auto parameterStorm = std::make_shared<ParameterStorm>();
+    auto parameterTimeOfDay = std::make_shared<ParameterTimeOfDay>();
+    auto parameterTemperature = std::make_shared<ParameterTemperature>();
+    auto parameterWeatherEvent = std::make_shared<ParameterWeatherEvent>();
+    auto parameterWindIntensity = std::make_shared<ParameterWindIntensity>();
+    auto parameterZoneDeepForest = std::make_shared<ParameterZone>("ZoneDeepForest", "DeepForest");
+    auto parameterZoneFarm = std::make_shared<ParameterZone>("ZoneFarm", "Farm");
+    auto parameterZoneForest = std::make_shared<ParameterZone>("ZoneForest", "Forest");
+    auto parameterZoneNav = std::make_shared<ParameterZone>("ZoneNav", "Nav");
+    auto parameterZoneTown = std::make_shared<ParameterZone>("ZoneTown", "TownZone");
+    auto parameterZoneTrailerPark = std::make_shared<ParameterZone>("ZoneTrailerPark", "TrailerPark");
+    auto parameterZoneVegetation = std::make_shared<ParameterZone>("ZoneVegetation", "Vegitation");
+    auto parameterZoneWaterSide = std::make_shared<ParameterZoneWaterSide>();
+    auto parameterCameraZoom = std::make_shared<ParameterCameraZoom>();
+    auto parameterClosestWallDistance = std::make_shared<ParameterClosestWallDistance>();
+    auto parameterHardOfHearing = std::make_shared<ParameterHardOfHearing>();
+    auto parameterInside = std::make_shared<ParameterInside>();
+    auto parameterMoodlePanic = std::make_shared<ParameterMoodlePanic>();
+    auto parameterPowerSupply = std::make_shared<ParameterPowerSupply>();
+    auto parameterRoomSize = std::make_shared<ParameterRoomSize>();
+    auto parameterRoomType = std::make_shared<ParameterRoomType>();
+    auto parameterWaterSupply = std::make_shared<ParameterWaterSupply>();
+    auto tempo = std::make_shared<Vector2>();
+    auto electricityShutOffEventCallback = std::make_shared<1>(this);
 
     static BaseAmbientStreamManager getInstance() {
     return instance;
@@ -271,7 +271,7 @@ public:
          }
 
          if (!var1.isEmpty()) {
-    IsoPlayer var9 = (IsoPlayer)var1.get(Rand.Next(var1.size()));
+    IsoPlayer var9 = static_cast<IsoPlayer>(var1).get(Rand.Next(var1.size()));
     std::string var10 = "";
             if (GameTime.instance.getHour() > 7 && GameTime.instance.getHour() < 21) {
                switch (Rand.Next(3)) {
@@ -316,7 +316,7 @@ public:
                var5 += this.tempo.y;
                if (!GameClient.bClient) {
                   System.out.println("playing ambient: " + var10 + " at dist: " + Math.abs(var4 - var9.x) + "," + Math.abs(var5 - var9.y));
-    Ambient var8 = new Ambient(var10, var4, var5, 50.0F, Rand.Next(0.2F, 0.5F));
+    auto var8 = std::make_shared<Ambient>(var10, var4, var5, 50.0F, Rand.Next(0.2F, 0.5F));
                   this.ambient.add(var8);
                }
             }
@@ -325,7 +325,7 @@ public:
    }
 
     void addBlend(const std::string& var1, float var2, bool var3, bool var4, bool var5, bool var6) {
-    AmbientLoop var7 = new AmbientLoop(0.0F, var1, var2);
+    auto var7 = std::make_shared<AmbientLoop>(0.0F, var1, var2);
       this.allAmbient.add(var7);
       if (var3) {
          this.indoorAmbient.add(var7);
@@ -363,7 +363,7 @@ public:
       }
 
       if (!var1.isEmpty()) {
-    IsoPlayer var11 = (IsoPlayer)var1.get(Rand.Next(var1.size()));
+    IsoPlayer var11 = static_cast<IsoPlayer>(var1).get(Rand.Next(var1.size()));
     std::string var12 = null;
          switch (Rand.Next(6)) {
             case 0:
@@ -396,7 +396,7 @@ public:
          var5 += this.tempo.y;
          WorldSoundManager.instance.addSound(nullptr, (int)var4, (int)var5, 0, var6, var6);
     float var9 = 1.0F;
-    Ambient var10 = new Ambient(var12, var4, var5, 700.0F, var9);
+    auto var10 = std::make_shared<Ambient>(var12, var4, var5, 700.0F, var9);
          this.ambient.add(var10);
       }
    }
@@ -434,7 +434,7 @@ public:
 
     void addAmbient(const std::string& var1, int var2, int var3, int var4, float var5) {
       if (GameClient.bClient) {
-    Ambient var6 = new Ambient(var1, var2, var3, var4, var5, true);
+    auto var6 = std::make_shared<Ambient>(var1, var2, var3, var4, var5, true);
          this.ambient.add(var6);
       }
    }
@@ -494,7 +494,7 @@ public:
          }
 
          if (!this.electricityShutOffEmitter.isPlaying(this.electricityShutOffEvent)) {
-    Vector2f var2 = new Vector2f();
+    auto var2 = std::make_shared<Vector2f>();
             this.getListenerPos(var2);
     BuildingDef var3 = this.getNearestBuilding(var2.x, var2.y, var2);
             if (var3 == nullptr) {
@@ -530,7 +530,7 @@ public:
     IsoGridSquare var6 = IsoWorld.instance.CurrentCell.getGridSquare(var5, var4, var3);
                      if (var6 != nullptr) {
                         for (int var7 = 0; var7 < var6.getObjects().size(); var7++) {
-    IsoObject var8 = (IsoObject)var6.getObjects().get(var7);
+    IsoObject var8 = static_cast<IsoObject>(var6).getObjects().get(var7);
                            var8.checkHaveElectricity();
                         }
                      }
@@ -548,7 +548,7 @@ public:
     BuildingDef var7 = null;
     float var8 = Float.MAX_VALUE;
       var3.set(0.0F);
-    Vector2f var9 = new Vector2f();
+    auto var9 = std::make_shared<Vector2f>();
 
       for (int var10 = var6 - 1; var10 <= var6 + 1; var10++) {
          for (int var11 = var5 - 1; var11 <= var5 + 1; var11++) {

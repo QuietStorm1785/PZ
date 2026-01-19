@@ -42,8 +42,8 @@ public:
     static const int VERSION = 1;
    protected static final HashMap<String, GameSound> soundByName = std::make_unique<HashMap<>>();
    protected static final ArrayList<GameSound> sounds = std::make_unique<ArrayList<>>();
-    static const BankPreviewSound previewBank = new BankPreviewSound();
-    static const FilePreviewSound previewFile = new FilePreviewSound();
+    static auto previewBank = std::make_shared<BankPreviewSound>();
+    static auto previewFile = std::make_shared<FilePreviewSound>();
     static bool soundIsPaused = false;
     static IPreviewSound previewSound;
 
@@ -73,7 +73,7 @@ public:
             if (var2.event != nullptr && var2.eventDescription == nullptr) {
                var2.eventDescription = FMODManager.instance.getEventDescription("event:/" + var2.event);
                if (var2.eventDescription == nullptr) {
-                  DebugLog.Sound.warn("No such FMOD event \"%s\" for GameSound \"%s\"", new Object[]{var2.event, var0.getName()});
+                  DebugLog.Sound.warn("No such FMOD event \"%s\" for GameSound \"%s\"", std::make_shared<std::vector<Object>>(){var2.event, var0.getName()});
                }
 
                var2.eventDescriptionMP = FMODManager.instance.getEventDescription("event:/Remote/" + var2.event);
@@ -103,7 +103,7 @@ public:
             var1 = std::make_unique<GameSound>();
             var1.name = var0;
             var1.category = "AUTO";
-    GameSoundClip var2 = new GameSoundClip(var1);
+    auto var2 = std::make_shared<GameSoundClip>(var1);
             var1.clips.add(var2);
             sounds.add(var1);
             soundByName.put(var0.replace(".wav", "").replace(".ogg", ""), var1);
@@ -153,7 +153,7 @@ public:
     std::vector var0 = ScriptManager.instance.getAllGameSounds();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
-    GameSoundScript var2 = (GameSoundScript)var0.get(var1);
+    GameSoundScript var2 = static_cast<GameSoundScript>(var0).get(var1);
          if (!var2.gameSound.clips.isEmpty()) {
             addSound(var2.gameSound);
          }
@@ -172,7 +172,7 @@ public:
             }
          }
 
-    FMODSoundBank var14 = (FMODSoundBank)BaseSoundBank.instance;
+    FMODSoundBank var14 = static_cast<FMODSoundBank>(BaseSoundBank).instance;
 
          for (FMODFootstep var18 : var14.footstepMap.values()) {
             var12.add(var18.wood);
@@ -187,8 +187,8 @@ public:
          }
 
     std::vector var17 = new ArrayList();
-         long[] var20 = new long[32];
-         long[] var21 = new long[1024];
+         std::vector<long> var20 = std::make_shared<std::array<long, 32>>();
+         std::vector<long> var21 = std::make_shared<std::array<long, 1024>>();
     int var6 = javafmodJNI.FMOD_Studio_System_GetBankList(var20);
 
          for (int var7 = 0; var7 < var6; var7++) {
@@ -209,7 +209,7 @@ public:
 
          var17.sort(String::compareTo);
 
-    for (auto& var23 : var17)            DebugLog.General.warn("FMOD event \"%s\" not used by any GameSound", new Object[]{var23});
+    for (auto& var23 : var17)            DebugLog.General.warn("FMOD event \"%s\" not used by any GameSound", std::make_shared<std::vector<Object>>(){var23});
          }
       }
    }
@@ -220,7 +220,7 @@ public:
     std::vector var1 = ScriptManager.instance.getAllGameSounds();
 
          for (int var2 = 0; var2 < var1.size(); var2++) {
-    GameSoundScript var3 = (GameSoundScript)var1.get(var2);
+    GameSoundScript var3 = static_cast<GameSoundScript>(var1).get(var2);
             if (sounds.contains(var3.gameSound)) {
                initClipEvents(var3.gameSound);
             } else if (!var3.gameSound.clips.isEmpty()) {
@@ -256,7 +256,7 @@ public:
 
     static void loadINI() {
     std::string var0 = ZomboidFileSystem.instance.getCacheDir() + File.separator + "sounds.ini";
-    ConfigFile var1 = new ConfigFile();
+    auto var1 = std::make_shared<ConfigFile>();
       if (var1.read(var0)) {
          if (var1.getVersion() <= 1) {
             for (ConfigOption var3 : var1.getOptions()) {
@@ -272,13 +272,13 @@ public:
     static void saveINI() {
     std::vector var0 = new ArrayList();
 
-    for (auto& var2 : sounds)    DoubleConfigOption var3 = new DoubleConfigOption(var2.getName(), 0.0, 2.0, 0.0);
+    for (auto& var2 : sounds)    auto var3 = std::make_shared<DoubleConfigOption>(var2.getName(), 0.0, 2.0, 0.0);
          var3.setValue(var2.getUserVolume());
          var0.add(var3);
       }
 
     std::string var4 = ZomboidFileSystem.instance.getCacheDir() + File.separator + "sounds.ini";
-    ConfigFile var5 = new ConfigFile();
+    auto var5 = std::make_shared<ConfigFile>();
       if (var5.write(var4, 1, var0)) {
          var0.clear();
       }

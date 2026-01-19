@@ -14,7 +14,7 @@ namespace jorbis {
 
 class FuncMapping {
 public:
-   public static FuncMapping[] mapping_P = new FuncMapping[]{std::make_unique<Mapping0>()};
+   public static std::vector<FuncMapping> mapping_P = std::make_shared<std::vector<FuncMapping>>(){std::make_unique<Mapping0>()};
 
    abstract void free_info(Object var1);
 

@@ -18,8 +18,8 @@ class NetworkCharacterAI {
 public:
     static const int checkDelay = 5000;
     static const int checkInterval = 1000;
-    const UpdateLimit updateLimit = new UpdateLimit(5000L);
-    const Vector2 position = new Vector2();
+    auto updateLimit = std::make_shared<UpdateLimit>(5000L);
+    auto position = std::make_shared<Vector2>();
     bool isInVehicle;
     float speed;
 

@@ -48,16 +48,16 @@ public:
     int links;
     long offset;
    long[] offsets;
-    StreamState os = new StreamState();
-    SyncState oy = new SyncState();
+    auto os = std::make_shared<StreamState>();
+    auto oy = std::make_shared<SyncState>();
     long pcm_offset;
    long[] pcmlengths;
     float samptrack;
     bool seekable = false;
    int[] serialnos;
    Comment[] vc;
-    DspState vd = new DspState();
-    Block vb = new Block(this.vd);
+    auto vd = std::make_shared<DspState>();
+    auto vb = std::make_shared<Block>(this.vd);
    Info[] vi;
 
     public VorbisFile(const std::string& var1) {
@@ -216,7 +216,7 @@ public:
     long var8 = this.offsets[var3 + 1];
     long var10 = this.offsets[var3];
     int var12 = (int)var10;
-    Page var13 = new Page();
+    auto var13 = std::make_shared<Page>();
 
          while (var10 < var8) {
     long var14;
@@ -256,8 +256,8 @@ public:
          } else {
             while (this.pcm_offset < var1) {
     int var20 = (int)(var1 - this.pcm_offset);
-               float[][][] var7 = new float[1][][];
-               int[] var21 = new int[this.getInfo(-1).channels];
+               float[][][] var7 = std::make_shared<std::array<float, 1>>()[][];
+               std::vector<int> var21 = new int[this.getInfo(-1).channels];
     int var9 = this.vd.synthesis_pcmout(var7, var21);
                if (var9 > var20) {
                   var9 = var20;
@@ -410,7 +410,7 @@ public:
     int bisect_forward_serialno(long var1, long var3, long var5, int var7, int var8) {
     long var9 = var5;
     long var11 = var5;
-    Page var13 = new Page();
+    auto var13 = std::make_shared<Page>();
 
       while (var3 < var9) {
     long var15;
@@ -501,8 +501,8 @@ public:
    }
 
     int fetch_headers(Info var1, Comment var2, int[] var3, Page var4) {
-    Page var5 = new Page();
-    Packet var6 = new Packet();
+    auto var5 = std::make_shared<Page>();
+    auto var6 = std::make_shared<Packet>();
       if (var4 == nullptr) {
     int var7 = this.get_next_page(var5, 8500L);
          if (var7 == -128) {
@@ -600,7 +600,7 @@ public:
       this.vi[0] = std::make_unique<Info>();
       this.vc = new Comment[this.links];
       this.vc[0] = std::make_unique<Comment>();
-      int[] var1 = new int[1];
+      std::vector<int> var1 = std::make_shared<std::array<int, 1>>();
       if (this.fetch_headers(this.vi[0], this.vc[0], var1, nullptr) == -1) {
          return -1;
       } else {
@@ -611,10 +611,10 @@ public:
    }
 
     int open_seekable() {
-    Info var1 = new Info();
-    Comment var2 = new Comment();
-    Page var8 = new Page();
-      int[] var9 = new int[1];
+    auto var1 = std::make_shared<Info>();
+    auto var2 = std::make_shared<Comment>();
+    auto var8 = std::make_shared<Page>();
+      std::vector<int> var9 = std::make_shared<std::array<int, 1>>();
     int var6 = this.fetch_headers(var1, var2, var9, null);
     int var3 = var9[0];
     int var7 = (int)this.offset;
@@ -645,7 +645,7 @@ public:
    }
 
     void prefetch_all_headers(Info var1, Comment var2, int var3) {
-    Page var4 = new Page();
+    auto var4 = std::make_shared<Page>();
       this.vi = new Info[this.links];
       this.vc = new Comment[this.links];
       this.dataoffsets = new long[this.links];
@@ -688,11 +688,11 @@ public:
    }
 
     int process_packet(int var1) {
-    Page var2 = new Page();
+    auto var2 = std::make_shared<Page>();
 
       while (true) {
          if (this.decode_ready) {
-    Packet var3 = new Packet();
+    auto var3 = std::make_shared<Packet>();
     int var4 = this.os.packetout(var3);
             if (var4 > 0) {
     long var5 = var3.granulepos;
@@ -733,7 +733,7 @@ public:
 
          if (!this.decode_ready) {
             if (!this.seekable) {
-               int[] var12 = new int[1];
+               std::vector<int> var12 = std::make_shared<std::array<int, 1>>();
     int var13 = this.fetch_headers(this.vi[0], this.vc[0], var12, var2);
                this.current_serialno = var12[0];
                if (var13 != 0) {
@@ -772,8 +772,8 @@ public:
 
       while (true) {
          if (this.decode_ready) {
-            float[][][] var10 = new float[1][][];
-            int[] var11 = new int[this.getInfo(-1).channels];
+            float[][][] var10 = std::make_shared<std::array<float, 1>>()[][];
+            std::vector<int> var11 = new int[this.getInfo(-1).channels];
     int var12 = this.vd.synthesis_pcmout(var10, var11);
             float[][] var9 = var10[0];
             if (var12 != 0) {
@@ -821,7 +821,7 @@ public:
                         }
                      } else {
                         for (int var31 = 0; var31 < var13; var31++) {
-                           float[] var35 = var9[var31];
+                           std::vector<float> var35 = var9[var31];
     int var38 = var31;
 
                            for (int var39 = 0; var39 < var12; var39++) {
@@ -916,7 +916,7 @@ public:
 
     int get_data() {
     int var1 = this.oy.buffer(8500);
-      byte[] var2 = this.oy.data;
+      std::vector<byte> var2 = this.oy.data;
     int var3 = 0;
 
       try {

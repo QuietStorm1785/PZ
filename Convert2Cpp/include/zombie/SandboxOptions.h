@@ -44,7 +44,7 @@ namespace zombie {
 
 class SandboxOptions {
 public:
-    static const SandboxOptions instance = new SandboxOptions();
+    static auto instance = std::make_shared<SandboxOptions>();
     int Speed = 3;
     const EnumSandboxOption Zombies;
     const EnumSandboxOption Distribution;
@@ -145,15 +145,15 @@ public:
    protected final ArrayList<SandboxOption> options = std::make_unique<ArrayList<>>();
    protected final HashMap<String, SandboxOption> optionByName = std::make_unique<HashMap<>>();
     const std::unordered_map Map = new Map(this);
-    const ZombieLore Lore = new ZombieLore(this);
-    const ZombieConfig zombieConfig = new ZombieConfig(this);
+    auto Lore = std::make_shared<ZombieLore>(this);
+    auto zombieConfig = std::make_shared<ZombieConfig>(this);
     const int FIRST_YEAR = 1993;
     const int SANDBOX_VERSION = 5;
    private final ArrayList<SandboxOption> m_customOptions = std::make_unique<ArrayList<>>();
 
     public SandboxOptions() {
-      this.Zombies = (EnumSandboxOption)this.newEnumOption("Zombies", 6, 4).setTranslation("ZombieCount");
-      this.Distribution = (EnumSandboxOption)this.newEnumOption("Distribution", 2, 1).setTranslation("ZombieDistribution");
+      this.Zombies = static_cast<EnumSandboxOption>(this).newEnumOption("Zombies", 6, 4).setTranslation("ZombieCount");
+      this.Distribution = static_cast<EnumSandboxOption>(this).newEnumOption("Distribution", 2, 1).setTranslation("ZombieDistribution");
       this.DayLength = this.newEnumOption("DayLength", 26, 2);
       this.StartYear = this.newEnumOption("StartYear", 100, 1);
       this.StartMonth = this.newEnumOption("StartMonth", 12, 7);
@@ -161,38 +161,38 @@ public:
       this.StartTime = this.newEnumOption("StartTime", 9, 2);
       this.WaterShut = this.newEnumOption("WaterShut", 8, 2).setValueTranslation("Shutoff");
       this.ElecShut = this.newEnumOption("ElecShut", 8, 2).setValueTranslation("Shutoff");
-      this.WaterShutModifier = (IntegerSandboxOption)this.newIntegerOption("WaterShutModifier", -1, Integer.MAX_VALUE, 14).setTranslation("WaterShut");
-      this.ElecShutModifier = (IntegerSandboxOption)this.newIntegerOption("ElecShutModifier", -1, Integer.MAX_VALUE, 14).setTranslation("ElecShut");
-      this.FoodLoot = (EnumSandboxOption)this.newEnumOption("FoodLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootFood");
-      this.CannedFoodLoot = (EnumSandboxOption)this.newEnumOption("CannedFoodLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootCannedFood");
-      this.LiteratureLoot = (EnumSandboxOption)this.newEnumOption("LiteratureLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootLiterature");
-      this.SurvivalGearsLoot = (EnumSandboxOption)this.newEnumOption("SurvivalGearsLoot", 7, 4)
+      this.WaterShutModifier = static_cast<IntegerSandboxOption>(this).newIntegerOption("WaterShutModifier", -1, Integer.MAX_VALUE, 14).setTranslation("WaterShut");
+      this.ElecShutModifier = static_cast<IntegerSandboxOption>(this).newIntegerOption("ElecShutModifier", -1, Integer.MAX_VALUE, 14).setTranslation("ElecShut");
+      this.FoodLoot = static_cast<EnumSandboxOption>(this).newEnumOption("FoodLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootFood");
+      this.CannedFoodLoot = static_cast<EnumSandboxOption>(this).newEnumOption("CannedFoodLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootCannedFood");
+      this.LiteratureLoot = static_cast<EnumSandboxOption>(this).newEnumOption("LiteratureLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootLiterature");
+      this.SurvivalGearsLoot = static_cast<EnumSandboxOption>(this).newEnumOption("SurvivalGearsLoot", 7, 4)
          .setValueTranslation("Rarity")
          .setTranslation("LootSurvivalGears");
-      this.MedicalLoot = (EnumSandboxOption)this.newEnumOption("MedicalLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootMedical");
-      this.WeaponLoot = (EnumSandboxOption)this.newEnumOption("WeaponLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootWeapon");
-      this.RangedWeaponLoot = (EnumSandboxOption)this.newEnumOption("RangedWeaponLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootRangedWeapon");
-      this.AmmoLoot = (EnumSandboxOption)this.newEnumOption("AmmoLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootAmmo");
-      this.MechanicsLoot = (EnumSandboxOption)this.newEnumOption("MechanicsLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootMechanics");
-      this.OtherLoot = (EnumSandboxOption)this.newEnumOption("OtherLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootOther");
-      this.Temperature = (EnumSandboxOption)this.newEnumOption("Temperature", 5, 3).setTranslation("WorldTemperature");
-      this.Rain = (EnumSandboxOption)this.newEnumOption("Rain", 5, 3).setTranslation("RainAmount");
+      this.MedicalLoot = static_cast<EnumSandboxOption>(this).newEnumOption("MedicalLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootMedical");
+      this.WeaponLoot = static_cast<EnumSandboxOption>(this).newEnumOption("WeaponLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootWeapon");
+      this.RangedWeaponLoot = static_cast<EnumSandboxOption>(this).newEnumOption("RangedWeaponLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootRangedWeapon");
+      this.AmmoLoot = static_cast<EnumSandboxOption>(this).newEnumOption("AmmoLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootAmmo");
+      this.MechanicsLoot = static_cast<EnumSandboxOption>(this).newEnumOption("MechanicsLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootMechanics");
+      this.OtherLoot = static_cast<EnumSandboxOption>(this).newEnumOption("OtherLoot", 7, 4).setValueTranslation("Rarity").setTranslation("LootOther");
+      this.Temperature = static_cast<EnumSandboxOption>(this).newEnumOption("Temperature", 5, 3).setTranslation("WorldTemperature");
+      this.Rain = static_cast<EnumSandboxOption>(this).newEnumOption("Rain", 5, 3).setTranslation("RainAmount");
       this.ErosionSpeed = this.newEnumOption("ErosionSpeed", 5, 3);
       this.ErosionDays = this.newIntegerOption("ErosionDays", -1, 36500, 0);
       this.XpMultiplier = this.newDoubleOption("XpMultiplier", 0.001, 1000.0, 1.0);
       this.XpMultiplierAffectsPassive = this.newBooleanOption("XpMultiplierAffectsPassive", false);
       this.ZombieAttractionMultiplier = this.newDoubleOption("ZombieAttractionMultiplier", 0.0, 100.0, 1.0);
       this.VehicleEasyUse = this.newBooleanOption("VehicleEasyUse", false);
-      this.Farming = (EnumSandboxOption)this.newEnumOption("Farming", 5, 3).setTranslation("FarmingSpeed");
+      this.Farming = static_cast<EnumSandboxOption>(this).newEnumOption("Farming", 5, 3).setTranslation("FarmingSpeed");
       this.CompostTime = this.newEnumOption("CompostTime", 8, 2);
-      this.StatsDecrease = (EnumSandboxOption)this.newEnumOption("StatsDecrease", 5, 3).setTranslation("StatDecrease");
-      this.NatureAbundance = (EnumSandboxOption)this.newEnumOption("NatureAbundance", 5, 3).setTranslation("NatureAmount");
-      this.Alarm = (EnumSandboxOption)this.newEnumOption("Alarm", 6, 4).setTranslation("HouseAlarmFrequency");
-      this.LockedHouses = (EnumSandboxOption)this.newEnumOption("LockedHouses", 6, 4).setTranslation("LockedHouseFrequency");
+      this.StatsDecrease = static_cast<EnumSandboxOption>(this).newEnumOption("StatsDecrease", 5, 3).setTranslation("StatDecrease");
+      this.NatureAbundance = static_cast<EnumSandboxOption>(this).newEnumOption("NatureAbundance", 5, 3).setTranslation("NatureAmount");
+      this.Alarm = static_cast<EnumSandboxOption>(this).newEnumOption("Alarm", 6, 4).setTranslation("HouseAlarmFrequency");
+      this.LockedHouses = static_cast<EnumSandboxOption>(this).newEnumOption("LockedHouses", 6, 4).setTranslation("LockedHouseFrequency");
       this.StarterKit = this.newBooleanOption("StarterKit", false);
       this.Nutrition = this.newBooleanOption("Nutrition", false);
-      this.FoodRotSpeed = (EnumSandboxOption)this.newEnumOption("FoodRotSpeed", 5, 3).setTranslation("FoodSpoil");
-      this.FridgeFactor = (EnumSandboxOption)this.newEnumOption("FridgeFactor", 5, 3).setTranslation("FridgeEffect");
+      this.FoodRotSpeed = static_cast<EnumSandboxOption>(this).newEnumOption("FoodRotSpeed", 5, 3).setTranslation("FoodSpoil");
+      this.FridgeFactor = static_cast<EnumSandboxOption>(this).newEnumOption("FridgeFactor", 5, 3).setTranslation("FridgeEffect");
       this.LootRespawn = this.newEnumOption("LootRespawn", 5, 1).setValueTranslation("Respawn");
       this.SeenHoursPreventLootRespawn = this.newIntegerOption("SeenHoursPreventLootRespawn", 0, Integer.MAX_VALUE, 0);
       this.WorldItemRemovalList = this.newStringOption("WorldItemRemovalList", "Base.Hat,Base.Glasses", -1);
@@ -201,7 +201,7 @@ public:
       this.TimeSinceApo = this.newEnumOption("TimeSinceApo", 13, 1);
       this.PlantResilience = this.newEnumOption("PlantResilience", 5, 3);
       this.PlantAbundance = this.newEnumOption("PlantAbundance", 5, 3).setValueTranslation("NatureAmount");
-      this.EndRegen = (EnumSandboxOption)this.newEnumOption("EndRegen", 5, 3).setTranslation("EnduranceRegen");
+      this.EndRegen = static_cast<EnumSandboxOption>(this).newEnumOption("EndRegen", 5, 3).setTranslation("EnduranceRegen");
       this.Helicopter = this.newEnumOption("Helicopter", 4, 2).setValueTranslation("HelicopterFreq");
       this.MetaEvent = this.newEnumOption("MetaEvent", 3, 2).setValueTranslation("MetaEventFreq");
       this.SleepingEvent = this.newEnumOption("SleepingEvent", 3, 1).setValueTranslation("MetaEventFreq");
@@ -242,7 +242,7 @@ public:
       this.CarDamageOnImpact = this.newEnumOption("CarDamageOnImpact", 5, 3);
       this.DamageToPlayerFromHitByACar = this.newEnumOption("DamageToPlayerFromHitByACar", 5, 1);
       this.TrafficJam = this.newBooleanOption("TrafficJam", true);
-      this.CarAlarm = (EnumSandboxOption)this.newEnumOption("CarAlarm", 6, 4).setTranslation("CarAlarmFrequency");
+      this.CarAlarm = static_cast<EnumSandboxOption>(this).newEnumOption("CarAlarm", 6, 4).setTranslation("CarAlarmFrequency");
       this.PlayerDamageFromCrash = this.newBooleanOption("PlayerDamageFromCrash", true);
       this.SirenShutoffHours = this.newDoubleOption("SirenShutoffHours", 0.0, 168.0, 0.0);
       this.RecentlySurvivorVehicles = this.newEnumOption("RecentlySurvivorVehicles", 4, 3);
@@ -260,7 +260,7 @@ public:
    }
 
     void toLua() {
-    KahluaTable var1 = (KahluaTable)LuaManager.env.rawget("SandboxVars");
+    KahluaTable var1 = static_cast<KahluaTable>(LuaManager).env.rawget("SandboxVars");
 
       for (int var2 = 0; var2 < this.options.size(); var2++) {
          this.options.get(var2).toTable(var1);
@@ -272,7 +272,7 @@ public:
          GameTime.instance.multiplierBias = 1.2F;
       }
 
-    KahluaTable var1 = (KahluaTable)LuaManager.env.rawget("SandboxVars");
+    KahluaTable var1 = static_cast<KahluaTable>(LuaManager).env.rawget("SandboxVars");
 
       for (int var2 = 0; var2 < this.options.size(); var2++) {
          this.options.get(var2).fromTable(var1);
@@ -324,7 +324,7 @@ public:
    }
 
     void initSandboxVars() {
-    KahluaTable var1 = (KahluaTable)LuaManager.env.rawget("SandboxVars");
+    KahluaTable var1 = static_cast<KahluaTable>(LuaManager).env.rawget("SandboxVars");
 
       for (int var2 = 0; var2 < this.options.size(); var2++) {
     SandboxOption var3 = this.options.get(var2);
@@ -582,9 +582,9 @@ public:
    }
 
    private static String[] parseName(String var0) {
-      String[] var1 = new String[]{nullptr, var0};
+      std::vector<String> var1 = std::make_shared<std::vector<String>>(){nullptr, var0};
       if (var0.contains(".")) {
-         String[] var2 = var0.split("\\.");
+         std::vector<String> var2 = var0.split("\\.");
          if (var2.length == 2) {
             var1[0] = var2[0];
             var1[1] = var2[1];
@@ -668,7 +668,7 @@ public:
    }
 
     SandboxOptions newCopy() {
-    SandboxOptions var1 = new SandboxOptions();
+    auto var1 = std::make_shared<SandboxOptions>();
       var1.copyValuesFrom(this);
     return var1;
    }
@@ -680,7 +680,7 @@ public:
    }
 
     bool readTextFile(const std::string& var1, bool var2) {
-    ConfigFile var3 = new ConfigFile();
+    auto var3 = std::make_shared<ConfigFile>();
       if (!var3.read(var1)) {
     return false;
       } else {
@@ -697,7 +697,7 @@ public:
          }
 
          for (int var11 = 0; var11 < var3.getOptions().size(); var11++) {
-    ConfigOption var7 = (ConfigOption)var3.getOptions().get(var11);
+    ConfigOption var7 = static_cast<ConfigOption>(var3).getOptions().get(var11);
     std::string var8 = var7.getName();
     std::string var9 = var7.getValueAsString();
             if (var5 != nullptr && var5.contains(var8)) {
@@ -725,7 +725,7 @@ public:
    }
 
     bool writeTextFile(const std::string& var1, int var2) {
-    ConfigFile var3 = new ConfigFile();
+    auto var3 = std::make_shared<ConfigFile>();
     std::vector var4 = new ArrayList();
 
       for (SandboxOption var6 : this.options) {
@@ -772,7 +772,7 @@ public:
                throw new RuntimeException(var2.getName() + " must return a SandboxVars table");
             } else {
                for (int var4 = 0; var4 < this.options.size(); var4++) {
-                  this.options.get(var4).fromTable((KahluaTable)var3);
+                  this.options.get(var4).fromTable(static_cast<KahluaTable>(var3));
                }
 
     return true;
@@ -792,8 +792,8 @@ public:
     File var1 = ZomboidFileSystem.instance.getFileInCurrentSave("map_sand.bin");
 
       try (
-    FileOutputStream var2 = new FileOutputStream(var1);
-    BufferedOutputStream var3 = new BufferedOutputStream(var2);
+    auto var2 = std::make_shared<FileOutputStream>(var1);
+    auto var3 = std::make_shared<BufferedOutputStream>(var2);
       ) {
          synchronized (SliceY.SliceBufferLock) {
             SliceY.SliceBuffer.clear();
@@ -808,10 +808,10 @@ public:
     void handleOldZombiesFile1() {
       if (!GameServer.bServer) {
     std::string var1 = ZomboidFileSystem.instance.getFileNameInCurrentSave("zombies.ini");
-    ConfigFile var2 = new ConfigFile();
+    auto var2 = std::make_shared<ConfigFile>();
          if (var2.read(var1)) {
             for (int var3 = 0; var3 < var2.getOptions().size(); var3++) {
-    ConfigOption var4 = (ConfigOption)var2.getOptions().get(var3);
+    ConfigOption var4 = static_cast<ConfigOption>(var2).getOptions().get(var3);
     SandboxOption var5 = this.optionByName.get("ZombieConfig." + var4.getName());
                if (var5 != nullptr) {
                   var5.asConfigOption().parse(var4.getValueAsString());
@@ -824,7 +824,7 @@ public:
     void handleOldZombiesFile2() {
       if (!GameServer.bServer) {
     std::string var1 = ZomboidFileSystem.instance.getFileNameInCurrentSave("zombies.ini");
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
          if (var2.exists()) {
             try {
                DebugLog.log("deleting " + var2.getAbsolutePath());
@@ -843,7 +843,7 @@ public:
     std::string var1 = ServerSettingsManager.instance.getNameInSettingsFolder(GameServer.ServerName + "_zombies.ini");
 
             try {
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
                DebugLog.log("deleting " + var2.getAbsolutePath());
                var2.delete();
                this.saveServerLuaFile(GameServer.ServerName);
@@ -856,10 +856,10 @@ public:
 
     bool loadServerZombiesFile(const std::string& var1) {
     std::string var2 = ServerSettingsManager.instance.getNameInSettingsFolder(var1 + "_zombies.ini");
-    ConfigFile var3 = new ConfigFile();
+    auto var3 = std::make_shared<ConfigFile>();
       if (var3.read(var2)) {
          for (int var4 = 0; var4 < var3.getOptions().size(); var4++) {
-    ConfigOption var5 = (ConfigOption)var3.getOptions().get(var4);
+    ConfigOption var5 = static_cast<ConfigOption>(var3).getOptions().get(var4);
     SandboxOption var6 = this.optionByName.get("ZombieConfig." + var5.getName());
             if (var6 != nullptr) {
                var6.asConfigOption().parse(var5.getValueAsString());
@@ -873,14 +873,14 @@ public:
    }
 
     bool readLuaFile(const std::string& var1) {
-    File var2 = new File(var1).getAbsoluteFile();
+    auto var2 = std::make_shared<File>(var1).getAbsoluteFile();
       if (!var2.exists()) {
     return false;
       } else {
     void* var3 = LuaManager.env.rawget("SandboxVars");
     KahluaTable var4 = null;
          if (var3 instanceof KahluaTable) {
-            var4 = (KahluaTable)var3;
+            var4 = static_cast<KahluaTable>(var3);
          }
 
          LuaManager.env.rawset("SandboxVars", nullptr);
@@ -896,7 +896,7 @@ public:
     void* var9 = var17.rawget("VERSION");
                   if (var9 != nullptr) {
                      if (var9 instanceof Double) {
-                        var8 = ((Double)var9).intValue();
+                        var8 = (static_cast<Double>(var9)).intValue();
                      } else {
                         DebugLog.log("ERROR: VERSION=\"" + var9 + "\" in " + var1);
                      }
@@ -929,7 +929,7 @@ public:
    }
 
     bool writeLuaFile(const std::string& var1, bool var2) {
-    File var3 = new File(var1).getAbsoluteFile();
+    auto var3 = std::make_shared<File>(var1).getAbsoluteFile();
       DebugLog.log("writing " + var1);
 
       try {
@@ -940,14 +940,14 @@ public:
 
             for (SandboxOption var8 : this.options) {
                if (var8.getTableName() == nullptr) {
-                  ((ArrayList)var5.get("")).add(var8);
+                  (static_cast<ArrayList>(var5).get("")).add(var8);
                } else {
                   if (var5.get(var8.getTableName()) == nullptr) {
                      var5.put(var8.getTableName(), std::make_unique<ArrayList>());
                      var6.add(var8.getTableName());
                   }
 
-                  ((ArrayList)var5.get(var8.getTableName())).add(var8);
+                  (static_cast<ArrayList>(var5).get(var8.getTableName())).add(var8);
                }
             }
 
@@ -960,7 +960,7 @@ public:
 
             var4.write("    VERSION = 5," + var20);
 
-            for (SandboxOption var9 : (ArrayList)var5.get("")) {
+            for (SandboxOption var9 : static_cast<ArrayList>(var5).get("")) {
                if (!var2) {
     std::string var10 = var9.asConfigOption().getTooltip();
                   if (var10 != nullptr) {
@@ -969,7 +969,7 @@ public:
                      var4.write("    -- " + var10 + var20);
                   }
 
-    EnumSandboxOption var11 = (EnumSandboxOption)Type.tryCastTo(var9, EnumSandboxOption.class);
+    EnumSandboxOption var11 = static_cast<EnumSandboxOption>(Type).tryCastTo(var9, EnumSandboxOption.class);
                   if (var11 != nullptr) {
                      for (int var12 = 1; var12 < var11.getNumValues(); var12++) {
                         try {
@@ -989,7 +989,7 @@ public:
 
     for (auto& var23 : var6)               var4.write("    " + var23 + " = {" + var20);
 
-               for (SandboxOption var27 : (ArrayList)var5.get(var23)) {
+               for (SandboxOption var27 : static_cast<ArrayList>(var5).get(var23)) {
                   if (!var2) {
     std::string var28 = var27.asConfigOption().getTooltip();
                      if (var28 != nullptr) {
@@ -999,9 +999,9 @@ public:
                      }
 
                      if (var27 instanceof EnumSandboxOption) {
-                        for (int var31 = 1; var31 < ((EnumSandboxOption)var27).getNumValues(); var31++) {
+                        for (int var31 = 1; var31 < (static_cast<EnumSandboxOption>(var27)).getNumValues(); var31++) {
                            try {
-    std::string var14 = ((EnumSandboxOption)var27).getValueTranslationByIndexOrNull(var31);
+    std::string var14 = (static_cast<EnumSandboxOption>(var27)).getValueTranslationByIndexOrNull(var31);
                               if (var14 != nullptr) {
                                  var4.write("        -- " + var31 + " = " + var14 + var20);
                               }
@@ -1033,8 +1033,8 @@ public:
 
       try {
          try (
-    FileInputStream var2 = new FileInputStream(var1);
-    BufferedInputStream var3 = new BufferedInputStream(var2);
+    auto var2 = std::make_shared<FileInputStream>(var1);
+    auto var3 = std::make_shared<BufferedInputStream>(var2);
          ) {
             synchronized (SliceY.SliceBufferLock) {
                SliceY.SliceBuffer.clear();
@@ -1061,8 +1061,8 @@ public:
     File var1 = ZomboidFileSystem.instance.getFileInCurrentSave("map_sand.bin");
 
       try (
-    FileInputStream var2 = new FileInputStream(var1);
-    BufferedInputStream var3 = new BufferedInputStream(var2);
+    auto var2 = std::make_shared<FileInputStream>(var1);
+    auto var3 = std::make_shared<BufferedInputStream>(var2);
       ) {
          synchronized (SliceY.SliceBufferLock) {
             SliceY.SliceBuffer.clear();
@@ -1161,12 +1161,12 @@ public:
          }
 
          if (var5.getValue() instanceof KahluaTable) {
-    KahluaTable var6 = this.upgradeLuaTable(var1 + var5.getKey() + ".", (KahluaTable)var5.getValue(), var3);
+    KahluaTable var6 = this.upgradeLuaTable(var1 + var5.getKey() + ".", static_cast<KahluaTable>(var5).getValue(), var3);
             var4.rawset(var5.getKey(), var6);
          } else {
     std::string var8 = this.upgradeOptionName(var1 + var5.getKey(), var3);
     std::string var7 = this.upgradeOptionValue(var8, var5.getValue().toString(), var3);
-            var4.rawset(var8.replace((CharSequence)var1, ""), var7);
+            var4.rawset(var8.replace(static_cast<CharSequence>(var1), ""), var7);
          }
       }
 
@@ -1180,28 +1180,28 @@ public:
    }
 
     void newCustomOption(CustomSandboxOption var1) {
-    CustomBooleanSandboxOption var2 = (CustomBooleanSandboxOption)Type.tryCastTo(var1, CustomBooleanSandboxOption.class);
+    CustomBooleanSandboxOption var2 = static_cast<CustomBooleanSandboxOption>(Type).tryCastTo(var1, CustomBooleanSandboxOption.class);
       if (var2 != nullptr) {
          this.addCustomOption(new BooleanSandboxOption(this, var2.m_id, var2.defaultValue), var1);
       } else {
-    CustomDoubleSandboxOption var3 = (CustomDoubleSandboxOption)Type.tryCastTo(var1, CustomDoubleSandboxOption.class);
+    CustomDoubleSandboxOption var3 = static_cast<CustomDoubleSandboxOption>(Type).tryCastTo(var1, CustomDoubleSandboxOption.class);
          if (var3 != nullptr) {
             this.addCustomOption(new DoubleSandboxOption(this, var3.m_id, var3.min, var3.max, var3.defaultValue), var1);
          } else {
-    CustomEnumSandboxOption var4 = (CustomEnumSandboxOption)Type.tryCastTo(var1, CustomEnumSandboxOption.class);
+    CustomEnumSandboxOption var4 = static_cast<CustomEnumSandboxOption>(Type).tryCastTo(var1, CustomEnumSandboxOption.class);
             if (var4 != nullptr) {
-    EnumSandboxOption var7 = new EnumSandboxOption(this, var4.m_id, var4.numValues, var4.defaultValue);
+    auto var7 = std::make_shared<EnumSandboxOption>(this, var4.m_id, var4.numValues, var4.defaultValue);
                if (var4.m_valueTranslation != nullptr) {
                   var7.setValueTranslation(var4.m_valueTranslation);
                }
 
                this.addCustomOption(var7, var1);
             } else {
-    CustomIntegerSandboxOption var5 = (CustomIntegerSandboxOption)Type.tryCastTo(var1, CustomIntegerSandboxOption.class);
+    CustomIntegerSandboxOption var5 = static_cast<CustomIntegerSandboxOption>(Type).tryCastTo(var1, CustomIntegerSandboxOption.class);
                if (var5 != nullptr) {
                   this.addCustomOption(new IntegerSandboxOption(this, var5.m_id, var5.min, var5.max, var5.defaultValue), var1);
                } else {
-    CustomStringSandboxOption var6 = (CustomStringSandboxOption)Type.tryCastTo(var1, CustomStringSandboxOption.class);
+    CustomStringSandboxOption var6 = static_cast<CustomStringSandboxOption>(Type).tryCastTo(var1, CustomStringSandboxOption.class);
                   if (var6 != nullptr) {
                      this.addCustomOption(new StringSandboxOption(this, var6.m_id, var6.defaultValue, -1), var1);
                   } else {

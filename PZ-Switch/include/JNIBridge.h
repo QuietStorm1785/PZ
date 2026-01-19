@@ -9,6 +9,7 @@
  * Features:
  * - Java type mapping and compatibility
  * - Memory management utilities
+ * - Thread-safety mechanisms
  * - Exception handling
  * - String/Object conversion
  * - Standard library integration
@@ -20,6 +21,8 @@
 #include <unordered_map>
 #include <stdexcept>
 #include <cstdint>
+#include <mutex>
+#include "MemoryPool.h"
 
 namespace jni {
 
@@ -277,6 +280,146 @@ namespace casting {
 // ============================================================================
 // Include converted namespaces for convenience
 // ============================================================================
+
+// ============================================================================
+// Thread Safety Utilities - Critical for Game Engine
+// ============================================================================
+
+namespace threading {
+    
+    // Marker class for thread-safe operations
+    class ThreadSafe {};
+    
+    // Marker class for operations that must be called from main thread
+    class MainThreadOnly {};
+    
+    // RAII lock guard with scope tracking
+    template<typename Mutex>
+    class ScopedLock {
+    private:
+        Mutex& m_mutex;
+        bool m_locked;
+        
+    public:
+        explicit ScopedLock(Mutex& mutex) : m_mutex(mutex), m_locked(false) {
+            m_mutex.lock();
+            m_locked = true;
+        }
+        
+        ~ScopedLock() {
+            if (m_locked) {
+                m_mutex.unlock();
+            }
+        }
+        
+        // Prevent copying
+        ScopedLock(const ScopedLock&) = delete;
+        ScopedLock& operator=(const ScopedLock&) = delete;
+        
+        // Allow moving
+        ScopedLock(ScopedLock&& other) noexcept 
+            : m_mutex(other.m_mutex), m_locked(other.m_locked) {
+            other.m_locked = false;
+        }
+    };
+    
+    // Thread-safe wrapper for shared data
+    template<typename T>
+    class ThreadSafeValue {
+    private:
+        T m_value;
+        mutable std::mutex m_mutex;
+        
+    public:
+        ThreadSafeValue() = default;
+        explicit ThreadSafeValue(const T& initial) : m_value(initial) {}
+        
+        // Get a copy of the value
+        T get() const {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            return m_value;
+        }
+        
+        // Set a new value
+        void set(const T& newValue) {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            m_value = newValue;
+        }
+        
+        // Atomic update with callback
+        template<typename Callback>
+        void update(Callback&& cb) {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            cb(m_value);
+        }
+        
+        // Prevent copying
+        ThreadSafeValue(const ThreadSafeValue&) = delete;
+        ThreadSafeValue& operator=(const ThreadSafeValue&) = delete;
+    };
+    
+    // Thread-safe container wrapper for common operations
+    template<typename Container>
+    class ThreadSafeContainer {
+    private:
+        Container m_container;
+        mutable std::mutex m_mutex;
+        
+    public:
+        ThreadSafeContainer() = default;
+        
+        // Push/add element
+        template<typename T>
+        void push(const T& value) {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            if constexpr (requires { m_container.push_back(value); }) {
+                m_container.push_back(value);
+            } else if constexpr (requires { m_container.insert(value); }) {
+                m_container.insert(value);
+            }
+        }
+        
+        // Get size
+        size_t size() const {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            return m_container.size();
+        }
+        
+        // Clear container
+        void clear() {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            m_container.clear();
+        }
+        
+        // Execute callback with locked access
+        template<typename Callback>
+        void withLock(Callback&& cb) {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            cb(m_container);
+        }
+        
+        // Prevent copying
+        ThreadSafeContainer(const ThreadSafeContainer&) = delete;
+        ThreadSafeContainer& operator=(const ThreadSafeContainer&) = delete;
+    };
+    
+} // namespace threading
+
+// ============================================================================
+// Synchronized/Locked Method Helpers for Converted Java Code
+// ============================================================================
+
+// Macro for marking thread-safe synchronized blocks
+#define JNI_SYNCHRONIZED_BLOCK(lock) \
+    for (jni::threading::ScopedLock<decltype(lock)> __guard__(lock); true; )
+
+// Macro for simplified thread-safe access
+#define JNI_THREAD_SAFE(expr) \
+    do { \
+        static thread_local std::mutex __expr_lock__; \
+        std::lock_guard<std::mutex> __expr_guard__(__expr_lock__); \
+        expr; \
+    } while(0)
 
 // Commonly used converted namespaces
 namespace zombie {

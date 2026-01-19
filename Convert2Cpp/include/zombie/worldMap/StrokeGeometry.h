@@ -45,7 +45,7 @@ public:
 
     static void release(ArrayList<Point> var0) {
       for (int var1 = 0; var1 < var0.size(); var1++) {
-         release((Point)var0.get(var1));
+         release(static_cast<Point>(var0).get(var1));
       }
    }
 
@@ -75,27 +75,27 @@ public:
             }
 
             for (int var16 = 1; var16 < var7.size(); var16++) {
-               createTriangles((Point)var7.get(var16 - 1), var0[var16], (Point)var7.get(var16), var6, var4, var3, var5);
+               createTriangles(static_cast<Point>(var7).get(var16 - 1), var0[var16], static_cast<Point>(var7).get(var16), var6, var4, var3, var5);
             }
          }
 
          if (!var8) {
             if (var2 == "round")) {
-    Point var17 = (Point)var6.get(0);
-    Point var10 = (Point)var6.get(1);
+    Point var17 = static_cast<Point>(var6).get(0);
+    Point var10 = static_cast<Point>(var6).get(1);
     Point var11 = var0[1];
-    Point var12 = (Point)var6.get(var6.size() - 1);
-    Point var13 = (Point)var6.get(var6.size() - 3);
+    Point var12 = static_cast<Point>(var6).get(var6.size() - 1);
+    Point var13 = static_cast<Point>(var6).get(var6.size() - 3);
     Point var14 = var0[var0.length - 2];
                createRoundCap(var0[0], var17, var10, var11, var6);
                createRoundCap(var0[var0.length - 1], var12, var13, var14, var6);
             } else if (var2 == "square")) {
-    Point var18 = (Point)var6.get(var6.size() - 1);
-    Point var19 = (Point)var6.get(var6.size() - 3);
+    Point var18 = static_cast<Point>(var6).get(var6.size() - 1);
+    Point var19 = static_cast<Point>(var6).get(var6.size() - 3);
                createSquareCap(
-                  (Point)var6.get(0),
-                  (Point)var6.get(1),
-                  Point.Sub(var0[0], var0[1]).normalize().scalarMult(Point.Sub(var0[0], (Point)var6.get(0)).length()),
+                  static_cast<Point>(var6).get(0),
+                  static_cast<Point>(var6).get(1),
+                  Point.Sub(var0[0], var0[1]).normalize().scalarMult(Point.Sub(var0[0], static_cast<Point>(var6).get(0)).length()),
                   var6
                );
                createSquareCap(

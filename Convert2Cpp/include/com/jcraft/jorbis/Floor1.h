@@ -18,7 +18,7 @@ class Floor1 : public FuncFloor {
 public:
     static const int floor1_rangedb = 140;
     static const int VIF_POSIT = 63;
-   private static float[] FLOOR_fromdB_LOOKUP = new float[]{
+   private static std::vector<float> FLOOR_fromdB_LOOKUP = std::make_shared<std::vector<float>>(){
       1.0649863E-7F,
       1.1341951E-7F,
       1.2079015E-7F,
@@ -324,11 +324,11 @@ public:
    }
 
     void* inverse1(Block var1, void* var2, void* var3) {
-    LookFloor1 var4 = (LookFloor1)var2;
+    LookFloor1 var4 = static_cast<LookFloor1>(var2);
     InfoFloor1 var5 = var4.vi;
-      CodeBook[] var6 = var1.vd.fullbooks;
+      std::vector<CodeBook> var6 = var1.vd.fullbooks;
       if (var1.opb.read(1) == 1) {
-         int[] var7 = nullptr;
+         std::vector<int> var7 = nullptr;
          if (var3 instanceof int[]) {
             var7 = (int[])var3;
          }
@@ -412,11 +412,11 @@ public:
    }
 
     int inverse2(Block var1, void* var2, void* var3, float[] var4) {
-    LookFloor1 var5 = (LookFloor1)var2;
+    LookFloor1 var5 = static_cast<LookFloor1>(var2);
     InfoFloor1 var6 = var5.vi;
     int var7 = var1.vd.vi.blocksizes[var1.mode] / 2;
       if (var3 != nullptr) {
-         int[] var15 = (int[])var3;
+         std::vector<int> var15 = (int[])var3;
     int var9 = 0;
     int var10 = 0;
     int var11 = var15[0] * var6.mult;
@@ -449,9 +449,9 @@ public:
 
     void* look(DspState var1, InfoMode var2, void* var3) {
     int var4 = 0;
-      int[] var5 = new int[65];
-    InfoFloor1 var6 = (InfoFloor1)var3;
-    LookFloor1 var7 = new LookFloor1(this);
+      std::vector<int> var5 = std::make_shared<std::array<int, 65>>();
+    InfoFloor1 var6 = static_cast<InfoFloor1>(var3);
+    auto var7 = std::make_shared<LookFloor1>(this);
       var7.vi = var6;
       var7.n = var6.postlist[1];
 
@@ -536,7 +536,7 @@ public:
    }
 
     void pack(void* var1, Buffer var2) {
-    InfoFloor1 var3 = (InfoFloor1)var1;
+    InfoFloor1 var3 = static_cast<InfoFloor1>(var1);
     int var4 = 0;
     int var6 = var3.postlist[1];
     int var7 = -1;
@@ -576,7 +576,7 @@ public:
     void* unpack(Info var1, Buffer var2) {
     int var3 = 0;
     int var4 = -1;
-    InfoFloor1 var6 = new InfoFloor1(this);
+    auto var6 = std::make_shared<InfoFloor1>(this);
       var6.partitions = var2.read(5);
 
       for (int var7 = 0; var7 < var6.partitions; var7++) {

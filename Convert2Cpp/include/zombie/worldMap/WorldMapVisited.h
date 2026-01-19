@@ -44,18 +44,18 @@ public:
     int m_changeY1 = 0;
     int m_changeX2 = 0;
     int m_changeY2 = 0;
-   private final int[] m_updateMinX = new int[4];
-   private final int[] m_updateMinY = new int[4];
-   private final int[] m_updateMaxX = new int[4];
-   private final int[] m_updateMaxY = new int[4];
+   private final std::vector<int> m_updateMinX = std::make_shared<std::array<int, 4>>();
+   private final std::vector<int> m_updateMinY = std::make_shared<std::array<int, 4>>();
+   private final std::vector<int> m_updateMaxX = std::make_shared<std::array<int, 4>>();
+   private final std::vector<int> m_updateMaxY = std::make_shared<std::array<int, 4>>();
     static const int TEXTURE_BPP = 4;
     TextureID m_textureID;
     int m_textureW = 0;
     int m_textureH = 0;
     ByteBuffer m_textureBuffer;
     bool m_textureChanged = false;
-    const RGBAf m_color = new RGBAf().init(0.85882354F, 0.84313726F, 0.7529412F, 1.0F);
-    const RGBAf m_gridColor = new RGBAf().init(this.m_color.r * 0.85F, this.m_color.g * 0.85F, this.m_color.b * 0.85F, 1.0F);
+    auto m_color = std::make_shared<RGBAf>().init(0.85882354F, 0.84313726F, 0.7529412F, 1.0F);
+    auto m_gridColor = std::make_shared<RGBAf>().init(this.m_color.r * 0.85F, this.m_color.g * 0.85F, this.m_color.b * 0.85F, 1.0F);
     bool m_mainMenu = false;
     static ShaderProgram m_shaderProgram;
     static ShaderProgram m_gridShaderProgram;
@@ -65,7 +65,7 @@ public:
     static const int TEXTURE_PAD = 1;
     static const int BIT_VISITED = 1;
     static const int BIT_KNOWN = 2;
-    Vector2 m_vector2 = new Vector2();
+    auto m_vector2 = std::make_shared<Vector2>();
 
     public WorldMapVisited() {
       Arrays.fill(this.m_updateMinX, -1);
@@ -347,7 +347,7 @@ public:
       if (var3 == this.m_minX && var4 == this.m_minY && var5 == this.m_maxX && var6 == this.m_maxY && var7 == 10) {
          var1.get(this.m_visited);
       } else {
-         byte[] var8 = new byte[(var5 - var3 + 1) * var7 * (var6 - var4 + 1) * var7];
+         std::vector<byte> var8 = new byte[(var5 - var3 + 1) * var7 * (var6 - var4 + 1) * var7];
          var1.get(var8);
     int var9 = 300 / var7;
     int var10 = (var5 - var3 + 1) * var7;
@@ -368,22 +368,22 @@ public:
       var1.clear();
       var1.putInt(195);
       this.save(var1);
-    File var2 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("map_visited.bin"));
+    auto var2 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("map_visited.bin"));
 
       try (
-    FileOutputStream var3 = new FileOutputStream(var2);
-    BufferedOutputStream var4 = new BufferedOutputStream(var3);
+    auto var3 = std::make_shared<FileOutputStream>(var2);
+    auto var4 = std::make_shared<BufferedOutputStream>(var3);
       ) {
          var4.write(var1.array(), 0, var1.position());
       }
    }
 
     void load() {
-    File var1 = new File(ZomboidFileSystem.instance.getFileNameInCurrentSave("map_visited.bin"));
+    auto var1 = std::make_shared<File>(ZomboidFileSystem.instance.getFileNameInCurrentSave("map_visited.bin"));
 
       try (
-    FileInputStream var2 = new FileInputStream(var1);
-    BufferedInputStream var3 = new BufferedInputStream(var2);
+    auto var2 = std::make_shared<FileInputStream>(var1);
+    auto var3 = std::make_shared<BufferedInputStream>(var2);
       ) {
     ByteBuffer var4 = SliceY.SliceBuffer;
          var4.clear();

@@ -14,8 +14,8 @@ namespace characters {
 
 class NetworkCharacter {
 public:
-    Vector2 position = new Vector2();
-    Vector2 rotation = new Vector2();
+    auto position = std::make_shared<Vector2>();
+    auto rotation = std::make_shared<Vector2>();
     Operation operation = Operation.NONE;
     bool moving = false;
     int time = 0;

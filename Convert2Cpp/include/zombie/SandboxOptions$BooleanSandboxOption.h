@@ -25,7 +25,7 @@ public:
 
    public SandboxOptions$BooleanSandboxOption(SandboxOptions var1, String var2, boolean var3) {
       super(var2, var3);
-      String[] var4 = SandboxOptions.parseName(var2);
+      std::vector<String> var4 = SandboxOptions.parseName(var2);
       this.tableName = var4[0];
       this.shortName = var4[1];
       var1.addOption(this);

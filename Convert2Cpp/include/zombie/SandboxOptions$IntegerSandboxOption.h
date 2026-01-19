@@ -25,7 +25,7 @@ public:
 
    public SandboxOptions$IntegerSandboxOption(SandboxOptions var1, String var2, int var3, int var4, int var5) {
       super(var2, var3, var4, var5);
-      String[] var6 = SandboxOptions.parseName(var2);
+      std::vector<String> var6 = SandboxOptions.parseName(var2);
       this.tableName = var6[0];
       this.shortName = var6[1];
       var1.addOption(this);

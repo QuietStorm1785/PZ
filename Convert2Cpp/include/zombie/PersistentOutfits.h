@@ -38,23 +38,23 @@ namespace zombie {
 
 class PersistentOutfits {
 public:
-    static const PersistentOutfits instance = new PersistentOutfits();
+    static auto instance = std::make_shared<PersistentOutfits>();
     static const int INVALID_ID = 0;
     static const int FEMALE_BIT = Integer.MIN_VALUE;
     static const int NO_HAT_BIT = 32768;
     static const int FILE_VERSION_1 = 1;
     static const int FILE_VERSION_LATEST = 1;
-   private static final byte[] FILE_MAGIC = new byte[]{80, 83, 84, 90};
+   private static final std::vector<byte> FILE_MAGIC = std::make_shared<std::vector<byte>>(){80, 83, 84, 90};
     static const int NUM_SEEDS = 500;
-   private final long[] m_seeds = new long[500];
+   private final std::vector<long> m_seeds = std::make_shared<std::array<long, 500>>();
    private final ArrayList<String> m_outfitNames = std::make_unique<ArrayList<>>();
-    const DataList m_all = new DataList();
-    const DataList m_female = new DataList();
-    const DataList m_male = new DataList();
+    auto m_all = std::make_shared<DataList>();
+    auto m_female = std::make_shared<DataList>();
+    auto m_male = std::make_shared<DataList>();
    private final TreeMap<String, Data> m_outfitToData = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
    private final TreeMap<String, Data> m_outfitToFemale = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
    private final TreeMap<String, Data> m_outfitToMale = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-    static const ItemVisuals tempItemVisuals = new ItemVisuals();
+    static auto tempItemVisuals = std::make_shared<ItemVisuals>();
 
     void init() {
       this.m_all.clear();
@@ -110,7 +110,7 @@ public:
     std::vector var1 = IsoWorld.instance.getRandomizedVehicleStoryList();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
-    RandomizedVehicleStoryBase var3 = (RandomizedVehicleStoryBase)var1.get(var2);
+    RandomizedVehicleStoryBase var3 = static_cast<RandomizedVehicleStoryBase>(var1).get(var2);
          var3.registerCustomOutfits();
       }
 
@@ -128,7 +128,7 @@ public:
       if (this.m_female.isEmpty()) {
     return 0;
       } else {
-    std::string var1 = ((Data)PZArrayUtil.pickRandom(this.m_female)).m_outfitName;
+    std::string var1 = (static_cast<Data>(PZArrayUtil).pickRandom(this.m_female)).m_outfitName;
          return this.pickOutfitFemale(var1);
       }
    }
@@ -137,7 +137,7 @@ public:
       if (this.m_male.isEmpty()) {
     return 0;
       } else {
-    std::string var1 = ((Data)PZArrayUtil.pickRandom(this.m_male)).m_outfitName;
+    std::string var1 = (static_cast<Data>(PZArrayUtil).pickRandom(this.m_male)).m_outfitName;
          return this.pickOutfitMale(var1);
       }
    }
@@ -179,7 +179,7 @@ public:
     short var4 = (short)(var1 >> 16);
     short var5 = (short)(var1 & 65535);
          if (var4 >= 0 && var4 < this.m_all.size()) {
-    Data var6 = (Data)this.m_all.get(var4);
+    Data var6 = static_cast<Data>(this).m_all.get(var4);
             if (var6.m_useSeed && (var5 < 1 || var5 > 500)) {
                var5 = (short)(Rand.Next(500) + 1);
             }
@@ -196,8 +196,8 @@ public:
     File var1 = ZomboidFileSystem.instance.getFileInCurrentSave("z_outfits.bin");
 
          try (
-    FileOutputStream var2 = new FileOutputStream(var1);
-    BufferedOutputStream var3 = new BufferedOutputStream(var2);
+    auto var2 = std::make_shared<FileOutputStream>(var1);
+    auto var3 = std::make_shared<BufferedOutputStream>(var2);
          ) {
             synchronized (SliceY.SliceBufferLock) {
                SliceY.SliceBuffer.clear();
@@ -225,8 +225,8 @@ public:
     File var1 = ZomboidFileSystem.instance.getFileInCurrentSave("z_outfits.bin");
 
       try (
-    FileInputStream var2 = new FileInputStream(var1);
-    BufferedInputStream var3 = new BufferedInputStream(var2);
+    auto var2 = std::make_shared<FileInputStream>(var1);
+    auto var3 = std::make_shared<BufferedInputStream>(var2);
       ) {
          synchronized (SliceY.SliceBufferLock) {
             SliceY.SliceBuffer.clear();
@@ -242,7 +242,7 @@ public:
    }
 
     void load(ByteBuffer var1) {
-      byte[] var2 = new byte[4];
+      std::vector<byte> var2 = std::make_shared<std::array<byte, 4>>();
       var1.get(var2);
       if (!Arrays == var2, FILE_MAGIC)) {
          throw new IOException("not magic");
@@ -273,8 +273,8 @@ public:
     bool var4 = (var1 & -2147483648) != 0;
       var1 &= Integer.MAX_VALUE;
     short var5 = (short)(var1 >> 16);
-    Data var6 = (Data)this.m_all.get(var5);
-    IsoZombie var7 = (IsoZombie)Type.tryCastTo(var3, IsoZombie.class);
+    Data var6 = static_cast<Data>(this).m_all.get(var5);
+    IsoZombie var7 = static_cast<IsoZombie>(Type).tryCastTo(var3, IsoZombie.class);
       if (var7 != nullptr) {
          var7.setFemaleEtc(var4);
       }
@@ -319,7 +319,7 @@ public:
          var2.getItemVisuals(tempItemVisuals);
 
          for (int var4 = 0; var4 < tempItemVisuals.size(); var4++) {
-    ItemVisual var5 = (ItemVisual)tempItemVisuals.get(var4);
+    ItemVisual var5 = static_cast<ItemVisual>(tempItemVisuals).get(var4);
     Item var6 = var5.getScriptItem();
             if (var6 != nullptr && var6.getChanceToFall() > 0) {
                var2.getItemVisuals().remove(var5);
@@ -337,7 +337,7 @@ public:
     int var3 = var2 & 2147450879;
     short var4 = (short)(var3 >> 16);
     short var5 = (short)(var3 & 65535);
-    Data var6 = (Data)this.m_all.get(var4);
+    Data var6 = static_cast<Data>(this).m_all.get(var4);
          if (var6.m_useSeed) {
             OutfitRNG.setSeed(this.m_seeds[var5 - 1]);
          }

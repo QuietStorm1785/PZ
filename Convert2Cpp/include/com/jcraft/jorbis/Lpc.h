@@ -12,7 +12,7 @@ namespace jorbis {
 
 class Lpc {
 public:
-    Drft fft = new Drft();
+    auto fft = std::make_shared<Drft>();
     int ln;
     int m;
 
@@ -21,7 +21,7 @@ public:
    }
 
     static float lpc_from_data(float[] var0, float[] var1, int var2, int var3) {
-      float[] var4 = new float[var3 + 1];
+      std::vector<float> var4 = new float[var3 + 1];
     int var7 = var3 + 1;
 
       while (var7-- != 0) {
@@ -81,7 +81,7 @@ public:
 
     float lpc_from_curve(float[] var1, float[] var2) {
     int var3 = this.ln;
-      float[] var4 = new float[var3 + var3];
+      std::vector<float> var4 = new float[var3 + var3];
     float var5 = (float)(0.5 / var3);
 
       for (int var6 = 0; var6 < var3; var6++) {

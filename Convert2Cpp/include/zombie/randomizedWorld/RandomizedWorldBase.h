@@ -46,7 +46,7 @@ namespace randomizedWorld {
 
 class RandomizedWorldBase {
 public:
-    static const Vector2 s_tempVector2 = new Vector2();
+    static auto s_tempVector2 = std::make_shared<Vector2>();
     int minimumDays = 0;
     int maximumDays = 0;
     int minimumRooms = 0;
@@ -83,7 +83,7 @@ public:
       } else {
     IsoChunk var11 = var10.getChunk();
     IsoDirections var12 = IsoDirections.fromAngle(var5);
-    BaseVehicle var13 = new BaseVehicle(IsoWorld.instance.CurrentCell);
+    auto var13 = std::make_shared<BaseVehicle>(IsoWorld.instance.CurrentCell);
          var13.specificDistributionId = var9;
     VehicleType var14 = VehicleType.getRandomVehicleType(var6, false);
          if (!StringUtils.isNullOrEmpty(var7)) {
@@ -158,7 +158,7 @@ public:
       } else {
     IsoChunk var11 = var10.getChunk();
     IsoDirections var12 = IsoDirections.fromAngle(var5);
-    BaseVehicle var13 = new BaseVehicle(IsoWorld.instance.CurrentCell);
+    auto var13 = std::make_shared<BaseVehicle>(IsoWorld.instance.CurrentCell);
          var13.specificDistributionId = var9;
     VehicleType var14 = VehicleType.getRandomVehicleType(var6, false);
          if (!StringUtils.isNullOrEmpty(var7)) {
@@ -244,7 +244,7 @@ public:
             }
 
             if (!this.rvsVehicleKeyAddedToZombie && !var5.isEmpty()) {
-    IsoZombie var9 = (IsoZombie)var5.get(Rand.Next(0, var5.size()));
+    IsoZombie var9 = static_cast<IsoZombie>(var5).get(Rand.Next(0, var5.size()));
                var9.addItemToSpawnAtDeath(var4.createVehicleKey());
                this.rvsVehicleKeyAddedToZombie = true;
             }
@@ -357,7 +357,7 @@ public:
                }
 
                var10.upKillCount = false;
-               var10.getHumanVisual().zombieRotStage = ((HumanVisual)var10.getVisual()).pickRandomZombieRotStage();
+               var10.getHumanVisual().zombieRotStage = (static_cast<HumanVisual>(var10).getVisual()).pickRandomZombieRotStage();
 
                for (int var11 = 0; var11 < var5; var11++) {
                   var10.addBlood(nullptr, false, true, true);
@@ -371,7 +371,7 @@ public:
                   alignCorpseToSquare(var10, var8);
                }
 
-    IsoDeadBody var12 = new IsoDeadBody(var10, true);
+    auto var12 = std::make_shared<IsoDeadBody>(var10, true);
                if (!var12.isFakeDead() && !var12.isSkeleton() && Rand.Next(20) == 0) {
                   var12.setFakeDead(true);
                   if (Rand.Next(5) == 0) {
@@ -435,7 +435,7 @@ public:
       if (var5 != nullptr) {
          var5.setCondition(Rand.Next(Math.max(2, var5.getConditionMax() - 5), var5.getConditionMax()));
          if (var5 instanceof HandWeapon) {
-            ((HandWeapon)var5).randomizeBullets();
+            (static_cast<HandWeapon>(var5)).randomizeBullets();
          }
 
          var1.setAttachedItem(var2, var5);
@@ -477,7 +477,7 @@ public:
    }
 
     static IsoGameCharacter createRandomZombie(int var0, int var1, int var2) {
-    HumanCorpse var3 = new HumanCorpse(IsoWorld.instance.getCell(), var0, var1, var2);
+    auto var3 = std::make_shared<HumanCorpse>(IsoWorld.instance.getCell(), var0, var1, var2);
       var3.setDescriptor(SurvivorFactory.CreateSurvivor());
       var3.setFemale(var3.getDescriptor().isFemale());
       var3.setDir(IsoDirections.fromIndex(Rand.Next(8)));
@@ -560,7 +560,7 @@ public:
    }
 
     RoomDef getRandomRoom(BuildingDef var1, int var2) {
-    RoomDef var3 = (RoomDef)var1.getRooms().get(Rand.Next(0, var1.getRooms().size()));
+    RoomDef var3 = static_cast<RoomDef>(var1).getRooms().get(Rand.Next(0, var1.getRooms().size()));
       if (var2 > 0 && var3.area >= var2) {
     return var3;
       } else {
@@ -568,7 +568,7 @@ public:
 
          while (var4 <= 20) {
             var4++;
-            var3 = (RoomDef)var1.getRooms().get(Rand.Next(0, var1.getRooms().size()));
+            var3 = static_cast<RoomDef>(var1).getRooms().get(Rand.Next(0, var1.getRooms().size()));
             if (var3.area >= var2) {
     return var3;
             }
@@ -580,7 +580,7 @@ public:
 
     RoomDef getRoom(BuildingDef var1, const std::string& var2) {
       for (int var3 = 0; var3 < var1.rooms.size(); var3++) {
-    RoomDef var4 = (RoomDef)var1.rooms.get(var3);
+    RoomDef var4 = static_cast<RoomDef>(var1).rooms.get(var3);
          if (var4.getName().equalsIgnoreCase(var2)) {
     return var4;
          }
@@ -673,7 +673,7 @@ public:
    }
 
     BaseVehicle spawnCar(const std::string& var1, IsoGridSquare var2) {
-    BaseVehicle var3 = new BaseVehicle(IsoWorld.instance.CurrentCell);
+    auto var3 = std::make_shared<BaseVehicle>(IsoWorld.instance.CurrentCell);
       var3.setScriptName(var1);
       var3.setX(var2.x + 0.5F);
       var3.setY(var2.y + 0.5F);
@@ -719,7 +719,7 @@ public:
 
     InventoryItem addRandomItemOnGround(IsoGridSquare var1, ArrayList<String> var2) {
       if (var1 != nullptr && !var2.isEmpty()) {
-    std::string var3 = (String)PZArrayUtil.pickRandom(var2);
+    std::string var3 = static_cast<String>(PZArrayUtil).pickRandom(var2);
          return this.addItemOnGround(var1, var3);
       } else {
     return null;
@@ -727,7 +727,7 @@ public:
    }
 
     HandWeapon addWeapon(const std::string& var1, bool var2) {
-    HandWeapon var3 = (HandWeapon)InventoryItemFactory.CreateItem(var1);
+    HandWeapon var3 = static_cast<HandWeapon>(InventoryItemFactory).CreateItem(var1);
       if (var3 == nullptr) {
     return null;
       } else {

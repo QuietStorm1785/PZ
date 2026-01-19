@@ -22,8 +22,8 @@ public:
     int lW;
     int mode;
     int nW;
-    Buffer opb = new Buffer();
-   float[][] pcm = new float[0][];
+    auto opb = std::make_shared<Buffer>();
+   float[][] pcm = std::make_shared<std::array<float, 0>>()[];
     int pcmend;
     int res_bits;
     long sequence;

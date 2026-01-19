@@ -47,7 +47,7 @@ public:
                LastRespawnHour = var1;
                if (GameServer.bServer) {
                   for (int var2 = 0; var2 < ServerMap.instance.LoadedCells.size(); var2++) {
-    ServerCell var3 = (ServerCell)ServerMap.instance.LoadedCells.get(var2);
+    ServerCell var3 = static_cast<ServerCell>(ServerMap).instance.LoadedCells.get(var2);
                      if (var3.bLoaded) {
                         for (int var4 = 0; var4 < 5; var4++) {
                            for (int var5 = 0; var5 < 5; var5++) {
@@ -166,7 +166,7 @@ public:
                   var7 = var0.getGridSquare(var6, var5, var17);
                   if (var7 != nullptr) {
     int var10 = var7.getObjects().size();
-                     IsoObject[] var11 = (IsoObject[])var7.getObjects().getElements();
+                     std::vector<IsoObject> var11 = (IsoObject[])var7.getObjects().getElements();
 
                      for (int var12 = 0; var12 < var10; var12++) {
     IsoObject var13 = var11[var12];
@@ -204,7 +204,7 @@ public:
                newItems.clear();
 
                for (int var5 = 0; var5 < var4.size(); var5++) {
-    InventoryItem var6 = (InventoryItem)var4.get(var5);
+    InventoryItem var6 = static_cast<InventoryItem>(var4).get(var5);
                   if (!existingItems.contains(var6)) {
                      newItems.add(var6);
                      var6.setAge(0.0F);
@@ -214,7 +214,7 @@ public:
                ItemPickerJava.updateOverlaySprite(var0);
                if (GameServer.bServer) {
                   for (int var10 = 0; var10 < GameServer.udpEngine.connections.size(); var10++) {
-    UdpConnection var11 = (UdpConnection)GameServer.udpEngine.connections.get(var10);
+    UdpConnection var11 = static_cast<UdpConnection>(GameServer).udpEngine.connections.get(var10);
                      if (var11.RelevantTo(var0.square.x, var0.square.y)) {
     ByteBufferWriter var7 = var11.startPacket();
                         PacketType.AddInventoryItemToContainer.doPacket(var7);

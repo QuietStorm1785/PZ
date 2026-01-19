@@ -20,8 +20,8 @@ namespace characters {
 
 class MPDebugAI {
 public:
-    static const Vector2 tempo = new Vector2();
-    static const Vector2 tempo2 = new Vector2();
+    static auto tempo = std::make_shared<Vector2>();
+    static auto tempo2 = std::make_shared<Vector2>();
 
     static IsoPlayer getNearestPlayer(IsoPlayer var0) {
     IsoPlayer var1 = null;
@@ -41,7 +41,7 @@ public:
          && (DebugOptions.instance.MultiplayerAttackPlayer.getValue() || DebugOptions.instance.MultiplayerFollowPlayer.getValue())) {
     IsoPlayer var2 = getNearestPlayer(var0);
          if (var2 != nullptr) {
-    Vector2 var3 = new Vector2(var2.x - var0.x, var0.y - var2.y);
+    auto var3 = std::make_shared<Vector2>(var2.x - var0.x, var0.y - var2.y);
             var3.rotate((float) (-Math.PI / 4));
             var3.normalize();
             var1.moveX = var3.x;

@@ -13,9 +13,9 @@ namespace zombie {
 
 class GameWindow {
 public:
-    static const PerformanceProfileFrameProbe frameStep = new PerformanceProfileFrameProbe("GameWindow.frameStep");
-    static const PerformanceProfileProbe statesRender = new PerformanceProfileProbe("GameWindow.states.render");
-    static const PerformanceProfileProbe logic = new PerformanceProfileProbe("GameWindow.logic");
+    static auto frameStep = std::make_shared<PerformanceProfileFrameProbe>("GameWindow.frameStep");
+    static auto statesRender = std::make_shared<PerformanceProfileProbe>("GameWindow.states.render");
+    static auto logic = std::make_shared<PerformanceProfileProbe>("GameWindow.logic");
 
    private GameWindow$s_performance() {
    }

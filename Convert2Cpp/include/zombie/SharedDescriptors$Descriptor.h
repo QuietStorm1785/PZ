@@ -21,8 +21,8 @@ public:
     int ID = 0;
     int persistentOutfitID = 0;
     std::string outfitName;
-    const HumanVisual humanVisual = new HumanVisual(this);
-    const ItemVisuals itemVisuals = new ItemVisuals();
+    auto humanVisual = std::make_shared<HumanVisual>(this);
+    auto itemVisuals = std::make_shared<ItemVisuals>();
     bool bFemale = false;
     bool bZombie = false;
 
@@ -86,7 +86,7 @@ public:
     short var4 = var1.getShort();
 
       for (int var5 = 0; var5 < var4; var5++) {
-    ItemVisual var6 = new ItemVisual();
+    auto var6 = std::make_shared<ItemVisual>();
          var6.load(var1, var2);
          this.itemVisuals.add(var6);
       }

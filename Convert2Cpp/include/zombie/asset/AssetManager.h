@@ -17,7 +17,7 @@ namespace asset {
 
 class AssetManager {
 public:
-    const AssetTable m_assets = new AssetTable();
+    auto m_assets = std::make_shared<AssetTable>();
     AssetManagers m_owner;
     bool m_is_unload_enabled = false;
 
@@ -203,7 +203,7 @@ public:
    protected abstract void destroyAsset(Asset var1);
 
     Asset get(AssetPath var1) {
-      return (Asset)this.m_assets.get(var1.getPath());
+      return static_cast<Asset>(this).m_assets.get(var1.getPath());
    }
 }
 } // namespace asset

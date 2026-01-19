@@ -58,34 +58,34 @@ public:
     float MusicVolume = 0.36F;
     float AmbientVolume = 0.8F;
     float VehicleEngineVolume = 0.5F;
-    const ParameterMusicActionStyle parameterMusicActionStyle = new ParameterMusicActionStyle();
-    const ParameterMusicLibrary parameterMusicLibrary = new ParameterMusicLibrary();
-    const ParameterMusicState parameterMusicState = new ParameterMusicState();
-    const ParameterMusicWakeState parameterMusicWakeState = new ParameterMusicWakeState();
-    const ParameterMusicZombiesTargeting parameterMusicZombiesTargeting = new ParameterMusicZombiesTargeting();
-    const ParameterMusicZombiesVisible parameterMusicZombiesVisible = new ParameterMusicZombiesVisible();
-    const FMODParameterList fmodParameters = new FMODParameterList();
+    auto parameterMusicActionStyle = std::make_shared<ParameterMusicActionStyle>();
+    auto parameterMusicLibrary = std::make_shared<ParameterMusicLibrary>();
+    auto parameterMusicState = std::make_shared<ParameterMusicState>();
+    auto parameterMusicWakeState = std::make_shared<ParameterMusicWakeState>();
+    auto parameterMusicZombiesTargeting = std::make_shared<ParameterMusicZombiesTargeting>();
+    auto parameterMusicZombiesVisible = std::make_shared<ParameterMusicZombiesVisible>();
+    auto fmodParameters = std::make_shared<FMODParameterList>();
     bool initialized = false;
     long inGameGroupBus = 0L;
     long musicGroupBus = 0L;
     FMODSoundEmitter musicEmitter = null;
     long musicCombinedEvent = 0L;
     FMODSoundEmitter uiEmitter = null;
-    const Music music = new Music();
+    auto music = std::make_shared<Music>();
    public ArrayList<Audio> ambientPieces = std::make_unique<ArrayList<>>();
     bool muted = false;
-   private long[] bankList = new long[32];
-   private long[] eventDescList = new long[256];
-   private long[] eventInstList = new long[256];
-   private long[] pausedEventInstances = new long[128];
-   private float[] pausedEventVolumes = new float[128];
+   private std::vector<long> bankList = std::make_shared<std::array<long, 32>>();
+   private std::vector<long> eventDescList = std::make_shared<std::array<long, 256>>();
+   private std::vector<long> eventInstList = std::make_shared<std::array<long, 256>>();
+   private std::vector<long> pausedEventInstances = std::make_shared<std::array<long, 128>>();
+   private std::vector<float> pausedEventVolumes = std::make_shared<std::array<float, 128>>();
     int pausedEventCount;
    private final HashSet<BaseSoundEmitter> emitters = std::make_unique<HashSet<>>();
    private static ArrayList<AmbientSoundEffect> ambientSoundEffects = std::make_unique<ArrayList<>>();
     static BaseSoundManager instance;
     std::string currentMusicName;
     std::string currentMusicLibrary;
-    const FMOD_STUDIO_EVENT_CALLBACK musicEventCallback = new 1(this);
+    auto musicEventCallback = std::make_shared<1>(this);
 
     FMODParameterList getFMODParameters() {
       return this.fmodParameters;
@@ -96,7 +96,7 @@ public:
     std::vector var6 = var3.eventDescription.parameters;
 
       for (int var7 = 0; var7 < var6.size(); var7++) {
-    FMOD_STUDIO_PARAMETER_DESCRIPTION var8 = (FMOD_STUDIO_PARAMETER_DESCRIPTION)var6.get(var7);
+    FMOD_STUDIO_PARAMETER_DESCRIPTION var8 = static_cast<FMOD_STUDIO_PARAMETER_DESCRIPTION>(var6).get(var7);
          if (!var4.get(var8.globalIndex)) {
     FMODParameter var9 = var5.get(var8);
             if (var9 != nullptr) {
@@ -114,7 +114,7 @@ public:
     std::vector var6 = var3.eventDescription.parameters;
 
       for (int var7 = 0; var7 < var6.size(); var7++) {
-    FMOD_STUDIO_PARAMETER_DESCRIPTION var8 = (FMOD_STUDIO_PARAMETER_DESCRIPTION)var6.get(var7);
+    FMOD_STUDIO_PARAMETER_DESCRIPTION var8 = static_cast<FMOD_STUDIO_PARAMETER_DESCRIPTION>(var6).get(var7);
          if (!var4.get(var8.globalIndex)) {
     FMODParameter var9 = var5.get(var8);
             if (var9 != nullptr) {
@@ -381,7 +381,7 @@ public:
          }
       }
 
-    AmbientSoundEffect var4 = new AmbientSoundEffect(var1);
+    auto var4 = std::make_shared<AmbientSoundEffect>(var1);
       var4.setVolume(Rand.Next(700, 1500) / 1000.0F);
       var4.setName(var1);
       var4.start();
@@ -477,7 +477,7 @@ public:
             this.parameterMusicState.setState(State.Tutorial);
             break;
          default:
-            DebugLog.General.warn("unknown MusicState \"%s\"", new Object[]{var1});
+            DebugLog.General.warn("unknown MusicState \"%s\"", std::make_shared<std::vector<Object>>(){var1});
       }
    }
 
@@ -499,7 +499,7 @@ public:
             this.parameterMusicWakeState.setState(var1, zombie.audio.parameters.ParameterMusicWakeState.State.WakeZombies);
             break;
          default:
-            DebugLog.General.warn("unknown MusicWakeState \"%s\"", new Object[]{var2});
+            DebugLog.General.warn("unknown MusicWakeState \"%s\"", std::make_shared<std::vector<Object>>(){var2});
       }
    }
 
@@ -565,7 +565,7 @@ public:
 
     Audio PlayWorldSoundImpl(const std::string& var1, bool var2, int var3, int var4, int var5, float var6, float var7, float var8, bool var9) {
     BaseSoundEmitter var10 = IsoWorld.instance.getFreeEmitter(var3 + 0.5F, var4 + 0.5F, var5);
-    long var11 = var10.playSoundImpl(var1, (IsoObject)null);
+    long var11 = var10.playSoundImpl(var1, static_cast<IsoObject>(null));
       return new FMODAudio(var10);
    }
 
@@ -640,7 +640,7 @@ public:
             this.ambientPieces.remove(var2);
             var1--;
          } else if (var2 instanceof AmbientSoundEffect) {
-            ((AmbientSoundEffect)var2).update();
+            (static_cast<AmbientSoundEffect>(var2)).update();
          }
       }
 
@@ -751,7 +751,7 @@ public:
       }
 
       if (!this.musicEmitter.isPlaying(this.musicCombinedEvent)) {
-         this.musicCombinedEvent = this.musicEmitter.playSoundImpl("MusicCombined", (IsoObject)nullptr);
+         this.musicCombinedEvent = this.musicEmitter.playSoundImpl("MusicCombined", static_cast<IsoObject>(nullptr));
          if (this.musicCombinedEvent != 0L && !System.getProperty("os.name").contains("OS X")) {
             javafmod.FMOD_Studio_EventInstance_SetCallback(
                this.musicCombinedEvent, this.musicEventCallback, FMOD_STUDIO_EVENT_CALLBACK_TYPE.FMOD_STUDIO_EVENT_CALLBACK_TIMELINE_MARKER.bit

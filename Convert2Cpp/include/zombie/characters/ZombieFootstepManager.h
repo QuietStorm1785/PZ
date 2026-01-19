@@ -11,7 +11,7 @@ namespace characters {
 
 class ZombieFootstepManager : public BaseZombieSoundManager {
 public:
-    static const ZombieFootstepManager instance = new ZombieFootstepManager();
+    static auto instance = std::make_shared<ZombieFootstepManager>();
 
     public ZombieFootstepManager() {
       super(40, 500);

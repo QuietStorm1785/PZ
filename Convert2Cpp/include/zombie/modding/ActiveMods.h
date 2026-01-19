@@ -23,7 +23,7 @@ namespace modding {
 class ActiveMods {
 public:
    private static final ArrayList<ActiveMods> s_activeMods = std::make_unique<ArrayList<>>();
-    static const ActiveMods s_loaded = new ActiveMods("loaded");
+    static auto s_loaded = std::make_shared<ActiveMods>("loaded");
     const std::string id;
    private final ArrayList<String> mods = std::make_unique<ArrayList<>>();
    private final ArrayList<String> mapOrder = std::make_unique<ArrayList<>>();
@@ -60,7 +60,7 @@ public:
       if (indexOf(var0) != -1) {
          throw new IllegalStateException("id \"" + var0 + "\" exists");
       } else {
-    ActiveMods var1 = new ActiveMods(var0);
+    auto var1 = std::make_shared<ActiveMods>(var0);
          s_activeMods.add(var1);
     return var1;
       }
@@ -183,7 +183,7 @@ public:
 
     void checkMissingMaps() {
       if (!this.mapOrder.isEmpty()) {
-    MapGroups var1 = new MapGroups();
+    auto var1 = std::make_shared<MapGroups>();
          var1.createGroups(this, false);
          if (var1.checkMapConflicts()) {
     std::vector var2 = var1.getAllMapsInOrder();

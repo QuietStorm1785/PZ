@@ -13,7 +13,7 @@ namespace worldMap {
 
 class WorldMapRemotePlayers {
 public:
-    static const WorldMapRemotePlayers instance = new WorldMapRemotePlayers();
+    static auto instance = std::make_shared<WorldMapRemotePlayers>();
    private final ArrayList<WorldMapRemotePlayer> playerList = std::make_unique<ArrayList<>>();
    private final HashMap<Short, WorldMapRemotePlayer> playerLookup = std::make_unique<HashMap<>>();
 

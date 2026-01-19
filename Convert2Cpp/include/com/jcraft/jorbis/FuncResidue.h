@@ -14,7 +14,7 @@ namespace jorbis {
 
 class FuncResidue {
 public:
-   public static FuncResidue[] residue_P = new FuncResidue[]{std::make_unique<Residue0>(), std::make_unique<Residue1>(), std::make_unique<Residue2>()};
+   public static std::vector<FuncResidue> residue_P = std::make_shared<std::vector<FuncResidue>>(){std::make_unique<Residue0>(), std::make_unique<Residue1>(), std::make_unique<Residue2>()};
 
    abstract void free_info(Object var1);
 

@@ -73,7 +73,7 @@ public:
    }
 
     ItemInfo copy() {
-    ItemInfo var1 = new ItemInfo();
+    auto var1 = std::make_shared<ItemInfo>();
       var1.fullType = this.fullType;
       var1.registryID = this.registryID;
       var1.existsAsVanilla = this.existsAsVanilla;
@@ -242,12 +242,12 @@ public:
 
     void load(ByteBuffer var1, int var2, List<String> var3, List<String> var4) {
       this.registryID = var1.getShort();
-      this.moduleName = (String)var4.get(var4.size() > 127 ? var1.getShort() : var1.get());
+      this.moduleName = static_cast<String>(var4).get(var4.size() > 127 ? var1.getShort() : var1.get());
       this.itemName = GameWindow.ReadString(var1);
       this.fullType = this.moduleName + "." + this.itemName;
     uint8_t var5 = var1.get();
       if (Bits.hasFlags(var5, 1)) {
-         this.modID = (String)var3.get(var3.size() > 127 ? var1.getShort() : var1.get());
+         this.modID = static_cast<String>(var3).get(var3.size() > 127 ? var1.getShort() : var1.get());
          this.isModded = true;
       } else {
          this.modID = "pz-vanilla";
@@ -264,12 +264,12 @@ public:
 
          this.modOverrides.clear();
          if (!Bits.hasFlags(var5, 32)) {
-            this.modOverrides.add((String)var3.get(var3.size() > 127 ? var1.getShort() : var1.get()));
+            this.modOverrides.add(static_cast<String>(var3).get(var3.size() > 127 ? var1.getShort() : var1.get()));
          } else {
     uint8_t var6 = var1.get();
 
             for (int var7 = 0; var7 < var6; var7++) {
-               this.modOverrides.add((String)var3.get(var3.size() > 127 ? var1.getShort() : var1.get()));
+               this.modOverrides.add(static_cast<String>(var3).get(var3.size() > 127 ? var1.getShort() : var1.get()));
             }
          }
       }

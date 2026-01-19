@@ -16,11 +16,11 @@ namespace jorbis {
 
 class Residue0 : public FuncResidue {
 public:
-   private static int[][][] _01inverse_partword = new int[2][][];
+   private static int[][][] _01inverse_partword = std::make_shared<std::array<int, 2>>()[][];
    static int[][] _2inverse_partword = nullptr;
 
    static synchronized int _01inverse(Block var0, Object var1, float[][] var2, int var3, int var4) {
-    LookResidue0 var10 = (LookResidue0)var1;
+    LookResidue0 var10 = static_cast<LookResidue0>(var1);
     InfoResidue0 var11 = var10.info;
     int var12 = var11.grouping;
     int var13 = var10.phrasebook.dim;
@@ -82,7 +82,7 @@ public:
    }
 
    static synchronized int _2inverse(Block var0, Object var1, float[][] var2, int var3) {
-    LookResidue0 var8 = (LookResidue0)var1;
+    LookResidue0 var8 = static_cast<LookResidue0>(var1);
     InfoResidue0 var9 = var8.info;
     int var10 = var9.grouping;
     int var11 = var8.phrasebook.dim;
@@ -146,8 +146,8 @@ public:
    }
 
     void* look(DspState var1, InfoMode var2, void* var3) {
-    InfoResidue0 var4 = (InfoResidue0)var3;
-    LookResidue0 var5 = new LookResidue0(this);
+    InfoResidue0 var4 = static_cast<InfoResidue0>(var3);
+    auto var5 = std::make_shared<LookResidue0>(this);
     int var6 = 0;
     int var8 = 0;
       var5.info = var4;
@@ -197,7 +197,7 @@ public:
    }
 
     void pack(void* var1, Buffer var2) {
-    InfoResidue0 var3 = (InfoResidue0)var1;
+    InfoResidue0 var3 = static_cast<InfoResidue0>(var1);
     int var4 = 0;
       var2.write(var3.begin, 24);
       var2.write(var3.end, 24);
@@ -225,7 +225,7 @@ public:
 
     void* unpack(Info var1, Buffer var2) {
     int var3 = 0;
-    InfoResidue0 var4 = new InfoResidue0(this);
+    auto var4 = std::make_shared<InfoResidue0>(this);
       var4.begin = var2.read(24);
       var4.end = var2.read(24);
       var4.grouping = var2.read(24) + 1;

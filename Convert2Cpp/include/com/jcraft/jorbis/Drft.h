@@ -12,7 +12,7 @@ namespace jorbis {
 
 class Drft {
 public:
-   static int[] ntryh = new int[]{4, 2, 3, 5};
+   static std::vector<int> ntryh = std::make_shared<std::vector<int>>(){4, 2, 3, 5};
     static float tpi = (float) (Math.PI * 2);
     static float hsqt2 = 0.70710677F;
     static float taui = 0.8660254F;
@@ -1399,7 +1399,7 @@ public:
     void init(int var1) {
       this.n = var1;
       this.trigcache = new float[3 * var1];
-      this.splitcache = new int[32];
+      this.splitcache = std::make_shared<std::array<int, 32>>();
       fdrffti(var1, this.trigcache, this.splitcache);
    }
 }

@@ -33,18 +33,18 @@ public:
          this.initDefinitionsFromLua();
       }
 
-      return this.m_definitions.isEmpty() ? "Default" : (String)PZArrayUtil.pickRandom(this.m_definitions);
+      return this.m_definitions.isEmpty() ? "Default" : static_cast<String>(PZArrayUtil).pickRandom(this.m_definitions);
    }
 
     void initDefinitionsFromLua() {
-    KahluaTable var1 = (KahluaTable)Type.tryCastTo(LuaManager.env.rawget("LootMaps"), KahluaTable.class);
+    KahluaTable var1 = static_cast<KahluaTable>(Type).tryCastTo(LuaManager.env.rawget("LootMaps"), KahluaTable.class);
       if (var1 != nullptr) {
-    KahluaTable var2 = (KahluaTable)Type.tryCastTo(var1.rawget("Init"), KahluaTable.class);
+    KahluaTable var2 = static_cast<KahluaTable>(Type).tryCastTo(var1.rawget("Init"), KahluaTable.class);
          if (var2 != nullptr) {
     KahluaTableIterator var3 = var2.iterator();
 
             while (var3.advance()) {
-    std::string var4 = (String)Type.tryCastTo(var3.getKey(), String.class);
+    std::string var4 = static_cast<String>(Type).tryCastTo(var3.getKey(), String.class);
                if (var4 != nullptr) {
                   this.m_definitions.add(var4);
                }

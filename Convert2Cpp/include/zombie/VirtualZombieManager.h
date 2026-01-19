@@ -41,7 +41,7 @@ public:
    private final HashSet<IsoZombie> ReusableZombieSet = std::make_unique<HashSet<>>();
    private final ArrayList<IsoZombie> ReusedThisFrame = std::make_unique<ArrayList<>>();
    private final ArrayList<IsoZombie> RecentlyRemoved = std::make_unique<ArrayList<>>();
-    static VirtualZombieManager instance = new VirtualZombieManager();
+    static auto instance = std::make_shared<VirtualZombieManager>();
     int MaxRealZombies = 1;
    private final ArrayList<IsoZombie> m_tempZombies = std::make_unique<ArrayList<>>();
    public final ArrayList<IsoGridSquare> choices = std::make_unique<ArrayList<>>();
@@ -98,7 +98,7 @@ public:
             for (int var2 = 0; var2 < this.MaxRealZombies; var2++) {
                var1 = new IsoZombie(IsoWorld.instance.CurrentCell);
                var1.getEmitter().unregister();
-               this.addToReusable((IsoZombie)var1);
+               this.addToReusable(static_cast<IsoZombie>(var1));
             }
          }
       }
@@ -140,7 +140,7 @@ public:
 
       if (!GameClient.bClient && !GameServer.bServer) {
          for (int var6 = 0; var6 < IsoWorld.instance.CurrentCell.getZombieList().size(); var6++) {
-    IsoZombie var9 = (IsoZombie)IsoWorld.instance.CurrentCell.getZombieList().get(var6);
+    IsoZombie var9 = static_cast<IsoZombie>(IsoWorld).instance.CurrentCell.getZombieList().get(var6);
             if (!var9.KeepItReal && var9.getCurrentSquare() == nullptr) {
                var9.removeFromWorld();
                var9.removeFromSquare();
@@ -188,7 +188,7 @@ public:
     return null;
          } else {
             if (this.w == nullptr) {
-               this.w = (HandWeapon)InventoryItemFactory.CreateItem("Base.Axe");
+               this.w = static_cast<HandWeapon>(InventoryItemFactory).CreateItem("Base.Axe");
             }
 
             if ((GameServer.bServer || GameClient.bClient) && var3 == 0) {
@@ -437,13 +437,13 @@ public:
 
          for (int var6 = 0; var6 < var2.rects.size(); var6++) {
     int var7 = var2.level;
-    RoomRect var8 = (RoomRect)var2.rects.get(var6);
+    RoomRect var8 = static_cast<RoomRect>(var2).rects.get(var6);
 
             for (int var9 = var8.x; var9 < var8.getX2(); var9++) {
                for (int var10 = var8.y; var10 < var8.getY2(); var10++) {
                   var5 = IsoWorld.instance.CurrentCell.getGridSquare(var9, var10, var7);
                   if (var5 != nullptr && this.canSpawnAt(var9, var10, var7)) {
-                     this.choices.add((IsoGridSquare)var5);
+                     this.choices.add(static_cast<IsoGridSquare>(var5));
     bool var11 = false;
 
                      for (int var12 = 0; var12 < IsoPlayer.numPlayers; var12++) {
@@ -453,7 +453,7 @@ public:
                      }
 
                      if (!var11) {
-                        this.bestchoices.add((IsoGridSquare)var5);
+                        this.bestchoices.add(static_cast<IsoGridSquare>(var5));
                      }
                   }
                }
@@ -505,13 +505,13 @@ public:
 
       for (int var5 = 0; var5 < var2.rects.size(); var5++) {
     int var6 = var2.level;
-    RoomRect var7 = (RoomRect)var2.rects.get(var5);
+    RoomRect var7 = static_cast<RoomRect>(var2).rects.get(var5);
 
          for (int var8 = var7.x; var8 < var7.getX2(); var8++) {
             for (int var9 = var7.y; var9 < var7.getY2(); var9++) {
                var4 = IsoWorld.instance.CurrentCell.getGridSquare(var8, var9, var6);
                if (var4 != nullptr && this.canSpawnAt(var8, var9, var6)) {
-                  this.choices.add((IsoGridSquare)var4);
+                  this.choices.add(static_cast<IsoGridSquare>(var4));
                }
             }
          }
@@ -556,7 +556,7 @@ public:
     int var7 = var2.def.level;
 
             for (int var8 = 0; var8 < var2.rects.size(); var8++) {
-    RoomRect var9 = (RoomRect)var2.rects.get(var8);
+    RoomRect var9 = static_cast<RoomRect>(var2).rects.get(var8);
     int var10 = Math.max(var1.wx * 10, var9.x);
     int var11 = Math.max(var1.wy * 10, var9.y);
     int var12 = Math.min((var1.wx + 1) * 10, var9.x + var9.w);
@@ -614,13 +614,13 @@ public:
 
       for (int var5 = 0; var5 < var2.rects.size(); var5++) {
     int var6 = var2.level;
-    RoomRect var7 = (RoomRect)var2.rects.get(var5);
+    RoomRect var7 = static_cast<RoomRect>(var2).rects.get(var5);
 
          for (int var8 = var7.x; var8 < var7.getX2(); var8++) {
             for (int var9 = var7.y; var9 < var7.getY2(); var9++) {
                var4 = IsoWorld.instance.CurrentCell.getGridSquare(var8, var9, var6);
                if (var4 != nullptr && var4.isFree(false)) {
-                  this.choices.add((IsoGridSquare)var4);
+                  this.choices.add(static_cast<IsoGridSquare>(var4));
                   if (!GameServer.bServer) {
     bool var10 = false;
 
@@ -631,7 +631,7 @@ public:
                      }
 
                      if (!var10) {
-                        this.bestchoices.add((IsoGridSquare)var4);
+                        this.bestchoices.add(static_cast<IsoGridSquare>(var4));
                      }
                   }
                }

@@ -27,7 +27,7 @@ public:
    }
 
     static ShaderStackEntry alloc(Shader var0, int var1) {
-    ShaderStackEntry var2 = (ShaderStackEntry)s_pool.alloc();
+    ShaderStackEntry var2 = static_cast<ShaderStackEntry>(s_pool).alloc();
       var2.m_shader = var0;
       var2.m_playerIndex = var1;
     return var2;

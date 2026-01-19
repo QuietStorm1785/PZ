@@ -23,7 +23,7 @@ public:
     static const double LOG_2 = Math.log(2.0);
 
     static ProjectedMeters lngLatToProjectedMeters(LngLat var0) {
-    ProjectedMeters var1 = new ProjectedMeters();
+    auto var1 = std::make_shared<ProjectedMeters>();
       var1.x = var0.longitude * 2.0037508342789244E7 / 180.0;
       var1.y = Math.log(Math.tan((Math.PI / 4) + var0.latitude * Math.PI / 360.0)) * 6378137.0;
     return var1;

@@ -12,15 +12,15 @@ namespace png {
 
 class Integers {
 public:
-    static const int INT_0 = new Integer(0);
-    static const int INT_1 = new Integer(1);
-    static const int INT_2 = new Integer(2);
-    static const int INT_3 = new Integer(3);
-    static const int INT_4 = new Integer(4);
-    static const int INT_5 = new Integer(5);
-    static const int INT_6 = new Integer(6);
-    static const int INT_7 = new Integer(7);
-    static const int INT_8 = new Integer(8);
+    static auto INT_0 = std::make_shared<Integer>(0);
+    static auto INT_1 = std::make_shared<Integer>(1);
+    static auto INT_2 = std::make_shared<Integer>(2);
+    static auto INT_3 = std::make_shared<Integer>(3);
+    static auto INT_4 = std::make_shared<Integer>(4);
+    static auto INT_5 = std::make_shared<Integer>(5);
+    static auto INT_6 = std::make_shared<Integer>(6);
+    static auto INT_7 = std::make_shared<Integer>(7);
+    static auto INT_8 = std::make_shared<Integer>(8);
 
     static int valueOf(int var0) {
       switch (var0) {

@@ -25,13 +25,13 @@ public:
                return -1;
             }
 
-            return ((IAnimatable)var0.target).getOnlineID();
+            return (static_cast<IAnimatable>(var0).target).getOnlineID();
          case 2:
             return (int)(var0.speedMod * 1000.0F);
          case 3:
             return (int)var0.TimeSinceSeenFlesh;
          case 4:
-    float var2 = (Float)var0.getStateMachineParams(ZombieTurnAlerted.instance()).get(ZombieTurnAlerted.PARAM_TARGET_ANGLE);
+    float var2 = static_cast<Float>(var0).getStateMachineParams(ZombieTurnAlerted.instance()).get(ZombieTurnAlerted.PARAM_TARGET_ANGLE);
             if (var2 == nullptr) {
     return 0;
             }
@@ -52,9 +52,9 @@ public:
                var0.setTargetSeenTime(0.0F);
                var0.target = nullptr;
             } else {
-    IsoPlayer var3 = (IsoPlayer)GameClient.IDToPlayerMap.get((short)var2);
+    IsoPlayer var3 = static_cast<IsoPlayer>(GameClient).IDToPlayerMap.get((short)var2);
                if (GameServer.bServer) {
-                  var3 = (IsoPlayer)GameServer.IDToPlayerMap.get((short)var2);
+                  var3 = static_cast<IsoPlayer>(GameServer).IDToPlayerMap.get((short)var2);
                }
 
                if (var3 != var0.target) {

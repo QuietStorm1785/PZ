@@ -36,10 +36,10 @@ public:
     static std::string ThiggleGB = "res/Lo";
     static std::string ThiggleGC = "ginForm";
     static int seq = 0;
-   Object[] floormemo = nullptr;
-   int[] nonzero = nullptr;
+   std::vector<Object> floormemo = nullptr;
+   std::vector<int> nonzero = nullptr;
    float[][] pcmbundle = nullptr;
-   int[] zerobundle = nullptr;
+   std::vector<int> zerobundle = nullptr;
 
     void free_info(void* var1) {
    }
@@ -50,11 +50,11 @@ public:
    synchronized int inverse(Block var1, Object var2) {
     DspState var3 = var1.vd;
     Info var4 = var3.vi;
-    LookMapping0 var5 = (LookMapping0)var2;
+    LookMapping0 var5 = static_cast<LookMapping0>(var2);
     InfoMapping0 var6 = var5.map;
     InfoMode var7 = var5.mode;
     int var8 = var1.pcmend = var4.blocksizes[var1.W];
-      float[] var9 = var3.window[var1.W][var1.lW][var1.nW][var7.windowtype];
+      std::vector<float> var9 = var3.window[var1.W][var1.lW][var1.nW][var7.windowtype];
       if (this.pcmbundle == nullptr || this.pcmbundle.length < var4.channels) {
          this.pcmbundle = new float[var4.channels][];
          this.nonzero = new int[var4.channels];
@@ -63,7 +63,7 @@ public:
       }
 
       for (int var10 = 0; var10 < var4.channels; var10++) {
-         float[] var11 = var1.pcm[var10];
+         std::vector<float> var11 = var1.pcm[var10];
     int var12 = var6.chmuxlist[var10];
          this.floormemo[var10] = var5.floor_func[var12].inverse1(var1, var5.floor_look[var12], this.floormemo[var10]);
          if (this.floormemo[var10] != nullptr) {
@@ -103,8 +103,8 @@ public:
       }
 
       for (int var18 = var6.coupling_steps - 1; var18 >= 0; var18--) {
-         float[] var23 = var1.pcm[var6.coupling_mag[var18]];
-         float[] var28 = var1.pcm[var6.coupling_ang[var18]];
+         std::vector<float> var23 = var1.pcm[var6.coupling_mag[var18]];
+         std::vector<float> var28 = var1.pcm[var6.coupling_ang[var18]];
 
          for (int var32 = 0; var32 < var8 / 2; var32++) {
     float var14 = var23[var32];
@@ -128,18 +128,18 @@ public:
       }
 
       for (int var19 = 0; var19 < var4.channels; var19++) {
-         float[] var24 = var1.pcm[var19];
+         std::vector<float> var24 = var1.pcm[var19];
     int var29 = var6.chmuxlist[var19];
          var5.floor_func[var29].inverse2(var1, var5.floor_look[var29], this.floormemo[var19], var24);
       }
 
       for (int var20 = 0; var20 < var4.channels; var20++) {
-         float[] var25 = var1.pcm[var20];
-         ((Mdct)var3.transform[var1.W][0]).backward(var25, var25);
+         std::vector<float> var25 = var1.pcm[var20];
+         (static_cast<Mdct>(var3).transform[var1.W][0]).backward(var25, var25);
       }
 
       for (int var21 = 0; var21 < var4.channels; var21++) {
-         float[] var26 = var1.pcm[var21];
+         std::vector<float> var26 = var1.pcm[var21];
          if (this.nonzero[var21] != 0) {
             for (int var31 = 0; var31 < var8; var31++) {
                var26[var31] *= var9[var31];
@@ -156,8 +156,8 @@ public:
 
     void* look(DspState var1, InfoMode var2, void* var3) {
     Info var4 = var1.vi;
-    LookMapping0 var5 = new LookMapping0(this);
-    InfoMapping0 var6 = var5.map = (InfoMapping0)var3;
+    auto var5 = std::make_shared<LookMapping0>(this);
+    InfoMapping0 var6 = var5.map = static_cast<InfoMapping0>(var3);
       var5.mode = var2;
       var5.time_look = new Object[var6.submaps];
       var5.floor_look = new Object[var6.submaps];
@@ -186,7 +186,7 @@ public:
    }
 
     void pack(Info var1, void* var2, Buffer var3) {
-    InfoMapping0 var4 = (InfoMapping0)var2;
+    InfoMapping0 var4 = static_cast<InfoMapping0>(var2);
       if (var4.submaps > 1) {
          var3.write(1, 1);
          var3.write(var4.submaps - 1, 4);
@@ -221,7 +221,7 @@ public:
    }
 
     void* unpack(Info var1, Buffer var2) {
-    InfoMapping0 var3 = new InfoMapping0(this);
+    auto var3 = std::make_shared<InfoMapping0>(this);
       if (var2.read(1) != 0) {
          var3.submaps = var2.read(4) + 1;
       } else {

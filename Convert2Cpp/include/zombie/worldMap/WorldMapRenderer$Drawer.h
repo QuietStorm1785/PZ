@@ -52,7 +52,7 @@ namespace worldMap {
 class WorldMapRenderer {
 public:
     WorldMapRenderer m_renderer;
-    const WorldMapStyle m_style = new WorldMapStyle();
+    auto m_style = std::make_shared<WorldMapStyle>();
     WorldMap m_worldMap;
     int m_x;
     int m_y;
@@ -67,11 +67,11 @@ public:
     float m_renderOriginY;
     float m_renderCellX;
     float m_renderCellY;
-    const Matrix4f m_projection = new Matrix4f();
-    const Matrix4f m_modelView = new Matrix4f();
-   private final PlayerRenderData[] m_playerRenderData = new PlayerRenderData[4];
-    const FilterArgs m_filterArgs = new FilterArgs();
-    const RenderArgs m_renderArgs = new RenderArgs();
+    auto m_projection = std::make_shared<Matrix4f>();
+    auto m_modelView = std::make_shared<Matrix4f>();
+   private final std::vector<PlayerRenderData> m_playerRenderData = std::make_shared<std::array<PlayerRenderData, 4>>();
+    auto m_filterArgs = std::make_shared<FilterArgs>();
+    auto m_renderArgs = std::make_shared<RenderArgs>();
    final ArrayList<WorldMapRenderLayer> m_renderLayers = std::make_unique<ArrayList<>>();
    final ArrayList<WorldMapFeature> m_features = std::make_unique<ArrayList<>>();
    final ArrayList<Zone> m_zones = std::make_unique<ArrayList<>>();
@@ -79,14 +79,14 @@ public:
     RGBAf m_fill;
     int m_triangulationsThisFrame = 0;
    float[] m_floatArray;
-    const Vector2f m_vector2f = new Vector2f();
-    const TIntArrayList m_rasterizeXY = new TIntArrayList();
-    const TIntSet m_rasterizeSet = new TIntHashSet();
+    auto m_vector2f = std::make_shared<Vector2f>();
+    auto m_rasterizeXY = std::make_shared<TIntArrayList>();
+    auto m_rasterizeSet = std::make_shared<TIntHashSet>();
     float m_rasterizeMinTileX;
     float m_rasterizeMinTileY;
     float m_rasterizeMaxTileX;
     float m_rasterizeMaxTileY;
-    const Rasterize m_rasterize = new Rasterize();
+    auto m_rasterize = std::make_shared<Rasterize>();
    int[] m_rasterizeXY_ints;
     int m_rasterizeMult = 1;
 
@@ -196,7 +196,7 @@ public:
             this.m_features.clear();
 
             for (int var4 = 0; var4 < this.m_worldMap.m_data.size(); var4++) {
-    WorldMapData var5 = (WorldMapData)this.m_worldMap.m_data.get(var4);
+    WorldMapData var5 = static_cast<WorldMapData>(this).m_worldMap.m_data.get(var4);
                if (var5.isReady()) {
     WorldMapCell var6 = var5.getCell(var2, var3);
                   if (var6 != nullptr && !var6.m_features.isEmpty()) {
@@ -217,7 +217,7 @@ public:
                this.m_renderCellY = this.m_renderOriginY + (var3 * 300 - this.m_worldMap.getMinYInSquares()) * this.m_worldScale;
 
                for (int var7 = 0; var7 < this.m_style.m_layers.size(); var7++) {
-    WorldMapStyleLayer var8 = (WorldMapStyleLayer)this.m_style.m_layers.get(var7);
+    WorldMapStyleLayer var8 = static_cast<WorldMapStyleLayer>(this).m_style.m_layers.get(var7);
                   if (var8 instanceof WorldMapTextureStyleLayer) {
                      var8.renderCell(this.m_renderArgs);
                   }
@@ -246,7 +246,7 @@ public:
          var5.m_styleLayer.renderCell(this.m_renderArgs);
 
          for (int var6 = 0; var6 < var5.m_features.size(); var6++) {
-    WorldMapFeature var7 = (WorldMapFeature)var5.m_features.get(var6);
+    WorldMapFeature var7 = static_cast<WorldMapFeature>(var5).m_features.get(var6);
             var5.m_styleLayer.render(var7, this.m_renderArgs);
          }
       }
@@ -254,7 +254,7 @@ public:
 
     void filterFeatures(ArrayList<WorldMapFeature> var1, FilterArgs var2, ArrayList<WorldMapRenderLayer> var3) {
       for (int var4 = 0; var4 < this.m_style.m_layers.size(); var4++) {
-    WorldMapStyleLayer var5 = (WorldMapStyleLayer)this.m_style.m_layers.get(var4);
+    WorldMapStyleLayer var5 = static_cast<WorldMapStyleLayer>(this).m_style.m_layers.get(var4);
          if (!(var5.m_minZoom > this.m_zoomF)) {
             if (var5.m_id == "mylayer")) {
     bool var6 = true;
@@ -262,16 +262,16 @@ public:
 
     WorldMapRenderLayer var9 = null;
             if (var5 instanceof WorldMapTextureStyleLayer) {
-               var9 = (WorldMapRenderLayer)WorldMapRenderLayer.s_pool.alloc();
+               var9 = static_cast<WorldMapRenderLayer>(WorldMapRenderLayer).s_pool.alloc();
                var9.m_styleLayer = var5;
                var9.m_features.clear();
                var3.add(var9);
             } else {
                for (int var7 = 0; var7 < var1.size(); var7++) {
-    WorldMapFeature var8 = (WorldMapFeature)var1.get(var7);
+    WorldMapFeature var8 = static_cast<WorldMapFeature>(var1).get(var7);
                   if (var5.filter(var8, var2)) {
                      if (var9 == nullptr) {
-                        var9 = (WorldMapRenderLayer)WorldMapRenderLayer.s_pool.alloc();
+                        var9 = static_cast<WorldMapRenderLayer>(WorldMapRenderLayer).s_pool.alloc();
                         var9.m_styleLayer = var5;
                         var9.m_features.clear();
                         var3.add(var9);
@@ -367,14 +367,14 @@ public:
     float var11 = var3.a;
 
       for (int var12 = 0; var12 < var2.m_geometries.size(); var12++) {
-    WorldMapGeometry var13 = (WorldMapGeometry)var2.m_geometries.get(var12);
+    WorldMapGeometry var13 = static_cast<WorldMapGeometry>(var2).m_geometries.get(var12);
          switch (1.$SwitchMap$zombie$worldMap$WorldMapGeometry$Type[var13.m_type.ordinal()]) {
             case 1:
                WorldMapRenderer.m_vboLines.setMode(1);
                WorldMapRenderer.m_vboLines.setLineWidth(var4);
 
                for (int var14 = 0; var14 < var13.m_points.size(); var14++) {
-    WorldMapPoints var15 = (WorldMapPoints)var13.m_points.get(var14);
+    WorldMapPoints var15 = static_cast<WorldMapPoints>(var13).m_points.get(var14);
 
                   for (int var16 = 0; var16 < var15.numPoints() - 1; var16++) {
     float var17 = var15.getX(var16);
@@ -401,11 +401,11 @@ public:
     float var11 = var3.a;
 
       for (int var12 = 0; var12 < var2.m_geometries.size(); var12++) {
-    WorldMapGeometry var13 = (WorldMapGeometry)var2.m_geometries.get(var12);
+    WorldMapGeometry var13 = static_cast<WorldMapGeometry>(var2).m_geometries.get(var12);
          switch (1.$SwitchMap$zombie$worldMap$WorldMapGeometry$Type[var13.m_type.ordinal()]) {
             case 1:
-               Point[] var14 = new Point[var13.m_points.size()];
-    WorldMapPoints var15 = (WorldMapPoints)var13.m_points.get(0);
+               std::vector<Point> var14 = new Point[var13.m_points.size()];
+    WorldMapPoints var15 = static_cast<WorldMapPoints>(var13).m_points.get(0);
 
                for (int var16 = 0; var16 < var15.numPoints(); var16++) {
     float var17 = var15.getX(var16);
@@ -413,7 +413,7 @@ public:
                   var14[var16] = StrokeGeometry.newPoint(var5 + var17 * var7, var6 + var18 * var7);
                }
 
-    Attrs var21 = new Attrs();
+    auto var21 = std::make_shared<Attrs>();
                var21.join = "miter";
                var21.width = var4;
     std::vector var22 = StrokeGeometry.getStrokeGeometry(var14, var21);
@@ -421,8 +421,8 @@ public:
                   WorldMapRenderer.m_vboLines.setMode(4);
 
                   for (int var23 = 0; var23 < var22.size(); var23++) {
-    float var19 = (float)((Point)var22.get(var23)).x;
-    float var20 = (float)((Point)var22.get(var23)).y;
+    float var19 = (float)(static_cast<Point>(var22).get(var23)).x;
+    float var20 = (float)(static_cast<Point>(var22).get(var23)).y;
                      WorldMapRenderer.m_vboLines.addElement(var19, var20, 0.0F, var8, var9, var10, var11);
                   }
 
@@ -447,10 +447,10 @@ public:
          WorldMapRenderer.m_vboLinesUV.flush();
 
          for (int var12 = 0; var12 < var2.m_geometries.size(); var12++) {
-    WorldMapGeometry var13 = (WorldMapGeometry)var2.m_geometries.get(var12);
+    WorldMapGeometry var13 = static_cast<WorldMapGeometry>(var2).m_geometries.get(var12);
             switch (1.$SwitchMap$zombie$worldMap$WorldMapGeometry$Type[var13.m_type.ordinal()]) {
                case 1:
-    WorldMapPoints var14 = (WorldMapPoints)var13.m_points.get(0);
+    WorldMapPoints var14 = static_cast<WorldMapPoints>(var13).m_points.get(0);
                   if (this.m_floatArray == nullptr || this.m_floatArray.length < var14.numPoints() * 2) {
                      this.m_floatArray = new float[var14.numPoints() * 2];
                   }
@@ -480,12 +480,12 @@ public:
          }
 
          for (int var9 = 0; var9 < var2.m_geometries.size(); var9++) {
-    WorldMapGeometry var10 = (WorldMapGeometry)var2.m_geometries.get(var9);
+    WorldMapGeometry var10 = static_cast<WorldMapGeometry>(var2).m_geometries.get(var9);
             if (var10.m_type == Type.LineString) {
                WorldMapRenderer.m_vboLinesUV.setMode(7);
                WorldMapRenderer.m_vboLinesUV.startRun(var5.getTextureId());
     float var11 = var4;
-    WorldMapPoints var12 = (WorldMapPoints)var10.m_points.get(0);
+    WorldMapPoints var12 = static_cast<WorldMapPoints>(var10).m_points.get(0);
 
                for (int var13 = 0; var13 < var12.numPoints() - 1; var13++) {
     float var14 = var6 + var12.getX(var13) * var8;
@@ -554,7 +554,7 @@ public:
     float var10 = var3.a;
 
       for (int var11 = 0; var11 < var2.m_geometries.size(); var11++) {
-    WorldMapGeometry var12 = (WorldMapGeometry)var2.m_geometries.get(var11);
+    WorldMapGeometry var12 = static_cast<WorldMapGeometry>(var2).m_geometries.get(var11);
          if (var12.m_type == Type.Polygon) {
     bool var13 = false;
             if (var12.m_triangles == nullptr) {
@@ -563,7 +563,7 @@ public:
                }
 
                this.m_triangulationsThisFrame++;
-               double[] var14 = var2.m_properties.containsKey("highway") ? new double[]{1.0, 2.0, 4.0, 8.0, 12.0, 18.0} : nullptr;
+               std::vector<double> var14 = var2.m_properties.containsKey("highway") ? std::make_shared<std::vector<double>>(){1.0, 2.0, 4.0, 8.0, 12.0, 18.0} : nullptr;
                var12.triangulate(var14);
                if (var12.m_triangles == nullptr) {
                   if (!Core.bDebug) {
@@ -577,7 +577,7 @@ public:
                   WorldMapRenderer.m_vboLines.setLineWidth(4.0F);
 
                   for (int var15 = 0; var15 < var12.m_points.size(); var15++) {
-    WorldMapPoints var29 = (WorldMapPoints)var12.m_points.get(var15);
+    WorldMapPoints var29 = static_cast<WorldMapPoints>(var12).m_points.get(var15);
 
                      for (int var31 = 0; var31 < var29.numPoints(); var31++) {
     int var33 = var29.getX(var31);
@@ -632,7 +632,7 @@ public:
 
     TrianglesPerZoom var16 = var27 == 0.0 ? null : var12.findTriangles(var27);
                if (var16 != nullptr) {
-                  float[] var30 = var16.m_triangles;
+                  std::vector<float> var30 = var16.m_triangles;
 
                   for (byte var32 = 0; var32 < var30.length; var32 += 6) {
     float var34 = var30[var32];
@@ -648,7 +648,7 @@ public:
                      WorldMapRenderer.m_vboLines.addElement(var4 + var41 * var6, var5 + var42 * var6, 0.0F, var7 * var25, var8 * var25, var9 * var25, var10);
                   }
                } else {
-                  float[] var17 = var12.m_triangles;
+                  std::vector<float> var17 = var12.m_triangles;
 
                   for (byte var18 = 0; var18 < var17.length; var18 += 6) {
     float var19 = var17[var18];
@@ -679,7 +679,7 @@ public:
     float var12 = var3.a;
 
       for (int var13 = 0; var13 < var2.m_geometries.size(); var13++) {
-    WorldMapGeometry var14 = (WorldMapGeometry)var2.m_geometries.get(var13);
+    WorldMapGeometry var14 = static_cast<WorldMapGeometry>(var2).m_geometries.get(var13);
          if (var14.m_type == Type.Polygon) {
             if (var14.m_triangles == nullptr) {
                var14.triangulate(nullptr);
@@ -693,7 +693,7 @@ public:
             GL11.glTexParameteri(3553, 10240, 9728);
             WorldMapRenderer.m_vboLinesUV.setMode(4);
             WorldMapRenderer.m_vboLinesUV.startRun(var4.getTextureId());
-            float[] var15 = var14.m_triangles;
+            std::vector<float> var15 = var14.m_triangles;
     float var16 = var1.cellX * 300 + var14.m_minX;
     float var17 = var1.cellY * 300 + var14.m_minY;
     float var18 = var4.getWidth() * var5;
@@ -740,7 +740,7 @@ public:
    }
 
     void uploadTrianglesToVBO(WorldMapGeometry var1) {
-      int[] var2 = new int[2];
+      std::vector<int> var2 = std::make_shared<std::array<int, 2>>();
     int var3 = var1.m_triangles.length / 2;
       if (var3 > 2340) {
     int var4 = 0;
@@ -756,7 +756,7 @@ public:
                var1.m_vboIndex4 = var2[1];
             }
 
-            float[] var6 = var1.m_triangles;
+            std::vector<float> var6 = var1.m_triangles;
     int var7 = var4 * 3 * 2;
 
             for (int var8 = (var4 + var5) * 3 * 2; var7 < var8; var7 += 6) {
@@ -778,7 +778,7 @@ public:
          WorldMapVBOs.getInstance().reserveVertices(var3, var2);
          var1.m_vboIndex1 = var2[0];
          var1.m_vboIndex2 = var2[1];
-         float[] var15 = var1.m_triangles;
+         std::vector<float> var15 = var1.m_triangles;
 
          for (byte var16 = 0; var16 < var15.length; var16 += 6) {
     float var17 = var15[var16];
@@ -800,7 +800,7 @@ public:
     float var5 = 1.0F;
     float var7 = 0.0F;
     float var6 = 0.0F;
-      float[] var9 = var1.m_triangles;
+      std::vector<float> var9 = var1.m_triangles;
 
       for (byte var10 = 0; var10 < var9.length; var10 += 6) {
     float var11 = var9[var10];
@@ -827,7 +827,7 @@ public:
       WorldMapRenderer.m_vboLines.setLineWidth(4.0F);
 
       for (int var9 = 0; var9 < var1.m_points.size(); var9++) {
-    WorldMapPoints var10 = (WorldMapPoints)var1.m_points.get(var9);
+    WorldMapPoints var10 = static_cast<WorldMapPoints>(var1).m_points.get(var9);
 
          for (int var11 = 0; var11 < var10.numPoints(); var11++) {
     int var12 = var10.getX(var11);
@@ -1043,7 +1043,7 @@ public:
                      }
 
                      if (var19.isPolyline()) {
-                        float[] var23 = var19.polylineOutlinePoints;
+                        std::vector<float> var23 = var19.polylineOutlinePoints;
                         if (var23 != nullptr) {
                            for (byte var27 = 0; var27 < var23.length; var27 += 2) {
     float var31 = (var23[var27] - this.m_centerWorldX) * var7;
@@ -1060,7 +1060,7 @@ public:
                return;
             }
 
-            var9 = (Zone)var8.next();
+            var9 = static_cast<Zone>(var8).next();
             if (var2 == var9.type)) {
                if (var9.isRectangle()) {
                   WorldMapRenderer.m_vboLines
@@ -1081,7 +1081,7 @@ public:
                   break;
                }
 
-               float[] var10 = var9.getPolygonTriangles();
+               std::vector<float> var10 = var9.getPolygonTriangles();
                if (var10 != nullptr) {
     uint8_t var11 = 0;
 
@@ -1104,7 +1104,7 @@ public:
          }
 
          if (var9.isPolyline()) {
-            float[] var20 = var9.getPolylineOutlineTriangles();
+            std::vector<float> var20 = var9.getPolylineOutlineTriangles();
             if (var20 != nullptr) {
                for (byte var24 = 0; var24 < var20.length; var24 += 6) {
     float var28 = (var20[var24] - this.m_centerWorldX) * var7;

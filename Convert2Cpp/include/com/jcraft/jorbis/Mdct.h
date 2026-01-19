@@ -12,8 +12,8 @@ namespace jorbis {
 
 class Mdct {
 public:
-   float[] _w = new float[1024];
-   float[] _x = new float[1024];
+   std::vector<float> _w = std::make_shared<std::array<float, 1024>>();
+   std::vector<float> _x = std::make_shared<std::array<float, 1024>>();
    int[] bitrev;
     int log2n;
     int n;
@@ -29,8 +29,8 @@ public:
          this._w = new float[this.n / 2];
       }
 
-      float[] var3 = this._x;
-      float[] var4 = this._w;
+      std::vector<float> var3 = this._x;
+      std::vector<float> var4 = this._w;
     int var5 = this.n >>> 1;
     int var6 = this.n >>> 2;
     int var7 = this.n >>> 3;
@@ -54,7 +54,7 @@ public:
          var8 -= 4;
       }
 
-      float[] var19 = this.mdct_kernel(var3, var4, this.n, var5, var6, var7);
+      std::vector<float> var19 = this.mdct_kernel(var3, var4, this.n, var5, var6, var7);
     uint8_t var22 = 0;
       var10 = var5;
     int var25 = var6;
@@ -174,7 +174,7 @@ public:
             var10 += var39;
          }
 
-         float[] var15 = var2;
+         std::vector<float> var15 = var2;
          var2 = var1;
          var1 = var15;
       }

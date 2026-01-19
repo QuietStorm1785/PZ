@@ -30,7 +30,7 @@ public:
     const int DDS_CAPS2_RESERVED = 8;
     const int DEFAULT_DXT_BLOCKSIZE = 16;
     const int DXT1_BLOCKSIZE = 8;
-    const DDSurfaceDesc2 ddsDesc2 = new DDSurfaceDesc2();
+    auto ddsDesc2 = std::make_shared<DDSurfaceDesc2>();
     static ByteBuffer ddsHeader = null;
     BufferedInputStream ddsFileChannel = null;
     static ByteBuffer imageData = null;
@@ -39,7 +39,7 @@ public:
     static int lastHei = 0;
 
     int loadDDSFile(const std::string& var1) {
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
 
       try {
     new FileInputStream();

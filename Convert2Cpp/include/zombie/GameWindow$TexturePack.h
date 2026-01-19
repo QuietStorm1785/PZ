@@ -15,7 +15,7 @@ public:
     std::string packName;
     std::string fileName;
     std::string modID;
-    const TexturePackTextures textures = new TexturePackTextures();
+    auto textures = std::make_shared<TexturePackTextures>();
 
    private GameWindow$TexturePack() {
    }

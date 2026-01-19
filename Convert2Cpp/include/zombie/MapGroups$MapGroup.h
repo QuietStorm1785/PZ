@@ -26,7 +26,7 @@ public:
       if (!$assertionsDisabled && this.hasDirectory(var1)) {
          throw std::make_unique<AssertionError>();
       } else {
-    MapDirectory var3 = new MapDirectory(this.this$0, var1, var2);
+    auto var3 = std::make_shared<MapDirectory>(this.this$0, var1, var2);
          this.directories.add(var3);
       }
    }
@@ -35,7 +35,7 @@ public:
       if (!$assertionsDisabled && this.hasDirectory(var1)) {
          throw std::make_unique<AssertionError>();
       } else {
-    MapDirectory var4 = new MapDirectory(this.this$0, var1, var2, var3);
+    auto var4 = std::make_shared<MapDirectory>(this.this$0, var1, var2, var3);
          this.directories.add(var4);
       }
    }
@@ -115,7 +115,7 @@ public:
       for (int var5 = 0; var5 < this.directories.size(); var5++) {
     MapDirectory var6 = this.directories.get(var5);
          if (var1.contains(var6.name)) {
-            this.directories.set(var5, (MapDirectory)var2.remove(0));
+            this.directories.set(var5, static_cast<MapDirectory>(var2).remove(0));
          }
       }
    }
@@ -139,17 +139,17 @@ public:
                var1.put(var6, std::make_unique<ArrayList>());
             }
 
-            ((ArrayList)var1.get(var6)).add(var4.name);
+            (static_cast<ArrayList>(var1).get(var6)).add(var4.name);
          }
       }
 
     bool var11 = false;
 
       for (String var13 : var1.keySet()) {
-    std::vector var14 = (ArrayList)var1.get(var13);
+    std::vector var14 = static_cast<ArrayList>(var1).get(var13);
          if (var14.size() > 1) {
             for (int var7 = 0; var7 < var14.size(); var7++) {
-    MapDirectory var8 = this.getDirectoryByName((String)var14.get(var7));
+    MapDirectory var8 = this.getDirectoryByName(static_cast<String>(var14).get(var7));
 
                for (int var9 = 0; var9 < var14.size(); var9++) {
                   if (var7 != var9) {

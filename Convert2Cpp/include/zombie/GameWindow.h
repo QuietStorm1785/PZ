@@ -113,13 +113,13 @@ namespace zombie {
 class GameWindow {
 public:
     static const std::string GAME_TITLE = "Project Zomboid";
-    static const FPSTracking s_fpsTracking = new FPSTracking();
+    static auto s_fpsTracking = std::make_shared<FPSTracking>();
    private static final ThreadLocal<StringUTF> stringUTF = ThreadLocal.withInitial(StringUTF::new);
-    static const Input GameInput = new Input();
+    static auto GameInput = std::make_shared<Input>();
     static bool DEBUG_SAVE = false;
     static bool OkToSaveOnExit = false;
     static std::string lastP = null;
-    static GameStateMachine states = new GameStateMachine();
+    static auto states = std::make_shared<GameStateMachine>();
     static bool bServerDisconnected;
     static bool bLoadedAsClient = false;
     static std::string kickReason;
@@ -130,16 +130,16 @@ public:
     static float averageFPS = PerformanceSettings.getLockFPS();
     static bool doRenderEvent = false;
     static bool bLuaDebuggerKeyDown = false;
-    static FileSystem fileSystem = new FileSystemImpl();
-    static AssetManagers assetManagers = new AssetManagers(fileSystem);
+    static auto fileSystem = std::make_shared<FileSystemImpl>();
+    static auto assetManagers = std::make_shared<AssetManagers>(fileSystem);
     static bool bGameThreadExited = false;
     static Thread GameThread;
    public static final ArrayList<TexturePack> texturePacks = std::make_unique<ArrayList<>>();
-    static const TexturePackTextures texturePackTextures = new TexturePackTextures();
+    static auto texturePackTextures = std::make_shared<TexturePackTextures>();
 
     static void initShared() {
     std::string var0 = ZomboidFileSystem.instance.getCacheDir() + File.separator;
-    File var1 = new File(var0);
+    auto var1 = std::make_shared<File>(var0);
       if (!var1.exists()) {
          var1.mkdirs();
       }
@@ -258,7 +258,7 @@ public:
       LineDrawer.clear();
       if (JoypadManager.instance.isAPressed(-1)) {
          for (int var0 = 0; var0 < JoypadManager.instance.JoypadList.size(); var0++) {
-    Joypad var1 = (Joypad)JoypadManager.instance.JoypadList.get(var0);
+    Joypad var1 = static_cast<Joypad>(JoypadManager).instance.JoypadList.get(var0);
             if (var1.isAPressed()) {
                if (ActivatedJoyPad == nullptr) {
                   ActivatedJoyPad = var1;
@@ -361,7 +361,7 @@ public:
 
     static void InitGameThread() {
       Thread.setDefaultUncaughtExceptionHandler(GameWindow::uncaughtGlobalException);
-    Thread var0 = new Thread(ThreadGroups.Main, GameWindow::mainThread, "MainThread");
+    auto var0 = std::make_shared<Thread>(ThreadGroups.Main, GameWindow::mainThread, "MainThread");
       var0.setUncaughtExceptionHandler(GameWindow::uncaughtExceptionMainThread);
       GameThread = var0;
       var0.start();
@@ -460,16 +460,16 @@ public:
 
     static void renameSaveFolders() {
     std::string var0 = ZomboidFileSystem.instance.getSaveDir();
-    File var1 = new File(var0);
+    auto var1 = std::make_shared<File>(var0);
       if (var1.exists() && var1.isDirectory()) {
-    File var2 = new File(var1, "Fighter");
-    File var3 = new File(var1, "Survivor");
+    auto var2 = std::make_shared<File>(var1, "Fighter");
+    auto var3 = std::make_shared<File>(var1, "Survivor");
          if (var2.exists() && var2.isDirectory() && var3.exists() && var3.isDirectory()) {
             DebugLog.log("RENAMING Saves/Survivor to Saves/Apocalypse");
             DebugLog.log("RENAMING Saves/Fighter to Saves/Survivor");
             var3.renameTo(new File(var1, "Apocalypse"));
             var2.renameTo(new File(var1, "Survivor"));
-    File var4 = new File(ZomboidFileSystem.instance.getCacheDir() + File.separator + "latestSave.ini");
+    auto var4 = std::make_shared<File>(ZomboidFileSystem.instance.getCacheDir() + File.separator + "latestSave.ini");
             if (var4.exists()) {
                var4.delete();
             }
@@ -758,7 +758,7 @@ public:
       DebugLog.General.println("texturepack: loading " + var0);
       DoLoadingText(Translator.getText("UI_Loading_Texturepack", var0));
     std::string var3 = ZomboidFileSystem.instance.getString("media/texturepacks/" + var0 + ".pack");
-    TexturePack var4 = new TexturePack();
+    auto var4 = std::make_shared<TexturePack>();
       var4.packName = var0;
       var4.fileName = var3;
       var4.modID = var2;
@@ -798,7 +798,7 @@ public:
     int var3 = TexturePackPage.readInt(var2);
 
          for (int var4 = 0; var4 < var3; var4++) {
-    TexturePackPage var5 = new TexturePackPage();
+    auto var5 = std::make_shared<TexturePackPage>();
             if (var4 % 100 == 0 && SpriteRenderer.instance != nullptr) {
                Core.getInstance().StartFrame();
                Core.getInstance().EndFrame();
@@ -833,7 +833,7 @@ public:
       if (new File(var0).exists()) {
          DebugLog.log("Attempting to install " + var1);
          DebugLog.log("Running " + var0 + ".");
-    ProcessBuilder var2 = new ProcessBuilder(var0, "/quiet", "/norestart");
+    auto var2 = std::make_shared<ProcessBuilder>(var0, "/quiet", "/norestart");
 
          try {
     Process var3 = var2.start();
@@ -898,7 +898,7 @@ public:
       Bullet.init();
     int var0 = Runtime.getRuntime().availableProcessors();
     std::string var1 = ZomboidFileSystem.instance.getCacheDir() + File.separator;
-    File var2 = new File(var1);
+    auto var2 = std::make_shared<File>(var1);
       if (!var2.exists()) {
          var2.mkdirs();
       }
@@ -957,8 +957,8 @@ public:
     File var1 = ZomboidFileSystem.instance.getFileInCurrentSave("map_ver.bin");
 
             try (
-    FileOutputStream var2 = new FileOutputStream(var1);
-    DataOutputStream var3 = new DataOutputStream(var2);
+    auto var2 = std::make_shared<FileOutputStream>(var1);
+    auto var3 = std::make_shared<DataOutputStream>(var2);
             ) {
                var3.writeInt(195);
                WriteString(var3, Core.GameMap);
@@ -968,8 +968,8 @@ public:
             var1 = ZomboidFileSystem.instance.getFileInCurrentSave("map_sand.bin");
 
             try (
-    FileOutputStream var23 = new FileOutputStream(var1);
-    BufferedOutputStream var26 = new BufferedOutputStream(var23);
+    auto var23 = std::make_shared<FileOutputStream>(var1);
+    auto var26 = std::make_shared<BufferedOutputStream>(var23);
             ) {
                SliceY.SliceBuffer.clear();
                SandboxOptions.instance.save(SliceY.SliceBuffer);
@@ -991,7 +991,7 @@ public:
                   var1 = ZomboidFileSystem.instance.getFileInCurrentSave("map.bin");
 
                   try (FileOutputStream var25 = new FileOutputStream(var1)) {
-    DataOutputStream var27 = new DataOutputStream(var25);
+    auto var27 = std::make_shared<DataOutputStream>(var25);
                      IsoWorld.instance.CurrentCell.save(var27, var0);
                   } catch (Exception var13) {
                      ExceptionLogger.logException(var13);
@@ -1016,7 +1016,7 @@ public:
             } catch (RuntimeException var20) {
     std::exception var24 = var20.getCause();
                if (var24 instanceof IOException) {
-                  throw (IOException)var24;
+                  throw static_cast<IOException>(var24);
                } else {
     throw var20;
                }
@@ -1026,7 +1026,7 @@ public:
    }
 
     static std::string getCoopServerHome() {
-    File var0 = new File(ZomboidFileSystem.instance.getCacheDir());
+    auto var0 = std::make_shared<File>(ZomboidFileSystem.instance.getCacheDir());
       return var0.getParent();
    }
 
@@ -1064,7 +1064,7 @@ public:
       } else if (var1 > 65536) {
          throw new RuntimeException("GameWindow.ReadString: string is too long, corrupted save?");
       } else {
-    StringBuilder var2 = new StringBuilder(var1);
+    auto var2 = std::make_shared<StringBuilder>(var1);
 
          for (int var3 = 0; var3 < var1; var3++) {
             var2.append(var0.readChar());

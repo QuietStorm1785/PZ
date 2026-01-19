@@ -30,7 +30,7 @@ public:
             }
 
             for (int var5 = 0; var5 < var1.size(); var5++) {
-    InventoryItem var6 = (InventoryItem)var1.get(var5);
+    InventoryItem var6 = static_cast<InventoryItem>(var1).get(var5);
                if (!var0.getInventory().getItems().contains(var6)) {
     return false;
                }

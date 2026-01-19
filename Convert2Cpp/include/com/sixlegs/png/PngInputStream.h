@@ -16,10 +16,10 @@ namespace png {
 
 class PngInputStream : public InputStream {
 public:
-    const CRC32 crc = new CRC32();
+    auto crc = std::make_shared<CRC32>();
     const InputStream in;
     const DataInputStream data;
-   private final byte[] tmp = new byte[4096];
+   private final std::vector<byte> tmp = std::make_shared<std::array<byte, 4096>>();
     long total;
     int length;
     int left;

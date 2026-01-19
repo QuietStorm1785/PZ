@@ -25,7 +25,7 @@ namespace characters {
 class ZombieIDMapTest : public Assert {
 public:
    HashSet<Short> IDs = std::make_unique<HashSet<>>();
-    IsoCell cell = new IsoCell(300, 300);
+    auto cell = std::make_shared<IsoCell>(300, 300);
 
     static void beforeAll() {
       try {
@@ -80,10 +80,10 @@ public:
     short var5 = ServerMap.instance.getUniqueZombieId();
          assertNull(ServerMap.instance.ZombieMap.get(var5));
          assertFalse(this.IDs.contains(var5));
-    IsoZombie var6 = new IsoZombie(this.cell);
+    auto var6 = std::make_shared<IsoZombie>(this.cell);
          var6.OnlineID = var5;
          ServerMap.instance.ZombieMap.put(var5, var6);
-         assertEquals(var5, ((IsoZombie)ServerMap.instance.ZombieMap.get(var5)).OnlineID);
+         assertEquals(var5, (static_cast<IsoZombie>(ServerMap).instance.ZombieMap.get(var5)).OnlineID);
          this.IDs.add(var5);
       }
 
@@ -106,16 +106,16 @@ public:
 
       for (short var4 = 0; var4 < var1; var4++) {
          assertNull(ServerMap.instance.ZombieMap.get(var4));
-    IsoZombie var5 = new IsoZombie(this.cell);
+    auto var5 = std::make_shared<IsoZombie>(this.cell);
          var5.OnlineID = var4;
          ServerMap.instance.ZombieMap.put(var4, var5);
-         assertEquals(var4, ((IsoZombie)ServerMap.instance.ZombieMap.get(var4)).OnlineID);
+         assertEquals(var4, (static_cast<IsoZombie>(ServerMap).instance.ZombieMap.get(var4)).OnlineID);
       }
 
     long var19 = System.nanoTime();
 
       for (short var6 = 0; var6 < var1; var6++) {
-         assertEquals(var6, ((IsoZombie)ServerMap.instance.ZombieMap.get(var6)).OnlineID);
+         assertEquals(var6, (static_cast<IsoZombie>(ServerMap).instance.ZombieMap.get(var6)).OnlineID);
          ServerMap.instance.ZombieMap.remove(var6);
          assertNull(ServerMap.instance.ZombieMap.get(var6));
       }
@@ -124,16 +124,16 @@ public:
 
       for (short var8 = 0; var8 < var1; var8++) {
          assertNull(ServerMap.instance.ZombieMap.get(var8));
-    IsoZombie var9 = new IsoZombie(this.cell);
+    auto var9 = std::make_shared<IsoZombie>(this.cell);
          var9.OnlineID = var8;
          ServerMap.instance.ZombieMap.put(var8, var9);
-         assertEquals(var8, ((IsoZombie)ServerMap.instance.ZombieMap.get(var8)).OnlineID);
+         assertEquals(var8, (static_cast<IsoZombie>(ServerMap).instance.ZombieMap.get(var8)).OnlineID);
       }
 
     long var21 = System.nanoTime();
 
       for (short var10 = 0; var10 < var1; var10++) {
-         assertEquals(var10, ((IsoZombie)ServerMap.instance.ZombieMap.get(var10)).OnlineID);
+         assertEquals(var10, (static_cast<IsoZombie>(ServerMap).instance.ZombieMap.get(var10)).OnlineID);
          ServerMap.instance.ZombieMap.remove(var10);
          assertNull(ServerMap.instance.ZombieMap.get(var10));
       }
@@ -142,10 +142,10 @@ public:
 
       for (short var12 = 0; var12 < var1; var12++) {
          assertNull(ServerMap.instance.ZombieMap.get(var12));
-    IsoZombie var13 = new IsoZombie(this.cell);
+    auto var13 = std::make_shared<IsoZombie>(this.cell);
          var13.OnlineID = var12;
          ServerMap.instance.ZombieMap.put(var12, var13);
-         assertEquals(var12, ((IsoZombie)ServerMap.instance.ZombieMap.get(var12)).OnlineID);
+         assertEquals(var12, (static_cast<IsoZombie>(ServerMap).instance.ZombieMap.get(var12)).OnlineID);
       }
 
     long var23 = System.nanoTime();

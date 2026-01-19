@@ -179,7 +179,7 @@ public:
                case 1:
                case 2:
                default:
-                  byte[] var5 = new byte[var1];
+                  std::vector<byte> var5 = new byte[var1];
                   var0.readFully(var5);
                   var2.put("palette", var5);
             }
@@ -191,14 +191,14 @@ public:
       switch (var3.getColorType()) {
          case 0:
             checkLength(1951551059, var1, 2);
-            var2.put("transparency", new int[]{var0.readUnsignedShort()});
+            var2.put("transparency", std::make_shared<std::vector<int>>(){var0.readUnsignedShort()});
             break;
          case 1:
          default:
             throw new PngException("tRNS prohibited for color type " + var3.getColorType(), true);
          case 2:
             checkLength(1951551059, var1, 6);
-            var2.put("transparency", new int[]{var0.readUnsignedShort(), var0.readUnsignedShort(), var0.readUnsignedShort()});
+            var2.put("transparency", std::make_shared<std::vector<int>>(){var0.readUnsignedShort(), var0.readUnsignedShort(), var0.readUnsignedShort()});
             break;
          case 3:
     int var4 = ((byte[])var3.getProperty("palette", byte[].class, true)).length / 3;
@@ -206,7 +206,7 @@ public:
                throw new PngException("Too many transparency palette entries (" + var1 + " > " + var4 + ")", true);
             }
 
-            byte[] var5 = new byte[var1];
+            std::vector<byte> var5 = new byte[var1];
             var0.readFully(var5);
             var2.put("palette_alpha", var5);
       }
@@ -216,22 +216,22 @@ public:
       var2.put("background_rgb", switch (var3.getColorType()) {
          case 0, 4 -> {
             checkLength(1649100612, var1, 2);
-            yield new int[]{var0.readUnsignedShort()};
+            yield std::make_shared<std::vector<int>>(){var0.readUnsignedShort()};
          }
          default -> {
             checkLength(1649100612, var1, 6);
-            yield new int[]{var0.readUnsignedShort(), var0.readUnsignedShort(), var0.readUnsignedShort()};
+            yield std::make_shared<std::vector<int>>(){var0.readUnsignedShort(), var0.readUnsignedShort(), var0.readUnsignedShort()};
          }
          case 3 -> {
             checkLength(1649100612, var1, 1);
-            yield new int[]{var0.readUnsignedByte()};
+            yield std::make_shared<std::vector<int>>(){var0.readUnsignedByte()};
          }
       });
    }
 
     static void read_cHRM(DataInput var0, int var1, std::unordered_map var2) {
       checkLength(1665684045, var1, 32);
-      float[] var3 = new float[8];
+      std::vector<float> var3 = std::make_shared<std::array<float, 8>>();
 
       for (int var4 = 0; var4 < 8; var4++) {
          var3[var4] = var0.readInt() / 100000.0F;
@@ -257,7 +257,7 @@ public:
     static void read_hIST(DataInput var0, int var1, std::unordered_map var2, PngImage var3) {
     int var4 = ((byte[])var3.getProperty("palette", byte[].class, true)).length / 3;
       checkLength(1749635924, var1, var4 * 2);
-      int[] var5 = new int[var4];
+      std::vector<int> var5 = new int[var4];
 
       for (int var6 = 0; var6 < var4; var6++) {
          var5[var6] = var0.readUnsignedShort();
@@ -268,7 +268,7 @@ public:
 
     static void read_iCCP(DataInput var0, int var1, std::unordered_map var2) {
     std::string var3 = readKeyword(var0, var1);
-      byte[] var4 = readCompressed(var0, var1 - var3.length() - 1, true);
+      std::vector<byte> var4 = readCompressed(var0, var1 - var3.length() - 1, true);
       var2.put("icc_profile_name", var3);
       var2.put("icc_profile", var4);
    }
@@ -292,7 +292,7 @@ public:
     int var5 = var4 ? 3 : var3.getSamples();
       checkLength(1933723988, var1, var5);
     int var6 = var4 ? 8 : var3.getBitDepth();
-      byte[] var7 = new byte[var5];
+      std::vector<byte> var7 = new byte[var5];
 
       for (int var8 = 0; var8 < var5; var8++) {
     uint8_t var9 = var0.readByte();
@@ -311,7 +311,7 @@ public:
     uint8_t var3 = var0.readByte();
       var2.put("rendering_intent", Integers.valueOf(var3));
       var2.put("gamma", new Float(0.45455));
-      var2.put("chromaticity", new float[]{0.3127F, 0.329F, 0.64F, 0.33F, 0.3F, 0.6F, 0.15F, 0.06F});
+      var2.put("chromaticity", std::make_shared<std::vector<float>>(){0.3127F, 0.329F, 0.64F, 0.33F, 0.3F, 0.6F, 0.15F, 0.06F});
    }
 
     static void read_tIME(DataInput var0, int var1, std::unordered_map var2) {
@@ -346,9 +346,9 @@ public:
          if (var1 % (var5 == 8 ? 6 : 10) != 0) {
             throw new PngException("Incorrect sPLT data length for given sample depth", false);
          } else {
-            byte[] var6 = new byte[var1];
+            std::vector<byte> var6 = new byte[var1];
             var0.readFully(var6);
-    void* var7 = (List)var3.getProperty("suggested_palettes", List.class, false);
+    void* var7 = static_cast<List>(var3).getProperty("suggested_palettes", List.class, false);
             if (var7 == nullptr) {
                var2.put("suggested_palettes", var7 = std::make_unique<ArrayList>());
             }
@@ -356,7 +356,7 @@ public:
     Iterator var8 = var7.iterator();
 
             while (var8.hasNext()) {
-               if (var4 == ((SuggestedPalette)var8.next()).getName())) {
+               if (var4 == (static_cast<SuggestedPalette>(var8).next()).getName())) {
                   throw new PngException("Duplicate suggested palette name " + var4, false);
                }
             }
@@ -367,9 +367,9 @@ public:
    }
 
     static void readText(int var0, DataInput var1, int var2, std::unordered_map var3, PngImage var4) {
-      byte[] var5 = new byte[var2];
+      std::vector<byte> var5 = new byte[var2];
       var1.readFully(var5);
-    DataInputStream var6 = new DataInputStream(new ByteArrayInputStream(var5));
+    auto var6 = std::make_shared<DataInputStream>(new ByteArrayInputStream(var5));
     std::string var7 = readKeyword(var6, var2);
     std::string var8 = "ISO-8859-1";
     bool var9 = false;
@@ -410,7 +410,7 @@ public:
       if (var15.indexOf(0) >= 0) {
          throw new PngException("Text value contains nullptr", false);
       } else {
-    void* var16 = (List)var4.getProperty("text_chunks", List.class, false);
+    void* var16 = static_cast<List>(var4).getProperty("text_chunks", List.class, false);
          if (var16 == nullptr) {
             var3.put("text_chunks", var16 = std::make_unique<ArrayList>());
          }
@@ -444,9 +444,9 @@ public:
    }
 
     static void read_sCAL(DataInput var0, int var1, std::unordered_map var2) {
-      byte[] var3 = new byte[var1];
+      std::vector<byte> var3 = new byte[var1];
       var0.readFully(var3);
-    DataInputStream var4 = new DataInputStream(new ByteArrayInputStream(var3));
+    auto var4 = std::make_shared<DataInputStream>(new ByteArrayInputStream(var3));
     uint8_t var5 = var4.readByte();
       if (var5 != 1 && var5 != 2) {
          throw new PngException("Illegal sCAL chunk unit specifier: " + var5, false);
@@ -492,11 +492,11 @@ public:
          var1--;
       }
 
-      byte[] var9 = new byte[var1];
+      std::vector<byte> var9 = new byte[var1];
       var0.readFully(var9);
-      byte[] var4 = new byte[4096];
-    ByteArrayOutputStream var5 = new ByteArrayOutputStream();
-    Inflater var6 = new Inflater();
+      std::vector<byte> var4 = std::make_shared<std::array<byte, 4096>>();
+    auto var5 = std::make_shared<ByteArrayOutputStream>();
+    auto var6 = std::make_shared<Inflater>();
       var6.reset();
       var6.setInput(var9, 0, var1);
 
@@ -525,7 +525,7 @@ public:
    }
 
    private static byte[] readToNull(DataInput var0, int var1) throws IOException {
-    ByteArrayOutputStream var2 = new ByteArrayOutputStream();
+    auto var2 = std::make_shared<ByteArrayOutputStream>();
 
       for (int var3 = 0; var3 < var1; var3++) {
     int var4 = var0.readUnsignedByte();

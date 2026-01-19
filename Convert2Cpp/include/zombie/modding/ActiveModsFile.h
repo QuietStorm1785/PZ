@@ -28,12 +28,12 @@ public:
       if (Core.getInstance().isNoSave()) {
     return false;
       } else {
-    File var3 = new File(var1);
+    auto var3 = std::make_shared<File>(var1);
 
          try {
             try (
-    FileWriter var4 = new FileWriter(var3);
-    BufferedWriter var5 = new BufferedWriter(var4);
+    auto var4 = std::make_shared<FileWriter>(var3);
+    auto var5 = std::make_shared<BufferedWriter>(var4);
             ) {
     std::string var6 = this.toString(var2);
                var5.write(var6);
@@ -48,23 +48,23 @@ public:
    }
 
     std::string toString(ActiveMods var1) {
-    Block var2 = new Block();
+    auto var2 = std::make_shared<Block>();
       var2.setValue("VERSION", String.valueOf(1));
     Block var3 = var2.addBlock("mods", null);
     std::vector var4 = var1.getMods();
 
       for (int var5 = 0; var5 < var4.size(); var5++) {
-         var3.addValue("mod", (String)var4.get(var5));
+         var3.addValue("mod", static_cast<String>(var4).get(var5));
       }
 
     Block var9 = var2.addBlock("maps", null);
     std::vector var6 = var1.getMapOrder();
 
       for (int var7 = 0; var7 < var6.size(); var7++) {
-         var9.addValue("map", (String)var6.get(var7));
+         var9.addValue("map", static_cast<String>(var6).get(var7));
       }
 
-    StringBuilder var10 = new StringBuilder();
+    auto var10 = std::make_shared<StringBuilder>();
     std::string var8 = System.lineSeparator();
       var2.prettyPrintElements(0, var10, var8);
       return var10.toString();
@@ -75,10 +75,10 @@ public:
 
       try {
          try (
-    FileReader var3 = new FileReader(var1);
-    BufferedReader var4 = new BufferedReader(var3);
+    auto var3 = std::make_shared<FileReader>(var1);
+    auto var4 = std::make_shared<BufferedReader>(var3);
          ) {
-    StringBuilder var5 = new StringBuilder();
+    auto var5 = std::make_shared<StringBuilder>();
 
             for (String var6 = var4.readLine(); var6 != nullptr; var6 = var4.readLine()) {
                var5.append(var6);

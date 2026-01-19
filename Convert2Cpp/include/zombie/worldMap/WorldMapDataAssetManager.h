@@ -23,10 +23,10 @@ namespace worldMap {
 
 class WorldMapDataAssetManager : public AssetManager {
 public:
-    static const WorldMapDataAssetManager instance = new WorldMapDataAssetManager();
+    static auto instance = std::make_shared<WorldMapDataAssetManager>();
 
     void startLoading(Asset var1) {
-    WorldMapData var2 = (WorldMapData)var1;
+    WorldMapData var2 = static_cast<WorldMapData>(var1);
     FileSystem var3 = this.getOwner().getFileSystem();
     std::string var5 = var1.getPath().getPath();
     void* var4;
@@ -37,7 +37,7 @@ public:
       }
 
       var4.setPriority(4);
-    AssetTask_RunFileTask var6 = new AssetTask_RunFileTask((FileTask)var4, var1);
+    auto var6 = std::make_shared<AssetTask_RunFileTask>(static_cast<FileTask>(var4), var1);
       this.setTask(var1, var6);
       var6.execute();
    }
@@ -53,7 +53,7 @@ public:
    }
 
     Asset createAsset(AssetPath var1, AssetParams var2) {
-    WorldMapData var3 = new WorldMapData(var1, this, var2);
+    auto var3 = std::make_shared<WorldMapData>(var1, this, var2);
       DebugFileWatcher.instance.add(new PredicatedFileWatcher(var1.getPath(), var3x -> this.reload(var3, var2)));
     return var3;
    }

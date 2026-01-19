@@ -17,14 +17,14 @@ namespace jorbis {
 
 class Floor0 : public FuncFloor {
 public:
-   float[] lsp = nullptr;
+   std::vector<float> lsp = nullptr;
 
     static float fromdB(float var0) {
       return (float)Math.exp(var0 * 0.11512925);
    }
 
     static void lpc_to_curve(float[] var0, float[] var1, float var2, LookFloor0 var3, const std::string& var4, int var5) {
-      float[] var6 = new float[Math.max(var3.ln * 2, var3.m * 2 + 2)];
+      std::vector<float> var6 = new float[Math.max(var3.ln * 2, var3.m * 2 + 2)];
       if (var2 == 0.0F) {
          for (int var8 = 0; var8 < var3.n; var8++) {
             var0[var8] = 0.0F;
@@ -40,12 +40,12 @@ public:
 
     static void lsp_to_lpc(float[] var0, float[] var1, int var2) {
     int var5 = var2 / 2;
-      float[] var6 = new float[var5];
-      float[] var7 = new float[var5];
-      float[] var9 = new float[var5 + 1];
-      float[] var10 = new float[var5 + 1];
-      float[] var12 = new float[var5];
-      float[] var13 = new float[var5];
+      std::vector<float> var6 = new float[var5];
+      std::vector<float> var7 = new float[var5];
+      std::vector<float> var9 = new float[var5 + 1];
+      std::vector<float> var10 = new float[var5 + 1];
+      std::vector<float> var12 = new float[var5];
+      std::vector<float> var13 = new float[var5];
 
       for (int var3 = 0; var3 < var5; var3++) {
          var6[var3] = (float)(-2.0 * Math.cos(var0[var3 * 2]));
@@ -102,7 +102,7 @@ public:
    }
 
     int inverse(Block var1, void* var2, float[] var3) {
-    LookFloor0 var4 = (LookFloor0)var2;
+    LookFloor0 var4 = static_cast<LookFloor0>(var2);
     InfoFloor0 var5 = var4.vi;
     int var6 = var1.opb.read(var5.ampbits);
       if (var6 > 0) {
@@ -153,9 +153,9 @@ public:
    }
 
     void* inverse1(Block var1, void* var2, void* var3) {
-    LookFloor0 var4 = (LookFloor0)var2;
+    LookFloor0 var4 = static_cast<LookFloor0>(var2);
     InfoFloor0 var5 = var4.vi;
-      float[] var6 = nullptr;
+      std::vector<float> var6 = nullptr;
       if (var3 instanceof float[]) {
          var6 = (float[])var3;
       }
@@ -198,10 +198,10 @@ public:
    }
 
     int inverse2(Block var1, void* var2, void* var3, float[] var4) {
-    LookFloor0 var5 = (LookFloor0)var2;
+    LookFloor0 var5 = static_cast<LookFloor0>(var2);
     InfoFloor0 var6 = var5.vi;
       if (var3 != nullptr) {
-         float[] var9 = (float[])var3;
+         std::vector<float> var9 = (float[])var3;
     float var8 = var9[var5.m];
          Lsp.lsp_to_curve(var4, var5.linearmap, var5.n, var5.ln, var9, var5.m, var8, var6.ampdB);
     return 1;
@@ -216,8 +216,8 @@ public:
 
     void* look(DspState var1, InfoMode var2, void* var3) {
     Info var5 = var1.vi;
-    InfoFloor0 var6 = (InfoFloor0)var3;
-    LookFloor0 var7 = new LookFloor0(this);
+    InfoFloor0 var6 = static_cast<InfoFloor0>(var3);
+    auto var7 = std::make_shared<LookFloor0>(this);
       var7.m = var6.order;
       var7.n = var5.blocksizes[var2.blockflag] / 2;
       var7.ln = var6.barkmap;
@@ -239,7 +239,7 @@ public:
    }
 
     void pack(void* var1, Buffer var2) {
-    InfoFloor0 var3 = (InfoFloor0)var1;
+    InfoFloor0 var3 = static_cast<InfoFloor0>(var1);
       var2.write(var3.order, 8);
       var2.write(var3.rate, 16);
       var2.write(var3.barkmap, 16);
@@ -253,8 +253,8 @@ public:
    }
 
     void* state(void* var1) {
-    EchstateFloor0 var2 = new EchstateFloor0(this);
-    InfoFloor0 var3 = (InfoFloor0)var1;
+    auto var2 = std::make_shared<EchstateFloor0>(this);
+    InfoFloor0 var3 = static_cast<InfoFloor0>(var1);
       var2.codewords = new int[var3.order];
       var2.curve = new float[var3.barkmap];
       var2.frameno = -1L;
@@ -262,7 +262,7 @@ public:
    }
 
     void* unpack(Info var1, Buffer var2) {
-    InfoFloor0 var3 = new InfoFloor0(this);
+    auto var3 = std::make_shared<InfoFloor0>(this);
       var3.order = var2.read(8);
       var3.rate = var2.read(16);
       var3.barkmap = var2.read(16);

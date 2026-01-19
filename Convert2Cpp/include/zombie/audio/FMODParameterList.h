@@ -14,7 +14,7 @@ namespace audio {
 class FMODParameterList {
 public:
    public final ArrayList<FMODParameter> parameterList = std::make_unique<ArrayList<>>();
-   public final FMODParameter[] parameterArray = new FMODParameter[96];
+   public final std::vector<FMODParameter> parameterArray = std::make_shared<std::array<FMODParameter, 96>>();
 
     void add(FMODParameter var1) {
       this.parameterList.add(var1);

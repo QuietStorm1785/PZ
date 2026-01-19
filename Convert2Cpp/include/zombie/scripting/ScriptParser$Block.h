@@ -118,7 +118,7 @@ public:
    }
 
     Value addValue(const std::string& var1, const std::string& var2) {
-    Value var3 = new Value();
+    auto var3 = std::make_shared<Value>();
       var3.string = var1 + " = " + var2;
       this.elements.add(var3);
       this.values.add(var3);

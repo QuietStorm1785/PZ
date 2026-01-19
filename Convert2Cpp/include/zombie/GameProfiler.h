@@ -24,8 +24,8 @@ public:
     static const std::string s_currentSessionUUID = UUID.randomUUID().toString();
    private static final ThreadLocal<GameProfiler> s_instance = ThreadLocal.withInitial(GameProfiler::new);
    private final Stack<ProfileArea> m_stack = std::make_unique<Stack<>>();
-    const RecordingFrame m_currentFrame = new RecordingFrame();
-    const RecordingFrame m_previousFrame = new RecordingFrame();
+    auto m_currentFrame = std::make_shared<RecordingFrame>();
+    auto m_previousFrame = std::make_shared<RecordingFrame>();
     bool m_isInFrame;
     const GameProfileRecording m_recorder;
     static const void* m_gameProfilerRecordingTriggerLock = "Game Profiler Recording Watcher, synchronization lock";

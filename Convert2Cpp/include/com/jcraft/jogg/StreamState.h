@@ -19,7 +19,7 @@ public:
     int body_storage;
    long[] granule_vals;
     long granulepos;
-   byte[] header = new byte[282];
+   std::vector<byte> header = std::make_shared<std::array<byte, 282>>();
     int header_fill;
     int lacing_fill;
     int lacing_packet;
@@ -230,9 +230,9 @@ public:
    }
 
     int pagein(Page var1) {
-      byte[] var2 = var1.header_base;
+      std::vector<byte> var2 = var1.header_base;
     int var3 = var1.header;
-      byte[] var4 = var1.body_base;
+      std::vector<byte> var4 = var1.body_base;
     int var5 = var1.body;
     int var6 = var1.body_len;
     int var7 = 0;
@@ -367,7 +367,7 @@ public:
     void body_expand(int var1) {
       if (this.body_storage <= this.body_fill + var1) {
          this.body_storage += var1 + 1024;
-         byte[] var2 = new byte[this.body_storage];
+         std::vector<byte> var2 = new byte[this.body_storage];
          System.arraycopy(this.body_data, 0, var2, 0, this.body_data.length);
          this.body_data = var2;
       }
@@ -388,10 +388,10 @@ public:
     void lacing_expand(int var1) {
       if (this.lacing_storage <= this.lacing_fill + var1) {
          this.lacing_storage += var1 + 32;
-         int[] var2 = new int[this.lacing_storage];
+         std::vector<int> var2 = new int[this.lacing_storage];
          System.arraycopy(this.lacing_vals, 0, var2, 0, this.lacing_vals.length);
          this.lacing_vals = var2;
-         long[] var3 = new long[this.lacing_storage];
+         std::vector<long> var3 = new long[this.lacing_storage];
          System.arraycopy(this.granule_vals, 0, var3, 0, this.granule_vals.length);
          this.granule_vals = var3;
       }

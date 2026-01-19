@@ -33,12 +33,12 @@ namespace zombie {
 class IndieGL {
 public:
     static int nCount = 0;
-    static const CIntValue tempInt = new CIntValue();
-    static const C2IntsValue temp2Ints = new C2IntsValue();
-    static const C3IntsValue temp3Ints = new C3IntsValue();
-    static const C4IntsValue temp4Ints = new C4IntsValue();
-    static const C4BooleansValue temp4Booleans = new C4BooleansValue();
-    static const CIntFloatValue tempIntFloat = new CIntFloatValue();
+    static auto tempInt = std::make_shared<CIntValue>();
+    static auto temp2Ints = std::make_shared<C2IntsValue>();
+    static auto temp3Ints = std::make_shared<C3IntsValue>();
+    static auto temp4Ints = std::make_shared<C4IntsValue>();
+    static auto temp4Booleans = std::make_shared<C4BooleansValue>();
+    static auto tempIntFloat = std::make_shared<CIntFloatValue>();
    private static final Stack<ShaderStackEntry> m_shaderStack = std::make_unique<Stack<>>();
 
     static void glBlendFunc(int var0, int var1) {

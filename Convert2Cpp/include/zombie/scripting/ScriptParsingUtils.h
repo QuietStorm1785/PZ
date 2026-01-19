@@ -22,7 +22,7 @@ public:
     int var10 = var0.indexOf(var1);
     int var12 = var0.indexOf(var2);
             if (var12 == -1) {
-               String[] var15 = var0.split(var1);
+               std::vector<String> var15 = var0.split(var1);
 
                for (int var18 = 0; var18 < var15.length; var18++) {
                   var3.add(var15[var18].trim());
@@ -31,20 +31,20 @@ public:
                var15 = new String[var3.size()];
 
                for (int var19 = 0; var19 < var3.size(); var19++) {
-                  var15[var19] = (String)var3.get(var19);
+                  var15[var19] = static_cast<String>(var3).get(var19);
                }
 
     return var15;
             }
 
             if (var10 == -1) {
-               String[] var14 = new String[var3.size()];
+               std::vector<String> var14 = new String[var3.size()];
                if (!var0.trim().isEmpty()) {
                   var3.add(var0.trim());
                }
 
                for (int var17 = 0; var17 < var3.size(); var17++) {
-                  var14[var17] = (String)var3.get(var17);
+                  var14[var17] = static_cast<String>(var3).get(var17);
                }
 
     return var14;
@@ -79,10 +79,10 @@ public:
          var3.add(var0.trim());
       }
 
-      String[] var11 = new String[var3.size()];
+      std::vector<String> var11 = new String[var3.size()];
 
       for (int var13 = 0; var13 < var3.size(); var13++) {
-         var11[var13] = (String)var3.get(var13);
+         var11[var13] = static_cast<String>(var3).get(var13);
       }
 
     return var11;
@@ -141,10 +141,10 @@ public:
             var9.add(var0.trim());
          }
 
-         String[] var10 = new String[var9.size()];
+         std::vector<String> var10 = new String[var9.size()];
 
          for (int var11 = 0; var11 < var9.size(); var11++) {
-            var10[var11] = ((String)var9.get(var11)).trim();
+            var10[var11] = (static_cast<String>(var9).get(var11)).trim();
          }
 
     return var10;

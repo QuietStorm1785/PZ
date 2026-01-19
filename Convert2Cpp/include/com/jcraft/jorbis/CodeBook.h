@@ -15,17 +15,17 @@ namespace jorbis {
 
 class CodeBook {
 public:
-    StaticCodeBook c = new StaticCodeBook();
+    auto c = std::make_shared<StaticCodeBook>();
    int[] codelist;
     DecodeAux decode_tree;
     int dim;
     int entries;
    float[] valuelist;
-   private int[] t = new int[15];
+   private std::vector<int> t = std::make_shared<std::array<int, 15>>();
 
    static int[] make_words(int[] var0, int var1) {
-      int[] var2 = new int[33];
-      int[] var3 = new int[var1];
+      std::vector<int> var2 = std::make_shared<std::array<int, 33>>();
+      std::vector<int> var3 = new int[var1];
 
       for (int var4 = 0; var4 < var1; var4++) {
     int var5 = var0[var4];
@@ -384,10 +384,10 @@ public:
 
     DecodeAux make_decode_tree() {
     int var1 = 0;
-    DecodeAux var2 = new DecodeAux(this);
-      int[] var3 = var2.ptr0 = new int[this.entries * 2];
-      int[] var4 = var2.ptr1 = new int[this.entries * 2];
-      int[] var5 = make_words(this.c.lengthlist, this.c.entries);
+    auto var2 = std::make_shared<DecodeAux>(this);
+      std::vector<int> var3 = var2.ptr0 = new int[this.entries * 2];
+      std::vector<int> var4 = var2.ptr1 = new int[this.entries * 2];
+      std::vector<int> var5 = make_words(this.c.lengthlist, this.c.entries);
       if (var5 == nullptr) {
     return null;
       } else {

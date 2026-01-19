@@ -29,7 +29,7 @@ public:
    private static ArrayList<String> getVanillaMapDirectories(boolean var0) {
     std::vector var1 = new ArrayList();
     File var2 = ZomboidFileSystem.instance.getMediaFile("maps");
-      String[] var3 = var2.list();
+      std::vector<String> var3 = var2.list();
       if (var3 != nullptr) {
          for (int var4 = 0; var4 < var3.length; var4++) {
     std::string var5 = var3[var4];
@@ -55,7 +55,7 @@ public:
     static std::string addMissingVanillaDirectories(const std::string& var0) {
     std::vector var1 = getVanillaMapDirectories(false);
     bool var2 = false;
-      String[] var3 = var0.split(";");
+      std::vector<String> var3 = var0.split(";");
 
     for (auto& var7 : var3)         var7 = var7.trim();
          if (!var7.isEmpty() && var1.contains(var7)) {
@@ -108,9 +108,9 @@ public:
       for (String var5 : var1.getMods()) {
     Mod var6 = ChooseGameInfo.getAvailableModDetails(var5);
          if (var6 != nullptr) {
-    File var7 = new File(var6.getDir() + "/media/maps/");
+    auto var7 = std::make_shared<File>(var6.getDir() + "/media/maps/");
             if (var7.exists()) {
-               String[] var8 = var7.list();
+               std::vector<String> var8 = var7.list();
                if (var8 != nullptr) {
                   for (int var9 = 0; var9 < var8.length; var9++) {
     std::string var10 = var8[var9];
@@ -212,7 +212,7 @@ public:
     std::string var3 = "";
 
       for (int var4 = 0; var4 < var2.size(); var4++) {
-         var3 = var3 + (String)var2.get(var4);
+         var3 = var3 + static_cast<String>(var2).get(var4);
          if (var4 < var2.size() - 1) {
             var3 = var3 + ";";
          }
@@ -224,13 +224,13 @@ public:
     void handleMapDirectory(const std::string& var1, const std::string& var2) {
     std::vector var3 = this.getLotDirectories(var2);
       if (var3 != nullptr) {
-    MapDirectory var4 = new MapDirectory(this, var1, var2, var3);
+    auto var4 = std::make_shared<MapDirectory>(this, var1, var2, var3);
          this.realDirectories.add(var4);
       }
    }
 
    private ArrayList<String> getLotDirectories(String var1) {
-    File var2 = new File(var1 + "/map.info");
+    auto var2 = std::make_shared<File>(var1 + "/map.info");
       if (!var2.exists()) {
     return null;
       } else {
@@ -239,8 +239,8 @@ public:
          try {
     std::string var6;
             try (
-    FileReader var4 = new FileReader(var2.getAbsolutePath());
-    BufferedReader var5 = new BufferedReader(var4);
+    auto var4 = std::make_shared<FileReader>(var2.getAbsolutePath());
+    auto var5 = std::make_shared<BufferedReader>(var4);
             ) {
                while ((var6 = var5.readLine()) != nullptr) {
                   var6 = var6.trim();

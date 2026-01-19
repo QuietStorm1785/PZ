@@ -26,12 +26,12 @@ public:
 
    Residue0$InfoResidue0(Residue0 var1) {
       this.this$0 = var1;
-      this.ampmax = new float[64];
-      this.blimit = new int[64];
-      this.booklist = new int[256];
-      this.entmax = new float[64];
-      this.secondstages = new int[64];
-      this.subgrp = new int[64];
+      this.ampmax = std::make_shared<std::array<float, 64>>();
+      this.blimit = std::make_shared<std::array<int, 64>>();
+      this.booklist = std::make_shared<std::array<int, 256>>();
+      this.entmax = std::make_shared<std::array<float, 64>>();
+      this.secondstages = std::make_shared<std::array<int, 64>>();
+      this.subgrp = std::make_shared<std::array<int, 64>>();
    }
 }
 } // namespace jorbis

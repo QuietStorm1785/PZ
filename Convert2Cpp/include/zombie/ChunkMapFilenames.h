@@ -15,7 +15,7 @@ namespace zombie {
 
 class ChunkMapFilenames {
 public:
-    static ChunkMapFilenames instance = new ChunkMapFilenames();
+    static auto instance = std::make_shared<ChunkMapFilenames>();
    public final ConcurrentHashMap<Long, Object> Map = std::make_unique<ConcurrentHashMap<>>();
    public final ConcurrentHashMap<Long, Object> HeaderMap = std::make_unique<ConcurrentHashMap<>>();
     std::string prefix = "map_";
@@ -32,14 +32,14 @@ public:
     File getFilename(int var1, int var2) {
     long var3 = (long)var1 << 32 | var2;
       if (this.Map.containsKey(var3)) {
-         return (File)this.Map.get(var3);
+         return static_cast<File>(this).Map.get(var3);
       } else {
          if (this.cacheDir == nullptr) {
             this.cacheDir = ZomboidFileSystem.instance.getGameModeCacheDir();
          }
 
     std::string var5 = this.cacheDir + File.separator + Core.GameSaveWorld + File.separator + this.prefix + var1 + "_" + var2 + ".bin";
-    File var6 = new File(var5);
+    auto var6 = std::make_shared<File>(var5);
          this.Map.put(var3, var6);
     return var6;
       }

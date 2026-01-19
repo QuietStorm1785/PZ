@@ -37,7 +37,7 @@ public:
       return this.raf.length();
    }
 
-   public synchronized void mark(int var1) {
+   public /* THREAD_SAFE */ void mark(int var1) {
    }
 
     bool markSupported() {
@@ -56,7 +56,7 @@ public:
       return this.raf.read(var1, var2, var3);
    }
 
-   public synchronized void reset() throws IOException {
+   public /* THREAD_SAFE */ void reset() throws IOException {
    }
 
     void seek(long var1) {

@@ -53,7 +53,7 @@ public:
    }
 
     void createFourCCString() {
-      byte[] var1 = new byte[]{(byte)this.fourCC, (byte)(this.fourCC >> 8), (byte)(this.fourCC >> 16), (byte)(this.fourCC >> 24)};
+      std::vector<byte> var1 = std::make_shared<std::vector<byte>>(){(byte)this.fourCC, (byte)(this.fourCC >> 8), (byte)(this.fourCC >> 16), (byte)(this.fourCC >> 24)};
       this.fourCCString = new String(var1);
    }
 

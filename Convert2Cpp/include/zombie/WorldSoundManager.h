@@ -31,10 +31,10 @@ namespace zombie {
 
 class WorldSoundManager {
 public:
-    static const WorldSoundManager instance = new WorldSoundManager();
+    static auto instance = std::make_shared<WorldSoundManager>();
    public final ArrayList<WorldSound> SoundList = std::make_unique<ArrayList<>>();
    private final Stack<WorldSound> freeSounds = std::make_unique<Stack<>>();
-    static const ResultBiggestSound resultBiggestSound = new ResultBiggestSound();
+    static auto resultBiggestSound = std::make_shared<ResultBiggestSound>();
 
     void init(IsoCell var1) {
    }
@@ -143,7 +143,7 @@ public:
          }
 
          for (int var4 = 0; var4 < var3.size(); var4++) {
-    WorldSound var5 = (WorldSound)var3.get(var4);
+    WorldSound var5 = static_cast<WorldSound>(var3).get(var4);
             if (var1.soundSourceTarget == var5.source) {
     return var5;
             }
@@ -173,7 +173,7 @@ public:
       }
 
       for (int var10 = 0; var10 < var9.size(); var10++) {
-    WorldSound var11 = (WorldSound)var9.get(var10);
+    WorldSound var11 = static_cast<WorldSound>(var9).get(var10);
          if (var11 != nullptr && var11.radius != 0) {
     float var12 = IsoUtils.DistanceToSquared(var1, var2, var11.x, var11.y);
     float var13 = var11.radius * this.getHearingMultiplier(var5);
@@ -342,7 +342,7 @@ public:
     IsoChunk var19 = var16.getChunk(var18, var17);
                            if (var19 != nullptr) {
                               for (int var7 = 0; var7 < var19.SoundList.size(); var7++) {
-    WorldSound var8 = (WorldSound)var19.SoundList.get(var7);
+    WorldSound var8 = static_cast<WorldSound>(var19).SoundList.get(var7);
     float var9 = var8.radius * var2;
 
                                  for (double var10 = 0.0; var10 < Math.PI * 2; var10 += Math.PI / 20) {

@@ -25,7 +25,7 @@ public:
    }
 
     void startPlaying(BaseSoundEmitter var1, long var2) {
-    FMODSoundEmitter var4 = (FMODSoundEmitter)Type.tryCastTo(var1, FMODSoundEmitter.class);
+    FMODSoundEmitter var4 = static_cast<FMODSoundEmitter>(Type).tryCastTo(var1, FMODSoundEmitter.class);
       if (var4 != nullptr) {
          var4.addParameter(new ParameterCurrentZone(this.object));
       }

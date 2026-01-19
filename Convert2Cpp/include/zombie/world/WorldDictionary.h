@@ -119,8 +119,8 @@ public:
     std::vector var0 = new ArrayList();
 
          for (int var1 = 0; var1 < ErosionRegions.regions.size(); var1++) {
-            for (int var2 = 0; var2 < ((Region)ErosionRegions.regions.get(var1)).categories.size(); var2++) {
-    ErosionCategory var3 = (ErosionCategory)((Region)ErosionRegions.regions.get(var1)).categories.get(var2);
+            for (int var2 = 0; var2 < (static_cast<Region>(ErosionRegions).regions.get(var1)).categories.size(); var2++) {
+    ErosionCategory var3 = (ErosionCategory)(static_cast<Region>(ErosionRegions).regions.get(var1)).categories.get(var2);
                var0.clear();
                var3.getObjectNames(var0);
 
@@ -169,7 +169,7 @@ public:
       collectObjectNames();
       WorldDictionaryLogger.startLogging();
       WorldDictionaryLogger.log("-------------------------------------------------------", false);
-    SimpleDateFormat var1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    auto var1 = std::make_shared<SimpleDateFormat>("yyyy/MM/dd HH:mm:ss");
       WorldDictionaryLogger.log("Time: " + var1.format(std::make_unique<Date>()), false);
       log("Checking dictionary...");
     Info var2 = null;

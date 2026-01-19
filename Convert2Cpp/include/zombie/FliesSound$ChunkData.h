@@ -21,7 +21,7 @@ public:
 
    private FliesSound$ChunkData(FliesSound var1, int var2, int var3) {
       this.this$0 = var1;
-      this.levelData = new ChunkLevelData[8];
+      this.levelData = std::make_shared<std::array<ChunkLevelData, 8>>();
       this.wx = var2;
       this.wy = var3;
 

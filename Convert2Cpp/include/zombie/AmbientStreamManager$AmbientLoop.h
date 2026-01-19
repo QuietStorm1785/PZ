@@ -18,7 +18,7 @@ public:
     std::string name;
     float volumedelta = 1.0F;
     long channel = -1L;
-    const FMODSoundEmitter emitter = new FMODSoundEmitter();
+    auto emitter = std::make_shared<FMODSoundEmitter>();
 
    public AmbientStreamManager$AmbientLoop(float var1, String var2, float var3) {
       this.volumedelta = var3;

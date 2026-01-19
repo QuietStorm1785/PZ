@@ -52,7 +52,7 @@ namespace scripting {
 
 class ScriptManager {
 public:
-    static const ScriptManager instance = new ScriptManager();
+    static auto instance = std::make_shared<ScriptManager>();
     std::string currentFileName;
    public final ArrayList<String> scriptsWithVehicles = std::make_unique<ArrayList<>>();
    public final ArrayList<String> scriptsWithVehicleTemplates = std::make_unique<ArrayList<>>();
@@ -62,7 +62,7 @@ public:
    private final HashMap<String, SoundTimelineScript> SoundTimelineMap = std::make_unique<HashMap<>>();
     ScriptModule CurrentLoadingModule = null;
    private final HashMap<String, String> ModuleAliases = std::make_unique<HashMap<>>();
-    const StringBuilder buf = new StringBuilder();
+    auto buf = std::make_shared<StringBuilder>();
    private final HashMap<String, ScriptModule> CachedModules = std::make_unique<HashMap<>>();
    private final ArrayList<Recipe> recipesTempList = std::make_unique<ArrayList<>>();
    private final Stack<EvolvedRecipe> evolvedRecipesTempList = std::make_unique<Stack<>>();
@@ -92,7 +92,7 @@ public:
     std::vector var2 = ScriptParser.parseTokens(var1);
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-    std::string var4 = (String)var2.get(var3);
+    std::string var4 = static_cast<String>(var2).get(var3);
          this.CreateFromToken(var4);
       }
    }
@@ -118,7 +118,7 @@ public:
          DebugLog.Script.warn(" file is not a .txt (script) file: " + var1);
       } else {
     InputStreamReader var3 = IndieFileLoader.getStreamReader(var1, !var2);
-    BufferedReader var4 = new BufferedReader(var3);
+    auto var4 = std::make_shared<BufferedReader>(var3);
          this.buf.setLength(0);
     void* var5 = null;
     std::string var6 = "";
@@ -130,7 +130,7 @@ public:
     break label108;
                   }
 
-                  this.buf.append((String)var5);
+                  this.buf.append(static_cast<String>(var5));
                   this.buf.append('\n');
                }
             } catch (Exception var17) {
@@ -161,7 +161,7 @@ public:
       if (var1.indexOf("module") == 0) {
     int var2 = var1.indexOf("{");
     int var3 = var1.lastIndexOf("}");
-         String[] var4 = var1.split("[{}]");
+         std::vector<String> var4 = var1.split("[{}]");
     std::string var5 = var4[0];
          var5 = var5.replace("module", "");
          var5 = var5.trim();
@@ -183,7 +183,7 @@ public:
 
     void searchFolders(URI var1, File var2, ArrayList<String> var3) {
       if (var2.isDirectory()) {
-         String[] var4 = var2.list();
+         std::vector<String> var4 = var2.list();
 
          for (int var5 = 0; var5 < var4.length; var5++) {
             this.searchFolders(var1, new File(var2.getAbsolutePath() + File.separator + var4[var5]), var3);
@@ -359,10 +359,10 @@ public:
     std::vector var3 = this.getAllItems();
 
             for (int var4 = 0; var4 < var3.size(); var4++) {
-    Item var5 = (Item)var3.get(var4);
+    Item var5 = static_cast<Item>(var3).get(var4);
 
                for (int var6 = 0; var6 < var5.Tags.size(); var6++) {
-                  if (((String)var5.Tags.get(var6)).equalsIgnoreCase(var1)) {
+                  if ((static_cast<String>(var5).Tags.get(var6)).equalsIgnoreCase(var1)) {
                      var2.add(var5);
                      break;
                   }
@@ -419,7 +419,7 @@ public:
     ScriptModule var2 = this.ModuleList.get(var1);
          if (!var2.disabled) {
             for (int var3 = 0; var3 < var2.RecipeMap.size(); var3++) {
-    Recipe var4 = (Recipe)var2.RecipeMap.get(var3);
+    Recipe var4 = static_cast<Recipe>(var2).RecipeMap.get(var3);
                this.recipesTempList.add(var4);
             }
          }
@@ -435,7 +435,7 @@ public:
     ScriptModule var2 = this.ModuleList.get(var1);
          if (!var2.disabled) {
             for (int var3 = 0; var3 < var2.EvolvedRecipeMap.size(); var3++) {
-    EvolvedRecipe var4 = (EvolvedRecipe)var2.EvolvedRecipeMap.get(var3);
+    EvolvedRecipe var4 = static_cast<EvolvedRecipe>(var2).EvolvedRecipeMap.get(var3);
                this.evolvedRecipesTempList.add(var4);
             }
          }
@@ -453,7 +453,7 @@ public:
     Iterator var3 = var2.UniqueRecipeMap.iterator();
 
             while (var3 != nullptr && var3.hasNext()) {
-    UniqueRecipe var4 = (UniqueRecipe)var3.next();
+    UniqueRecipe var4 = static_cast<UniqueRecipe>(var3).next();
                this.uniqueRecipesTempList.add(var4);
             }
          }
@@ -494,7 +494,7 @@ public:
     return null;
       } else {
          var1 = getItemName(var1);
-         return (AnimationsMesh)var2.AnimationsMeshMap.get(var1);
+         return static_cast<AnimationsMesh>(var2).AnimationsMeshMap.get(var1);
       }
    }
 
@@ -517,7 +517,7 @@ public:
     return null;
       } else {
          var1 = getItemName(var1);
-         return (MannequinScript)var2.MannequinScriptMap.get(var1);
+         return static_cast<MannequinScript>(var2).MannequinScriptMap.get(var1);
       }
    }
 
@@ -541,7 +541,7 @@ public:
     return null;
       } else {
          var1 = getItemName(var1);
-         return (ModelScript)var2.ModelScriptMap.get(var1);
+         return static_cast<ModelScript>(var2).ModelScriptMap.get(var1);
       }
    }
 
@@ -629,26 +629,26 @@ public:
     std::vector var17 = ZomboidFileSystem.instance.getModIDs();
 
          for (int var4 = 0; var4 < var17.size(); var4++) {
-    std::string var5 = ZomboidFileSystem.instance.getModDir((String)var17.get(var4));
+    std::string var5 = ZomboidFileSystem.instance.getModDir(static_cast<String>(var17).get(var4));
             if (var5 != nullptr) {
-    File var6 = new File(var5);
+    auto var6 = std::make_shared<File>(var5);
     URI var7 = var6.toURI();
     int var8 = var15.size();
     File var9 = ZomboidFileSystem.instance.getCanonicalFile(var6, "media");
     File var10 = ZomboidFileSystem.instance.getCanonicalFile(var9, "scripts");
                this.searchFolders(var7, var10, var15);
-               if (((String)var17.get(var4)) == "pz-vanilla")) {
+               if ((static_cast<String>(var17).get(var4)) == "pz-vanilla")) {
                   throw new RuntimeException("Warning mod id is named pz-vanilla!");
                }
 
                for (int var11 = var8; var11 < var15.size(); var11++) {
-    std::string var12 = (String)var15.get(var11);
-                  this.tempFileToModMap.put(ZomboidFileSystem.instance.getAbsolutePath(var12), (String)var17.get(var4));
+    std::string var12 = static_cast<String>(var15).get(var11);
+                  this.tempFileToModMap.put(ZomboidFileSystem.instance.getAbsolutePath(var12), static_cast<String>(var17).get(var4));
                }
             }
          }
 
-    1 var19 = new 1(this);
+    auto var19 = std::make_shared<1>(this);
          Collections.sort(var1, var19);
          Collections.sort(var15, var19);
          var1.addAll(var15);
@@ -713,7 +713,7 @@ public:
     void debugItems() {
       for (Item var3 : instance.getAllItems()) {
          if (var3.getType() == Type.Drainable && var3.getReplaceOnUse() != nullptr) {
-            DebugLog.Script.warn("%s ReplaceOnUse instead of ReplaceOnDeplete", new Object[]{var3.getFullName()});
+            DebugLog.Script.warn("%s ReplaceOnUse instead of ReplaceOnDeplete", std::make_shared<std::vector<Object>>(){var3.getFullName()});
          }
 
          if (var3.getType() == Type.Weapon && !var3.HitSound == var3.hitFloorSound)) {
@@ -734,13 +734,13 @@ public:
     std::vector var3 = new ArrayList();
 
       for (int var4 = 0; var4 < var2.size(); var4++) {
-    std::string var5 = ((Recipe)var2.get(var4)).Result.type;
+    std::string var5 = (static_cast<Recipe>(var2).get(var4)).Result.type;
          if (var5.contains(".")) {
             var5 = var5.substring(var5.indexOf(".") + 1);
          }
 
          if (var5 == var1)) {
-            var3.add((Recipe)var2.get(var4));
+            var3.add(static_cast<Recipe>(var2).get(var4));
          }
       }
 

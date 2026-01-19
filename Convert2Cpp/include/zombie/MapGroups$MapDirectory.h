@@ -36,9 +36,9 @@ public:
    }
 
     void getLotHeaders(ArrayList<String> var1) {
-    File var2 = new File(this.path);
+    auto var2 = std::make_shared<File>(this.path);
       if (var2.isDirectory()) {
-         String[] var3 = var2.list();
+         std::vector<String> var3 = var2.list();
          if (var3 != nullptr) {
             for (int var4 = 0; var4 < var3.length; var4++) {
                if (var3[var4].endsWith(".lotheader")) {

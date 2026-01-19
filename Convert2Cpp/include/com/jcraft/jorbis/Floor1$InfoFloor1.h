@@ -36,15 +36,15 @@ public:
 
    Floor1$InfoFloor1(Floor1 var1) {
       this.this$0 = var1;
-      this.class_book = new int[16];
-      this.class_dim = new int[16];
-      this.class_subbook = new int[16][];
-      this.class_subs = new int[16];
-      this.partitionclass = new int[31];
-      this.postlist = new int[65];
+      this.class_book = std::make_shared<std::array<int, 16>>();
+      this.class_dim = std::make_shared<std::array<int, 16>>();
+      this.class_subbook = std::make_shared<std::array<int, 16>>()[];
+      this.class_subs = std::make_shared<std::array<int, 16>>();
+      this.partitionclass = std::make_shared<std::array<int, 31>>();
+      this.postlist = std::make_shared<std::array<int, 65>>();
 
       for (int var2 = 0; var2 < this.class_subbook.length; var2++) {
-         this.class_subbook[var2] = new int[8];
+         this.class_subbook[var2] = std::make_shared<std::array<int, 8>>();
       }
    }
 

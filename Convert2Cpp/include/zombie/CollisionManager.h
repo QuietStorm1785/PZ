@@ -25,27 +25,27 @@ namespace zombie {
 
 class CollisionManager {
 public:
-    static Vector2 temp = new Vector2();
-    static Vector2 axis = new Vector2();
-    static Polygon polygonA = new Polygon();
-    static Polygon polygonB = new Polygon();
+    static auto temp = std::make_shared<Vector2>();
+    static auto axis = std::make_shared<Vector2>();
+    static auto polygonA = std::make_shared<Polygon>();
+    static auto polygonB = std::make_shared<Polygon>();
     float minA = 0.0F;
     float minB = 0.0F;
     float maxA = 0.0F;
     float maxB = 0.0F;
-    PolygonCollisionResult result = new PolygonCollisionResult(this);
+    auto result = std::make_shared<PolygonCollisionResult>(this);
    public ArrayList<Contact> ContactMap = std::make_unique<ArrayList<>>();
-   Long[] longArray = new Long[1000];
+   std::vector<Long> longArray = std::make_shared<std::array<Long, 1000>>();
    Stack<Contact> contacts = std::make_unique<Stack<>>();
-    static const CollisionManager instance = new CollisionManager();
+    static auto instance = std::make_shared<CollisionManager>();
 
     void ProjectPolygonA(Vector2 var1, Polygon var2) {
-    float var3 = var1.dot((Vector2)var2.points.get(0));
+    float var3 = var1.dot(static_cast<Vector2>(var2).points.get(0));
       this.minA = var3;
       this.maxA = var3;
 
       for (int var4 = 0; var4 < var2.points.size(); var4++) {
-         var3 = ((Vector2)var2.points.get(var4)).dot(var1);
+         var3 = (static_cast<Vector2>(var2).points.get(var4)).dot(var1);
          if (var3 < this.minA) {
             this.minA = var3;
          } else if (var3 > this.maxA) {
@@ -55,12 +55,12 @@ public:
    }
 
     void ProjectPolygonB(Vector2 var1, Polygon var2) {
-    float var3 = var1.dot((Vector2)var2.points.get(0));
+    float var3 = var1.dot(static_cast<Vector2>(var2).points.get(0));
       this.minB = var3;
       this.maxB = var3;
 
       for (int var4 = 0; var4 < var2.points.size(); var4++) {
-         var3 = ((Vector2)var2.points.get(var4)).dot(var1);
+         var3 = (static_cast<Vector2>(var2).points.get(var4)).dot(var1);
          if (var3 < this.minB) {
             this.minB = var3;
          } else if (var3 > this.maxB) {
@@ -77,14 +77,14 @@ public:
     int var2 = polygonA.edges.size();
     int var3 = polygonB.edges.size();
     float var4 = Float.POSITIVE_INFINITY;
-    Vector2 var5 = new Vector2();
+    auto var5 = std::make_shared<Vector2>();
 
       for (int var7 = 0; var7 < var2 + var3; var7++) {
     Vector2 var6;
          if (var7 < var2) {
-            var6 = (Vector2)polygonA.edges.get(var7);
+            var6 = static_cast<Vector2>(polygonA).edges.get(var7);
          } else {
-            var6 = (Vector2)polygonB.edges.get(var7 - var2);
+            var6 = static_cast<Vector2>(polygonB).edges.get(var7 - var2);
          }
 
          axis.x = -var6.y;
@@ -191,7 +191,7 @@ public:
     int var5 = var4.size();
 
       for (int var6 = 0; var6 < var5; var6++) {
-    IsoPushableObject var7 = (IsoPushableObject)var4.get(var6);
+    IsoPushableObject var7 = static_cast<IsoPushableObject>(var4).get(var6);
          if (var7.getImpulsex() != 0.0F || var7.getImpulsey() != 0.0F) {
             if (var7.connectList != nullptr) {
                var3.add(var7);
@@ -209,21 +209,21 @@ public:
     int var24 = var3.size();
 
       for (int var25 = 0; var25 < var24; var25++) {
-    IsoPushableObject var8 = (IsoPushableObject)var3.get(var25);
+    IsoPushableObject var8 = static_cast<IsoPushableObject>(var3).get(var25);
     float var9 = 0.0F;
     float var10 = 0.0F;
 
          for (int var11 = 0; var11 < var8.connectList.size(); var11++) {
-            var9 += ((IsoPushableObject)var8.connectList.get(var11)).getImpulsex();
-            var10 += ((IsoPushableObject)var8.connectList.get(var11)).getImpulsey();
+            var9 += (static_cast<IsoPushableObject>(var8).connectList.get(var11)).getImpulsex();
+            var10 += (static_cast<IsoPushableObject>(var8).connectList.get(var11)).getImpulsey();
          }
 
          var9 /= var8.connectList.size();
          var10 /= var8.connectList.size();
 
          for (int var34 = 0; var34 < var8.connectList.size(); var34++) {
-            ((IsoPushableObject)var8.connectList.get(var34)).setImpulsex(var9);
-            ((IsoPushableObject)var8.connectList.get(var34)).setImpulsey(var10);
+            (static_cast<IsoPushableObject>(var8).connectList.get(var34)).setImpulsex(var9);
+            (static_cast<IsoPushableObject>(var8).connectList.get(var34)).setImpulsey(var10);
     int var12 = var3.indexOf(var8.connectList.get(var34));
             var3.remove(var8.connectList.get(var34));
             if (var12 <= var25) {
@@ -275,20 +275,20 @@ public:
                               + var30.b.getWeight(var18.MinimumTranslationVector.x, var18.MinimumTranslationVector.y)
                         );
                   if (var30.a instanceof IsoPushableObject && var30.b instanceof IsoSurvivor) {
-                     ((IsoSurvivor)var30.b).bCollidedWithPushable = true;
-                     ((IsoSurvivor)var30.b).collidePushable = (IsoPushableObject)var30.a;
+                     (static_cast<IsoSurvivor>(var30).b).bCollidedWithPushable = true;
+                     (static_cast<IsoSurvivor>(var30).b).collidePushable = static_cast<IsoPushableObject>(var30).a;
                   } else if (var30.b instanceof IsoPushableObject && var30.a instanceof IsoSurvivor) {
-                     ((IsoSurvivor)var30.a).bCollidedWithPushable = true;
-                     ((IsoSurvivor)var30.a).collidePushable = (IsoPushableObject)var30.b;
+                     (static_cast<IsoSurvivor>(var30).a).bCollidedWithPushable = true;
+                     (static_cast<IsoSurvivor>(var30).a).collidePushable = static_cast<IsoPushableObject>(var30).b;
                   }
 
                   if (var30.a instanceof IsoPushableObject) {
-    std::vector var20 = ((IsoPushableObject)var30.a).connectList;
+    std::vector var20 = (static_cast<IsoPushableObject>(var30).a).connectList;
                      if (var20 != nullptr) {
     int var21 = var20.size();
 
                         for (int var22 = 0; var22 < var21; var22++) {
-    IsoPushableObject var23 = (IsoPushableObject)var20.get(var22);
+    IsoPushableObject var23 = static_cast<IsoPushableObject>(var20).get(var22);
                            var23.setImpulsex(var23.getImpulsex() + var18.MinimumTranslationVector.x * var19);
                            var23.setImpulsey(var23.getImpulsey() + var18.MinimumTranslationVector.y * var19);
                         }
@@ -299,12 +299,12 @@ public:
                   }
 
                   if (var30.b instanceof IsoPushableObject) {
-    std::vector var37 = ((IsoPushableObject)var30.b).connectList;
+    std::vector var37 = (static_cast<IsoPushableObject>(var30).b).connectList;
                      if (var37 != nullptr) {
     int var38 = var37.size();
 
                         for (int var39 = 0; var39 < var38; var39++) {
-    IsoPushableObject var40 = (IsoPushableObject)var37.get(var39);
+    IsoPushableObject var40 = static_cast<IsoPushableObject>(var37).get(var39);
                            var40.setImpulsex(var40.getImpulsex() - var18.MinimumTranslationVector.x * (1.0F - var19));
                            var40.setImpulsey(var40.getImpulsey() - var18.MinimumTranslationVector.y * (1.0F - var19));
                         }

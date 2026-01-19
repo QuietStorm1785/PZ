@@ -24,7 +24,7 @@ public:
     static const int COLOR_OFFSET = 12;
     static const int NUM_ELEMENTS = 2340;
     static const int INDEX_SIZE = 2;
-    static const WorldMapVBOs instance = new WorldMapVBOs();
+    static auto instance = std::make_shared<WorldMapVBOs>();
    private final ArrayList<WorldMapVBO> m_vbos = std::make_unique<ArrayList<>>();
     ByteBuffer m_elements;
     ByteBuffer m_indices;
@@ -40,7 +40,7 @@ public:
 
     void flush() {
       if (this.m_vbos.isEmpty()) {
-    WorldMapVBO var1 = new WorldMapVBO();
+    auto var1 = std::make_shared<WorldMapVBO>();
          var1.create();
          this.m_vbos.add(var1);
       }
@@ -55,7 +55,7 @@ public:
    }
 
     void addVBO() {
-    WorldMapVBO var1 = new WorldMapVBO();
+    auto var1 = std::make_shared<WorldMapVBO>();
       var1.create();
       this.m_vbos.add(var1);
       this.m_elements.clear();

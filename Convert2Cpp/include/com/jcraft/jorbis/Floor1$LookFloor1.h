@@ -30,11 +30,11 @@ public:
 
    Floor1$LookFloor1(Floor1 var1) {
       this.this$0 = var1;
-      this.forward_index = new int[65];
-      this.hineighbor = new int[63];
-      this.loneighbor = new int[63];
-      this.reverse_index = new int[65];
-      this.sorted_index = new int[65];
+      this.forward_index = std::make_shared<std::array<int, 65>>();
+      this.hineighbor = std::make_shared<std::array<int, 63>>();
+      this.loneighbor = std::make_shared<std::array<int, 63>>();
+      this.reverse_index = std::make_shared<std::array<int, 65>>();
+      this.sorted_index = std::make_shared<std::array<int, 65>>();
    }
 
     void free() {

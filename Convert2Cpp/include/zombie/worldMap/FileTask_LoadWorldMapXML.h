@@ -34,7 +34,7 @@ public:
    }
 
     void* call() {
-    WorldMapXML var1 = new WorldMapXML();
+    auto var1 = std::make_shared<WorldMapXML>();
       return var1.read(this.m_filename, this.m_worldMapData) ? Boolean.TRUE : Boolean.FALSE;
    }
 }

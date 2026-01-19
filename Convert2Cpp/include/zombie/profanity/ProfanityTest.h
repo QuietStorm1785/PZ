@@ -52,8 +52,8 @@ public:
 
       try {
     File var3 = ZomboidFileSystem.instance.getMediaFile("profanity" + File.separator + "Dictionary.txt");
-    FileReader var4 = new FileReader(var3);
-    BufferedReader var5 = new BufferedReader(var4);
+    auto var4 = std::make_shared<FileReader>(var3);
+    auto var5 = std::make_shared<BufferedReader>(var4);
     new StringBuffer();
     int var9 = 0;
     int var10 = 0;

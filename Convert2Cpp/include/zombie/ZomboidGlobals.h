@@ -46,40 +46,40 @@ public:
     static double FoodSicknessDecrease = 0.0;
 
     static void Load() {
-    KahluaTable var0 = (KahluaTable)LuaManager.env.rawget("ZomboidGlobals");
-      SprintingEnduranceReduce = (Double)var0.rawget("SprintingEnduranceReduce");
-      RunningEnduranceReduce = (Double)var0.rawget("RunningEnduranceReduce");
-      ImobileEnduranceReduce = (Double)var0.rawget("ImobileEnduranceIncrease");
-      ThirstIncrease = (Double)var0.rawget("ThirstIncrease");
-      ThirstSleepingIncrease = (Double)var0.rawget("ThirstSleepingIncrease");
-      ThirstLevelToAutoDrink = (Double)var0.rawget("ThirstLevelToAutoDrink");
-      ThirstLevelReductionOnAutoDrink = (Double)var0.rawget("ThirstLevelReductionOnAutoDrink");
-      HungerIncrease = (Double)var0.rawget("HungerIncrease");
-      HungerIncreaseWhenWellFed = (Double)var0.rawget("HungerIncreaseWhenWellFed");
-      HungerIncreaseWhileAsleep = (Double)var0.rawget("HungerIncreaseWhileAsleep");
-      HungerIncreaseWhenExercise = (Double)var0.rawget("HungerIncreaseWhenExercise");
-      FatigueIncrease = (Double)var0.rawget("FatigueIncrease");
-      StressReduction = (Double)var0.rawget("StressDecrease");
-      BoredomIncreaseRate = (Double)var0.rawget("BoredomIncrease");
-      BoredomDecreaseRate = (Double)var0.rawget("BoredomDecrease");
-      UnhappinessIncrease = (Double)var0.rawget("UnhappinessIncrease");
-      StressFromSoundsMultiplier = (Double)var0.rawget("StressFromSoundsMultiplier");
-      StressFromBiteOrScratch = (Double)var0.rawget("StressFromBiteOrScratch");
-      StressFromHemophobic = (Double)var0.rawget("StressFromHemophobic");
-      AngerDecrease = (Double)var0.rawget("AngerDecrease");
-      BroodingAngerDecreaseMultiplier = (Double)var0.rawget("BroodingAngerDecreaseMultiplier");
-      SleepFatigueReduction = (Double)var0.rawget("SleepFatigueReduction");
-      WetnessIncrease = (Double)var0.rawget("WetnessIncrease");
-      WetnessDecrease = (Double)var0.rawget("WetnessDecrease");
-      CatchAColdIncreaseRate = (Double)var0.rawget("CatchAColdIncreaseRate");
-      CatchAColdDecreaseRate = (Double)var0.rawget("CatchAColdDecreaseRate");
-      PoisonLevelDecrease = (Double)var0.rawget("PoisonLevelDecrease");
-      PoisonHealthReduction = (Double)var0.rawget("PoisonHealthReduction");
-      FoodSicknessDecrease = (Double)var0.rawget("FoodSicknessDecrease");
+    KahluaTable var0 = static_cast<KahluaTable>(LuaManager).env.rawget("ZomboidGlobals");
+      SprintingEnduranceReduce = static_cast<Double>(var0).rawget("SprintingEnduranceReduce");
+      RunningEnduranceReduce = static_cast<Double>(var0).rawget("RunningEnduranceReduce");
+      ImobileEnduranceReduce = static_cast<Double>(var0).rawget("ImobileEnduranceIncrease");
+      ThirstIncrease = static_cast<Double>(var0).rawget("ThirstIncrease");
+      ThirstSleepingIncrease = static_cast<Double>(var0).rawget("ThirstSleepingIncrease");
+      ThirstLevelToAutoDrink = static_cast<Double>(var0).rawget("ThirstLevelToAutoDrink");
+      ThirstLevelReductionOnAutoDrink = static_cast<Double>(var0).rawget("ThirstLevelReductionOnAutoDrink");
+      HungerIncrease = static_cast<Double>(var0).rawget("HungerIncrease");
+      HungerIncreaseWhenWellFed = static_cast<Double>(var0).rawget("HungerIncreaseWhenWellFed");
+      HungerIncreaseWhileAsleep = static_cast<Double>(var0).rawget("HungerIncreaseWhileAsleep");
+      HungerIncreaseWhenExercise = static_cast<Double>(var0).rawget("HungerIncreaseWhenExercise");
+      FatigueIncrease = static_cast<Double>(var0).rawget("FatigueIncrease");
+      StressReduction = static_cast<Double>(var0).rawget("StressDecrease");
+      BoredomIncreaseRate = static_cast<Double>(var0).rawget("BoredomIncrease");
+      BoredomDecreaseRate = static_cast<Double>(var0).rawget("BoredomDecrease");
+      UnhappinessIncrease = static_cast<Double>(var0).rawget("UnhappinessIncrease");
+      StressFromSoundsMultiplier = static_cast<Double>(var0).rawget("StressFromSoundsMultiplier");
+      StressFromBiteOrScratch = static_cast<Double>(var0).rawget("StressFromBiteOrScratch");
+      StressFromHemophobic = static_cast<Double>(var0).rawget("StressFromHemophobic");
+      AngerDecrease = static_cast<Double>(var0).rawget("AngerDecrease");
+      BroodingAngerDecreaseMultiplier = static_cast<Double>(var0).rawget("BroodingAngerDecreaseMultiplier");
+      SleepFatigueReduction = static_cast<Double>(var0).rawget("SleepFatigueReduction");
+      WetnessIncrease = static_cast<Double>(var0).rawget("WetnessIncrease");
+      WetnessDecrease = static_cast<Double>(var0).rawget("WetnessDecrease");
+      CatchAColdIncreaseRate = static_cast<Double>(var0).rawget("CatchAColdIncreaseRate");
+      CatchAColdDecreaseRate = static_cast<Double>(var0).rawget("CatchAColdDecreaseRate");
+      PoisonLevelDecrease = static_cast<Double>(var0).rawget("PoisonLevelDecrease");
+      PoisonHealthReduction = static_cast<Double>(var0).rawget("PoisonHealthReduction");
+      FoodSicknessDecrease = static_cast<Double>(var0).rawget("FoodSicknessDecrease");
    }
 
     static void toLua() {
-    KahluaTable var0 = (KahluaTable)LuaManager.env.rawget("ZomboidGlobals");
+    KahluaTable var0 = static_cast<KahluaTable>(LuaManager).env.rawget("ZomboidGlobals");
       if (var0 == nullptr) {
          DebugLog.log("ERROR: ZomboidGlobals table undefined in Lua");
       } else {

@@ -14,7 +14,7 @@ namespace png {
 
 class PngConfig {
 public:
-   private static final int[] DEFAULT_SUBSAMPLING = new int[]{1, 1, 0, 0};
+   private static final std::vector<int> DEFAULT_SUBSAMPLING = std::make_shared<std::vector<int>>(){1, 1, 0, 0};
     int readLimit = 0;
     float defaultGamma = 0.45455F;
     float displayExponent = 2.2F;
@@ -23,7 +23,7 @@ public:
     bool reduce16 = true;
     bool gammaCorrect = true;
     Rectangle sourceRegion;
-   int[] subsampling = DEFAULT_SUBSAMPLING;
+   std::vector<int> subsampling = DEFAULT_SUBSAMPLING;
     bool convertIndexed;
 
    public PngConfig$Builder() {
@@ -95,7 +95,7 @@ public:
 
    public PngConfig$Builder sourceSubsampling(int var1, int var2, int var3, int var4) {
       if (var1 > 0 && var2 > 0 && var3 >= 0 && var3 < var1 && var4 >= 0 && var4 < var2) {
-         this.subsampling = new int[]{var1, var2, var3, var4};
+         this.subsampling = std::make_shared<std::vector<int>>(){var1, var2, var3, var4};
     return this;
       } else {
          throw new IllegalArgumentException("invalid subsampling values");

@@ -19,7 +19,7 @@ public:
 
     public FMODSoundBuffer(long var1) {
       this.sound = var1;
-      this.buf1 = new byte[2048];
+      this.buf1 = std::make_shared<std::array<byte, 2048>>();
       this.buf1size = new Long(0L);
       this.vadStatus = new Long(0L);
       this.loudness = new Long(0L);

@@ -20,7 +20,7 @@ namespace jorbis {
 class DecodeExample {
 public:
     static int convsize = 8192;
-   static byte[] convbuffer = new byte[convsize];
+   static std::vector<byte> convbuffer = new byte[convsize];
 
     static void main(String[] var0) {
     void* var1 = System.in;
@@ -32,21 +32,21 @@ public:
          }
       }
 
-    SyncState var2 = new SyncState();
-    StreamState var3 = new StreamState();
-    Page var4 = new Page();
-    Packet var5 = new Packet();
-    Info var6 = new Info();
-    Comment var7 = new Comment();
-    DspState var8 = new DspState();
-    Block var9 = new Block(var8);
+    auto var2 = std::make_shared<SyncState>();
+    auto var3 = std::make_shared<StreamState>();
+    auto var4 = std::make_shared<Page>();
+    auto var5 = std::make_shared<Packet>();
+    auto var6 = std::make_shared<Info>();
+    auto var7 = std::make_shared<Comment>();
+    auto var8 = std::make_shared<DspState>();
+    auto var9 = std::make_shared<Block>(var8);
     int var11 = 0;
       var2.init();
 
       while (true) {
     bool var12 = false;
     int var13 = var2.buffer(4096);
-         byte[] var10 = var2.data;
+         std::vector<byte> var10 = var2.data;
 
          try {
             var11 = var1.read(var10, var13, 4096);
@@ -139,8 +139,8 @@ public:
          convsize = 4096 / var6.channels;
          var8.synthesis_init(var6);
          var9.init(var8);
-         float[][][] var36 = new float[1][][];
-         int[] var37 = new int[var6.channels];
+         float[][][] var36 = std::make_shared<std::array<float, 1>>()[][];
+         std::vector<int> var37 = new int[var6.channels];
 
          while (!var12) {
             while (!var12) {

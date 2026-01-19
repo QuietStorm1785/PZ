@@ -58,11 +58,11 @@ public:
     std::vector var2 = this.buckets[var1 % this.frameMod];
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-    IsoMovingObject var4 = (IsoMovingObject)var2.get(var3);
+    IsoMovingObject var4 = static_cast<IsoMovingObject>(var2).get(var3);
          if (var4 instanceof IsoDeadBody) {
             IsoWorld.instance.getCell().getRemoveList().add(var4);
          } else {
-    IsoZombie var5 = (IsoZombie)Type.tryCastTo(var4, IsoZombie.class);
+    IsoZombie var5 = static_cast<IsoZombie>(Type).tryCastTo(var4, IsoZombie.class);
             if (var5 != nullptr && VirtualZombieManager.instance.isReused(var5)) {
                DebugLog.log(DebugType.Zombie, "REUSABLE ZOMBIE IN MovingObjectUpdateSchedulerUpdateBucket IGNORED " + var4);
             } else {
@@ -80,8 +80,8 @@ public:
     std::vector var2 = this.buckets[var1 % this.frameMod];
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-    IsoMovingObject var4 = (IsoMovingObject)var2.get(var3);
-    IsoZombie var5 = (IsoZombie)Type.tryCastTo(var4, IsoZombie.class);
+    IsoMovingObject var4 = static_cast<IsoMovingObject>(var2).get(var3);
+    IsoZombie var5 = static_cast<IsoZombie>(Type).tryCastTo(var4, IsoZombie.class);
          if (var5 != nullptr && VirtualZombieManager.instance.isReused(var5)) {
             DebugLog.log(DebugType.Zombie, "REUSABLE ZOMBIE IN MovingObjectUpdateSchedulerUpdateBucket IGNORED " + var4);
          } else {

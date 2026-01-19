@@ -17,9 +17,9 @@ namespace zombie {
 
 class ZombieSpawnRecorder {
 public:
-    static const ZombieSpawnRecorder instance = new ZombieSpawnRecorder();
+    static auto instance = std::make_shared<ZombieSpawnRecorder>();
     ZLogger m_logger;
-    const StringBuilder m_stringBuilder = new StringBuilder();
+    auto m_stringBuilder = std::make_shared<StringBuilder>();
 
     void init() {
       if (this.m_logger != nullptr) {
@@ -70,7 +70,7 @@ public:
     void record(ArrayList<IsoZombie> var1, const std::string& var2) {
       if (var1 != nullptr) {
          for (int var3 = 0; var3 < var1.size(); var3++) {
-            this.record((IsoZombie)var1.get(var3), var2);
+            this.record(static_cast<IsoZombie>(var1).get(var3), var2);
          }
       }
    }

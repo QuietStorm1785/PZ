@@ -11,7 +11,7 @@ namespace zombie {
 
 class CollisionMatrixPrototypes {
 public:
-    static CollisionMatrixPrototypes instance = new CollisionMatrixPrototypes();
+    static auto instance = std::make_shared<CollisionMatrixPrototypes>();
    public HashMap<Integer, boolean[][][]> Map = std::make_unique<HashMap<>>();
 
     int ToBitMatrix(boolean[][][] var1) {
@@ -34,7 +34,7 @@ public:
       if (this.Map.containsKey(var1)) {
          return this.Map.get(var1);
       } else {
-         boolean[][][] var2 = new boolean[3][3][3];
+         boolean[][][] var2 = std::make_shared<std::array<boolean, 3>>()[3][3];
 
          for (int var3 = 0; var3 < 3; var3++) {
             for (int var4 = 0; var4 < 3; var4++) {

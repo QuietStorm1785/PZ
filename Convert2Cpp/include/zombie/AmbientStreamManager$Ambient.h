@@ -28,7 +28,7 @@ public:
     int worldSoundRadius;
     int worldSoundVolume;
     bool trackMouse = false;
-    const FMODSoundEmitter emitter = new FMODSoundEmitter();
+    auto emitter = std::make_shared<FMODSoundEmitter>();
 
    public AmbientStreamManager$Ambient(String var1, float var2, float var3, float var4, float var5) {
       this(var1, var2, var3, var4, var5, false);

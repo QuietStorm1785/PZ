@@ -13,7 +13,7 @@ namespace spnetwork {
 
 class ZomboidNetDataPool {
 public:
-    static ZomboidNetDataPool instance = new ZomboidNetDataPool();
+    static auto instance = std::make_shared<ZomboidNetDataPool>();
    private final ArrayDeque<ZomboidNetData> Pool = std::make_unique<ArrayDeque<>>();
 
     ZomboidNetData get() {

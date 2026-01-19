@@ -19,7 +19,7 @@ public:
     const AssetManager m_asset_manager;
     AssetPath m_path;
     int m_ref_count;
-    const PRIVATE m_priv = new PRIVATE(this);
+    auto m_priv = std::make_shared<PRIVATE>(this);
 
     protected Asset(AssetPath var1, AssetManager var2) {
       this.m_ref_count = 0;

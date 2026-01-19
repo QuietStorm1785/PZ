@@ -27,12 +27,12 @@ public:
     int m_minY;
     int m_maxX;
     int m_maxY;
-    static const AssetType ASSET_TYPE = new AssetType("WorldMapData");
+    static auto ASSET_TYPE = std::make_shared<AssetType>("WorldMapData");
 
     static WorldMapData getOrCreateData(const std::string& var0) {
     WorldMapData var1 = s_fileNameToData.get(var0);
       if (var1 == nullptr && Files.exists(Paths.get(var0))) {
-         var1 = (WorldMapData)WorldMapDataAssetManager.instance.load(new AssetPath(var0));
+         var1 = static_cast<WorldMapData>(WorldMapDataAssetManager).instance.load(new AssetPath(var0));
          s_fileNameToData.put(var0, var1);
       }
 

@@ -28,7 +28,7 @@ public:
    }
 
    public static SurvivorDesc[] CreateFamily(int var0) {
-      SurvivorDesc[] var1 = new SurvivorDesc[var0];
+      std::vector<SurvivorDesc> var1 = new SurvivorDesc[var0];
 
       for (int var2 = 0; var2 < var0; var2++) {
          var1[var2] = CreateSurvivor();
@@ -54,7 +54,7 @@ public:
    }
 
     static SurvivorDesc CreateSurvivor(SurvivorType var0, bool var1) {
-    SurvivorDesc var2 = new SurvivorDesc();
+    auto var2 = std::make_shared<SurvivorDesc>();
       var2.setType(var0);
       IsoGameCharacter.getSurvivorMap().put(var2.ID, var2);
       var2.setFemale(var1);
@@ -81,7 +81,7 @@ public:
    }
 
    public static SurvivorDesc[] CreateSurvivorGroup(int var0) {
-      SurvivorDesc[] var1 = new SurvivorDesc[var0];
+      std::vector<SurvivorDesc> var1 = new SurvivorDesc[var0];
 
       for (int var2 = 0; var2 < var0; var2++) {
          var1[var2] = CreateSurvivor();
@@ -92,7 +92,7 @@ public:
 
     static IsoSurvivor InstansiateInCell(SurvivorDesc var0, IsoCell var1, int var2, int var3, int var4) {
       var0.Instance = new IsoSurvivor(var0, var1, var2, var3, var4);
-      return (IsoSurvivor)var0.Instance;
+      return static_cast<IsoSurvivor>(var0).Instance;
    }
 
     static void randomName(SurvivorDesc var0) {

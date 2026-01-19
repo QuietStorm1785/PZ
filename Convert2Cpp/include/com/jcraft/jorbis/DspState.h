@@ -39,26 +39,26 @@ public:
     long res_bits;
     long sequence;
     long time_bits;
-   Object[][] transform = new Object[2][];
+   Object[][] transform = std::make_shared<std::array<Object, 2>>()[];
     Info vi;
     int W;
-   float[][][][][] window = new float[2][][][][];
+   float[][][][][] window = std::make_shared<std::array<float, 2>>()[][][][];
 
     public DspState() {
-      this.window[0] = new float[2][][][];
-      this.window[0][0] = new float[2][][];
-      this.window[0][1] = new float[2][][];
-      this.window[0][0][0] = new float[2][];
-      this.window[0][0][1] = new float[2][];
-      this.window[0][1][0] = new float[2][];
-      this.window[0][1][1] = new float[2][];
-      this.window[1] = new float[2][][][];
-      this.window[1][0] = new float[2][][];
-      this.window[1][1] = new float[2][][];
-      this.window[1][0][0] = new float[2][];
-      this.window[1][0][1] = new float[2][];
-      this.window[1][1][0] = new float[2][];
-      this.window[1][1][1] = new float[2][];
+      this.window[0] = std::make_shared<std::array<float, 2>>()[][][];
+      this.window[0][0] = std::make_shared<std::array<float, 2>>()[][];
+      this.window[0][1] = std::make_shared<std::array<float, 2>>()[][];
+      this.window[0][0][0] = std::make_shared<std::array<float, 2>>()[];
+      this.window[0][0][1] = std::make_shared<std::array<float, 2>>()[];
+      this.window[0][1][0] = std::make_shared<std::array<float, 2>>()[];
+      this.window[0][1][1] = std::make_shared<std::array<float, 2>>()[];
+      this.window[1] = std::make_shared<std::array<float, 2>>()[][][];
+      this.window[1][0] = std::make_shared<std::array<float, 2>>()[][];
+      this.window[1][1] = std::make_shared<std::array<float, 2>>()[][];
+      this.window[1][0][0] = std::make_shared<std::array<float, 2>>()[];
+      this.window[1][0][1] = std::make_shared<std::array<float, 2>>()[];
+      this.window[1][1][0] = std::make_shared<std::array<float, 2>>()[];
+      this.window[1][1][1] = std::make_shared<std::array<float, 2>>()[];
    }
 
    DspState(Info var1) {
@@ -71,7 +71,7 @@ public:
    }
 
    static float[] window(int var0, int var1, int var2, int var3) {
-      float[] var4 = new float[var1];
+      std::vector<float> var4 = new float[var1];
       switch (var0) {
          case 0:
     int var5 = var1 / 4 - var2 / 2;
@@ -144,7 +144,7 @@ public:
          this.pcm_storage = var5 + this.vi.blocksizes[1];
 
          for (int var8 = 0; var8 < this.vi.channels; var8++) {
-            float[] var9 = new float[this.pcm_storage];
+            std::vector<float> var9 = new float[this.pcm_storage];
             System.arraycopy(this.pcm[var8], 0, var9, 0, this.pcm[var8].length);
             this.pcm[var8] = var9;
          }
@@ -233,20 +233,20 @@ public:
     int init(Info var1, bool var2) {
       this.vi = var1;
       this.modebits = Util.ilog2(var1.modes);
-      this.transform[0] = new Object[1];
-      this.transform[1] = new Object[1];
+      this.transform[0] = std::make_shared<std::array<Object, 1>>();
+      this.transform[1] = std::make_shared<std::array<Object, 1>>();
       this.transform[0][0] = std::make_unique<Mdct>();
       this.transform[1][0] = std::make_unique<Mdct>();
-      ((Mdct)this.transform[0][0]).init(var1.blocksizes[0]);
-      ((Mdct)this.transform[1][0]).init(var1.blocksizes[1]);
-      this.window[0][0][0] = new float[1][];
+      (static_cast<Mdct>(this).transform[0][0]).init(var1.blocksizes[0]);
+      (static_cast<Mdct>(this).transform[1][0]).init(var1.blocksizes[1]);
+      this.window[0][0][0] = std::make_shared<std::array<float, 1>>()[];
       this.window[0][0][1] = this.window[0][0][0];
       this.window[0][1][0] = this.window[0][0][0];
       this.window[0][1][1] = this.window[0][0][0];
-      this.window[1][0][0] = new float[1][];
-      this.window[1][0][1] = new float[1][];
-      this.window[1][1][0] = new float[1][];
-      this.window[1][1][1] = new float[1][];
+      this.window[1][0][0] = std::make_shared<std::array<float, 1>>()[];
+      this.window[1][0][1] = std::make_shared<std::array<float, 1>>()[];
+      this.window[1][1][0] = std::make_shared<std::array<float, 1>>()[];
+      this.window[1][1][1] = std::make_shared<std::array<float, 1>>()[];
 
       for (int var3 = 0; var3 < 1; var3++) {
          this.window[0][0][0][var3] = window(var3, var1.blocksizes[0], var1.blocksizes[0] / 2, var1.blocksizes[0] / 2);

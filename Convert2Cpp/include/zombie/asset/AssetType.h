@@ -13,11 +13,11 @@ namespace asset {
 
 class AssetType {
 public:
-    static const AssetType INVALID_ASSET_TYPE = new AssetType("");
+    static auto INVALID_ASSET_TYPE = std::make_shared<AssetType>("");
     long type;
 
     public AssetType(const std::string& var1) {
-    CRC32 var2 = new CRC32();
+    auto var2 = std::make_shared<CRC32>();
       var2.update(var1.getBytes());
       this.type = var2.getValue();
    }

@@ -25,7 +25,7 @@ public:
     bool m_predicateWatchersInvokingDirty = true;
     long m_modificationTime = -1L;
    private final ArrayList<String> m_modifiedFiles = std::make_unique<ArrayList<>>();
-    static const DebugFileWatcher instance = new DebugFileWatcher();
+    static auto instance = std::make_shared<DebugFileWatcher>();
 
     private DebugFileWatcher() {
    }
@@ -97,7 +97,7 @@ public:
 
                for (WatchEvent var4 : var1.pollEvents()) {
                   if (var4.kind() == StandardWatchEventKinds.ENTRY_MODIFY) {
-    Path var6 = (Path)var4.context();
+    Path var6 = static_cast<Path>(var4).context();
     Path var7 = var2.resolve(var6);
     std::string var8 = this.m_watchedFiles.getOrDefault(var7, var7.toString());
                      this.m_modificationTime = System.currentTimeMillis();
@@ -105,7 +105,7 @@ public:
                         this.m_modifiedFiles.add(var8);
                      }
                   } else if (var4.kind() == StandardWatchEventKinds.ENTRY_CREATE) {
-    Path var16 = (Path)var4.context();
+    Path var16 = static_cast<Path>(var4).context();
     Path var17 = var2.resolve(var16);
                      if (Files.isDirectory(var17)) {
                         this.registerDirRecursive(var17);

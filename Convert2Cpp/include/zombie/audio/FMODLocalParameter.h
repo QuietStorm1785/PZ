@@ -14,7 +14,7 @@ namespace audio {
 
 class FMODLocalParameter : public FMODParameter {
 public:
-    const TLongArrayList m_instances = new TLongArrayList();
+    auto m_instances = std::make_shared<TLongArrayList>();
 
     public FMODLocalParameter(const std::string& var1) {
       super(var1);

@@ -21,15 +21,15 @@ class WorldMapBinary {
 public:
     static const int VERSION1 = 1;
     static const int VERSION_LATEST = 1;
-    const SharedStrings m_sharedStrings = new SharedStrings();
+    auto m_sharedStrings = std::make_shared<SharedStrings>();
    private final TIntObjectHashMap<String> m_stringTable = std::make_unique<TIntObjectHashMap>();
-    const WorldMapProperties m_properties = new WorldMapProperties();
+    auto m_properties = std::make_shared<WorldMapProperties>();
    private final ArrayList<WorldMapProperties> m_sharedProperties = std::make_unique<ArrayList<>>();
 
     bool read(const std::string& var1, WorldMapData var2) {
       try (
-    FileInputStream var3 = new FileInputStream(var1);
-    BufferedInputStream var4 = new BufferedInputStream(var3);
+    auto var3 = std::make_shared<FileInputStream>(var1);
+    auto var4 = std::make_shared<BufferedInputStream>(var3);
       ) {
     int var5 = var4.read();
     int var6 = var4.read();
@@ -89,7 +89,7 @@ public:
 
     void readStringTable(InputStream var1) {
     ByteBuffer var2 = ByteBuffer.allocate(1024);
-      byte[] var3 = new byte[1024];
+      std::vector<byte> var3 = std::make_shared<std::array<byte, 1024>>();
     int var4 = this.readInt(var1);
 
       for (int var5 = 0; var5 < var4; var5++) {
@@ -108,7 +108,7 @@ public:
       if (!this.m_stringTable.containsKey(var2)) {
          throw new IOException("invalid string-table index " + var2);
       } else {
-         return (String)this.m_stringTable.get(var2);
+         return static_cast<String>(this).m_stringTable.get(var2);
       }
    }
 
@@ -118,7 +118,7 @@ public:
     return null;
       } else {
     int var3 = this.readInt(var1);
-    WorldMapCell var4 = new WorldMapCell();
+    auto var4 = std::make_shared<WorldMapCell>();
          var4.m_x = var2;
          var4.m_y = var3;
     int var5 = this.readInt(var1);
@@ -133,7 +133,7 @@ public:
    }
 
     WorldMapFeature parseFeature(WorldMapCell var1, InputStream var2) {
-    WorldMapFeature var3 = new WorldMapFeature(var1);
+    auto var3 = std::make_shared<WorldMapFeature>(var1);
     WorldMapGeometry var4 = this.parseGeometry(var2);
       var3.m_geometries.add(var4);
       this.parseFeatureProperties(var2, var3);
@@ -160,19 +160,19 @@ public:
          }
       }
 
-    WorldMapProperties var3 = new WorldMapProperties();
+    auto var3 = std::make_shared<WorldMapProperties>();
       var3.putAll(var1);
       this.m_sharedProperties.add(var3);
     return var3;
    }
 
     WorldMapGeometry parseGeometry(InputStream var1) {
-    WorldMapGeometry var2 = new WorldMapGeometry();
+    auto var2 = std::make_shared<WorldMapGeometry>();
       var2.m_type = Type.valueOf(this.readStringIndexed(var1));
     int var3 = this.readByte(var1);
 
       for (int var4 = 0; var4 < var3; var4++) {
-    WorldMapPoints var5 = new WorldMapPoints();
+    auto var5 = std::make_shared<WorldMapPoints>();
          this.parseGeometryCoordinates(var1, var5);
          var2.m_points.add(var5);
       }

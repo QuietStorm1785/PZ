@@ -17,7 +17,7 @@ namespace characters {
 class TestZombieInterpolate : public Assert {
 public:
     void test_predictor_stay() {
-    NetworkCharacter var1 = new NetworkCharacter();
+    auto var1 = std::make_shared<NetworkCharacter>();
     short var2 = 10000;
     short var3 = 250;
     float var4 = 100.0F;
@@ -41,7 +41,7 @@ public:
    }
 
     void test_predictor_normal_go() {
-    NetworkCharacter var1 = new NetworkCharacter();
+    auto var1 = std::make_shared<NetworkCharacter>();
     short var2 = 10000;
     short var3 = 250;
     float var4 = 100.0F;
@@ -63,7 +63,7 @@ public:
    }
 
     void test_predictor() {
-    NetworkCharacter var1 = new NetworkCharacter();
+    auto var1 = std::make_shared<NetworkCharacter>();
     int var2 = 10000;
     short var3 = 200;
     float var4 = 100.0F;
@@ -94,7 +94,7 @@ public:
    }
 
     void test_predictor_normal_rotate() {
-    NetworkCharacter var1 = new NetworkCharacter();
+    auto var1 = std::make_shared<NetworkCharacter>();
     short var2 = 10000;
     short var3 = 250;
     float var4 = 100.0F;
@@ -125,7 +125,7 @@ public:
    }
 
     void test_reconstructor_stay() {
-    NetworkCharacter var1 = new NetworkCharacter(0.0F, 100.0F, 0L);
+    auto var1 = std::make_shared<NetworkCharacter>(0.0F, 100.0F, 0L);
     Transform var2 = var1.transform;
     short var3 = 10000;
     short var4 = 250;
@@ -155,7 +155,7 @@ public:
    }
 
     void test_reconstructor_normal_go() {
-    NetworkCharacter var1 = new NetworkCharacter(0.0F, 100.0F, 0L);
+    auto var1 = std::make_shared<NetworkCharacter>(0.0F, 100.0F, 0L);
     Transform var2 = var1.transform;
     short var3 = 10000;
     int var4 = var3;
@@ -187,10 +187,10 @@ public:
    }
 
     void test_reconstructor_unnormal_go() {
-    Transform var1 = new Transform();
+    auto var1 = std::make_shared<Transform>();
       var1.position = std::make_unique<Vector2>();
       var1.rotation = std::make_unique<Vector2>();
-    NetworkCharacter var2 = new NetworkCharacter(0.0F, 100.0F, 0L);
+    auto var2 = std::make_shared<NetworkCharacter>(0.0F, 100.0F, 0L);
     Transform var3 = var2.transform;
     short var4 = 10000;
     int var5 = var4;
@@ -236,7 +236,7 @@ public:
    }
 
     void test_all() {
-    NetworkCharacter var1 = new NetworkCharacter(0.0F, 100.0F, 0L);
+    auto var1 = std::make_shared<NetworkCharacter>(0.0F, 100.0F, 0L);
     Transform var2 = var1.transform;
     int var3 = 10000;
     int var4 = var3;
@@ -341,10 +341,10 @@ public:
    }
 
     void test_case1() {
-    Transform var1 = new Transform();
+    auto var1 = std::make_shared<Transform>();
       var1.position = std::make_unique<Vector2>();
       var1.rotation = std::make_unique<Vector2>();
-      long[] var2 = new long[]{
+      std::vector<long> var2 = std::make_shared<std::vector<long>>(){
          982999607L,
          982999623L,
          982999640L,
@@ -363,7 +363,7 @@ public:
          982999856L,
          982999872L
       };
-    NetworkCharacter var3 = new NetworkCharacter(0.0F, 100.0F, 0L);
+    auto var3 = std::make_shared<NetworkCharacter>(0.0F, 100.0F, 0L);
     Transform var4 = var3.transform;
       System.out.print("update x:10593.158 y:9952.486 t:982998656\n");
       System.out.print("update x:10593.23 y:9950.746 t:982999872\n");

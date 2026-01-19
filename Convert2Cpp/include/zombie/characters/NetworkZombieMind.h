@@ -63,9 +63,9 @@ public:
          this.pfbType = var1.pfbType;
          if (this.pfbType == 1) {
             if (GameServer.bServer) {
-               this.pfbTargetCharacter = (IsoPlayer)GameServer.IDToPlayerMap.get(var1.pfbTarget);
+               this.pfbTargetCharacter = static_cast<IsoPlayer>(GameServer).IDToPlayerMap.get(var1.pfbTarget);
             } else if (GameClient.bClient) {
-               this.pfbTargetCharacter = (IsoPlayer)GameClient.IDToPlayerMap.get(var1.pfbTarget);
+               this.pfbTargetCharacter = static_cast<IsoPlayer>(GameClient).IDToPlayerMap.get(var1.pfbTarget);
             }
          } else if (this.pfbType > 1) {
             this.pfbTargetX = var1.pfbTargetX;

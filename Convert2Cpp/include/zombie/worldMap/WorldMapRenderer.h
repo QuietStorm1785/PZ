@@ -52,46 +52,46 @@ public:
     float m_zoomUIY;
     float m_zoomWorldX;
     float m_zoomWorldY;
-    const Matrix4f m_projection = new Matrix4f();
-    const Matrix4f m_modelView = new Matrix4f();
-    const Quaternionf m_modelViewChange = new Quaternionf();
+    auto m_projection = std::make_shared<Matrix4f>();
+    auto m_modelView = std::make_shared<Matrix4f>();
+    auto m_modelViewChange = std::make_shared<Quaternionf>();
     long m_viewChangeTime;
     static long VIEW_CHANGE_TIME = 350L;
     bool m_isometric;
     bool m_firstUpdate = false;
     WorldMapVisited m_visited;
-   private final Drawer[] m_drawer = new Drawer[3];
-    const CharacterModelCamera m_CharacterModelCamera = new CharacterModelCamera();
+   private final std::vector<Drawer> m_drawer = std::make_shared<std::array<Drawer, 3>>();
+    auto m_CharacterModelCamera = std::make_shared<CharacterModelCamera>();
     int m_dropShadowWidth = 12;
     WorldMapStyle m_style = null;
-    static const VBOLines m_vboLines = new VBOLines();
-    static const VBOLinesUV m_vboLinesUV = new VBOLinesUV();
-   private final int[] m_viewport = new int[]{0, 0, 0, 0};
+    static auto m_vboLines = std::make_shared<VBOLines>();
+    static auto m_vboLinesUV = std::make_shared<VBOLinesUV>();
+   private final std::vector<int> m_viewport = std::make_shared<std::vector<int>>(){0, 0, 0, 0};
    private static final ThreadLocal<ObjectPool<Plane>> TL_Plane_pool = ThreadLocal.withInitial(PlaneObjectPool::new);
    private static final ThreadLocal<ObjectPool<Ray>> TL_Ray_pool = ThreadLocal.withInitial(RayObjectPool::new);
     static const float SMALL_NUM = 1.0E-8F;
    private final ArrayList<ConfigOption> options = std::make_unique<ArrayList<>>();
-    const WorldMapBooleanOption BlurUnvisited = new WorldMapBooleanOption(this, "BlurUnvisited", true);
-    const WorldMapBooleanOption BuildingsWithoutFeatures = new WorldMapBooleanOption(this, "BuildingsWithoutFeatures", false);
-    const WorldMapBooleanOption DebugInfo = new WorldMapBooleanOption(this, "DebugInfo", false);
-    const WorldMapBooleanOption CellGrid = new WorldMapBooleanOption(this, "CellGrid", false);
-    const WorldMapBooleanOption TileGrid = new WorldMapBooleanOption(this, "TileGrid", false);
-    const WorldMapBooleanOption UnvisitedGrid = new WorldMapBooleanOption(this, "UnvisitedGrid", true);
-    const WorldMapBooleanOption Features = new WorldMapBooleanOption(this, "Features", true);
-    const WorldMapBooleanOption ForestZones = new WorldMapBooleanOption(this, "ForestZones", false);
-    const WorldMapBooleanOption HideUnvisited = new WorldMapBooleanOption(this, "HideUnvisited", false);
-    const WorldMapBooleanOption HitTest = new WorldMapBooleanOption(this, "HitTest", false);
-    const WorldMapBooleanOption ImagePyramid = new WorldMapBooleanOption(this, "ImagePyramid", false);
-    const WorldMapBooleanOption Isometric = new WorldMapBooleanOption(this, "Isometric", true);
-    const WorldMapBooleanOption LineString = new WorldMapBooleanOption(this, "LineString", true);
-    const WorldMapBooleanOption Players = new WorldMapBooleanOption(this, "Players", false);
-    const WorldMapBooleanOption RemotePlayers = new WorldMapBooleanOption(this, "RemotePlayers", false);
-    const WorldMapBooleanOption PlayerNames = new WorldMapBooleanOption(this, "PlayerNames", false);
-    const WorldMapBooleanOption Symbols = new WorldMapBooleanOption(this, "Symbols", true);
-    const WorldMapBooleanOption Wireframe = new WorldMapBooleanOption(this, "Wireframe", false);
-    const WorldMapBooleanOption WorldBounds = new WorldMapBooleanOption(this, "WorldBounds", true);
-    const WorldMapBooleanOption MiniMapSymbols = new WorldMapBooleanOption(this, "MiniMapSymbols", false);
-    const WorldMapBooleanOption VisibleCells = new WorldMapBooleanOption(this, "VisibleCells", false);
+    auto BlurUnvisited = std::make_shared<WorldMapBooleanOption>(this, "BlurUnvisited", true);
+    auto BuildingsWithoutFeatures = std::make_shared<WorldMapBooleanOption>(this, "BuildingsWithoutFeatures", false);
+    auto DebugInfo = std::make_shared<WorldMapBooleanOption>(this, "DebugInfo", false);
+    auto CellGrid = std::make_shared<WorldMapBooleanOption>(this, "CellGrid", false);
+    auto TileGrid = std::make_shared<WorldMapBooleanOption>(this, "TileGrid", false);
+    auto UnvisitedGrid = std::make_shared<WorldMapBooleanOption>(this, "UnvisitedGrid", true);
+    auto Features = std::make_shared<WorldMapBooleanOption>(this, "Features", true);
+    auto ForestZones = std::make_shared<WorldMapBooleanOption>(this, "ForestZones", false);
+    auto HideUnvisited = std::make_shared<WorldMapBooleanOption>(this, "HideUnvisited", false);
+    auto HitTest = std::make_shared<WorldMapBooleanOption>(this, "HitTest", false);
+    auto ImagePyramid = std::make_shared<WorldMapBooleanOption>(this, "ImagePyramid", false);
+    auto Isometric = std::make_shared<WorldMapBooleanOption>(this, "Isometric", true);
+    auto LineString = std::make_shared<WorldMapBooleanOption>(this, "LineString", true);
+    auto Players = std::make_shared<WorldMapBooleanOption>(this, "Players", false);
+    auto RemotePlayers = std::make_shared<WorldMapBooleanOption>(this, "RemotePlayers", false);
+    auto PlayerNames = std::make_shared<WorldMapBooleanOption>(this, "PlayerNames", false);
+    auto Symbols = std::make_shared<WorldMapBooleanOption>(this, "Symbols", true);
+    auto Wireframe = std::make_shared<WorldMapBooleanOption>(this, "Wireframe", false);
+    auto WorldBounds = std::make_shared<WorldMapBooleanOption>(this, "WorldBounds", true);
+    auto MiniMapSymbols = std::make_shared<WorldMapBooleanOption>(this, "MiniMapSymbols", false);
+    auto VisibleCells = std::make_shared<WorldMapBooleanOption>(this, "VisibleCells", false);
 
     public WorldMapRenderer() {
       PZArrayUtil.arrayPopulate(this.m_drawer, Drawer::new);
@@ -381,23 +381,23 @@ public:
    }
 
     static Matrix4f allocMatrix4f() {
-      return (Matrix4f)((Matrix4fObjectPool)BaseVehicle.TL_matrix4f_pool.get()).alloc();
+      return (Matrix4f)(static_cast<Matrix4fObjectPool>(BaseVehicle).TL_matrix4f_pool.get()).alloc();
    }
 
     static void releaseMatrix4f(Matrix4f var0) {
-      ((Matrix4fObjectPool)BaseVehicle.TL_matrix4f_pool.get()).release(var0);
+      (static_cast<Matrix4fObjectPool>(BaseVehicle).TL_matrix4f_pool.get()).release(var0);
    }
 
     static Quaternionf allocQuaternionf() {
-      return (Quaternionf)((QuaternionfObjectPool)BaseVehicle.TL_quaternionf_pool.get()).alloc();
+      return (Quaternionf)(static_cast<QuaternionfObjectPool>(BaseVehicle).TL_quaternionf_pool.get()).alloc();
    }
 
     static void releaseQuaternionf(Quaternionf var0) {
-      ((QuaternionfObjectPool)BaseVehicle.TL_quaternionf_pool.get()).release(var0);
+      (static_cast<QuaternionfObjectPool>(BaseVehicle).TL_quaternionf_pool.get()).release(var0);
    }
 
     static Ray allocRay() {
-      return (Ray)TL_Ray_pool.get().alloc();
+      return static_cast<Ray>(TL_Ray_pool).get().alloc();
    }
 
     static void releaseRay(Ray var0) {
@@ -405,7 +405,7 @@ public:
    }
 
     static Plane allocPlane() {
-      return (Plane)TL_Plane_pool.get().alloc();
+      return static_cast<Plane>(TL_Plane_pool).get().alloc();
    }
 
     static void releasePlane(Plane var0) {
@@ -413,19 +413,19 @@ public:
    }
 
     static Vector2 allocVector2() {
-      return (Vector2)((Vector2ObjectPool)BaseVehicle.TL_vector2_pool.get()).alloc();
+      return (Vector2)(static_cast<Vector2ObjectPool>(BaseVehicle).TL_vector2_pool.get()).alloc();
    }
 
     static void releaseVector2(Vector2 var0) {
-      ((Vector2ObjectPool)BaseVehicle.TL_vector2_pool.get()).release(var0);
+      (static_cast<Vector2ObjectPool>(BaseVehicle).TL_vector2_pool.get()).release(var0);
    }
 
     static Vector3f allocVector3f() {
-      return (Vector3f)((Vector3fObjectPool)BaseVehicle.TL_vector3f_pool.get()).alloc();
+      return (Vector3f)(static_cast<Vector3fObjectPool>(BaseVehicle).TL_vector3f_pool.get()).alloc();
    }
 
     static void releaseVector3f(Vector3f var0) {
-      ((Vector3fObjectPool)BaseVehicle.TL_vector3f_pool.get()).release(var0);
+      (static_cast<Vector3fObjectPool>(BaseVehicle).TL_vector3f_pool.get()).release(var0);
    }
 
     Ray getCameraRay(float var1, float var2, Ray var3) {
@@ -504,25 +504,25 @@ public:
     void setBoolean(const std::string& var1, bool var2) {
     ConfigOption var3 = this.getOptionByName(var1);
       if (var3 instanceof BooleanConfigOption) {
-         ((BooleanConfigOption)var3).setValue(var2);
+         (static_cast<BooleanConfigOption>(var3)).setValue(var2);
       }
    }
 
     bool getBoolean(const std::string& var1) {
     ConfigOption var2 = this.getOptionByName(var1);
-      return var2 instanceof BooleanConfigOption ? ((BooleanConfigOption)var2).getValue() : false;
+      return var2 instanceof BooleanConfigOption ? (static_cast<BooleanConfigOption>(var2)).getValue() : false;
    }
 
     void setDouble(const std::string& var1, double var2) {
     ConfigOption var4 = this.getOptionByName(var1);
       if (var4 instanceof DoubleConfigOption) {
-         ((DoubleConfigOption)var4).setValue(var2);
+         (static_cast<DoubleConfigOption>(var4)).setValue(var2);
       }
    }
 
     double getDouble(const std::string& var1, double var2) {
     ConfigOption var4 = this.getOptionByName(var1);
-      return var4 instanceof DoubleConfigOption ? ((DoubleConfigOption)var4).getValue() : var2;
+      return var4 instanceof DoubleConfigOption ? (static_cast<DoubleConfigOption>(var4)).getValue() : var2;
    }
 }
 } // namespace worldMap

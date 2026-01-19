@@ -24,7 +24,7 @@ public:
     int m_minY;
     int m_maxX;
     int m_maxY;
-   public float[] m_triangles = nullptr;
+   public std::vector<float> m_triangles = nullptr;
    public ArrayList<TrianglesPerZoom> m_trianglesPerZoom = nullptr;
     int m_vboIndex1 = -1;
     int m_vboIndex2 = -1;
@@ -149,7 +149,7 @@ public:
                if (var27 > 0) {
                   s_vertices.clear();
                   var30 = s_clipper.triangulate(0, s_vertices);
-    TrianglesPerZoom var37 = new TrianglesPerZoom();
+    auto var37 = std::make_shared<TrianglesPerZoom>();
                   var37.m_triangles = new float[var30 * 2];
                   var37.m_delta = var1[var35];
 

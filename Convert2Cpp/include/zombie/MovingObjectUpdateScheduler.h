@@ -17,12 +17,12 @@ namespace zombie {
 
 class MovingObjectUpdateScheduler {
 public:
-    static const MovingObjectUpdateScheduler instance = new MovingObjectUpdateScheduler();
-    const MovingObjectUpdateSchedulerUpdateBucket fullSimulation = new MovingObjectUpdateSchedulerUpdateBucket(1);
-    const MovingObjectUpdateSchedulerUpdateBucket halfSimulation = new MovingObjectUpdateSchedulerUpdateBucket(2);
-    const MovingObjectUpdateSchedulerUpdateBucket quarterSimulation = new MovingObjectUpdateSchedulerUpdateBucket(4);
-    const MovingObjectUpdateSchedulerUpdateBucket eighthSimulation = new MovingObjectUpdateSchedulerUpdateBucket(8);
-    const MovingObjectUpdateSchedulerUpdateBucket sixteenthSimulation = new MovingObjectUpdateSchedulerUpdateBucket(16);
+    static auto instance = std::make_shared<MovingObjectUpdateScheduler>();
+    auto fullSimulation = std::make_shared<MovingObjectUpdateSchedulerUpdateBucket>(1);
+    auto halfSimulation = std::make_shared<MovingObjectUpdateSchedulerUpdateBucket>(2);
+    auto quarterSimulation = std::make_shared<MovingObjectUpdateSchedulerUpdateBucket>(4);
+    auto eighthSimulation = std::make_shared<MovingObjectUpdateSchedulerUpdateBucket>(8);
+    auto sixteenthSimulation = std::make_shared<MovingObjectUpdateSchedulerUpdateBucket>(16);
     long frameCounter;
     bool isEnabled = true;
 
@@ -40,7 +40,7 @@ public:
     std::vector var1 = IsoWorld.instance.getCell().getObjectList();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
-    IsoMovingObject var3 = (IsoMovingObject)var1.get(var2);
+    IsoMovingObject var3 = static_cast<IsoMovingObject>(var1).get(var2);
          if (!GameServer.bServer || !(var3 instanceof IsoZombie)) {
     bool var4 = false;
     bool var5 = false;

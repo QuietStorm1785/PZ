@@ -16,7 +16,7 @@ class Buffer {
 public:
     static std::string version = "0a2a0q";
     static const int BUFFER_INCREMENT = 256;
-   private static final int[] mask = new int[]{
+   private static final std::vector<int> mask = std::make_shared<std::vector<int>>(){
       0,
       1,
       3,
@@ -51,7 +51,7 @@ public:
       Integer.MAX_VALUE,
       -1
    };
-   byte[] buffer = nullptr;
+   std::vector<byte> buffer = nullptr;
     int endbit = 0;
     int endbyte = 0;
     int ptr = 0;
@@ -248,7 +248,7 @@ public:
 
     void write(int var1, int var2) {
       if (this.endbyte + 4 >= this.storage) {
-         byte[] var3 = new byte[this.storage + 256];
+         std::vector<byte> var3 = new byte[this.storage + 256];
          System.arraycopy(this.buffer, 0, var3, 0, this.storage);
          this.buffer = var3;
          this.storage += 256;
@@ -284,7 +284,7 @@ public:
    }
 
     void writeinit() {
-      this.buffer = new byte[256];
+      this.buffer = std::make_shared<std::array<byte, 256>>();
       this.ptr = 0;
       this.buffer[0] = 0;
       this.storage = 256;

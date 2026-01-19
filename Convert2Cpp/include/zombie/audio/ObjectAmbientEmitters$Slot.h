@@ -35,12 +35,12 @@ public:
     std::string var3 = var2.getSoundName();
       if (!this.emitter.isPlaying(var3)) {
          this.emitter.stopAll();
-    FMODSoundEmitter var4 = (FMODSoundEmitter)Type.tryCastTo(this.emitter, FMODSoundEmitter.class);
+    FMODSoundEmitter var4 = static_cast<FMODSoundEmitter>(Type).tryCastTo(this.emitter, FMODSoundEmitter.class);
          if (var4 != nullptr) {
             var4.clearParameters();
          }
 
-         this.instance = this.emitter.playSoundImpl(var3, (IsoObject)nullptr);
+         this.instance = this.emitter.playSoundImpl(var3, static_cast<IsoObject>(nullptr));
          var2.startPlaying(this.emitter, this.instance);
       }
 

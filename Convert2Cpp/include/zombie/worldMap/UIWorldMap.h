@@ -48,13 +48,13 @@ namespace worldMap {
 class UIWorldMap : public UIElement {
 public:
    static final ArrayList<WorldMapFeature> s_tempFeatures = std::make_unique<ArrayList<>>();
-    const WorldMap m_worldMap = new WorldMap();
-    const WorldMapStyle m_style = new WorldMapStyle();
-    const WorldMapRenderer m_renderer = new WorldMapRenderer();
-    const WorldMapMarkers m_markers = new WorldMapMarkers();
+    auto m_worldMap = std::make_shared<WorldMap>();
+    auto m_style = std::make_shared<WorldMapStyle>();
+    auto m_renderer = std::make_shared<WorldMapRenderer>();
+    auto m_markers = std::make_shared<WorldMapMarkers>();
     WorldMapSymbols m_symbols = null;
-    const RGBAf m_color = new RGBAf().init(0.85882354F, 0.84313726F, 0.7529412F, 1.0F);
-    const UIWorldMapV1 m_APIv1 = new UIWorldMapV1(this);
+    auto m_color = std::make_shared<RGBAf>().init(0.85882354F, 0.84313726F, 0.7529412F, 1.0F);
+    auto m_APIv1 = std::make_shared<UIWorldMapV1>(this);
     bool m_dataWasReady = false;
    private final ArrayList<BuildingDef> m_buildingsWithoutFeatures = std::make_unique<ArrayList<>>();
     bool m_bBuildingsWithoutFeatures = false;
@@ -163,7 +163,7 @@ public:
     int var31 = var29.m_cell.m_y * 300;
     int var11 = this.getAbsoluteX().intValue();
     int var32 = this.getAbsoluteY().intValue();
-    WorldMapPoints var13 = (WorldMapPoints)((WorldMapGeometry)var29.m_geometries.get(0)).m_points.get(0);
+    WorldMapPoints var13 = (WorldMapPoints)(static_cast<WorldMapGeometry>(var29).m_geometries.get(0)).m_points.get(0);
 
                   for (int var33 = 0; var33 < var13.numPoints(); var33++) {
     int var15 = var13.getX(var33);
@@ -220,7 +220,7 @@ public:
     std::vector var1 = WorldMapRemotePlayers.instance.getPlayers();
 
                for (int var2 = 0; var2 < var1.size(); var2++) {
-    WorldMapRemotePlayer var3 = (WorldMapRemotePlayer)var1.get(var2);
+    WorldMapRemotePlayer var3 = static_cast<WorldMapRemotePlayer>(var1).get(var2);
                   if (this.shouldShowRemotePlayer(var3)) {
                      this.renderPlayer(var3.getX(), var3.getY());
                      this.renderPlayerName(var3.getX(), var3.getY(), var3.getUsername());
@@ -281,7 +281,7 @@ public:
     std::vector var3 = SafeHouse.getSafehouseList();
 
       for (int var4 = 0; var4 < var3.size(); var4++) {
-    SafeHouse var5 = (SafeHouse)var3.get(var4);
+    SafeHouse var5 = static_cast<SafeHouse>(var3).get(var4);
          if (var5.playerAllowed(var1.getUsername()) && var5.playerAllowed(var2.getUsername())) {
     return true;
          }
@@ -377,16 +377,16 @@ public:
     IsoMetaGrid var1 = IsoWorld.instance.MetaGrid;
 
          for (int var2 = 0; var2 < var1.Buildings.size(); var2++) {
-    BuildingDef var3 = (BuildingDef)var1.Buildings.get(var2);
+    BuildingDef var3 = static_cast<BuildingDef>(var1).Buildings.get(var2);
     bool var4 = false;
 
             for (int var5 = 0; var5 < var3.rooms.size(); var5++) {
-    RoomDef var6 = (RoomDef)var3.rooms.get(var5);
+    RoomDef var6 = static_cast<RoomDef>(var3).rooms.get(var5);
                if (var6.level <= 0) {
     std::vector var7 = var6.getRects();
 
                   for (int var8 = 0; var8 < var7.size(); var8++) {
-    RoomRect var9 = (RoomRect)var7.get(var8);
+    RoomRect var9 = static_cast<RoomRect>(var7).get(var8);
                      s_tempFeatures.clear();
 
                      for (WorldMapData var11 : this.m_worldMap.m_data) {
@@ -416,10 +416,10 @@ public:
 
     void debugRenderBuilding(BuildingDef var1, float var2, float var3, float var4, float var5) {
       for (int var6 = 0; var6 < var1.rooms.size(); var6++) {
-    std::vector var7 = ((RoomDef)var1.rooms.get(var6)).getRects();
+    std::vector var7 = (static_cast<RoomDef>(var1).rooms.get(var6)).getRects();
 
          for (int var8 = 0; var8 < var7.size(); var8++) {
-    RoomRect var9 = (RoomRect)var7.get(var8);
+    RoomRect var9 = static_cast<RoomRect>(var7).get(var8);
     float var10 = this.m_APIv1.worldToUIX(var9.x, var9.y);
     float var11 = this.m_APIv1.worldToUIY(var9.x, var9.y);
     float var12 = this.m_APIv1.worldToUIX(var9.getX2(), var9.getY2());

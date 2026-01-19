@@ -12,8 +12,8 @@ namespace zombie {
 
 class CollisionManager {
 public:
-    static const PerformanceProfileProbe profile_ResolveContacts = new PerformanceProfileProbe("CollisionManager.ResolveContacts");
-    static const PerformanceProfileProbe profile_MovingObjectPostUpdate = new PerformanceProfileProbe("IsoMovingObject.postupdate");
+    static auto profile_ResolveContacts = std::make_shared<PerformanceProfileProbe>("CollisionManager.ResolveContacts");
+    static auto profile_MovingObjectPostUpdate = std::make_shared<PerformanceProfileProbe>("IsoMovingObject.postupdate");
 
    private CollisionManager$s_performance() {
    }

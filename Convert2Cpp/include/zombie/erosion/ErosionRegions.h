@@ -42,7 +42,7 @@ public:
    }
 
     static ErosionCategory getCategory(int var0, int var1) {
-      return (ErosionCategory)regions.get(var0).categories.get(var1);
+      return static_cast<ErosionCategory>(regions).get(var0).categories.get(var1);
    }
 
     static void init() {

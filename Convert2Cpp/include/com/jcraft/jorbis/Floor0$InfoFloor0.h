@@ -22,7 +22,7 @@ public:
 
    Floor0$InfoFloor0(Floor0 var1) {
       this.this$0 = var1;
-      this.books = new int[16];
+      this.books = std::make_shared<std::array<int, 16>>();
    }
 }
 } // namespace jorbis

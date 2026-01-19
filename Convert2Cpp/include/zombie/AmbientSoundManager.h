@@ -21,7 +21,7 @@ namespace zombie {
 class AmbientSoundManager : public BaseAmbientStreamManager {
 public:
    public final ArrayList<Ambient> ambient = std::make_unique<ArrayList<>>();
-    const Vector2 tempo = new Vector2();
+    auto tempo = std::make_shared<Vector2>();
     int electricityShutOffState = -1;
     long electricityShutOffTime = 0L;
     bool initialized = false;
@@ -65,7 +65,7 @@ public:
 
     void addRandomAmbient() {
       if (!GameServer.Players.isEmpty()) {
-    IsoPlayer var1 = (IsoPlayer)GameServer.Players.get(Rand.Next(GameServer.Players.size()));
+    IsoPlayer var1 = static_cast<IsoPlayer>(GameServer).Players.get(Rand.Next(GameServer.Players.size()));
          if (var1 != nullptr) {
     std::string var2 = null;
             if (GameTime.instance.getHour() > 7 && GameTime.instance.getHour() < 21) {
@@ -109,7 +109,7 @@ public:
                this.tempo.setLength(1000.0F);
                var3 += this.tempo.x;
                var4 += this.tempo.y;
-    Ambient var7 = new Ambient(this, var2, var3, var4, 50.0F, Rand.Next(0.2F, 0.5F));
+    auto var7 = std::make_shared<Ambient>(this, var2, var3, var4, 50.0F, Rand.Next(0.2F, 0.5F));
                this.ambient.add(var7);
                GameServer.sendAmbient(var2, (int)var3, (int)var4, 50, Rand.Next(0.2F, 0.5F));
             }
@@ -120,7 +120,7 @@ public:
     void doGunEvent() {
     std::vector var1 = GameServer.getPlayers();
       if (!var1.isEmpty()) {
-    IsoPlayer var2 = (IsoPlayer)var1.get(Rand.Next(var1.size()));
+    IsoPlayer var2 = static_cast<IsoPlayer>(var1).get(Rand.Next(var1.size()));
     std::string var3 = null;
     float var4 = var2.x;
     float var5 = var2.y;
@@ -153,7 +153,7 @@ public:
          }
 
     float var9 = 1.0F;
-    Ambient var10 = new Ambient(this, var3, var4, var5, 700.0F, var9);
+    auto var10 = std::make_shared<Ambient>(this, var3, var4, var5, 700.0F, var9);
          this.ambient.add(var10);
          GameServer.sendAmbient(var3, (int)var4, (int)var5, (int)Math.ceil(var10.radius), var10.volume);
       }
@@ -162,7 +162,7 @@ public:
     void doAlarm(RoomDef var1) {
       if (var1 != nullptr && var1.building != nullptr && var1.building.bAlarmed) {
     float var2 = 1.0F;
-    Ambient var3 = new Ambient(this, "burglar2", var1.x + var1.getW() / 2, var1.y + var1.getH() / 2, 700.0F, var2);
+    auto var3 = std::make_shared<Ambient>(this, "burglar2", var1.x + var1.getW() / 2, var1.y + var1.getH() / 2, 700.0F, var2);
          var3.duration = 49;
          var3.worldSoundDelay = 3;
          var1.building.bAlarmed = false;

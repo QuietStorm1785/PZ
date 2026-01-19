@@ -19,8 +19,8 @@ public:
     int returned;
     int storage;
     int unsynced;
-   private byte[] chksum = new byte[4];
-    Page pageseek = new Page();
+   private std::vector<byte> chksum = std::make_shared<std::array<byte, 4>>();
+    auto pageseek = std::make_shared<Page>();
 
     int buffer(int var1) {
       if (this.returned != 0) {
@@ -35,7 +35,7 @@ public:
       if (var1 > this.storage - this.fill) {
     int var2 = var1 + this.fill + 4096;
          if (this.data != nullptr) {
-            byte[] var3 = new byte[var2];
+            std::vector<byte> var3 = new byte[var2];
             System.arraycopy(this.data, 0, var3, 0, this.data.length);
             this.data = var3;
          } else {

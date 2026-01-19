@@ -46,8 +46,8 @@ public:
 
     ImageData var3;
       try (
-    FileInputStream var1 = new FileInputStream(this.m_image_name);
-    BufferedInputStream var2 = new BufferedInputStream(var1);
+    auto var1 = std::make_shared<FileInputStream>(this.m_image_name);
+    auto var2 = std::make_shared<BufferedInputStream>(var1);
       ) {
          var3 = new ImageData(var2, this.bMask);
       }

@@ -14,7 +14,7 @@ namespace asset {
 
 class AssetManagers {
 public:
-    const AssetManagerTable m_managers = new AssetManagerTable();
+    auto m_managers = std::make_shared<AssetManagerTable>();
     const FileSystem m_file_system;
 
     public AssetManagers(FileSystem var1) {
@@ -22,7 +22,7 @@ public:
    }
 
     AssetManager get(AssetType var1) {
-      return (AssetManager)this.m_managers.get(var1.type);
+      return static_cast<AssetManager>(this).m_managers.get(var1.type);
    }
 
     void add(AssetType var1, AssetManager var2) {

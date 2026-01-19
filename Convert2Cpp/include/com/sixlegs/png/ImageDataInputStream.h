@@ -17,7 +17,7 @@ class ImageDataInputStream : public InputStream {
 public:
     const PngInputStream in;
     const StateMachine machine;
-   private final byte[] onebyte = new byte[1];
+   private final std::vector<byte> onebyte = std::make_shared<std::array<byte, 1>>();
     bool done;
 
     public ImageDataInputStream(PngInputStream var1, StateMachine var2) {

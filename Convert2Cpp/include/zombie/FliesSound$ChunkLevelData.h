@@ -27,8 +27,8 @@ public:
       this.this$0 = var1;
       this.corpseCount = 0;
       this.buildingCorpseCount = nullptr;
-      this.refCount = new int[4];
-      this.emitters = new FadeEmitter[4];
+      this.refCount = std::make_shared<std::array<int, 4>>();
+      this.emitters = std::make_shared<std::array<FadeEmitter, 4>>();
    }
 
     void corpseAdded(int var1, int var2, IsoBuilding var3) {

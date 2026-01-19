@@ -14,9 +14,9 @@ namespace worldMap {
 
 class Rasterize {
 public:
-    const Edge edge1 = new Edge();
-    const Edge edge2 = new Edge();
-    const Edge edge3 = new Edge();
+    auto edge1 = std::make_shared<Edge>();
+    auto edge2 = std::make_shared<Edge>();
+    auto edge3 = std::make_shared<Edge>();
 
     void scanLine(int var1, int var2, int var3, Integer> var4) {
       for (int var5 = var1; var5 < var2; var5++) {

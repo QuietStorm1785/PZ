@@ -58,7 +58,7 @@ public:
 
     static void loadLibrary(const std::string& var0) {
       for (String var4 : System.getProperty("java.library.path", "").split(File.pathSeparator)) {
-    File var5 = new File(var4 + "/" + var0);
+    auto var5 = std::make_shared<File>(var4 + "/" + var0);
          if (var5.exists()) {
             System.load(var5.getAbsolutePath());
             break;

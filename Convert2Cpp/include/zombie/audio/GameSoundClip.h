@@ -122,7 +122,7 @@ public:
     GameSoundClip var1 = null;
 
          for (int var2 = 0; var2 < this.gameSound.clips.size(); var2++) {
-    GameSoundClip var3 = (GameSoundClip)this.gameSound.clips.get(var2);
+    GameSoundClip var3 = static_cast<GameSoundClip>(this).gameSound.clips.get(var2);
             if (var3 == this) {
     return this;
             }

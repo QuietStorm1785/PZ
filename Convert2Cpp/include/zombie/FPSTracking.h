@@ -12,10 +12,10 @@ namespace zombie {
 
 class FPSTracking {
 public:
-   private final double[] lastFPS = new double[20];
+   private final std::vector<double> lastFPS = std::make_shared<std::array<double, 20>>();
     int lastFPSCount = 0;
     long timeAtLastUpdate;
-   private final long[] last10 = new long[10];
+   private final std::vector<long> last10 = std::make_shared<std::array<long, 10>>();
     int last10index = 0;
 
     void init() {

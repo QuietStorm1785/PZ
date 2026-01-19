@@ -19,8 +19,8 @@ namespace N3D {
 
 class EngineTestbed {
 public:
-    static MouseState mouse = new MouseState();
-    static KeyboardState keyboard = new KeyboardState();
+    static auto mouse = std::make_shared<MouseState>();
+    static auto keyboard = std::make_shared<KeyboardState>();
 
     static void main(String[] var0) {
       Rand.init();

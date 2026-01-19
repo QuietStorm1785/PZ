@@ -21,7 +21,7 @@ namespace characters {
 class IsoGameCharacter {
 public:
    private static final ObjectPool<IsoGameCharacter$TorchInfo> TorchInfoPool = new ObjectPool(IsoGameCharacter$TorchInfo::new);
-    static const Vector3f tempVector3f = new Vector3f();
+    static auto tempVector3f = std::make_shared<Vector3f>();
     int id;
     float x;
     float y;

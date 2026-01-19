@@ -28,7 +28,7 @@ public:
     const PixelProcessor pp;
     const int bpp;
    private final int[] row;
-   private static int[][] bandOffsets = new int[][]{nullptr, {0}, {0, 1}, {0, 1, 2}, {0, 1, 2, 3}};
+   private static int[][] bandOffsets = std::make_shared<std::vector<int>>()[]{nullptr, {0}, {0, 1}, {0, 1, 2}, {0, 1, 2, 3}};
 
     public Defilterer(InputStream var1, int var2, int var3, int var4, PixelProcessor var5) {
       this.in = var1;
@@ -46,11 +46,11 @@ public:
     bool var8 = this.bitDepth == 16;
     WritableRaster var9 = createInputRaster(this.bitDepth, this.samples, this.width);
     DataBuffer var10 = var9.getDataBuffer();
-         byte[] var11 = var8 ? nullptr : ((DataBufferByte)var10).getData();
-         short[] var12 = var8 ? ((DataBufferUShort)var10).getData() : nullptr;
+         std::vector<byte> var11 = var8 ? nullptr : (static_cast<DataBufferByte>(var10)).getData();
+         std::vector<short> var12 = var8 ? (static_cast<DataBufferUShort>(var10)).getData() : nullptr;
     int var13 = var7 + this.bpp;
-         byte[] var14 = new byte[var13];
-         byte[] var15 = new byte[var13];
+         std::vector<byte> var14 = new byte[var13];
+         std::vector<byte> var15 = new byte[var13];
     int var16 = 0;
     int var17 = var2;
 
@@ -78,7 +78,7 @@ public:
     return false;
             }
 
-            byte[] var21 = var15;
+            std::vector<byte> var21 = var15;
             var15 = var14;
             var14 = var21;
             var16++;
@@ -163,15 +163,15 @@ public:
 
     static WritableRaster createInputRaster(int var0, int var1, int var2) {
     int var3 = (var0 * var1 * var2 + 7) / 8;
-    Point var4 = new Point(0, 0);
+    auto var4 = std::make_shared<Point>(0, 0);
       if (var0 < 8 && var1 == 1) {
-    DataBufferByte var7 = new DataBufferByte(var3);
+    auto var7 = std::make_shared<DataBufferByte>(var3);
          return Raster.createPackedRaster(var7, var2, 1, var0, var4);
       } else if (var0 <= 8) {
-    DataBufferByte var6 = new DataBufferByte(var3);
+    auto var6 = std::make_shared<DataBufferByte>(var3);
          return Raster.createInterleavedRaster(var6, var2, 1, var3, var1, bandOffsets[var1], var4);
       } else {
-    DataBufferUShort var5 = new DataBufferUShort(var3 / 2);
+    auto var5 = std::make_shared<DataBufferUShort>(var3 / 2);
          return Raster.createInterleavedRaster(var5, var2, 1, var3 / 2, var1, bandOffsets[var1], var4);
       }
    }
