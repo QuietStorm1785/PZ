@@ -21,6 +21,7 @@ SoundManager::SoundManager()
  , soundVolume(1.0f)
  , currentMusic(nullptr)
  , initialized(false)
+ , audio_system(std::make_unique<OptimizedSoundManager>(256))
 {
 }
 
@@ -42,6 +43,11 @@ bool SoundManager::init(int frequency, int channels) {
  // Allocate mixing channels for sound effects
  Mix_AllocateChannels(16);
  
+ // Initialize audio batching system (Day 3 Optimization)
+ if (audio_system) {
+     audio_system->initialize();
+ }
+ 
  initialized = true;
  std::cout << "SoundManager initialized: " << frequency << "Hz, " << channels << " channels" << '\n';
 
@@ -54,6 +60,11 @@ bool SoundManager::init(int frequency, int channels) {
 void SoundManager::shutdown() {
  if (!initialized) {
  return;
+ }
+ 
+ // Shutdown audio batching system (Day 3 Optimization)
+ if (audio_system) {
+     audio_system->shutdown();
  }
  
  stopMusic();
@@ -178,6 +189,11 @@ void SoundManager::playSound(const std::string& name, int loops) {
  if (Mix_PlayChannel(-1, it->second, loops) < 0) {
  std::cerr << "Failed to play sound: " << Mix_GetError() << '\n';
  }
+ 
+ // Also batch the sound in the optimization system (Day 3 Optimization)
+ if (audio_system) {
+     audio_system->play_sound_2d(name, soundVolume);
+ }
 }
 
 void SoundManager::setSoundVolume(float volume) {
@@ -219,6 +235,11 @@ void SoundManager::applyVolumes() {
 
  Mix_VolumeMusic(musicMix);
  Mix_Volume(-1, soundMix);
+ 
+ // Process audio batches (Day 3 Optimization)
+ if (audio_system) {
+     audio_system->process_batches();
+ }
 }
 
 void SoundManager::unloadAll() {
