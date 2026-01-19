@@ -1,0 +1,100 @@
+package zombie;
+
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CharsetEncoder;
+import java.nio.charset.CoderResult;
+import java.nio.charset.CodingErrorAction;
+import java.nio.charset.StandardCharsets;
+import zombie.debug.DebugLog;
+
+class GameWindow$StringUTF {
+   private char[] chars;
+   private ByteBuffer byteBuffer;
+   private CharBuffer charBuffer;
+   private CharsetEncoder ce;
+   private CharsetDecoder cd;
+
+   private GameWindow$StringUTF() {
+   }
+
+   private int encode(String var1) {
+      if (this.chars == null || this.chars.length < var1.length()) {
+         int var2 = (var1.length() + 128 - 1) / 128 * 128;
+         this.chars = new char[var2];
+         this.charBuffer = CharBuffer.wrap(this.chars);
+      }
+
+      var1.getChars(0, var1.length(), this.chars, 0);
+      this.charBuffer.limit(var1.length());
+      this.charBuffer.position(0);
+      if (this.ce == null) {
+         this.ce = StandardCharsets.UTF_8.newEncoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
+      }
+
+      this.ce.reset();
+      int var4 = (int)((double)var1.length() * this.ce.maxBytesPerChar());
+      var4 = (var4 + 128 - 1) / 128 * 128;
+      if (this.byteBuffer == null || this.byteBuffer.capacity() < var4) {
+         this.byteBuffer = ByteBuffer.allocate(var4);
+      }
+
+      this.byteBuffer.clear();
+      CoderResult var3 = this.ce.encode(this.charBuffer, this.byteBuffer, true);
+      return this.byteBuffer.position();
+   }
+
+   private String decode(int var1) {
+      if (this.cd == null) {
+         this.cd = StandardCharsets.UTF_8.newDecoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
+      }
+
+      this.cd.reset();
+      int var2 = (int)((double)var1 * this.cd.maxCharsPerByte());
+      if (this.chars == null || this.chars.length < var2) {
+         int var3 = (var2 + 128 - 1) / 128 * 128;
+         this.chars = new char[var3];
+         this.charBuffer = CharBuffer.wrap(this.chars);
+      }
+
+      this.charBuffer.clear();
+      CoderResult var4 = this.cd.decode(this.byteBuffer, this.charBuffer, true);
+      return new String(this.chars, 0, this.charBuffer.position());
+   }
+
+   void save(ByteBuffer var1, String var2) {
+      if (var2 != null && !var2.isEmpty()) {
+         int var3 = this.encode(var2);
+         var1.putShort((short)var3);
+         this.byteBuffer.flip();
+         var1.put(this.byteBuffer);
+      } else {
+         var1.putShort((short)0);
+      }
+   }
+
+   String load(ByteBuffer var1) {
+      short var2 = var1.getShort();
+      if (var2 <= 0) {
+         return "";
+      } else {
+         int var3 = (var2 + 128 - 1) / 128 * 128;
+         if (this.byteBuffer == null || this.byteBuffer.capacity() < var3) {
+            this.byteBuffer = ByteBuffer.allocate(var3);
+         }
+
+         this.byteBuffer.clear();
+         if (var1.remaining() < var2) {
+            DebugLog.General.error("GameWindow.StringUTF.load> numBytes:" + var2 + " is higher than the remaining bytes in the buffer:" + var1.remaining());
+         }
+
+         int var4 = var1.limit();
+         var1.limit(var1.position() + var2);
+         this.byteBuffer.put(var1);
+         var1.limit(var4);
+         this.byteBuffer.flip();
+         return this.decode(var2);
+      }
+   }
+}

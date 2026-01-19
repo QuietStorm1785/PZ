@@ -1,2 +1,0 @@
-#include "AbstractStyle.h"
-

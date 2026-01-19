@@ -1,2 +1,0 @@
-#include "StopAllScriptsExcept.h"
-

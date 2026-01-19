@@ -1,2 +1,0 @@
-#include "QuestTaskType.h"
-

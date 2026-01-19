@@ -1,0 +1,34 @@
+{
+	"mainClass": "zombie/gameStates/MainScreenState",
+	"classpath": [
+		"../bin",
+		"../lib/istack-commons-runtime.jar",
+		"../lib/jassimp.jar",
+		"../lib/javacord-2.0.17-shaded.jar",
+		"../lib/javax.activation-api.jar",
+		"../lib/jaxb-api.jar",
+		"../lib/jaxb-runtime.jar",
+		"../lib/jinput.jar",
+		"../lib/lwjgl.jar",
+		"../lib/lwjgl-natives-linux.jar",
+		"../lib/lwjgl-glfw.jar",
+		"../lib/lwjgl-glfw-natives-linux.jar",
+		"../lib/lwjgl-jemalloc.jar",
+		"../lib/lwjgl-jemalloc-natives-linux.jar",
+		"../lib/lwjgl-opengl.jar",
+		"../lib/lwjgl-opengl-natives-linux.jar",
+		"../lib/lwjgl_util.jar",
+		"../lib/sqlite-jdbc-3.27.2.1.jar",
+		"../lib/trove-3.0.3.jar",
+		"../lib/uncommons-maths-1.2.3.jar"
+	],
+	"vmArgs": [
+		"-Djava.awt.headless=true",
+		"-Xms1800m",
+		"-Xmx2048m",
+		"-Dzomboid.steam=1",
+		"-Dzomboid.znetlog=1",
+		"-Djava.library.path=../natives/linux64/:../natives",
+		"-XX:+UseZGC"
+	]
+}
