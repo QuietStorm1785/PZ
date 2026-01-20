@@ -22,7 +22,10 @@ except ImportError:
 
 class RosettaMetadataExtractor:
     def __init__(self, rosetta_base: str = None):
-        self.rosetta_base = rosetta_base or "/workspaces/PZ/pz-rosetta-source-main/rosetta/java"
+        # Default to relative path from script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        default_rosetta = os.path.join(script_dir, '..', 'pz-rosetta-source-main', 'rosetta', 'java')
+        self.rosetta_base = rosetta_base or default_rosetta
         self.classes = {}
         self.inheritance_map = defaultdict(list)
         self.interface_implementations = defaultdict(set)

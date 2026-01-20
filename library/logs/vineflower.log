@@ -1,5 +1,0 @@
-INFO:  Loaded 4 plugins
-INFO:  JVM info: Ubuntu - 21.0.9 - 21.0.9+10-Ubuntu-124.04
-ERROR: Unable to detect a java runtime at /workspaces/PZ/game_test/jre64
-INFO:  Scanning classes from Project Zomboid (inverted: false): /workspaces/PZ/game_test/zombie
-INFO:  Scanning classes from Project Zomboid (inverted: true): /workspaces/PZ/game_test/zombie

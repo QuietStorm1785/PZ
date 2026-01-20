@@ -1,0 +1,7 @@
+/c/PZ/PZ/Convert2Cpp/CMakeFiles/ProjectZomboid_Convert2Cpp.dir
+/c/PZ/PZ/Convert2Cpp/CMakeFiles/edit_cache.dir
+/c/PZ/PZ/Convert2Cpp/CMakeFiles/rebuild_cache.dir
+/c/PZ/PZ/Convert2Cpp/CMakeFiles/list_install_components.dir
+/c/PZ/PZ/Convert2Cpp/CMakeFiles/install.dir
+/c/PZ/PZ/Convert2Cpp/CMakeFiles/install/local.dir
+/c/PZ/PZ/Convert2Cpp/CMakeFiles/install/strip.dir

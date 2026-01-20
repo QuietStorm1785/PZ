@@ -1,9 +1,0 @@
-module KateBaldspot_OtherCharacters
-{
-	imports
-	{
-		KateBaldspotCharacters,
-	}
-
-	
-}

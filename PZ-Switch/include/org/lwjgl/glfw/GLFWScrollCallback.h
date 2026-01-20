@@ -1,8 +1,0 @@
-#ifndef ORG_LWJGL_GLFW_GLFWSCROLLCALLBACK_H
-#define ORG_LWJGL_GLFW_GLFWSCROLLCALLBACK_H
-
-namespace org::lwjgl::glfw {
-class GLFWScrollCallback { };
-}
-
-#endif // ORG_LWJGL_GLFW_GLFWSCROLLCALLBACK_H

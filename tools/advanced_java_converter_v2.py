@@ -21,7 +21,9 @@ except ImportError:
 
 class AdvancedProductionConverter:
     def __init__(self, class_map_file: str = None, use_cache=True, num_workers=None, chunk_size=8192):
-        self.class_map_file = class_map_file or "/workspaces/PZ/class_map.json"
+        # Use relative paths from script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        self.class_map_file = class_map_file or os.path.join(script_dir, 'class_map.json')
         self.class_map = {}
         self.callbacks = {}
         self.events = {}
@@ -30,7 +32,7 @@ class AdvancedProductionConverter:
         self.load_class_map()
         
         self.use_cache = use_cache
-        self.cache_file = "/workspaces/PZ/.advanced_conversion_cache.json"
+        self.cache_file = os.path.join(script_dir, '..', '.advanced_conversion_cache.json')
         self.cache = self._load_cache() if use_cache else {}
         
         self.num_workers = num_workers or max(1, cpu_count() - 1)

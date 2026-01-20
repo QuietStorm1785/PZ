@@ -1,8 +1,0 @@
-#ifndef ORG_LWJGL_GLFW_GLFWCURSORPOSCALLBACK_H
-#define ORG_LWJGL_GLFW_GLFWCURSORPOSCALLBACK_H
-
-namespace org::lwjgl::glfw {
-class GLFWCursorPosCallback { };
-}
-
-#endif // ORG_LWJGL_GLFW_GLFWCURSORPOSCALLBACK_H

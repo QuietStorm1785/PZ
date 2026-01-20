@@ -471,7 +471,7 @@ class JavaToCppConverter:
 def main():
     if len(sys.argv) < 3:
         print('Usage: python3 java_to_cpp_converter.py <source_dir> <output_dir> [max_files]')
-        print('Example: python3 java_to_cpp_converter.py /workspaces/PZ/src/zombie /workspaces/PZ/converted2 50')
+        print('Example: python3 java_to_cpp_converter.py <input_dir> <output_dir> <max_files>')
         sys.exit(1)
     
     source_dir = Path(sys.argv[1])

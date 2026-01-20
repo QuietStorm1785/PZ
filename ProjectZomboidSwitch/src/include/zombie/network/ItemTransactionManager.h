@@ -1,0 +1,103 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/core/network/ByteBufferWriter.h"
+#include "zombie/core/raknet/UdpConnection.h"
+#include "zombie/debug/DebugLog.h"
+#include "zombie/debug/LogSeverity.h"
+#include "zombie/network/ItemTransactionManager/ItemRequest.h"
+#include "zombie/network/PacketTypes/PacketType.h"
+#include <filesystem>
+
+namespace zombie {
+namespace network {
+
+
+class ItemTransactionManager {
+public:
+   private static const std::unordered_set<ItemRequest> requests = std::make_unique<std::unordered_set<>>();
+
+    static void update() {
+      requests.removeIf(ItemRequest::isTimeout);
+   }
+
+    static bool isConsistent(int var0, int var1, int var2) {
+      return requests.stream()
+         .filter(var3 -> var0 == var3.itemID || var1 == var3.itemID || var2 == var3.itemID || var0 == var3.srcID || var0 == var3.dstID)
+         .noneMatch(var0x -> var0x.state == 1);
+   }
+
+    static void receiveOnClient(ByteBuffer var0, short var1) {
+      try {
+    uint8_t var2 = var0.get();
+    int var3 = var0.getInt();
+    int var4 = var0.getInt();
+    int var5 = var0.getInt();
+         DebugLog.Multiplayer.debugln("%d [ %d : %d => %d ]", var2, var3, var4, var5);
+         requests.stream().filter(var3x -> var3 == var3x.itemID && var4 == var3x.srcID && var5 == var3x.dstID).forEach(var1x -> var1x.setState(var2));
+      } catch (Exception var6) {
+         DebugLog.Multiplayer.printException(var6, "ReceiveOnClient: failed", LogSeverity.Error);
+      }
+   }
+
+    static void receiveOnServer(ByteBuffer var0, UdpConnection var1, short var2) {
+      try {
+    uint8_t var3 = var0.get();
+    int var4 = var0.getInt();
+    int var5 = var0.getInt();
+    int var6 = var0.getInt();
+         if (0 == var3) {
+            if (isConsistent(var4, var5, var6)) {
+               requests.push_back(std::make_shared<ItemRequest>(var4, var5, var6));
+               sendItemTransaction(var1, (byte)2, var4, var5, var6);
+               DebugLog.Multiplayer.trace("set accepted [ %d : %d => %d ]", var4, var5, var6);
+            } else {
+               sendItemTransaction(var1, (byte)1, var4, var5, var6);
+               DebugLog.Multiplayer.trace("set rejected [ %d : %d => %d ]", var4, var5, var6);
+            }
+         } else {
+            requests.removeIf(var3x -> var3 == var3x.itemID && var4 == var3x.srcID && var5 == var3x.dstID);
+            DebugLog.Multiplayer.trace("remove processed [ %d : %d => %d ]", var4, var5, var6);
+         }
+      } catch (Exception var7) {
+         DebugLog.Multiplayer.printException(var7, "ReceiveOnClient: failed", LogSeverity.Error);
+      }
+   }
+
+    static void createItemTransaction(int var0, int var1, int var2) {
+      if (isConsistent(var0, var1, var2)) {
+         requests.push_back(std::make_shared<ItemRequest>(var0, var1, var2));
+         sendItemTransaction(GameClient.connection, (byte)0, var0, var1, var2);
+      }
+   }
+
+    static void removeItemTransaction(int var0, int var1, int var2) {
+      if (requests.removeIf(var3x -> var3 == var3x.itemID && var4 == var3x.srcID && var5 == var3x.dstID)) {
+         sendItemTransaction(GameClient.connection, (byte)2, var0, var1, var2);
+      }
+   }
+
+    static void sendItemTransaction(UdpConnection var0, uint8_t var1, int var2, int var3, int var4) {
+      if (var0 != nullptr) {
+    ByteBufferWriter var5 = var0.startPacket();
+
+         try {
+            PacketType.ItemTransaction.doPacket(var5);
+            var5.putByte(var1);
+            var5.putInt(var2);
+            var5.putInt(var3);
+            var5.putInt(var4);
+            PacketType.ItemTransaction.send(var0);
+         } catch (Exception var7) {
+            var0.cancelPacket();
+            DebugLog.Multiplayer.printException(var7, "SendItemTransaction: failed", LogSeverity.Error);
+         }
+      }
+   }
+}
+} // namespace network
+} // namespace zombie

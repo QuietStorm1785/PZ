@@ -8,6 +8,7 @@ import os
 import subprocess
 import sys
 import yaml
+import platform
 import re
 import zipfile
 import shutil
@@ -21,9 +22,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, Optional, List, Tuple, Set
 from collections import defaultdict
 
-# Ensure fork is used (more reliable on Linux)
+# Set multiprocessing start method based on platform
+import platform
 try:
-    set_start_method('fork')
+    if platform.system() != 'Windows':
+        set_start_method('fork')
+    else:
+        set_start_method('spawn')
 except RuntimeError:
     pass  # Already set
 
@@ -38,7 +43,10 @@ except ImportError:
 class RosettaDocumentation:
     """Load and provide access to Rosetta documentation"""
     def __init__(self, rosetta_base: str = None, cache_path: Optional[str] = None):
-        self.rosetta_base = rosetta_base or "/workspaces/PZ/tools/pz-rosetta-source-main/rosetta/java"
+        # Default to relative path from script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        default_rosetta = os.path.join(script_dir, '..', 'tools', 'pz-rosetta-source-main', 'rosetta', 'java')
+        self.rosetta_base = rosetta_base or default_rosetta
         self.class_docs = {}
         self.methods_docs = defaultdict(dict)
         self.fields_docs = defaultdict(dict)
@@ -237,7 +245,9 @@ class RosettaDocumentation:
 
 # Cache Java path to avoid repeated lookups
 _JAVA_PATH_CACHE = None
-_VINEFLOWER_JAR_PATH = '/workspaces/PZ/ZomboidDecompiler/lib/vineflower-1.11.2-module.jar'
+# Default Vineflower JAR path (relative to script location)
+_script_dir = os.path.dirname(os.path.abspath(__file__))
+_VINEFLOWER_JAR_PATH = os.path.join(_script_dir, '..', 'ZomboidDecompiler', 'lib', 'vineflower-1.11.2-module.jar')
 
 def _get_java_cmd(java_home: str) -> str:
     """Get full path to Java executable, cached. Prefers system java 17+ over JAVA_HOME."""
@@ -563,7 +573,15 @@ def main():
     
     input_dir = sys.argv[1]
     output_dir = sys.argv[2]
-    java_home = '/usr/lib/jvm/java-21-openjdk-amd64'
+    # Detect Java home based on platform
+    java_home = os.environ.get('JAVA_HOME', '')
+    if not java_home:
+        if platform.system() == 'Windows':
+            # Common Windows Java locations
+            java_home = r'C:\Program Files\Java\jdk-21'
+        else:
+            # Common Linux Java location
+            java_home = '/usr/lib/jvm/java-21-openjdk-amd64'
     skip_rosetta = '--skip-rosetta' in sys.argv
     extract_only = '--extract-jars-only' in sys.argv
     build_cache_only = '--build-rosetta-cache-only' in sys.argv

@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG @CMakeFiles/ProjectZomboidCpp.dir/objects1.rsp -o ProjectZomboidCpp  /usr/lib/x86_64-linux-gnu/libSDL2.so -lSDL2_image -lSDL2 -lSDL2_mixer -lSDL2 -lSDL2_net -lSDL2 liblua.a -lSDL2_mixer -lSDL2_net 

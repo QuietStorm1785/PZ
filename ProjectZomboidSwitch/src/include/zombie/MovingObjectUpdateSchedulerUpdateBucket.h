@@ -1,0 +1,106 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/characters/IsoZombie.h"
+#include "zombie/debug/DebugLog.h"
+#include "zombie/debug/DebugType.h"
+#include "zombie/iso/IsoMovingObject.h"
+#include "zombie/iso/IsoWorld.h"
+#include "zombie/iso/objects/IsoDeadBody.h"
+#include "zombie/util/Type.h"
+
+namespace zombie {
+
+
+class MovingObjectUpdateSchedulerUpdateBucket {
+public:
+    int frameMod;
+   std::vector<IsoMovingObject>[] buckets;
+
+    public MovingObjectUpdateSchedulerUpdateBucket(int var1) {
+      this.init(var1);
+   }
+
+    void init(int var1) {
+      this.frameMod = var1;
+      this.buckets = new std::vector[var1];
+
+      for (int var2 = 0; var2 < this.buckets.length; var2++) {
+         this.buckets[var2] = std::make_unique<std::vector<>>();
+      }
+   }
+
+    void clear() {
+      for (int var1 = 0; var1 < this.buckets.length; var1++) {
+    std::vector var2 = this.buckets[var1];
+         var2.clear();
+      }
+   }
+
+    void remove(IsoMovingObject var1) {
+      for (int var2 = 0; var2 < this.buckets.length; var2++) {
+    std::vector var3 = this.buckets[var2];
+         var3.remove(var1);
+      }
+   }
+
+    void add(IsoMovingObject var1) {
+    int var2 = var1.getID() % this.frameMod;
+      this.buckets[var2].push_back(var1);
+   }
+
+    void update(int var1) {
+      GameTime.getInstance().PerObjectMultiplier = this.frameMod;
+    std::vector var2 = this.buckets[var1 % this.frameMod];
+
+      for (int var3 = 0; var3 < var2.size(); var3++) {
+    IsoMovingObject var4 = (IsoMovingObject)var2.get(var3);
+         if (dynamic_cast<IsoDeadBody*>(var4) != nullptr) {
+            IsoWorld.instance.getCell().getRemoveList().push_back(var4);
+         } else {
+    IsoZombie var5 = (IsoZombie)Type.tryCastTo(var4, IsoZombie.class);
+            if (var5 != nullptr && VirtualZombieManager.instance.isReused(var5)) {
+               DebugLog.log(DebugType.Zombie, "REUSABLE ZOMBIE IN MovingObjectUpdateSchedulerUpdateBucket IGNORED " + var4);
+            } else {
+               var4.preupdate();
+               var4.update();
+            }
+         }
+      }
+
+      GameTime.getInstance().PerObjectMultiplier = 1.0F;
+   }
+
+    void postupdate(int var1) {
+      GameTime.getInstance().PerObjectMultiplier = this.frameMod;
+    std::vector var2 = this.buckets[var1 % this.frameMod];
+
+      for (int var3 = 0; var3 < var2.size(); var3++) {
+    IsoMovingObject var4 = (IsoMovingObject)var2.get(var3);
+    IsoZombie var5 = (IsoZombie)Type.tryCastTo(var4, IsoZombie.class);
+         if (var5 != nullptr && VirtualZombieManager.instance.isReused(var5)) {
+            DebugLog.log(DebugType.Zombie, "REUSABLE ZOMBIE IN MovingObjectUpdateSchedulerUpdateBucket IGNORED " + var4);
+         } else {
+            var4.postupdate();
+         }
+      }
+
+      GameTime.getInstance().PerObjectMultiplier = 1.0F;
+   }
+
+    void removeObject(IsoMovingObject var1) {
+      for (int var2 = 0; var2 < this.buckets.length; var2++) {
+    std::vector var3 = this.buckets[var2];
+         var3.remove(var1);
+      }
+   }
+
+   public std::vector<IsoMovingObject> getBucket(int var1) {
+      return this.buckets[var1 % this.frameMod];
+   }
+}
+} // namespace zombie

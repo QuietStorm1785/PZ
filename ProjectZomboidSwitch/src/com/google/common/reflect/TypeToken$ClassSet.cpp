@@ -1,0 +1,16 @@
+#include "com\google\common\reflect/TypeToken$ClassSet.h"
+
+namespace com {
+namespace google {
+namespace common {
+namespace reflect {
+
+void* TypeToken$ClassSet::readResolve() {
+    // TODO: Implement readResolve
+    return nullptr;
+}
+
+} // namespace reflect
+} // namespace common
+} // namespace google
+} // namespace com

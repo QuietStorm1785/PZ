@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Convert2Cpp project",
+			"type": "shell",
+			"command": "cmake -S . -B build && cmake --build build",
+			"group": "build"
+		},
+		{
+			"label": "Build ProjectZomboid_Convert2Cpp with FMOD API",
+			"type": "shell",
+			"command": "cmake --build .",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		}
+	]
+}

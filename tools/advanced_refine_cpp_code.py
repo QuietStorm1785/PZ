@@ -336,6 +336,11 @@ class AdvancedCppRefiner:
 
 
 if __name__ == '__main__':
-    base_path = '/workspaces/PZ'
+    # Use command line argument or default to script parent directory
+    if len(sys.argv) > 1:
+        base_path = sys.argv[1]
+    else:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        base_path = os.path.dirname(script_dir)  # Parent of tools directory
     refiner = AdvancedCppRefiner(base_path)
     refiner.process_directory()

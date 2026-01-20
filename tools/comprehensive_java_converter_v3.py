@@ -21,7 +21,9 @@ except ImportError:
 class OptimizedJavaConverter:
     def __init__(self, use_cache=True, num_workers=None, buffer_size=65536):
         self.use_cache = use_cache
-        self.cache_file = "/workspaces/PZ/.conversion_cache_v3.pkl"
+        # Use relative cache path from script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        self.cache_file = os.path.join(script_dir, '..', '.conversion_cache_v3.pkl')
         self.cache = self._load_cache() if use_cache else {}
         self.num_workers = num_workers or max(1, cpu_count() - 1)
         self.buffer_size = buffer_size

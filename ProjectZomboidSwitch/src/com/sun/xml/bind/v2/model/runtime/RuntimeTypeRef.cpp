@@ -1,0 +1,27 @@
+#include "com\sun\xml\bind\v2\model\runtime/RuntimeTypeRef.h"
+
+namespace com {
+namespace sun {
+namespace xml {
+namespace bind {
+namespace v2 {
+namespace model {
+namespace runtime {
+
+RuntimeNonElement RuntimeTypeRef::getTarget() {
+    // TODO: Implement getTarget
+    return nullptr;
+}
+
+RuntimePropertyInfo RuntimeTypeRef::getSource() {
+    // TODO: Implement getSource
+    return nullptr;
+}
+
+} // namespace runtime
+} // namespace model
+} // namespace v2
+} // namespace bind
+} // namespace xml
+} // namespace sun
+} // namespace com

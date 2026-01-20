@@ -22,7 +22,9 @@ except ImportError:
 class AdvancedOptimizedConverter:
     def __init__(self, use_cache=True, num_workers=None, chunk_size=131072, buffer_size=65536):
         self.use_cache = use_cache
-        self.cache_file = "/workspaces/PZ/.advanced_conversion_cache_v3.pkl"
+        # Use relative cache path from script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        self.cache_file = os.path.join(script_dir, '..', '.advanced_conversion_cache_v3.pkl')
         self.cache = self._load_cache() if use_cache else {}
         self.num_workers = num_workers or max(1, cpu_count() - 1)
         self.chunk_size = chunk_size  # 128KB chunks for streaming
@@ -67,7 +69,8 @@ class AdvancedOptimizedConverter:
     
     def _load_class_map(self):
         """Load Project Zomboid class metadata."""
-        class_map_path = "/workspaces/PZ/tools/class_map.json"
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        class_map_path = os.path.join(script_dir, 'class_map.json')
         if os.path.exists(class_map_path):
             try:
                 with open(class_map_path, 'r') as f:

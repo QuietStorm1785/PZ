@@ -1,0 +1,34 @@
+#include <string>
+#include "com\sun\xml\bind\v2\runtime\reflect\opt/TransducedAccessor_field_Short.h"
+
+namespace com {
+namespace sun {
+namespace xml {
+namespace bind {
+namespace v2 {
+namespace runtime {
+namespace reflect {
+namespace opt {
+
+std::string TransducedAccessor_field_Short::print(void* o) {
+    // TODO: Implement print
+    return "";
+}
+
+void TransducedAccessor_field_Short::parse(void* o, CharSequence lexical) {
+    // TODO: Implement parse
+}
+
+bool TransducedAccessor_field_Short::hasValue(void* o) {
+    // TODO: Implement hasValue
+    return false;
+}
+
+} // namespace opt
+} // namespace reflect
+} // namespace runtime
+} // namespace v2
+} // namespace bind
+} // namespace xml
+} // namespace sun
+} // namespace com

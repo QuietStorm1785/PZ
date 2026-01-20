@@ -1,0 +1,57 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/core/textures/TextureDraw.h"
+#include "zombie/debug/DebugOptions.h"
+#include "zombie/iso/sprite/shapers/FloorShaperAttachedSprites/Settings.h"
+#include "zombie/iso/sprite/shapers/FloorShaperAttachedSprites/Settings/ASBorderSetting.h"
+
+namespace zombie {
+namespace iso {
+namespace sprite {
+namespace shapers {
+
+
+class FloorShaperAttachedSprites : public FloorShaper {
+public:
+    static const FloorShaperAttachedSprites instance = std::make_shared<FloorShaperAttachedSprites>();
+
+    void accept(TextureDraw var1) {
+      super.accept(var1);
+      this.applyAttachedSpritesPadding(var1);
+   }
+
+    void applyAttachedSpritesPadding(TextureDraw var1) {
+      if (DebugOptions.instance.Terrain.RenderTiles.IsoGridSquare.IsoPaddingAttached.getValue()) {
+    Settings var2 = this.getSettings();
+    ASBorderSetting var3 = var2.getCurrentZoomSetting();
+    float var4 = var3.borderThicknessUp;
+    float var5 = var3.borderThicknessDown;
+    float var6 = var3.borderThicknessLR;
+    float var7 = var3.uvFraction;
+    float var8 = var1.x1 - var1.x0;
+    float var9 = var1.y2 - var1.y1;
+    float var10 = var1.u1 - var1.u0;
+    float var11 = var1.v2 - var1.v1;
+    float var15 = var10 * var6 / var8;
+    float var16 = var11 * var4 / var9;
+    float var17 = var11 * var5 / var9;
+    float var18 = var7 * var15;
+    float var19 = var7 * var16;
+    float var20 = var7 * var17;
+         SpritePadding.applyPadding(var1, var6, var4, var6, var5, var18, var19, var18, var20);
+      }
+   }
+
+    Settings getSettings() {
+      return SpritePaddingSettings.getSettings().AttachedSprites;
+   }
+}
+} // namespace shapers
+} // namespace sprite
+} // namespace iso
+} // namespace zombie

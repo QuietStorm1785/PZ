@@ -1,0 +1,29 @@
+#include <unordered_map>
+#include "zombie\core\Collections/NonBlockingHashMap$2.h"
+
+namespace zombie {
+namespace core {
+namespace Collections {
+
+void NonBlockingHashMap$2::clear() {
+    // TODO: Implement clear
+}
+
+int NonBlockingHashMap$2::size() {
+    // TODO: Implement size
+    return 0;
+}
+
+bool NonBlockingHashMap$2::contains(void* var1) {
+    // TODO: Implement contains
+    return false;
+}
+
+bool NonBlockingHashMap$2::remove(void* var1) {
+    // TODO: Implement remove
+    return false;
+}
+
+} // namespace Collections
+} // namespace core
+} // namespace zombie

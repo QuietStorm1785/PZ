@@ -13,7 +13,10 @@ from typing import Dict, List, Set, Tuple, Optional
 
 class EnhancedJavaConverter:
     def __init__(self, rosetta_base: str = None):
-        self.rosetta_base = rosetta_base or "/workspaces/PZ/pz-rosetta-source-main/rosetta/java"
+        # Use relative path from script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        default_rosetta = os.path.join(script_dir, '..', 'pz-rosetta-source-main', 'rosetta', 'java')
+        self.rosetta_base = rosetta_base or default_rosetta
         self.class_metadata = {}
         self.method_signatures = {}
         self.type_mappings = self._build_type_mappings()

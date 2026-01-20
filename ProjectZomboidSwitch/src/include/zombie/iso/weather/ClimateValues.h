@@ -1,0 +1,450 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "java/text/SimpleDateFormat.h"
+#include "java/time/temporal/ChronoUnit.h"
+#include "zombie/GameTime.h"
+#include "zombie/SandboxOptions.h"
+#include "zombie/debug/DebugLog.h"
+#include "zombie/iso/weather/ClimateManager/DayInfo.h"
+#include <algorithm>
+
+namespace zombie {
+namespace iso {
+namespace weather {
+
+
+class ClimateValues {
+public:
+    double simplexOffsetA = 0.0;
+    double simplexOffsetB = 0.0;
+    double simplexOffsetC = 0.0;
+    double simplexOffsetD = 0.0;
+    ClimateManager clim;
+    GameTime gt;
+    float time = 0.0F;
+    float dawn = 0.0F;
+    float dusk = 0.0F;
+    float noon = 0.0F;
+    float dayMeanTemperature = 0.0F;
+    double airMassNoiseFrequencyMod = 0.0;
+    float noiseAirmass = 0.0F;
+    float airMassTemperature = 0.0F;
+    float baseTemperature = 0.0F;
+    float dayLightLagged = 0.0F;
+    float nightLagged = 0.0F;
+    float temperature = 0.0F;
+    bool temperatureIsSnow = false;
+    float humidity = 0.0F;
+    float windIntensity = 0.0F;
+    float windAngleIntensity = 0.0F;
+    float windAngleDegrees = 0.0F;
+    float nightStrength = 0.0F;
+    float dayLightStrength = 0.0F;
+    float ambient = 0.0F;
+    float desaturation = 0.0F;
+    float dayLightStrengthBase = 0.0F;
+    float lerpNight = 0.0F;
+    float cloudyT = 0.0F;
+    float cloudIntensity = 0.0F;
+    float airFrontAirmass = 0.0F;
+    bool dayDoFog = false;
+    float dayFogStrength = 0.0F;
+    float dayFogDuration = 0.0F;
+    DayInfo testCurrentDay;
+    DayInfo testNextDay;
+    double cacheWorldAgeHours = 0.0;
+    int cacheYear;
+    int cacheMonth;
+    int cacheDay;
+    Random seededRandom;
+
+    public ClimateValues(ClimateManager var1) {
+      this.simplexOffsetA = var1.getSimplexOffsetA();
+      this.simplexOffsetB = var1.getSimplexOffsetB();
+      this.simplexOffsetC = var1.getSimplexOffsetC();
+      this.simplexOffsetD = var1.getSimplexOffsetD();
+      this.clim = var1;
+      this.gt = GameTime.getInstance();
+      this.seededRandom = std::make_shared<Random>(1984L);
+   }
+
+    ClimateValues getCopy() {
+    ClimateValues var1 = std::make_shared<ClimateValues>(this.clim);
+      this.CopyValues(var1);
+    return var1;
+   }
+
+    void CopyValues(ClimateValues var1) {
+      if (var1 != this) {
+         var1.time = this.time;
+         var1.dawn = this.dawn;
+         var1.dusk = this.dusk;
+         var1.noon = this.noon;
+         var1.dayMeanTemperature = this.dayMeanTemperature;
+         var1.airMassNoiseFrequencyMod = this.airMassNoiseFrequencyMod;
+         var1.noiseAirmass = this.noiseAirmass;
+         var1.airMassTemperature = this.airMassTemperature;
+         var1.baseTemperature = this.baseTemperature;
+         var1.dayLightLagged = this.dayLightLagged;
+         var1.nightLagged = this.nightLagged;
+         var1.temperature = this.temperature;
+         var1.temperatureIsSnow = this.temperatureIsSnow;
+         var1.humidity = this.humidity;
+         var1.windIntensity = this.windIntensity;
+         var1.windAngleIntensity = this.windAngleIntensity;
+         var1.windAngleDegrees = this.windAngleDegrees;
+         var1.nightStrength = this.nightStrength;
+         var1.dayLightStrength = this.dayLightStrength;
+         var1.ambient = this.ambient;
+         var1.desaturation = this.desaturation;
+         var1.dayLightStrengthBase = this.dayLightStrengthBase;
+         var1.lerpNight = this.lerpNight;
+         var1.cloudyT = this.cloudyT;
+         var1.cloudIntensity = this.cloudIntensity;
+         var1.airFrontAirmass = this.airFrontAirmass;
+         var1.dayDoFog = this.dayDoFog;
+         var1.dayFogStrength = this.dayFogStrength;
+         var1.dayFogDuration = this.dayFogDuration;
+         var1.cacheWorldAgeHours = this.cacheWorldAgeHours;
+         var1.cacheYear = this.cacheYear;
+         var1.cacheMonth = this.cacheMonth;
+         var1.cacheDay = this.cacheDay;
+      }
+   }
+
+    void print() {
+      DebugLog.log("==================================================");
+      DebugLog.log("Current time of day = " + this.gt.getTimeOfDay());
+      DebugLog.log("Current Worldagehours = " + this.gt.getWorldAgeHours());
+      DebugLog.log("--------------------------------------------------");
+      if (this.testCurrentDay == nullptr) {
+    GregorianCalendar var1 = std::make_shared<GregorianCalendar>(this.cacheYear, this.cacheMonth, this.cacheDay);
+         DebugLog.log("Printing climate values for: " + std::make_shared<SimpleDateFormat>("yyyy MM dd").format(var1.getTime()));
+      } else {
+         DebugLog.log("Printing climate values for: " + std::make_shared<SimpleDateFormat>("yyyy MM dd").format(this.testCurrentDay.calendar.getTime()));
+      }
+
+      DebugLog.log("--------------------------------------------------");
+      DebugLog.log("Poll Worldagehours = " + this.cacheWorldAgeHours);
+      DebugLog.log("Poll time = " + this.time);
+      DebugLog.log("dawn = " + this.dawn);
+      DebugLog.log("dusk = " + this.dusk);
+      DebugLog.log("noon = " + this.noon);
+      DebugLog.log("daymeantemperature = " + this.dayMeanTemperature);
+      DebugLog.log("airMassNoiseFrequencyMod = " + this.airMassNoiseFrequencyMod);
+      DebugLog.log("noiseAirmass = " + this.noiseAirmass);
+      DebugLog.log("airMassTemperature = " + this.airMassTemperature);
+      DebugLog.log("baseTemperature = " + this.baseTemperature);
+      DebugLog.log("dayLightLagged = " + this.dayLightLagged);
+      DebugLog.log("nightLagged = " + this.nightLagged);
+      DebugLog.log("temperature = " + this.temperature);
+      DebugLog.log("temperatureIsSnow = " + this.temperatureIsSnow);
+      DebugLog.log("humidity = " + this.humidity);
+      DebugLog.log("windIntensity = " + this.windIntensity);
+      DebugLog.log("windAngleIntensity = " + this.windAngleIntensity);
+      DebugLog.log("windAngleDegrees = " + this.windAngleDegrees);
+      DebugLog.log("nightStrength = " + this.nightStrength);
+      DebugLog.log("dayLightStrength = " + this.dayLightStrength);
+      DebugLog.log("ambient = " + this.ambient);
+      DebugLog.log("desaturation = " + this.desaturation);
+      DebugLog.log("dayLightStrengthBase = " + this.dayLightStrengthBase);
+      DebugLog.log("lerpNight = " + this.lerpNight);
+      DebugLog.log("cloudyT = " + this.cloudyT);
+      DebugLog.log("cloudIntensity = " + this.cloudIntensity);
+      DebugLog.log("airFrontAirmass = " + this.airFrontAirmass);
+   }
+
+    void pollDate(int var1, int var2, int var3) {
+      this.pollDate(var1, var2, var3, 0, 0);
+   }
+
+    void pollDate(int var1, int var2, int var3, int var4) {
+      this.pollDate(var1, var2, var3, var4, 0);
+   }
+
+    void pollDate(int var1, int var2, int var3, int var4, int var5) {
+      this.pollDate(std::make_shared<GregorianCalendar>(var1, var2, var3, var4, var5));
+   }
+
+    void pollDate(GregorianCalendar var1) {
+      if (this.testCurrentDay == nullptr) {
+         this.testCurrentDay = std::make_unique<DayInfo>();
+      }
+
+      if (this.testNextDay == nullptr) {
+         this.testNextDay = std::make_unique<DayInfo>();
+      }
+
+    double var2 = this.gt.getWorldAgeHours();
+      this.clim.setDayInfo(this.testCurrentDay, var1.get(5), var1.get(2), var1.get(1), 0);
+      this.clim.setDayInfo(this.testNextDay, var1.get(5), var1.get(2), var1.get(1), 1);
+    GregorianCalendar var4 = std::make_shared<GregorianCalendar>(this.gt.getYear(), this.gt.getMonth(), this.gt.getDayPlusOne(), this.gt.getHour(), this.gt.getMinutes());
+    double var5 = ChronoUnit.MINUTES.between(var4.toInstant(), var1.toInstant());
+      var5 /= 60.0;
+    double var7 = var2 + var5;
+    float var9 = var1.get(11) + var1.get(12) / 60.0F;
+      this.updateValues(var7, var9, this.testCurrentDay, this.testNextDay);
+   }
+
+    void updateValues(double var1, float var3, DayInfo var4, DayInfo var5) {
+      if (var4.year != this.cacheYear || var4.month != this.cacheMonth || var4.day != this.cacheDay) {
+    int var6 = (int)this.clim.getSimplexOffsetC();
+    int var7 = (int)this.clim.getSimplexOffsetD();
+    long var8 = (var4.year - 1990) * 100000;
+         var8 += var4.month * var4.day * 1234;
+         var8 += (var4.year - 1990) * var4.month * 10000;
+         var8 += (var7 - var6) * var4.day;
+         this.seededRandom.setSeed(var8);
+         this.dayFogStrength = 0.0F;
+         this.dayDoFog = false;
+         this.dayFogDuration = 0.0F;
+    float var10 = this.seededRandom.nextInt(1000);
+         this.dayDoFog = var10 < 200.0F;
+         if (this.dayDoFog) {
+            this.dayFogDuration = 4.0F;
+            if (var10 < 25.0F) {
+               this.dayFogStrength = 1.0F;
+               this.dayFogDuration += 2.0F;
+            } else {
+               this.dayFogStrength = this.seededRandom.nextFloat();
+            }
+
+    float var11 = var4.season.getDayMeanTemperature();
+            float var12 = (float)SimplexNoise.noise(
+               this.simplexOffsetA, (var1 + 12.0 - 48.0) / this.clim.getAirMassNoiseFrequencyMod(SandboxOptions.instance.getRainModifier())
+            );
+            var11 += var12 * 8.0F;
+    float var13 = this.seededRandom.nextFloat();
+            if (var11 < 0.0F) {
+               this.dayFogDuration = this.dayFogDuration + 5.0F * this.dayFogStrength;
+               this.dayFogDuration += 8.0F * var13;
+            } else if (var11 < 10.0F) {
+               this.dayFogDuration = this.dayFogDuration + 2.5F * this.dayFogStrength;
+               this.dayFogDuration += 5.0F * var13;
+            } else if (var11 < 20.0F) {
+               this.dayFogDuration = this.dayFogDuration + 1.5F * this.dayFogStrength;
+               this.dayFogDuration += 2.5F * var13;
+            } else {
+               this.dayFogDuration = this.dayFogDuration + 1.0F * this.dayFogStrength;
+               this.dayFogDuration += 1.0F * var13;
+            }
+
+            if (this.dayFogDuration > 24.0F - var4.season.getDawn()) {
+               this.dayFogDuration = 24.0F - var4.season.getDawn() - 1.0F;
+            }
+         }
+      }
+
+      this.cacheWorldAgeHours = var1;
+      this.cacheYear = var4.year;
+      this.cacheMonth = var4.month;
+      this.cacheDay = var4.day;
+      this.time = var3;
+      this.dawn = var4.season.getDawn();
+      this.dusk = var4.season.getDusk();
+      this.noon = var4.season.getDayHighNoon();
+      this.dayMeanTemperature = var4.season.getDayMeanTemperature();
+    float var28 = var3 / 24.0F;
+    float var29 = ClimateManager.lerp(var28, var4.season.getCurDayPercent(), var5.season.getCurDayPercent());
+      this.airMassNoiseFrequencyMod = this.clim.getAirMassNoiseFrequencyMod(SandboxOptions.instance.getRainModifier());
+      this.noiseAirmass = (float)SimplexNoise.noise(this.simplexOffsetA, var1 / this.airMassNoiseFrequencyMod);
+    float var33 = (float)SimplexNoise.noise(this.simplexOffsetC, var1 / this.airMassNoiseFrequencyMod);
+      this.airMassTemperature = (float)SimplexNoise.noise(this.simplexOffsetA, (var1 - 48.0) / this.airMassNoiseFrequencyMod);
+    double var9 = Math.floor(var1) + 12.0;
+      this.airFrontAirmass = (float)SimplexNoise.noise(this.simplexOffsetA, var9 / this.airMassNoiseFrequencyMod);
+    float var35 = ClimateManager.clerp(var28, var4.season.getDayTemperature(), var5.season.getDayTemperature());
+    float var36 = ClimateManager.clerp(var28, var4.season.getDayMeanTemperature(), var5.season.getDayMeanTemperature());
+    bool var37 = var35 < var36;
+      this.baseTemperature = var36 + this.airMassTemperature * 8.0F;
+    float var14 = 4.0F;
+    float var15 = this.dusk + var14;
+      if (var15 >= 24.0F) {
+         var15 -= 24.0F;
+      }
+
+      this.dayLightLagged = this.clim.getTimeLerpHours(var3, this.dawn + var14, var15, true);
+    float var16 = 5.0F * (1.0F - this.dayLightLagged);
+      this.nightLagged = this.clim.getTimeLerpHours(var3, var15, this.dawn + var14, true);
+      var16 += 5.0F * this.nightLagged;
+      this.temperature = this.baseTemperature + 1.0F - var16;
+      if (!(this.temperature < 0.0F) && !ClimateManager.WINTER_IS_COMING) {
+         this.temperatureIsSnow = false;
+      } else {
+         this.temperatureIsSnow = true;
+      }
+
+    float var17 = this.temperature;
+      var17 = (45.0F - var17) / 90.0F;
+      var17 = ClimateManager.clamp01(1.0F - var17);
+    float var18 = (1.0F + var33) * 0.5F;
+      this.humidity = var18 * var17;
+    float var19 = 1.0F - (this.airMassTemperature + 1.0F) * 0.5F;
+    float var20 = 1.0F - var29 * 0.4F;
+    float var21 = (float)SimplexNoise.noise(var1 / 40.0, this.simplexOffsetA);
+    float var22 = (var21 + 1.0F) * 0.5F;
+      var22 *= var19 * var20;
+      var22 *= 0.65F;
+      this.windIntensity = var22;
+    float var23 = (float)SimplexNoise.noise(var1 / 80.0, this.simplexOffsetB);
+      this.windAngleIntensity = var23;
+    float var24 = (float)SimplexNoise.noise(var1 / 40.0, this.simplexOffsetD);
+      var24 = (var24 + 1.0F) * 0.5F;
+      this.windAngleDegrees = 360.0F * var24;
+      this.lerpNight = this.clim.getTimeLerpHours(var3, this.dusk, this.dawn, true);
+      this.lerpNight = ClimateManager.clamp(0.0F, 1.0F, this.lerpNight * 2.0F);
+      this.nightStrength = this.lerpNight;
+      this.dayLightStrengthBase = 1.0F - this.nightStrength;
+    float var25 = 1.0F - 0.15F * var29 - 0.2F * this.windIntensity;
+      this.dayLightStrengthBase *= var25;
+      this.dayLightStrength = this.dayLightStrengthBase;
+      this.ambient = this.dayLightStrength;
+    float var26 = (1.0F - var4.season.getCurDayPercent()) * 0.4F;
+    float var27 = (1.0F - var5.season.getCurDayPercent()) * 0.4F;
+      this.desaturation = ClimateManager.lerp(var28, var26, var27);
+      this.cloudyT = 1.0F - ClimateManager.clamp01((this.airMassTemperature + 0.8F) * 0.625F);
+      this.cloudyT *= 0.8F;
+      this.cloudyT = ClimateManager.clamp01(this.cloudyT + this.windIntensity);
+      this.cloudIntensity = ClimateManager.clamp01(this.windIntensity * 2.0F);
+      this.cloudIntensity = this.cloudIntensity - this.cloudIntensity * 0.5F * this.nightStrength;
+   }
+
+    float getTime() {
+      return this.time;
+   }
+
+    float getDawn() {
+      return this.dawn;
+   }
+
+    float getDusk() {
+      return this.dusk;
+   }
+
+    float getNoon() {
+      return this.noon;
+   }
+
+    double getAirMassNoiseFrequencyMod() {
+      return this.airMassNoiseFrequencyMod;
+   }
+
+    float getNoiseAirmass() {
+      return this.noiseAirmass;
+   }
+
+    float getAirMassTemperature() {
+      return this.airMassTemperature;
+   }
+
+    float getBaseTemperature() {
+      return this.baseTemperature;
+   }
+
+    float getDayLightLagged() {
+      return this.dayLightLagged;
+   }
+
+    float getNightLagged() {
+      return this.nightLagged;
+   }
+
+    float getTemperature() {
+      return this.temperature;
+   }
+
+    bool isTemperatureIsSnow() {
+      return this.temperatureIsSnow;
+   }
+
+    float getHumidity() {
+      return this.humidity;
+   }
+
+    float getWindIntensity() {
+      return this.windIntensity;
+   }
+
+    float getWindAngleIntensity() {
+      return this.windAngleIntensity;
+   }
+
+    float getWindAngleDegrees() {
+      return this.windAngleDegrees;
+   }
+
+    float getNightStrength() {
+      return this.nightStrength;
+   }
+
+    float getDayLightStrength() {
+      return this.dayLightStrength;
+   }
+
+    float getAmbient() {
+      return this.ambient;
+   }
+
+    float getDesaturation() {
+      return this.desaturation;
+   }
+
+    float getDayLightStrengthBase() {
+      return this.dayLightStrengthBase;
+   }
+
+    float getLerpNight() {
+      return this.lerpNight;
+   }
+
+    float getCloudyT() {
+      return this.cloudyT;
+   }
+
+    float getCloudIntensity() {
+      return this.cloudIntensity;
+   }
+
+    float getAirFrontAirmass() {
+      return this.airFrontAirmass;
+   }
+
+    double getCacheWorldAgeHours() {
+      return this.cacheWorldAgeHours;
+   }
+
+    int getCacheYear() {
+      return this.cacheYear;
+   }
+
+    int getCacheMonth() {
+      return this.cacheMonth;
+   }
+
+    int getCacheDay() {
+      return this.cacheDay;
+   }
+
+    float getDayMeanTemperature() {
+      return this.dayMeanTemperature;
+   }
+
+    bool isDayDoFog() {
+      return this.dayDoFog;
+   }
+
+    float getDayFogStrength() {
+      return this.dayFogStrength;
+   }
+
+    float getDayFogDuration() {
+      return this.dayFogDuration;
+   }
+}
+} // namespace weather
+} // namespace iso
+} // namespace zombie

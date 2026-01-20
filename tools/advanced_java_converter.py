@@ -21,7 +21,9 @@ except ImportError:
 
 class AdvancedJavaConverter:
     def __init__(self, class_map_file: str = None):
-        self.class_map_file = class_map_file or "/workspaces/PZ/class_map.json"
+        # Use relative path from script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        self.class_map_file = class_map_file or os.path.join(script_dir, 'class_map.json')
         self.class_map = {}
         self.callbacks = {}
         self.events = {}

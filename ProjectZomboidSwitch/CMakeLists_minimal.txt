@@ -1,0 +1,66 @@
+cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.10)
+project(ProjectZomboidSwitch_Minimal VERSION 1.0.0 LANGUAGES CXX)
+
+# C++ Standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Build type
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+# Platform-specific settings for Switch
+if(NINTENDO_SWITCH)
+    message(STATUS "Configuring MINIMAL build for Nintendo Switch")
+    add_definitions(-D__SWITCH__)
+    add_definitions(-DNINTENDO_SWITCH)
+    
+    # Find SDL2 on Switch
+    find_package(SDL2 REQUIRED)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(SDL2_IMAGE REQUIRED SDL2_image)
+    pkg_check_modules(SDL2_MIXER REQUIRED SDL2_mixer)
+    pkg_check_modules(SDL2_NET REQUIRED SDL2_net)
+    
+    include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} 
+                        ${SDL2_MIXER_INCLUDE_DIRS} ${SDL2_NET_INCLUDE_DIRS})
+endif()
+
+# For this minimal test build, only compile main.cpp
+set(MINIMAL_SOURCES
+    ${CMAKE_SOURCE_DIR}/src/main.cpp
+)
+
+# Create executable
+add_executable(ProjectZomboidSwitch_Minimal ${MINIMAL_SOURCES})
+
+message(STATUS "Minimal build - compiling ${CMAKE_CURRENT_LIST_FILE}")
+message(STATUS "Source files: ${MINIMAL_SOURCES}")
+
+# Platform-specific libraries
+if(NINTENDO_SWITCH)
+    target_link_libraries(ProjectZomboid_Convert2Cpp_Minimal PRIVATE
+        ${SDL2_LIBRARIES}
+        ${SDL2_IMAGE_LIBRARIES}
+        ${SDL2_MIXER_LIBRARIES}
+        ${SDL2_NET_LIBRARIES}
+    )
+    
+    # Switch-specific: Create .nro file
+    include(${DEVKITPRO}/cmake/SwitchTools.cmake OPTIONAL)
+    if(COMMAND add_nro_target)
+        add_nro_target(ProjectZomboid_Convert2Cpp_Minimal
+            NAME "Project Zomboid Test"
+            AUTHOR "PZ Team"
+            VERSION "${PROJECT_VERSION}"
+        )
+        message(STATUS "Will create .nro file for Switch")
+    endif()
+endif()
+
+message(STATUS "=== Minimal Test Build Configuration ===")
+message(STATUS "This build only compiles main.cpp for testing")
+message(STATUS "To build the full project, use the main CMakeLists.txt")

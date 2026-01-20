@@ -1,0 +1,185 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/GameWindow.h"
+#include "zombie/core/Rand.h"
+#include "zombie/core/network/ByteBufferWriter.h"
+#include "zombie/core/raknet/UdpConnection.h"
+#include "zombie/debug/DebugLog.h"
+#include "zombie/debug/DebugOptions.h"
+#include "zombie/debug/LogSeverity.h"
+#include "zombie/gameStates/GameLoadingState.h"
+#include "zombie/network/ConnectionManager.h"
+#include "zombie/network/GameClient.h"
+#include "zombie/network/GameServer.h"
+#include "zombie/network/PacketValidator/RecipeDetails.h"
+#include "zombie/scripting/ScriptManager.h"
+#include "zombie/scripting/objects/Recipe.h"
+#include "zombie/scripting/objects/Recipe/RequiredSkill.h"
+#include "zombie/scripting/objects/Recipe/Source.h"
+#include <algorithm>
+#include <filesystem>
+
+namespace zombie {
+namespace network {
+namespace packets {
+
+
+class ValidatePacket {
+public:
+    long checksum;
+    long checksumFromClient;
+    int salt;
+    uint8_t flags;
+
+    void setSalt(int var1, bool var2, bool var3, bool var4) {
+      this.salt = var1;
+      this.flags = 0;
+      this.flags = (byte)(this.flags | (var2 ? 1 : 0));
+      this.flags = (byte)(this.flags | (var3 ? 2 : 0));
+      this.flags = (byte)(this.flags | (var4 ? 4 : 0));
+   }
+
+    void process(UdpConnection var1) {
+      if (GameClient.bClient) {
+         this.checksum = this.calculateChecksum(var1, this.salt);
+         GameClient.sendValidatePacket(this);
+         if (DebugOptions.instance.MultiplayerFailChecksum.getValue() && (this.flags & 1) != 0) {
+    std::vector var2 = ScriptManager.instance.getAllRecipes();
+    Recipe var3 = (Recipe)var2.get(Rand.Next(var2.size()));
+            var3.TimeToMake = Rand.Next(32767);
+            DebugLog.Multiplayer.debugln("Failed recipe \"%s\"", var3.getOriginalname());
+         }
+
+         if ((this.flags & 2) != 0) {
+            GameLoadingState.Done();
+         }
+      } else if (GameServer.bServer) {
+         this.salt = var1.validator.getSalt();
+         this.checksum = this.calculateChecksum(var1, this.salt);
+         if ((this.flags & 4) == 0) {
+            if (this.checksumFromClient != this.checksum) {
+               var1.validator.failChecksum();
+            }
+
+            if (var1.validator.isFailed()) {
+               var1.validator.sendChecksum(false, false, true);
+            } else {
+               var1.validator.successChecksum();
+               if ((this.flags & 1) != 0) {
+                  var1.validator.sendChecksum(false, true, false);
+               }
+            }
+         }
+      }
+   }
+
+    long calculateChecksum(UdpConnection var1, int var2) {
+      if ((this.flags & 4) != 0) {
+         var1.validator.details.clear();
+      }
+
+    CRC32 var3 = std::make_shared<CRC32>();
+    CRC32 var4 = std::make_shared<CRC32>();
+    ByteBuffer var5 = ByteBuffer.allocate(8);
+      var3.update(var2);
+
+      for (Recipe var8 : ScriptManager.instance.getAllRecipes()) {
+         var4.reset();
+         var5.clear();
+         var4.update(var8.getOriginalname().getBytes());
+         var4.update((int)var8.TimeToMake);
+         if (var8.skillRequired != nullptr) {
+            for (RequiredSkill var10 : var8.skillRequired) {
+               var4.update(var10.getPerk().index());
+               var4.update(var10.getLevel());
+            }
+         }
+
+         for (Source var15 : var8.getSource()) {
+            for (std::string var12 : var15.getItems()) {
+               var4.update(var12.getBytes());
+            }
+         }
+
+         var4.update(var8.getResult().getType().getBytes());
+         var4.update(var8.getResult().getModule().getBytes());
+         var4.update(var8.getResult().getCount());
+    long var14 = var4.getValue();
+         var5.putLong(var14);
+         var5.position(0);
+         var3.update(var5);
+         if ((this.flags & 4) != 0) {
+            var1.validator
+               .details
+               .put(
+                  var8.getOriginalname(),
+                  std::make_shared<RecipeDetails>(
+                     var8.getOriginalname(),
+                     var14,
+                     (int)var8.TimeToMake,
+                     var8.skillRequired,
+                     var8.getSource(),
+                     var8.getResult().getType(),
+                     var8.getResult().getModule(),
+                     var8.getResult().getCount()
+                  )
+               );
+         }
+      }
+
+      return var3.getValue();
+   }
+
+    void parse(ByteBuffer var1, UdpConnection var2) {
+      try {
+         this.flags = var1.get();
+         if (GameClient.bClient) {
+            this.salt = var1.getInt();
+         } else if (GameServer.bServer) {
+            this.checksumFromClient = var1.getLong();
+            if ((this.flags & 4) != 0) {
+               var2.validator.detailsFromClient.clear();
+    int var3 = var1.getInt();
+
+               for (int var4 = 0; var4 < var3; var4++) {
+                  var2.validator.detailsFromClient.put(GameWindow.ReadString(var1), std::make_shared<RecipeDetails>(var1));
+               }
+            }
+         }
+      } catch (Exception var5) {
+         DebugLog.Multiplayer.printException(var5, "Parse error. Probably, \"" + var2.username + "\" client is outdated", LogSeverity.Error);
+      }
+   }
+
+    void write(ByteBufferWriter var1) {
+      var1.putByte(this.flags);
+      if (GameServer.bServer) {
+         var1.putInt(this.salt);
+      } else if (GameClient.bClient) {
+         var1.putLong(this.checksum);
+         if ((this.flags & 4) != 0) {
+    int var2 = GameClient.connection.validator.details.size();
+            var1.putInt(var2);
+
+            for (Entry var4 : GameClient.connection.validator.details.entrySet()) {
+               var1.putUTF((std::string)var4.getKey());
+               ((RecipeDetails)var4.getValue()).write(var1);
+            }
+         }
+      }
+   }
+
+    void log(UdpConnection var1, const std::string& var2) {
+      if (this.flags != 0) {
+         ConnectionManager.log(var2, std::string.format("checksum-packet-%d", this.flags), var1);
+      }
+   }
+}
+} // namespace packets
+} // namespace network
+} // namespace zombie

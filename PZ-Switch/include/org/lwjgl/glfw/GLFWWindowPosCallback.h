@@ -1,8 +1,0 @@
-#ifndef ORG_LWJGL_GLFW_GLFWWINDOWPOSCALLBACK_H
-#define ORG_LWJGL_GLFW_GLFWWINDOWPOSCALLBACK_H
-
-namespace org::lwjgl::glfw {
-class GLFWWindowPosCallback { };
-}
-
-#endif // ORG_LWJGL_GLFW_GLFWWINDOWPOSCALLBACK_H

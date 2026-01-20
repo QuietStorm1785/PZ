@@ -1,0 +1,44 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include <fstream>
+#include <iostream>
+
+namespace de {
+namespace jarnbjo {
+namespace util {
+namespace io {
+
+
+class BitInputStream {
+public:
+    virtual ~BitInputStream() = default;
+    int LITTLE_ENDIAN = 0;
+    int BIG_ENDIAN = 1;
+
+    bool getBit();
+
+    int getInt(int var1);
+
+    int getSignedInt(int var1);
+
+    int getInt(HuffmanNode var1);
+
+    int readSignedRice(int var1);
+
+    void readSignedRice(int var1, int[] var2, int var3, int var4);
+
+    long getLong(int var1);
+
+    void align();
+
+    void setEndian(int var1);
+}
+} // namespace io
+} // namespace util
+} // namespace jarnbjo
+} // namespace de

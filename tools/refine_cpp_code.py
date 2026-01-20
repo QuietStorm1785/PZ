@@ -193,7 +193,7 @@ def main():
     
     if len(sys.argv) < 2:
         print("Usage: python refine_cpp_code.py <directory>")
-        print("Example: python refine_cpp_code.py /workspaces/PZ/PZ-Switch/include/jni")
+        print("Example: python refine_cpp_code.py <path_to_jni_directory>")
         sys.exit(1)
     
     target_dir = sys.argv[1]

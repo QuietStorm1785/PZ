@@ -1,0 +1,35 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+
+namespace zombie {
+namespace iso {
+namespace areas {
+namespace isoregion {
+namespace jobs {
+
+class JobApplyChanges : public RegionJob {
+public:
+    bool saveToDisk;
+
+    protected JobApplyChanges() {
+      super(RegionJobType.ApplyChanges);
+   }
+
+    void reset() {
+      this.saveToDisk = false;
+   }
+
+    bool isSaveToDisk() {
+      return this.saveToDisk;
+   }
+}
+} // namespace jobs
+} // namespace isoregion
+} // namespace areas
+} // namespace iso
+} // namespace zombie
