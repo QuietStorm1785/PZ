@@ -1,4 +1,4 @@
-#include "zombie\iso\areas\isoregion\jobs/JobDebugResetAllData.h"
+#include "zombie/iso/areas/isoregion/jobs/JobDebugResetAllData.h"
 
 namespace zombie {
 namespace iso {

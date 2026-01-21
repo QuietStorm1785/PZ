@@ -2,7 +2,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "zombie\core\skinnedmodel\model\jassimp/JAssImpImporter.h"
+#include "zombie/core/skinnedmodel/model/jassimp/JAssImpImporter.h"
 
 namespace zombie {
 namespace core {

@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\collect/ForwardingQueue.h"
+#include "com/google/common/collect/ForwardingQueue.h"
 
 namespace com {
 namespace google {

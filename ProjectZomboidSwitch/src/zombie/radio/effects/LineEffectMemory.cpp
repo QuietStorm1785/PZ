@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\radio\effects/LineEffectMemory.h"
+#include "zombie/radio/effects/LineEffectMemory.h"
 
 namespace zombie {
 namespace radio {

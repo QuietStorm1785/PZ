@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\sun\xml\bind/DatatypeConverterImpl$CalendarFormatter.h"
+#include "com/sun/xml/bind/DatatypeConverterImpl$CalendarFormatter.h"
 
 namespace com {
 namespace sun {

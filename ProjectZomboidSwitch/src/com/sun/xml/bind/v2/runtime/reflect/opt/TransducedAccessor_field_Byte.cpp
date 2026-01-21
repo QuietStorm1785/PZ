@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/TransducedAccessor_field_Byte.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/TransducedAccessor_field_Byte.h"
 
 namespace com {
 namespace sun {

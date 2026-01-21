@@ -1,4 +1,4 @@
-#include "zombie\gameStates/ChooseGameInfo$TileDef.h"
+#include "zombie/gameStates/ChooseGameInfo$TileDef.h"
 
 namespace zombie {
 namespace gameStates {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\istack\localization/Localizable.h"
+#include "com/sun/istack/localization/Localizable.h"
 
 namespace com {
 namespace sun {

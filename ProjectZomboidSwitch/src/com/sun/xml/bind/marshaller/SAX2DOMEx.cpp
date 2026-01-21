@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\marshaller/SAX2DOMEx.h"
+#include "com/sun/xml/bind/marshaller/SAX2DOMEx.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/FluentIterable.h"
+#include "com/google/common/collect/FluentIterable.h"
 
 namespace com {
 namespace google {

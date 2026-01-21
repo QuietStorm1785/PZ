@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model\jassimp/JAssImpImporter$LibraryLoader.h"
+#include "zombie/core/skinnedmodel/model/jassimp/JAssImpImporter$LibraryLoader.h"
 
 namespace zombie {
 namespace core {

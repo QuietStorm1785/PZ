@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "zombie\profanity\locales/LocaleEnglish$6.h"
+#include "zombie/profanity/locales/LocaleEnglish$6.h"
 
 namespace zombie {
 namespace profanity {

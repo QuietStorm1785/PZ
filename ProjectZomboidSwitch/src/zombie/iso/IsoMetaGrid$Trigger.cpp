@@ -1,4 +1,4 @@
-#include "zombie\iso/IsoMetaGrid$Trigger.h"
+#include "zombie/iso/IsoMetaGrid$Trigger.h"
 
 namespace zombie {
 namespace iso {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network\packets/VehicleAuthorizationPacket.h"
+#include "zombie/network/packets/VehicleAuthorizationPacket.h"
 
 namespace zombie {
 namespace network {

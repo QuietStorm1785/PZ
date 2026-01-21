@@ -1,4 +1,4 @@
-#include "com\mashape\unirest\http/HttpMethod.h"
+#include "com/mashape/unirest/http/HttpMethod.h"
 
 namespace com {
 namespace mashape {

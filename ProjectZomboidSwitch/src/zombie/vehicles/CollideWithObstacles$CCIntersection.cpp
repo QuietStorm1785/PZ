@@ -1,4 +1,4 @@
-#include "zombie\vehicles/CollideWithObstacles$CCIntersection.h"
+#include "zombie/vehicles/CollideWithObstacles$CCIntersection.h"
 
 namespace zombie {
 namespace vehicles {

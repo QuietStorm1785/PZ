@@ -1,4 +1,4 @@
-#include "com\google\common\io/Closeables.h"
+#include "com/google/common/io/Closeables.h"
 
 namespace com {
 namespace google {

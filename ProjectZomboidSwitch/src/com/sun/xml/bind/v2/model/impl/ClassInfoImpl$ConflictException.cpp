@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/ClassInfoImpl$ConflictException.h"
+#include "com/sun/xml/bind/v2/model/impl/ClassInfoImpl$ConflictException.h"
 
 namespace com {
 namespace sun {

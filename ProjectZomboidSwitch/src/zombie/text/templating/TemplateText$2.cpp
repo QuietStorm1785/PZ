@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\text\templating/TemplateText$2.h"
+#include "zombie/text/templating/TemplateText$2.h"
 
 namespace zombie {
 namespace text {

@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/Floor.h"
+#include "de/jarnbjo/vorbis/Floor.h"
 
 namespace de {
 namespace jarnbjo {

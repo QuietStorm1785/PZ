@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/AttrDecls.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/AttrDecls.h"
 
 namespace com {
 namespace sun {

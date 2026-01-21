@@ -1,4 +1,4 @@
-#include "zombie\iso\weather/WorldFlares$Flare.h"
+#include "zombie/iso/weather/WorldFlares$Flare.h"
 
 namespace zombie {
 namespace iso {

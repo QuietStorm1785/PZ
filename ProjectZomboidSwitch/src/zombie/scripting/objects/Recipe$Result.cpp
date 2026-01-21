@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\scripting\objects/Recipe$Result.h"
+#include "zombie/scripting/objects/Recipe$Result.h"
 
 namespace zombie {
 namespace scripting {

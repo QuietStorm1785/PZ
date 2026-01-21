@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/Funnels$IntegerFunnel.h"
+#include "com/google/common/hash/Funnels$IntegerFunnel.h"
 
 namespace com {
 namespace google {

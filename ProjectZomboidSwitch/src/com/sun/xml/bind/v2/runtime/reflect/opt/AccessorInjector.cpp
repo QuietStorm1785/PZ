@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/AccessorInjector.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/AccessorInjector.h"
 
 namespace com {
 namespace sun {

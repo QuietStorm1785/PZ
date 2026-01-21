@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/CharacterModelCamera.h"
+#include "zombie/core/opengl/CharacterModelCamera.h"
 
 namespace zombie {
 namespace core {

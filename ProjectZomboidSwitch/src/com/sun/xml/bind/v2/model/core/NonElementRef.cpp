@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\core/NonElementRef.h"
+#include "com/sun/xml/bind/v2/model/core/NonElementRef.h"
 
 namespace com {
 namespace sun {

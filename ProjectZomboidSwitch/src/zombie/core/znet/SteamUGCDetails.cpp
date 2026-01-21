@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\znet/SteamUGCDetails.h"
+#include "zombie/core/znet/SteamUGCDetails.h"
 
 namespace zombie {
 namespace core {

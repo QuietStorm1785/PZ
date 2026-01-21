@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\chat/NineGridTexture.h"
+#include "zombie/chat/NineGridTexture.h"
 
 namespace zombie {
 namespace chat {

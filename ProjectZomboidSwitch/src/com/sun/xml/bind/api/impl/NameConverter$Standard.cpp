@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "com\sun\xml\bind\api\impl/NameConverter$Standard.h"
+#include "com/sun/xml/bind/api/impl/NameConverter$Standard.h"
 
 namespace com {
 namespace sun {

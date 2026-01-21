@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/StateManager$CloseInitiator.h"
+#include "com/neovisionaries/ws/client/StateManager$CloseInitiator.h"
 
 namespace com {
 namespace neovisionaries {

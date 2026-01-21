@@ -1,6 +1,6 @@
 #include <string>
 #include <unordered_map>
-#include "com\sixlegs\png/PngImage.h"
+#include "com/sixlegs/png/PngImage.h"
 #include "com/sixlegs/png/OpenCvPngShim.h"
 #include <opencv2/core.hpp>
 

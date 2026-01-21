@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect/AdaptedAccessor.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/AdaptedAccessor.h"
 
 namespace com {
 namespace sun {

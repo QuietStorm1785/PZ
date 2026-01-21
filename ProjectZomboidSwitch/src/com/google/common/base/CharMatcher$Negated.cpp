@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/CharMatcher$Negated.h"
+#include "com/google/common/base/CharMatcher$Negated.h"
 
 namespace com {
 namespace google {

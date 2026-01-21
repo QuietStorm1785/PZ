@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\util/ByteArrayOutputStreamEx.h"
+#include "com/sun/xml/bind/v2/util/ByteArrayOutputStreamEx.h"
 
 namespace com {
 namespace sun {

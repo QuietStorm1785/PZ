@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\util/QNameMap$HashIterator.h"
+#include "com/sun/xml/bind/v2/util/QNameMap$HashIterator.h"
 
 namespace com {
 namespace sun {

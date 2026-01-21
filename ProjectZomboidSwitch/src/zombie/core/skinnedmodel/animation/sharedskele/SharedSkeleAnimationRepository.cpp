@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\animation\sharedskele/SharedSkeleAnimationRepository.h"
+#include "zombie/core/skinnedmodel/animation/sharedskele/SharedSkeleAnimationRepository.h"
 
 namespace zombie {
 namespace core {

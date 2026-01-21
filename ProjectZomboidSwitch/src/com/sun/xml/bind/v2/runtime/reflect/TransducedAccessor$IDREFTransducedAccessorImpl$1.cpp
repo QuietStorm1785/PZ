@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect/TransducedAccessor$IDREFTransducedAccessorImpl$1.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/TransducedAccessor$IDREFTransducedAccessorImpl$1.h"
 
 namespace com {
 namespace sun {

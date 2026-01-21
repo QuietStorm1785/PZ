@@ -1,4 +1,4 @@
-#include "zombie\characters/ZombieVocalsManager$Slot.h"
+#include "zombie/characters/ZombieVocalsManager$Slot.h"
 
 namespace zombie {
 namespace characters {

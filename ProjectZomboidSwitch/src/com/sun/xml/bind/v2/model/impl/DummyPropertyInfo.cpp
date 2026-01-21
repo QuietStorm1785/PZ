@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/DummyPropertyInfo.h"
+#include "com/sun/xml/bind/v2/model/impl/DummyPropertyInfo.h"
 
 namespace com {
 namespace sun {

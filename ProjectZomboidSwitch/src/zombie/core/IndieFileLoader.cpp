@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core/IndieFileLoader.h"
+#include "zombie/core/IndieFileLoader.h"
 
 namespace zombie {
 namespace core {

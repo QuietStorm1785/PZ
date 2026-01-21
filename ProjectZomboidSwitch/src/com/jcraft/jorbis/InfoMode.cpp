@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/InfoMode.h"
+#include "com/jcraft/jorbis/InfoMode.h"
 
 namespace com {
 namespace jcraft {

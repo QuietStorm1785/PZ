@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/NamespaceContextImpl$1.h"
+#include "com/sun/xml/bind/v2/runtime/output/NamespaceContextImpl$1.h"
 
 namespace com {
 namespace sun {

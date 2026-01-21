@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "com\google\common\hash/ChecksumHashFunction$ChecksumHasher.h"
+#include "com/google/common/hash/ChecksumHashFunction$ChecksumHasher.h"
 
 namespace com {
 namespace google {

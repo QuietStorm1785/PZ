@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/MethodAccessor_Short.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/MethodAccessor_Short.h"
 
 namespace com {
 namespace sun {

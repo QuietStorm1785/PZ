@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\core/Ref.h"
+#include "com/sun/xml/bind/v2/model/core/Ref.h"
 
 namespace com {
 namespace sun {

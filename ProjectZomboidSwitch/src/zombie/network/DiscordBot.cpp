@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network/DiscordBot.h"
+#include "zombie/network/DiscordBot.h"
 
 namespace zombie {
 namespace network {

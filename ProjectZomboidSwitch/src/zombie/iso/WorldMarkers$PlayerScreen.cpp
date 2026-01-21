@@ -1,4 +1,4 @@
-#include "zombie\iso/WorldMarkers$PlayerScreen.h"
+#include "zombie/iso/WorldMarkers$PlayerScreen.h"
 
 namespace zombie {
 namespace iso {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network\packets/RemoveCorpseFromMap.h"
+#include "zombie/network/packets/RemoveCorpseFromMap.h"
 
 namespace zombie {
 namespace network {

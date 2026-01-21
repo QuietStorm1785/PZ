@@ -1,5 +1,5 @@
 #include <queue>
-#include "zombie\core\opengl/RenderThread.h"
+#include "zombie/core/opengl/RenderThread.h"
 
 namespace zombie {
 namespace core {

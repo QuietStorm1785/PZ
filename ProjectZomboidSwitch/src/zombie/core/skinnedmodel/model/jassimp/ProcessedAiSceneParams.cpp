@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model\jassimp/ProcessedAiSceneParams.h"
+#include "zombie/core/skinnedmodel/model/jassimp/ProcessedAiSceneParams.h"
 
 namespace zombie {
 namespace core {

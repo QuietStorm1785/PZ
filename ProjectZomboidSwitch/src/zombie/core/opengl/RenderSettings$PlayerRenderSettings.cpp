@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/RenderSettings$PlayerRenderSettings.h"
+#include "zombie/core/opengl/RenderSettings$PlayerRenderSettings.h"
 
 namespace zombie {
 namespace core {

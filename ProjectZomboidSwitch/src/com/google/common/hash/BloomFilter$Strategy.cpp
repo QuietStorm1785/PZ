@@ -1,4 +1,4 @@
-#include "com\google\common\hash/BloomFilter$Strategy.h"
+#include "com/google/common/hash/BloomFilter$Strategy.h"
 
 namespace com {
 namespace google {

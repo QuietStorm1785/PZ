@@ -1,7 +1,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "zombie\core\opengl/ShaderUnit.h"
+#include "zombie/core/opengl/ShaderUnit.h"
 
 namespace zombie {
 namespace core {

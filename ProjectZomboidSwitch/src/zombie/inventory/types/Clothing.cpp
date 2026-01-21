@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "zombie\inventory\types/Clothing.h"
+#include "zombie/inventory/types/Clothing.h"
 
 namespace zombie {
 namespace inventory {

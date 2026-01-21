@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/AudioPacket.h"
+#include "de/jarnbjo/vorbis/AudioPacket.h"
 
 namespace de {
 namespace jarnbjo {

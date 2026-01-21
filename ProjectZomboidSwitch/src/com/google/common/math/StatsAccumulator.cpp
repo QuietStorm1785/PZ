@@ -1,4 +1,4 @@
-#include "com\google\common\math/StatsAccumulator.h"
+#include "com/google/common/math/StatsAccumulator.h"
 
 namespace com {
 namespace google {

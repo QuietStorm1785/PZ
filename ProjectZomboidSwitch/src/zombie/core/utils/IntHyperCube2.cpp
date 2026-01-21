@@ -1,4 +1,4 @@
-#include "zombie\core\utils/IntHyperCube2.h"
+#include "zombie/core/utils/IntHyperCube2.h"
 
 namespace zombie {
 namespace core {

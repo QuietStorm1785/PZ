@@ -1,4 +1,4 @@
-#include "zombie\iso\areas\isoregion/IsoRegionWorker$2.h"
+#include "zombie/iso/areas/isoregion/IsoRegionWorker$2.h"
 
 namespace zombie {
 namespace iso {

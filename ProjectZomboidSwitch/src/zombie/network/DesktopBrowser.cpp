@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network/DesktopBrowser.h"
+#include "zombie/network/DesktopBrowser.h"
 
 namespace zombie {
 namespace network {

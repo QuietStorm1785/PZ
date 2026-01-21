@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ui/SpeedControls.h"
+#include "zombie/ui/SpeedControls.h"
 
 namespace zombie {
 namespace ui {

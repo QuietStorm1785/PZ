@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http/HttpDeleteWithBody.h"
+#include "com/mashape/unirest/http/HttpDeleteWithBody.h"
 
 namespace com {
 namespace mashape {

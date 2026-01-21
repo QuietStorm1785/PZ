@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\impl/TypeInfoSetImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/TypeInfoSetImpl.h"
 
 namespace com {
 namespace sun {

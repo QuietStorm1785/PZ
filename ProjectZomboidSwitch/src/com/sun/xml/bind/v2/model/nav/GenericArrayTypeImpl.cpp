@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\nav/GenericArrayTypeImpl.h"
+#include "com/sun/xml/bind/v2/model/nav/GenericArrayTypeImpl.h"
 
 namespace com {
 namespace sun {

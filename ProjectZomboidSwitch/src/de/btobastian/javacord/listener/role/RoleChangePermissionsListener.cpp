@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\role/RoleChangePermissionsListener.h"
+#include "de/btobastian/javacord/listener/role/RoleChangePermissionsListener.h"
 
 namespace de {
 namespace btobastian {

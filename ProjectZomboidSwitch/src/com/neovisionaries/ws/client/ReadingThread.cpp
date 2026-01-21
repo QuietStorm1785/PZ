@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/ReadingThread.h"
+#include "com/neovisionaries/ws/client/ReadingThread.h"
 
 namespace com {
 namespace neovisionaries {

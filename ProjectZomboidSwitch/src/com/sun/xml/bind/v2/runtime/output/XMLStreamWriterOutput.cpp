@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/XMLStreamWriterOutput.h"
+#include "com/sun/xml/bind/v2/runtime/output/XMLStreamWriterOutput.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/WebSocketCloseCode.h"
+#include "com/neovisionaries/ws/client/WebSocketCloseCode.h"
 
 namespace com {
 namespace neovisionaries {

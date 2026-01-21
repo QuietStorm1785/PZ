@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/Parameter.h"
+#include "com/google/common/reflect/Parameter.h"
 
 namespace com {
 namespace google {

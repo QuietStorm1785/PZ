@@ -1,4 +1,4 @@
-#include "zombie\Lua/Event$Add.h"
+#include "zombie/Lua/Event$Add.h"
 
 namespace zombie {
 namespace Lua {

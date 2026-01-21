@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/AnimationVariableSlotCallback$CallbackGet.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AnimationVariableSlotCallback$CallbackGet.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "zombie\core\VBO/GLBufferObjectARB.h"
+#include "zombie/core/VBO/GLBufferObjectARB.h"
 
 namespace zombie {
 namespace core {

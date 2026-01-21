@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\inventory\types/WeaponPart.h"
+#include "zombie/inventory/types/WeaponPart.h"
 
 namespace zombie {
 namespace inventory {

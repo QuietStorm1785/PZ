@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/IdentificationHeader.h"
+#include "de/jarnbjo/vorbis/IdentificationHeader.h"
 
 namespace de {
 namespace jarnbjo {

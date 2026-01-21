@@ -1,4 +1,4 @@
-#include "zombie\Lua/LuaManager$GlobalObject$TimSortComparator.h"
+#include "zombie/Lua/LuaManager$GlobalObject$TimSortComparator.h"
 
 namespace zombie {
 namespace Lua {

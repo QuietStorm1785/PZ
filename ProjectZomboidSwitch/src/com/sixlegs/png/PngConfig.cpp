@@ -1,4 +1,4 @@
-#include "com\sixlegs\png/PngConfig.h"
+#include "com/sixlegs/png/PngConfig.h"
 
 namespace com {
 namespace sixlegs {

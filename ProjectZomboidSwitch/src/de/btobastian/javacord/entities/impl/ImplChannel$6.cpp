@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\impl/ImplChannel$6.h"
+#include "de/btobastian/javacord/entities/impl/ImplChannel$6.h"
 
 namespace de {
 namespace btobastian {

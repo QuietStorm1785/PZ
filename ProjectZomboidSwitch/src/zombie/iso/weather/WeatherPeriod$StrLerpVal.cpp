@@ -1,4 +1,4 @@
-#include "zombie\iso\weather/WeatherPeriod$StrLerpVal.h"
+#include "zombie/iso/weather/WeatherPeriod$StrLerpVal.h"
 
 namespace zombie {
 namespace iso {

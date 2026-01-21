@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\textures/Pcx.h"
+#include "zombie/core/textures/Pcx.h"
 
 namespace zombie {
 namespace core {

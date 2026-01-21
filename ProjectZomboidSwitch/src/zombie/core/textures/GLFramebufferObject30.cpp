@@ -1,4 +1,4 @@
-#include "zombie\core\textures/GLFramebufferObject30.h"
+#include "zombie/core/textures/GLFramebufferObject30.h"
 
 namespace zombie {
 namespace core {

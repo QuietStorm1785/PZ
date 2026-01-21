@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/DeflateUtil.h"
+#include "com/neovisionaries/ws/client/DeflateUtil.h"
 
 namespace com {
 namespace neovisionaries {

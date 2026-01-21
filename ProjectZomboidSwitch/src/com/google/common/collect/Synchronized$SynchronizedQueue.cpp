@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\collect/Synchronized$SynchronizedQueue.h"
+#include "com/google/common/collect/Synchronized$SynchronizedQueue.h"
 
 namespace com {
 namespace google {

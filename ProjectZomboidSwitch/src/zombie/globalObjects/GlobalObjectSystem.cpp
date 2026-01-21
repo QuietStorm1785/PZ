@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\globalObjects/GlobalObjectSystem.h"
+#include "zombie/globalObjects/GlobalObjectSystem.h"
 
 namespace zombie {
 namespace globalObjects {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\bytecode/ClassTailor.h"
+#include "com/sun/xml/bind/v2/bytecode/ClassTailor.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime/Coordinator.h"
+#include "com/sun/xml/bind/v2/runtime/Coordinator.h"
 
 namespace com {
 namespace sun {

@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\network/GameServer.h"
+#include "zombie/network/GameServer.h"
 
 namespace zombie {
 namespace network {

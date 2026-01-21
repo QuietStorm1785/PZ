@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\impl/PropertySeed.h"
+#include "com/sun/xml/bind/v2/model/impl/PropertySeed.h"
 
 namespace com {
 namespace sun {

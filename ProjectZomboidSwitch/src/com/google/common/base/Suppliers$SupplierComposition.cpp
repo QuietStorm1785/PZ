@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Suppliers$SupplierComposition.h"
+#include "com/google/common/base/Suppliers$SupplierComposition.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\audio/FMODLocalParameter.h"
+#include "zombie/audio/FMODLocalParameter.h"
 
 namespace zombie {
 namespace audio {

@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/IOpenGLState.h"
+#include "zombie/core/opengl/IOpenGLState.h"
 
 namespace zombie {
 namespace core {

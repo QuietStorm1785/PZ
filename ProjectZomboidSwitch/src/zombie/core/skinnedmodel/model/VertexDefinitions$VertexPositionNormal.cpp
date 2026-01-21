@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/VertexDefinitions$VertexPositionNormal.h"
+#include "zombie/core/skinnedmodel/model/VertexDefinitions$VertexPositionNormal.h"
 
 namespace zombie {
 namespace core {

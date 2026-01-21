@@ -1,4 +1,4 @@
-#include "com\google\common\eventbus/Subscriber$SynchronizedSubscriber.h"
+#include "com/google/common/eventbus/Subscriber$SynchronizedSubscriber.h"
 
 namespace com {
 namespace google {

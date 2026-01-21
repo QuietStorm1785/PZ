@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener/Listener.h"
+#include "de/btobastian/javacord/listener/Listener.h"
 
 namespace de {
 namespace btobastian {

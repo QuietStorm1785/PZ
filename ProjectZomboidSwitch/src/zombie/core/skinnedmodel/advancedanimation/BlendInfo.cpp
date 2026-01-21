@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/BlendInfo.h"
+#include "zombie/core/skinnedmodel/advancedanimation/BlendInfo.h"
 
 namespace zombie {
 namespace core {

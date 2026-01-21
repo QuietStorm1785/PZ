@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen/Tree$Term.h"
+#include "com/sun/xml/bind/v2/schemagen/Tree$Term.h"
 
 namespace com {
 namespace sun {

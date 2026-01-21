@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/CharacterMask$Part.h"
+#include "zombie/core/skinnedmodel/model/CharacterMask$Part.h"
 
 namespace zombie {
 namespace core {

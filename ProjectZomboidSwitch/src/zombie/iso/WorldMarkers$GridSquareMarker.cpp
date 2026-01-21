@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso/WorldMarkers$GridSquareMarker.h"
+#include "zombie/iso/WorldMarkers$GridSquareMarker.h"
 
 namespace zombie {
 namespace iso {

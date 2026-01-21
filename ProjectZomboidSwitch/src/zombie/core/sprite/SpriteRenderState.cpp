@@ -1,4 +1,4 @@
-#include "zombie\core\sprite/SpriteRenderState.h"
+#include "zombie/core/sprite/SpriteRenderState.h"
 
 namespace zombie {
 namespace core {

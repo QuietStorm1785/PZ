@@ -1,4 +1,4 @@
-#include "zombie\randomizedWorld\randomizedBuilding/RBBurnt.h"
+#include "zombie/randomizedWorld/randomizedBuilding/RBBurnt.h"
 
 namespace zombie {
 namespace randomizedWorld {

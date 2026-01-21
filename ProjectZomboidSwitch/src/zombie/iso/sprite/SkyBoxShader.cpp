@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso\sprite/SkyBoxShader.h"
+#include "zombie/iso/sprite/SkyBoxShader.h"
 
 namespace zombie {
 namespace iso {

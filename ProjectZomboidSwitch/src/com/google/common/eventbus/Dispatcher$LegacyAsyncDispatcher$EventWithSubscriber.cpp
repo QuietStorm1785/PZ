@@ -1,4 +1,4 @@
-#include "com\google\common\eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber.h"
+#include "com/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber.h"
 
 namespace com {
 namespace google {

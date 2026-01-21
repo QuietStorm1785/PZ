@@ -1,4 +1,4 @@
-#include "zombie\popman/NetworkZombieManager.h"
+#include "zombie/popman/NetworkZombieManager.h"
 
 namespace zombie {
 namespace popman {

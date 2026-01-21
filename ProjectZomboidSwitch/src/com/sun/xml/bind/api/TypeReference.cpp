@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\api/TypeReference.h"
+#include "com/sun/xml/bind/api/TypeReference.h"
 
 namespace com {
 namespace sun {

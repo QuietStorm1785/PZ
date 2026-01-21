@@ -1,4 +1,4 @@
-#include "de\jarnbjo\util\io/HuffmanNode.h"
+#include "de/jarnbjo/util/io/HuffmanNode.h"
 
 namespace de {
 namespace jarnbjo {

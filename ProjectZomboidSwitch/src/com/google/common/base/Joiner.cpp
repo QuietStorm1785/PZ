@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\google\common\base/Joiner.h"
+#include "com/google/common/base/Joiner.h"
 
 namespace com {
 namespace google {

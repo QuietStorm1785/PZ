@@ -1,4 +1,4 @@
-#include "zombie\ui/UIDebugConsole$CommandEntry.h"
+#include "zombie/ui/UIDebugConsole$CommandEntry.h"
 
 namespace zombie {
 namespace ui {

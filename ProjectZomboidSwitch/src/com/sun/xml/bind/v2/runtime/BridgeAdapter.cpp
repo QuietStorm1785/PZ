@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime/BridgeAdapter.h"
+#include "com/sun/xml/bind/v2/runtime/BridgeAdapter.h"
 
 namespace com {
 namespace sun {

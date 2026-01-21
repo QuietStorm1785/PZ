@@ -1,4 +1,4 @@
-#include "com\google\common\reflect/TypeToken$TypeCollector$ForwardingTypeCollector.h"
+#include "com/google/common/reflect/TypeToken$TypeCollector$ForwardingTypeCollector.h"
 
 namespace com {
 namespace google {

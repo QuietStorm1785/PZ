@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/CharSink.h"
+#include "com/google/common/io/CharSink.h"
 
 namespace com {
 namespace google {

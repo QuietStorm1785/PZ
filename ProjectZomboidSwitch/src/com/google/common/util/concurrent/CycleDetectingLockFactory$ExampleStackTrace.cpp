@@ -1,5 +1,5 @@
 #include <stack>
-#include "com\google\common\util\concurrent/CycleDetectingLockFactory$ExampleStackTrace.h"
+#include "com/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace.h"
 
 namespace com {
 namespace google {

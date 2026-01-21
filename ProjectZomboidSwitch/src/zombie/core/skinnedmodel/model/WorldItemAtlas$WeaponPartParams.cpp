@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/WorldItemAtlas$WeaponPartParams.h"
+#include "zombie/core/skinnedmodel/model/WorldItemAtlas$WeaponPartParams.h"
 
 namespace zombie {
 namespace core {

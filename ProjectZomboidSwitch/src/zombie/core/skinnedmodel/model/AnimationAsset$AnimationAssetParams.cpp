@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/AnimationAsset$AnimationAssetParams.h"
+#include "zombie/core/skinnedmodel/model/AnimationAsset$AnimationAssetParams.h"
 
 namespace zombie {
 namespace core {

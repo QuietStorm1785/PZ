@@ -1,4 +1,4 @@
-#include "zombie\characters/IComparitor.h"
+#include "zombie/characters/IComparitor.h"
 
 namespace zombie {
 namespace characters {

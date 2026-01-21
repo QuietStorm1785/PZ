@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\iso\areas\isoregion/IsoRegions.h"
+#include "zombie/iso/areas/isoregion/IsoRegions.h"
 
 namespace zombie {
 namespace iso {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\eventbus/DeadEvent.h"
+#include "com/google/common/eventbus/DeadEvent.h"
 
 namespace com {
 namespace google {

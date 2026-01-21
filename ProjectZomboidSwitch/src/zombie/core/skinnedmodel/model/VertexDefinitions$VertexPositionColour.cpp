@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/VertexDefinitions$VertexPositionColour.h"
+#include "zombie/core/skinnedmodel/model/VertexDefinitions$VertexPositionColour.h"
 
 namespace zombie {
 namespace core {

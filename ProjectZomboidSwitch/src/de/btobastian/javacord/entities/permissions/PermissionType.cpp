@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\permissions/PermissionType.h"
+#include "de/btobastian/javacord/entities/permissions/PermissionType.h"
 
 namespace de {
 namespace btobastian {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\util/ArrayInfoUtil.h"
+#include "com/sun/xml/bind/v2/model/util/ArrayInfoUtil.h"
 
 namespace com {
 namespace sun {

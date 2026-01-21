@@ -1,4 +1,4 @@
-#include "zombie\debug/ObjectsSyncRequestJUnit.h"
+#include "zombie/debug/ObjectsSyncRequestJUnit.h"
 
 namespace zombie {
 namespace debug {

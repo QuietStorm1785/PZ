@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\message/MessageHistory.h"
+#include "de/btobastian/javacord/entities/message/MessageHistory.h"
 
 namespace de {
 namespace btobastian {

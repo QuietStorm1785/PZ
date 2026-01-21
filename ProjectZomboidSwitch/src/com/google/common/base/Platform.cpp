@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Platform.h"
+#include "com/google/common/base/Platform.h"
 
 namespace com {
 namespace google {

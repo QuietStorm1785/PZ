@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http/JsonNode.h"
+#include "com/mashape/unirest/http/JsonNode.h"
 
 namespace com {
 namespace mashape {

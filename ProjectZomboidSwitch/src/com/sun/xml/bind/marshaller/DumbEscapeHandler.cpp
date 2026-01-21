@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\marshaller/DumbEscapeHandler.h"
+#include "com/sun/xml/bind/marshaller/DumbEscapeHandler.h"
 
 namespace com {
 namespace sun {

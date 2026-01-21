@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2/WellKnownNamespace.h"
+#include "com/sun/xml/bind/v2/WellKnownNamespace.h"
 
 namespace com {
 namespace sun {

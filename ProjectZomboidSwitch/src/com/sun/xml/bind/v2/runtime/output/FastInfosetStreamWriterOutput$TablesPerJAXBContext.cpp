@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\output/FastInfosetStreamWriterOutput$TablesPerJAXBContext.h"
+#include "com/sun/xml/bind/v2/runtime/output/FastInfosetStreamWriterOutput$TablesPerJAXBContext.h"
 
 namespace com {
 namespace sun {

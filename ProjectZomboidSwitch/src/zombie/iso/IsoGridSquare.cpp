@@ -2,7 +2,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include "zombie\iso/IsoGridSquare.h"
+#include "zombie/iso/IsoGridSquare.h"
 
 namespace zombie {
 namespace iso {

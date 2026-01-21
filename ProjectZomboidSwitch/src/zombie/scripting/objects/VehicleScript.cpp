@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\scripting\objects/VehicleScript.h"
+#include "zombie/scripting/objects/VehicleScript.h"
 
 namespace zombie {
 namespace scripting {

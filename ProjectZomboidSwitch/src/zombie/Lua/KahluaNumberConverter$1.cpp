@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "zombie\Lua/KahluaNumberConverter$1.h"
+#include "zombie/Lua/KahluaNumberConverter$1.h"
 
 namespace zombie {
 namespace Lua {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind/WhiteSpaceProcessor.h"
+#include "com/sun/xml/bind/WhiteSpaceProcessor.h"
 
 namespace com {
 namespace sun {

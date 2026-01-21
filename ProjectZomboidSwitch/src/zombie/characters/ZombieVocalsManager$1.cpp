@@ -1,4 +1,4 @@
-#include "zombie\characters/ZombieVocalsManager$1.h"
+#include "zombie/characters/ZombieVocalsManager$1.h"
 
 namespace zombie {
 namespace characters {

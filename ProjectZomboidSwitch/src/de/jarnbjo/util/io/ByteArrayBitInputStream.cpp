@@ -1,4 +1,4 @@
-#include "de\jarnbjo\util\io/ByteArrayBitInputStream.h"
+#include "de/jarnbjo/util/io/ByteArrayBitInputStream.h"
 
 namespace de {
 namespace jarnbjo {

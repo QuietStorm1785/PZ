@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/MacHashFunction.h"
+#include "com/google/common/hash/MacHashFunction.h"
 
 namespace com {
 namespace google {

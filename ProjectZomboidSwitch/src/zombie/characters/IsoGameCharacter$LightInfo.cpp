@@ -1,4 +1,4 @@
-#include "zombie\characters/IsoGameCharacter$LightInfo.h"
+#include "zombie/characters/IsoGameCharacter$LightInfo.h"
 
 namespace zombie {
 namespace characters {

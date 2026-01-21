@@ -1,4 +1,4 @@
-#include "zombie\asset/AssetManager$AssetParams.h"
+#include "zombie/asset/AssetManager$AssetParams.h"
 
 namespace zombie {
 namespace asset {

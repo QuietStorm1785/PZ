@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\core\skinnedmodel\model/ModelInstanceRenderData.h"
+#include "zombie/core/skinnedmodel/model/ModelInstanceRenderData.h"
 
 namespace zombie {
 namespace core {

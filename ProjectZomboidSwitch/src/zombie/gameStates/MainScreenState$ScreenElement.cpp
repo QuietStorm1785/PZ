@@ -1,4 +1,4 @@
-#include "zombie\gameStates/MainScreenState$ScreenElement.h"
+#include "zombie/gameStates/MainScreenState$ScreenElement.h"
 
 namespace zombie {
 namespace gameStates {

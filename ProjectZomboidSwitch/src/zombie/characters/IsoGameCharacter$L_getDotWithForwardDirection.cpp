@@ -1,4 +1,4 @@
-#include "zombie\characters/IsoGameCharacter$L_getDotWithForwardDirection.h"
+#include "zombie/characters/IsoGameCharacter$L_getDotWithForwardDirection.h"
 
 namespace zombie {
 namespace characters {

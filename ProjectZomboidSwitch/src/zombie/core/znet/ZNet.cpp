@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\znet/ZNet.h"
+#include "zombie/core/znet/ZNet.h"
 
 namespace zombie {
 namespace core {

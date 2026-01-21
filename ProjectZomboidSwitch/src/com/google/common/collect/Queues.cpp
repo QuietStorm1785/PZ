@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\collect/Queues.h"
+#include "com/google/common/collect/Queues.h"
 
 namespace com {
 namespace google {

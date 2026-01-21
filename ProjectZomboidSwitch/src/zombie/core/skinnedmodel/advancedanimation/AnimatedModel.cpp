@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\core\skinnedmodel\advancedanimation/AnimatedModel.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AnimatedModel.h"
 
 namespace zombie {
 namespace core {

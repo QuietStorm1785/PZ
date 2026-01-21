@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler/ReadyHandler.h"
+#include "de/btobastian/javacord/utils/handler/ReadyHandler.h"
 
 namespace de {
 namespace btobastian {

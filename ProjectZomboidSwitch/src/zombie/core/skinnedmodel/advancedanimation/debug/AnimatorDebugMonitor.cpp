@@ -1,6 +1,6 @@
 #include <queue>
 #include <string>
-#include "zombie\core\skinnedmodel\advancedanimation\debug/AnimatorDebugMonitor.h"
+#include "zombie/core/skinnedmodel/advancedanimation/debug/AnimatorDebugMonitor.h"
 
 namespace zombie {
 namespace core {

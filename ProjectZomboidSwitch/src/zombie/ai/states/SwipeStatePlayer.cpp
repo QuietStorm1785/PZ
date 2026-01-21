@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\ai\states/SwipeStatePlayer.h"
+#include "zombie/ai/states/SwipeStatePlayer.h"
 
 namespace zombie {
 namespace ai {

@@ -1,4 +1,4 @@
-#include "zombie\radio\globals/EditGlobalEvent.h"
+#include "zombie/radio/globals/EditGlobalEvent.h"
 
 namespace zombie {
 namespace radio {

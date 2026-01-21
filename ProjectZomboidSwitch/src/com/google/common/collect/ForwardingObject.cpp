@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/ForwardingObject.h"
+#include "com/google/common/collect/ForwardingObject.h"
 
 namespace com {
 namespace google {

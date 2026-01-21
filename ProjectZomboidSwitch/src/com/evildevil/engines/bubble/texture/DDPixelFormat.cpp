@@ -1,5 +1,5 @@
 #include <string>
-#include "com\evildevil\engines\bubble\texture/DDPixelFormat.h"
+#include "com/evildevil/engines/bubble/texture/DDPixelFormat.h"
 
 namespace com {
 namespace evildevil {

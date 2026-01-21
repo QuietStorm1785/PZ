@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\ratelimits/RateLimitType.h"
+#include "de/btobastian/javacord/utils/ratelimits/RateLimitType.h"
 
 namespace de {
 namespace btobastian {

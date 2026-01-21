@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\utils/LoggerUtil.h"
+#include "de/btobastian/javacord/utils/LoggerUtil.h"
 
 namespace de {
 namespace btobastian {

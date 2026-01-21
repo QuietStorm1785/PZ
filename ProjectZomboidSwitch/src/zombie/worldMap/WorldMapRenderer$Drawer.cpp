@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\worldMap/WorldMapRenderer$Drawer.h"
+#include "zombie/worldMap/WorldMapRenderer$Drawer.h"
 
 namespace zombie {
 namespace worldMap {

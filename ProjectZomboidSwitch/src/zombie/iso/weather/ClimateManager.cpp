@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\iso\weather/ClimateManager.h"
+#include "zombie/iso/weather/ClimateManager.h"
 
 namespace zombie {
 namespace iso {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/HandshakeReader.h"
+#include "com/neovisionaries/ws/client/HandshakeReader.h"
 
 namespace com {
 namespace neovisionaries {

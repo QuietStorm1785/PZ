@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\advancedanimation/IAnimationVariableSource.h"
+#include "zombie/core/skinnedmodel/advancedanimation/IAnimationVariableSource.h"
 
 namespace zombie {
 namespace core {

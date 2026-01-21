@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/Lookup.h"
+#include "com/jcraft/jorbis/Lookup.h"
 
 namespace com {
 namespace jcraft {

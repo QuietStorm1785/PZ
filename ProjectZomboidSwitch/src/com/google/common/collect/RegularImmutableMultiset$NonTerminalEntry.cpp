@@ -1,4 +1,4 @@
-#include "com\google\common\collect/RegularImmutableMultiset$NonTerminalEntry.h"
+#include "com/google/common/collect/RegularImmutableMultiset$NonTerminalEntry.h"
 
 namespace com {
 namespace google {

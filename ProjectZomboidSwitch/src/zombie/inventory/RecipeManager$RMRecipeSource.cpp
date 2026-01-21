@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\inventory/RecipeManager$RMRecipeSource.h"
+#include "zombie/inventory/RecipeManager$RMRecipeSource.h"
 
 namespace zombie {
 namespace inventory {

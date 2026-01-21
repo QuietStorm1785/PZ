@@ -1,4 +1,4 @@
-#include "zombie\core/SpriteRenderer$WallShaderTexRender.h"
+#include "zombie/core/SpriteRenderer$WallShaderTexRender.h"
 
 namespace zombie {
 namespace core {

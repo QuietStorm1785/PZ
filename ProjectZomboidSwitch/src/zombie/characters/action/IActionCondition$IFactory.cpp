@@ -1,4 +1,4 @@
-#include "zombie\characters\action/IActionCondition$IFactory.h"
+#include "zombie/characters/action/IActionCondition$IFactory.h"
 
 namespace zombie {
 namespace characters {

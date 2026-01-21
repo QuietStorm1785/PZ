@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\marshaller/MinimumEscapeHandler.h"
+#include "com/sun/xml/bind/marshaller/MinimumEscapeHandler.h"
 
 namespace com {
 namespace sun {

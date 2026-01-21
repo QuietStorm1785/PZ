@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\radio\StorySounds/StorySound.h"
+#include "zombie/radio/StorySounds/StorySound.h"
 
 namespace zombie {
 namespace radio {

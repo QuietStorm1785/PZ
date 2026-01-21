@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\action\conditions/EventOccurred.h"
+#include "zombie/characters/action/conditions/EventOccurred.h"
 
 namespace zombie {
 namespace characters {

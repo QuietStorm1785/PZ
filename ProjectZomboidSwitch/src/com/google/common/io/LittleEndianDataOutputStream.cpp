@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/LittleEndianDataOutputStream.h"
+#include "com/google/common/io/LittleEndianDataOutputStream.h"
 
 namespace com {
 namespace google {

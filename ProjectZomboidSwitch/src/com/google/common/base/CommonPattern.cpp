@@ -1,4 +1,4 @@
-#include "com\google\common\base/CommonPattern.h"
+#include "com/google/common/base/CommonPattern.h"
 
 namespace com {
 namespace google {

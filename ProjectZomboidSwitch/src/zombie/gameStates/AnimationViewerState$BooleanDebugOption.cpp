@@ -1,4 +1,4 @@
-#include "zombie\gameStates/AnimationViewerState$BooleanDebugOption.h"
+#include "zombie/gameStates/AnimationViewerState$BooleanDebugOption.h"
 
 namespace zombie {
 namespace gameStates {

@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/StateManager.h"
+#include "com/neovisionaries/ws/client/StateManager.h"
 
 namespace com {
 namespace neovisionaries {

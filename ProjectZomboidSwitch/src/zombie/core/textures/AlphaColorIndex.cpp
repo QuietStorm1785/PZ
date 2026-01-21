@@ -1,4 +1,4 @@
-#include "zombie\core\textures/AlphaColorIndex.h"
+#include "zombie/core/textures/AlphaColorIndex.h"
 
 namespace zombie {
 namespace core {

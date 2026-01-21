@@ -1,5 +1,5 @@
 #include <string>
-#include "com\jcraft\jorbis/VorbisFile.h"
+#include "com/jcraft/jorbis/VorbisFile.h"
 
 namespace com {
 namespace jcraft {

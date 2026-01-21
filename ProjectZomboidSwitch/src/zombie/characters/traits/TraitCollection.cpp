@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\traits/TraitCollection.h"
+#include "zombie/characters/traits/TraitCollection.h"
 
 namespace zombie {
 namespace characters {

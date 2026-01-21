@@ -1,4 +1,4 @@
-#include "de\jarnbjo\ogg/CachedUrlStream.h"
+#include "de/jarnbjo/ogg/CachedUrlStream.h"
 
 namespace de {
 namespace jarnbjo {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\math/PairedStats.h"
+#include "com/google/common/math/PairedStats.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/BanSteamIDCommand.h"
+#include "zombie/commands/serverCommands/BanSteamIDCommand.h"
 
 namespace zombie {
 namespace commands {

@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord/ImplDiscordAPI.h"
+#include "de/btobastian/javacord/ImplDiscordAPI.h"
 
 namespace de {
 namespace btobastian {

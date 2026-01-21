@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\api/AccessorException.h"
+#include "com/sun/xml/bind/api/AccessorException.h"
 
 namespace com {
 namespace sun {

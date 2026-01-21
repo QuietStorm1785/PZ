@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/BlendType.h"
+#include "zombie/core/skinnedmodel/advancedanimation/BlendType.h"
 
 namespace zombie {
 namespace core {

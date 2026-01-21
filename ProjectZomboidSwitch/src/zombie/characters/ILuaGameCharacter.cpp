@@ -1,6 +1,6 @@
 #include <queue>
 #include <string>
-#include "zombie\characters/ILuaGameCharacter.h"
+#include "zombie/characters/ILuaGameCharacter.h"
 
 namespace zombie {
 namespace characters {

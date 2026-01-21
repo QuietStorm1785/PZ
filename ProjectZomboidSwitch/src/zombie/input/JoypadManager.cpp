@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\input/JoypadManager.h"
+#include "zombie/input/JoypadManager.h"
 
 namespace zombie {
 namespace input {

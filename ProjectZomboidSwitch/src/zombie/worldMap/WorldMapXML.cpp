@@ -1,7 +1,7 @@
 #include <string>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include "zombie\worldMap/WorldMapXML.h"
+#include "zombie/worldMap/WorldMapXML.h"
 
 namespace zombie {
 namespace worldMap {

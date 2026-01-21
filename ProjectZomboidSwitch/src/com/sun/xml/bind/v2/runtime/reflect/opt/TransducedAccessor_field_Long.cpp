@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/TransducedAccessor_field_Long.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/TransducedAccessor_field_Long.h"
 
 namespace com {
 namespace sun {

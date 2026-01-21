@@ -1,4 +1,4 @@
-#include "zombie\Lua/LuaManager$GlobalObject$3.h"
+#include "zombie/Lua/LuaManager$GlobalObject$3.h"
 
 namespace zombie {
 namespace Lua {

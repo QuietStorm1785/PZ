@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/Mapping0$InfoMapping0.h"
+#include "com/jcraft/jorbis/Mapping0$InfoMapping0.h"
 
 namespace com {
 namespace jcraft {

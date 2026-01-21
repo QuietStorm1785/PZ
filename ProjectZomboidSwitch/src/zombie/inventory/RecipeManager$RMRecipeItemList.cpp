@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\inventory/RecipeManager$RMRecipeItemList.h"
+#include "zombie/inventory/RecipeManager$RMRecipeItemList.h"
 
 namespace zombie {
 namespace inventory {

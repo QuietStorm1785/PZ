@@ -1,4 +1,4 @@
-#include "zombie\core/LanguageFileData.h"
+#include "zombie/core/LanguageFileData.h"
 
 namespace zombie {
 namespace core {

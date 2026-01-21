@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\config/ConfigFile.h"
+#include "zombie/config/ConfigFile.h"
 
 namespace zombie {
 namespace config {

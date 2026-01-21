@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\network\packets/PlayWorldSoundPacket.h"
+#include "zombie/network/packets/PlayWorldSoundPacket.h"
 
 namespace zombie {
 namespace network {

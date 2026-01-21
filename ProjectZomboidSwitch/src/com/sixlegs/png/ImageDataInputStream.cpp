@@ -1,4 +1,4 @@
-#include "com\sixlegs\png/ImageDataInputStream.h"
+#include "com/sixlegs/png/ImageDataInputStream.h"
 
 namespace com {
 namespace sixlegs {

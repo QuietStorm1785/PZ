@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/MethodAccessor_Boolean.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/MethodAccessor_Boolean.h"
 
 namespace com {
 namespace sun {

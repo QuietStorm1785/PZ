@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/CharStreams$NullWriter.h"
+#include "com/google/common/io/CharStreams$NullWriter.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\istack/XMLStreamReaderToContentHandler$1.h"
+#include "com/sun/istack/XMLStreamReaderToContentHandler$1.h"
 
 namespace com {
 namespace sun {

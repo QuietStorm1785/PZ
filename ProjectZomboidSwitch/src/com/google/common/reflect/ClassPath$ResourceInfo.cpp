@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/ClassPath$ResourceInfo.h"
+#include "com/google/common/reflect/ClassPath$ResourceInfo.h"
 
 namespace com {
 namespace google {

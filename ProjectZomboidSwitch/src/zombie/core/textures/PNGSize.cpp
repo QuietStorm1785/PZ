@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\textures/PNGSize.h"
+#include "zombie/core/textures/PNGSize.h"
 
 namespace zombie {
 namespace core {

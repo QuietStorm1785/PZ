@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/MethodAccessor_Character.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/MethodAccessor_Character.h"
 
 namespace com {
 namespace sun {

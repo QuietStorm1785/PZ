@@ -1,4 +1,4 @@
-#include "com\google\common\annotations/GwtCompatible.h"
+#include "com/google/common/annotations/GwtCompatible.h"
 
 namespace com {
 namespace google {

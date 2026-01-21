@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/VertexBufferObject$VertexFormat.h"
+#include "zombie/core/skinnedmodel/model/VertexBufferObject$VertexFormat.h"
 
 namespace zombie {
 namespace core {

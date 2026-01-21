@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso\objects/IsoCompost.h"
+#include "zombie/iso/objects/IsoCompost.h"
 
 namespace zombie {
 namespace iso {

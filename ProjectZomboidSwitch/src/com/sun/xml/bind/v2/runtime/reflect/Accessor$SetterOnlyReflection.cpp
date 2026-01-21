@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect/Accessor$SetterOnlyReflection.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/Accessor$SetterOnlyReflection.h"
 
 namespace com {
 namespace sun {

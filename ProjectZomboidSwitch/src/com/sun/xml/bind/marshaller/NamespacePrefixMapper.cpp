@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\marshaller/NamespacePrefixMapper.h"
+#include "com/sun/xml/bind/marshaller/NamespacePrefixMapper.h"
 
 namespace com {
 namespace sun {

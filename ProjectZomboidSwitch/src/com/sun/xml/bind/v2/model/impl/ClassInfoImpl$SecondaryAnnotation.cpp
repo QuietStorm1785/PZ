@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/ClassInfoImpl$SecondaryAnnotation.h"
+#include "com/sun/xml/bind/v2/model/impl/ClassInfoImpl$SecondaryAnnotation.h"
 
 namespace com {
 namespace sun {

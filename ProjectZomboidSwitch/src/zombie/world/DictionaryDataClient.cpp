@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\world/DictionaryDataClient.h"
+#include "zombie/world/DictionaryDataClient.h"
 
 namespace zombie {
 namespace world {

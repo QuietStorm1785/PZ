@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/ReadingThread$CloseTask.h"
+#include "com/neovisionaries/ws/client/ReadingThread$CloseTask.h"
 
 namespace com {
 namespace neovisionaries {

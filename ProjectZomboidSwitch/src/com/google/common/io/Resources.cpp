@@ -1,6 +1,6 @@
 #include <memory>
 #include <string>
-#include "com\google\common\io/Resources.h"
+#include "com/google/common/io/Resources.h"
 
 namespace com {
 namespace google {

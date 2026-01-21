@@ -1,4 +1,4 @@
-#include "zombie\iso\sprite/IsoSprite$l_renderCurrentAnim.h"
+#include "zombie/iso/sprite/IsoSprite$l_renderCurrentAnim.h"
 
 namespace zombie {
 namespace iso {

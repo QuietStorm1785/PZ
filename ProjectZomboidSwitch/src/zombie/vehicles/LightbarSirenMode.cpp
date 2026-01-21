@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\vehicles/LightbarSirenMode.h"
+#include "zombie/vehicles/LightbarSirenMode.h"
 
 namespace zombie {
 namespace vehicles {

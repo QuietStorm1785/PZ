@@ -1,4 +1,4 @@
-#include "zombie\characters/AnimStateTriggerXmlFile.h"
+#include "zombie/characters/AnimStateTriggerXmlFile.h"
 
 namespace zombie {
 namespace characters {

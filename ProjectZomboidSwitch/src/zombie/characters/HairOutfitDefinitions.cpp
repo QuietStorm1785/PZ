@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\characters/HairOutfitDefinitions.h"
+#include "zombie/characters/HairOutfitDefinitions.h"
 
 namespace zombie {
 namespace characters {

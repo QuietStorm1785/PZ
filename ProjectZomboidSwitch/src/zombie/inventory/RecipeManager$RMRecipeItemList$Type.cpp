@@ -1,4 +1,4 @@
-#include "zombie\inventory/RecipeManager$RMRecipeItemList$Type.h"
+#include "zombie/inventory/RecipeManager$RMRecipeItemList$Type.h"
 
 namespace zombie {
 namespace inventory {

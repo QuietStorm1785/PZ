@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/VorbisAudioFileReader$VorbisFormatType.h"
+#include "de/jarnbjo/vorbis/VorbisAudioFileReader$VorbisFormatType.h"
 
 namespace de {
 namespace jarnbjo {

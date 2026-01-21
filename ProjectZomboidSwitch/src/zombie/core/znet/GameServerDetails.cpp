@@ -1,4 +1,4 @@
-#include "zombie\core\znet/GameServerDetails.h"
+#include "zombie/core/znet/GameServerDetails.h"
 
 namespace zombie {
 namespace core {

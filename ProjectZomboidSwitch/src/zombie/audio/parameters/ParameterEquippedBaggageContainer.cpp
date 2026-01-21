@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\audio\parameters/ParameterEquippedBaggageContainer.h"
+#include "zombie/audio/parameters/ParameterEquippedBaggageContainer.h"
 
 namespace zombie {
 namespace audio {

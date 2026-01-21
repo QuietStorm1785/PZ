@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\iso\objects/IsoCurtain.h"
+#include "zombie/iso/objects/IsoCurtain.h"
 
 namespace zombie {
 namespace iso {

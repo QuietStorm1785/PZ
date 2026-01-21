@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\util\concurrent/AbstractIdleService$ThreadNameSupplier.h"
+#include "com/google/common/util/concurrent/AbstractIdleService$ThreadNameSupplier.h"
 
 namespace com {
 namespace google {

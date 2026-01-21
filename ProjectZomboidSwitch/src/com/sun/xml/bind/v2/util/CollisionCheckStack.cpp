@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "com\sun\xml\bind\v2\util/CollisionCheckStack.h"
+#include "com/sun/xml/bind/v2/util/CollisionCheckStack.h"
 
 namespace com {
 namespace sun {

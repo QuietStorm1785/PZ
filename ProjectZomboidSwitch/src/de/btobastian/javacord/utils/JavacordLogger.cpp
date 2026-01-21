@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\utils/JavacordLogger.h"
+#include "de/btobastian/javacord/utils/JavacordLogger.h"
 
 namespace de {
 namespace btobastian {

@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\collect/EvictingQueue.h"
+#include "com/google/common/collect/EvictingQueue.h"
 
 namespace com {
 namespace google {

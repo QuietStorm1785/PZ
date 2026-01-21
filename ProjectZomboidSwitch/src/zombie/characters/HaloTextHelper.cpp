@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters/HaloTextHelper.h"
+#include "zombie/characters/HaloTextHelper.h"
 
 namespace zombie {
 namespace characters {

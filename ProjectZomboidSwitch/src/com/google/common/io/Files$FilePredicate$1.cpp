@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/Files$FilePredicate$1.h"
+#include "com/google/common/io/Files$FilePredicate$1.h"
 
 namespace com {
 namespace google {

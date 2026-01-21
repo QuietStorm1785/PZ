@@ -1,6 +1,6 @@
 #include <string>
 #include <unordered_map>
-#include "com\sixlegs\png/RegisteredChunks.h"
+#include "com/sixlegs/png/RegisteredChunks.h"
 
 namespace com {
 namespace sixlegs {

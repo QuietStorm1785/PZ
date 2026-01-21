@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\ui/UIDebugConsole.h"
+#include "zombie/ui/UIDebugConsole.h"
 
 namespace zombie {
 namespace ui {

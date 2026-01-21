@@ -1,4 +1,4 @@
-#include "com\google\common\graph/DirectedGraphConnections.h"
+#include "com/google/common/graph/DirectedGraphConnections.h"
 
 namespace com {
 namespace google {

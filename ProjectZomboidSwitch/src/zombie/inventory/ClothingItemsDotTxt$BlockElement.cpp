@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\inventory/ClothingItemsDotTxt$BlockElement.h"
+#include "zombie/inventory/ClothingItemsDotTxt$BlockElement.h"
 
 namespace zombie {
 namespace inventory {

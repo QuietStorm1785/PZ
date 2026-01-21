@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\vehicles/CollideWithObstaclesPoly$CCNode.h"
+#include "zombie/vehicles/CollideWithObstaclesPoly$CCNode.h"
 
 namespace zombie {
 namespace vehicles {

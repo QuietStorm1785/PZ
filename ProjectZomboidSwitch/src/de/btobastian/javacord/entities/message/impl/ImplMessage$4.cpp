@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\message\impl/ImplMessage$4.h"
+#include "de/btobastian/javacord/entities/message/impl/ImplMessage$4.h"
 
 namespace de {
 namespace btobastian {

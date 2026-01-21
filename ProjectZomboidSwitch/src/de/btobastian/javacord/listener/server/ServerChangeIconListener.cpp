@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\listener\server/ServerChangeIconListener.h"
+#include "de/btobastian/javacord/listener/server/ServerChangeIconListener.h"
 
 namespace de {
 namespace btobastian {

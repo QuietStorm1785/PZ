@@ -1,4 +1,4 @@
-#include "zombie\network\packets/ValidatePacket$ValidateState.h"
+#include "zombie/network/packets/ValidatePacket$ValidateState.h"
 
 namespace zombie {
 namespace network {

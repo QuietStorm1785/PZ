@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\radio\devices/WaveSignalDevice.h"
+#include "zombie/radio/devices/WaveSignalDevice.h"
 
 namespace zombie {
 namespace radio {

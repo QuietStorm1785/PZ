@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\annotation/XmlLocation.h"
+#include "com/sun/xml/bind/annotation/XmlLocation.h"
 
 namespace com {
 namespace sun {

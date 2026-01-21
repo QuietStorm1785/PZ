@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\chat/ChatBase.h"
+#include "zombie/chat/ChatBase.h"
 
 namespace zombie {
 namespace chat {

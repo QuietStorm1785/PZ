@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\property/StructureLoaderBuilder.h"
+#include "com/sun/xml/bind/v2/runtime/property/StructureLoaderBuilder.h"
 
 namespace com {
 namespace sun {

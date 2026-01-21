@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "zombie\scripting/ScriptParser$Value.h"
+#include "zombie/scripting/ScriptParser$Value.h"
 
 namespace zombie {
 namespace scripting {

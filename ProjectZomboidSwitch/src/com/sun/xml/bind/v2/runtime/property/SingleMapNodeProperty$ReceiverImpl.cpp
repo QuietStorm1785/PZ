@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\property/SingleMapNodeProperty$ReceiverImpl.h"
+#include "com/sun/xml/bind/v2/runtime/property/SingleMapNodeProperty$ReceiverImpl.h"
 
 namespace com {
 namespace sun {

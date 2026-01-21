@@ -1,4 +1,4 @@
-#include "zombie\inventory/ItemContainer$ConditionComparator.h"
+#include "zombie/inventory/ItemContainer$ConditionComparator.h"
 
 namespace zombie {
 namespace inventory {

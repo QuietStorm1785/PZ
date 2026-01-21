@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/CodeBook$DecodeAux.h"
+#include "com/jcraft/jorbis/CodeBook$DecodeAux.h"
 
 namespace com {
 namespace jcraft {

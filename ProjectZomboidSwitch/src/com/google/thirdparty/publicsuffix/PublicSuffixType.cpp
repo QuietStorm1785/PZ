@@ -1,4 +1,4 @@
-#include "com\google\thirdparty\publicsuffix/PublicSuffixType.h"
+#include "com/google/thirdparty/publicsuffix/PublicSuffixType.h"
 
 namespace com {
 namespace google {

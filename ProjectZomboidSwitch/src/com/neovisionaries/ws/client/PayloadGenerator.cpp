@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/PayloadGenerator.h"
+#include "com/neovisionaries/ws/client/PayloadGenerator.h"
 
 namespace com {
 namespace neovisionaries {

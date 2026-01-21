@@ -1,4 +1,4 @@
-#include "zombie\ai\states/FakeDeadAttackState.h"
+#include "zombie/ai/states/FakeDeadAttackState.h"
 
 namespace zombie {
 namespace ai {

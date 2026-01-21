@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\CharacterTimedActions/LuaTimedActionNew.h"
+#include "zombie/characters/CharacterTimedActions/LuaTimedActionNew.h"
 
 namespace zombie {
 namespace characters {

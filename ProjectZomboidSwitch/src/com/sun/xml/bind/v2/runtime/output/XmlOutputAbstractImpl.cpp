@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/XmlOutputAbstractImpl.h"
+#include "com/sun/xml/bind/v2/runtime/output/XmlOutputAbstractImpl.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/AttributePropertyInfoImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/AttributePropertyInfoImpl.h"
 
 namespace com {
 namespace sun {

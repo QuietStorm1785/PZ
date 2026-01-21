@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\audio\parameters/ParameterZone.h"
+#include "zombie/audio/parameters/ParameterZone.h"
 
 namespace zombie {
 namespace audio {

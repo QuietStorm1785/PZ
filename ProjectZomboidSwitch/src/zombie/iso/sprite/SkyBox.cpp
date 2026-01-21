@@ -1,4 +1,4 @@
-#include "zombie\iso\sprite/SkyBox.h"
+#include "zombie/iso/sprite/SkyBox.h"
 
 namespace zombie {
 namespace iso {

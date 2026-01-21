@@ -1,4 +1,4 @@
-#include "zombie\scripting\objects/VehicleScript$LightBar.h"
+#include "zombie/scripting/objects/VehicleScript$LightBar.h"
 
 namespace zombie {
 namespace scripting {

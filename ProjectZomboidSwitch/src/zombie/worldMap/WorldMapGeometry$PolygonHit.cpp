@@ -1,4 +1,4 @@
-#include "zombie\worldMap/WorldMapGeometry$PolygonHit.h"
+#include "zombie/worldMap/WorldMapGeometry$PolygonHit.h"
 
 namespace zombie {
 namespace worldMap {

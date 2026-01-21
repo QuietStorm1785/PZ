@@ -1,4 +1,4 @@
-#include "com\google\common\collect/RegularImmutableBiMap.h"
+#include "com/google/common/collect/RegularImmutableBiMap.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\util/ValidationEventLocatorExImpl.h"
+#include "com/sun/xml/bind/util/ValidationEventLocatorExImpl.h"
 
 namespace com {
 namespace sun {

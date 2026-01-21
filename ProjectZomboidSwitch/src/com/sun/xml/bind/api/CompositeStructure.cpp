@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\api/CompositeStructure.h"
+#include "com/sun/xml/bind/api/CompositeStructure.h"
 
 namespace com {
 namespace sun {

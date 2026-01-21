@@ -2,7 +2,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include "zombie\characters/IsoGameCharacter.h"
+#include "zombie/characters/IsoGameCharacter.h"
 
 namespace zombie {
 namespace characters {

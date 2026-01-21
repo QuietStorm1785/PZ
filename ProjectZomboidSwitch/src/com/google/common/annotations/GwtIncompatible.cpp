@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\annotations/GwtIncompatible.h"
+#include "com/google/common/annotations/GwtIncompatible.h"
 
 namespace com {
 namespace google {

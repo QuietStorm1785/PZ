@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\animation/AnimationClip.h"
+#include "zombie/core/skinnedmodel/animation/AnimationClip.h"
 
 namespace zombie {
 namespace core {

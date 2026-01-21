@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/VertexPositionNormalTextureColor.h"
+#include "zombie/core/skinnedmodel/model/VertexPositionNormalTextureColor.h"
 
 namespace zombie {
 namespace core {

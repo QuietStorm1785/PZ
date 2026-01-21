@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\gameStates/MainScreenState.h"
+#include "zombie/gameStates/MainScreenState.h"
 
 namespace zombie {
 namespace gameStates {

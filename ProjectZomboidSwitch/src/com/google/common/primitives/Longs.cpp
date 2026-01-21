@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\google\common\primitives/Longs.h"
+#include "com/google/common/primitives/Longs.h"
 
 namespace com {
 namespace google {

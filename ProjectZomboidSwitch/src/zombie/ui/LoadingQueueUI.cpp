@@ -1,5 +1,5 @@
 #include <queue>
-#include "zombie\ui/LoadingQueueUI.h"
+#include "zombie/ui/LoadingQueueUI.h"
 
 namespace zombie {
 namespace ui {

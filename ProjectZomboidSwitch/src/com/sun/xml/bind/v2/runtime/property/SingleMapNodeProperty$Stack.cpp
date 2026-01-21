@@ -1,5 +1,5 @@
 #include <stack>
-#include "com\sun\xml\bind\v2\runtime\property/SingleMapNodeProperty$std::stack.h"
+#include "com/sun/xml/bind/v2/runtime/property/SingleMapNodeProperty$std::stack.h"
 
 namespace com {
 namespace sun {

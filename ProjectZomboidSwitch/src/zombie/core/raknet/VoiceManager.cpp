@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\raknet/VoiceManager.h"
+#include "zombie/core/raknet/VoiceManager.h"
 
 namespace zombie {
 namespace core {

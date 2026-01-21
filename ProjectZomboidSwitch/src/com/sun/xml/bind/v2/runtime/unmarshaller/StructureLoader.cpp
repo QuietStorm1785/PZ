@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\unmarshaller/StructureLoader.h"
+#include "com/sun/xml/bind/v2/runtime/unmarshaller/StructureLoader.h"
 
 namespace com {
 namespace sun {

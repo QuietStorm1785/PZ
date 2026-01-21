@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\core\fonts/AngelCodeFont$2.h"
+#include "zombie/core/fonts/AngelCodeFont$2.h"
 
 namespace zombie {
 namespace core {

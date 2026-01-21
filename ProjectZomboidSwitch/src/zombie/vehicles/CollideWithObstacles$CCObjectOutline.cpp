@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\vehicles/CollideWithObstacles$CCObjectOutline.h"
+#include "zombie/vehicles/CollideWithObstacles$CCObjectOutline.h"
 
 namespace zombie {
 namespace vehicles {

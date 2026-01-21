@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\worldMap\styles/WorldMapStyleLayer.h"
+#include "zombie/worldMap/styles/WorldMapStyleLayer.h"
 
 namespace zombie {
 namespace worldMap {

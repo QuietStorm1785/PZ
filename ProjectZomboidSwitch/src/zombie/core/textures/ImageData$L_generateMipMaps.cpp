@@ -1,4 +1,4 @@
-#include "zombie\core\textures/ImageData$L_generateMipMaps.h"
+#include "zombie/core/textures/ImageData$L_generateMipMaps.h"
 
 namespace zombie {
 namespace core {

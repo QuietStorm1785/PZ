@@ -1,4 +1,4 @@
-#include "com\google\common\hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream.h"
+#include "com/google/common/hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream.h"
 
 namespace com {
 namespace google {

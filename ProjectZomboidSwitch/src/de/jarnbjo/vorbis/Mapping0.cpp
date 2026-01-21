@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/Mapping0.h"
+#include "de/jarnbjo/vorbis/Mapping0.h"
 
 namespace de {
 namespace jarnbjo {

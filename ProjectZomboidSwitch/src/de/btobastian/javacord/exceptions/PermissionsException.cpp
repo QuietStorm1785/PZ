@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\exceptions/PermissionsException.h"
+#include "de/btobastian/javacord/exceptions/PermissionsException.h"
 
 namespace de {
 namespace btobastian {

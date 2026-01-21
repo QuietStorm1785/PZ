@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\iso/IsoMetaChunk.h"
+#include "zombie/iso/IsoMetaChunk.h"
 
 namespace zombie {
 namespace iso {

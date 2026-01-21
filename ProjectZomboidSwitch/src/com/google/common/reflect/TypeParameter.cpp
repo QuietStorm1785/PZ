@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/TypeParameter.h"
+#include "com/google/common/reflect/TypeParameter.h"
 
 namespace com {
 namespace google {

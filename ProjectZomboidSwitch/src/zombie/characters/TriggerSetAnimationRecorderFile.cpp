@@ -1,4 +1,4 @@
-#include "zombie\characters/TriggerSetAnimationRecorderFile.h"
+#include "zombie/characters/TriggerSetAnimationRecorderFile.h"
 
 namespace zombie {
 namespace characters {

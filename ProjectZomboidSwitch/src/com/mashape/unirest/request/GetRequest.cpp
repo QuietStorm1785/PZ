@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\request/GetRequest.h"
+#include "com/mashape/unirest/request/GetRequest.h"
 
 namespace com {
 namespace mashape {

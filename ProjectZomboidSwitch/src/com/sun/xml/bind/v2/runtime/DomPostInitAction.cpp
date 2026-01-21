@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime/DomPostInitAction.h"
+#include "com/sun/xml/bind/v2/runtime/DomPostInitAction.h"
 
 namespace com {
 namespace sun {

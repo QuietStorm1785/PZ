@@ -1,4 +1,4 @@
-#include "zombie\gameStates/ConnectToServerState$ItemQuery.h"
+#include "zombie/gameStates/ConnectToServerState$ItemQuery.h"
 
 namespace zombie {
 namespace gameStates {

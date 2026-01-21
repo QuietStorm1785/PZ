@@ -1,4 +1,4 @@
-#include "zombie\chat/ChatElement$PlayerLinesList.h"
+#include "zombie/chat/ChatElement$PlayerLinesList.h"
 
 namespace zombie {
 namespace chat {

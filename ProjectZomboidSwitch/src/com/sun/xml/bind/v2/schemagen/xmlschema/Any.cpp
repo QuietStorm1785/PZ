@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/Any.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/Any.h"
 
 namespace com {
 namespace sun {

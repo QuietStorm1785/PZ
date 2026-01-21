@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "com\google\common\hash/AbstractStreamingHashFunction$AbstractStreamingHasher.h"
+#include "com/google/common/hash/AbstractStreamingHashFunction$AbstractStreamingHasher.h"
 
 namespace com {
 namespace google {

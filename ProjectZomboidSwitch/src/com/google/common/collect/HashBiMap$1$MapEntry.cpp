@@ -1,4 +1,4 @@
-#include "com\google\common\collect/HashBiMap$1$MapEntry.h"
+#include "com/google/common/collect/HashBiMap$1$MapEntry.h"
 
 namespace com {
 namespace google {

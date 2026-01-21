@@ -1,4 +1,4 @@
-#include "com\google\common\collect/Synchronized$SynchronizedBiMap.h"
+#include "com/google/common/collect/Synchronized$SynchronizedBiMap.h"
 
 namespace com {
 namespace google {

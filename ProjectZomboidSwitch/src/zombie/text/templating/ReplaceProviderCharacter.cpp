@@ -1,4 +1,4 @@
-#include "zombie\text\templating/ReplaceProviderCharacter.h"
+#include "zombie/text/templating/ReplaceProviderCharacter.h"
 
 namespace zombie {
 namespace text {

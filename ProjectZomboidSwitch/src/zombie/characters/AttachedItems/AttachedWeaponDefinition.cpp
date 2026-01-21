@@ -1,4 +1,4 @@
-#include "zombie\characters\AttachedItems/AttachedWeaponDefinition.h"
+#include "zombie/characters/AttachedItems/AttachedWeaponDefinition.h"
 
 namespace zombie {
 namespace characters {

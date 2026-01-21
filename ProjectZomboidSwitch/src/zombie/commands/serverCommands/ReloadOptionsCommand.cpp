@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/ReloadOptionsCommand.h"
+#include "zombie/commands/serverCommands/ReloadOptionsCommand.h"
 
 namespace zombie {
 namespace commands {

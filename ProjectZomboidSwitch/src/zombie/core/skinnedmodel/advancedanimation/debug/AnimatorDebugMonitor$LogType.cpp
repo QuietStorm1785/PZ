@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation\debug/AnimatorDebugMonitor$LogType.h"
+#include "zombie/core/skinnedmodel/advancedanimation/debug/AnimatorDebugMonitor$LogType.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "com\google\common\collect/Synchronized$SynchronizedEntry.h"
+#include "com/google/common/collect/Synchronized$SynchronizedEntry.h"
 
 namespace com {
 namespace google {

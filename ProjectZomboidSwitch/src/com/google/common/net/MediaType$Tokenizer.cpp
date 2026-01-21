@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\net/MediaType$Tokenizer.h"
+#include "com/google/common/net/MediaType$Tokenizer.h"
 
 namespace com {
 namespace google {

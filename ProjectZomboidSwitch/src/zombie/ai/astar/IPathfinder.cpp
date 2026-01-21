@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ai\astar/IPathfinder.h"
+#include "zombie/ai/astar/IPathfinder.h"
 
 namespace zombie {
 namespace ai {

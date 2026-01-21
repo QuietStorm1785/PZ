@@ -1,4 +1,4 @@
-#include "zombie\gameStates/GameState.h"
+#include "zombie/gameStates/GameState.h"
 
 namespace zombie {
 namespace gameStates {

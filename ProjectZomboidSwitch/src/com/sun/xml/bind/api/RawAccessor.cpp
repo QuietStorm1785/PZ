@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\api/RawAccessor.h"
+#include "com/sun/xml/bind/api/RawAccessor.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "zombie\characters/IsoGameCharacter$TorchInfo.h"
+#include "zombie/characters/IsoGameCharacter$TorchInfo.h"
 
 namespace zombie {
 namespace characters {

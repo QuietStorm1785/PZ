@@ -1,4 +1,4 @@
-#include "zombie\popman/ZombieTriggerXmlFile.h"
+#include "zombie/popman/ZombieTriggerXmlFile.h"
 
 namespace zombie {
 namespace popman {

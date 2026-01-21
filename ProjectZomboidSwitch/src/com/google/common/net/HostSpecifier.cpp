@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\net/HostSpecifier.h"
+#include "com/google/common/net/HostSpecifier.h"
 
 namespace com {
 namespace google {

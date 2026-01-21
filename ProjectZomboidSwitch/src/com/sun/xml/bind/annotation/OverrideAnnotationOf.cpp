@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\annotation/OverrideAnnotationOf.h"
+#include "com/sun/xml/bind/annotation/OverrideAnnotationOf.h"
 
 namespace com {
 namespace sun {

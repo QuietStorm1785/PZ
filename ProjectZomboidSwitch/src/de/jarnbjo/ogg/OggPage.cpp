@@ -1,4 +1,4 @@
-#include "de\jarnbjo\ogg/OggPage.h"
+#include "de/jarnbjo/ogg/OggPage.h"
 
 namespace de {
 namespace jarnbjo {

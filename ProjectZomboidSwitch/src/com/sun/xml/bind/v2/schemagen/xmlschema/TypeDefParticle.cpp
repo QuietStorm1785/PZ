@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/TypeDefParticle.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/TypeDefParticle.h"
 
 namespace com {
 namespace sun {

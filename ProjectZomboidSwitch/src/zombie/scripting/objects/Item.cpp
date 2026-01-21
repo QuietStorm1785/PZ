@@ -1,7 +1,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include "zombie\scripting\objects/Item.h"
+#include "zombie/scripting/objects/Item.h"
 
 namespace zombie {
 namespace scripting {

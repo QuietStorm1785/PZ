@@ -1,4 +1,4 @@
-#include "com\google\common\io/Closer.h"
+#include "com/google/common/io/Closer.h"
 
 namespace com {
 namespace google {

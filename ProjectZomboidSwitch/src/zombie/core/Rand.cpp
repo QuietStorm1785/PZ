@@ -1,4 +1,4 @@
-#include "zombie\core/Rand.h"
+#include "zombie/core/Rand.h"
 
 // NOTE: Random number generation now uses C++ standard <random> header
 // Replace CellularAutomatonRNG with std::mt19937 (Mersenne Twister)

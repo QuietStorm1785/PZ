@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\bucket/Bucket.h"
+#include "zombie/core/bucket/Bucket.h"
 
 namespace zombie {
 namespace core {

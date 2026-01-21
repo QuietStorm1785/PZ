@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/TypeResolver$TypeVariableKey.h"
+#include "com/google/common/reflect/TypeResolver$TypeVariableKey.h"
 
 namespace com {
 namespace google {

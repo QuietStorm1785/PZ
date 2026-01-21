@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/ByteSource$ByteArrayByteSource.h"
+#include "com/google/common/io/ByteSource$ByteArrayByteSource.h"
 
 namespace com {
 namespace google {

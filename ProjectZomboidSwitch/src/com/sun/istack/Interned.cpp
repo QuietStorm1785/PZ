@@ -1,4 +1,4 @@
-#include "com\sun\istack/Interned.h"
+#include "com/sun/istack/Interned.h"
 
 namespace com {
 namespace sun {

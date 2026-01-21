@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\radio\media/RecordedMedia.h"
+#include "zombie/radio/media/RecordedMedia.h"
 
 namespace zombie {
 namespace radio {

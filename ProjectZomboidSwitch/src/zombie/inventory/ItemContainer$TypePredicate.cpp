@@ -1,4 +1,4 @@
-#include "zombie\inventory/ItemContainer$TypePredicate.h"
+#include "zombie/inventory/ItemContainer$TypePredicate.h"
 
 namespace zombie {
 namespace inventory {

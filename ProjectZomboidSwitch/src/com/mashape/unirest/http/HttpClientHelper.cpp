@@ -1,4 +1,4 @@
-#include "com\mashape\unirest\http/HttpClientHelper.h"
+#include "com/mashape/unirest/http/HttpClientHelper.h"
 
 namespace com {
 namespace mashape {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\textures/Mask.h"
+#include "zombie/core/textures/Mask.h"
 
 namespace zombie {
 namespace core {

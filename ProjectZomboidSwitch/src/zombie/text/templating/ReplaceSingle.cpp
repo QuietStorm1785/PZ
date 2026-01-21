@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\text\templating/ReplaceSingle.h"
+#include "zombie/text/templating/ReplaceSingle.h"
 
 namespace zombie {
 namespace text {

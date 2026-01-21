@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http\utils/URLParamEncoder.h"
+#include "com/mashape/unirest/http/utils/URLParamEncoder.h"
 
 namespace com {
 namespace mashape {

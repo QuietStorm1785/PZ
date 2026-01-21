@@ -1,5 +1,5 @@
 #include <stack>
-#include "com\sun\xml\bind\v2\util/StackRecorder.h"
+#include "com/sun/xml/bind/v2/util/StackRecorder.h"
 
 namespace com {
 namespace sun {

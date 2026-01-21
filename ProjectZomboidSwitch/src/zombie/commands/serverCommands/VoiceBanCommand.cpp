@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/VoiceBanCommand.h"
+#include "zombie/commands/serverCommands/VoiceBanCommand.h"
 
 namespace zombie {
 namespace commands {

@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/Floor0$InfoFloor0.h"
+#include "com/jcraft/jorbis/Floor0$InfoFloor0.h"
 
 namespace com {
 namespace jcraft {

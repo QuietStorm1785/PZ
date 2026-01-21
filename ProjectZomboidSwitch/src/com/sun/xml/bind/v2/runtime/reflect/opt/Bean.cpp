@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/Bean.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/Bean.h"
 
 namespace com {
 namespace sun {

@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\google\common\collect/Collections2.h"
+#include "com/google/common/collect/Collections2.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "zombie\scripting\objects/Item$Type.h"
+#include "zombie/scripting/objects/Item$Type.h"
 
 namespace zombie {
 namespace scripting {

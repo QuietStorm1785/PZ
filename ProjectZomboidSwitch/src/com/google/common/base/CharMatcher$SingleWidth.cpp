@@ -1,4 +1,4 @@
-#include "com\google\common\base/CharMatcher$SingleWidth.h"
+#include "com/google/common/base/CharMatcher$SingleWidth.h"
 
 namespace com {
 namespace google {

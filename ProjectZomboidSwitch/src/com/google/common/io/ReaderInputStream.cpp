@@ -1,4 +1,4 @@
-#include "com\google\common\io/ReaderInputStream.h"
+#include "com/google/common/io/ReaderInputStream.h"
 
 namespace com {
 namespace google {

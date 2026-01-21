@@ -1,4 +1,4 @@
-#include "zombie\chat/ChatMode.h"
+#include "zombie/chat/ChatMode.h"
 
 namespace zombie {
 namespace chat {

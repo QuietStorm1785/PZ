@@ -1,6 +1,6 @@
 #include <string>
 #include <unordered_map>
-#include "zombie\core\Collections/ZomboidHashMap$Entry.h"
+#include "zombie/core/Collections/ZomboidHashMap$Entry.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "zombie\audio/BaseSoundBank.h"
+#include "zombie/audio/BaseSoundBank.h"
 
 namespace zombie {
 namespace audio {

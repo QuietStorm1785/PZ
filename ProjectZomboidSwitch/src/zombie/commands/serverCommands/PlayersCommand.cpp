@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/PlayersCommand.h"
+#include "zombie/commands/serverCommands/PlayersCommand.h"
 
 namespace zombie {
 namespace commands {

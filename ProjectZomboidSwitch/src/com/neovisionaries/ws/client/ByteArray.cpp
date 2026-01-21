@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "com\neovisionaries\ws\client/ByteArray.h"
+#include "com/neovisionaries/ws/client/ByteArray.h"
 
 namespace com {
 namespace neovisionaries {

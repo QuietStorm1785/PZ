@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <sstream>
 #include <string>
-#include "zombie\core\utils/Bits.h"
+#include "zombie/core/utils/Bits.h"
 
 namespace zombie {
 namespace core {

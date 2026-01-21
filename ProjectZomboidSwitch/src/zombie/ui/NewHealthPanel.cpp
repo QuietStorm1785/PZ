@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ui/NewHealthPanel.h"
+#include "zombie/ui/NewHealthPanel.h"
 
 namespace zombie {
 namespace ui {

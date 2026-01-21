@@ -1,5 +1,5 @@
 #include <string>
-#include "de\jarnbjo\vorbis/CommentHeader.h"
+#include "de/jarnbjo/vorbis/CommentHeader.h"
 
 namespace de {
 namespace jarnbjo {

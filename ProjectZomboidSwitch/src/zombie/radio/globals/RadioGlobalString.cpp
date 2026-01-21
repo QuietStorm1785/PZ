@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\radio\globals/RadioGlobalString.h"
+#include "zombie/radio/globals/RadioGlobalString.h"
 
 namespace zombie {
 namespace radio {

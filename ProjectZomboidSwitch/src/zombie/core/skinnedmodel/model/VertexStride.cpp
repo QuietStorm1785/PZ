@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/VertexStride.h"
+#include "zombie/core/skinnedmodel/model/VertexStride.h"
 
 namespace zombie {
 namespace core {

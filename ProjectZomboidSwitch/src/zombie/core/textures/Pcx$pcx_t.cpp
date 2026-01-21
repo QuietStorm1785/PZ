@@ -1,4 +1,4 @@
-#include "zombie\core\textures/Pcx$pcx_t.h"
+#include "zombie/core/textures/Pcx$pcx_t.h"
 
 namespace zombie {
 namespace core {

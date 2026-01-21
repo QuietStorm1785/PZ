@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/IsoZombieGiblets$GibletType.h"
+#include "zombie/iso/objects/IsoZombieGiblets$GibletType.h"
 
 namespace zombie {
 namespace iso {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\debug/GenericDebugLogFormatter.h"
+#include "zombie/debug/GenericDebugLogFormatter.h"
 
 namespace zombie {
 namespace debug {

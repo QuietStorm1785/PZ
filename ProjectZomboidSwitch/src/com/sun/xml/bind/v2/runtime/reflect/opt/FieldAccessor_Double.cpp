@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/FieldAccessor_Double.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/FieldAccessor_Double.h"
 
 namespace com {
 namespace sun {

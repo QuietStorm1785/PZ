@@ -1,4 +1,4 @@
-#include "com\google\common\eventbus/SubscriberRegistry$MethodIdentifier.h"
+#include "com/google/common/eventbus/SubscriberRegistry$MethodIdentifier.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core/SpriteRenderer$RingBuffer$StateRun.h"
+#include "zombie/core/SpriteRenderer$RingBuffer$StateRun.h"
 
 namespace zombie {
 namespace core {

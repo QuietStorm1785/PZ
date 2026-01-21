@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/ModelLoader$LoadMode.h"
+#include "zombie/core/skinnedmodel/model/ModelLoader$LoadMode.h"
 
 namespace zombie {
 namespace core {

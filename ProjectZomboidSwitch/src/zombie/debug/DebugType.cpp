@@ -1,4 +1,4 @@
-#include "zombie\debug/DebugType.h"
+#include "zombie/debug/DebugType.h"
 
 namespace zombie {
 namespace debug {

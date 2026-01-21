@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\impl/RuntimeClassInfoImpl$RuntimePropertySeed.h"
+#include "com/sun/xml/bind/v2/model/impl/RuntimeClassInfoImpl$RuntimePropertySeed.h"
 
 namespace com {
 namespace sun {

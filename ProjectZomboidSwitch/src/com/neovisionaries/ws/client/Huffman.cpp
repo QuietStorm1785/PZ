@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/Huffman.h"
+#include "com/neovisionaries/ws/client/Huffman.h"
 
 namespace com {
 namespace neovisionaries {

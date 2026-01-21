@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime/ElementBeanInfoImpl.h"
+#include "com/sun/xml/bind/v2/runtime/ElementBeanInfoImpl.h"
 
 namespace com {
 namespace sun {

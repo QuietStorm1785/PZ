@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\scripting\objects/VehicleScript$Passenger$SwitchSeat.h"
+#include "zombie/scripting/objects/VehicleScript$Passenger$SwitchSeat.h"
 
 namespace zombie {
 namespace scripting {

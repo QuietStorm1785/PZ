@@ -1,4 +1,4 @@
-#include "com\google\common\math/Quantiles$Scale.h"
+#include "com/google/common/math/Quantiles$Scale.h"
 
 namespace com {
 namespace google {

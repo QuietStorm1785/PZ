@@ -1,4 +1,4 @@
-#include "com\google\common\io/CountingOutputStream.h"
+#include "com/google/common/io/CountingOutputStream.h"
 
 namespace com {
 namespace google {

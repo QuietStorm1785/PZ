@@ -1,4 +1,4 @@
-#include "zombie\worldMap\styles/WorldMapStyleLayer$Stop.h"
+#include "zombie/worldMap/styles/WorldMapStyleLayer$Stop.h"
 
 namespace zombie {
 namespace worldMap {

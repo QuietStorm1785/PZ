@@ -1,4 +1,4 @@
-#include "com\google\common\base/Equivalence$Equals.h"
+#include "com/google/common/base/Equivalence$Equals.h"
 
 namespace com {
 namespace google {

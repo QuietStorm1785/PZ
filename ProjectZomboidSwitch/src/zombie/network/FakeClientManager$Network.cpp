@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network/FakeClientManager$Network.h"
+#include "zombie/network/FakeClientManager$Network.h"
 
 namespace zombie {
 namespace network {

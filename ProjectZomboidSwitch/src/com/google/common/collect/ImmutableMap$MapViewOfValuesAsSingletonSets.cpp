@@ -1,4 +1,4 @@
-#include "com\google\common\collect/ImmutableMap$MapViewOfValuesAsSingletonSets.h"
+#include "com/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets.h"
 
 namespace com {
 namespace google {

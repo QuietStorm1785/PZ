@@ -1,4 +1,4 @@
-#include "com\google\common\reflect/TypeToken$SimpleTypeToken.h"
+#include "com/google/common/reflect/TypeToken$SimpleTypeToken.h"
 
 namespace com {
 namespace google {

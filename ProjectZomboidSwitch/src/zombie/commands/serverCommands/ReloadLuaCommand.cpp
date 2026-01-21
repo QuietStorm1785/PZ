@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/ReloadLuaCommand.h"
+#include "zombie/commands/serverCommands/ReloadLuaCommand.h"
 
 namespace zombie {
 namespace commands {

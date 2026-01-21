@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters/NetworkCharacterAI.h"
+#include "zombie/characters/NetworkCharacterAI.h"
 
 namespace zombie {
 namespace characters {

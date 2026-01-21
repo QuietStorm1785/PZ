@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\episode/SchemaBindings.h"
+#include "com/sun/xml/bind/v2/schemagen/episode/SchemaBindings.h"
 
 namespace com {
 namespace sun {

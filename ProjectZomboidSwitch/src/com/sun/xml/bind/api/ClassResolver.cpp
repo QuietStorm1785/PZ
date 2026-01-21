@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\api/ClassResolver.h"
+#include "com/sun/xml/bind/api/ClassResolver.h"
 
 namespace com {
 namespace sun {

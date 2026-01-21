@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/PeriodicalFrameSender.h"
+#include "com/neovisionaries/ws/client/PeriodicalFrameSender.h"
 
 namespace com {
 namespace neovisionaries {

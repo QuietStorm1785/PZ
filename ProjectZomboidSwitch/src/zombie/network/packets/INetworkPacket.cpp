@@ -1,4 +1,4 @@
-#include "zombie\network\packets/INetworkPacket.h"
+#include "zombie/network/packets/INetworkPacket.h"
 
 namespace zombie {
 namespace network {

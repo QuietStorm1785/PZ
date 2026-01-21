@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/FastInfosetStreamWriterOutput.h"
+#include "com/sun/xml/bind/v2/runtime/output/FastInfosetStreamWriterOutput.h"
 
 namespace com {
 namespace sun {

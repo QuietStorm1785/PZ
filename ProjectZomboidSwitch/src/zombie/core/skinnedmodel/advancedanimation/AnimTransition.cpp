@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/AnimTransition.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AnimTransition.h"
 
 namespace zombie {
 namespace core {

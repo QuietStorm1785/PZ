@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\listener\user/UserChangeNicknameListener.h"
+#include "de/btobastian/javacord/listener/user/UserChangeNicknameListener.h"
 
 namespace de {
 namespace btobastian {

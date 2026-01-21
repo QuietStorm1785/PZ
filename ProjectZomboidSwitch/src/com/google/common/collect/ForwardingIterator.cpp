@@ -1,4 +1,4 @@
-#include "com\google\common\collect/ForwardingIterator.h"
+#include "com/google/common/collect/ForwardingIterator.h"
 
 namespace com {
 namespace google {

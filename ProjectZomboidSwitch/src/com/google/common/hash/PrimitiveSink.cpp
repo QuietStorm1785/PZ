@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\google\common\hash/PrimitiveSink.h"
+#include "com/google/common/hash/PrimitiveSink.h"
 
 namespace com {
 namespace google {

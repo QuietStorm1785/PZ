@@ -1,5 +1,5 @@
 #include <string>
-#include "de\jarnbjo\ogg/OggFormatException.h"
+#include "de/jarnbjo/ogg/OggFormatException.h"
 
 namespace de {
 namespace jarnbjo {

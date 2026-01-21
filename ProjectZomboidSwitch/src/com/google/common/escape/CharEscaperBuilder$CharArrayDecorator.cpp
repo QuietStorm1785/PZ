@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\escape/CharEscaperBuilder$CharArrayDecorator.h"
+#include "com/google/common/escape/CharEscaperBuilder$CharArrayDecorator.h"
 
 namespace com {
 namespace google {

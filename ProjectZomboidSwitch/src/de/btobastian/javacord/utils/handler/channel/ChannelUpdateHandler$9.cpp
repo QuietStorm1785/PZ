@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\channel/ChannelUpdateHandler$9.h"
+#include "de/btobastian/javacord/utils/handler/channel/ChannelUpdateHandler$9.h"
 
 namespace de {
 namespace btobastian {

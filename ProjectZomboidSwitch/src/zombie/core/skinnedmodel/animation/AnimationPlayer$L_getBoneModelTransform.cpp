@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\animation/AnimationPlayer$L_getBoneModelTransform.h"
+#include "zombie/core/skinnedmodel/animation/AnimationPlayer$L_getBoneModelTransform.h"
 
 namespace zombie {
 namespace core {

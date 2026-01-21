@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/JdkPattern$JdkMatcher.h"
+#include "com/google/common/base/JdkPattern$JdkMatcher.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "zombie\popman/MPDebugInfo$MPSoundDebugInfo.h"
+#include "zombie/popman/MPDebugInfo$MPSoundDebugInfo.h"
 
 namespace zombie {
 namespace popman {

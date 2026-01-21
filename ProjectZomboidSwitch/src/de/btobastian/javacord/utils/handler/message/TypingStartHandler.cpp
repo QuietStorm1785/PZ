@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\message/TypingStartHandler.h"
+#include "de/btobastian/javacord/utils/handler/message/TypingStartHandler.h"
 
 namespace de {
 namespace btobastian {

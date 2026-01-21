@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/CaseFormat$StringConverter.h"
+#include "com/google/common/base/CaseFormat$StringConverter.h"
 
 namespace com {
 namespace google {

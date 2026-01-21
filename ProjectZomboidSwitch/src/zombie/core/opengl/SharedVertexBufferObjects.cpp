@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/SharedVertexBufferObjects.h"
+#include "zombie/core/opengl/SharedVertexBufferObjects.h"
 
 namespace zombie {
 namespace core {

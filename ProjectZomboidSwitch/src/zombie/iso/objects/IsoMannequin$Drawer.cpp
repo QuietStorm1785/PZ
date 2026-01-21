@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/IsoMannequin$Drawer.h"
+#include "zombie/iso/objects/IsoMannequin$Drawer.h"
 
 namespace zombie {
 namespace iso {

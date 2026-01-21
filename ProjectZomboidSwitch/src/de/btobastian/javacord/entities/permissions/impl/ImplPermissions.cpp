@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\permissions\impl/ImplPermissions.h"
+#include "de/btobastian/javacord/entities/permissions/impl/ImplPermissions.h"
 
 namespace de {
 namespace btobastian {

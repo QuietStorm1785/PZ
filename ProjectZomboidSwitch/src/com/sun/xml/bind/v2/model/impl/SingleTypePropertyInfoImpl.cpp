@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/SingleTypePropertyInfoImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/SingleTypePropertyInfoImpl.h"
 
 namespace com {
 namespace sun {

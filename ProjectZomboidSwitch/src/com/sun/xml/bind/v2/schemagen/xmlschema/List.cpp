@@ -1,5 +1,5 @@
 #include <vector>
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/List.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/List.h"
 
 namespace com {
 namespace sun {

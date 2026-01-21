@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\core\znet/SteamWorkshopItem.h"
+#include "zombie/core/znet/SteamWorkshopItem.h"
 
 namespace zombie {
 namespace core {

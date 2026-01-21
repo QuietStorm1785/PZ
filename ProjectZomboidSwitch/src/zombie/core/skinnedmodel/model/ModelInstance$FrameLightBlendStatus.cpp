@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/ModelInstance$FrameLightBlendStatus.h"
+#include "zombie/core/skinnedmodel/model/ModelInstance$FrameLightBlendStatus.h"
 
 namespace zombie {
 namespace core {

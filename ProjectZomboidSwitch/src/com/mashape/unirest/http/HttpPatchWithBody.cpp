@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http/HttpPatchWithBody.h"
+#include "com/mashape/unirest/http/HttpPatchWithBody.h"
 
 namespace com {
 namespace mashape {

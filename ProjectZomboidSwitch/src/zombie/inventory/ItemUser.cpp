@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\inventory/ItemUser.h"
+#include "zombie/inventory/ItemUser.h"
 
 namespace zombie {
 namespace inventory {

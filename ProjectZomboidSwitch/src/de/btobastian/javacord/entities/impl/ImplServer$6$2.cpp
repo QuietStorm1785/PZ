@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\impl/ImplServer$6$2.h"
+#include "de/btobastian/javacord/entities/impl/ImplServer$6$2.h"
 
 namespace de {
 namespace btobastian {

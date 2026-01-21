@@ -1,4 +1,4 @@
-#include "zombie\scripting/ScriptParsingUtils.h"
+#include "zombie/scripting/ScriptParsingUtils.h"
 
 namespace zombie {
 namespace scripting {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\output/Pcdata.h"
+#include "com/sun/xml/bind/v2/runtime/output/Pcdata.h"
 
 namespace com {
 namespace sun {

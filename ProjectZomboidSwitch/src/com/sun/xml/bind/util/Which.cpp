@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\util/Which.h"
+#include "com/sun/xml/bind/util/Which.h"
 
 namespace com {
 namespace sun {

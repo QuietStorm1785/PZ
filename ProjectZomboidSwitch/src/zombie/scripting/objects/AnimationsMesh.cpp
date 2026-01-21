@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\scripting\objects/AnimationsMesh.h"
+#include "zombie/scripting/objects/AnimationsMesh.h"
 
 namespace zombie {
 namespace scripting {

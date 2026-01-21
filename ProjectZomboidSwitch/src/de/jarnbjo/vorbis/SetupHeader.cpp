@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/SetupHeader.h"
+#include "de/jarnbjo/vorbis/SetupHeader.h"
 
 namespace de {
 namespace jarnbjo {

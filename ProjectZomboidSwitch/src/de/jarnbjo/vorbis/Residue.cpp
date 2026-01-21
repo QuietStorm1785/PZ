@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/Residue.h"
+#include "de/jarnbjo/vorbis/Residue.h"
 
 namespace de {
 namespace jarnbjo {

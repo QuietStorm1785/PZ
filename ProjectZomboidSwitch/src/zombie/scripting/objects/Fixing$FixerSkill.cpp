@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\scripting\objects/Fixing$FixerSkill.h"
+#include "zombie/scripting/objects/Fixing$FixerSkill.h"
 
 namespace zombie {
 namespace scripting {

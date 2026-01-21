@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/ModelInstance$EffectLight.h"
+#include "zombie/core/skinnedmodel/model/ModelInstance$EffectLight.h"
 
 namespace zombie {
 namespace core {

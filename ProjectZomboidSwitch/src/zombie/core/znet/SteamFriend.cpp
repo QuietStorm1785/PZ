@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\znet/SteamFriend.h"
+#include "zombie/core/znet/SteamFriend.h"
 
 namespace zombie {
 namespace core {

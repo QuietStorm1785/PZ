@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/ExtensionType.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/ExtensionType.h"
 
 namespace com {
 namespace sun {

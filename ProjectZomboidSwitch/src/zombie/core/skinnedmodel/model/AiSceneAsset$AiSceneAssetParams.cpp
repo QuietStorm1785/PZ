@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/AiSceneAsset$AiSceneAssetParams.h"
+#include "zombie/core/skinnedmodel/model/AiSceneAsset$AiSceneAssetParams.h"
 
 namespace zombie {
 namespace core {

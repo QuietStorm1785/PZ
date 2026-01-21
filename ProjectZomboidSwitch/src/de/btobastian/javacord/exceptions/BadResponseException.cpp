@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\exceptions/BadResponseException.h"
+#include "de/btobastian/javacord/exceptions/BadResponseException.h"
 
 namespace de {
 namespace btobastian {

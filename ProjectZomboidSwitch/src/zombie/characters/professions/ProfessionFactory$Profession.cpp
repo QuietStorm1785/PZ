@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "zombie\characters\professions/ProfessionFactory$Profession.h"
+#include "zombie/characters/professions/ProfessionFactory$Profession.h"
 
 namespace zombie {
 namespace characters {

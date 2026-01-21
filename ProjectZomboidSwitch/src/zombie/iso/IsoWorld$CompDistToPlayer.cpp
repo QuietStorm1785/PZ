@@ -1,4 +1,4 @@
-#include "zombie\iso/IsoWorld$CompDistToPlayer.h"
+#include "zombie/iso/IsoWorld$CompDistToPlayer.h"
 
 namespace zombie {
 namespace iso {

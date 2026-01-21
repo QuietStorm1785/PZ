@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\Collections/NonBlockingHashtable.h"
+#include "zombie/core/Collections/NonBlockingHashtable.h"
 
 namespace zombie {
 namespace core {

@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\modding/ModUtilsJava.h"
+#include "zombie/modding/ModUtilsJava.h"
 
 namespace zombie {
 namespace modding {

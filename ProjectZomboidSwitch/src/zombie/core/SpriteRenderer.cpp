@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <queue>
-#include "zombie\core/SpriteRenderer.h"
+#include "zombie/core/SpriteRenderer.h"
 
 namespace zombie {
 namespace core {

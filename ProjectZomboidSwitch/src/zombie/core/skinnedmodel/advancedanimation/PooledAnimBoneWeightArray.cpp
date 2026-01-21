@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/PooledAnimBoneWeightArray.h"
+#include "zombie/core/skinnedmodel/advancedanimation/PooledAnimBoneWeightArray.h"
 
 namespace zombie {
 namespace core {

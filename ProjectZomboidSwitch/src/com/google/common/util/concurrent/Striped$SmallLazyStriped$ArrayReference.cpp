@@ -1,4 +1,4 @@
-#include "com\google\common\util\concurrent/Striped$SmallLazyStriped$ArrayReference.h"
+#include "com/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference.h"
 
 namespace com {
 namespace google {

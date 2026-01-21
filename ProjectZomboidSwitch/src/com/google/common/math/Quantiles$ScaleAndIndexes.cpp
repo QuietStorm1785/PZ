@@ -1,4 +1,4 @@
-#include "com\google\common\math/Quantiles$ScaleAndIndexes.h"
+#include "com/google/common/math/Quantiles$ScaleAndIndexes.h"
 
 namespace com {
 namespace google {

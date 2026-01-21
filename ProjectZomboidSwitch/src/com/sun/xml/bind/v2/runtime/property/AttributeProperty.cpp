@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\property/AttributeProperty.h"
+#include "com/sun/xml/bind/v2/runtime/property/AttributeProperty.h"
 
 namespace com {
 namespace sun {

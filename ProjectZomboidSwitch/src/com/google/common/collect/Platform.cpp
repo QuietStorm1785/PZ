@@ -1,4 +1,4 @@
-#include "com\google\common\collect/Platform.h"
+#include "com/google/common/collect/Platform.h"
 
 namespace com {
 namespace google {

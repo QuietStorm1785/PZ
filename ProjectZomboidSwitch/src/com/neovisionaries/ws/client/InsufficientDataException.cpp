@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/InsufficientDataException.h"
+#include "com/neovisionaries/ws/client/InsufficientDataException.h"
 
 namespace com {
 namespace neovisionaries {

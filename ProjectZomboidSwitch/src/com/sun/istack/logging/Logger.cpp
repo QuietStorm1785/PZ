@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "com\sun\istack\logging/Logger.h"
+#include "com/sun/istack/logging/Logger.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "zombie\ui/UIManager$FadeInfo.h"
+#include "zombie/ui/UIManager$FadeInfo.h"
 
 namespace zombie {
 namespace ui {

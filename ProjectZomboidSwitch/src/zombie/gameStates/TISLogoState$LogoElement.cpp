@@ -1,4 +1,4 @@
-#include "zombie\gameStates/TISLogoState$LogoElement.h"
+#include "zombie/gameStates/TISLogoState$LogoElement.h"
 
 namespace zombie {
 namespace gameStates {

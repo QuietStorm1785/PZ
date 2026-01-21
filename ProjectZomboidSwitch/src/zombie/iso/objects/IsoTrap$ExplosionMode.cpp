@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/IsoTrap$ExplosionMode.h"
+#include "zombie/iso/objects/IsoTrap$ExplosionMode.h"
 
 namespace zombie {
 namespace iso {

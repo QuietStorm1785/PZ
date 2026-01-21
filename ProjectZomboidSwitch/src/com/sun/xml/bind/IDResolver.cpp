@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind/IDResolver.h"
+#include "com/sun/xml/bind/IDResolver.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\util\concurrent/ServiceManager.h"
+#include "com/google/common/util/concurrent/ServiceManager.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "com\sixlegs\png/SubsamplingDestination.h"
+#include "com/sixlegs/png/SubsamplingDestination.h"
 
 namespace com {
 namespace sixlegs {

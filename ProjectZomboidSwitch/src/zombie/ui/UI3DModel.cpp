@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ui/UI3DModel.h"
+#include "zombie/ui/UI3DModel.h"
 
 namespace zombie {
 namespace ui {

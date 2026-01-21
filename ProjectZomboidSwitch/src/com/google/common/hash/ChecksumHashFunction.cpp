@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/ChecksumHashFunction.h"
+#include "com/google/common/hash/ChecksumHashFunction.h"
 
 namespace com {
 namespace google {

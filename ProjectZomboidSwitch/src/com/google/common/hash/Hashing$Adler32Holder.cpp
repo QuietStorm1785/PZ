@@ -1,4 +1,4 @@
-#include "com\google\common\hash/Hashing$Adler32Holder.h"
+#include "com/google/common/hash/Hashing$Adler32Holder.h"
 
 namespace com {
 namespace google {

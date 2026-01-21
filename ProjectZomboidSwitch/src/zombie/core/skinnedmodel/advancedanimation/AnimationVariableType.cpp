@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/AnimationVariableType.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AnimationVariableType.h"
 
 namespace zombie {
 namespace core {

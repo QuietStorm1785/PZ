@@ -1,5 +1,5 @@
 #include <memory>
-#include "com\google\common\util\concurrent/Striped.h"
+#include "com/google/common/util/concurrent/Striped.h"
 
 namespace com {
 namespace google {

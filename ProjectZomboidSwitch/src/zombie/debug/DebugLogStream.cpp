@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "zombie\debug/DebugLogStream.h"
+#include "zombie/debug/DebugLogStream.h"
 
 namespace zombie {
 namespace debug {

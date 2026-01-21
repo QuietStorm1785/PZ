@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "com\sun\xml\bind\v2\runtime/ValueListBeanInfoImpl.h"
+#include "com/sun/xml/bind/v2/runtime/ValueListBeanInfoImpl.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "zombie\iso\areas\isoregion\data/DataChunk.h"
+#include "zombie/iso/areas/isoregion/data/DataChunk.h"
 
 namespace zombie {
 namespace iso {

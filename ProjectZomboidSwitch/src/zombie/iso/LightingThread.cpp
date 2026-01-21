@@ -1,4 +1,4 @@
-#include "zombie\iso/LightingThread.h"
+#include "zombie/iso/LightingThread.h"
 
 namespace zombie {
 namespace iso {

@@ -1,5 +1,5 @@
 #include <string>
-#include "de\jarnbjo\ogg/LogicalOggStream.h"
+#include "de/jarnbjo/ogg/LogicalOggStream.h"
 
 namespace de {
 namespace jarnbjo {

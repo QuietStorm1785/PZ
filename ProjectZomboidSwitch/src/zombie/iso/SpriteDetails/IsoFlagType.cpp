@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso\SpriteDetails/IsoFlagType.h"
+#include "zombie/iso/SpriteDetails/IsoFlagType.h"
 
 namespace zombie {
 namespace iso {

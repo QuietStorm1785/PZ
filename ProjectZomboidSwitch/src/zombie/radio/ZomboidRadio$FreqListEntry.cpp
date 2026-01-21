@@ -1,4 +1,4 @@
-#include "zombie\radio/ZomboidRadio$FreqListEntry.h"
+#include "zombie/radio/ZomboidRadio$FreqListEntry.h"
 
 namespace zombie {
 namespace radio {

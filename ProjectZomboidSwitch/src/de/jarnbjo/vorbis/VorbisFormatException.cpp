@@ -1,5 +1,5 @@
 #include <string>
-#include "de\jarnbjo\vorbis/VorbisFormatException.h"
+#include "de/jarnbjo/vorbis/VorbisFormatException.h"
 
 namespace de {
 namespace jarnbjo {

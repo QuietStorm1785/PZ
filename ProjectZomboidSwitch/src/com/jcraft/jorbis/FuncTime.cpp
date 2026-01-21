@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/FuncTime.h"
+#include "com/jcraft/jorbis/FuncTime.h"
 
 namespace com {
 namespace jcraft {

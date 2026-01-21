@@ -1,4 +1,4 @@
-#include "zombie\network/GameServer$1.h"
+#include "zombie/network/GameServer$1.h"
 
 namespace zombie {
 namespace network {

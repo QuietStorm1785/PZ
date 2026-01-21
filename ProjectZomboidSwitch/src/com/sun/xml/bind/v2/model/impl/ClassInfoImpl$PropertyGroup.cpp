@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/ClassInfoImpl$PropertyGroup.h"
+#include "com/sun/xml/bind/v2/model/impl/ClassInfoImpl$PropertyGroup.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "com\google\common\net/InetAddresses$TeredoInfo.h"
+#include "com/google/common/net/InetAddresses$TeredoInfo.h"
 
 namespace com {
 namespace google {

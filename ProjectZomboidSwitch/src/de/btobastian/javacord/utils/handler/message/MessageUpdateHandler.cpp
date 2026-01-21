@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\message/MessageUpdateHandler.h"
+#include "de/btobastian/javacord/utils/handler/message/MessageUpdateHandler.h"
 
 namespace de {
 namespace btobastian {

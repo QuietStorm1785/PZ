@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/Import.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/Import.h"
 
 namespace com {
 namespace sun {

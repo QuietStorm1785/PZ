@@ -1,4 +1,4 @@
-#include "com\google\common\collect/HashBiMap$Inverse$1$1$InverseEntry.h"
+#include "com/google/common/collect/HashBiMap$Inverse$1$1$InverseEntry.h"
 
 namespace com {
 namespace google {

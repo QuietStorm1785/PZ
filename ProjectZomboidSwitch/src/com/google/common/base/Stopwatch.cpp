@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Stopwatch.h"
+#include "com/google/common/base/Stopwatch.h"
 
 namespace com {
 namespace google {

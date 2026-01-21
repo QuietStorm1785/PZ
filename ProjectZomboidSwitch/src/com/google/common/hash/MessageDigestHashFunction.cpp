@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/MessageDigestHashFunction.h"
+#include "com/google/common/hash/MessageDigestHashFunction.h"
 
 namespace com {
 namespace google {

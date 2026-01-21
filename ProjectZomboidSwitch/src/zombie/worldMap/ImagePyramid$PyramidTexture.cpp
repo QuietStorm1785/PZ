@@ -1,4 +1,4 @@
-#include "zombie\worldMap/ImagePyramid$PyramidTexture.h"
+#include "zombie/worldMap/ImagePyramid$PyramidTexture.h"
 
 namespace zombie {
 namespace worldMap {

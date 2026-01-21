@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\impl/RuntimeBuiltinLeafInfoImpl$UUIDImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/RuntimeBuiltinLeafInfoImpl$UUIDImpl.h"
 
 namespace com {
 namespace sun {

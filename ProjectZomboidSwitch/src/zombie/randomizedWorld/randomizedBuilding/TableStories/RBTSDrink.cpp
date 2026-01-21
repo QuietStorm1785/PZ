@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\randomizedWorld\randomizedBuilding\TableStories/RBTSDrink.h"
+#include "zombie/randomizedWorld/randomizedBuilding/TableStories/RBTSDrink.h"
 
 namespace zombie {
 namespace randomizedWorld {

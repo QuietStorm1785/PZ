@@ -1,4 +1,4 @@
-#include "zombie\characters\action\conditions/CharacterVariableCondition$Factory.h"
+#include "zombie/characters/action/conditions/CharacterVariableCondition$Factory.h"
 
 namespace zombie {
 namespace characters {

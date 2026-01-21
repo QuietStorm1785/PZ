@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core/WinReqistry.h"
+#include "zombie/core/WinReqistry.h"
 
 namespace zombie {
 namespace core {

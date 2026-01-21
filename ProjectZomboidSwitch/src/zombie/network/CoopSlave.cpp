@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network/CoopSlave.h"
+#include "zombie/network/CoopSlave.h"
 
 namespace zombie {
 namespace network {

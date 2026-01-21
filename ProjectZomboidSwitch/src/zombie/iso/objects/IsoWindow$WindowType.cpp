@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/IsoWindow$WindowType.h"
+#include "zombie/iso/objects/IsoWindow$WindowType.h"
 
 namespace zombie {
 namespace iso {

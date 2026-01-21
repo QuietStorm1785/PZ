@@ -1,4 +1,4 @@
-#include "zombie\commands/RequiredRight.h"
+#include "zombie/commands/RequiredRight.h"
 
 namespace zombie {
 namespace commands {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\util\concurrent/AtomicDouble.h"
+#include "com/google/common/util/concurrent/AtomicDouble.h"
 
 namespace com {
 namespace google {

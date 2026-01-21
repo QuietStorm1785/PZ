@@ -1,4 +1,4 @@
-#include "zombie\iso/IsoObject$2.h"
+#include "zombie/iso/IsoObject$2.h"
 
 namespace zombie {
 namespace iso {

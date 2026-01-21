@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\server/GuildBanRemoveHandler.h"
+#include "de/btobastian/javacord/utils/handler/server/GuildBanRemoveHandler.h"
 
 namespace de {
 namespace btobastian {

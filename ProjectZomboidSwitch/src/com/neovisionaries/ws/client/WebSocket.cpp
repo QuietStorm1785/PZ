@@ -1,6 +1,6 @@
 #include <queue>
 #include <string>
-#include "com\neovisionaries\ws\client/WebSocket.h"
+#include "com/neovisionaries/ws/client/WebSocket.h"
 
 namespace com {
 namespace neovisionaries {

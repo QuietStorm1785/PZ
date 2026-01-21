@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/NestedParticle.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/NestedParticle.h"
 
 namespace com {
 namespace sun {

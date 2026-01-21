@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/SimpleContent.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/SimpleContent.h"
 
 namespace com {
 namespace sun {

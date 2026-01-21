@@ -1,4 +1,4 @@
-#include "zombie\savefile/SavefileThumbnail$FixCameraDrawer.h"
+#include "zombie/savefile/SavefileThumbnail$FixCameraDrawer.h"
 
 namespace zombie {
 namespace savefile {

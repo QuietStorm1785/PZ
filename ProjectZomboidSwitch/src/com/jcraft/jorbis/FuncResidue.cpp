@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/FuncResidue.h"
+#include "com/jcraft/jorbis/FuncResidue.h"
 
 namespace com {
 namespace jcraft {

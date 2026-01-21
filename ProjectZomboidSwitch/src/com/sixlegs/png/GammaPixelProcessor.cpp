@@ -1,4 +1,4 @@
-#include "com\sixlegs\png/GammaPixelProcessor.h"
+#include "com/sixlegs/png/GammaPixelProcessor.h"
 
 namespace com {
 namespace sixlegs {

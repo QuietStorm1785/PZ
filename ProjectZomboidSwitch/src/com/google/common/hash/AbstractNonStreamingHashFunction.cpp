@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/AbstractNonStreamingHashFunction.h"
+#include "com/google/common/hash/AbstractNonStreamingHashFunction.h"
 
 namespace com {
 namespace google {

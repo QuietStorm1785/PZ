@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Equivalence$EquivalentToPredicate.h"
+#include "com/google/common/base/Equivalence$EquivalentToPredicate.h"
 
 namespace com {
 namespace google {

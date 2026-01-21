@@ -1,4 +1,4 @@
-#include "zombie\iso/LightingJNI$JNILighting.h"
+#include "zombie/iso/LightingJNI$JNILighting.h"
 
 namespace zombie {
 namespace iso {

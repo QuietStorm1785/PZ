@@ -1,4 +1,4 @@
-#include "zombie\gameStates/MainScreenState$Credit.h"
+#include "zombie/gameStates/MainScreenState$Credit.h"
 
 namespace zombie {
 namespace gameStates {

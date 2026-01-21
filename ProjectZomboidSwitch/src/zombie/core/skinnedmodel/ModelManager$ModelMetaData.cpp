@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/ModelManager$ModelMetaData.h"
+#include "zombie/core/skinnedmodel/ModelManager$ModelMetaData.h"
 
 namespace zombie {
 namespace core {

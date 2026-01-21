@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/SchemaTop.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/SchemaTop.h"
 
 namespace com {
 namespace sun {

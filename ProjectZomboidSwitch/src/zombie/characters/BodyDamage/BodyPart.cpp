@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\characters\BodyDamage/BodyPart.h"
+#include "zombie/characters/BodyDamage/BodyPart.h"
 
 namespace zombie {
 namespace characters {

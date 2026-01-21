@@ -1,4 +1,4 @@
-#include "zombie\network/GameServerWorkshopItems$WorkshopItem.h"
+#include "zombie/network/GameServerWorkshopItems$WorkshopItem.h"
 
 namespace zombie {
 namespace network {

@@ -1,4 +1,4 @@
-#include "zombie\network\packets/PlayerVariables$NetworkPlayerVariable.h"
+#include "zombie/network/packets/PlayerVariables$NetworkPlayerVariable.h"
 
 namespace zombie {
 namespace network {

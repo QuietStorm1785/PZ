@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\message/TypingStartListener.h"
+#include "de/btobastian/javacord/listener/message/TypingStartListener.h"
 
 namespace de {
 namespace btobastian {

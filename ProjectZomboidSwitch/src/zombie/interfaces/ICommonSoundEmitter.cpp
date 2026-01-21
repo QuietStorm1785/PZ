@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\interfaces/ICommonSoundEmitter.h"
+#include "zombie/interfaces/ICommonSoundEmitter.h"
 
 namespace zombie {
 namespace interfaces {

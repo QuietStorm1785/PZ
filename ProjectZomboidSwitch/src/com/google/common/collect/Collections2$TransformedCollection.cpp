@@ -1,4 +1,4 @@
-#include "com\google\common\collect/Collections2$TransformedCollection.h"
+#include "com/google/common/collect/Collections2$TransformedCollection.h"
 
 namespace com {
 namespace google {

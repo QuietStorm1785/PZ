@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ui/UIEventHandler.h"
+#include "zombie/ui/UIEventHandler.h"
 
 namespace zombie {
 namespace ui {

@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\message\impl/ImplReaction.h"
+#include "de/btobastian/javacord/entities/message/impl/ImplReaction.h"
 
 namespace de {
 namespace btobastian {

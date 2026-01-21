@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime/Location.h"
+#include "com/sun/xml/bind/v2/runtime/Location.h"
 
 namespace com {
 namespace sun {

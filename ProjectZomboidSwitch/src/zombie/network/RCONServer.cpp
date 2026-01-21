@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network/RCONServer.h"
+#include "zombie/network/RCONServer.h"
 
 namespace zombie {
 namespace network {

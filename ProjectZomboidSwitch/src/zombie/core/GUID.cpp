@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core/GUID.h"
+#include "zombie/core/GUID.h"
 
 namespace zombie {
 namespace core {

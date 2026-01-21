@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <sstream>
 #include <string>
-#include "com\sun\xml\bind\api\impl/NameUtil.h"
+#include "com/sun/xml/bind/api/impl/NameUtil.h"
 
 namespace com {
 namespace sun {

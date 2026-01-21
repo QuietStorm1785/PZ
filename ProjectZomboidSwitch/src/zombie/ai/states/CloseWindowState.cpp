@@ -1,4 +1,4 @@
-#include "zombie\ai\states/CloseWindowState.h"
+#include "zombie/ai/states/CloseWindowState.h"
 
 namespace zombie {
 namespace ai {

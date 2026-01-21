@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\eventbus/AsyncEventBus.h"
+#include "com/google/common/eventbus/AsyncEventBus.h"
 
 namespace com {
 namespace google {

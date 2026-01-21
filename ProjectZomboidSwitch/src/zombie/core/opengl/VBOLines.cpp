@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/VBOLines.h"
+#include "zombie/core/opengl/VBOLines.h"
 
 namespace zombie {
 namespace core {

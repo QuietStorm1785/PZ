@@ -1,4 +1,4 @@
-#include "zombie\util/Type.h"
+#include "zombie/util/Type.h"
 
 namespace zombie {
 namespace util {

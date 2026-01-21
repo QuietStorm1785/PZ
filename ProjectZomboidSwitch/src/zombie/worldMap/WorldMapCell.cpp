@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\worldMap/WorldMapCell.h"
+#include "zombie/worldMap/WorldMapCell.h"
 
 namespace zombie {
 namespace worldMap {

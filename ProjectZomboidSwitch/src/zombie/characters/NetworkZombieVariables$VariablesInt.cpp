@@ -1,4 +1,4 @@
-#include "zombie\characters/NetworkZombieVariables$VariablesInt.h"
+#include "zombie/characters/NetworkZombieVariables$VariablesInt.h"
 
 namespace zombie {
 namespace characters {

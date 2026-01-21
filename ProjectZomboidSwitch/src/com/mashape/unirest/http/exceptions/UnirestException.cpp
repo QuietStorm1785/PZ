@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http\exceptions/UnirestException.h"
+#include "com/mashape/unirest/http/exceptions/UnirestException.h"
 
 namespace com {
 namespace mashape {

@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "com\google\common\hash/Crc32cHashFunction$Crc32cHasher.h"
+#include "com/google/common/hash/Crc32cHashFunction$Crc32cHasher.h"
 
 namespace com {
 namespace google {

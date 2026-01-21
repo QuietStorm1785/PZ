@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "com\sun\xml\bind\v2\runtime/ArrayBeanInfoImpl.h"
+#include "com/sun/xml/bind/v2/runtime/ArrayBeanInfoImpl.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "com\google\common\util\concurrent/Striped$PowerOfTwoStriped.h"
+#include "com/google/common/util/concurrent/Striped$PowerOfTwoStriped.h"
 
 namespace com {
 namespace google {

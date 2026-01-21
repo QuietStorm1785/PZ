@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\BodyDamage/Thermoregulator$ThermalNode.h"
+#include "zombie/characters/BodyDamage/Thermoregulator$ThermalNode.h"
 
 namespace zombie {
 namespace characters {

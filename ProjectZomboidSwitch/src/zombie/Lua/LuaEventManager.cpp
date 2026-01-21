@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\Lua/LuaEventManager.h"
+#include "zombie/Lua/LuaEventManager.h"
 
 namespace zombie {
 namespace Lua {

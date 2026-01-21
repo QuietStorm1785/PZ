@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso\objects\interfaces/IClothingWasherDryerLogic.h"
+#include "zombie/iso/objects/interfaces/IClothingWasherDryerLogic.h"
 
 namespace zombie {
 namespace iso {

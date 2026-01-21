@@ -1,4 +1,4 @@
-#include "zombie\iso\areas\isoregion\regions/IWorldRegion.h"
+#include "zombie/iso/areas/isoregion/regions/IWorldRegion.h"
 
 namespace zombie {
 namespace iso {

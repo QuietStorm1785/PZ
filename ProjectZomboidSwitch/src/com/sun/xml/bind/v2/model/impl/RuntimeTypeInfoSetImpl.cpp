@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/RuntimeTypeInfoSetImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/RuntimeTypeInfoSetImpl.h"
 
 namespace com {
 namespace sun {

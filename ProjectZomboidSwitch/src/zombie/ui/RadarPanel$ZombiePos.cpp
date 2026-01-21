@@ -1,4 +1,4 @@
-#include "zombie\ui/RadarPanel$ZombiePos.h"
+#include "zombie/ui/RadarPanel$ZombiePos.h"
 
 namespace zombie {
 namespace ui {

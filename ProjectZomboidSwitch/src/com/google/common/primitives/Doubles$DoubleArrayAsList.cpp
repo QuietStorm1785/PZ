@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\primitives/Doubles$DoubleArrayAsList.h"
+#include "com/google/common/primitives/Doubles$DoubleArrayAsList.h"
 
 namespace com {
 namespace google {

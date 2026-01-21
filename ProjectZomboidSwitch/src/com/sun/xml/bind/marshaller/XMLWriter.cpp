@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\marshaller/XMLWriter.h"
+#include "com/sun/xml/bind/marshaller/XMLWriter.h"
 
 namespace com {
 namespace sun {

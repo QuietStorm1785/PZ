@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/VorbisFile$SeekableInputStream.h"
+#include "com/jcraft/jorbis/VorbisFile$SeekableInputStream.h"
 
 namespace com {
 namespace jcraft {

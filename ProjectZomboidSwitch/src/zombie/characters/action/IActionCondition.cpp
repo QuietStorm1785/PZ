@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\action/IActionCondition.h"
+#include "zombie/characters/action/IActionCondition.h"
 
 namespace zombie {
 namespace characters {

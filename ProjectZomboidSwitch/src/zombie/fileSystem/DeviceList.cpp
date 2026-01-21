@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\fileSystem/DeviceList.h"
+#include "zombie/fileSystem/DeviceList.h"
 
 namespace zombie {
 namespace fileSystem {

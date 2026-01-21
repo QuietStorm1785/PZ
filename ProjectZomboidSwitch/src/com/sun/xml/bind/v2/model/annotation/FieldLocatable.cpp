@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\annotation/FieldLocatable.h"
+#include "com/sun/xml/bind/v2/model/annotation/FieldLocatable.h"
 
 namespace com {
 namespace sun {

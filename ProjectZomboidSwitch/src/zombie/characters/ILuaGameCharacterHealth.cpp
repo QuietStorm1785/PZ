@@ -1,4 +1,4 @@
-#include "zombie\characters/ILuaGameCharacterHealth.h"
+#include "zombie/characters/ILuaGameCharacterHealth.h"
 
 namespace zombie {
 namespace characters {

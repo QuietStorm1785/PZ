@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\cache/CacheBuilderSpec$LongParser.h"
+#include "com/google/common/cache/CacheBuilderSpec$LongParser.h"
 
 namespace com {
 namespace google {

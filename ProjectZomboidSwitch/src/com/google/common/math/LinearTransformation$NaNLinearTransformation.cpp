@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\math/LinearTransformation$NaNLinearTransformation.h"
+#include "com/google/common/math/LinearTransformation$NaNLinearTransformation.h"
 
 namespace com {
 namespace google {

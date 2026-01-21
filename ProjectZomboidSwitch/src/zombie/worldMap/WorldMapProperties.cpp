@@ -1,4 +1,4 @@
-#include "zombie\worldMap/WorldMapProperties.h"
+#include "zombie/worldMap/WorldMapProperties.h"
 
 namespace zombie {
 namespace worldMap {

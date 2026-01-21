@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\Collections/ConcurrentAutoTable.h"
+#include "zombie/core/Collections/ConcurrentAutoTable.h"
 
 namespace zombie {
 namespace core {

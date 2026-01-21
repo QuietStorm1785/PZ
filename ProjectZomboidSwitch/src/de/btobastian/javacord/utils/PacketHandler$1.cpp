@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils/PacketHandler$1.h"
+#include "de/btobastian/javacord/utils/PacketHandler$1.h"
 
 namespace de {
 namespace btobastian {

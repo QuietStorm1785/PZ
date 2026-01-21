@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/Types$TypeVariableImpl.h"
+#include "com/google/common/reflect/Types$TypeVariableImpl.h"
 
 namespace com {
 namespace google {

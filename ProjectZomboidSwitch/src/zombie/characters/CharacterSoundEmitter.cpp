@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters/CharacterSoundEmitter.h"
+#include "zombie/characters/CharacterSoundEmitter.h"
 
 namespace zombie {
 namespace characters {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\radio\script/RadioScriptEntry.h"
+#include "zombie/radio/script/RadioScriptEntry.h"
 
 namespace zombie {
 namespace radio {

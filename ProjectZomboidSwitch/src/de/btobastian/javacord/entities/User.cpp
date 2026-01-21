@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities/User.h"
+#include "de/btobastian/javacord/entities/User.h"
 
 namespace de {
 namespace btobastian {

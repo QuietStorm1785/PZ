@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/SingletonImmutableList.h"
+#include "com/google/common/collect/SingletonImmutableList.h"
 
 namespace com {
 namespace google {

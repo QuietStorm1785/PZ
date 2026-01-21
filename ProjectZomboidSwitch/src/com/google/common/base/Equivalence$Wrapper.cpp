@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Equivalence$Wrapper.h"
+#include "com/google/common/base/Equivalence$Wrapper.h"
 
 namespace com {
 namespace google {

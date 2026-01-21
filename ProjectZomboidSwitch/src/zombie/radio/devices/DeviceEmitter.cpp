@@ -1,4 +1,4 @@
-#include "zombie\radio\devices/DeviceEmitter.h"
+#include "zombie/radio/devices/DeviceEmitter.h"
 
 namespace zombie {
 namespace radio {

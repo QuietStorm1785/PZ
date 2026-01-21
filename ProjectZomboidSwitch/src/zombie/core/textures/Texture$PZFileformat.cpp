@@ -1,4 +1,4 @@
-#include "zombie\core\textures/Texture$PZFileformat.h"
+#include "zombie/core/textures/Texture$PZFileformat.h"
 
 namespace zombie {
 namespace core {

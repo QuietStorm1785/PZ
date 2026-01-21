@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\znet/ServerBrowser.h"
+#include "zombie/core/znet/ServerBrowser.h"
 
 namespace zombie {
 namespace core {

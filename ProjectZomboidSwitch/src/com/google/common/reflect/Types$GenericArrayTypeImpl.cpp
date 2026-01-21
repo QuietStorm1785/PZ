@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/Types$GenericArrayTypeImpl.h"
+#include "com/google/common/reflect/Types$GenericArrayTypeImpl.h"
 
 namespace com {
 namespace google {

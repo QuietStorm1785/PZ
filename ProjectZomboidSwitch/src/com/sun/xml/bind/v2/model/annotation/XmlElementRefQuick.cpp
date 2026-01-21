@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\annotation/XmlElementRefQuick.h"
+#include "com/sun/xml/bind/v2/model/annotation/XmlElementRefQuick.h"
 
 namespace com {
 namespace sun {

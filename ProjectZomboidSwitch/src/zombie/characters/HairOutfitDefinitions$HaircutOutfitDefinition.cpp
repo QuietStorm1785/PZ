@@ -1,4 +1,4 @@
-#include "zombie\characters/HairOutfitDefinitions$HaircutOutfitDefinition.h"
+#include "zombie/characters/HairOutfitDefinitions$HaircutOutfitDefinition.h"
 
 namespace zombie {
 namespace characters {

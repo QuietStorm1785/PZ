@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/BaseEncoding$Alphabet.h"
+#include "com/google/common/io/BaseEncoding$Alphabet.h"
 
 namespace com {
 namespace google {

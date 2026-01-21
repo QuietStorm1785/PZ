@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\core/EnumConstant.h"
+#include "com/sun/xml/bind/v2/model/core/EnumConstant.h"
 
 namespace com {
 namespace sun {

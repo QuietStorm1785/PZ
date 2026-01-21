@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\runtime/RuntimeAttributePropertyInfo.h"
+#include "com/sun/xml/bind/v2/model/runtime/RuntimeAttributePropertyInfo.h"
 
 namespace com {
 namespace sun {

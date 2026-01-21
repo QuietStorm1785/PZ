@@ -1,4 +1,4 @@
-#include "zombie\iso\weather/ThunderStorm$PlayerLightningInfo.h"
+#include "zombie/iso/weather/ThunderStorm$PlayerLightningInfo.h"
 
 namespace zombie {
 namespace iso {

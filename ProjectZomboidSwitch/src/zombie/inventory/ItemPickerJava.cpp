@@ -1,7 +1,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "zombie\inventory/ItemPickerJava.h"
+#include "zombie/inventory/ItemPickerJava.h"
 
 namespace zombie {
 namespace inventory {

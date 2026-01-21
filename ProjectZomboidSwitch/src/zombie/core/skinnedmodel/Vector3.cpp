@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/Vector3.h"
+#include "zombie/core/skinnedmodel/Vector3.h"
 
 namespace zombie {
 namespace core {

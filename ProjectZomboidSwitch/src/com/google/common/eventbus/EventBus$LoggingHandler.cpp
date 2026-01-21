@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\eventbus/EventBus$LoggingHandler.h"
+#include "com/google/common/eventbus/EventBus$LoggingHandler.h"
 
 namespace com {
 namespace google {

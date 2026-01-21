@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/RemoveUserFromWhiteList.h"
+#include "zombie/commands/serverCommands/RemoveUserFromWhiteList.h"
 
 namespace zombie {
 namespace commands {

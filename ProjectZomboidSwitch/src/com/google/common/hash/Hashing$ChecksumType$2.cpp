@@ -1,4 +1,4 @@
-#include "com\google\common\hash/Hashing$ChecksumType$2.h"
+#include "com/google/common/hash/Hashing$ChecksumType$2.h"
 
 namespace com {
 namespace google {

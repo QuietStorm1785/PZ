@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord/ImplDiscordAPI$3.h"
+#include "de/btobastian/javacord/ImplDiscordAPI$3.h"
 
 namespace de {
 namespace btobastian {

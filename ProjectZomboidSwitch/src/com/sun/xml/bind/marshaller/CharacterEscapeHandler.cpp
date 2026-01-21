@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\marshaller/CharacterEscapeHandler.h"
+#include "com/sun/xml/bind/marshaller/CharacterEscapeHandler.h"
 
 namespace com {
 namespace sun {

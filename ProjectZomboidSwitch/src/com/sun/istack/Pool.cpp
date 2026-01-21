@@ -1,4 +1,4 @@
-#include "com\sun\istack/Pool.h"
+#include "com/sun/istack/Pool.h"
 
 namespace com {
 namespace sun {

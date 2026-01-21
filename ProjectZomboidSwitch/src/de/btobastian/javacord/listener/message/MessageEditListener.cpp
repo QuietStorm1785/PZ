@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\listener\message/MessageEditListener.h"
+#include "de/btobastian/javacord/listener/message/MessageEditListener.h"
 
 namespace de {
 namespace btobastian {

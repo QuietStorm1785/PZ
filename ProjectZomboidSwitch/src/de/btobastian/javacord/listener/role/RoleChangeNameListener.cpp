@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\listener\role/RoleChangeNameListener.h"
+#include "de/btobastian/javacord/listener/role/RoleChangeNameListener.h"
 
 namespace de {
 namespace btobastian {

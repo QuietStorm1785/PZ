@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\impl/ImplCustomEmoji$1.h"
+#include "de/btobastian/javacord/entities/impl/ImplCustomEmoji$1.h"
 
 namespace de {
 namespace btobastian {

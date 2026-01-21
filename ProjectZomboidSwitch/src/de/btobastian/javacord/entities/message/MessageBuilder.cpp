@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "de\btobastian\javacord\entities\message/MessageBuilder.h"
+#include "de/btobastian/javacord/entities/message/MessageBuilder.h"
 
 namespace de {
 namespace btobastian {

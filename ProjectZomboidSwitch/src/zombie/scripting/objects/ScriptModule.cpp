@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\scripting\objects/ScriptModule.h"
+#include "zombie/scripting/objects/ScriptModule.h"
 
 namespace zombie {
 namespace scripting {

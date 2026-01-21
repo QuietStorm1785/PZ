@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/PongSender.h"
+#include "com/neovisionaries/ws/client/PongSender.h"
 
 namespace com {
 namespace neovisionaries {

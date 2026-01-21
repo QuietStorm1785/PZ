@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\impl/ImplInviteBuilder.h"
+#include "de/btobastian/javacord/entities/impl/ImplInviteBuilder.h"
 
 namespace de {
 namespace btobastian {

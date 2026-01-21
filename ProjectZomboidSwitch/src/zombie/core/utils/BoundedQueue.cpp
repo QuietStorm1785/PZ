@@ -1,5 +1,5 @@
 #include <queue>
-#include "zombie\core\utils/BoundedQueue.h"
+#include "zombie/core/utils/BoundedQueue.h"
 
 namespace zombie {
 namespace core {

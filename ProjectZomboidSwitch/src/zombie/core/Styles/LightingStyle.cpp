@@ -1,4 +1,4 @@
-#include "zombie\core\Styles/LightingStyle.h"
+#include "zombie/core/Styles/LightingStyle.h"
 
 namespace zombie {
 namespace core {

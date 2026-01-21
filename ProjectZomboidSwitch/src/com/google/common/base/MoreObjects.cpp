@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/MoreObjects.h"
+#include "com/google/common/base/MoreObjects.h"
 
 namespace com {
 namespace google {

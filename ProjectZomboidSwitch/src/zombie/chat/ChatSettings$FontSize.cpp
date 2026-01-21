@@ -1,4 +1,4 @@
-#include "zombie\chat/ChatSettings$FontSize.h"
+#include "zombie/chat/ChatSettings$FontSize.h"
 
 namespace zombie {
 namespace chat {

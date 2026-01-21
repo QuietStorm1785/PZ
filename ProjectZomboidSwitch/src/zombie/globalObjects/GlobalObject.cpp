@@ -1,4 +1,4 @@
-#include "zombie\globalObjects/GlobalObject.h"
+#include "zombie/globalObjects/GlobalObject.h"
 
 namespace zombie {
 namespace globalObjects {

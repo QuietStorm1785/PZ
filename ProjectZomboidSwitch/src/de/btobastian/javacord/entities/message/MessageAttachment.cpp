@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\message/MessageAttachment.h"
+#include "de/btobastian/javacord/entities/message/MessageAttachment.h"
 
 namespace de {
 namespace btobastian {

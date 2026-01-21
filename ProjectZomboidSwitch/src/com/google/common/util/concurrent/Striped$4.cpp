@@ -1,4 +1,4 @@
-#include "com\google\common\util\concurrent/Striped$4.h"
+#include "com/google/common/util/concurrent/Striped$4.h"
 
 namespace com {
 namespace google {

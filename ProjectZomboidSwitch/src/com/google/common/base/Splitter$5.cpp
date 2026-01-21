@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Splitter$5.h"
+#include "com/google/common/base/Splitter$5.h"
 
 namespace com {
 namespace google {

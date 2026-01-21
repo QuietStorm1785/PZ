@@ -1,4 +1,4 @@
-#include "com\google\common\annotations/Beta.h"
+#include "com/google/common/annotations/Beta.h"
 
 namespace com {
 namespace google {

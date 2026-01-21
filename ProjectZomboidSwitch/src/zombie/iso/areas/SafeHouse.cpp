@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\iso\areas/SafeHouse.h"
+#include "zombie/iso/areas/SafeHouse.h"
 
 namespace zombie {
 namespace iso {

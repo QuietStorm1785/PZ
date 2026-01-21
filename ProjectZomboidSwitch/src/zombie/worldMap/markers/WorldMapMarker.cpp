@@ -1,4 +1,4 @@
-#include "zombie\worldMap\markers/WorldMapMarker.h"
+#include "zombie/worldMap/markers/WorldMapMarker.h"
 
 namespace zombie {
 namespace worldMap {

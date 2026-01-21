@@ -1,4 +1,4 @@
-#include "zombie\ai\states/CollideWithWallState.h"
+#include "zombie/ai/states/CollideWithWallState.h"
 
 namespace zombie {
 namespace ai {

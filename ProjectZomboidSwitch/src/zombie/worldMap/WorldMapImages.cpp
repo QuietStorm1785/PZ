@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\worldMap/WorldMapImages.h"
+#include "zombie/worldMap/WorldMapImages.h"
 
 namespace zombie {
 namespace worldMap {

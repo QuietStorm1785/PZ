@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\vehicles/PolygonalMap2$Obstacle.h"
+#include "zombie/vehicles/PolygonalMap2$Obstacle.h"
 
 namespace zombie {
 namespace vehicles {

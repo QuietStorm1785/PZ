@@ -1,4 +1,4 @@
-#include "zombie\iso\areas/BuildingScore.h"
+#include "zombie/iso/areas/BuildingScore.h"
 
 namespace zombie {
 namespace iso {

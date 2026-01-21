@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\utils/BooleanGrid.h"
+#include "zombie/core/utils/BooleanGrid.h"
 
 namespace zombie {
 namespace core {

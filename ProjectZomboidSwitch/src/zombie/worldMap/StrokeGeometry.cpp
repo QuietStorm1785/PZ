@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\worldMap/StrokeGeometry.h"
+#include "zombie/worldMap/StrokeGeometry.h"
 
 namespace zombie {
 namespace worldMap {

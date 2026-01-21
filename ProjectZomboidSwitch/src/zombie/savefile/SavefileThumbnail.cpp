@@ -1,4 +1,4 @@
-#include "zombie\savefile/SavefileThumbnail.h"
+#include "zombie/savefile/SavefileThumbnail.h"
 
 namespace zombie {
 namespace savefile {

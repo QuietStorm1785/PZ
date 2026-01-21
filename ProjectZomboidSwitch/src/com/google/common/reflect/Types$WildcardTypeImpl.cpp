@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/Types$WildcardTypeImpl.h"
+#include "com/google/common/reflect/Types$WildcardTypeImpl.h"
 
 namespace com {
 namespace google {

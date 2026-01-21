@@ -1,4 +1,4 @@
-#include "zombie\audio\parameters/ParameterCharacterInside.h"
+#include "zombie/audio/parameters/ParameterCharacterInside.h"
 
 namespace zombie {
 namespace audio {

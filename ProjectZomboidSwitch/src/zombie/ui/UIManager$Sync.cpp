@@ -1,4 +1,4 @@
-#include "zombie\ui/UIManager$Sync.h"
+#include "zombie/ui/UIManager$Sync.h"
 
 namespace zombie {
 namespace ui {

@@ -1,7 +1,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include "zombie\Lua/LuaManager$GlobalObject.h"
+#include "zombie/Lua/LuaManager$GlobalObject.h"
 
 namespace zombie {
 namespace Lua {

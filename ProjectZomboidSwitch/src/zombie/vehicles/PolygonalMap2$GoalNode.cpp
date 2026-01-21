@@ -1,4 +1,4 @@
-#include "zombie\vehicles/PolygonalMap2$GoalNode.h"
+#include "zombie/vehicles/PolygonalMap2$GoalNode.h"
 
 namespace zombie {
 namespace vehicles {

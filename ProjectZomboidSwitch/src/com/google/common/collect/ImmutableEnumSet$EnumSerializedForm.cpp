@@ -1,4 +1,4 @@
-#include "com\google\common\collect/ImmutableEnumSet$EnumSerializedForm.h"
+#include "com/google/common/collect/ImmutableEnumSet$EnumSerializedForm.h"
 
 namespace com {
 namespace google {

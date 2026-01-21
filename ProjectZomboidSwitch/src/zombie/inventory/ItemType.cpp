@@ -1,4 +1,4 @@
-#include "zombie\inventory/ItemType.h"
+#include "zombie/inventory/ItemType.h"
 
 namespace zombie {
 namespace inventory {

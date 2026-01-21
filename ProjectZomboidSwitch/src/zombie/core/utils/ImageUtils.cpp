@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\utils/ImageUtils.h"
+#include "zombie/core/utils/ImageUtils.h"
 
 namespace zombie {
 namespace core {

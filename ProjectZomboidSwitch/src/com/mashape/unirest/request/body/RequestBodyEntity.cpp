@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\request\body/RequestBodyEntity.h"
+#include "com/mashape/unirest/request/body/RequestBodyEntity.h"
 
 namespace com {
 namespace mashape {

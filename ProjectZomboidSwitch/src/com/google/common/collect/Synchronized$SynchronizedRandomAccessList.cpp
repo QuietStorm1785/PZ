@@ -1,4 +1,4 @@
-#include "com\google\common\collect/Synchronized$SynchronizedRandomAccessList.h"
+#include "com/google/common/collect/Synchronized$SynchronizedRandomAccessList.h"
 
 namespace com {
 namespace google {

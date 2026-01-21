@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\config/IntegerConfigOption.h"
+#include "zombie/config/IntegerConfigOption.h"
 
 namespace zombie {
 namespace config {

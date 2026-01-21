@@ -1,4 +1,4 @@
-#include "zombie\network/PacketValidator$RecipeDetails$Skill.h"
+#include "zombie/network/PacketValidator$RecipeDetails$Skill.h"
 
 namespace zombie {
 namespace network {

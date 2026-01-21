@@ -1,4 +1,4 @@
-#include "zombie\Lua/MapObjects$Callback.h"
+#include "zombie/Lua/MapObjects$Callback.h"
 
 namespace zombie {
 namespace Lua {

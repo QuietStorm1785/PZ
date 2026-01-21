@@ -1,4 +1,4 @@
-#include "com\google\common\collect/ImmutableCollection.h"
+#include "com/google/common/collect/ImmutableCollection.h"
 
 namespace com {
 namespace google {

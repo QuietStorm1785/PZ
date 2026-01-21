@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\google\common\hash/AbstractCompositeHashFunction$1.h"
+#include "com/google/common/hash/AbstractCompositeHashFunction$1.h"
 
 namespace com {
 namespace google {

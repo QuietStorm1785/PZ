@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\permissions\impl/ImplPermissionsBuilder.h"
+#include "de/btobastian/javacord/entities/permissions/impl/ImplPermissionsBuilder.h"
 
 namespace de {
 namespace btobastian {

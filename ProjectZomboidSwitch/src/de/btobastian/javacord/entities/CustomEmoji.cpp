@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities/CustomEmoji.h"
+#include "de/btobastian/javacord/entities/CustomEmoji.h"
 
 namespace de {
 namespace btobastian {

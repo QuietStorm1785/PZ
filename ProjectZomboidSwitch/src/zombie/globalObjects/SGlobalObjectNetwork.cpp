@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\globalObjects/SGlobalObjectNetwork.h"
+#include "zombie/globalObjects/SGlobalObjectNetwork.h"
 
 namespace zombie {
 namespace globalObjects {

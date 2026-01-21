@@ -1,6 +1,6 @@
 #include <queue>
 #include <string>
-#include "zombie\network/LoginQueue.h"
+#include "zombie/network/LoginQueue.h"
 
 namespace zombie {
 namespace network {

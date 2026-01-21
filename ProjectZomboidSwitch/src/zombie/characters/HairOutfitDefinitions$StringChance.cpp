@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters/HairOutfitDefinitions$StringChance.h"
+#include "zombie/characters/HairOutfitDefinitions$StringChance.h"
 
 namespace zombie {
 namespace characters {

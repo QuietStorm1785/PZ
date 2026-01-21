@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\listener\channel/ChannelChangeNameListener.h"
+#include "de/btobastian/javacord/listener/channel/ChannelChangeNameListener.h"
 
 namespace de {
 namespace btobastian {

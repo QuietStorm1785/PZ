@@ -1,4 +1,4 @@
-#include "zombie\characters/EquippedTextureCreator.h"
+#include "zombie/characters/EquippedTextureCreator.h"
 
 namespace zombie {
 namespace characters {

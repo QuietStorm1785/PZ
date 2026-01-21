@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\unmarshaller/ValidatingUnmarshaller.h"
+#include "com/sun/xml/bind/v2/runtime/unmarshaller/ValidatingUnmarshaller.h"
 
 namespace com {
 namespace sun {

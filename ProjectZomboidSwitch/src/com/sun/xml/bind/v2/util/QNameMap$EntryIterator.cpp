@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\util/QNameMap$EntryIterator.h"
+#include "com/sun/xml/bind/v2/util/QNameMap$EntryIterator.h"
 
 namespace com {
 namespace sun {

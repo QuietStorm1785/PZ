@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\istack/SAXException2.h"
+#include "com/sun/istack/SAXException2.h"
 
 namespace com {
 namespace sun {

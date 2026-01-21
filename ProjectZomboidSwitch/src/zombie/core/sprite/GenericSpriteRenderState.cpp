@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "zombie\core\sprite/GenericSpriteRenderState.h"
+#include "zombie/core/sprite/GenericSpriteRenderState.h"
 
 namespace zombie {
 namespace core {

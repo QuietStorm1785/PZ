@@ -1,6 +1,6 @@
 #include <memory>
 #include <string>
-#include "com\google\common\base/Splitter.h"
+#include "com/google/common/base/Splitter.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http/HttpResponse.h"
+#include "com/mashape/unirest/http/HttpResponse.h"
 
 namespace com {
 namespace mashape {

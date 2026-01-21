@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Platform$JdkPatternCompiler.h"
+#include "com/google/common/base/Platform$JdkPatternCompiler.h"
 
 namespace com {
 namespace google {

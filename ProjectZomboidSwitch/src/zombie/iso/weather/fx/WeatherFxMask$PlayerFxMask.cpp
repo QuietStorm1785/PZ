@@ -1,4 +1,4 @@
-#include "zombie\iso\weather\fx/WeatherFxMask$PlayerFxMask.h"
+#include "zombie/iso/weather/fx/WeatherFxMask$PlayerFxMask.h"
 
 namespace zombie {
 namespace iso {

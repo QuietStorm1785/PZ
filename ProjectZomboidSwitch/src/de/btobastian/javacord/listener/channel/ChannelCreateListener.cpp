@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\channel/ChannelCreateListener.h"
+#include "de/btobastian/javacord/listener/channel/ChannelCreateListener.h"
 
 namespace de {
 namespace btobastian {

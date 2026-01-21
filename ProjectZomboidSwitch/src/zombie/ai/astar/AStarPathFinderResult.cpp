@@ -1,4 +1,4 @@
-#include "zombie\ai\astar/AStarPathFinderResult.h"
+#include "zombie/ai/astar/AStarPathFinderResult.h"
 
 namespace zombie {
 namespace ai {

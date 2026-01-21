@@ -1,4 +1,4 @@
-#include "com\google\common\hash/Hashing$Sha1Holder.h"
+#include "com/google/common/hash/Hashing$Sha1Holder.h"
 
 namespace com {
 namespace google {

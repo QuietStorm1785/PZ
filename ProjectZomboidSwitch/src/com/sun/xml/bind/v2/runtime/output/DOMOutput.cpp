@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\output/DOMOutput.h"
+#include "com/sun/xml/bind/v2/runtime/output/DOMOutput.h"
 
 namespace com {
 namespace sun {

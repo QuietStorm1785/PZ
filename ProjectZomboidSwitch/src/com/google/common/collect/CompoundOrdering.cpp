@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/CompoundOrdering.h"
+#include "com/google/common/collect/CompoundOrdering.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/ElementInfoImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/ElementInfoImpl.h"
 
 namespace com {
 namespace sun {

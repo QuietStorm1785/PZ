@@ -1,4 +1,4 @@
-#include "zombie\ai/ZombieGroupManager.h"
+#include "zombie/ai/ZombieGroupManager.h"
 
 namespace zombie {
 namespace ai {

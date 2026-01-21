@@ -1,4 +1,4 @@
-#include "zombie\interfaces/IUpdater.h"
+#include "zombie/interfaces/IUpdater.h"
 
 namespace zombie {
 namespace interfaces {

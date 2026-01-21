@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\znet/IJoinRequestCallback.h"
+#include "zombie/core/znet/IJoinRequestCallback.h"
 
 namespace zombie {
 namespace core {

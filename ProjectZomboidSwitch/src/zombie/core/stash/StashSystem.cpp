@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\stash/StashSystem.h"
+#include "zombie/core/stash/StashSystem.h"
 
 namespace zombie {
 namespace core {

@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\core\skinnedmodel\model/WorldItemAtlas$Checksummer.h"
+#include "zombie/core/skinnedmodel/model/WorldItemAtlas$Checksummer.h"
 
 namespace zombie {
 namespace core {

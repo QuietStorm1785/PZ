@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\characters/HitReactionNetworkAI.h"
+#include "zombie/characters/HitReactionNetworkAI.h"
 
 namespace zombie {
 namespace characters {

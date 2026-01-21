@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\annotation/XmlTransientQuick.h"
+#include "com/sun/xml/bind/v2/model/annotation/XmlTransientQuick.h"
 
 namespace com {
 namespace sun {

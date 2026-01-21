@@ -1,4 +1,4 @@
-#include "zombie\savefile/SavefileThumbnail$TakeScreenShotDrawer.h"
+#include "zombie/savefile/SavefileThumbnail$TakeScreenShotDrawer.h"
 
 namespace zombie {
 namespace savefile {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\api/JAXBRIContext.h"
+#include "com/sun/xml/bind/api/JAXBRIContext.h"
 
 namespace com {
 namespace sun {

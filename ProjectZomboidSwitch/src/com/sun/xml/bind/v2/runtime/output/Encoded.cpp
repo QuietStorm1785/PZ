@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/Encoded.h"
+#include "com/sun/xml/bind/v2/runtime/output/Encoded.h"
 
 namespace com {
 namespace sun {

@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\radio\devices/DeviceData.h"
+#include "zombie/radio/devices/DeviceData.h"
 
 namespace zombie {
 namespace radio {

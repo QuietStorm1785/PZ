@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\erosion\obj/ErosionObj.h"
+#include "zombie/erosion/obj/ErosionObj.h"
 
 namespace zombie {
 namespace erosion {

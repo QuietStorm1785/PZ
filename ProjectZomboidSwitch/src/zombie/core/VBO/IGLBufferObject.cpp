@@ -1,4 +1,4 @@
-#include "zombie\core\VBO/IGLBufferObject.h"
+#include "zombie/core/VBO/IGLBufferObject.h"
 
 namespace zombie {
 namespace core {

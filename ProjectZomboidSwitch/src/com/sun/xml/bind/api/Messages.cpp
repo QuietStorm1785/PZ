@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\api/Messages.h"
+#include "com/sun/xml/bind/api/Messages.h"
 
 namespace com {
 namespace sun {

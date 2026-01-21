@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\message/MessageReactionRemoveAllHandler.h"
+#include "de/btobastian/javacord/utils/handler/message/MessageReactionRemoveAllHandler.h"
 
 namespace de {
 namespace btobastian {

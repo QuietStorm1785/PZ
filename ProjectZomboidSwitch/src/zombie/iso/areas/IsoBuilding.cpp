@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "zombie\iso\areas/IsoBuilding.h"
+#include "zombie/iso/areas/IsoBuilding.h"
 
 namespace zombie {
 namespace iso {

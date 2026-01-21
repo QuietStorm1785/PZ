@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/SipHashFunction.h"
+#include "com/google/common/hash/SipHashFunction.h"
 
 namespace com {
 namespace google {

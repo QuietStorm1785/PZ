@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Functions$IdentityFunction.h"
+#include "com/google/common/base/Functions$IdentityFunction.h"
 
 namespace com {
 namespace google {

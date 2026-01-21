@@ -1,5 +1,5 @@
 #include <string>
-#include "com\jcraft\jorbis/JOrbisException.h"
+#include "com/jcraft/jorbis/JOrbisException.h"
 
 namespace com {
 namespace jcraft {

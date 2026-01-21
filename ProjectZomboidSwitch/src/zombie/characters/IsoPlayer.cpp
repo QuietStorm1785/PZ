@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "zombie\characters/IsoPlayer.h"
+#include "zombie/characters/IsoPlayer.h"
 
 namespace zombie {
 namespace characters {

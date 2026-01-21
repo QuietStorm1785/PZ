@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\property/ArrayReferenceNodeProperty$MixedTextLoader.h"
+#include "com/sun/xml/bind/v2/runtime/property/ArrayReferenceNodeProperty$MixedTextLoader.h"
 
 namespace com {
 namespace sun {

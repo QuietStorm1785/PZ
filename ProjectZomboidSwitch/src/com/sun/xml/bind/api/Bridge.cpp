@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\api/Bridge.h"
+#include "com/sun/xml/bind/api/Bridge.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\world\moddata/GlobalModData.h"
+#include "zombie/world/moddata/GlobalModData.h"
 
 namespace zombie {
 namespace world {

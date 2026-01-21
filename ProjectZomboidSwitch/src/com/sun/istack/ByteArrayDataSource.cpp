@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\istack/ByteArrayDataSource.h"
+#include "com/sun/istack/ByteArrayDataSource.h"
 
 namespace com {
 namespace sun {

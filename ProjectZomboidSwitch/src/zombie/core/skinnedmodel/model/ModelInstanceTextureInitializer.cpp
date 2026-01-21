@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/ModelInstanceTextureInitializer.h"
+#include "zombie/core/skinnedmodel/model/ModelInstanceTextureInitializer.h"
 
 namespace zombie {
 namespace core {

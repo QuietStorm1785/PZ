@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\google\common\primitives/Bytes$ByteArrayAsList.h"
+#include "com/google/common/primitives/Bytes$ByteArrayAsList.h"
 
 namespace com {
 namespace google {

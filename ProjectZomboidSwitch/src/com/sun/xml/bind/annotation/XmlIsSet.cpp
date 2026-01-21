@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\annotation/XmlIsSet.h"
+#include "com/sun/xml/bind/annotation/XmlIsSet.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\action/ActionTransition.h"
+#include "zombie/characters/action/ActionTransition.h"
 
 namespace zombie {
 namespace characters {

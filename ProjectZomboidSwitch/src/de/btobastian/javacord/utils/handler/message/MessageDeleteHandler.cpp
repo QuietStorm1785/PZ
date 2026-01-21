@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\message/MessageDeleteHandler.h"
+#include "de/btobastian/javacord/utils/handler/message/MessageDeleteHandler.h"
 
 namespace de {
 namespace btobastian {

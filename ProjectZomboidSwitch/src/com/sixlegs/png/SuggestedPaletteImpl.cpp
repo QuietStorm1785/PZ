@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sixlegs\png/SuggestedPaletteImpl.h"
+#include "com/sixlegs/png/SuggestedPaletteImpl.h"
 
 namespace com {
 namespace sixlegs {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso\sprite\shapers/SpritePaddingSettings.h"
+#include "zombie/iso/sprite/shapers/SpritePaddingSettings.h"
 
 namespace zombie {
 namespace iso {

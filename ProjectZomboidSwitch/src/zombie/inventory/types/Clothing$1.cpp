@@ -1,4 +1,4 @@
-#include "zombie\inventory\types/Clothing$1.h"
+#include "zombie/inventory/types/Clothing$1.h"
 
 namespace zombie {
 namespace inventory {

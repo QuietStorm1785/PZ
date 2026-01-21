@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind/AnyTypeAdapter.h"
+#include "com/sun/xml/bind/AnyTypeAdapter.h"
 
 namespace com {
 namespace sun {

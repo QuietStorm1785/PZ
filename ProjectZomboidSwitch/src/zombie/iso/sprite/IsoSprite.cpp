@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso\sprite/IsoSprite.h"
+#include "zombie/iso/sprite/IsoSprite.h"
 
 namespace zombie {
 namespace iso {

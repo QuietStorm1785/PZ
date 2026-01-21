@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/ForkXmlOutput.h"
+#include "com/sun/xml/bind/v2/runtime/output/ForkXmlOutput.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\property/SingleMapNodeProperty.h"
+#include "com/sun/xml/bind/v2/runtime/property/SingleMapNodeProperty.h"
 
 namespace com {
 namespace sun {

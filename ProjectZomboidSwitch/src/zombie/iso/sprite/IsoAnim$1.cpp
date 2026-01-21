@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "zombie\iso\sprite/IsoAnim$1.h"
+#include "zombie/iso/sprite/IsoAnim$1.h"
 
 namespace zombie {
 namespace iso {

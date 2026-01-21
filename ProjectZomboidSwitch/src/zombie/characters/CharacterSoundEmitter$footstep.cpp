@@ -1,4 +1,4 @@
-#include "zombie\characters/CharacterSoundEmitter$footstep.h"
+#include "zombie/characters/CharacterSoundEmitter$footstep.h"
 
 namespace zombie {
 namespace characters {

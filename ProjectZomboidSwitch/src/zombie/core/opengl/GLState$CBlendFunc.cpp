@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/GLState$CBlendFunc.h"
+#include "zombie/core/opengl/GLState$CBlendFunc.h"
 
 namespace zombie {
 namespace core {

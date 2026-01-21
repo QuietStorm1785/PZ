@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\runtime/RuntimeTypeRef.h"
+#include "com/sun/xml/bind/v2/model/runtime/RuntimeTypeRef.h"
 
 namespace com {
 namespace sun {

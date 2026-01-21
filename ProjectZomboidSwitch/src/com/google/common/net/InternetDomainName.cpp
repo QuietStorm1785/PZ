@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\net/InternetDomainName.h"
+#include "com/google/common/net/InternetDomainName.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\annotation/RuntimeAnnotationReader.h"
+#include "com/sun/xml/bind/v2/model/annotation/RuntimeAnnotationReader.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord/Javacord.h"
+#include "de/btobastian/javacord/Javacord.h"
 
 namespace de {
 namespace btobastian {

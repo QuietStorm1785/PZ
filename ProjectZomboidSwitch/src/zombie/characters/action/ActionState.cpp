@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\characters\action/ActionState.h"
+#include "zombie/characters/action/ActionState.h"
 
 namespace zombie {
 namespace characters {

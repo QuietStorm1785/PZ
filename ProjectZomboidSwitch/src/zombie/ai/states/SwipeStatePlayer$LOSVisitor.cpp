@@ -1,4 +1,4 @@
-#include "zombie\ai\states/SwipeStatePlayer$LOSVisitor.h"
+#include "zombie/ai/states/SwipeStatePlayer$LOSVisitor.h"
 
 namespace zombie {
 namespace ai {

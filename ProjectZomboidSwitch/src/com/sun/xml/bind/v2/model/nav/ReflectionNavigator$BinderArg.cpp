@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\nav/ReflectionNavigator$BinderArg.h"
+#include "com/sun/xml/bind/v2/model/nav/ReflectionNavigator$BinderArg.h"
 
 namespace com {
 namespace sun {

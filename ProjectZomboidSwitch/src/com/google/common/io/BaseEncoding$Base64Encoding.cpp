@@ -1,4 +1,4 @@
-#include "com\google\common\io/BaseEncoding$Base64Encoding.h"
+#include "com/google/common/io/BaseEncoding$Base64Encoding.h"
 
 namespace com {
 namespace google {

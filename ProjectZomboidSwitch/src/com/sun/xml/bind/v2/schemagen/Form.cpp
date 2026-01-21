@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen/Form.h"
+#include "com/sun/xml/bind/v2/schemagen/Form.h"
 
 namespace com {
 namespace sun {

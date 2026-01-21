@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/GLState$CStencilMask.h"
+#include "zombie/core/opengl/GLState$CStencilMask.h"
 
 namespace zombie {
 namespace core {

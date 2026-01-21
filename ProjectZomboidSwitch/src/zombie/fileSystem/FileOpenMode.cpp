@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\fileSystem/FileOpenMode.h"
+#include "zombie/fileSystem/FileOpenMode.h"
 
 namespace zombie {
 namespace fileSystem {

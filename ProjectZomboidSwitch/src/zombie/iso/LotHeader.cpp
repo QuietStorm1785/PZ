@@ -1,4 +1,4 @@
-#include "zombie\iso/LotHeader.h"
+#include "zombie/iso/LotHeader.h"
 
 namespace zombie {
 namespace iso {

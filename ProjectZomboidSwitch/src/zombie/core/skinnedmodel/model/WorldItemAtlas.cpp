@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\model/WorldItemAtlas.h"
+#include "zombie/core/skinnedmodel/model/WorldItemAtlas.h"
 
 namespace zombie {
 namespace core {

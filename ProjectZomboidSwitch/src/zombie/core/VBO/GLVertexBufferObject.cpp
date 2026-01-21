@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\VBO/GLVertexBufferObject.h"
+#include "zombie/core/VBO/GLVertexBufferObject.h"
 
 namespace zombie {
 namespace core {

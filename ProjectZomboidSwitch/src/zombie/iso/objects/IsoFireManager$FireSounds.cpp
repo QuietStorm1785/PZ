@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/IsoFireManager$FireSounds.h"
+#include "zombie/iso/objects/IsoFireManager$FireSounds.h"
 
 namespace zombie {
 namespace iso {

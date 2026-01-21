@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\inventory\types/WeaponType.h"
+#include "zombie/inventory/types/WeaponType.h"
 
 namespace zombie {
 namespace inventory {

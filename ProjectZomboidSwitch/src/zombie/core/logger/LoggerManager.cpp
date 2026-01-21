@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\logger/LoggerManager.h"
+#include "zombie/core/logger/LoggerManager.h"
 
 namespace zombie {
 namespace core {

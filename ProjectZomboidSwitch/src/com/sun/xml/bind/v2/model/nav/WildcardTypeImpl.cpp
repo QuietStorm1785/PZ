@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\nav/WildcardTypeImpl.h"
+#include "com/sun/xml/bind/v2/model/nav/WildcardTypeImpl.h"
 
 namespace com {
 namespace sun {

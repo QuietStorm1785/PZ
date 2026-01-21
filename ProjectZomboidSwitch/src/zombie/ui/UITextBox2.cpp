@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ui/UITextBox2.h"
+#include "zombie/ui/UITextBox2.h"
 
 namespace zombie {
 namespace ui {

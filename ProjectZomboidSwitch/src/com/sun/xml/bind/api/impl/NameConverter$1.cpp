@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\api\impl/NameConverter$1.h"
+#include "com/sun/xml/bind/api/impl/NameConverter$1.h"
 
 namespace com {
 namespace sun {

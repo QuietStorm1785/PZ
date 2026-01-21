@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\iso\objects/IsoGenerator.h"
+#include "zombie/iso/objects/IsoGenerator.h"
 
 namespace zombie {
 namespace iso {

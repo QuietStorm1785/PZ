@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/FixedLiteralLengthHuffman.h"
+#include "com/neovisionaries/ws/client/FixedLiteralLengthHuffman.h"
 
 namespace com {
 namespace neovisionaries {

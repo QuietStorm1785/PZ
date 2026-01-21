@@ -1,4 +1,4 @@
-#include "zombie\network/FakeClientManager$ZombieSimulator.h"
+#include "zombie/network/FakeClientManager$ZombieSimulator.h"
 
 namespace zombie {
 namespace network {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\input/Mouse.h"
+#include "zombie/input/Mouse.h"
 
 namespace zombie {
 namespace input {

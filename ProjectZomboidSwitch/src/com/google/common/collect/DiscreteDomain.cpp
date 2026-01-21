@@ -1,4 +1,4 @@
-#include "com\google\common\collect/DiscreteDomain.h"
+#include "com/google/common/collect/DiscreteDomain.h"
 
 namespace com {
 namespace google {

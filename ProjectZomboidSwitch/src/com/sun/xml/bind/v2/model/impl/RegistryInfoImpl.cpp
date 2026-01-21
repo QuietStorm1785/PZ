@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\impl/RegistryInfoImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/RegistryInfoImpl.h"
 
 namespace com {
 namespace sun {

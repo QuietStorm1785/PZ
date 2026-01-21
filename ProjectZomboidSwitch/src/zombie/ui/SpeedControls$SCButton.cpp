@@ -1,4 +1,4 @@
-#include "zombie\ui/SpeedControls$SCButton.h"
+#include "zombie/ui/SpeedControls$SCButton.h"
 
 namespace zombie {
 namespace ui {

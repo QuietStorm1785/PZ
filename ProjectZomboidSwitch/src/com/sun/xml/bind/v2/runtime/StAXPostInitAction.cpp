@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime/StAXPostInitAction.h"
+#include "com/sun/xml/bind/v2/runtime/StAXPostInitAction.h"
 
 namespace com {
 namespace sun {

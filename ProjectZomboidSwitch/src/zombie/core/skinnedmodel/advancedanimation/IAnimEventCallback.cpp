@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/IAnimEventCallback.h"
+#include "zombie/core/skinnedmodel/advancedanimation/IAnimEventCallback.h"
 
 namespace zombie {
 namespace core {

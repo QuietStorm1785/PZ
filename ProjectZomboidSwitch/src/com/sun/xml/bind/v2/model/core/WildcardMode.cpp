@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\core/WildcardMode.h"
+#include "com/sun/xml/bind/v2/model/core/WildcardMode.h"
 
 namespace com {
 namespace sun {

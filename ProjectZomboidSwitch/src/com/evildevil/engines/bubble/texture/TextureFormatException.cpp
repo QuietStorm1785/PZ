@@ -1,5 +1,5 @@
 #include <string>
-#include "com\evildevil\engines\bubble\texture/TextureFormatException.h"
+#include "com/evildevil/engines/bubble/texture/TextureFormatException.h"
 
 namespace com {
 namespace evildevil {

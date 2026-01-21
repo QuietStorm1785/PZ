@@ -1,4 +1,4 @@
-#include "de\jarnbjo\ogg/PhysicalOggStream.h"
+#include "de/jarnbjo/ogg/PhysicalOggStream.h"
 
 namespace de {
 namespace jarnbjo {

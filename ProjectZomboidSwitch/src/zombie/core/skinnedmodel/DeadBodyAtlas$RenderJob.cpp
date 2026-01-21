@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/DeadBodyAtlas$RenderJob.h"
+#include "zombie/core/skinnedmodel/DeadBodyAtlas$RenderJob.h"
 
 namespace zombie {
 namespace core {

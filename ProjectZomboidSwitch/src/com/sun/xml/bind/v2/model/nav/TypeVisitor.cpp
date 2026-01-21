@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\nav/TypeVisitor.h"
+#include "com/sun/xml/bind/v2/model/nav/TypeVisitor.h"
 
 namespace com {
 namespace sun {

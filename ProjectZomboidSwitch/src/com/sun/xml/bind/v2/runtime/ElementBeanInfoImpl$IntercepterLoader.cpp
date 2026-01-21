@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime/ElementBeanInfoImpl$IntercepterLoader.h"
+#include "com/sun/xml/bind/v2/runtime/ElementBeanInfoImpl$IntercepterLoader.h"
 
 namespace com {
 namespace sun {

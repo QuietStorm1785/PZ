@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/ReadingThread$1.h"
+#include "com/neovisionaries/ws/client/ReadingThread$1.h"
 
 namespace com {
 namespace neovisionaries {

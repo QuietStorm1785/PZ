@@ -1,4 +1,4 @@
-#include "zombie\debug/DebugOptionsXml$OptionNode.h"
+#include "zombie/debug/DebugOptionsXml$OptionNode.h"
 
 namespace zombie {
 namespace debug {

@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/VorbisStream.h"
+#include "de/jarnbjo/vorbis/VorbisStream.h"
 
 namespace de {
 namespace jarnbjo {

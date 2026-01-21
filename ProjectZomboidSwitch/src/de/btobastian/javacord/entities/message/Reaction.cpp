@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\message/Reaction.h"
+#include "de/btobastian/javacord/entities/message/Reaction.h"
 
 namespace de {
 namespace btobastian {

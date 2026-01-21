@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\primitives/SignedBytes$LexicographicalComparator.h"
+#include "com/google/common/primitives/SignedBytes$LexicographicalComparator.h"
 
 namespace com {
 namespace google {

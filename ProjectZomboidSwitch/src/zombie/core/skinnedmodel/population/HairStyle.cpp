@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\population/HairStyle.h"
+#include "zombie/core/skinnedmodel/population/HairStyle.h"
 
 namespace zombie {
 namespace core {

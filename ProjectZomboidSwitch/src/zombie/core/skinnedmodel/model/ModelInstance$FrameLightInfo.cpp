@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/ModelInstance$FrameLightInfo.h"
+#include "zombie/core/skinnedmodel/model/ModelInstance$FrameLightInfo.h"
 
 namespace zombie {
 namespace core {

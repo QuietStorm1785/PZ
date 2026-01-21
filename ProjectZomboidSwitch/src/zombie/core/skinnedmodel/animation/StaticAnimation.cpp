@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\animation/StaticAnimation.h"
+#include "zombie/core/skinnedmodel/animation/StaticAnimation.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "com\google\common\io/MultiInputStream.h"
+#include "com/google/common/io/MultiInputStream.h"
 
 namespace com {
 namespace google {

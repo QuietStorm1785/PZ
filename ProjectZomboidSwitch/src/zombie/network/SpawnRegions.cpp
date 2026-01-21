@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\network/SpawnRegions.h"
+#include "zombie/network/SpawnRegions.h"
 
 namespace zombie {
 namespace network {

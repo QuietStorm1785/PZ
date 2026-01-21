@@ -1,6 +1,6 @@
 #include <string>
 #include <unordered_map>
-#include "zombie\gameStates/ChooseGameInfo.h"
+#include "zombie/gameStates/ChooseGameInfo.h"
 
 namespace zombie {
 namespace gameStates {

@@ -1,4 +1,4 @@
-#include "zombie\core\bucket/BucketManager.h"
+#include "zombie/core/bucket/BucketManager.h"
 
 namespace zombie {
 namespace core {

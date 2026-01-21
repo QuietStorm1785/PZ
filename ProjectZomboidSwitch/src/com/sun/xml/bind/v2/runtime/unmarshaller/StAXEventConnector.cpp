@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\unmarshaller/StAXEventConnector.h"
+#include "com/sun/xml/bind/v2/runtime/unmarshaller/StAXEventConnector.h"
 
 namespace com {
 namespace sun {

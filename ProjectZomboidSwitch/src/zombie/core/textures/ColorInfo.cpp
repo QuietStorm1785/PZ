@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\textures/ColorInfo.h"
+#include "zombie/core/textures/ColorInfo.h"
 
 namespace zombie {
 namespace core {

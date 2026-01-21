@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/Anim2DBlendPicker.h"
+#include "zombie/core/skinnedmodel/advancedanimation/Anim2DBlendPicker.h"
 
 namespace zombie {
 namespace core {

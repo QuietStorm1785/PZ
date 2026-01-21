@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\property/ArrayProperty.h"
+#include "com/sun/xml/bind/v2/runtime/property/ArrayProperty.h"
 
 namespace com {
 namespace sun {

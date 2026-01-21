@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\message\embed\impl/ImplEmbedThumbnail.h"
+#include "de/btobastian/javacord/entities/message/embed/impl/ImplEmbedThumbnail.h"
 
 namespace de {
 namespace btobastian {

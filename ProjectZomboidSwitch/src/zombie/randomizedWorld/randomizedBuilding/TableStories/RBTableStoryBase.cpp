@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\randomizedWorld\randomizedBuilding\TableStories/RBTableStoryBase.h"
+#include "zombie/randomizedWorld/randomizedBuilding/TableStories/RBTableStoryBase.h"
 
 namespace zombie {
 namespace randomizedWorld {

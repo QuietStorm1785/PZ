@@ -1,4 +1,4 @@
-#include "com\google\common\reflect/TypeResolver$TypeMappingIntrospector.h"
+#include "com/google/common/reflect/TypeResolver$TypeMappingIntrospector.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters/ZombiesZoneDefinition$StringChance.h"
+#include "zombie/characters/ZombiesZoneDefinition$StringChance.h"
 
 namespace zombie {
 namespace characters {

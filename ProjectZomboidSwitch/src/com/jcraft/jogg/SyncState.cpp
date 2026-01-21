@@ -1,4 +1,4 @@
-#include "com\jcraft\jogg/SyncState.h"
+#include "com/jcraft/jogg/SyncState.h"
 
 namespace com {
 namespace jcraft {

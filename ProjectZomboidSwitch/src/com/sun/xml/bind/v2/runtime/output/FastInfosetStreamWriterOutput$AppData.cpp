@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\output/FastInfosetStreamWriterOutput$AppData.h"
+#include "com/sun/xml/bind/v2/runtime/output/FastInfosetStreamWriterOutput$AppData.h"
 
 namespace com {
 namespace sun {

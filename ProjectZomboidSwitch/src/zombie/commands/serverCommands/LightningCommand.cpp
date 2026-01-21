@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/LightningCommand.h"
+#include "zombie/commands/serverCommands/LightningCommand.h"
 
 namespace zombie {
 namespace commands {

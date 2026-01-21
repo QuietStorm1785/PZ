@@ -1,4 +1,4 @@
-#include "com\google\common\collect/SingletonImmutableBiMap.h"
+#include "com/google/common/collect/SingletonImmutableBiMap.h"
 
 namespace com {
 namespace google {

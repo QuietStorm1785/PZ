@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters/ILuaVariableSource.h"
+#include "zombie/characters/ILuaVariableSource.h"
 
 namespace zombie {
 namespace characters {

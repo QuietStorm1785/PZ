@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\marshaller/DataWriter.h"
+#include "com/sun/xml/bind/marshaller/DataWriter.h"
 
 namespace com {
 namespace sun {

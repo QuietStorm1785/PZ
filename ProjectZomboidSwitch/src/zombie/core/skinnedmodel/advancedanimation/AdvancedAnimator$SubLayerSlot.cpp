@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/AdvancedAnimator$SubLayerSlot.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AdvancedAnimator$SubLayerSlot.h"
 
 namespace zombie {
 namespace core {

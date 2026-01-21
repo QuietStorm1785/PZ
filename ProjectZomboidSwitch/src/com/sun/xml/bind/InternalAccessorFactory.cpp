@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind/InternalAccessorFactory.h"
+#include "com/sun/xml/bind/InternalAccessorFactory.h"
 
 namespace com {
 namespace sun {

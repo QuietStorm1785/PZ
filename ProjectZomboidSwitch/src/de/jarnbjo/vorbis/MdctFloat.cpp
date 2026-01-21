@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/MdctFloat.h"
+#include "de/jarnbjo/vorbis/MdctFloat.h"
 
 namespace de {
 namespace jarnbjo {

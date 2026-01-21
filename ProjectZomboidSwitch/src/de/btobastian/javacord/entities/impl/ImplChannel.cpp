@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\impl/ImplChannel.h"
+#include "de/btobastian/javacord/entities/impl/ImplChannel.h"
 
 namespace de {
 namespace btobastian {

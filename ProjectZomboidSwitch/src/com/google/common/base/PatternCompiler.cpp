@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/PatternCompiler.h"
+#include "com/google/common/base/PatternCompiler.h"
 
 namespace com {
 namespace google {

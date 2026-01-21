@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\spnetwork/SinglePlayerClient.h"
+#include "zombie/spnetwork/SinglePlayerClient.h"
 
 namespace zombie {
 namespace spnetwork {

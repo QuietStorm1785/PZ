@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\world/WorldDictionaryException.h"
+#include "zombie/world/WorldDictionaryException.h"
 
 namespace zombie {
 namespace world {

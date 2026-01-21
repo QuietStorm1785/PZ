@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/StaticCodeBook.h"
+#include "com/jcraft/jorbis/StaticCodeBook.h"
 
 namespace com {
 namespace jcraft {

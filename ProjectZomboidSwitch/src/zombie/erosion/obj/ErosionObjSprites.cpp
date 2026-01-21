@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\erosion\obj/ErosionObjSprites.h"
+#include "zombie/erosion/obj/ErosionObjSprites.h"
 
 namespace zombie {
 namespace erosion {

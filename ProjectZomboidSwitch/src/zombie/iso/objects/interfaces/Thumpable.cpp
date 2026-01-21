@@ -1,4 +1,4 @@
-#include "zombie\iso\objects\interfaces/Thumpable.h"
+#include "zombie/iso/objects/interfaces/Thumpable.h"
 
 namespace zombie {
 namespace iso {

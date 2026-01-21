@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/FixedDistanceHuffman.h"
+#include "com/neovisionaries/ws/client/FixedDistanceHuffman.h"
 
 namespace com {
 namespace neovisionaries {

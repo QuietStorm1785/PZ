@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\util/EditDistance.h"
+#include "com/sun/xml/bind/v2/util/EditDistance.h"
 
 namespace com {
 namespace sun {

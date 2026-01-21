@@ -1,4 +1,4 @@
-#include "zombie\iso/SpawnPoints.h"
+#include "zombie/iso/SpawnPoints.h"
 
 namespace zombie {
 namespace iso {

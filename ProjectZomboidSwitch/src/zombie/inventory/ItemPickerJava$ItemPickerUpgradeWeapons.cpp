@@ -1,4 +1,4 @@
-#include "zombie\inventory/ItemPickerJava$ItemPickerUpgradeWeapons.h"
+#include "zombie/inventory/ItemPickerJava$ItemPickerUpgradeWeapons.h"
 
 namespace zombie {
 namespace inventory {

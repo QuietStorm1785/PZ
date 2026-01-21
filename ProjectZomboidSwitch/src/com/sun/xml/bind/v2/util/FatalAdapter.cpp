@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\util/FatalAdapter.h"
+#include "com/sun/xml/bind/v2/util/FatalAdapter.h"
 
 namespace com {
 namespace sun {

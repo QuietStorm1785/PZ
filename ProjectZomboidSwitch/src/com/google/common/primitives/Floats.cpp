@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\primitives/Floats.h"
+#include "com/google/common/primitives/Floats.h"
 
 namespace com {
 namespace google {

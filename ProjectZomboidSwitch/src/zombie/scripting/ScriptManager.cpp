@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\scripting/ScriptManager.h"
+#include "zombie/scripting/ScriptManager.h"
 
 namespace zombie {
 namespace scripting {

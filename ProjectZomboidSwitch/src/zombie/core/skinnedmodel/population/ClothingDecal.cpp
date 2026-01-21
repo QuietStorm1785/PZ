@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\population/ClothingDecal.h"
+#include "zombie/core/skinnedmodel/population/ClothingDecal.h"
 
 namespace zombie {
 namespace core {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\schemagen\episode/Bindings.h"
+#include "com/sun/xml/bind/v2/schemagen/episode/Bindings.h"
 
 namespace com {
 namespace sun {

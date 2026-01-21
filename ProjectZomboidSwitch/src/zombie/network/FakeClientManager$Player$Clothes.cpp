@@ -1,4 +1,4 @@
-#include "zombie\network/FakeClientManager$Player$Clothes.h"
+#include "zombie/network/FakeClientManager$Player$Clothes.h"
 
 namespace zombie {
 namespace network {

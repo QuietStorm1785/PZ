@@ -1,4 +1,4 @@
-#include "com\google\common\collect/Lists$CharSequenceAsList.h"
+#include "com/google/common/collect/Lists$CharSequenceAsList.h"
 
 namespace com {
 namespace google {

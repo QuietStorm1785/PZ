@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\world\logger/WorldDictionaryLogger.h"
+#include "zombie/world/logger/WorldDictionaryLogger.h"
 
 namespace zombie {
 namespace world {

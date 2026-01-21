@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso\weather/ClimateForecaster$DayForecast.h"
+#include "zombie/iso/weather/ClimateForecaster$DayForecast.h"
 
 namespace zombie {
 namespace iso {

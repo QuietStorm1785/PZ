@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "zombie\core\skinnedmodel\animation\debug/AnimationNodeRecordingFrame.h"
+#include "zombie/core/skinnedmodel/animation/debug/AnimationNodeRecordingFrame.h"
 
 namespace zombie {
 namespace core {

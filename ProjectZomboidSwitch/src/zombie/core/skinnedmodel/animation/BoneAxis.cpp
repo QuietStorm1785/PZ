@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\animation/BoneAxis.h"
+#include "zombie/core/skinnedmodel/animation/BoneAxis.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "zombie\worldMap\symbols/WorldMapSymbols$WorldMapSymbolType.h"
+#include "zombie/worldMap/symbols/WorldMapSymbols$WorldMapSymbolType.h"
 
 namespace zombie {
 namespace worldMap {

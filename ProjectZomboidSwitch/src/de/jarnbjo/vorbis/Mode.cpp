@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/Mode.h"
+#include "de/jarnbjo/vorbis/Mode.h"
 
 namespace de {
 namespace jarnbjo {

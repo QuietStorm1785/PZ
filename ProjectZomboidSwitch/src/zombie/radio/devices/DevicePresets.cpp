@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\radio\devices/DevicePresets.h"
+#include "zombie/radio/devices/DevicePresets.h"
 
 namespace zombie {
 namespace radio {

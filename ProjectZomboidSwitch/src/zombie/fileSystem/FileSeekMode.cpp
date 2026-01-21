@@ -1,4 +1,4 @@
-#include "zombie\fileSystem/FileSeekMode.h"
+#include "zombie/fileSystem/FileSeekMode.h"
 
 namespace zombie {
 namespace fileSystem {

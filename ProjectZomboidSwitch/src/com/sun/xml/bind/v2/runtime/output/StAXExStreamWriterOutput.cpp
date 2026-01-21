@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\output/StAXExStreamWriterOutput.h"
+#include "com/sun/xml/bind/v2/runtime/output/StAXExStreamWriterOutput.h"
 
 namespace com {
 namespace sun {

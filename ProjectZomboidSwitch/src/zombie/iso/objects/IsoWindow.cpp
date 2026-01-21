@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\iso\objects/IsoWindow.h"
+#include "zombie/iso/objects/IsoWindow.h"
 
 namespace zombie {
 namespace iso {

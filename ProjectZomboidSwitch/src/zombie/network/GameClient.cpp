@@ -2,7 +2,7 @@
 #include <queue>
 #include <string>
 #include <vector>
-#include "zombie\network/GameClient.h"
+#include "zombie/network/GameClient.h"
 
 namespace zombie {
 namespace network {

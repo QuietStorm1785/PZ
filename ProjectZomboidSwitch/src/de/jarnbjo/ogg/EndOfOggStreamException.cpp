@@ -1,4 +1,4 @@
-#include "de\jarnbjo\ogg/EndOfOggStreamException.h"
+#include "de/jarnbjo/ogg/EndOfOggStreamException.h"
 
 namespace de {
 namespace jarnbjo {

@@ -1,4 +1,4 @@
-#include "zombie\characters\traits/TraitFactory$1.h"
+#include "zombie/characters/traits/TraitFactory$1.h"
 
 namespace zombie {
 namespace characters {

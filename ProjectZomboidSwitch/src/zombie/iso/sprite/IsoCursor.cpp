@@ -1,4 +1,4 @@
-#include "zombie\iso\sprite/IsoCursor.h"
+#include "zombie/iso/sprite/IsoCursor.h"
 
 namespace zombie {
 namespace iso {

@@ -1,4 +1,4 @@
-#include "zombie\debug\options/IsoSprite.h"
+#include "zombie/debug/options/IsoSprite.h"
 
 namespace zombie {
 namespace debug {

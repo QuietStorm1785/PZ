@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\scripting\objects/ModelAttachment.h"
+#include "zombie/scripting/objects/ModelAttachment.h"
 
 namespace zombie {
 namespace scripting {

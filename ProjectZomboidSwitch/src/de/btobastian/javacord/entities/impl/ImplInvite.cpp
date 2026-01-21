@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\impl/ImplInvite.h"
+#include "de/btobastian/javacord/entities/impl/ImplInvite.h"
 
 namespace de {
 namespace btobastian {

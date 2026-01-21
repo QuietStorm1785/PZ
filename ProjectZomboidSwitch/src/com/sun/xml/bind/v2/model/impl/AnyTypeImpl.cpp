@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/AnyTypeImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/AnyTypeImpl.h"
 
 namespace com {
 namespace sun {

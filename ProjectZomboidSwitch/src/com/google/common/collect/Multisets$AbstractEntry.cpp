@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/Multisets$AbstractEntry.h"
+#include "com/google/common/collect/Multisets$AbstractEntry.h"
 
 namespace com {
 namespace google {

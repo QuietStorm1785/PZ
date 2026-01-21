@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Predicates$CompositionPredicate.h"
+#include "com/google/common/base/Predicates$CompositionPredicate.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\eventbus/EventBus.h"
+#include "com/google/common/eventbus/EventBus.h"
 
 namespace com {
 namespace google {

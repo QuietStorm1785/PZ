@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "zombie\profanity/ProfanityTest.h"
+#include "zombie/profanity/ProfanityTest.h"
 
 namespace zombie {
 namespace profanity {

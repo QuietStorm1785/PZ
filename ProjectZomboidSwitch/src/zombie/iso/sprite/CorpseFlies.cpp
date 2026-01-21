@@ -1,4 +1,4 @@
-#include "zombie\iso\sprite/CorpseFlies.h"
+#include "zombie/iso/sprite/CorpseFlies.h"
 
 namespace zombie {
 namespace iso {

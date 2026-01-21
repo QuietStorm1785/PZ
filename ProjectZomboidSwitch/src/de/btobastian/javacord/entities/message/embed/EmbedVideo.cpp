@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\entities\message\embed/EmbedVideo.h"
+#include "de/btobastian/javacord/entities/message/embed/EmbedVideo.h"
 
 namespace de {
 namespace btobastian {

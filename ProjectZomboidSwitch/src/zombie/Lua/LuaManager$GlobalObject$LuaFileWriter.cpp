@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\Lua/LuaManager$GlobalObject$LuaFileWriter.h"
+#include "zombie/Lua/LuaManager$GlobalObject$LuaFileWriter.h"
 
 namespace zombie {
 namespace Lua {

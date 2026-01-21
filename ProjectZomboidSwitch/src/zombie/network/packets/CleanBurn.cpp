@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network\packets/CleanBurn.h"
+#include "zombie/network/packets/CleanBurn.h"
 
 namespace zombie {
 namespace network {

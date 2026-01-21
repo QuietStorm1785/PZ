@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\voice/UserLeaveVoiceChannelListener.h"
+#include "de/btobastian/javacord/listener/voice/UserLeaveVoiceChannelListener.h"
 
 namespace de {
 namespace btobastian {

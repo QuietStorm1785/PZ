@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/AnimatedModel$WorldModelCamera.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AnimatedModel$WorldModelCamera.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "zombie\gameStates/DebugChunkState$BooleanDebugOption.h"
+#include "zombie/gameStates/DebugChunkState$BooleanDebugOption.h"
 
 namespace zombie {
 namespace gameStates {

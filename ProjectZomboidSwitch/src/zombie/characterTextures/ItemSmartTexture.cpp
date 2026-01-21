@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characterTextures/ItemSmartTexture.h"
+#include "zombie/characterTextures/ItemSmartTexture.h"
 
 namespace zombie {
 namespace characterTextures {

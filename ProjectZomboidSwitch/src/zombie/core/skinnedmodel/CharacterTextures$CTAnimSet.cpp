@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel/CharacterTextures$CTAnimSet.h"
+#include "zombie/core/skinnedmodel/CharacterTextures$CTAnimSet.h"
 
 namespace zombie {
 namespace core {

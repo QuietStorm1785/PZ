@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\annotation/RuntimeInlineAnnotationReader.h"
+#include "com/sun/xml/bind/v2/model/annotation/RuntimeInlineAnnotationReader.h"
 
 namespace com {
 namespace sun {

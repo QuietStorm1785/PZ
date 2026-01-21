@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/CreateHordeCommand.h"
+#include "zombie/commands/serverCommands/CreateHordeCommand.h"
 
 namespace zombie {
 namespace commands {

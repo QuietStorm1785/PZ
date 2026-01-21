@@ -1,7 +1,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include "zombie\iso/IsoCell.h"
+#include "zombie/iso/IsoCell.h"
 
 namespace zombie {
 namespace iso {

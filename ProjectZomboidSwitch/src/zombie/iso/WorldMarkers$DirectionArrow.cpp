@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso/WorldMarkers$DirectionArrow.h"
+#include "zombie/iso/WorldMarkers$DirectionArrow.h"
 
 namespace zombie {
 namespace iso {

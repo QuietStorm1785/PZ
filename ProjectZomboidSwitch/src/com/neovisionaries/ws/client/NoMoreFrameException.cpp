@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/NoMoreFrameException.h"
+#include "com/neovisionaries/ws/client/NoMoreFrameException.h"
 
 namespace com {
 namespace neovisionaries {

@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/Lsp.h"
+#include "com/jcraft/jorbis/Lsp.h"
 
 namespace com {
 namespace jcraft {

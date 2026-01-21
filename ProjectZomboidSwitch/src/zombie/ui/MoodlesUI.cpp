@@ -1,4 +1,4 @@
-#include "zombie\ui/MoodlesUI.h"
+#include "zombie/ui/MoodlesUI.h"
 
 namespace zombie {
 namespace ui {

@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\iso\objects/IsoThumpable.h"
+#include "zombie/iso/objects/IsoThumpable.h"
 
 namespace zombie {
 namespace iso {

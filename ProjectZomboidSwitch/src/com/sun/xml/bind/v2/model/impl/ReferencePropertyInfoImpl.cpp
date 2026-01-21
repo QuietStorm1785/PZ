@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\model\impl/ReferencePropertyInfoImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/ReferencePropertyInfoImpl.h"
 
 namespace com {
 namespace sun {

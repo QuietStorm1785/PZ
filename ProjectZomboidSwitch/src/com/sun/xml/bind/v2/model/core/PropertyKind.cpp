@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\core/PropertyKind.h"
+#include "com/sun/xml/bind/v2/model/core/PropertyKind.h"
 
 namespace com {
 namespace sun {

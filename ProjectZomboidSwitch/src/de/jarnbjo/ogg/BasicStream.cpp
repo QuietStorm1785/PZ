@@ -1,4 +1,4 @@
-#include "de\jarnbjo\ogg/BasicStream.h"
+#include "de/jarnbjo/ogg/BasicStream.h"
 
 namespace de {
 namespace jarnbjo {

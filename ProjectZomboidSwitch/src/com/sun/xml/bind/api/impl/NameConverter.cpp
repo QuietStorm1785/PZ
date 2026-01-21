@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\api\impl/NameConverter.h"
+#include "com/sun/xml/bind/api/impl/NameConverter.h"
 
 namespace com {
 namespace sun {

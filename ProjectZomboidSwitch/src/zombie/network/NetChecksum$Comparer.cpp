@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\network/NetChecksum$Comparer.h"
+#include "zombie/network/NetChecksum$Comparer.h"
 
 namespace zombie {
 namespace network {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\reflect/TransducedAccessor$IDREFTransducedAccessorImpl.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/TransducedAccessor$IDREFTransducedAccessorImpl.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\eventbus/Dispatcher.h"
+#include "com/google/common/eventbus/Dispatcher.h"
 
 namespace com {
 namespace google {

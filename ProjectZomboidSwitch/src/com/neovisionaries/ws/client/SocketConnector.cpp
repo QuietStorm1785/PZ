@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/SocketConnector.h"
+#include "com/neovisionaries/ws/client/SocketConnector.h"
 
 namespace com {
 namespace neovisionaries {

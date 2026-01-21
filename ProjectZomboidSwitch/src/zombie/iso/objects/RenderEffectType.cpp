@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/RenderEffectType.h"
+#include "zombie/iso/objects/RenderEffectType.h"
 
 namespace zombie {
 namespace iso {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/ComplexExtension.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/ComplexExtension.h"
 
 namespace com {
 namespace sun {

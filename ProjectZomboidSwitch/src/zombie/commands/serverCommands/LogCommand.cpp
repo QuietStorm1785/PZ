@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/LogCommand.h"
+#include "zombie/commands/serverCommands/LogCommand.h"
 
 namespace zombie {
 namespace commands {

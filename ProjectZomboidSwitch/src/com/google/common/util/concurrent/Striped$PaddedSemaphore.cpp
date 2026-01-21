@@ -1,4 +1,4 @@
-#include "com\google\common\util\concurrent/Striped$PaddedSemaphore.h"
+#include "com/google/common/util/concurrent/Striped$PaddedSemaphore.h"
 
 namespace com {
 namespace google {

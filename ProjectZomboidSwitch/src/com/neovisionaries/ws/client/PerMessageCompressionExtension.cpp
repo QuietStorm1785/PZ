@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/PerMessageCompressionExtension.h"
+#include "com/neovisionaries/ws/client/PerMessageCompressionExtension.h"
 
 namespace com {
 namespace neovisionaries {

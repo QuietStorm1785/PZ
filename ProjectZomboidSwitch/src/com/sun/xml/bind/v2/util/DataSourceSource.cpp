@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\util/DataSourceSource.h"
+#include "com/sun/xml/bind/v2/util/DataSourceSource.h"
 
 namespace com {
 namespace sun {

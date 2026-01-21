@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Predicates$ContainsPatternPredicate.h"
+#include "com/google/common/base/Predicates$ContainsPatternPredicate.h"
 
 namespace com {
 namespace google {

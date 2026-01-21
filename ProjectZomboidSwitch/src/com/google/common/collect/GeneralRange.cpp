@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/GeneralRange.h"
+#include "com/google/common/collect/GeneralRange.h"
 
 namespace com {
 namespace google {

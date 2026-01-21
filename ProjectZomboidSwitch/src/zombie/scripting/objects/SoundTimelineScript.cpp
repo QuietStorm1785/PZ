@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\scripting\objects/SoundTimelineScript.h"
+#include "zombie/scripting/objects/SoundTimelineScript.h"
 
 namespace zombie {
 namespace scripting {

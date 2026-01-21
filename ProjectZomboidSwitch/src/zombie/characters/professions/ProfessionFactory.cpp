@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\professions/ProfessionFactory.h"
+#include "zombie/characters/professions/ProfessionFactory.h"
 
 namespace zombie {
 namespace characters {

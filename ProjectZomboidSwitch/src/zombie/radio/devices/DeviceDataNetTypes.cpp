@@ -1,4 +1,4 @@
-#include "zombie\radio\devices/DeviceDataNetTypes.h"
+#include "zombie/radio/devices/DeviceDataNetTypes.h"
 
 namespace zombie {
 namespace radio {

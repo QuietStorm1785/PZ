@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime/AnyTypeBeanInfo.h"
+#include "com/sun/xml/bind/v2/runtime/AnyTypeBeanInfo.h"
 
 namespace com {
 namespace sun {

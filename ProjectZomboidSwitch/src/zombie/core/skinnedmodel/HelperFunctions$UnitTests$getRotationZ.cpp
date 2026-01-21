@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/HelperFunctions$UnitTests$getRotationZ.h"
+#include "zombie/core/skinnedmodel/HelperFunctions$UnitTests$getRotationZ.h"
 
 namespace zombie {
 namespace core {

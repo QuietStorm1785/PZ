@@ -1,4 +1,4 @@
-#include "zombie\audio\parameters/ParameterPlayerDistance.h"
+#include "zombie/audio/parameters/ParameterPlayerDistance.h"
 
 namespace zombie {
 namespace audio {

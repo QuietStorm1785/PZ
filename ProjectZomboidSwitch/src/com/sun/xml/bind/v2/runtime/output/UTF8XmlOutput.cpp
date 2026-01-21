@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/UTF8XmlOutput.h"
+#include "com/sun/xml/bind/v2/runtime/output/UTF8XmlOutput.h"
 
 namespace com {
 namespace sun {

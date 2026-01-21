@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\cache/CacheBuilderSpec$DurationParser.h"
+#include "com/google/common/cache/CacheBuilderSpec$DurationParser.h"
 
 namespace com {
 namespace google {

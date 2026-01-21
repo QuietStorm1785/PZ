@@ -1,4 +1,4 @@
-#include "zombie\characters/ZombiesZoneDefinition$PickDefinition.h"
+#include "zombie/characters/ZombiesZoneDefinition$PickDefinition.h"
 
 namespace zombie {
 namespace characters {

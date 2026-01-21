@@ -1,4 +1,4 @@
-#include "com\sun\istack/Builder.h"
+#include "com/sun/istack/Builder.h"
 
 namespace com {
 namespace sun {

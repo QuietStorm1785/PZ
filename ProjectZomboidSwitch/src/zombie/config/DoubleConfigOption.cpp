@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\config/DoubleConfigOption.h"
+#include "zombie/config/DoubleConfigOption.h"
 
 namespace zombie {
 namespace config {

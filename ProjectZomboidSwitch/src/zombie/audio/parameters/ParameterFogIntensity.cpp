@@ -1,4 +1,4 @@
-#include "zombie\audio\parameters/ParameterFogIntensity.h"
+#include "zombie/audio/parameters/ParameterFogIntensity.h"
 
 namespace zombie {
 namespace audio {

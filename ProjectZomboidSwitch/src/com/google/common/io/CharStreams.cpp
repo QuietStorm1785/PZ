@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\google\common\io/CharStreams.h"
+#include "com/google/common/io/CharStreams.h"
 
 namespace com {
 namespace google {

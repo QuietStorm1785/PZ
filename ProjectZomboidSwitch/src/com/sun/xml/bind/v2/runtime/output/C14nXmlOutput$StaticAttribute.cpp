@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\output/C14nXmlOutput$StaticAttribute.h"
+#include "com/sun/xml/bind/v2/runtime/output/C14nXmlOutput$StaticAttribute.h"
 
 namespace com {
 namespace sun {

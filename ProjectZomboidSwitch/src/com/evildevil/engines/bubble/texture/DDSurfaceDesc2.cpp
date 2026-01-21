@@ -1,5 +1,5 @@
 #include <string>
-#include "com\evildevil\engines\bubble\texture/DDSurfaceDesc2.h"
+#include "com/evildevil/engines/bubble/texture/DDSurfaceDesc2.h"
 
 namespace com {
 namespace evildevil {

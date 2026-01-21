@@ -1,4 +1,4 @@
-#include "com\google\thirdparty\publicsuffix/TrieParser.h"
+#include "com/google/thirdparty/publicsuffix/TrieParser.h"
 
 namespace com {
 namespace google {

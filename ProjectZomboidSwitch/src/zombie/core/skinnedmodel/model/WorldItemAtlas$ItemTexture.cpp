@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/WorldItemAtlas$ItemTexture.h"
+#include "zombie/core/skinnedmodel/model/WorldItemAtlas$ItemTexture.h"
 
 namespace zombie {
 namespace core {

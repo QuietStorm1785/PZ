@@ -1,4 +1,4 @@
-#include "com\google\common\eventbus/SubscriberRegistry$1.h"
+#include "com/google/common/eventbus/SubscriberRegistry$1.h"
 
 namespace com {
 namespace google {

@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\google\common\net/InetAddresses.h"
+#include "com/google/common/net/InetAddresses.h"
 
 namespace com {
 namespace google {

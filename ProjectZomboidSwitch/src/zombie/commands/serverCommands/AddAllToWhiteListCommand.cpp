@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/AddAllToWhiteListCommand.h"
+#include "zombie/commands/serverCommands/AddAllToWhiteListCommand.h"
 
 namespace zombie {
 namespace commands {

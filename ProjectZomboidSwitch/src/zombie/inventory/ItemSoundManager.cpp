@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\inventory/ItemSoundManager.h"
+#include "zombie/inventory/ItemSoundManager.h"
 
 namespace zombie {
 namespace inventory {

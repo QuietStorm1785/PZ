@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\unmarshaller/DOMScanner.h"
+#include "com/sun/xml/bind/unmarshaller/DOMScanner.h"
 
 namespace com {
 namespace sun {

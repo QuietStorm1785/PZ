@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime/IllegalAnnotationsException$Builder.h"
+#include "com/sun/xml/bind/v2/runtime/IllegalAnnotationsException$Builder.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/SimpleType.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/SimpleType.h"
 
 namespace com {
 namespace sun {

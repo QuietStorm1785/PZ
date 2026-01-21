@@ -1,4 +1,4 @@
-#include "zombie\worldMap/WorldMapGeometry$TrianglesPerZoom.h"
+#include "zombie/worldMap/WorldMapGeometry$TrianglesPerZoom.h"
 
 namespace zombie {
 namespace worldMap {

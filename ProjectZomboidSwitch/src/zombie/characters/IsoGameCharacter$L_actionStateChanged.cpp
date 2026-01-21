@@ -1,4 +1,4 @@
-#include "zombie\characters/IsoGameCharacter$L_actionStateChanged.h"
+#include "zombie/characters/IsoGameCharacter$L_actionStateChanged.h"
 
 namespace zombie {
 namespace characters {

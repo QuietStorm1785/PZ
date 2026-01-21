@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\utils/DiscordWebsocketAdapter.h"
+#include "de/btobastian/javacord/utils/DiscordWebsocketAdapter.h"
 
 namespace de {
 namespace btobastian {

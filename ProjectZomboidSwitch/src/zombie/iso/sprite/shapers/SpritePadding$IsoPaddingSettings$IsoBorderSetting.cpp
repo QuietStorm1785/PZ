@@ -1,4 +1,4 @@
-#include "zombie\iso\sprite\shapers/SpritePadding$IsoPaddingSettings$IsoBorderSetting.h"
+#include "zombie/iso/sprite/shapers/SpritePadding$IsoPaddingSettings$IsoBorderSetting.h"
 
 namespace zombie {
 namespace iso {

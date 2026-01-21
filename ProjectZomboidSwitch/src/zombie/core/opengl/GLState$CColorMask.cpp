@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/GLState$CColorMask.h"
+#include "zombie/core/opengl/GLState$CColorMask.h"
 
 namespace zombie {
 namespace core {

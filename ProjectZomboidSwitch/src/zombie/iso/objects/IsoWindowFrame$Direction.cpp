@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/IsoWindowFrame$Direction.h"
+#include "zombie/iso/objects/IsoWindowFrame$Direction.h"
 
 namespace zombie {
 namespace iso {

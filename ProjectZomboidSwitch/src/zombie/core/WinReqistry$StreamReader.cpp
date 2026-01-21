@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core/WinReqistry$StreamReader.h"
+#include "zombie/core/WinReqistry$StreamReader.h"
 
 namespace zombie {
 namespace core {

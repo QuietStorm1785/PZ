@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\channel/ChannelChangePositionListener.h"
+#include "de/btobastian/javacord/listener/channel/ChannelChangePositionListener.h"
 
 namespace de {
 namespace btobastian {

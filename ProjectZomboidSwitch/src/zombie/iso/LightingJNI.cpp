@@ -1,5 +1,5 @@
 #include <vector>
-#include "zombie\iso/LightingJNI.h"
+#include "zombie/iso/LightingJNI.h"
 
 namespace zombie {
 namespace iso {

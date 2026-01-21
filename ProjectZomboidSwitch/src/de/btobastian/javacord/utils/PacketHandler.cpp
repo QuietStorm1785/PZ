@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\utils/PacketHandler.h"
+#include "de/btobastian/javacord/utils/PacketHandler.h"
 
 namespace de {
 namespace btobastian {

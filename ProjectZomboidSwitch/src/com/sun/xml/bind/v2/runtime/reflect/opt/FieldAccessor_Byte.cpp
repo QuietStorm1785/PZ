@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/FieldAccessor_Byte.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/FieldAccessor_Byte.h"
 
 namespace com {
 namespace sun {

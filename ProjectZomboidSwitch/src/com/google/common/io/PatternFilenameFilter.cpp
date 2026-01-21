@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/PatternFilenameFilter.h"
+#include "com/google/common/io/PatternFilenameFilter.h"
 
 namespace com {
 namespace google {

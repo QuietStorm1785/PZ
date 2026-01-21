@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\textures/MultiTextureFBO2.h"
+#include "zombie/core/textures/MultiTextureFBO2.h"
 
 namespace zombie {
 namespace core {

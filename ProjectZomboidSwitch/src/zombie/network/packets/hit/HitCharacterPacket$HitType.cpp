@@ -1,4 +1,4 @@
-#include "zombie\network\packets\hit/HitCharacterPacket$HitType.h"
+#include "zombie/network/packets/hit/HitCharacterPacket$HitType.h"
 
 namespace zombie {
 namespace network {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/LineReader.h"
+#include "com/google/common/io/LineReader.h"
 
 namespace com {
 namespace google {

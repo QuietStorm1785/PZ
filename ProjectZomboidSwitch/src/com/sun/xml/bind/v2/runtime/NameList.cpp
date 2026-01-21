@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime/NameList.h"
+#include "com/sun/xml/bind/v2/runtime/NameList.h"
 
 namespace com {
 namespace sun {

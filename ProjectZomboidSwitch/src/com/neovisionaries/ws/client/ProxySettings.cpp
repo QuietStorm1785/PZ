@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/ProxySettings.h"
+#include "com/neovisionaries/ws/client/ProxySettings.h"
 
 namespace com {
 namespace neovisionaries {

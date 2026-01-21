@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\asset/FileTask_ParseXML.h"
+#include "zombie/asset/FileTask_ParseXML.h"
 
 namespace zombie {
 namespace asset {

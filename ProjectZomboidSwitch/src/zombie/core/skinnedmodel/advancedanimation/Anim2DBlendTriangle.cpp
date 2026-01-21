@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/Anim2DBlendTriangle.h"
+#include "zombie/core/skinnedmodel/advancedanimation/Anim2DBlendTriangle.h"
 
 namespace zombie {
 namespace core {

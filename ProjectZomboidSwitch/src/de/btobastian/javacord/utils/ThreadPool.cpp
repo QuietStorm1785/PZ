@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\utils/ThreadPool.h"
+#include "de/btobastian/javacord/utils/ThreadPool.h"
 
 namespace de {
 namespace btobastian {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen/XmlSchemaGenerator$Namespace$ElementDeclaration.h"
+#include "com/sun/xml/bind/v2/schemagen/XmlSchemaGenerator$Namespace$ElementDeclaration.h"
 
 namespace com {
 namespace sun {

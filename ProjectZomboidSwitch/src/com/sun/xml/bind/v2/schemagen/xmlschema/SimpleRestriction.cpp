@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/SimpleRestriction.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/SimpleRestriction.h"
 
 namespace com {
 namespace sun {

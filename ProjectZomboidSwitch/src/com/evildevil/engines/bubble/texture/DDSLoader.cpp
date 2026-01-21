@@ -1,5 +1,5 @@
 #include <string>
-#include "com\evildevil\engines\bubble\texture/DDSLoader.h"
+#include "com/evildevil/engines/bubble/texture/DDSLoader.h"
 
 namespace com {
 namespace evildevil {

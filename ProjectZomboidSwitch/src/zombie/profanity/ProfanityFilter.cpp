@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\profanity/ProfanityFilter.h"
+#include "zombie/profanity/ProfanityFilter.h"
 
 namespace zombie {
 namespace profanity {

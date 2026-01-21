@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\primitives/UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator.h"
+#include "com/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator.h"
 
 namespace com {
 namespace google {

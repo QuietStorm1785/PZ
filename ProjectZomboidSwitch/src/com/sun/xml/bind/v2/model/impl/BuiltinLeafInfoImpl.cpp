@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/BuiltinLeafInfoImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/BuiltinLeafInfoImpl.h"
 
 namespace com {
 namespace sun {

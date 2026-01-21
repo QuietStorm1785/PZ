@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\core/Translator.h"
+#include "zombie/core/Translator.h"
 
 namespace zombie {
 namespace core {

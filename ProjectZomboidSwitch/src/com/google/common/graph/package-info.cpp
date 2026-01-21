@@ -1,4 +1,4 @@
-#include "com\google\common\graph/package-info.h"
+#include "com/google/common/graph/package-info.h"
 
 namespace com {
 namespace google {

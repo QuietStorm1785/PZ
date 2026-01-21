@@ -1,5 +1,5 @@
 #include <string>
-#include "com\jcraft\jorbis/ChainingExample.h"
+#include "com/jcraft/jorbis/ChainingExample.h"
 
 namespace com {
 namespace jcraft {

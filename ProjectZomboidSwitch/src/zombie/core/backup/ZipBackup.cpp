@@ -3,7 +3,7 @@
 #include <boost/iostreams/filter/gzip.hpp>
 #include <boost/iostreams/filter/zlib.hpp>
 #include <boost/iostreams/copy.hpp>
-#include "zombie\core\backup/ZipBackup.h"
+#include "zombie/core/backup/ZipBackup.h"
 
 namespace zombie {
 namespace core {

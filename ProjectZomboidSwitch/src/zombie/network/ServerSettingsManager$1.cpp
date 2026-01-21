@@ -1,4 +1,4 @@
-#include "zombie\network/ServerSettingsManager$1.h"
+#include "zombie/network/ServerSettingsManager$1.h"
 
 namespace zombie {
 namespace network {

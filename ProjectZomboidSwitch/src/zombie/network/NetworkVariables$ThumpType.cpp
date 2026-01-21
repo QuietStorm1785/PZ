@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network/NetworkVariables$ThumpType.h"
+#include "zombie/network/NetworkVariables$ThumpType.h"
 
 namespace zombie {
 namespace network {

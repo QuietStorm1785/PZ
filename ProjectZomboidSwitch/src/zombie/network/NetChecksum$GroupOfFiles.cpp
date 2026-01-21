@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iomanip>
 #include <boost/algorithm/hex.hpp>
-#include "zombie\network/NetChecksum$GroupOfFiles.h"
+#include "zombie/network/NetChecksum$GroupOfFiles.h"
 
 namespace zombie {
 namespace network {

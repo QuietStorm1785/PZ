@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\util\concurrent/Striped$SmallLazyStriped.h"
+#include "com/google/common/util/concurrent/Striped$SmallLazyStriped.h"
 
 namespace com {
 namespace google {

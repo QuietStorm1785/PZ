@@ -1,5 +1,5 @@
 #include <vector>
-#include "com\sun\istack/FinalArrayList.h"
+#include "com/sun/istack/FinalArrayList.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\runtime/RuntimeEnumLeafInfo.h"
+#include "com/sun/xml/bind/v2/model/runtime/RuntimeEnumLeafInfo.h"
 
 namespace com {
 namespace sun {

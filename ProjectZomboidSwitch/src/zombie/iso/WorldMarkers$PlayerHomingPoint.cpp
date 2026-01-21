@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\iso/WorldMarkers$PlayerHomingPoint.h"
+#include "zombie/iso/WorldMarkers$PlayerHomingPoint.h"
 
 namespace zombie {
 namespace iso {

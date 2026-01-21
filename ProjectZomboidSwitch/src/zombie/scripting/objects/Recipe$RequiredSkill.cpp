@@ -1,4 +1,4 @@
-#include "zombie\scripting\objects/Recipe$RequiredSkill.h"
+#include "zombie/scripting/objects/Recipe$RequiredSkill.h"
 
 namespace zombie {
 namespace scripting {

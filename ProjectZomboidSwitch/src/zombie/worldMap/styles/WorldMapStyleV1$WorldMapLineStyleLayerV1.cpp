@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\worldMap\styles/WorldMapStyleV1$WorldMapLineStyleLayerV1.h"
+#include "zombie/worldMap/styles/WorldMapStyleV1$WorldMapLineStyleLayerV1.h"
 
 namespace zombie {
 namespace worldMap {

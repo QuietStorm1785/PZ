@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\unmarshaller/LocatorEx$Snapshot.h"
+#include "com/sun/xml/bind/v2/runtime/unmarshaller/LocatorEx$Snapshot.h"
 
 namespace com {
 namespace sun {

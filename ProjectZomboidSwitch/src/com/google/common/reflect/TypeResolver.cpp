@@ -1,4 +1,4 @@
-#include "com\google\common\reflect/TypeResolver.h"
+#include "com/google/common/reflect/TypeResolver.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "com\google\common\eventbus/Dispatcher$ImmediateDispatcher.h"
+#include "com/google/common/eventbus/Dispatcher$ImmediateDispatcher.h"
 
 namespace com {
 namespace google {

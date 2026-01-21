@@ -1,6 +1,6 @@
 #include <string>
 #include <unordered_map>
-#include "zombie\core\Collections/NonBlockingHashMap.h"
+#include "zombie/core/Collections/NonBlockingHashMap.h"
 
 namespace zombie {
 namespace core {

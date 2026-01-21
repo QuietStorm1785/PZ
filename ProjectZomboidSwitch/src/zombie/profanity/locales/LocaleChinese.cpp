@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\profanity\locales/LocaleChinese.h"
+#include "zombie/profanity/locales/LocaleChinese.h"
 
 namespace zombie {
 namespace profanity {

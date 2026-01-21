@@ -1,4 +1,4 @@
-#include "zombie\inventory/FixingManager.h"
+#include "zombie/inventory/FixingManager.h"
 
 namespace zombie {
 namespace inventory {

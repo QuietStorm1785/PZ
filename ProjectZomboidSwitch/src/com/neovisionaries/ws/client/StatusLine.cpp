@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/StatusLine.h"
+#include "com/neovisionaries/ws/client/StatusLine.h"
 
 namespace com {
 namespace neovisionaries {

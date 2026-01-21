@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\iso/IsoMetaGrid$Zone.h"
+#include "zombie/iso/IsoMetaGrid$Zone.h"
 
 namespace zombie {
 namespace iso {

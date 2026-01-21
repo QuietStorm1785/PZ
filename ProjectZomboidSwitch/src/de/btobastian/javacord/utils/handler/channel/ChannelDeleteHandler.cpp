@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\channel/ChannelDeleteHandler.h"
+#include "de/btobastian/javacord/utils/handler/channel/ChannelDeleteHandler.h"
 
 namespace de {
 namespace btobastian {

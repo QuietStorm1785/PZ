@@ -1,4 +1,4 @@
-#include "de\jarnbjo\vorbis/CodeBook.h"
+#include "de/jarnbjo/vorbis/CodeBook.h"
 
 namespace de {
 namespace jarnbjo {

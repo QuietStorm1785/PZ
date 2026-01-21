@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model\jassimp/ImportedSkeletonParams.h"
+#include "zombie/core/skinnedmodel/model/jassimp/ImportedSkeletonParams.h"
 
 namespace zombie {
 namespace core {

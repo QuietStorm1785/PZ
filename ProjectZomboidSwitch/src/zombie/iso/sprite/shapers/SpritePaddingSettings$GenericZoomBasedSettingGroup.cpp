@@ -1,4 +1,4 @@
-#include "zombie\iso\sprite\shapers/SpritePaddingSettings$GenericZoomBasedSettingGroup.h"
+#include "zombie/iso/sprite/shapers/SpritePaddingSettings$GenericZoomBasedSettingGroup.h"
 
 namespace zombie {
 namespace iso {

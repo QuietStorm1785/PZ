@@ -1,6 +1,6 @@
 #include <memory>
 #include <string>
-#include "com\google\common\hash/Hashing.h"
+#include "com/google/common/hash/Hashing.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\util\concurrent/ForwardingBlockingQueue.h"
+#include "com/google/common/util/concurrent/ForwardingBlockingQueue.h"
 
 namespace com {
 namespace google {

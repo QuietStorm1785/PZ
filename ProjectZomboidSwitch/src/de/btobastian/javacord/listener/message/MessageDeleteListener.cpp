@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\message/MessageDeleteListener.h"
+#include "de/btobastian/javacord/listener/message/MessageDeleteListener.h"
 
 namespace de {
 namespace btobastian {

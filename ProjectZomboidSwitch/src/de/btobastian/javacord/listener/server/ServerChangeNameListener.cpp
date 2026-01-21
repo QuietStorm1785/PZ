@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\listener\server/ServerChangeNameListener.h"
+#include "de/btobastian/javacord/listener/server/ServerChangeNameListener.h"
 
 namespace de {
 namespace btobastian {

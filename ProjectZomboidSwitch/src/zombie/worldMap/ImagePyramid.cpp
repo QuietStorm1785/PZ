@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\worldMap/ImagePyramid.h"
+#include "zombie/worldMap/ImagePyramid.h"
 
 namespace zombie {
 namespace worldMap {

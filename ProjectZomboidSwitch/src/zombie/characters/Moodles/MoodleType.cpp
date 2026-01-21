@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\Moodles/MoodleType.h"
+#include "zombie/characters/Moodles/MoodleType.h"
 
 namespace zombie {
 namespace characters {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\primitives/Chars$CharArrayAsList.h"
+#include "com/google/common/primitives/Chars$CharArrayAsList.h"
 
 namespace com {
 namespace google {

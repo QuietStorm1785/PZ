@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel/ModelManager$AnimDirReloader.h"
+#include "zombie/core/skinnedmodel/ModelManager$AnimDirReloader.h"
 
 namespace zombie {
 namespace core {

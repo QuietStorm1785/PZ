@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/DeadBodyAtlas$BodyTextureDrawer.h"
+#include "zombie/core/skinnedmodel/DeadBodyAtlas$BodyTextureDrawer.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "zombie\iso\sprite/IsoSpriteGrid.h"
+#include "zombie/iso/sprite/IsoSpriteGrid.h"
 
 namespace zombie {
 namespace iso {

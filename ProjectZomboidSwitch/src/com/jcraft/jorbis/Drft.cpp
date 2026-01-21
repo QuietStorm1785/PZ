@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/Drft.h"
+#include "com/jcraft/jorbis/Drft.h"
 
 namespace com {
 namespace jcraft {

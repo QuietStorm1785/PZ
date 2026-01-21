@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/CharMatcher$JavaUpperCase.h"
+#include "com/google/common/base/CharMatcher$JavaUpperCase.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "zombie\core\textures/TexturePackPage$SubTextureInfo.h"
+#include "zombie/core/textures/TexturePackPage$SubTextureInfo.h"
 
 namespace zombie {
 namespace core {

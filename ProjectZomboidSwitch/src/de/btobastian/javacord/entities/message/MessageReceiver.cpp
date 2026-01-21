@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\message/MessageReceiver.h"
+#include "de/btobastian/javacord/entities/message/MessageReceiver.h"
 
 namespace de {
 namespace btobastian {

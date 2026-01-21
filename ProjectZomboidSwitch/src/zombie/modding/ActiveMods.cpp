@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\modding/ActiveMods.h"
+#include "zombie/modding/ActiveMods.h"
 
 namespace zombie {
 namespace modding {

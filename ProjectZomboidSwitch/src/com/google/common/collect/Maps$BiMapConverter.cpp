@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/Maps$BiMapConverter.h"
+#include "com/google/common/collect/Maps$BiMapConverter.h"
 
 namespace com {
 namespace google {

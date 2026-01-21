@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/ModelFileExtensionType.h"
+#include "zombie/core/skinnedmodel/model/ModelFileExtensionType.h"
 
 namespace zombie {
 namespace core {

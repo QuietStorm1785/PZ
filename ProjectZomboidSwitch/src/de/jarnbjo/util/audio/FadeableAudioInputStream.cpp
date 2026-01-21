@@ -1,4 +1,4 @@
-#include "de\jarnbjo\util\audio/FadeableAudioInputStream.h"
+#include "de/jarnbjo/util/audio/FadeableAudioInputStream.h"
 
 namespace de {
 namespace jarnbjo {

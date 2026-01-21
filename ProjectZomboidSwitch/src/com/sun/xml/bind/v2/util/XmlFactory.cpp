@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\util/XmlFactory.h"
+#include "com/sun/xml/bind/v2/util/XmlFactory.h"
 
 namespace com {
 namespace sun {

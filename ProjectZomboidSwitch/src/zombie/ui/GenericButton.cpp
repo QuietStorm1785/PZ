@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ui/GenericButton.h"
+#include "zombie/ui/GenericButton.h"
 
 namespace zombie {
 namespace ui {

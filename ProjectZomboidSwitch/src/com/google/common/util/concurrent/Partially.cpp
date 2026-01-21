@@ -1,4 +1,4 @@
-#include "com\google\common\util\concurrent/Partially.h"
+#include "com/google/common/util/concurrent/Partially.h"
 
 namespace com {
 namespace google {

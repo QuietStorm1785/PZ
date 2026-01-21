@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\characters\action\conditions/LuaCall.h"
+#include "zombie/characters/action/conditions/LuaCall.h"
 
 namespace zombie {
 namespace characters {

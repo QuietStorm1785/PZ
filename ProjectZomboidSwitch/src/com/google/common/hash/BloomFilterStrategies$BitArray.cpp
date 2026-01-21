@@ -1,4 +1,4 @@
-#include "com\google\common\hash/BloomFilterStrategies$BitArray.h"
+#include "com/google/common/hash/BloomFilterStrategies$BitArray.h"
 
 namespace com {
 namespace google {

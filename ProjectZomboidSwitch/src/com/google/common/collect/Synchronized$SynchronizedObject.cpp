@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/Synchronized$SynchronizedObject.h"
+#include "com/google/common/collect/Synchronized$SynchronizedObject.h"
 
 namespace com {
 namespace google {

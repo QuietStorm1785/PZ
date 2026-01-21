@@ -1,5 +1,5 @@
 #include <string>
-#include "com\jcraft\jogg/Buffer.h"
+#include "com/jcraft/jogg/Buffer.h"
 
 namespace com {
 namespace jcraft {

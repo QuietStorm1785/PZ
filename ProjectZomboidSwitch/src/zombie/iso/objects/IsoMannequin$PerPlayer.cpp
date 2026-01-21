@@ -1,4 +1,4 @@
-#include "zombie\iso\objects/IsoMannequin$PerPlayer.h"
+#include "zombie/iso/objects/IsoMannequin$PerPlayer.h"
 
 namespace zombie {
 namespace iso {

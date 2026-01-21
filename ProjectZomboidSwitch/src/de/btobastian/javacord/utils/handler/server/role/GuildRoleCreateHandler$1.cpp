@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\server\role/GuildRoleCreateHandler$1.h"
+#include "de/btobastian/javacord/utils/handler/server/role/GuildRoleCreateHandler$1.h"
 
 namespace de {
 namespace btobastian {

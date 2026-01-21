@@ -1,4 +1,4 @@
-#include "com\google\common\escape/Platform.h"
+#include "com/google/common/escape/Platform.h"
 
 namespace com {
 namespace google {

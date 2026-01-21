@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\asset/AssetType.h"
+#include "zombie/asset/AssetType.h"
 
 namespace zombie {
 namespace asset {

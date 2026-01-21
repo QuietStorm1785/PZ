@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\role/RoleDeleteListener.h"
+#include "de/btobastian/javacord/listener/role/RoleDeleteListener.h"
 
 namespace de {
 namespace btobastian {

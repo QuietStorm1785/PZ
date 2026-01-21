@@ -1,4 +1,4 @@
-#include "zombie\core\textures/PNGDecoder$1.h"
+#include "zombie/core/textures/PNGDecoder$1.h"
 
 namespace zombie {
 namespace core {

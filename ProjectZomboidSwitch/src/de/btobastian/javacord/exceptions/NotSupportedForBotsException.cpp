@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\exceptions/NotSupportedForBotsException.h"
+#include "de/btobastian/javacord/exceptions/NotSupportedForBotsException.h"
 
 namespace de {
 namespace btobastian {

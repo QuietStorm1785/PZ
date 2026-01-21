@@ -1,4 +1,4 @@
-#include "com\google\common\hash/HashingInputStream.h"
+#include "com/google/common/hash/HashingInputStream.h"
 
 namespace com {
 namespace google {

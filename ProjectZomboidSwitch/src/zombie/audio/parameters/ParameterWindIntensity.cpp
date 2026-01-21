@@ -1,4 +1,4 @@
-#include "zombie\audio\parameters/ParameterWindIntensity.h"
+#include "zombie/audio/parameters/ParameterWindIntensity.h"
 
 namespace zombie {
 namespace audio {

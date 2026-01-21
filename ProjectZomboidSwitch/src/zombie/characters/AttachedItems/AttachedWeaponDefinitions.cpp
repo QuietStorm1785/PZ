@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\characters\AttachedItems/AttachedWeaponDefinitions.h"
+#include "zombie/characters/AttachedItems/AttachedWeaponDefinitions.h"
 
 namespace zombie {
 namespace characters {

@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/WebSocketState.h"
+#include "com/neovisionaries/ws/client/WebSocketState.h"
 
 namespace com {
 namespace neovisionaries {

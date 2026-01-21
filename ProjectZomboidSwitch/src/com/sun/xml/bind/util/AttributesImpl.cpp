@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\util/AttributesImpl.h"
+#include "com/sun/xml/bind/util/AttributesImpl.h"
 
 namespace com {
 namespace sun {

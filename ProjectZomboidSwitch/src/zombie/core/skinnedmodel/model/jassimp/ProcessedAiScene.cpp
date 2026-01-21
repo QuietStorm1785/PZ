@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\model\jassimp/ProcessedAiScene.h"
+#include "zombie/core/skinnedmodel/model/jassimp/ProcessedAiScene.h"
 
 namespace zombie {
 namespace core {

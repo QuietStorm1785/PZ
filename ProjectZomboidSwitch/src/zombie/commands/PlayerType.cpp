@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\commands/PlayerType.h"
+#include "zombie/commands/PlayerType.h"
 
 namespace zombie {
 namespace commands {

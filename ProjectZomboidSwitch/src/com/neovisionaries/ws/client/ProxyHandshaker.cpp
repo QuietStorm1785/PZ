@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\neovisionaries\ws\client/ProxyHandshaker.h"
+#include "com/neovisionaries/ws/client/ProxyHandshaker.h"
 
 namespace com {
 namespace neovisionaries {

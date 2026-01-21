@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\model/AiSceneAssetManager$FileTask_LoadAiScene.h"
+#include "zombie/core/skinnedmodel/model/AiSceneAssetManager$FileTask_LoadAiScene.h"
 
 namespace zombie {
 namespace core {

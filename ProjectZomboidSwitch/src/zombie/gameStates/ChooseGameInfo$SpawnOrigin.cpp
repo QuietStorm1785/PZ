@@ -1,4 +1,4 @@
-#include "zombie\gameStates/ChooseGameInfo$SpawnOrigin.h"
+#include "zombie/gameStates/ChooseGameInfo$SpawnOrigin.h"
 
 namespace zombie {
 namespace gameStates {

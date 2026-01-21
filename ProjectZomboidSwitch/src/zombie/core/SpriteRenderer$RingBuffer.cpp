@@ -1,5 +1,5 @@
 #include <cstdint>
-#include "zombie\core/SpriteRenderer$RingBuffer.h"
+#include "zombie/core/SpriteRenderer$RingBuffer.h"
 
 namespace zombie {
 namespace core {

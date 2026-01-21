@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\server/ServerMemberBanListener.h"
+#include "de/btobastian/javacord/listener/server/ServerMemberBanListener.h"
 
 namespace de {
 namespace btobastian {

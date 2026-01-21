@@ -1,4 +1,4 @@
-#include "zombie\ai\states/SwipeStatePlayer$CustomComparator.h"
+#include "zombie/ai/states/SwipeStatePlayer$CustomComparator.h"
 
 namespace zombie {
 namespace ai {

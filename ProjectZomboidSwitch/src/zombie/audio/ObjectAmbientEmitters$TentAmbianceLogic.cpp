@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\audio/ObjectAmbientEmitters$TentAmbianceLogic.h"
+#include "zombie/audio/ObjectAmbientEmitters$TentAmbianceLogic.h"
 
 namespace zombie {
 namespace audio {

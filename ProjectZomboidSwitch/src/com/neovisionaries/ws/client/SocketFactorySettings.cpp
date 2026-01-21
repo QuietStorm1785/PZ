@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/SocketFactorySettings.h"
+#include "com/neovisionaries/ws/client/SocketFactorySettings.h"
 
 namespace com {
 namespace neovisionaries {

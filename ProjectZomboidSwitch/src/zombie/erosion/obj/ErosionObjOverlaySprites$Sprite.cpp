@@ -1,4 +1,4 @@
-#include "zombie\erosion\obj/ErosionObjOverlaySprites$Sprite.h"
+#include "zombie/erosion/obj/ErosionObjOverlaySprites$Sprite.h"
 
 namespace zombie {
 namespace erosion {

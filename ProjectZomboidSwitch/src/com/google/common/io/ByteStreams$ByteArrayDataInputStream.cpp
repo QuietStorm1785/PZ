@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\google\common\io/ByteStreams$ByteArrayDataInputStream.h"
+#include "com/google/common/io/ByteStreams$ByteArrayDataInputStream.h"
 
 namespace com {
 namespace google {

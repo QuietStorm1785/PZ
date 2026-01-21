@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/CheckModsNeedUpdate.h"
+#include "zombie/commands/serverCommands/CheckModsNeedUpdate.h"
 
 namespace zombie {
 namespace commands {

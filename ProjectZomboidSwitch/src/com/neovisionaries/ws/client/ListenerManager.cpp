@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/ListenerManager.h"
+#include "com/neovisionaries/ws/client/ListenerManager.h"
 
 namespace com {
 namespace neovisionaries {

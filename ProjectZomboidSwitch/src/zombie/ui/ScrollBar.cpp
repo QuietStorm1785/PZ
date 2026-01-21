@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\ui/ScrollBar.h"
+#include "zombie/ui/ScrollBar.h"
 
 namespace zombie {
 namespace ui {

@@ -1,4 +1,4 @@
-#include "zombie\audio\parameters/ParameterHardOfHearing.h"
+#include "zombie/audio/parameters/ParameterHardOfHearing.h"
 
 namespace zombie {
 namespace audio {

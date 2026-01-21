@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network\packets/PlayerVariables.h"
+#include "zombie/network/packets/PlayerVariables.h"
 
 namespace zombie {
 namespace network {

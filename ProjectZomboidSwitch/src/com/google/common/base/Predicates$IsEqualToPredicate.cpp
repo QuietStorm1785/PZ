@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Predicates$IsEqualToPredicate.h"
+#include "com/google/common/base/Predicates$IsEqualToPredicate.h"
 
 namespace com {
 namespace google {

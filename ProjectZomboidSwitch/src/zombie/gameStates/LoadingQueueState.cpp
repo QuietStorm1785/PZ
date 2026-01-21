@@ -1,5 +1,5 @@
 #include <queue>
-#include "zombie\gameStates/LoadingQueueState.h"
+#include "zombie/gameStates/LoadingQueueState.h"
 
 namespace zombie {
 namespace gameStates {

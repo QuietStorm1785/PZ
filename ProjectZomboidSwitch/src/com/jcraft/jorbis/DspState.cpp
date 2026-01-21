@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/DspState.h"
+#include "com/jcraft/jorbis/DspState.h"
 
 namespace com {
 namespace jcraft {

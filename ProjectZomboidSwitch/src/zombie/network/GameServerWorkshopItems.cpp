@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "zombie\network/GameServerWorkshopItems.h"
+#include "zombie/network/GameServerWorkshopItems.h"
 
 namespace zombie {
 namespace network {

@@ -1,6 +1,6 @@
 #include <memory>
 #include <string>
-#include "zombie\core/Color.h"
+#include "zombie/core/Color.h"
 
 namespace zombie {
 namespace core {

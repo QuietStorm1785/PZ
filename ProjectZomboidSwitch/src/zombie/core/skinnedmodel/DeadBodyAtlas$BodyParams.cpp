@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel/DeadBodyAtlas$BodyParams.h"
+#include "zombie/core/skinnedmodel/DeadBodyAtlas$BodyParams.h"
 
 namespace zombie {
 namespace core {

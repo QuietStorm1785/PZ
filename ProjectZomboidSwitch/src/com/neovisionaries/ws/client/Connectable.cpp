@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/Connectable.h"
+#include "com/neovisionaries/ws/client/Connectable.h"
 
 namespace com {
 namespace neovisionaries {

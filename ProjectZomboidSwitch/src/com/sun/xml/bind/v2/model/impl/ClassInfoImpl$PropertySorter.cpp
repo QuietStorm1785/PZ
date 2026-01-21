@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/ClassInfoImpl$PropertySorter.h"
+#include "com/sun/xml/bind/v2/model/impl/ClassInfoImpl$PropertySorter.h"
 
 namespace com {
 namespace sun {

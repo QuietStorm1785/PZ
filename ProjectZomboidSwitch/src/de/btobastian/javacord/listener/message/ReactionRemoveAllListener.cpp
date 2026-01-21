@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\listener\message/ReactionRemoveAllListener.h"
+#include "de/btobastian/javacord/listener/message/ReactionRemoveAllListener.h"
 
 namespace de {
 namespace btobastian {

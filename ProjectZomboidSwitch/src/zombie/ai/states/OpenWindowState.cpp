@@ -1,4 +1,4 @@
-#include "zombie\ai\states/OpenWindowState.h"
+#include "zombie/ai/states/OpenWindowState.h"
 
 namespace zombie {
 namespace ai {

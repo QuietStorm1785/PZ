@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\chat\defaultChats/ServerChat.h"
+#include "zombie/chat/defaultChats/ServerChat.h"
 
 namespace zombie {
 namespace chat {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/DiscreteDomain$BigIntegerDomain.h"
+#include "com/google/common/collect/DiscreteDomain$BigIntegerDomain.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\config/EnumConfigOption.h"
+#include "zombie/config/EnumConfigOption.h"
 
 namespace zombie {
 namespace config {

@@ -1,4 +1,4 @@
-#include "zombie\Lua/LuaManager$Exposer.h"
+#include "zombie/Lua/LuaManager$Exposer.h"
 
 namespace zombie {
 namespace Lua {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\text\templating/ReplaceProviderCharacter$1.h"
+#include "zombie/text/templating/ReplaceProviderCharacter$1.h"
 
 namespace zombie {
 namespace text {

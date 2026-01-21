@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\network/BodyDamageSync$Updater.h"
+#include "zombie/network/BodyDamageSync$Updater.h"
 
 namespace zombie {
 namespace network {

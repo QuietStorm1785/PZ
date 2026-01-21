@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\core/RegistryInfo.h"
+#include "com/sun/xml/bind/v2/model/core/RegistryInfo.h"
 
 namespace com {
 namespace sun {

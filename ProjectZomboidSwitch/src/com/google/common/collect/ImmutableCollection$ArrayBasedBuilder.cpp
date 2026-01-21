@@ -1,4 +1,4 @@
-#include "com\google\common\collect/ImmutableCollection$ArrayBasedBuilder.h"
+#include "com/google/common/collect/ImmutableCollection$ArrayBasedBuilder.h"
 
 namespace com {
 namespace google {

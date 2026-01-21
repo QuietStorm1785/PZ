@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\schemagen/FoolProofResolver.h"
+#include "com/sun/xml/bind/v2/schemagen/FoolProofResolver.h"
 
 namespace com {
 namespace sun {

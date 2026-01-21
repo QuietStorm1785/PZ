@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\exceptions/RateLimitedException.h"
+#include "de/btobastian/javacord/exceptions/RateLimitedException.h"
 
 namespace de {
 namespace btobastian {

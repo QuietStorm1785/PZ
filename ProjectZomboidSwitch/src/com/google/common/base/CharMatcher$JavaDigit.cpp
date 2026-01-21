@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/CharMatcher$JavaDigit.h"
+#include "com/google/common/base/CharMatcher$JavaDigit.h"
 
 namespace com {
 namespace google {

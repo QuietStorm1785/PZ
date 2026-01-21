@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\Lua/MapObjects.h"
+#include "zombie/Lua/MapObjects.h"
 
 namespace zombie {
 namespace Lua {

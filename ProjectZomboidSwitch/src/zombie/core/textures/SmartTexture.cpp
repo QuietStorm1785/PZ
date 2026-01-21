@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\core\textures/SmartTexture.h"
+#include "zombie/core/textures/SmartTexture.h"
 
 namespace zombie {
 namespace core {

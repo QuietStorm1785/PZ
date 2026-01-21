@@ -1,6 +1,6 @@
 #include <memory>
 #include <string>
-#include "com\google\common\reflect/TypeToken.h"
+#include "com/google/common/reflect/TypeToken.h"
 
 namespace com {
 namespace google {

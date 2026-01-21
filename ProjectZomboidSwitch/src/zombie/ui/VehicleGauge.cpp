@@ -1,4 +1,4 @@
-#include "zombie\ui/VehicleGauge.h"
+#include "zombie/ui/VehicleGauge.h"
 
 namespace zombie {
 namespace ui {

@@ -1,4 +1,4 @@
-#include "com\evildevil\engines\bubble\texture/DDSCaps2.h"
+#include "com/evildevil/engines/bubble/texture/DDSCaps2.h"
 
 namespace com {
 namespace evildevil {

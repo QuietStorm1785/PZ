@@ -1,4 +1,4 @@
-#include "com\google\common\base/Splitter$Strategy.h"
+#include "com/google/common/base/Splitter$Strategy.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\worldMap\symbols/WorldMapTextureSymbol.h"
+#include "zombie/worldMap/symbols/WorldMapTextureSymbol.h"
 
 namespace zombie {
 namespace worldMap {

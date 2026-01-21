@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/CharacterTextures$CTEntryList.h"
+#include "zombie/core/skinnedmodel/CharacterTextures$CTEntryList.h"
 
 namespace zombie {
 namespace core {

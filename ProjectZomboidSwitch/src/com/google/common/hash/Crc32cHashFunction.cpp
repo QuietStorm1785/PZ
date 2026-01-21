@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/Crc32cHashFunction.h"
+#include "com/google/common/hash/Crc32cHashFunction.h"
 
 namespace com {
 namespace google {

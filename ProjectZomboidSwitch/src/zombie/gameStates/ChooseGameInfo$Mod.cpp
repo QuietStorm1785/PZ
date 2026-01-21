@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\gameStates/ChooseGameInfo$Mod.h"
+#include "zombie/gameStates/ChooseGameInfo$Mod.h"
 
 namespace zombie {
 namespace gameStates {

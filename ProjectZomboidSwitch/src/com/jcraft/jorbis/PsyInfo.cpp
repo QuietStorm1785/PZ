@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/PsyInfo.h"
+#include "com/jcraft/jorbis/PsyInfo.h"
 
 namespace com {
 namespace jcraft {

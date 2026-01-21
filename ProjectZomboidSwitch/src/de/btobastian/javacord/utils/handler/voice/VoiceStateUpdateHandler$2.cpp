@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\voice/VoiceStateUpdateHandler$2.h"
+#include "de/btobastian/javacord/utils/handler/voice/VoiceStateUpdateHandler$2.h"
 
 namespace de {
 namespace btobastian {

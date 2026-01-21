@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\reflect/TransducedAccessor$CompositeTransducedAccessorImpl.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/TransducedAccessor$CompositeTransducedAccessorImpl.h"
 
 namespace com {
 namespace sun {

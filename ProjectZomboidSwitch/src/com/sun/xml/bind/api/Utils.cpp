@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\api/Utils.h"
+#include "com/sun/xml/bind/api/Utils.h"
 
 namespace com {
 namespace sun {

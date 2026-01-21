@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/Sets$PowerSet.h"
+#include "com/google/common/collect/Sets$PowerSet.h"
 
 namespace com {
 namespace google {

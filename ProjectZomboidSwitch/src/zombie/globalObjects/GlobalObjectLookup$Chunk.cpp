@@ -1,4 +1,4 @@
-#include "zombie\globalObjects/GlobalObjectLookup$Chunk.h"
+#include "zombie/globalObjects/GlobalObjectLookup$Chunk.h"
 
 namespace zombie {
 namespace globalObjects {

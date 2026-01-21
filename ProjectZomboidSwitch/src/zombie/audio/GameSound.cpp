@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\audio/GameSound.h"
+#include "zombie/audio/GameSound.h"
 
 namespace zombie {
 namespace audio {

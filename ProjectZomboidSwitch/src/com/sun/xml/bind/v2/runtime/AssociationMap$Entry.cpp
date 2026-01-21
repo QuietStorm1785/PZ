@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime/AssociationMap$Entry.h"
+#include "com/sun/xml/bind/v2/runtime/AssociationMap$Entry.h"
 
 namespace com {
 namespace sun {

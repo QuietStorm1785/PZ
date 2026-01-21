@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/TransducedAccessor_method_Double.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/TransducedAccessor_method_Double.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "zombie\characters\BodyDamage/Thermoregulator_tryouts.h"
+#include "zombie/characters/BodyDamage/Thermoregulator_tryouts.h"
 
 namespace zombie {
 namespace characters {

@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\message\embed/EmbedBuilder.h"
+#include "de/btobastian/javacord/entities/message/embed/EmbedBuilder.h"
 
 namespace de {
 namespace btobastian {

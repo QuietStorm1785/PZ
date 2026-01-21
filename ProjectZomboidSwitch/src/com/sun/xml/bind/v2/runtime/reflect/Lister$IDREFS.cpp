@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\reflect/Lister$IDREFS.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/Lister$IDREFS.h"
 
 namespace com {
 namespace sun {

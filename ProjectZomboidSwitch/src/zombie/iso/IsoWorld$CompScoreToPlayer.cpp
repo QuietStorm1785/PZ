@@ -1,4 +1,4 @@
-#include "zombie\iso/IsoWorld$CompScoreToPlayer.h"
+#include "zombie/iso/IsoWorld$CompScoreToPlayer.h"
 
 namespace zombie {
 namespace iso {

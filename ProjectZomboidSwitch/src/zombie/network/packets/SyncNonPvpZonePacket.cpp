@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\network\packets/SyncNonPvpZonePacket.h"
+#include "zombie/network/packets/SyncNonPvpZonePacket.h"
 
 namespace zombie {
 namespace network {

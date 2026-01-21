@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\model/ModelInstance.h"
+#include "zombie/core/skinnedmodel/model/ModelInstance.h"
 
 namespace zombie {
 namespace core {

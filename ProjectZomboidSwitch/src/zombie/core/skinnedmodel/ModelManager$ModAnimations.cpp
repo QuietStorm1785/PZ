@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/ModelManager$ModAnimations.h"
+#include "zombie/core/skinnedmodel/ModelManager$ModAnimations.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "com\google\common\hash/BloomFilter$SerialForm.h"
+#include "com/google/common/hash/BloomFilter$SerialForm.h"
 
 namespace com {
 namespace google {

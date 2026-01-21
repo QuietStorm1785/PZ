@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\opengl/ShaderProgram.h"
+#include "zombie/core/opengl/ShaderProgram.h"
 
 namespace zombie {
 namespace core {

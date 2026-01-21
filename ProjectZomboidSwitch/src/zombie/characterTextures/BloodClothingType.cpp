@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\characterTextures/BloodClothingType.h"
+#include "zombie/characterTextures/BloodClothingType.h"
 
 namespace zombie {
 namespace characterTextures {

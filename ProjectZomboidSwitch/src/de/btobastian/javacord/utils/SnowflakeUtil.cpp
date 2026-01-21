@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\utils/SnowflakeUtil.h"
+#include "de/btobastian/javacord/utils/SnowflakeUtil.h"
 
 namespace de {
 namespace btobastian {

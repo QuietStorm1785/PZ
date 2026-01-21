@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\istack\localization/NullLocalizable.h"
+#include "com/sun/istack/localization/NullLocalizable.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "zombie\vehicles/VehiclesDB2$WorldStreamerThread.h"
+#include "zombie/vehicles/VehiclesDB2$WorldStreamerThread.h"
 
 namespace zombie {
 namespace vehicles {

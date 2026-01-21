@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\unmarshaller/InfosetScanner.h"
+#include "com/sun/xml/bind/unmarshaller/InfosetScanner.h"
 
 namespace com {
 namespace sun {

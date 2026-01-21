@@ -1,5 +1,5 @@
 #include <string>
-#include "com\jcraft\jorbis/Info.h"
+#include "com/jcraft/jorbis/Info.h"
 
 namespace com {
 namespace jcraft {

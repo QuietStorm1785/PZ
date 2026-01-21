@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\advancedanimation/AnimBoneWeight.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AnimBoneWeight.h"
 
 namespace zombie {
 namespace core {

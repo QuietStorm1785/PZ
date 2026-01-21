@@ -1,4 +1,4 @@
-#include "zombie\characters/NetworkPlayerAI.h"
+#include "zombie/characters/NetworkPlayerAI.h"
 
 namespace zombie {
 namespace characters {

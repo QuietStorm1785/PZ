@@ -1,5 +1,5 @@
 #include <queue>
-#include "com\google\common\eventbus/Dispatcher$PerThreadQueuedDispatcher$Event.h"
+#include "com/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event.h"
 
 namespace com {
 namespace google {

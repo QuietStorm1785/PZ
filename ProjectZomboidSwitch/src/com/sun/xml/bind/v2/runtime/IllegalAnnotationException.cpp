@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime/IllegalAnnotationException.h"
+#include "com/sun/xml/bind/v2/runtime/IllegalAnnotationException.h"
 
 namespace com {
 namespace sun {

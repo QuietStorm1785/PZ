@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\util/QNameMap.h"
+#include "com/sun/xml/bind/v2/util/QNameMap.h"
 
 namespace com {
 namespace sun {

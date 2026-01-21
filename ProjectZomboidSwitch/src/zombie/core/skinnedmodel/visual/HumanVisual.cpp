@@ -1,7 +1,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "zombie\core\skinnedmodel\visual/HumanVisual.h"
+#include "zombie/core/skinnedmodel/visual/HumanVisual.h"
 
 namespace zombie {
 namespace core {

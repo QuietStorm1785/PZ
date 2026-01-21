@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "zombie\core\skinnedmodel\visual/ItemVisual.h"
+#include "zombie/core/skinnedmodel/visual/ItemVisual.h"
 
 namespace zombie {
 namespace core {

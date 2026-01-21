@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities/VoiceChannel.h"
+#include "de/btobastian/javacord/entities/VoiceChannel.h"
 
 namespace de {
 namespace btobastian {

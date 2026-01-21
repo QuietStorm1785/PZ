@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http/Headers.h"
+#include "com/mashape/unirest/http/Headers.h"
 
 namespace com {
 namespace mashape {

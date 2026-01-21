@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\istack\localization/LocalizableMessageFactory.h"
+#include "com/sun/istack/localization/LocalizableMessageFactory.h"
 
 namespace com {
 namespace sun {

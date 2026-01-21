@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/VertexDefinitions.h"
+#include "zombie/core/skinnedmodel/model/VertexDefinitions.h"
 
 namespace zombie {
 namespace core {

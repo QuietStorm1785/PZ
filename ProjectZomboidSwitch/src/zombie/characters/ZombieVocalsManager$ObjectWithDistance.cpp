@@ -1,4 +1,4 @@
-#include "zombie\characters/ZombieVocalsManager$ObjectWithDistance.h"
+#include "zombie/characters/ZombieVocalsManager$ObjectWithDistance.h"
 
 namespace zombie {
 namespace characters {

@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel/DeadBodyAtlas$ClearAtlasTexture.h"
+#include "zombie/core/skinnedmodel/DeadBodyAtlas$ClearAtlasTexture.h"
 
 namespace zombie {
 namespace core {

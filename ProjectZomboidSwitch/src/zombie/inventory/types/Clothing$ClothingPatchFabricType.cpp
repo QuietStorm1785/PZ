@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\inventory\types/Clothing$ClothingPatchFabricType.h"
+#include "zombie/inventory/types/Clothing$ClothingPatchFabricType.h"
 
 namespace zombie {
 namespace inventory {

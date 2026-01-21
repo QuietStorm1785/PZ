@@ -1,5 +1,5 @@
 #include <vector>
-#include "com\sun\xml\bind\v2\runtime\reflect/PrimitiveArrayListerCharacter$CharacterArrayPack.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/PrimitiveArrayListerCharacter$CharacterArrayPack.h"
 
 namespace com {
 namespace sun {

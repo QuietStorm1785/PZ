@@ -1,4 +1,4 @@
-#include "com\sun\istack\localization/LocalizableMessageFactory$ResourceBundleSupplier.h"
+#include "com/sun/istack/localization/LocalizableMessageFactory$ResourceBundleSupplier.h"
 
 namespace com {
 namespace sun {

@@ -1,4 +1,4 @@
-#include "zombie\chat/ChatManager$Stage.h"
+#include "zombie/chat/ChatManager$Stage.h"
 
 namespace zombie {
 namespace chat {

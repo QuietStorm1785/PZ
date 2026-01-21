@@ -1,4 +1,4 @@
-#include "zombie\iso\areas/IsoRoomExit$ExitType.h"
+#include "zombie/iso/areas/IsoRoomExit$ExitType.h"
 
 namespace zombie {
 namespace iso {

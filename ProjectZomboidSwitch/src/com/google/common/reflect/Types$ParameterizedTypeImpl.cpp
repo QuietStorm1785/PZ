@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/Types$ParameterizedTypeImpl.h"
+#include "com/google/common/reflect/Types$ParameterizedTypeImpl.h"
 
 namespace com {
 namespace google {

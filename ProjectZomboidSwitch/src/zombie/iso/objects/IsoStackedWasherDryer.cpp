@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "zombie\iso\objects/IsoStackedWasherDryer.h"
+#include "zombie/iso/objects/IsoStackedWasherDryer.h"
 
 namespace zombie {
 namespace iso {

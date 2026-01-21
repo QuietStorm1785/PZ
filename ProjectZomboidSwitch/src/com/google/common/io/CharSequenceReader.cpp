@@ -1,4 +1,4 @@
-#include "com\google\common\io/CharSequenceReader.h"
+#include "com/google/common/io/CharSequenceReader.h"
 
 namespace com {
 namespace google {

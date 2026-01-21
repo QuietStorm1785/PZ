@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler/ResumedHandler.h"
+#include "de/btobastian/javacord/utils/handler/ResumedHandler.h"
 
 namespace de {
 namespace btobastian {

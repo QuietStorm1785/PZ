@@ -1,5 +1,5 @@
 #include <string>
-#include "com\mashape\unirest\http/ObjectMapper.h"
+#include "com/mashape/unirest/http/ObjectMapper.h"
 
 namespace com {
 namespace mashape {

@@ -1,4 +1,4 @@
-#include "zombie\chat\defaultChats/FactionChat.h"
+#include "zombie/chat/defaultChats/FactionChat.h"
 
 namespace zombie {
 namespace chat {

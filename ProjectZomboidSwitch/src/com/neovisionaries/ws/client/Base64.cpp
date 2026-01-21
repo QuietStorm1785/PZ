@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/Base64.h"
+#include "com/neovisionaries/ws/client/Base64.h"
 
 namespace com {
 namespace neovisionaries {

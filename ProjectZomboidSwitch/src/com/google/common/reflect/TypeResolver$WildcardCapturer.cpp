@@ -1,4 +1,4 @@
-#include "com\google\common\reflect/TypeResolver$WildcardCapturer.h"
+#include "com/google/common/reflect/TypeResolver$WildcardCapturer.h"
 
 namespace com {
 namespace google {

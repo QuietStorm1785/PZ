@@ -1,4 +1,4 @@
-#include "de\jarnbjo\util\io/BitInputStream.h"
+#include "de/jarnbjo/util/io/BitInputStream.h"
 
 namespace de {
 namespace jarnbjo {

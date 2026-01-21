@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\annotation/XmlElementRefsQuick.h"
+#include "com/sun/xml/bind/v2/model/annotation/XmlElementRefsQuick.h"
 
 namespace com {
 namespace sun {

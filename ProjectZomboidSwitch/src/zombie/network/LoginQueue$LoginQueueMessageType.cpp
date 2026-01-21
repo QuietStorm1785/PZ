@@ -1,5 +1,5 @@
 #include <queue>
-#include "zombie\network/LoginQueue$LoginQueueMessageType.h"
+#include "zombie/network/LoginQueue$LoginQueueMessageType.h"
 
 namespace zombie {
 namespace network {

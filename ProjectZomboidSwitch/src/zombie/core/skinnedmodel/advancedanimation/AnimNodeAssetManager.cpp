@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\advancedanimation/AnimNodeAssetManager.h"
+#include "zombie/core/skinnedmodel/advancedanimation/AnimNodeAssetManager.h"
 
 namespace zombie {
 namespace core {

@@ -1,4 +1,4 @@
-#include "com\google\common\hash/MessageDigestHashFunction$SerializedForm.h"
+#include "com/google/common/hash/MessageDigestHashFunction$SerializedForm.h"
 
 namespace com {
 namespace google {

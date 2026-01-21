@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\advancedanimation/BlendInfo$BlendInstance.h"
+#include "zombie/core/skinnedmodel/advancedanimation/BlendInfo$BlendInstance.h"
 
 namespace zombie {
 namespace core {

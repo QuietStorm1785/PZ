@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\neovisionaries\ws\client/Misc.h"
+#include "com/neovisionaries/ws/client/Misc.h"
 
 namespace com {
 namespace neovisionaries {

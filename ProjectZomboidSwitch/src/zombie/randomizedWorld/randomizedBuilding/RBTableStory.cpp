@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\randomizedWorld\randomizedBuilding/RBTableStory.h"
+#include "zombie/randomizedWorld/randomizedBuilding/RBTableStory.h"
 
 namespace zombie {
 namespace randomizedWorld {

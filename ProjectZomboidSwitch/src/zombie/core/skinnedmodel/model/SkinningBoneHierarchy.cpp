@@ -1,4 +1,4 @@
-#include "zombie\core\skinnedmodel\model/SkinningBoneHierarchy.h"
+#include "zombie/core/skinnedmodel/model/SkinningBoneHierarchy.h"
 
 namespace zombie {
 namespace core {

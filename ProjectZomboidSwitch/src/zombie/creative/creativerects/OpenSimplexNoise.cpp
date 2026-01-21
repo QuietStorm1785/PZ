@@ -1,4 +1,4 @@
-#include "zombie\creative\creativerects/OpenSimplexNoise.h"
+#include "zombie/creative/creativerects/OpenSimplexNoise.h"
 
 namespace zombie {
 namespace creative {

@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect\opt/FieldAccessor_Integer.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/opt/FieldAccessor_Integer.h"
 
 namespace com {
 namespace sun {

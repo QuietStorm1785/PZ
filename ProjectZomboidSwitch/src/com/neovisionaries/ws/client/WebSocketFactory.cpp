@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/WebSocketFactory.h"
+#include "com/neovisionaries/ws/client/WebSocketFactory.h"
 
 namespace com {
 namespace neovisionaries {

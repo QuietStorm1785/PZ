@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sixlegs\png/TextChunk.h"
+#include "com/sixlegs/png/TextChunk.h"
 
 namespace com {
 namespace sixlegs {

@@ -1,4 +1,4 @@
-#include "zombie\commands\serverCommands/ArgType.h"
+#include "zombie/commands/serverCommands/ArgType.h"
 
 namespace zombie {
 namespace commands {

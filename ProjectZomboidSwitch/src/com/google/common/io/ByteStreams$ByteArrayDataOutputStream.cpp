@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/ByteStreams$ByteArrayDataOutputStream.h"
+#include "com/google/common/io/ByteStreams$ByteArrayDataOutputStream.h"
 
 namespace com {
 namespace google {

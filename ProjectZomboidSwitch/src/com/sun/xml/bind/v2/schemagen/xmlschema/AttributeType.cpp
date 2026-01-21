@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\schemagen\xmlschema/AttributeType.h"
+#include "com/sun/xml/bind/v2/schemagen/xmlschema/AttributeType.h"
 
 namespace com {
 namespace sun {

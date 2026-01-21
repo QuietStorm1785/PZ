@@ -1,4 +1,4 @@
-#include "zombie\core\textures/IGLFramebufferObject.h"
+#include "zombie/core/textures/IGLFramebufferObject.h"
 
 namespace zombie {
 namespace core {

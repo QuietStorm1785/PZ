@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\hash/HashCode.h"
+#include "com/google/common/hash/HashCode.h"
 
 namespace com {
 namespace google {

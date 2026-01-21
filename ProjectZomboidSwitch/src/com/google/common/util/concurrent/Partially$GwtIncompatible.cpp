@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\util\concurrent/Partially$GwtIncompatible.h"
+#include "com/google/common/util/concurrent/Partially$GwtIncompatible.h"
 
 namespace com {
 namespace google {

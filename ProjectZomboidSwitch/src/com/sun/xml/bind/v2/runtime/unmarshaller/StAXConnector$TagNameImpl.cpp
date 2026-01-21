@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime\unmarshaller/StAXConnector$TagNameImpl.h"
+#include "com/sun/xml/bind/v2/runtime/unmarshaller/StAXConnector$TagNameImpl.h"
 
 namespace com {
 namespace sun {

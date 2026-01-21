@@ -1,4 +1,4 @@
-#include "zombie\iso/ObjectsSyncRequests$SyncIsoObject.h"
+#include "zombie/iso/ObjectsSyncRequests$SyncIsoObject.h"
 
 namespace zombie {
 namespace iso {

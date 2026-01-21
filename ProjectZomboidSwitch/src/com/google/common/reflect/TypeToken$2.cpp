@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/TypeToken$2.h"
+#include "com/google/common/reflect/TypeToken$2.h"
 
 namespace com {
 namespace google {

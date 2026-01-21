@@ -1,4 +1,4 @@
-#include "com\google\common\math/package-info.h"
+#include "com/google/common/math/package-info.h"
 
 namespace com {
 namespace google {

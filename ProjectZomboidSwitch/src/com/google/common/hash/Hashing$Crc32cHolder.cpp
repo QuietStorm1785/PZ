@@ -1,4 +1,4 @@
-#include "com\google\common\hash/Hashing$Crc32cHolder.h"
+#include "com/google/common/hash/Hashing$Crc32cHolder.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "zombie\core\profiling/TriggerGameProfilerFile.h"
+#include "zombie/core/profiling/TriggerGameProfilerFile.h"
 
 namespace zombie {
 namespace core {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\io/CharSource$EmptyCharSource.h"
+#include "com/google/common/io/CharSource$EmptyCharSource.h"
 
 namespace com {
 namespace google {

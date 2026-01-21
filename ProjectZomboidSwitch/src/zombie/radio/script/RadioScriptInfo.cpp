@@ -1,4 +1,4 @@
-#include "zombie\radio\script/RadioScriptInfo.h"
+#include "zombie/radio/script/RadioScriptInfo.h"
 
 namespace zombie {
 namespace radio {

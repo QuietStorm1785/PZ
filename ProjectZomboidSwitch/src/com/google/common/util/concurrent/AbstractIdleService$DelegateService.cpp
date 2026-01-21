@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\util\concurrent/AbstractIdleService$DelegateService.h"
+#include "com/google/common/util/concurrent/AbstractIdleService$DelegateService.h"
 
 namespace com {
 namespace google {

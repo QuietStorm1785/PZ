@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\base/Suppliers$ThreadSafeSupplier.h"
+#include "com/google/common/base/Suppliers$ThreadSafeSupplier.h"
 
 namespace com {
 namespace google {

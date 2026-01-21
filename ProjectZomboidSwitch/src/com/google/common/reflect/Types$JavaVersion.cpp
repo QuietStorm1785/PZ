@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\reflect/Types$JavaVersion.h"
+#include "com/google/common/reflect/Types$JavaVersion.h"
 
 namespace com {
 namespace google {

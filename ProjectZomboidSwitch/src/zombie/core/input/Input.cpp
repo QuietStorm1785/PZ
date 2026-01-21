@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\input/Input.h"
+#include "zombie/core/input/Input.h"
 
 namespace zombie {
 namespace core {

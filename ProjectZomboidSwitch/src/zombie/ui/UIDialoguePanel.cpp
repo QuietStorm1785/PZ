@@ -1,4 +1,4 @@
-#include "zombie\ui/UIDialoguePanel.h"
+#include "zombie/ui/UIDialoguePanel.h"
 
 namespace zombie {
 namespace ui {

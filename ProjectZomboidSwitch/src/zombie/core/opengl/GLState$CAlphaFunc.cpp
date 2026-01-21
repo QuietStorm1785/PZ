@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/GLState$CAlphaFunc.h"
+#include "zombie/core/opengl/GLState$CAlphaFunc.h"
 
 namespace zombie {
 namespace core {

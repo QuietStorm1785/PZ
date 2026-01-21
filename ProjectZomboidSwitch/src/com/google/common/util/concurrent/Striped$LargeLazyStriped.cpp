@@ -1,4 +1,4 @@
-#include "com\google\common\util\concurrent/Striped$LargeLazyStriped.h"
+#include "com/google/common/util/concurrent/Striped$LargeLazyStriped.h"
 
 namespace com {
 namespace google {

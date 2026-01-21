@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\commands\serverCommands/SetAccessLevelCommand.h"
+#include "zombie/commands/serverCommands/SetAccessLevelCommand.h"
 
 namespace zombie {
 namespace commands {

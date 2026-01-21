@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\sixlegs\png/PngInputStream.h"
+#include "com/sixlegs/png/PngInputStream.h"
 
 namespace com {
 namespace sixlegs {

@@ -1,4 +1,4 @@
-#include "de\jarnbjo\ogg/FileStream.h"
+#include "de/jarnbjo/ogg/FileStream.h"
 
 namespace de {
 namespace jarnbjo {

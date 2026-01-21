@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\istack/XMLStreamException2.h"
+#include "com/sun/istack/XMLStreamException2.h"
 
 namespace com {
 namespace sun {

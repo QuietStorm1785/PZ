@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind/Locatable.h"
+#include "com/sun/xml/bind/Locatable.h"
 
 namespace com {
 namespace sun {

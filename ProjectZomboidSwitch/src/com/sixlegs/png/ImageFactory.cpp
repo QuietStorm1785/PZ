@@ -26,7 +26,7 @@ cv::Mat ImageFactory::createColorModelImage(PngImage& pngMeta, const cv::Size& s
 } // namespace sixlegs
 } // namespace com
 #include <memory>
-#include "com\sixlegs\png/ImageFactory.h"
+#include "com/sixlegs/png/ImageFactory.h"
 
 namespace com {
 namespace sixlegs {

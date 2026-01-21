@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "zombie\world/DictionaryData.h"
+#include "zombie/world/DictionaryData.h"
 
 namespace zombie {
 namespace world {

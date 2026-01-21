@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\world\logger/Log$RegisterObject.h"
+#include "zombie/world/logger/Log$RegisterObject.h"
 
 namespace zombie {
 namespace world {

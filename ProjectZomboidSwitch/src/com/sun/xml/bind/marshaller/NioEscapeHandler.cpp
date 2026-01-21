@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\marshaller/NioEscapeHandler.h"
+#include "com/sun/xml/bind/marshaller/NioEscapeHandler.h"
 
 namespace com {
 namespace sun {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core\skinnedmodel\population/PopTemplateManager.h"
+#include "zombie/core/skinnedmodel/population/PopTemplateManager.h"
 
 namespace zombie {
 namespace core {

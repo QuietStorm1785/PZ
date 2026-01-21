@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\runtime\reflect/Lister$CollectionLister.h"
+#include "com/sun/xml/bind/v2/runtime/reflect/Lister$CollectionLister.h"
 
 namespace com {
 namespace sun {

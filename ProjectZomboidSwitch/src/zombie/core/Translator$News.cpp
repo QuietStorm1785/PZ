@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\core/Translator$News.h"
+#include "zombie/core/Translator$News.h"
 
 namespace zombie {
 namespace core {

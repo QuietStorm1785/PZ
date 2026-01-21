@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#include "com\google\common\io/LittleEndianDataInputStream.h"
+#include "com/google/common/io/LittleEndianDataInputStream.h"
 
 namespace com {
 namespace google {

@@ -1,4 +1,4 @@
-#include "zombie\worldMap\styles/WorldMapStyleLayer$RGBAf.h"
+#include "zombie/worldMap/styles/WorldMapStyleLayer$RGBAf.h"
 
 namespace zombie {
 namespace worldMap {

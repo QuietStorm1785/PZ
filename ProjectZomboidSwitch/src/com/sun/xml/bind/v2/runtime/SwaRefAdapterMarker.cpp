@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime/SwaRefAdapterMarker.h"
+#include "com/sun/xml/bind/v2/runtime/SwaRefAdapterMarker.h"
 
 namespace com {
 namespace sun {

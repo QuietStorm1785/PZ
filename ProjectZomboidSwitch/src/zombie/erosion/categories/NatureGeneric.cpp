@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\erosion\categories/NatureGeneric.h"
+#include "zombie/erosion/categories/NatureGeneric.h"
 
 namespace zombie {
 namespace erosion {

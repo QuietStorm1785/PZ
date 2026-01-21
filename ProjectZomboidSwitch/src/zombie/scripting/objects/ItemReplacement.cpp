@@ -1,4 +1,4 @@
-#include "zombie\scripting\objects/ItemReplacement.h"
+#include "zombie/scripting/objects/ItemReplacement.h"
 
 namespace zombie {
 namespace scripting {

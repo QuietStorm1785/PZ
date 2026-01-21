@@ -1,4 +1,4 @@
-#include "de\btobastian\javacord\utils\handler\server/GuildUpdateHandler.h"
+#include "de/btobastian/javacord/utils/handler/server/GuildUpdateHandler.h"
 
 namespace de {
 namespace btobastian {

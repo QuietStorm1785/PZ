@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\fileSystem/DiskFileDevice$DiskFile.h"
+#include "zombie/fileSystem/DiskFileDevice$DiskFile.h"
 
 namespace zombie {
 namespace fileSystem {

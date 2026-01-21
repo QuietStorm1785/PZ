@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\radio\scripting/RadioScriptManager.h"
+#include "zombie/radio/scripting/RadioScriptManager.h"
 
 namespace zombie {
 namespace radio {

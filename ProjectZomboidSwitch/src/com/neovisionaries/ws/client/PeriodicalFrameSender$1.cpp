@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/PeriodicalFrameSender$1.h"
+#include "com/neovisionaries/ws/client/PeriodicalFrameSender$1.h"
 
 namespace com {
 namespace neovisionaries {

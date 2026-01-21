@@ -1,5 +1,5 @@
 #include <string>
-#include "com\neovisionaries\ws\client/Token.h"
+#include "com/neovisionaries/ws/client/Token.h"
 
 namespace com {
 namespace neovisionaries {

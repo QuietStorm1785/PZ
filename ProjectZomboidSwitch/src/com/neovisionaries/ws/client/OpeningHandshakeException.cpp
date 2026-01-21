@@ -1,4 +1,4 @@
-#include "com\neovisionaries\ws\client/OpeningHandshakeException.h"
+#include "com/neovisionaries/ws/client/OpeningHandshakeException.h"
 
 namespace com {
 namespace neovisionaries {

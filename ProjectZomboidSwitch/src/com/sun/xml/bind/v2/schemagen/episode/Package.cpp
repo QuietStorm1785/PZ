@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\schemagen\episode/Package.h"
+#include "com/sun/xml/bind/v2/schemagen/episode/Package.h"
 
 namespace com {
 namespace sun {

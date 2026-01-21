@@ -1,4 +1,4 @@
-#include "zombie\radio\globals/CompareResult.h"
+#include "zombie/radio/globals/CompareResult.h"
 
 namespace zombie {
 namespace radio {

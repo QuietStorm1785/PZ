@@ -1,4 +1,4 @@
-#include "com\jcraft\jorbis/FuncMapping.h"
+#include "com/jcraft/jorbis/FuncMapping.h"
 
 namespace com {
 namespace jcraft {

@@ -1,4 +1,4 @@
-#include "com\google\common\reflect/Types$NativeTypeVariableEquals.h"
+#include "com/google/common/reflect/Types$NativeTypeVariableEquals.h"
 
 namespace com {
 namespace google {

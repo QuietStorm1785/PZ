@@ -1,4 +1,4 @@
-#include "zombie\radio/GameMode.h"
+#include "zombie/radio/GameMode.h"
 
 namespace zombie {
 namespace radio {

@@ -1,4 +1,4 @@
-#include "zombie\audio\parameters/ParameterTimeOfDay.h"
+#include "zombie/audio/parameters/ParameterTimeOfDay.h"
 
 namespace zombie {
 namespace audio {

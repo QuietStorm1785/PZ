@@ -1,4 +1,4 @@
-#include "zombie\core\opengl/GLState.h"
+#include "zombie/core/opengl/GLState.h"
 
 namespace zombie {
 namespace core {

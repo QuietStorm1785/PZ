@@ -1,4 +1,4 @@
-#include "zombie\chat/ChatElementOwner.h"
+#include "zombie/chat/ChatElementOwner.h"
 
 namespace zombie {
 namespace chat {

@@ -1,5 +1,5 @@
 #include <string>
-#include "com\sun\xml\bind\v2\runtime/RuntimeUtil$ToStringAdapter.h"
+#include "com/sun/xml/bind/v2/runtime/RuntimeUtil$ToStringAdapter.h"
 
 namespace com {
 namespace sun {

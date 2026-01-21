@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\neovisionaries\ws\client/WebSocketFrame.h"
+#include "com/neovisionaries/ws/client/WebSocketFrame.h"
 
 namespace com {
 namespace neovisionaries {

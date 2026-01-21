@@ -1,4 +1,4 @@
-#include "zombie\ui/RadialProgressBar$RadSegment.h"
+#include "zombie/ui/RadialProgressBar$RadSegment.h"
 
 namespace zombie {
 namespace ui {

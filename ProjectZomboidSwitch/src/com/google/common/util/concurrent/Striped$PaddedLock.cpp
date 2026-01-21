@@ -1,4 +1,4 @@
-#include "com\google\common\util\concurrent/Striped$PaddedLock.h"
+#include "com/google/common/util/concurrent/Striped$PaddedLock.h"
 
 namespace com {
 namespace google {

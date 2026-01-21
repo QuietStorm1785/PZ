@@ -1,7 +1,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include "zombie\inventory\types/HandWeapon.h"
+#include "zombie/inventory/types/HandWeapon.h"
 
 namespace zombie {
 namespace inventory {

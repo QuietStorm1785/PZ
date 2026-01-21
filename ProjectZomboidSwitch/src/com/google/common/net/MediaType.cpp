@@ -1,6 +1,6 @@
 #include <memory>
 #include <string>
-#include "com\google\common\net/MediaType.h"
+#include "com/google/common/net/MediaType.h"
 
 namespace com {
 namespace google {

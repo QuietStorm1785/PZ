@@ -1,5 +1,5 @@
 #include <memory>
-#include "zombie\vehicles/QuadranglesIntersection.h"
+#include "zombie/vehicles/QuadranglesIntersection.h"
 
 namespace zombie {
 namespace vehicles {

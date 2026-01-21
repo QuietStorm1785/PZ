@@ -1,4 +1,4 @@
-#include "zombie\network/DiscordBot$Connector.h"
+#include "zombie/network/DiscordBot$Connector.h"
 
 namespace zombie {
 namespace network {

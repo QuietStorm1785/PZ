@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\primitives/Booleans.h"
+#include "com/google/common/primitives/Booleans.h"
 
 namespace com {
 namespace google {

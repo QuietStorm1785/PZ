@@ -1,6 +1,6 @@
 #include <sstream>
 #include <string>
-#include "com\google\common\base/Joiner$MapJoiner.h"
+#include "com/google/common/base/Joiner$MapJoiner.h"
 
 namespace com {
 namespace google {

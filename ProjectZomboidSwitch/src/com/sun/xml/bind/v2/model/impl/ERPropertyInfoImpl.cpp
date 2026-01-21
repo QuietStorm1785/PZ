@@ -1,4 +1,4 @@
-#include "com\sun\xml\bind\v2\model\impl/ERPropertyInfoImpl.h"
+#include "com/sun/xml/bind/v2/model/impl/ERPropertyInfoImpl.h"
 
 namespace com {
 namespace sun {

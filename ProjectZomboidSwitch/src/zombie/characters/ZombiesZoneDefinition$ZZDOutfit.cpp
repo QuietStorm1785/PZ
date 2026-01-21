@@ -1,4 +1,4 @@
-#include "zombie\characters/ZombiesZoneDefinition$ZZDOutfit.h"
+#include "zombie/characters/ZombiesZoneDefinition$ZZDOutfit.h"
 
 namespace zombie {
 namespace characters {

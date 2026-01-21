@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "zombie\core\skinnedmodel\population/ClothingDecalGroup.h"
+#include "zombie/core/skinnedmodel/population/ClothingDecalGroup.h"
 
 namespace zombie {
 namespace core {

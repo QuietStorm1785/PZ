@@ -1,4 +1,4 @@
-#include "de\jarnbjo\ogg/UncachedUrlStream$LoaderThread.h"
+#include "de/jarnbjo/ogg/UncachedUrlStream$LoaderThread.h"
 
 namespace de {
 namespace jarnbjo {

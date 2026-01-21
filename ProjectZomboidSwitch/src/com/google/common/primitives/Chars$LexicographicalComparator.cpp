@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\primitives/Chars$LexicographicalComparator.h"
+#include "com/google/common/primitives/Chars$LexicographicalComparator.h"
 
 namespace com {
 namespace google {

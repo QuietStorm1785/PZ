@@ -1,5 +1,5 @@
 #include <string>
-#include "com\google\common\collect/Collections2$OrderedPermutationCollection.h"
+#include "com/google/common/collect/Collections2$OrderedPermutationCollection.h"
 
 namespace com {
 namespace google {

@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie\Lua/LuaManager$GlobalObject$ItemQueryJava.h"
+#include "zombie/Lua/LuaManager$GlobalObject$ItemQueryJava.h"
 
 namespace zombie {
 namespace Lua {

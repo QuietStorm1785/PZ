@@ -1,5 +1,5 @@
 #include <string>
-#include "de\btobastian\javacord\entities\permissions/Role.h"
+#include "de/btobastian/javacord/entities/permissions/Role.h"
 
 namespace de {
 namespace btobastian {

@@ -1,4 +1,4 @@
-#include "com\google\common\hash/Hashing$ConcatenatedHashFunction.h"
+#include "com/google/common/hash/Hashing$ConcatenatedHashFunction.h"
 
 namespace com {
 namespace google {
