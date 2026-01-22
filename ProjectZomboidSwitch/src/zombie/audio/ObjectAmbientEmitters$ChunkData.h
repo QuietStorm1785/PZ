@@ -1,38 +1,4 @@
-#pragma once
-#include <string>
-#include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-#include "zombie/audio/ObjectAmbientEmitters/PerObjectLogic.h"
-#include "zombie/iso/IsoObject.h"
+// This file has been merged into ObjectAmbientEmitters.h and is now obsolete.
+// `ChunkData` is defined in ObjectAmbientEmitters.h — include that header instead:
+//   #include "zombie/audio/ObjectAmbientEmitters.h"
 
-namespace zombie {
-namespace audio {
-
-
-class ObjectAmbientEmitters {
-public:
-   const std::unordered_map<IsoObject, PerObjectLogic> m_objects = std::make_unique<std::unordered_map<>>();
-
-    bool hasObject(IsoObject var1) {
-      return this.m_objects.containsKey(var1);
-   }
-
-    void addObject(IsoObject var1, PerObjectLogic var2) {
-      if (!this.m_objects.containsKey(var1)) {
-         this.m_objects.put(var1, var2);
-      }
-   }
-
-    void removeObject(IsoObject var1) {
-      this.m_objects.remove(var1);
-   }
-
-    void reset() {
-      this.m_objects.clear();
-   }
-}
-} // namespace audio
-} // namespace zombie
