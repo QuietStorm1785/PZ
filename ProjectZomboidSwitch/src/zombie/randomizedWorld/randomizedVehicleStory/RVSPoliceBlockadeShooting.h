@@ -1,0 +1,171 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/core/Rand.h"
+#include "zombie/iso/IsoCell.h"
+#include "zombie/iso/IsoChunk.h"
+#include "zombie/iso/IsoDirections.h"
+#include "zombie/iso/IsoGridSquare.h"
+#include "zombie/iso/IsoMetaGrid/Zone.h"
+#include "zombie/iso/IsoObject.h"
+#include "zombie/iso/Vector2.h"
+#include "zombie/randomizedWorld/randomizedVehicleStory/VehicleStorySpawner/Element.h"
+#include "zombie/vehicles/BaseVehicle.h"
+#include "zombie/vehicles/VehiclePart.h"
+
+namespace zombie {
+namespace randomizedWorld {
+namespace randomizedVehicleStory {
+
+
+class RVSPoliceBlockadeShooting : public RandomizedVehicleStoryBase {
+public:
+    public RVSPoliceBlockadeShooting() {
+      this.name = "Police Blockade Shooting";
+      this.minZoneWidth = 8;
+      this.minZoneHeight = 8;
+      this.setChance(1);
+      this.setMaximumDays(30);
+   }
+
+    bool isValid(Zone var1, IsoChunk var2, bool var3) {
+    bool var4 = super.isValid(var1, var2, var3);
+      return !var4 ? false : var1.isRectangle();
+   }
+
+    void randomizeVehicleStory(Zone var1, IsoChunk var2) {
+      this.callVehicleStorySpawner(var1, var2, 0.0F);
+   }
+
+    bool initVehicleStorySpawner(Zone var1, IsoChunk var2, bool var3) {
+    VehicleStorySpawner var4 = VehicleStorySpawner.getInstance();
+      var4.clear();
+    float var5 = (float) (Math.PI / 18);
+      if (var3) {
+         var5 = 0.0F;
+      }
+
+    float var6 = 1.5F;
+    float var7 = 1.0F;
+      if (this.zoneWidth >= 10) {
+         var6 = 2.5F;
+         var7 = 0.0F;
+      }
+
+    bool var8 = Rand.NextBool(2);
+      if (var3) {
+         var8 = true;
+      }
+
+    IsoDirections var9 = Rand.NextBool(2) ? IsoDirections.W : IsoDirections.E;
+    Vector2 var10 = var9.ToVector();
+      var10.rotate(Rand.Next(-var5, var5));
+      var4.addElement("vehicle1", -var6, var7, var10.getDirection(), 2.0F, 5.0F);
+      var10 = var9.RotLeft(4).ToVector();
+      var10.rotate(Rand.Next(-var5, var5));
+      var4.addElement("vehicle2", var6, -var7, var10.getDirection(), 2.0F, 5.0F);
+      var4.addElement("barricade", 0.0F, var8 ? -var7 - 2.5F : var7 + 2.5F, IsoDirections.N.ToVector().getDirection(), this.zoneWidth, 1.0F);
+    int var11 = Rand.Next(7, 15);
+
+      for (int var12 = 0; var12 < var11; var12++) {
+         var4.addElement(
+            "corpse",
+            Rand.Next(-this.zoneWidth / 2.0F + 1.0F, this.zoneWidth / 2.0F - 1.0F),
+            var8 ? Rand.Next(-7, -4) - var7 : Rand.Next(5, 8) + var7,
+            IsoDirections.getRandom().ToVector().getDirection(),
+            1.0F,
+            2.0F
+         );
+      }
+
+    std::string var14 = "Base.CarLightsPolice";
+      if (Rand.NextBool(3)) {
+         var14 = "Base.PickUpVanLightsPolice";
+      }
+
+      var4.setParameter("zone", var1);
+      var4.setParameter("script", var14);
+    return true;
+   }
+
+    void spawnElement(VehicleStorySpawner var1, Element var2) {
+    IsoGridSquare var3 = var2.square;
+      if (var3 != nullptr) {
+    float var4 = var2.z;
+    Zone var5 = (Zone)var1.getParameter("zone", Zone.class);
+    std::string var6 = var1.getParameterString("script");
+    std::string var7 = var2.id;
+         switch (var7) {
+            case "barricade":
+               if (this.horizontalZone) {
+    int var15 = (int)(var2.position.y - var2.width / 2.0F);
+    int var19 = (int)(var2.position.y + var2.width / 2.0F) - 1;
+    int var22 = (int)var2.position.x;
+
+                  for (int var12 = var15; var12 <= var19; var12++) {
+    IsoGridSquare var13 = IsoCell.getInstance().getGridSquare(var22, var12, var5.z);
+                     if (var13 != nullptr) {
+                        if (var12 != var15 && var12 != var19) {
+                           var13.AddTileObject(IsoObject.getNew(var13, "construction_01_9", nullptr, false));
+                        } else {
+                           var13.AddTileObject(IsoObject.getNew(var13, "street_decoration_01_26", nullptr, false));
+                        }
+                     }
+                  }
+               } else {
+    int var16 = (int)(var2.position.x - var2.width / 2.0F);
+    int var20 = (int)(var2.position.x + var2.width / 2.0F) - 1;
+    int var23 = (int)var2.position.y;
+
+                  for (int var24 = var16; var24 <= var20; var24++) {
+    IsoGridSquare var25 = IsoCell.getInstance().getGridSquare(var24, var23, var5.z);
+                     if (var25 != nullptr) {
+                        if (var24 != var16 && var24 != var20) {
+                           var25.AddTileObject(IsoObject.getNew(var25, "construction_01_8", nullptr, false));
+                        } else {
+                           var25.AddTileObject(IsoObject.getNew(var25, "street_decoration_01_26", nullptr, false));
+                        }
+                     }
+                  }
+               }
+               break;
+            case "corpse":
+    BaseVehicle var14 = (BaseVehicle)var1.getParameter("vehicle1", BaseVehicle.class);
+               if (var14 != nullptr) {
+                  createRandomDeadBody(var2.position.x, var2.position.y, var5.z, var2.direction, false, 10, 10, nullptr);
+                  IsoDirections var18 = this.horizontalZone
+                     ? (var2.position.x < var14.x ? IsoDirections.W : IsoDirections.E)
+                     : (var2.position.y < var14.y ? IsoDirections.N : IsoDirections.S);
+    float var21 = var18.ToVector().getDirection();
+                  this.addTrailOfBlood(var2.position.x, var2.position.y, var2.z, var21, 5);
+               }
+               break;
+            case "vehicle1":
+            case "vehicle2":
+    BaseVehicle var9 = this.addVehicle(var5, var2.position.x, var2.position.y, var4, var2.direction, nullptr, var6, nullptr, nullptr);
+               if (var9 != nullptr) {
+                  var1.setParameter(var2.id, var9);
+                  if (Rand.NextBool(3)) {
+                     var9.setHeadlightsOn(true);
+                     var9.setLightbarLightsMode(2);
+    VehiclePart var10 = var9.getBattery();
+                     if (var10 != nullptr) {
+                        var10.setLastUpdated(0.0F);
+                     }
+                  }
+
+    std::string var17 = "PoliceRiot";
+    int var11 = 0;
+                  this.addZombiesOnVehicle(Rand.Next(2, 4), var17, var11, var9);
+               }
+         }
+      }
+   }
+}
+} // namespace randomizedVehicleStory
+} // namespace randomizedWorld
+} // namespace zombie

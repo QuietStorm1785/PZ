@@ -1,0 +1,450 @@
+#pragma once
+#include <stack>
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "java/net/URI.h"
+#include "zombie/ZomboidFileSystem.h"
+#include "zombie/core/Core.h"
+#include "zombie/debug/DebugLog.h"
+#include "zombie/network/MD5Checksum.h"
+#include <algorithm>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+
+namespace zombie {
+namespace core {
+namespace logger {
+
+
+class ZipLogs {
+public:
+   static std::vector<std::string> filePaths = std::make_unique<std::vector<>>();
+
+    static void addZipFile(bool var0) {
+    FileSystem var1 = nullptr;
+
+      try {
+    std::string var2 = ZomboidFileSystem.instance.getCacheDir() + File.separator + "logs.zip";
+    std::string var3 = std::make_shared<File>(var2).toURI();
+    URI var4 = URI.create("jar:" + var3);
+    Path var5 = FileSystems.getDefault().getPath(var2).toAbsolutePath();
+    std::unordered_map var6 = new std::unordered_map();
+         var6.put("create", std::string.valueOf(Files.notExists(var5)));
+
+         try {
+            var1 = FileSystems.newFileSystem(var4, var6);
+         } catch (IOException var19) {
+            var19.printStackTrace();
+            return;
+         } catch (ZipError var20) {
+            var20.printStackTrace();
+            DebugLog.log("Deleting possibly-corrupt " + var2);
+
+            try {
+               Files.deleteIfExists(var5);
+            } catch (IOException var17) {
+               var17.printStackTrace();
+            }
+
+            return;
+         }
+
+    long var7 = getMD5FromZip(var1, "/meta/console.txt.md5");
+    long var9 = getMD5FromZip(var1, "/meta/coop-console.txt.md5");
+    long var11 = getMD5FromZip(var1, "/meta/server-console.txt.md5");
+    long var13 = getMD5FromZip(var1, "/meta/DebugLog.txt.md5");
+         addLogToZip(var1, "console", "console.txt", var7);
+         addLogToZip(var1, "coop-console", "coop-console.txt", var9);
+         addLogToZip(var1, "server-console", "server-console.txt", var11);
+         addDebugLogToZip(var1, "debug-log", "DebugLog.txt", var13);
+         addToZip(var1, "/configs/options.ini", "options.ini");
+         addToZip(var1, "/configs/popman-options.ini", "popman-options.ini");
+         addToZip(var1, "/configs/latestSave.ini", "latestSave.ini");
+         addToZip(var1, "/configs/debug-options.ini", "debug-options.ini");
+         addToZip(var1, "/configs/sounds.ini", "sounds.ini");
+         addToZip(var1, "/addition/translationProblems.txt", "translationProblems.txt");
+         addToZip(var1, "/addition/gamepadBinding.config", "gamepadBinding.config");
+         addFilelistToZip(var1, "/addition/mods.txt", "mods");
+         addDirToZipLua(var1, "/lua", "Lua");
+         addDirToZip(var1, "/db", "db");
+         addDirToZip(var1, "/server", "Server");
+         addDirToZip(var1, "/statistic", "Statistic");
+         if (!var0) {
+            addSaveOldToZip(var1, "/save_old/map_t.bin", "map_t.bin");
+            addSaveOldToZip(var1, "/save_old/map_ver.bin", "map_ver.bin");
+            addSaveOldToZip(var1, "/save_old/map.bin", "map.bin");
+            addSaveOldToZip(var1, "/save_old/map_sand.bin", "map_sand.bin");
+            addSaveOldToZip(var1, "/save_old/reanimated.bin", "reanimated.bin");
+            addSaveOldToZip(var1, "/save_old/zombies.ini", "zombies.ini");
+            addSaveOldToZip(var1, "/save_old/z_outfits.bin", "z_outfits.bin");
+            addSaveOldToZip(var1, "/save_old/map_p.bin", "map_p.bin");
+            addSaveOldToZip(var1, "/save_old/map_meta.bin", "map_meta.bin");
+            addSaveOldToZip(var1, "/save_old/map_zone.bin", "map_zone.bin");
+            addSaveOldToZip(var1, "/save_old/serverid.dat", "serverid.dat");
+            addSaveOldToZip(var1, "/save_old/thumb.png", "thumb.png");
+            addSaveOldToZip(var1, "/save_old/players.db", "players.db");
+            addSaveOldToZip(var1, "/save_old/players.db-journal", "players.db-journal");
+            addSaveOldToZip(var1, "/save_old/vehicles.db", "vehicles.db");
+            addSaveOldToZip(var1, "/save_old/vehicles.db-journal", "vehicles.db-journal");
+            putTextFile(var1, "/save_old/description.txt", getLastSaveDescription());
+         } else {
+            addSaveToZip(var1, "/save/map_t.bin", "map_t.bin");
+            addSaveToZip(var1, "/save/map_ver.bin", "map_ver.bin");
+            addSaveToZip(var1, "/save/map.bin", "map.bin");
+            addSaveToZip(var1, "/save/map_sand.bin", "map_sand.bin");
+            addSaveToZip(var1, "/save/reanimated.bin", "reanimated.bin");
+            addSaveToZip(var1, "/save/zombies.ini", "zombies.ini");
+            addSaveToZip(var1, "/save/z_outfits.bin", "z_outfits.bin");
+            addSaveToZip(var1, "/save/map_p.bin", "map_p.bin");
+            addSaveToZip(var1, "/save/map_meta.bin", "map_meta.bin");
+            addSaveToZip(var1, "/save/map_zone.bin", "map_zone.bin");
+            addSaveToZip(var1, "/save/serverid.dat", "serverid.dat");
+            addSaveToZip(var1, "/save/thumb.png", "thumb.png");
+            addSaveToZip(var1, "/save/players.db", "players.db");
+            addSaveToZip(var1, "/save/players.db-journal", "players.db-journal");
+            addSaveToZip(var1, "/save/vehicles.db", "vehicles.db");
+            addSaveToZip(var1, "/save/vehicles.db-journal", "vehicles.db-journal");
+            putTextFile(var1, "/save/description.txt", getCurrentSaveDescription());
+         }
+
+         try {
+            var1.close();
+         } catch (IOException var18) {
+            var18.printStackTrace();
+         }
+      } catch (Exception var21) {
+         if (var1 != nullptr) {
+            try {
+               var1.close();
+            } catch (IOException var16) {
+               var16.printStackTrace();
+            }
+         }
+
+         var21.printStackTrace();
+      }
+   }
+
+    static void copyToZip(Path var0, Path var1, Path var2) {
+    Path var3 = var0.resolve(var1.relativize(var2));
+      if (Files.isDirectory(var2)) {
+         Files.createDirectories(var3);
+      } else {
+         Files.copy(var2, var3);
+      }
+   }
+
+    static void addToZip(FileSystem var0, const std::string& var1, const std::string& var2) {
+      try {
+    Path var3 = var0.getPath(var1);
+         Files.createDirectories(var3.getParent());
+    Path var4 = FileSystems.getDefault().getPath(ZomboidFileSystem.instance.getCacheDir() + File.separator + var2).toAbsolutePath();
+         Files.deleteIfExists(var3);
+         if (Files.exists(var4)) {
+            Files.copy(var4, var3, StandardCopyOption.REPLACE_EXISTING);
+         }
+      } catch (IOException var5) {
+         var5.printStackTrace();
+      }
+   }
+
+    static void addSaveToZip(FileSystem var0, const std::string& var1, const std::string& var2) {
+      try {
+    Path var3 = var0.getPath(var1);
+         Files.createDirectories(var3.getParent());
+    Path var4 = FileSystems.getDefault().getPath(ZomboidFileSystem.instance.getFileNameInCurrentSave(var2)).toAbsolutePath();
+         Files.deleteIfExists(var3);
+         if (Files.exists(var4)) {
+            Files.copy(var4, var3, StandardCopyOption.REPLACE_EXISTING);
+         }
+      } catch (IOException var5) {
+         var5.printStackTrace();
+      }
+   }
+
+    static void addSaveOldToZip(FileSystem var0, const std::string& var1, const std::string& var2) {
+      try {
+    BufferedReader var3 = nullptr;
+
+         try {
+            var3 = std::make_shared<BufferedReader>(std::make_shared<FileReader>(std::make_shared<File>(ZomboidFileSystem.instance.getCacheDir() + File.separator + "latestSave.ini")));
+         } catch (FileNotFoundException var8) {
+            return;
+         }
+
+    std::string var4 = var3.readLine();
+    std::string var5 = var3.readLine();
+         var3.close();
+    Path var6 = var0.getPath(var1);
+         Files.createDirectories(var6.getParent());
+         Path var7 = FileSystems.getDefault()
+            .getPath(ZomboidFileSystem.instance.getSaveDir() + File.separator + var5 + File.separator + var4 + File.separator + var2)
+            .toAbsolutePath();
+         Files.deleteIfExists(var6);
+         if (Files.exists(var7)) {
+            Files.copy(var7, var6, StandardCopyOption.REPLACE_EXISTING);
+         }
+      } catch (IOException var9) {
+         var9.printStackTrace();
+      }
+   }
+
+    static std::string getLastSaveDescription() {
+      try {
+    BufferedReader var0 = nullptr;
+
+         try {
+            var0 = std::make_shared<BufferedReader>(std::make_shared<FileReader>(std::make_shared<File>(ZomboidFileSystem.instance.getCacheDir() + File.separator + "latestSave.ini")));
+         } catch (FileNotFoundException var3) {
+            return "-";
+         }
+
+    std::string var1 = var0.readLine();
+    std::string var2 = var0.readLine();
+         var0.close();
+         return "World: " + var1 + "\n\rGameMode:" + var2;
+      } catch (IOException var4) {
+         var4.printStackTrace();
+         return "-";
+      }
+   }
+
+    static std::string getCurrentSaveDescription() {
+    std::string var0 = "Sandbox";
+      if (Core.GameMode != nullptr) {
+         var0 = Core.GameMode;
+      }
+
+    std::string var1 = "-";
+      if (Core.GameSaveWorld != nullptr) {
+         var1 = Core.GameSaveWorld;
+      }
+
+      return "World: " + var1 + "\n\rGameMode:" + var0;
+   }
+
+    static void addDirToZip(FileSystem var0, const std::string& var1, const std::string& var2) {
+      try {
+    Path var3 = var0.getPath(var1);
+         deleteDirectory(var0, var3);
+         Files.createDirectories(var3);
+    Path var4 = FileSystems.getDefault().getPath(ZomboidFileSystem.instance.getCacheDir() + File.separator + var2).toAbsolutePath();
+    Stream var5 = Files.walk(var4);
+         var5.forEach(var2x -> {
+            try {
+               copyToZip(var3, var4, var2x);
+            } catch (IOException var4x) {
+               throw RuntimeException(var4x);
+            }
+         });
+      } catch (IOException var6) {
+      }
+   }
+
+    static void addDirToZipLua(FileSystem var0, const std::string& var1, const std::string& var2) {
+      try {
+    Path var3 = var0.getPath(var1);
+         deleteDirectory(var0, var3);
+         Files.createDirectories(var3);
+    Path var4 = FileSystems.getDefault().getPath(ZomboidFileSystem.instance.getCacheDir() + File.separator + var2).toAbsolutePath();
+    Stream var5 = Files.walk(var4);
+         var5.forEach(var2x -> {
+            try {
+               if (!var2x.endsWith("ServerList.txt") && !var2x.endsWith("ServerListSteam.txt")) {
+                  copyToZip(var3, var4, var2x);
+               }
+            } catch (IOException var4x) {
+               throw RuntimeException(var4x);
+            }
+         });
+      } catch (IOException var6) {
+      }
+   }
+
+    static void addFilelistToZip(FileSystem var0, const std::string& var1, const std::string& var2) {
+      try {
+    Path var3 = var0.getPath(var1);
+    Path var4 = FileSystems.getDefault().getPath(ZomboidFileSystem.instance.getCacheDir() + File.separator + var2).toAbsolutePath();
+    Stream var5 = Files.list(var4);
+    std::string var6 = var5.map(Path::getFileName).map(Path::toString).collect(Collectors.joining(";
+         Files.deleteIfExists(var3);
+         Files.write(var3, var6.getBytes());
+      } catch (IOException var7) {
+      }
+   }
+
+    static void deleteDirectory(FileSystem var0, Path var1) {
+      filePaths.clear();
+      getDirectoryFiles(var1);
+
+    for (auto& var3 : filePaths)         try {
+            Files.delete(var0.getPath(var3));
+         } catch (IOException var5) {
+            var5.printStackTrace();
+         }
+      }
+   }
+
+    static void getDirectoryFiles(Path var0) {
+      try {
+    Stream var1 = Files.walk(var0);
+         var1.forEach(var1x -> {
+            if (!var1x == var0)) {
+               if (Files.isDirectory(var1x)) {
+                  getDirectoryFiles(var1x);
+               } else if (!filePaths.contains(var1x)) {
+                  filePaths.push_back(var1x);
+               }
+            }
+         });
+         filePaths.push_back(var0);
+      } catch (IOException var2) {
+      }
+   }
+
+    static void addLogToZip(FileSystem var0, const std::string& var1, const std::string& var2, long var3) {
+    long var5;
+      try {
+         var5 = MD5Checksum.createChecksum(ZomboidFileSystem.instance.getCacheDir() + File.separator + var2);
+      } catch (Exception var16) {
+         var5 = 0L;
+      }
+
+    File var7 = std::make_shared<File>(ZomboidFileSystem.instance.getCacheDir() + File.separator + var2);
+      if (var7.exists() && !var7.isDirectory() && var5 != var3) {
+         try {
+    Path var8 = var0.getPath("/" + var1 + "/log_5.txt");
+            Files.delete(var8);
+         } catch (Exception var15) {
+         }
+
+         for (int var17 = 5; var17 > 0; var17--) {
+    Path var9 = var0.getPath("/" + var1 + "/log_" + var17 + ".txt");
+    Path var10 = var0.getPath("/" + var1 + "/log_" + (var17 + 1) + ".txt");
+
+            try {
+               Files.move(var9, var10);
+            } catch (Exception var14) {
+            }
+         }
+
+         try {
+    Path var18 = var0.getPath("/" + var1 + "/log_1.txt");
+            Files.createDirectories(var18.getParent());
+    Path var19 = FileSystems.getDefault().getPath(ZomboidFileSystem.instance.getCacheDir() + File.separator + var2).toAbsolutePath();
+            Files.copy(var19, var18, StandardCopyOption.REPLACE_EXISTING);
+    Path var20 = var0.getPath("/meta/" + var2 + ".md5");
+            Files.createDirectories(var20.getParent());
+
+            try {
+               Files.delete(var20);
+            } catch (Exception var12) {
+            }
+
+            Files.write(var20, std::string.valueOf(var5).getBytes());
+         } catch (Exception var13) {
+            var13.printStackTrace();
+         }
+      }
+   }
+
+    static void addDebugLogToZip(FileSystem var0, const std::string& var1, const std::string& var2, long var3) {
+    std::string var5 = nullptr;
+    File var6 = std::make_shared<File>(LoggerManager.getLogsDir());
+      std::string[] var7 = var6.list();
+
+      for (int var8 = 0; var8 < var7.length; var8++) {
+    std::string var9 = var7[var8];
+         if (var9.contains("DebugLog.txt")) {
+            var5 = LoggerManager.getLogsDir() + File.separator + var9;
+            break;
+         }
+      }
+
+      if (var5 != nullptr) {
+    long var20;
+         try {
+            var20 = MD5Checksum.createChecksum(var5);
+         } catch (Exception var19) {
+            var20 = 0L;
+         }
+
+    File var10 = std::make_shared<File>(var5);
+         if (var10.exists() && !var10.isDirectory() && var20 != var3) {
+            try {
+    Path var11 = var0.getPath("/" + var1 + "/log_5.txt");
+               Files.delete(var11);
+            } catch (Exception var18) {
+            }
+
+            for (int var21 = 5; var21 > 0; var21--) {
+    Path var12 = var0.getPath("/" + var1 + "/log_" + var21 + ".txt");
+    Path var13 = var0.getPath("/" + var1 + "/log_" + (var21 + 1) + ".txt");
+
+               try {
+                  Files.move(var12, var13);
+               } catch (Exception var17) {
+               }
+            }
+
+            try {
+    Path var22 = var0.getPath("/" + var1 + "/log_1.txt");
+               Files.createDirectories(var22.getParent());
+    Path var23 = FileSystems.getDefault().getPath(var5).toAbsolutePath();
+               Files.copy(var23, var22, StandardCopyOption.REPLACE_EXISTING);
+    Path var24 = var0.getPath("/meta/" + var2 + ".md5");
+               Files.createDirectories(var24.getParent());
+
+               try {
+                  Files.delete(var24);
+               } catch (Exception var15) {
+               }
+
+               Files.write(var24, std::string.valueOf(var20).getBytes());
+            } catch (Exception var16) {
+               var16.printStackTrace();
+            }
+         }
+      }
+   }
+
+    static long getMD5FromZip(FileSystem var0, const std::string& var1) {
+    long var2 = 0L;
+
+      try {
+    Path var4 = var0.getPath(var1);
+         if (Files.exists(var4)) {
+    std::vector var5 = Files.readAllLines(var4);
+            var2 = int64_t.parseLong((std::string)var5.get(0));
+         }
+      } catch (Exception var6) {
+         var6.printStackTrace();
+      }
+
+    return var2;
+   }
+
+    static void putTextFile(FileSystem var0, const std::string& var1, const std::string& var2) {
+      try {
+    Path var3 = var0.getPath(var1);
+         Files.createDirectories(var3.getParent());
+
+         try {
+            Files.delete(var3);
+         } catch (Exception var5) {
+         }
+
+         Files.write(var3, var2.getBytes());
+      } catch (Exception var6) {
+         var6.printStackTrace();
+      }
+   }
+}
+} // namespace logger
+} // namespace core
+} // namespace zombie

@@ -1,0 +1,287 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "org/joml/Quaternionf.h"
+#include "org/joml/Vector3f.h"
+#include "zombie/GameTime.h"
+#include "zombie/characters/IsoPlayer.h"
+#include "zombie/core/physics/WorldSimulation/s_performance.h"
+#include "zombie/core/textures/TextureDraw/GenericDrawer.h"
+#include "zombie/iso/IsoChunkMap.h"
+#include "zombie/iso/IsoMovingObject.h"
+#include "zombie/iso/IsoWorld.h"
+#include "zombie/network/GameClient.h"
+#include "zombie/network/GameServer.h"
+#include "zombie/network/MPStatistic.h"
+#include "zombie/vehicles/BaseVehicle.h"
+#include "zombie/vehicles/BaseVehicle/Authorization.h"
+#include "zombie/vehicles/VehicleManager.h"
+
+namespace zombie {
+namespace core {
+namespace physics {
+
+
+class WorldSimulation {
+public:
+    static WorldSimulation instance = std::make_shared<WorldSimulation>();
+    static const bool LEVEL_ZERO_ONLY = true;
+   public std::unordered_map<int, IsoMovingObject> physicsObjectMap = std::make_unique<std::unordered_map<>>();
+    bool created = false;
+    float offsetX = 0.0F;
+    float offsetY = 0.0F;
+    long time;
+   private const std::vector<BaseVehicle> collideVehicles = new std::vector<>(4);
+    const Vector3f tempVector3f = std::make_shared<Vector3f>();
+    const Vector3f tempVector3f_2 = std::make_shared<Vector3f>();
+    const Transform tempTransform = std::make_shared<Transform>();
+    const Quaternionf javaxQuat4f = std::make_shared<Quaternionf>();
+   private const float[] ff = new float[8192];
+   private const float[] wheelSteer = new float[4];
+   private const float[] wheelRotation = new float[4];
+   private const float[] wheelSkidInfo = new float[4];
+   private const float[] wheelSuspensionLength = new float[4];
+
+    void create() {
+      if (!this.created) {
+         this.offsetX = IsoWorld.instance.MetaGrid.getMinX() * 300;
+         this.offsetY = IsoWorld.instance.MetaGrid.getMinY() * 300;
+         this.time = GameTime.getServerTimeMills();
+    IsoChunkMap var1 = IsoWorld.instance.CurrentCell.ChunkMap[0];
+         Bullet.initWorld((int)this.offsetX, (int)this.offsetY, var1.getWorldXMin(), var1.getWorldYMin(), IsoChunkMap.ChunkGridWidth);
+
+         for (int var2 = 0; var2 < 4; var2++) {
+            this.wheelSteer[var2] = 0.0F;
+            this.wheelRotation[var2] = 0.0F;
+            this.wheelSkidInfo[var2] = 0.0F;
+            this.wheelSuspensionLength[var2] = 0.0F;
+         }
+
+         this.created = true;
+      }
+   }
+
+    void destroy() {
+      Bullet.destroyWorld();
+   }
+
+    void updatePhysic(float var1) {
+      MPStatistic.getInstance().Bullet.Start();
+      Bullet.stepSimulation(var1, 2, 0.016666668F);
+      MPStatistic.getInstance().Bullet.End();
+      this.time = GameTime.getServerTimeMills();
+   }
+
+    void update() {
+      s_performance.worldSimulationUpdate.invokeAndMeasure(this, WorldSimulation::updateInternal);
+   }
+
+    void updateInternal() {
+      if (this.created) {
+         this.updatePhysic(GameTime.instance.getRealworldSecondsSinceLastUpdate());
+         this.collideVehicles.clear();
+    int var1 = Bullet.getVehicleCount();
+    int var2 = 0;
+
+         while (var2 < var1) {
+            MPStatistic.getInstance().Bullet.Start();
+    int var3 = Bullet.getVehiclePhysics(var2, this.ff);
+            MPStatistic.getInstance().Bullet.End();
+            if (var3 <= 0) {
+               break;
+            }
+
+            var2 += var3;
+    int var4 = 0;
+
+            for (int var5 = 0; var5 < var3; var5++) {
+    int var6 = (int)this.ff[var4++];
+    float var7 = this.ff[var4++];
+    float var8 = this.ff[var4++];
+    float var9 = this.ff[var4++];
+               this.tempTransform.origin.set(var7, var8, var9);
+    float var10 = this.ff[var4++];
+    float var11 = this.ff[var4++];
+    float var12 = this.ff[var4++];
+    float var13 = this.ff[var4++];
+               this.javaxQuat4f.set(var10, var11, var12, var13);
+               this.tempTransform.setRotation(this.javaxQuat4f);
+    float var14 = this.ff[var4++];
+    float var15 = this.ff[var4++];
+    float var16 = this.ff[var4++];
+               this.tempVector3f.set(var14, var15, var16);
+    float var17 = this.ff[var4++];
+    float var18 = this.ff[var4++];
+    int var19 = (int)this.ff[var4++];
+
+               for (int var20 = 0; var20 < var19; var20++) {
+                  this.wheelSteer[var20] = this.ff[var4++];
+                  this.wheelRotation[var20] = this.ff[var4++];
+                  this.wheelSkidInfo[var20] = this.ff[var4++];
+                  this.wheelSuspensionLength[var20] = this.ff[var4++];
+               }
+
+    int var56 = (int)(var7 * 100.0F + var8 * 100.0F + var9 * 100.0F + var10 * 100.0F + var11 * 100.0F + var12 * 100.0F + var13 * 100.0F);
+    BaseVehicle var21 = VehicleManager.instance.getVehicleByID((short)var6);
+               if (var21 != nullptr
+                  && (
+                     !GameClient.bClient
+                        || !var21.isNetPlayerAuthorization(Authorization.Remote) && !var21.isNetPlayerAuthorization(Authorization.RemoteCollide)
+                  )) {
+                  if (var21.VehicleID == var6 && var18 > 0.5F) {
+                     this.collideVehicles.push_back(var21);
+                     var21.authSimulationHash = var56;
+                  }
+
+                  if (GameClient.bClient && var21.isNetPlayerAuthorization(Authorization.LocalCollide)) {
+                     if (var21.authSimulationHash != var56) {
+                        var21.authSimulationTime = System.currentTimeMillis();
+                        var21.authSimulationHash = var56;
+                     }
+
+                     if (System.currentTimeMillis() - var21.authSimulationTime > 1000L) {
+                        VehicleManager.instance.sendCollide(var21, var21.getDriver(), false);
+                        var21.authSimulationTime = 0L;
+                     }
+                  }
+
+                  if (!var21.isNetPlayerAuthorization(Authorization.Remote) || !var21.isNetPlayerAuthorization(Authorization.RemoteCollide)) {
+                     if (GameClient.bClient && var21.isNetPlayerAuthorization(Authorization.Server)) {
+                        var21.jniSpeed = 0.0F;
+                     } else {
+                        var21.jniSpeed = var17;
+                     }
+                  }
+
+                  if (!GameClient.bClient
+                     || !var21.isNetPlayerAuthorization(Authorization.Server)
+                        && !var21.isNetPlayerAuthorization(Authorization.Remote)
+                        && !var21.isNetPlayerAuthorization(Authorization.RemoteCollide)) {
+                     if (this.compareTransform(this.tempTransform, var21.getPoly().t)) {
+                        var21.polyDirty = true;
+                     }
+
+                     var21.jniTransform.set(this.tempTransform);
+                     var21.jniLinearVelocity.set(this.tempVector3f);
+                     var21.jniIsCollide = var18 > 0.5F;
+
+                     for (int var22 = 0; var22 < var19; var22++) {
+                        var21.wheelInfo[var22].steering = this.wheelSteer[var22];
+                        var21.wheelInfo[var22].rotation = this.wheelRotation[var22];
+                        var21.wheelInfo[var22].skidInfo = this.wheelSkidInfo[var22];
+                        var21.wheelInfo[var22].suspensionLength = this.wheelSuspensionLength[var22];
+                     }
+                  }
+               }
+            }
+         }
+
+         if (GameClient.bClient) {
+    IsoPlayer var23 = IsoPlayer.players[IsoPlayer.getPlayerIndex()];
+            if (var23 != nullptr) {
+    BaseVehicle var41 = var23.getVehicle();
+               if (var41 != nullptr && var41.isNetPlayerId(var23.getOnlineID()) && this.collideVehicles.contains(var41)) {
+                  for (BaseVehicle var48 : this.collideVehicles) {
+                     if (var48.DistTo(var41) < 8.0F && var48.isNetPlayerAuthorization(Authorization.Server)) {
+                        VehicleManager.instance.sendCollide(var48, var23, true);
+                        var48.authorizationClientCollide(var23);
+                     }
+                  }
+               }
+            }
+         }
+
+         MPStatistic.getInstance().Bullet.Start();
+    int var24 = Bullet.getObjectPhysics(this.ff);
+         MPStatistic.getInstance().Bullet.End();
+    int var42 = 0;
+
+         for (int var47 = 0; var47 < var24; var47++) {
+    int var49 = (int)this.ff[var42++];
+    float var50 = this.ff[var42++];
+    float var52 = this.ff[var42++];
+    float var53 = this.ff[var42++];
+            var50 += this.offsetX;
+            var53 += this.offsetY;
+    IsoMovingObject var55 = this.physicsObjectMap.get(var49);
+            if (var55 != nullptr) {
+               var55.removeFromSquare();
+               var55.setX(var50 + 0.18F);
+               var55.setY(var53);
+               var55.setZ(Math.max(0.0F, var52 / 3.0F / 0.82F));
+               var55.setCurrent(IsoWorld.instance.getCell().getGridSquare(var55.getX(), var55.getY(), var55.getZ()));
+            }
+         }
+      }
+   }
+
+    bool compareTransform(Transform var1, Transform var2) {
+      if (!(Math.abs(var1.origin.x - var2.origin.x) > 0.01F) && !(Math.abs(var1.origin.z - var2.origin.z) > 0.01F) && (int)var1.origin.y == (int)var2.origin.y) {
+    uint8_t var3 = 2;
+         var1.basis.getColumn(var3, this.tempVector3f_2);
+    float var4 = this.tempVector3f_2.x;
+    float var5 = this.tempVector3f_2.z;
+         var2.basis.getColumn(var3, this.tempVector3f_2);
+    float var6 = this.tempVector3f_2.x;
+    float var7 = this.tempVector3f_2.z;
+         return Math.abs(var4 - var6) > 0.001F || Math.abs(var5 - var7) > 0.001F;
+      } else {
+    return true;
+      }
+   }
+
+    int setOwnVehiclePhysics(int var1, float[] var2) {
+      return Bullet.setOwnVehiclePhysics(var1, var2);
+   }
+
+    void activateChunkMap(int var1) {
+      this.create();
+    IsoChunkMap var2 = IsoWorld.instance.CurrentCell.ChunkMap[var1];
+      if (!GameServer.bServer) {
+         Bullet.activateChunkMap(var1, var2.getWorldXMin(), var2.getWorldYMin(), IsoChunkMap.ChunkGridWidth);
+      }
+   }
+
+    void deactivateChunkMap(int var1) {
+      if (this.created) {
+         Bullet.deactivateChunkMap(var1);
+      }
+   }
+
+    void scrollGroundLeft(int var1) {
+      if (this.created) {
+         Bullet.scrollChunkMapLeft(var1);
+      }
+   }
+
+    void scrollGroundRight(int var1) {
+      if (this.created) {
+         Bullet.scrollChunkMapRight(var1);
+      }
+   }
+
+    void scrollGroundUp(int var1) {
+      if (this.created) {
+         Bullet.scrollChunkMapUp(var1);
+      }
+   }
+
+    void scrollGroundDown(int var1) {
+      if (this.created) {
+         Bullet.scrollChunkMapDown(var1);
+      }
+   }
+
+    static GenericDrawer getDrawer(int var0) {
+    PhysicsDebugRenderer var1 = PhysicsDebugRenderer.alloc();
+      var1.init(IsoPlayer.players[var0]);
+    return var1;
+   }
+}
+} // namespace physics
+} // namespace core
+} // namespace zombie

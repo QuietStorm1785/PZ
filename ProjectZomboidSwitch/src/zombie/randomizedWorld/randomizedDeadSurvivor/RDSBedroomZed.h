@@ -1,0 +1,74 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/core/Rand.h"
+#include "zombie/iso/BuildingDef.h"
+#include "zombie/iso/IsoGridSquare.h"
+#include "zombie/iso/RoomDef.h"
+
+namespace zombie {
+namespace randomizedWorld {
+namespace randomizedDeadSurvivor {
+
+
+class RDSBedroomZed : public RandomizedDeadSurvivorBase {
+public:
+   private const std::vector<std::string> pantsMaleItems = std::make_unique<std::vector<>>();
+   private const std::vector<std::string> pantsFemaleItems = std::make_unique<std::vector<>>();
+   private const std::vector<std::string> topItems = std::make_unique<std::vector<>>();
+   private const std::vector<std::string> shoesItems = std::make_unique<std::vector<>>();
+
+    public RDSBedroomZed() {
+      this.name = "Bedroom Zed";
+      this.setChance(7);
+      this.shoesItems.push_back("Base.Shoes_Random");
+      this.shoesItems.push_back("Base.Shoes_TrainerTINT");
+      this.pantsMaleItems.push_back("Base.TrousersMesh_DenimLight");
+      this.pantsMaleItems.push_back("Base.Trousers_DefaultTEXTURE_TINT");
+      this.pantsMaleItems.push_back("Base.Trousers_Denim");
+      this.pantsFemaleItems.push_back("Base.Skirt_Knees");
+      this.pantsFemaleItems.push_back("Base.Skirt_Long");
+      this.pantsFemaleItems.push_back("Base.Skirt_Short");
+      this.pantsFemaleItems.push_back("Base.Skirt_Normal");
+      this.topItems.push_back("Base.Shirt_FormalWhite");
+      this.topItems.push_back("Base.Shirt_FormalWhite_ShortSleeve");
+      this.topItems.push_back("Base.Tshirt_DefaultTEXTURE_TINT");
+      this.topItems.push_back("Base.Tshirt_PoloTINT");
+      this.topItems.push_back("Base.Tshirt_WhiteLongSleeveTINT");
+      this.topItems.push_back("Base.Tshirt_WhiteTINT");
+   }
+
+    void randomizeDeadSurvivor(BuildingDef var1) {
+    RoomDef var2 = this.getRoom(var1, "bedroom");
+    bool var3 = Rand.Next(7) == 0;
+    bool var4 = Rand.Next(7) == 0;
+      if (var3) {
+         this.addZombies(var1, 2, "Naked", 0, var2);
+         this.addItemsOnGround(var2, true);
+         this.addItemsOnGround(var2, true);
+      } else if (var4) {
+         this.addZombies(var1, 2, "Naked", 100, var2);
+         this.addItemsOnGround(var2, false);
+         this.addItemsOnGround(var2, false);
+      } else {
+         this.addZombies(var1, 1, "Naked", 0, var2);
+         this.addItemsOnGround(var2, true);
+         this.addZombies(var1, 1, "Naked", 100, var2);
+         this.addItemsOnGround(var2, false);
+      }
+   }
+
+    void addItemsOnGround(RoomDef var1, bool var2) {
+    IsoGridSquare var3 = getRandomSpawnSquare(var1);
+      this.addRandomItemOnGround(var3, this.shoesItems);
+      this.addRandomItemOnGround(var3, this.topItems);
+      this.addRandomItemOnGround(var3, var2 ? this.pantsMaleItems : this.pantsFemaleItems);
+   }
+}
+} // namespace randomizedDeadSurvivor
+} // namespace randomizedWorld
+} // namespace zombie

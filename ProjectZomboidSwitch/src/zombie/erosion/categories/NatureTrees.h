@@ -1,0 +1,240 @@
+#pragma once
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "zombie/erosion/ErosionData/Chunk.h"
+#include "zombie/erosion/ErosionData/Square.h"
+#include "zombie/erosion/categories/ErosionCategory/Data.h"
+#include "zombie/erosion/categories/NatureTrees/CategoryData.h"
+#include "zombie/erosion/categories/NatureTrees/TreeInit.h"
+#include "zombie/erosion/obj/ErosionObj.h"
+#include "zombie/erosion/obj/ErosionObjSprites.h"
+#include "zombie/erosion/season/ErosionIceQueen.h"
+#include "zombie/iso/IsoGridSquare.h"
+#include "zombie/iso/IsoObject.h"
+#include "zombie/iso/sprite/IsoSprite.h"
+
+namespace zombie {
+namespace erosion {
+namespace categories {
+
+
+class NatureTrees : public ErosionCategory {
+public:
+   private const int[][] soilRef = new int[][]{
+      {2, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5},
+      {1, 1, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5},
+      {2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 3, 3, 4, 4, 4, 5},
+      {1, 7, 7, 7, 9, 9, 9, 9, 9, 9, 9},
+      {2, 2, 1, 1, 1, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 9, 9, 9, 9},
+      {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 7, 7, 7, 9},
+      {1, 2, 8, 8, 8, 6, 6, 6, 6, 6, 6, 6, 6},
+      {1, 1, 2, 2, 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6, 6},
+      {1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 8, 8, 8, 6},
+      {3, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11},
+      {1, 1, 3, 3, 3, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11},
+      {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 10, 10, 10, 11}
+   };
+   private const TreeInit[] trees = new TreeInit[]{
+    std::make_shared<TreeInit>("American Holly");
+    std::make_shared<TreeInit>("Canadian Hemlock");
+    std::make_shared<TreeInit>("Virginia Pine");
+    std::make_shared<TreeInit>();
+    std::make_shared<TreeInit>("Cockspur Hawthorn");
+    std::make_shared<TreeInit>();
+    std::make_shared<TreeInit>("Carolina Silverbell");
+    std::make_shared<TreeInit>();
+    std::make_shared<TreeInit>("Eastern Redbud");
+    std::make_shared<TreeInit>();
+    std::make_shared<TreeInit>("American Linden");
+   };
+   private int[] spawnChance = new int[100];
+   private std::vector<ErosionObj> objs = std::make_unique<std::vector<>>();
+
+    bool replaceExistingObject(IsoGridSquare var1, Square var2, Chunk var3, bool var4, bool var5) {
+    int var6 = var1.getObjects().size();
+
+      for (int var7 = var6 - 1; var7 >= 1; var7--) {
+    IsoObject var8 = (IsoObject)var1.getObjects().get(var7);
+    IsoSprite var9 = var8.getSprite();
+         if (var9 != nullptr && var9.getName() != nullptr) {
+            if (var9.getName().startsWith("jumbo_tree_01")) {
+    int var16 = var2.soil;
+               if (var16 < 0 || var16 >= this.soilRef.length) {
+                  var16 = var2.rand(var1.x, var1.y, this.soilRef.length);
+               }
+
+               int[] var18 = this.soilRef[var16];
+    int var19 = var2.noiseMainInt;
+    CategoryData var20 = (CategoryData)this.setCatModData(var2);
+               var20.gameObj = var18[var2.rand(var1.x, var1.y, var18.length)] - 1;
+               var20.maxStage = 5 + (int)Math.floor(var19 / 51.0F) - 1;
+               var20.stage = var20.maxStage;
+               var20.spawnTime = 0;
+               var20.dispSeason = -1;
+    ErosionObj var21 = this.objs.get(var20.gameObj);
+               var8.setName(var21.name);
+               var20.hasSpawned = true;
+    return true;
+            }
+
+            if (var9.getName().startsWith("vegetation_trees")) {
+    int var15 = var2.soil;
+               if (var15 < 0 || var15 >= this.soilRef.length) {
+                  var15 = var2.rand(var1.x, var1.y, this.soilRef.length);
+               }
+
+               int[] var17 = this.soilRef[var15];
+    int var12 = var2.noiseMainInt;
+    CategoryData var13 = (CategoryData)this.setCatModData(var2);
+               var13.gameObj = var17[var2.rand(var1.x, var1.y, var17.length)] - 1;
+               var13.maxStage = 3 + (int)Math.floor(var12 / 51.0F) - 1;
+               var13.stage = var13.maxStage;
+               var13.spawnTime = 0;
+               var13.dispSeason = -1;
+    ErosionObj var14 = this.objs.get(var13.gameObj);
+               var8.setName(var14.name);
+               var13.hasSpawned = true;
+    return true;
+            }
+
+            for (int var10 = 0; var10 < this.trees.length; var10++) {
+               if (var9.getName().startsWith(this.trees[var10].tile)) {
+    CategoryData var11 = (CategoryData)this.setCatModData(var2);
+                  var11.gameObj = var10;
+                  var11.maxStage = 3;
+                  var11.stage = var11.maxStage;
+                  var11.spawnTime = 0;
+                  var1.RemoveTileObject(var8);
+    return true;
+               }
+            }
+         }
+      }
+
+    return false;
+   }
+
+    bool validateSpawn(IsoGridSquare var1, Square var2, Chunk var3, bool var4, bool var5, bool var6) {
+      if (var1.getObjects().size() > (var5 ? 2 : 1)) {
+    return false;
+      } else if (var2.soil >= 0 && var2.soil < this.soilRef.length) {
+         int[] var7 = this.soilRef[var2.soil];
+    int var8 = var2.noiseMainInt;
+    int var9 = this.spawnChance[var8];
+         if (var9 > 0 && var2.rand(var1.x, var1.y, 101) < var9) {
+    CategoryData var10 = (CategoryData)this.setCatModData(var2);
+            var10.gameObj = var7[var2.rand(var1.x, var1.y, var7.length)] - 1;
+            var10.maxStage = 2 + (int)Math.floor((var8 - 50) / 17) - 1;
+            var10.stage = 0;
+            var10.spawnTime = 30 + (100 - var8);
+    return true;
+         } else {
+    return false;
+         }
+      } else {
+    return false;
+      }
+   }
+
+    void update(IsoGridSquare var1, Square var2, Data var3, Chunk var4, int var5) {
+    CategoryData var6 = (CategoryData)var3;
+      if (var5 >= var6.spawnTime && !var6.doNothing) {
+         if (var6.gameObj >= 0 && var6.gameObj < this.objs.size()) {
+    ErosionObj var7 = this.objs.get(var6.gameObj);
+    int var8 = var6.maxStage;
+    int var9 = (int)Math.floor((var5 - var6.spawnTime) / (var7.cycleTime / (var8 + 1.0F)));
+            if (var9 < var3.stage) {
+               var9 = var3.stage;
+            }
+
+            if (var9 > var8) {
+               var9 = var8;
+            }
+
+    bool var10 = true;
+    int var11 = this.currentSeason(var2.magicNum, var7);
+    bool var12 = false;
+            this.updateObj(var2, var3, var1, var7, var10, var9, var11, var12);
+         } else {
+            this.clearCatModData(var2);
+         }
+      }
+   }
+
+    void init() {
+      for (int var1 = 0; var1 < 100; var1++) {
+         this.spawnChance[var1] = var1 >= 50 ? (int)this.clerp((var1 - 50) / 50.0F, 0.0F, 90.0F) : 0;
+      }
+
+      int[] var12 = new int[]{0, 5, 1, 2, 3, 4};
+      this.seasonDisp[5].season1 = 0;
+      this.seasonDisp[5].season2 = 0;
+      this.seasonDisp[5].split = false;
+      this.seasonDisp[1].season1 = 1;
+      this.seasonDisp[1].season2 = 0;
+      this.seasonDisp[1].split = false;
+      this.seasonDisp[2].season1 = 2;
+      this.seasonDisp[2].season2 = 3;
+      this.seasonDisp[2].split = true;
+      this.seasonDisp[4].season1 = 4;
+      this.seasonDisp[4].season2 = 0;
+      this.seasonDisp[4].split = true;
+    std::string var2 = nullptr;
+    ErosionIceQueen var3 = ErosionIceQueen.instance;
+
+      for (int var4 = 0; var4 < this.trees.length; var4++) {
+    std::string var5 = this.trees[var4].name;
+    std::string var6 = this.trees[var4].tile;
+    bool var7 = !this.trees[var4].evergreen;
+    ErosionObjSprites var8 = std::make_shared<ErosionObjSprites>(6, var5, true, false, var7);
+
+         for (int var9 = 0; var9 < 6; var9++) {
+            for (int var10 = 0; var10 < var12.length; var10++) {
+               if (var9 > 3) {
+    int var11 = 0 + var10 * 2 + (var9 - 4);
+                  if (var10 == 0) {
+                     var2 = var6.replace("_1", "JUMBO_1") + "_" + var11;
+                     var8.setBase(var9, var2, 0);
+                  } else if (var10 == 1) {
+                     var3.addSprite(var2, var6.replace("_1", "JUMBO_1") + "_" + var11);
+                  } else if (var7) {
+                     var8.setChildSprite(var9, var6.replace("_1", "JUMBO_1") + "_" + var11, var12[var10]);
+                  }
+               } else {
+    int var14 = 0 + var10 * 4 + var9;
+                  if (var10 == 0) {
+                     var2 = var6 + "_" + var14;
+                     var8.setBase(var9, var2, 0);
+                  } else if (var10 == 1) {
+                     var3.addSprite(var2, var6 + "_" + var14);
+                  } else if (var7) {
+                     var8.setChildSprite(var9, var6 + "_" + var14, var12[var10]);
+                  }
+               }
+            }
+         }
+
+    ErosionObj var13 = std::make_shared<ErosionObj>(var8, 60, 0.0F, 0.0F, true);
+         this.objs.push_back(var13);
+      }
+   }
+
+    Data allocData() {
+      return std::make_unique<CategoryData>();
+   }
+
+    void getObjectNames(std::vector<std::string> var1) {
+      for (int var2 = 0; var2 < this.objs.size(); var2++) {
+         if (this.objs.get(var2).name != nullptr && !var1.contains(this.objs.get(var2).name)) {
+            var1.push_back(this.objs.get(var2).name);
+         }
+      }
+   }
+}
+} // namespace categories
+} // namespace erosion
+} // namespace zombie

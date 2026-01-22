@@ -1,0 +1,1036 @@
+#pragma once
+#include <stack>
+#include <string>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <unordered_set>
+#include <cstdint>
+#include "org/lwjgl/opengl/ARBShaderObjects.h"
+#include "org/lwjgl/opengl/GL11.h"
+#include "org/lwjgl/opengl/GL13.h"
+#include "org/lwjgl/opengl/GL14.h"
+#include "zombie/IndieGL.h"
+#include "zombie/core/Color.h"
+#include "zombie/core/Core.h"
+#include "zombie/core/SpriteRenderer.h"
+#include "zombie/core/SpriteRenderer/RingBuffer.h"
+#include "zombie/core/SpriteRenderer/WallShaderTexRender.h"
+#include "zombie/core/opengl/Shader.h"
+#include "zombie/core/skinnedmodel/ModelManager.h"
+#include "zombie/core/skinnedmodel/ModelManager/ModelSlot.h"
+#include "zombie/core/skinnedmodel/model/ModelSlotRenderData.h"
+#include "zombie/core/textures/TextureDraw/1.h"
+#include "zombie/core/textures/TextureDraw/GenericDrawer.h"
+#include "zombie/core/textures/TextureDraw/Type.h"
+#include "zombie/iso/IsoWorld.h"
+#include "zombie/iso/weather/fx/WeatherFxMask.h"
+#include "zombie/ui/UIManager.h"
+#include "zombie/util/list/PZArrayUtil.h"
+#include <algorithm>
+
+namespace zombie {
+namespace core {
+namespace textures {
+
+
+class TextureDraw {
+public:
+    Type type = Type.glDraw;
+    int a = 0;
+    int b = 0;
+    float f1 = 0.0F;
+   public float[] vars;
+    int c = 0;
+    int d = 0;
+    int col0;
+    int col1;
+    int col2;
+    int col3;
+    float x0;
+    float x1;
+    float x2;
+    float x3;
+    float y0;
+    float y1;
+    float y2;
+    float y3;
+    float u0;
+    float u1;
+    float u2;
+    float u3;
+    float v0;
+    float v1;
+    float v2;
+    float v3;
+    Texture tex;
+    Texture tex1;
+    uint8_t useAttribArray;
+    float tex1_u0;
+    float tex1_u1;
+    float tex1_u2;
+    float tex1_u3;
+    float tex1_v0;
+    float tex1_v1;
+    float tex1_v2;
+    float tex1_v3;
+    int tex1_col0;
+    int tex1_col1;
+    int tex1_col2;
+    int tex1_col3;
+    bool bSingleCol = false;
+    bool flipped = false;
+    GenericDrawer drawer;
+
+    static void glStencilFunc(TextureDraw var0, int var1, int var2, int var3) {
+      var0.type = Type.glStencilFunc;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = var3;
+   }
+
+    static void glBuffer(TextureDraw var0, int var1, int var2) {
+      var0.type = Type.glBuffer;
+      var0.a = var1;
+      var0.b = var2;
+   }
+
+    static void glStencilOp(TextureDraw var0, int var1, int var2, int var3) {
+      var0.type = Type.glStencilOp;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = var3;
+   }
+
+    static void glDisable(TextureDraw var0, int var1) {
+      var0.type = Type.glDisable;
+      var0.a = var1;
+   }
+
+    static void glClear(TextureDraw var0, int var1) {
+      var0.type = Type.glClear;
+      var0.a = var1;
+   }
+
+    static void glClearColor(TextureDraw var0, int var1, int var2, int var3, int var4) {
+      var0.type = Type.glClearColor;
+      var0.col0 = var1;
+      var0.col1 = var2;
+      var0.col2 = var3;
+      var0.col3 = var4;
+   }
+
+    static void glEnable(TextureDraw var0, int var1) {
+      var0.type = Type.glEnable;
+      var0.a = var1;
+   }
+
+    static void glAlphaFunc(TextureDraw var0, int var1, float var2) {
+      var0.type = Type.glAlphaFunc;
+      var0.a = var1;
+      var0.f1 = var2;
+   }
+
+    static void glColorMask(TextureDraw var0, int var1, int var2, int var3, int var4) {
+      var0.type = Type.glColorMask;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = var3;
+      var0.x0 = var4;
+   }
+
+    static void glStencilMask(TextureDraw var0, int var1) {
+      var0.type = Type.glStencilMask;
+      var0.a = var1;
+   }
+
+    static void glBlendFunc(TextureDraw var0, int var1, int var2) {
+      var0.type = Type.glBlendFunc;
+      var0.a = var1;
+      var0.b = var2;
+   }
+
+    static void glBlendFuncSeparate(TextureDraw var0, int var1, int var2, int var3, int var4) {
+      var0.type = Type.glBlendFuncSeparate;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = var3;
+      var0.d = var4;
+   }
+
+    static void glBlendEquation(TextureDraw var0, int var1) {
+      var0.type = Type.glBlendEquation;
+      var0.a = var1;
+   }
+
+    static void glDoEndFrame(TextureDraw var0) {
+      var0.type = Type.glDoEndFrame;
+   }
+
+    static void glDoEndFrameFx(TextureDraw var0, int var1) {
+      var0.type = Type.glDoEndFrameFx;
+      var0.c = var1;
+   }
+
+    static void glIgnoreStyles(TextureDraw var0, bool var1) {
+      var0.type = Type.glIgnoreStyles;
+      var0.a = var1 ? 1 : 0;
+   }
+
+    static void glDoStartFrame(TextureDraw var0, int var1, int var2, float var3, int var4) {
+      glDoStartFrame(var0, var1, var2, var3, var4, false);
+   }
+
+    static void glDoStartFrame(TextureDraw var0, int var1, int var2, float var3, int var4, bool var5) {
+      if (var5) {
+         var0.type = Type.glDoStartFrameText;
+      } else {
+         var0.type = Type.glDoStartFrame;
+      }
+
+      var0.a = var1;
+      var0.b = var2;
+      var0.f1 = var3;
+      var0.c = var4;
+   }
+
+    static void glDoStartFrameFx(TextureDraw var0, int var1, int var2, int var3) {
+      var0.type = Type.glDoStartFrameFx;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = var3;
+   }
+
+    static void glTexParameteri(TextureDraw var0, int var1, int var2, int var3) {
+      var0.type = Type.glTexParameteri;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = var3;
+   }
+
+    static void drawModel(TextureDraw var0, ModelSlot var1) {
+      var0.type = Type.DrawModel;
+      var0.a = var1.ID;
+      var0.drawer = ModelSlotRenderData.alloc().init(var1);
+   }
+
+    static void drawSkyBox(TextureDraw var0, Shader var1, int var2, int var3, int var4) {
+      var0.type = Type.DrawSkyBox;
+      var0.a = var1.getID();
+      var0.b = var2;
+      var0.c = var3;
+      var0.d = var4;
+      var0.drawer = nullptr;
+   }
+
+    static void drawWater(TextureDraw var0, Shader var1, int var2, int var3, bool var4) {
+      var0.type = Type.DrawWater;
+      var0.a = var1.getID();
+      var0.b = var2;
+      var0.c = var3;
+      var0.d = var4 ? 1 : 0;
+      var0.drawer = nullptr;
+   }
+
+    static void drawPuddles(TextureDraw var0, Shader var1, int var2, int var3, int var4) {
+      var0.type = Type.DrawPuddles;
+      var0.a = var1.getID();
+      var0.b = var2;
+      var0.c = var3;
+      var0.d = var4;
+      var0.drawer = nullptr;
+   }
+
+    static void drawParticles(TextureDraw var0, int var1, int var2, int var3) {
+      var0.type = Type.DrawParticles;
+      var0.b = var1;
+      var0.c = var2;
+      var0.d = var3;
+      var0.drawer = nullptr;
+   }
+
+    static void StartShader(TextureDraw var0, int var1) {
+      var0.type = Type.StartShader;
+      var0.a = var1;
+   }
+
+    static void ShaderUpdate1i(TextureDraw var0, int var1, int var2, int var3) {
+      var0.type = Type.ShaderUpdate;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = -1;
+      var0.d = var3;
+   }
+
+    static void ShaderUpdate1f(TextureDraw var0, int var1, int var2, float var3) {
+      var0.type = Type.ShaderUpdate;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = 1;
+      var0.u0 = var3;
+   }
+
+    static void ShaderUpdate2f(TextureDraw var0, int var1, int var2, float var3, float var4) {
+      var0.type = Type.ShaderUpdate;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = 2;
+      var0.u0 = var3;
+      var0.u1 = var4;
+   }
+
+    static void ShaderUpdate3f(TextureDraw var0, int var1, int var2, float var3, float var4, float var5) {
+      var0.type = Type.ShaderUpdate;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = 3;
+      var0.u0 = var3;
+      var0.u1 = var4;
+      var0.u2 = var5;
+   }
+
+    static void ShaderUpdate4f(TextureDraw var0, int var1, int var2, float var3, float var4, float var5, float var6) {
+      var0.type = Type.ShaderUpdate;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = 4;
+      var0.u0 = var3;
+      var0.u1 = var4;
+      var0.u2 = var5;
+      var0.u3 = var6;
+   }
+
+   // $VF: Unable to simplify switch on enum
+   // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
+    void run() {
+      switch (1.$SwitchMap$zombie$core$textures$TextureDraw$Type[this.type.ordinal()]) {
+         case 1:
+            ARBShaderObjects.glUseProgramObjectARB(this.a);
+            if (Shader.ShaderMap.containsKey(this.a)) {
+               ((Shader)Shader.ShaderMap.get(this.a)).startRenderThread(this);
+            }
+
+            if (this.a == 0) {
+               SpriteRenderer.ringBuffer.checkShaderChangedTexture1();
+            }
+            break;
+         case 2:
+            if (this.c == 1) {
+               ARBShaderObjects.glUniform1fARB(this.b, this.u0);
+            }
+
+            if (this.c == 2) {
+               ARBShaderObjects.glUniform2fARB(this.b, this.u0, this.u1);
+            }
+
+            if (this.c == 3) {
+               ARBShaderObjects.glUniform3fARB(this.b, this.u0, this.u1, this.u2);
+            }
+
+            if (this.c == 4) {
+               ARBShaderObjects.glUniform4fARB(this.b, this.u0, this.u1, this.u2, this.u3);
+            }
+
+            if (this.c == -1) {
+               ARBShaderObjects.glUniform1iARB(this.b, this.d);
+            }
+            break;
+         case 3:
+            GL13.glActiveTexture(this.a);
+            if (this.b != -1) {
+               GL11.glBindTexture(3553, this.b);
+            }
+
+            GL13.glActiveTexture(33984);
+            break;
+         case 4:
+            if (this.drawer != nullptr) {
+               this.drawer.render();
+            }
+            break;
+         case 5:
+            try {
+               ModelManager.instance.RenderSkyBox(this, this.a, this.b, this.c, this.d);
+            } catch (Exception var5) {
+               var5.printStackTrace();
+            }
+            break;
+         case 6:
+            try {
+               ModelManager.instance.RenderWater(this, this.a, this.b, this.d == 1);
+            } catch (Exception var4) {
+               var4.printStackTrace();
+            }
+            break;
+         case 7:
+            try {
+               ModelManager.instance.RenderPuddles(this.a, this.b, this.d);
+            } catch (Exception var3) {
+               var3.printStackTrace();
+            }
+            break;
+         case 8:
+            try {
+               ModelManager.instance.RenderParticles(this, this.b, this.c);
+            } catch (Exception var2) {
+               var2.printStackTrace();
+            }
+            break;
+         case 9:
+            IndieGL.glClearA(this.a);
+            break;
+         case 10:
+            GL11.glClearColor(this.col0 / 255.0F, this.col1 / 255.0F, this.col2 / 255.0F, this.col3 / 255.0F);
+            break;
+         case 11:
+            IndieGL.glBlendFuncA(this.a, this.b);
+            break;
+         case 12:
+            GL14.glBlendFuncSeparate(this.a, this.b, this.c, this.d);
+            break;
+         case 13:
+            IndieGL.glColorMaskA(this.a == 1, this.b == 1, this.c == 1, this.x0 == 1.0F);
+            break;
+         case 14:
+            IndieGL.glTexParameteriActual(this.a, this.b, this.c);
+            break;
+         case 15:
+            IndieGL.glStencilMaskA(this.a);
+            break;
+         case 16:
+            Core.getInstance().DoEndFrameStuff(this.a, this.b);
+            break;
+         case 17:
+            Core.getInstance().DoEndFrameStuffFx(this.a, this.b, this.c);
+            break;
+         case 18:
+            Core.getInstance().DoStartFrameStuff(this.a, this.b, this.f1, this.c);
+            break;
+         case 19:
+            Core.getInstance().DoStartFrameStuff(this.a, this.b, this.f1, this.c, true);
+            break;
+         case 20:
+            Core.getInstance().DoStartFrameStuffSmartTextureFx(this.a, this.b, this.c);
+            break;
+         case 21:
+            IndieGL.glStencilFuncA(this.a, this.b, this.c);
+            break;
+         case 22:
+            if (Core.getInstance().supportsFBO()) {
+               if (this.a == 1) {
+                  SpriteRenderer.instance.getRenderingState().fbo.startDrawing(false, false);
+               } else if (this.a == 2) {
+                  UIManager.UIFBO.startDrawing(true, true);
+               } else if (this.a == 3) {
+                  UIManager.UIFBO.endDrawing();
+               } else if (this.a == 4) {
+                  WeatherFxMask.getFboMask().startDrawing(true, true);
+               } else if (this.a == 5) {
+                  WeatherFxMask.getFboMask().endDrawing();
+               } else if (this.a == 6) {
+                  WeatherFxMask.getFboParticles().startDrawing(true, true);
+               } else if (this.a == 7) {
+                  WeatherFxMask.getFboParticles().endDrawing();
+               } else {
+                  SpriteRenderer.instance.getRenderingState().fbo.endDrawing();
+               }
+            }
+            break;
+         case 23:
+            IndieGL.glStencilOpA(this.a, this.b, this.c);
+            break;
+         case 24:
+            GL11.glLoadIdentity();
+            break;
+         case 25:
+            GL11.glBindTexture(3553, this.a);
+            Texture.lastlastTextureID = Texture.lastTextureID;
+            Texture.lastTextureID = this.a;
+            break;
+         case 26:
+            GL11.glViewport(this.a, this.b, this.c, this.d);
+            break;
+         case 27:
+            IsoWorld.instance.renderTerrain();
+            break;
+         case 28:
+            Core.getInstance().FloatParamMap.put(this.a, this.f1);
+            break;
+         case 29:
+            GL11.glDepthMask(this.a == 1);
+         case 30:
+         default:
+            break;
+         case 31:
+            IndieGL.glAlphaFuncA(this.a, this.f1);
+            break;
+         case 32:
+            IndieGL.glEnableA(this.a);
+            break;
+         case 33:
+            IndieGL.glDisableA(this.a);
+            break;
+         case 34:
+            GL14.glBlendEquation(this.a);
+            break;
+         case 35:
+            RingBuffer.IGNORE_STYLES = this.a == 1;
+      }
+   }
+
+    static void glDepthMask(TextureDraw var0, bool var1) {
+      var0.type = Type.glDepthMask;
+      var0.a = var1 ? 1 : 0;
+   }
+
+    static void doCoreIntParam(TextureDraw var0, int var1, float var2) {
+      var0.type = Type.doCoreIntParam;
+      var0.a = var1;
+      var0.f1 = var2;
+   }
+
+    std::string toString() {
+      return this.getClass().getSimpleName()
+         + "{ "
+         + this.type
+         + ", a:"
+         + this.a
+         + ", b:"
+         + this.b
+         + ", f1:"
+         + this.f1
+         + ", vars:"
+         + (this.vars != nullptr ? PZArrayUtil.arrayToString(this.vars, "{", "}", ", ") : "nullptr")
+         + ", c:"
+         + this.c
+         + ", d:"
+         + this.d
+         + ", col0:"
+         + this.col0
+         + ", col1:"
+         + this.col1
+         + ", col2:"
+         + this.col2
+         + ", col3:"
+         + this.col3
+         + ", x0:"
+         + this.x0
+         + ", x1:"
+         + this.x1
+         + ", x2:"
+         + this.x2
+         + ", x3:"
+         + this.x3
+         + ", x0:"
+         + this.x0
+         + ", x1:"
+         + this.x1
+         + ", x2:"
+         + this.x2
+         + ", x3:"
+         + this.x3
+         + ", y0:"
+         + this.y0
+         + ", y1:"
+         + this.y1
+         + ", y2:"
+         + this.y2
+         + ", y3:"
+         + this.y3
+         + ", u0:"
+         + this.u0
+         + ", u1:"
+         + this.u1
+         + ", u2:"
+         + this.u2
+         + ", u3:"
+         + this.u3
+         + ", v0:"
+         + this.v0
+         + ", v1:"
+         + this.v1
+         + ", v2:"
+         + this.v2
+         + ", v3:"
+         + this.v3
+         + ", tex:"
+         + this.tex
+         + ", tex1:"
+         + this.tex1
+         + ", useAttribArray:"
+         + this.useAttribArray
+         + ", tex1_u0:"
+         + this.tex1_u0
+         + ", tex1_u1:"
+         + this.tex1_u1
+         + ", tex1_u2:"
+         + this.tex1_u2
+         + ", tex1_u3:"
+         + this.tex1_u3
+         + ", tex1_u0:"
+         + this.tex1_u0
+         + ", tex1_u1:"
+         + this.tex1_u1
+         + ", tex1_u2:"
+         + this.tex1_u2
+         + ", tex1_u3:"
+         + this.tex1_u3
+         + ", tex1_col0:"
+         + this.tex1_col0
+         + ", tex1_col1:"
+         + this.tex1_col1
+         + ", tex1_col2:"
+         + this.tex1_col2
+         + ", tex1_col3:"
+         + this.tex1_col3
+         + ", bSingleCol:"
+         + this.bSingleCol
+         + " }";
+   }
+
+   public static TextureDraw Create(
+      TextureDraw var0,
+      Texture var1,
+      float var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      Consumer<TextureDraw> var10
+   ) {
+    int var11 = Color.colorToABGR(var6, var7, var8, var9);
+      Create(var0, var1, var2, var3, var2 + var4, var3, var2 + var4, var3 + var5, var2, var3 + var5, var11, var11, var11, var11, var10);
+    return var0;
+   }
+
+   // $VF: Unable to simplify switch on enum
+   // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
+   public static TextureDraw Create(
+      TextureDraw var0,
+      Texture var1,
+      WallShaderTexRender var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      float var10,
+      Consumer<TextureDraw> var11
+   ) {
+    int var12 = Color.colorToABGR(var7, var8, var9, var10);
+    float var21 = 0.0F;
+    float var22 = 0.0F;
+    float var23 = 1.0F;
+    float var24 = 0.0F;
+    float var25 = 1.0F;
+    float var26 = 1.0F;
+    float var27 = 0.0F;
+    float var28 = 1.0F;
+    float var13;
+    float var14;
+    float var15;
+    float var16;
+    float var17;
+    float var18;
+    float var19;
+    float var20;
+      switch (1.$SwitchMap$zombie$core$SpriteRenderer$WallShaderTexRender[var2.ordinal()]) {
+         case 1:
+            var19 = var3;
+            var13 = var3;
+            var16 = var4;
+            var14 = var4;
+            var15 = var17 = var3 + var5 / 2.0F;
+            var18 = var20 = var4 + var6;
+            if (var1 != nullptr) {
+    float var35 = var1.getXEnd();
+    float var37 = var1.getXStart();
+    float var39 = var1.getYEnd();
+    float var41 = var1.getYStart();
+    float var42 = 0.5F * (var35 - var37);
+               var21 = var37;
+               var23 = var37 + var42;
+               var25 = var37 + var42;
+               var27 = var37;
+               var22 = var41;
+               var24 = var41;
+               var26 = var39;
+               var28 = var39;
+            }
+            break;
+         case 2:
+            var13 = var19 = var3 + var5 / 2.0F;
+            var16 = var4;
+            var14 = var4;
+            var15 = var17 = var3 + var5;
+            var18 = var20 = var4 + var6;
+            if (var1 != nullptr) {
+    float var34 = var1.getXEnd();
+    float var36 = var1.getXStart();
+    float var38 = var1.getYEnd();
+    float var40 = var1.getYStart();
+    float var33 = 0.5F * (var34 - var36);
+               var21 = var36 + var33;
+               var23 = var34;
+               var25 = var34;
+               var27 = var36 + var33;
+               var22 = var40;
+               var24 = var40;
+               var26 = var38;
+               var28 = var38;
+            }
+            break;
+         case 3:
+         default:
+            var19 = var3;
+            var13 = var3;
+            var16 = var4;
+            var14 = var4;
+            var15 = var17 = var3 + var5;
+            var18 = var20 = var4 + var6;
+            if (var1 != nullptr) {
+    float var29 = var1.getXEnd();
+    float var30 = var1.getXStart();
+    float var31 = var1.getYEnd();
+    float var32 = var1.getYStart();
+               var21 = var30;
+               var23 = var29;
+               var25 = var29;
+               var27 = var30;
+               var22 = var32;
+               var24 = var32;
+               var26 = var31;
+               var28 = var31;
+            }
+      }
+
+      Create(
+         var0,
+         var1,
+         var13,
+         var14,
+         var15,
+         var16,
+         var17,
+         var18,
+         var19,
+         var20,
+         var12,
+         var12,
+         var12,
+         var12,
+         var21,
+         var22,
+         var23,
+         var24,
+         var25,
+         var26,
+         var27,
+         var28,
+         var11
+      );
+    return var0;
+   }
+
+   public static TextureDraw Create(
+      TextureDraw var0,
+      Texture var1,
+      float var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      float var10,
+      float var11,
+      float var12,
+      float var13,
+      float var14,
+      float var15,
+      float var16,
+      float var17,
+      Consumer<TextureDraw> var18
+   ) {
+    int var19 = Color.colorToABGR(var6, var7, var8, var9);
+      Create(
+         var0,
+         var1,
+         var2,
+         var3,
+         var2 + var4,
+         var3,
+         var2 + var4,
+         var3 + var5,
+         var2,
+         var3 + var5,
+         var19,
+         var19,
+         var19,
+         var19,
+         var10,
+         var11,
+         var12,
+         var13,
+         var14,
+         var15,
+         var16,
+         var17,
+         var18
+      );
+    return var0;
+   }
+
+   public static void Create(
+      TextureDraw var0,
+      Texture var1,
+      float var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      float var10,
+      float var11,
+      float var12,
+      float var13,
+      float var14,
+      float var15,
+      float var16,
+      float var17,
+      float var18,
+      float var19,
+      float var20,
+      float var21,
+      float var22,
+      float var23,
+      float var24,
+      float var25,
+      Consumer<TextureDraw> var26
+   ) {
+    int var27 = Color.colorToABGR(var10, var11, var12, var13);
+    int var28 = Color.colorToABGR(var14, var15, var16, var17);
+    int var29 = Color.colorToABGR(var18, var19, var20, var21);
+    int var30 = Color.colorToABGR(var22, var23, var24, var25);
+      Create(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9, var27, var28, var29, var30, var26);
+   }
+
+   public static void Create(
+      TextureDraw var0,
+      Texture var1,
+      float var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      float var10,
+      float var11,
+      float var12,
+      float var13
+   ) {
+    int var14 = Color.colorToABGR(var10, var11, var12, var13);
+      Create(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9, var14, var14, var14, var14, nullptr);
+   }
+
+   public static void Create(
+      TextureDraw var0,
+      Texture var1,
+      float var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      int var10,
+      int var11,
+      int var12,
+      int var13
+   ) {
+      Create(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12, var13, nullptr);
+   }
+
+   public static TextureDraw Create(
+      TextureDraw var0,
+      Texture var1,
+      float var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      int var10,
+      int var11,
+      int var12,
+      int var13,
+      Consumer<TextureDraw> var14
+   ) {
+    float var15 = 0.0F;
+    float var16 = 0.0F;
+    float var17 = 1.0F;
+    float var18 = 0.0F;
+    float var19 = 1.0F;
+    float var20 = 1.0F;
+    float var21 = 0.0F;
+    float var22 = 1.0F;
+      if (var1 != nullptr) {
+    float var23 = var1.getXEnd();
+    float var24 = var1.getXStart();
+    float var25 = var1.getYEnd();
+    float var26 = var1.getYStart();
+         var15 = var24;
+         var16 = var26;
+         var17 = var23;
+         var18 = var26;
+         var19 = var23;
+         var20 = var25;
+         var21 = var24;
+         var22 = var25;
+      }
+
+      return Create(
+         var0, var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12, var13, var15, var16, var17, var18, var19, var20, var21, var22, var14
+      );
+   }
+
+   public static TextureDraw Create(
+      TextureDraw var0,
+      Texture var1,
+      float var2,
+      float var3,
+      float var4,
+      float var5,
+      float var6,
+      float var7,
+      float var8,
+      float var9,
+      int var10,
+      int var11,
+      int var12,
+      int var13,
+      float var14,
+      float var15,
+      float var16,
+      float var17,
+      float var18,
+      float var19,
+      float var20,
+      float var21,
+      Consumer<TextureDraw> var22
+   ) {
+      var0.bSingleCol = var10 == var11 && var10 == var12 && var10 == var13;
+      var0.tex = var1;
+      var0.x0 = var2;
+      var0.y0 = var3;
+      var0.x1 = var4;
+      var0.y1 = var5;
+      var0.x2 = var6;
+      var0.y2 = var7;
+      var0.x3 = var8;
+      var0.y3 = var9;
+      var0.col0 = var10;
+      var0.col1 = var11;
+      var0.col2 = var12;
+      var0.col3 = var13;
+      var0.u0 = var14;
+      var0.u1 = var16;
+      var0.u2 = var18;
+      var0.u3 = var20;
+      var0.v0 = var15;
+      var0.v1 = var17;
+      var0.v2 = var19;
+      var0.v3 = var21;
+      if (var1 != nullptr) {
+         var0.flipped = var1.flip;
+      }
+
+      if (var22 != nullptr) {
+         var22.accept(var0);
+         var0.bSingleCol = var0.col0 == var0.col1 && var0.col0 == var0.col2 && var0.col0 == var0.col3;
+      }
+
+    return var0;
+   }
+
+    int getColor(int var1) {
+      if (this.bSingleCol) {
+         return this.col0;
+      } else if (var1 == 0) {
+         return this.col0;
+      } else if (var1 == 1) {
+         return this.col1;
+      } else if (var1 == 2) {
+         return this.col2;
+      } else {
+    return var1 = = 3 ? this.col3 : this.col0;
+      }
+   }
+
+    void reset() {
+      this.type = Type.glDraw;
+      this.flipped = false;
+      this.tex = nullptr;
+      this.tex1 = nullptr;
+      this.useAttribArray = -1;
+      this.col0 = -1;
+      this.col1 = -1;
+      this.col2 = -1;
+      this.col3 = -1;
+      this.bSingleCol = true;
+      this.x0 = this.x1 = this.x2 = this.x3 = this.y0 = this.y1 = this.y2 = this.y3 = -1.0F;
+      this.drawer = nullptr;
+   }
+
+    static void glLoadIdentity(TextureDraw var0) {
+      var0.type = Type.glLoadIdentity;
+   }
+
+    static void glGenerateMipMaps(TextureDraw var0, int var1) {
+      var0.type = Type.glGenerateMipMaps;
+      var0.a = var1;
+   }
+
+    static void glBind(TextureDraw var0, int var1) {
+      var0.type = Type.glBind;
+      var0.a = var1;
+   }
+
+    static void glViewport(TextureDraw var0, int var1, int var2, int var3, int var4) {
+      var0.type = Type.glViewport;
+      var0.a = var1;
+      var0.b = var2;
+      var0.c = var3;
+      var0.d = var4;
+   }
+
+    void postRender() {
+      if (this.type == Type.StartShader) {
+    Shader var1 = (Shader)Shader.ShaderMap.get(this.a);
+         if (var1 != nullptr) {
+            var1.postRender(this);
+         }
+      }
+
+      if (this.drawer != nullptr) {
+         this.drawer.postRender();
+         this.drawer = nullptr;
+      }
+   }
+}
+} // namespace textures
+} // namespace core
+} // namespace zombie
