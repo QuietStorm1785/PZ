@@ -1,5 +1,5 @@
 #include <string>
-#include "zombie/audio/ObjectAmbientEmitters$FridgeHumLogic.h"
+#include "zombie/audio/ObjectAmbientEmitters.h"
 
 namespace zombie {
 namespace audio {

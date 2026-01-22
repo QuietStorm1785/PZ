@@ -1,4 +1,4 @@
-#include "zombie/audio/ObjectAmbientEmitters$Slot.h"
+#include "zombie/audio/ObjectAmbientEmitters.h"
 
 namespace zombie {
 namespace audio {

@@ -19,7 +19,7 @@
 #include "zombie/WorldSoundManager.h"
 #include "zombie/ai/states/ThumpState.h"
 #include "zombie/audio/BaseSoundEmitter.h"
-#include "zombie/audio/ObjectAmbientEmitters/AmbientSoundLogic.h"
+#include "zombie/audio/ObjectAmbientEmitters.h"
 #include "zombie/audio/ObjectAmbientEmitters/DoorLogic.h"
 #include "zombie/audio/ObjectAmbientEmitters/FridgeHumLogic.h"
 #include "zombie/audio/ObjectAmbientEmitters/PerObjectLogic.h"
