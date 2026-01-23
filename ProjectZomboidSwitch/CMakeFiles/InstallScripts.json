@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/c/PZ/PZ/Convert2Cpp/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
