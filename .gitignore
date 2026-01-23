@@ -3,8 +3,15 @@
 # Build artifacts
 ProjectZomboidSwitch/build-switch/*.zip
 
+# Ignore build directory
+ProjectZomboidSwitch/build/
+ProjectZomboidSwitch/build-switch/
+
 # Decompilation artifacts & logs
 logs/
 Jars/
 .cache/
 JavaSrc/
+
+# Ignore DoNotUse folder
+DoNotUse/

@@ -133,18 +133,18 @@ endif()
 list(APPEND CONVERT2CPP_SOURCES ${MAIN_CPP})
 
 # Create executable
-add_executable(ProjectZomboid_Convert2Cpp ${CONVERT2CPP_SOURCES})
+add_executable(ProjectZomboidSwitch ${CONVERT2CPP_SOURCES})
 message(STATUS "Building executable")
 
 # Set output name
 if(NINTENDO_SWITCH)
-    set_target_properties(ProjectZomboid_Convert2Cpp PROPERTIES OUTPUT_NAME "ProjectZomboid_Convert2Cpp")
+    set_target_properties(ProjectZomboidSwitch PROPERTIES OUTPUT_NAME "ProjectZomboidSwitch")
 else()
-    set_target_properties(ProjectZomboid_Convert2Cpp PROPERTIES OUTPUT_NAME "pz_convert2cpp")
+    set_target_properties(ProjectZomboidSwitch PROPERTIES OUTPUT_NAME "pz_convert2cpp")
 endif()
 
 # Include directories
-target_include_directories(ProjectZomboid_Convert2Cpp PRIVATE
+target_include_directories(ProjectZomboidSwitch PRIVATE
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/src/include
     ${CMAKE_SOURCE_DIR}/src
@@ -270,7 +270,7 @@ if(NINTENDO_SWITCH)
             set(ICON_FILE "")
         endif()
         
-        add_nro_target(ProjectZomboid_Convert2Cpp
+        add_nro_target(ProjectZomboidSwitch
             NAME "Project Zomboid"
             AUTHOR "PZ Team"
             VERSION "${PROJECT_VERSION}"
@@ -284,11 +284,11 @@ endif()
 
 # Link all libraries to target
 if(LINK_LIBS)
-    target_link_libraries(ProjectZomboid_Convert2Cpp PRIVATE ${LINK_LIBS})
+    target_link_libraries(ProjectZomboidSwitch PRIVATE ${LINK_LIBS})
 endif()
 
 # Installation rules
-install(TARGETS ProjectZomboid_Convert2Cpp
+install(TARGETS ProjectZomboidSwitch
     RUNTIME DESTINATION bin
 )
 
@@ -301,7 +301,7 @@ message(STATUS "Source files: ${SOURCE_COUNT}")
 message(STATUS "Boost: ${BOOST_ROOT}")
 message(STATUS "Abseil: ${ABSEIL_ROOT}")
 if(NINTENDO_SWITCH)
-    message(STATUS "Output: ProjectZomboid_Convert2Cpp.nro")
+    message(STATUS "Output: ProjectZomboidSwitch.nro")
 else()
     message(STATUS "Output: pz_convert2cpp.exe")
 endif()

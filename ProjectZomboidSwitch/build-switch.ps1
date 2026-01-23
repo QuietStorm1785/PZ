@@ -21,7 +21,7 @@ Write-Host "Target platform: $Target" -ForegroundColor Cyan
 if ($Target -eq "Switch") {
     Write-Host "Launching MSYS2 and running build-switch.sh..." -ForegroundColor Cyan
     & $MSYS2_BASH -lc "cd $PROJECT_DIR && ./build-switch.sh switch $BuildType"
-    Write-Host "Switch build finished. Check output in $PROJECT_DIR/build-switch" -ForegroundColor Green
+    Write-Host "Switch build finished. Check output in $PROJECT_DIR/build-switch (ProjectZomboidSwitch.nro)" -ForegroundColor Green
 } elseif ($Target -eq "Windows") {
     $winBuildDir = "build-windows"
     Write-Host "Configuring Windows build..." -ForegroundColor Cyan

@@ -54,24 +54,24 @@ if [[ "$TARGET" == "switch" ]]; then
     make -j$(nproc 2>/dev/null || echo 4)
 
     echo "=== Build Complete ==="
-    if [ -f "ProjectZomboidCpp.nro" ]; then
-        echo "✓ Switch executable created: $BUILD_DIR/ProjectZomboidCpp.nro"
+    if [ -f "ProjectZomboidSwitch.nro" ]; then
+        echo "✓ Switch executable created: $BUILD_DIR/ProjectZomboidSwitch.nro"
         echo "To install on Switch:"
-        echo "  1. Copy ProjectZomboidCpp.nro to your SD card: /switch/"
+        echo "  1. Copy ProjectZomboidSwitch.nro to your SD card: /switch/"
         echo "  2. Launch via Homebrew Launcher"
-        ls -lh ProjectZomboidCpp.nro
-    elif [ -f "ProjectZomboidCpp" ]; then
-        echo "✓ Executable built: $BUILD_DIR/ProjectZomboidCpp"
+        ls -lh ProjectZomboidSwitch.nro
+    elif [ -f "ProjectZomboidSwitch" ]; then
+        echo "✓ Executable built: $BUILD_DIR/ProjectZomboidSwitch"
         echo "⚠ Note: .nro creation requires nacptool and elf2nro"
         echo "To create .nro manually:"
-        echo "  nacptool --create \"ProjectZomboid\" \"Port\" \"0.2.0\" ProjectZomboidCpp.nacp"
-        echo "  elf2nro ProjectZomboidCpp ProjectZomboidCpp.nro --nacp=ProjectZomboidCpp.nacp"
+        echo "  nacptool --create \"ProjectZomboidSwitch\" \"Port\" \"0.2.0\" ProjectZomboidSwitch.nacp"
+        echo "  elf2nro ProjectZomboidSwitch ProjectZomboidSwitch.nro --nacp=ProjectZomboidSwitch.nacp"
     else
         echo "⚠ Build completed but output file not found"
         echo "Check build output above for errors"
     fi
     echo "Files in build directory:"
-    ls -lh ProjectZomboidCpp* 2>/dev/null || echo "No executables found"
+    ls -lh ProjectZomboidSwitch* 2>/dev/null || echo "No executables found"
 
 elif [[ "$TARGET" == "windows" ]]; then
     echo "=== Project Zomboid - Windows Build ==="
