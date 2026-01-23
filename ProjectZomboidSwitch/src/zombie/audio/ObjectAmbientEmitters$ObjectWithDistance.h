@@ -1,22 +1,6 @@
-#pragma once
-#include <string>
-#include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-#include "zombie/audio/ObjectAmbientEmitters/PerObjectLogic.h"
-#include "zombie/iso/IsoObject.h"
-
-namespace zombie {
-namespace audio {
-
-
-class ObjectAmbientEmitters {
-public:
-    IsoObject object;
-    PerObjectLogic logic;
-    float distSq;
-}
-} // namespace audio
-} // namespace zombie
+#
+// MERGED: The ObjectWithDistance definition from this file has been
+// merged into ObjectAmbientEmitters.h (ObjectWithDistance class).
+// See: ProjectZomboidSwitch/src/zombie/audio/ObjectAmbientEmitters.h
+// This file is retained for reference and can be removed.
+#

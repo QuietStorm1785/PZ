@@ -19,6 +19,9 @@
 #include "zombie/iso/objects/IsoDoor.h"
 #include "zombie/iso/IsoUtils.h"
 #include "zombie/iso/IsoWorld.h"
+#include "zombie/inventory/ItemContainer.h"
+#include "fmod/fmod/FMODManager.h"
+#include "fmod/fmod/FMOD_STUDIO_PARAMETER_DESCRIPTION.h"
 #include "zombie/iso/Vector2.h"
 #include "zombie/network/GameServer.h"
 #include "zombie/popman/ObjectPool.h"
@@ -53,6 +56,38 @@ public:
     void reset() {
         m_objects.clear();
     }
+};
+// Base per-object logic for ambient emitters.
+class PerObjectLogic {
+public:
+    IsoObject* object = nullptr;
+    float parameterValue1 = std::numeric_limits<float>::quiet_NaN();
+
+    PerObjectLogic() = default;
+    virtual ~PerObjectLogic() = default;
+
+    virtual void init(IsoObject* obj) { object = obj; }
+
+    void setParameterValue1(BaseSoundEmitter* emitter, int64_t time, const std::string& name, float value) {
+        if (value != parameterValue1) {
+            parameterValue1 = value;
+            FMOD_STUDIO_PARAMETER_DESCRIPTION desc = FMODManager::instance->getParameterDescription(name);
+            emitter->setParameterValue(time, desc, value);
+        }
+    }
+
+    void setParameterValue1(BaseSoundEmitter* emitter, int64_t time, const FMOD_STUDIO_PARAMETER_DESCRIPTION& desc, float value) {
+        if (value != parameterValue1) {
+            parameterValue1 = value;
+            emitter->setParameterValue(time, desc, value);
+        }
+    }
+
+    virtual bool shouldPlaySound() = 0;
+    virtual std::string getSoundName() const = 0;
+    virtual void startPlaying(BaseSoundEmitter* emitter, int64_t time) = 0;
+    virtual void stopPlaying(BaseSoundEmitter* emitter, int64_t time) = 0;
+    virtual void checkParameters(BaseSoundEmitter* emitter, int64_t time) = 0;
 };
 // Logic for ambient sound emitters, enforcing power policy and generator parameter.
 class AmbientSoundLogic final : public PerObjectLogic {
@@ -156,6 +191,38 @@ public:
 };
 
 
+// Specific logic for fridge/freezer hum ambient sound.
+class FridgeHumLogic final : public PerObjectLogic {
+public:
+    FridgeHumLogic() = default;
+    ~FridgeHumLogic() override = default;
+
+    void init(IsoObject* obj) override {
+        PerObjectLogic::init(obj);
+    }
+
+    bool shouldPlaySound() override {
+        if (!object) return false;
+        ItemContainer* c = object->getContainerByEitherType("fridge", "freezer");
+        return c != nullptr && c->isPowered();
+    }
+
+    std::string getSoundName() const override {
+        return "FridgeHum";
+    }
+
+    void startPlaying(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {}
+
+    void stopPlaying(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {
+        parameterValue1 = std::numeric_limits<float>::quiet_NaN();
+    }
+
+    void checkParameters(BaseSoundEmitter* emitter, int64_t time) override {
+        setParameterValue1(emitter, time, "Generator", IsoWorld::instance->isHydroPowerOn() ? 0.0f : 1.0f);
+    }
+};
+
+
 // Comparator for sorting ObjectWithDistance by squared distance.
 struct ObjectWithDistanceComparator {
     // Compare by value (ascending)
@@ -170,6 +237,17 @@ struct ObjectWithDistanceComparator {
         if (!b) return true;
         return a->distSq < b->distSq;
     }
+};
+
+// Represents an object with a cached squared distance and its logic.
+class ObjectWithDistance {
+public:
+    IsoObject* object = nullptr;
+    PerObjectLogic* logic = nullptr;
+    float distSq = std::numeric_limits<float>::infinity();
+
+    ObjectWithDistance() = default;
+    ObjectWithDistance(IsoObject* obj, PerObjectLogic* lg, float ds) : object(obj), logic(lg), distSq(ds) {}
 };
 
 class ObjectAmbientEmitters {
