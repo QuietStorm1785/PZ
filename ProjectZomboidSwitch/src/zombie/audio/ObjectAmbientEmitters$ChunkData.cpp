@@ -1,23 +1,22 @@
-#include "zombie/audio/ObjectAmbientEmitters$ChunkData.h"
+#include "zombie/audio/ObjectAmbientEmitters.h"
 
 namespace zombie {
 namespace audio {
 
-bool ObjectAmbientEmitters$ChunkData::hasObject(IsoObject var1) {
-    // TODO: Implement hasObject
-    return false;
+bool ChunkData::hasObject(const IsoObject* obj) const {
+    return m_objects.find(const_cast<IsoObject*>(obj)) != m_objects.end();
 }
 
-void ObjectAmbientEmitters$ChunkData::addObject(IsoObject var1, PerObjectLogic var2) {
-    // TODO: Implement addObject
+void ChunkData::addObject(IsoObject* obj, PerObjectLogic* logic) {
+    m_objects.emplace(obj, logic);
 }
 
-void ObjectAmbientEmitters$ChunkData::removeObject(IsoObject var1) {
-    // TODO: Implement removeObject
+void ChunkData::removeObject(IsoObject* obj) {
+    m_objects.erase(obj);
 }
 
-void ObjectAmbientEmitters$ChunkData::reset() {
-    // TODO: Implement reset
+void ChunkData::reset() {
+    m_objects.clear();
 }
 
 } // namespace audio

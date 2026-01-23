@@ -61,12 +61,11 @@ auto tm_zone(const std::tm& tm) -> decltype(tzname[0]) {
   return tzname[is_dst];
 }
 #elif defined(__native_client__) || defined(__myriad2__) || \
-    defined(__EMSCRIPTEN__) || defined(__SWITCH__)
-// Uses the globals: 'timezone' and 'tzname'.
-// Nintendo Switch (newlib) doesn't have tm_gmtoff, use timezone global
-auto tm_gmtoff(const std::tm& tm) -> decltype(timezone + 0) {
+    defined(__EMSCRIPTEN__)
+// Uses the globals: '_timezone' and 'tzname'.
+auto tm_gmtoff(const std::tm& tm) -> decltype(_timezone + 0) {
   const bool is_dst = tm.tm_isdst > 0;
-  return timezone + (is_dst ? 60 * 60 : 0);
+  return _timezone + (is_dst ? 60 * 60 : 0);
 }
 auto tm_zone(const std::tm& tm) -> decltype(tzname[0]) {
   const bool is_dst = tm.tm_isdst > 0;

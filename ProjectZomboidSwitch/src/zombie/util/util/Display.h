@@ -12,7 +12,7 @@ namespace util {
 
 class Display {
 public:
-    static const std::string displayChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#¤%&/()=?'@£${[]}+|^~*-_.:,;
+    static const std::string displayChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#¤%&/()=?'@£${[]}+|^~*-_.:,;"
 
     static std::string display(int var0) {
       return std::string.valueOf(var0);

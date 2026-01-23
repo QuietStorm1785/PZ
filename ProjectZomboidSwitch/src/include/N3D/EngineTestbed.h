@@ -6,8 +6,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/LWJGLException.h"
-#include "org/lwjglx/opengl/Display.h"
+#include "GraphicsWrapper/GraphicsExceptions.h"
+#include "GraphicsWrapper/Display.h"
 #include "zombie/GameWindow.h"
 #include "zombie/core/Rand.h"
 #include "zombie/input/KeyboardState.h"

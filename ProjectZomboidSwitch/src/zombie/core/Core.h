@@ -20,7 +20,7 @@
 #include "org/lwjgl/opengl/GL32.h"
 #include "org/lwjgl/system/MemoryUtil.h"
 #include "org/lwjgl/util/glu/GLU.h"
-#include "org/lwjglx/LWJGLException.h"
+#include "GraphicsWrapper/GraphicsExceptions.h"
 #include "org/lwjglx/input/Controller.h"
 #include "org/lwjglx/input/Keyboard.h"
 #include "org/lwjglx/opengl/Display.h"

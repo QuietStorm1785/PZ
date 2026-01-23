@@ -9,7 +9,7 @@
 #include "java/awt/image/BufferedImage.h"
 #include "javax/imageio/ImageIO.h"
 #include "org/lwjgl/BufferUtils.h"
-#include "org/lwjglx/LWJGLException.h"
+#include "GraphicsWrapper/GraphicsExceptions.h"
 #include "org/lwjglx/input/Cursor.h"
 #include "zombie/ZomboidFileSystem.h"
 #include "zombie/core/Core.h"

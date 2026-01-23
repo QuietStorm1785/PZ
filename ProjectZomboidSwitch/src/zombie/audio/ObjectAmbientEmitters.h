@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <algorithm>
 #include <limits>
+#include <type_traits>
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/math/PZMath.h"
 #include "zombie/debug/DebugOptions.h"
@@ -25,18 +26,28 @@
 #include "zombie/iso/Vector2.h"
 #include "zombie/network/GameServer.h"
 #include "zombie/popman/ObjectPool.h"
+#include "fmod/fmod/FMODSoundEmitter.h"
+#include "zombie/core/Core.h"
+#include "zombie/audio/parameters/ParameterCurrentZone.h"
+#include "zombie/iso/SpriteDetails/IsoFlagType.h"
+#include "zombie/iso/objects/IsoWindow.h"
 
 // Forward declarations for types used in class members
 class IsoObject;
 class PerObjectLogic;
 class ObjectWithDistance;
 class Slot;
-enum class PowerPolicy : int;
+// Power policy for ambient emitters. Replacement for ObjectAmbientEmitters$PowerPolicy.h
+enum class PowerPolicy : int {
+    NotRequired = 0,
+    InteriorHydro = 1,
+    ExteriorOK = 2,
+};
 class BaseSoundEmitter;
 class GameSound;
 class GameSounds;
 
-// Holds a mapping of IsoObject* to PerObjectLogic* for a chunk.
+// Holds a mapping of IsoObject* to PerObjectLogic* for a chunk. Replacement for ObjectAmbientEmitters$ChunkData.h
 class ChunkData {
 public:
     std::unordered_map<IsoObject*, PerObjectLogic*> m_objects;
@@ -57,7 +68,7 @@ public:
         m_objects.clear();
     }
 };
-// Base per-object logic for ambient emitters.
+// Base per-object logic for ambient emitters. Replacement for ObjectAmbientEmitters$PerObjectLogic.h
 class PerObjectLogic {
 public:
     IsoObject* object = nullptr;
@@ -89,7 +100,7 @@ public:
     virtual void stopPlaying(BaseSoundEmitter* emitter, int64_t time) = 0;
     virtual void checkParameters(BaseSoundEmitter* emitter, int64_t time) = 0;
 };
-// Logic for ambient sound emitters, enforcing power policy and generator parameter.
+// Logic for ambient sound emitters, enforcing power policy and generator parameter. Replacement for ObjectAmbientEmitters$AmbientSoundLogic.h
 class AmbientSoundLogic final : public PerObjectLogic {
 public:
     PowerPolicy powerPolicy_ = PowerPolicy::NotRequired;
@@ -157,7 +168,7 @@ public:
     }
 };
 
-// Simple logic for doors: always eligible and exposes a "DoorWindowOpen" parameter.
+// Simple logic for doors: always eligible and exposes a "DoorWindowOpen" parameter. Replacement for ObjectAmbientEmitters$DoorLogic.h
 class DoorLogic final : public PerObjectLogic {
 public:
     DoorLogic() = default;
@@ -191,7 +202,7 @@ public:
 };
 
 
-// Specific logic for fridge/freezer hum ambient sound.
+// Specific logic for fridge/freezer hum ambient sound. Replacement for ObjectAmbientEmitters$FridgeHumLogic.h
 class FridgeHumLogic final : public PerObjectLogic {
 public:
     FridgeHumLogic() = default;
@@ -222,8 +233,135 @@ public:
     }
 };
 
+// Tent ambiance logic. Replacement for ObjectAmbientEmitters$TentAmbianceLogic.h
+class TentAmbianceLogic final : public PerObjectLogic {
+public:
+    TentAmbianceLogic() = default;
+    ~TentAmbianceLogic() override = default;
 
-// Comparator for sorting ObjectWithDistance by squared distance.
+    void init(IsoObject* obj) override { PerObjectLogic::init(obj); }
+
+    bool shouldPlaySound() override {
+        if (!object) return false;
+        // Many converted Java classes expose a `sprite` pointer with name and tileSheetIndex.
+        // Guard defensively if those members are not present at runtime.
+        if (!object->sprite) return false;
+        const char* name = object->sprite->getName();
+        if (!name) return false;
+        std::string sname(name);
+        if (sname.rfind("camping_01", 0) != 0) return false; // startsWith
+        int idx = object->sprite->tileSheetIndex;
+        return (idx == 0 || idx == 3);
+    }
+
+    std::string getSoundName() const override {
+        return "TentAmbiance";
+    }
+
+    void startPlaying(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {}
+    void stopPlaying(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {}
+    void checkParameters(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {}
+};
+
+// Water drip logic. Replacement for ObjectAmbientEmitters$WaterDripLogic.h
+class WaterDripLogic final : public PerObjectLogic {
+public:
+    WaterDripLogic() = default;
+    ~WaterDripLogic() override = default;
+
+    void init(IsoObject* obj) override { PerObjectLogic::init(obj); }
+
+    bool shouldPlaySound() override {
+        if (!object) return false;
+        if (!object->sprite) return false;
+        if (!object->sprite->getProperties().Is(IsoFlagType::waterPiped)) return false;
+        return object->getWaterAmount() > 0.0f;
+    }
+
+    std::string getSoundName() const override {
+        return "WaterDrip";
+    }
+
+    void startPlaying(BaseSoundEmitter* emitter, int64_t time) override {
+        if (!object || !object->sprite) return;
+        if (object->sprite->getProperties().Is("SinkType")) {
+            std::string type = object->sprite->getProperties().Val("SinkType");
+            float v = 0.0f;
+            if (type == "Ceramic") v = 1.0f;
+            else if (type == "Metal") v = 2.0f;
+            setParameterValue1(emitter, time, "SinkType", v);
+        }
+    }
+
+    void stopPlaying(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {
+        parameterValue1 = std::numeric_limits<float>::quiet_NaN();
+    }
+
+    void checkParameters(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {}
+};
+
+// Tree ambiance logic. Replacement for ObjectAmbientEmitters$TreeAmbianceLogic.h
+class TreeAmbianceLogic final : public PerObjectLogic {
+public:
+    TreeAmbianceLogic() = default;
+    ~TreeAmbianceLogic() override = default;
+
+    void init(IsoObject* obj) override { PerObjectLogic::init(obj); }
+
+    bool shouldPlaySound() override {
+        if (!object) return false;
+        return true;
+    }
+
+    std::string getSoundName() const override {
+        return "TreeAmbiance";
+    }
+
+    void startPlaying(BaseSoundEmitter* emitter, int64_t /*time*/) override {
+        if (!emitter) return;
+        if (auto* fmodEmitter = dynamic_cast<FMODSoundEmitter*>(emitter)) {
+            fmodEmitter->addParameter(std::make_shared<ParameterCurrentZone>(object));
+        }
+        emitter->playAmbientLoopedImpl("BirdInTree");
+    }
+
+    void stopPlaying(BaseSoundEmitter* emitter, int64_t /*time*/) override {
+        if (!emitter) return;
+        emitter->stopOrTriggerSoundByName("BirdInTree");
+    }
+
+    void checkParameters(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {}
+};
+
+// Window logic. Replacement for ObjectAmbientEmitters$WindowLogic.h
+class WindowLogic final : public PerObjectLogic {
+public:
+    WindowLogic() = default;
+    ~WindowLogic() override = default;
+
+    void init(IsoObject* obj) override { PerObjectLogic::init(obj); }
+
+    bool shouldPlaySound() override { return true; }
+
+    std::string getSoundName() const override { return "WindowAmbiance"; }
+
+    void startPlaying(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {}
+
+    void stopPlaying(BaseSoundEmitter* /*emitter*/, int64_t /*time*/) override {
+        parameterValue1 = std::numeric_limits<float>::quiet_NaN();
+    }
+
+    void checkParameters(BaseSoundEmitter* emitter, int64_t time) override {
+        if (!object || !emitter) return;
+        auto* win = dynamic_cast<IsoWindow*>(object);
+        if (!win) return;
+        float v = (!win->IsOpen() && !win->isDestroyed()) ? 0.0f : 1.0f;
+        setParameterValue1(emitter, time, "DoorWindowOpen", v);
+    }
+};
+
+
+// Comparator for sorting ObjectWithDistance by squared distance. Replacement for ObjectAmbientEmitters$ObjectWithDistanceComparator.h
 struct ObjectWithDistanceComparator {
     // Compare by value (ascending)
     bool operator()(const ObjectWithDistance& a, const ObjectWithDistance& b) const noexcept {
@@ -239,7 +377,7 @@ struct ObjectWithDistanceComparator {
     }
 };
 
-// Represents an object with a cached squared distance and its logic.
+// Represents an object with a cached squared distance and its logic. Replacement for ObjectAmbientEmitters$ObjectWithDistance.h
 class ObjectWithDistance {
 public:
     IsoObject* object = nullptr;
@@ -248,6 +386,60 @@ public:
 
     ObjectWithDistance() = default;
     ObjectWithDistance(IsoObject* obj, PerObjectLogic* lg, float ds) : object(obj), logic(lg), distSq(ds) {}
+};
+
+// Slot holds emitter state for a single ambient sound slot. Replacement for ObjectAmbientEmitters$Slot.h
+class Slot {
+public:
+    IsoObject* object = nullptr;
+    PerObjectLogic* logic = nullptr;
+    std::unique_ptr<BaseSoundEmitter> emitter;
+    int64_t instance = 0;
+    bool playing = false;
+
+    void playSound(IsoObject* obj, PerObjectLogic* lg) {
+        if (!emitter) {
+            if (Core::SoundDisabled) {
+                class DummySoundEmitter; // forward declare to avoid header dependency
+                emitter = std::unique_ptr<BaseSoundEmitter>(static_cast<BaseSoundEmitter*>(new DummySoundEmitter()));
+            } else {
+                emitter = std::make_unique<FMODSoundEmitter>();
+            }
+        }
+
+        obj->getFacingPosition(ObjectAmbientEmitters::tempVector2_);
+        emitter->setPos(ObjectAmbientEmitters::tempVector2_.getX(), ObjectAmbientEmitters::tempVector2_.getY(), obj->square->z);
+        object = obj;
+        logic = lg;
+
+        const std::string soundName = logic->getSoundName();
+        if (!emitter->isPlaying(soundName)) {
+            emitter->stopAll();
+            if (auto* fmodEmitter = dynamic_cast<FMODSoundEmitter*>(emitter.get())) {
+                fmodEmitter->clearParameters();
+            }
+
+            instance = emitter->playSoundImpl(soundName, nullptr);
+            logic->startPlaying(emitter.get(), instance);
+        }
+
+        logic->checkParameters(emitter.get(), instance);
+        playing = true;
+        emitter->tick();
+    }
+
+    void stopPlaying() {
+        if (emitter && instance != 0) {
+            if (logic) logic->stopPlaying(emitter.get(), instance);
+            if (emitter->hasSustainPoints(instance)) {
+                emitter->triggerCue(instance);
+                instance = 0;
+            } else {
+                emitter->stopAll();
+                instance = 0;
+            }
+        }
+    }
 };
 
 class ObjectAmbientEmitters {

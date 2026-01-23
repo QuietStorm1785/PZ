@@ -8,7 +8,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjglx/LWJGLException.h"
+#include "GraphicsWrapper/GraphicsExceptions.h"
 #include "org/lwjglx/input/Controllers.h"
 #include "org/lwjglx/opengl/Display.h"
 #include "org/lwjglx/opengl/OpenGLException.h"

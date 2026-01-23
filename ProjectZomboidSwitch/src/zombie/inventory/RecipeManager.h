@@ -6,8 +6,31 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/Lua/LuaEventManager.h"
-#include "zombie/Lua/LuaManager.h"
+#include "zombie/GameWindow.h" // For Lua C API helpers
+// --- Lua C API helpers for RecipeManager ---
+namespace {
+// Get a Lua function by name and push it on the stack. Returns true if found.
+inline bool GetLuaFunction(const std::string& name) {
+   if (!zombie::GameWindow::L) return false;
+   lua_getglobal(zombie::GameWindow::L, name.c_str());
+   if (!lua_isfunction(zombie::GameWindow::L, -1)) {
+      lua_pop(zombie::GameWindow::L, 1);
+      return false;
+   }
+   return true;
+}
+
+// Call a Lua function (already on stack) with N args, Nret returns, protected.
+inline bool CallLuaFunction(int nargs, int nret = 0) {
+   if (lua_pcall(zombie::GameWindow::L, nargs, nret, 0) != LUA_OK) {
+      const char* err = lua_tostring(zombie::GameWindow::L, -1);
+      std::cerr << "Lua error: " << (err ? err : "unknown") << std::endl;
+      lua_pop(zombie::GameWindow::L, 1);
+      return false;
+   }
+   return true;
+}
+}
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/skills/PerkFactory/Perks.h"
 #include "zombie/debug/DebugLog.h"
@@ -126,9 +149,8 @@ public:
 
     static void LoadedAfterLua(Recipe var0, const std::string& var1, const std::string& var2) {
       if (!StringUtils.isNullOrWhitespace(var1)) {
-    void* var3 = LuaManager.getFunctionObject(var1);
-         if (var3 == nullptr) {
-            DebugLog.General.error("no such function %s = \"%s\" in recipe \"%s\"", new Object[]{var2, var1, var0.name});
+         if (!GetLuaFunction(var1)) {
+            DebugLog.General.error("no such function %s = \"%s\" in recipe \"%s\"", {var2, var1, var0.name});
          }
       }
    }
