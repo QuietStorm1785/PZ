@@ -3,24 +3,31 @@
 namespace zombie {
 namespace ai {
 namespace permission {
-
-void GenericStatePermissions::setDeferredMovementAllowed(bool var1) {
-    // TODO: Implement setDeferredMovementAllowed
+GenericStatePermissions::GenericStatePermissions() {
+	// Example: initialize custom permissions
+	customPermissions_["deferredMovement"] = true;
+	customPermissions_["playerInput"] = true;
 }
 
-bool GenericStatePermissions::isDeferredMovementAllowed(IsoGameCharacter var1) {
-    // TODO: Implement isDeferredMovementAllowed
-    return false;
+GenericStatePermissions::~GenericStatePermissions() {}
+
+bool GenericStatePermissions::isDeferredMovementAllowed(const IsoGameCharacter& character) const {
+	// ...existing code...
 }
 
-void GenericStatePermissions::setPlayerInputAllowed(bool var1) {
-    // TODO: Implement setPlayerInputAllowed
+bool GenericStatePermissions::isPlayerInputAllowed(const IsoGameCharacter& character) const {
+	// ...existing code...
 }
 
-bool GenericStatePermissions::isPlayerInputAllowed(IsoGameCharacter var1) {
-    // TODO: Implement isPlayerInputAllowed
-    return false;
+bool GenericStatePermissions::isPermissionAllowed(const IsoGameCharacter& character, const std::string& permissionName) const {
+	auto it = customPermissions_.find(permissionName);
+	if (it != customPermissions_.end()) {
+		return it->second;
+	}
+	return false;
 }
+
+// Implementation now in header (inline)
 
 } // namespace permission
 } // namespace ai

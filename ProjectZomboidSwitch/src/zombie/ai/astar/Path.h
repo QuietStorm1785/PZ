@@ -16,37 +16,31 @@ namespace astar {
 
 class Path {
 public:
-   private std::vector<Step> steps = std::make_unique<std::vector<>>();
-    float cost = 0.0F;
-   public static std::stack<Step> stepstore = std::make_unique<std::stack<>>();
-    static Step containsStep = std::make_shared<Step>();
+   std::vector<Path$Step> steps;
+   float cost = 0.0f;
 
-    float costPerStep() {
-      return this.steps.empty() ? this.cost : this.cost / this.steps.size();
+   static std::stack<Path$Step> stepstore;
+   static Path$Step containsStep;
+
+   float costPerStep() const {
+      return steps.empty() ? cost : cost / steps.size();
    }
 
-    void appendStep(int var1, int var2, int var3) {
-    Step var4 = nullptr;
-      var4 = std::make_unique<Step>();
-      var4.x = var1;
-      var4.y = var2;
-      var4.z = var3;
-      this.steps.push_back(var4);
+   void appendStep(int x, int y, int z) {
+      steps.emplace_back(x, y, z);
    }
 
-    bool contains(int var1, int var2, int var3) {
-      containsStep.x = var1;
-      containsStep.y = var2;
-      containsStep.z = var3;
-      return this.steps.contains(containsStep);
+   bool contains(int x, int y, int z) const {
+      Path$Step test(x, y, z);
+      return std::find_if(steps.begin(), steps.end(), [&](const Path$Step& s) { return s.equals(test); }) != steps.end();
    }
 
-    int getLength() {
-      return this.steps.size();
+   int getLength() const {
+      return static_cast<int>(steps.size());
    }
 
-    Step getStep(int var1) {
-      return this.steps.get(var1);
+   Path$Step getStep(int idx) const {
+      return steps.at(idx);
    }
 
     int getX(int var1) {

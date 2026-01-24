@@ -5,24 +5,28 @@ namespace ai {
 namespace states {
 
 ZombieFallingState ZombieFallingState::instance() {
-    // TODO: Implement instance
-    return nullptr;
+    static ZombieFallingState _instance;
+    return _instance;
 }
 
 void ZombieFallingState::enter(IsoGameCharacter var1) {
-    // TODO: Implement enter
+    var1.setVariable("bHardFall", false);
+    var1.clearVariable("bLandAnimFinished");
 }
 
 void ZombieFallingState::execute(IsoGameCharacter var1) {
-    // TODO: Implement execute
+    // No-op (matches Java)
 }
 
 void ZombieFallingState::exit(IsoGameCharacter var1) {
-    // TODO: Implement exit
+    var1.clearVariable("bHardFall");
+    var1.clearVariable("bLandAnimFinished");
 }
 
 void ZombieFallingState::animEvent(IsoGameCharacter var1, AnimEvent var2) {
-    // TODO: Implement animEvent
+    if (var2.m_EventName == "FallOnFront") {
+        var1.setFallOnFront(var2.m_ParameterValue == "true");
+    }
 }
 
 } // namespace states

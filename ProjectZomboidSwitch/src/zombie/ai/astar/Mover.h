@@ -13,9 +13,8 @@ namespace astar {
 class Mover {
 public:
     virtual ~Mover() = default;
-    int getID();
-
-    int getPathFindIndex();
+    virtual int getID() const = 0;
+    virtual int getPathFindIndex() const = 0;
 }
 } // namespace astar
 } // namespace ai

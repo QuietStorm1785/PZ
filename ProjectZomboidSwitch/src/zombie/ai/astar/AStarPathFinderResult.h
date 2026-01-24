@@ -14,7 +14,7 @@ namespace astar {
 
 class AStarPathFinderResult {
 public:
-    PathFindProgress progress = PathFindProgress.notrunning;
+    PathFindProgress progress = PathFindProgress::notrunning;
     int maxSearchDistance = 120;
 }
 } // namespace astar

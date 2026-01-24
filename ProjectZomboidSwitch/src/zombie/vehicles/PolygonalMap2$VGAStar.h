@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "astar/AStar.h"
+#include "AstarCpp/AStar.h"
 #include "astar/ISearchNode.h"
 #if __has_include(<absl/container/flat_hash_map.h>)
 #  include <absl/container/flat_hash_map.h>

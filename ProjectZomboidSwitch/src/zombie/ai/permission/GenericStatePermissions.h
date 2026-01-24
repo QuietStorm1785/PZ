@@ -14,23 +14,23 @@ namespace permission {
 
 class GenericStatePermissions {
 public:
-    bool m_deferredMovement = false;
-    bool m_playerInput = false;
+   bool m_deferredMovement = false;
+   bool m_playerInput = false;
 
-    void setDeferredMovementAllowed(bool var1) {
-      this.m_deferredMovement = var1;
+   void setDeferredMovementAllowed(bool allowed) {
+      m_deferredMovement = allowed;
    }
 
-    bool isDeferredMovementAllowed(IsoGameCharacter var1) {
-      return this.m_deferredMovement;
+   bool isDeferredMovementAllowed(const IsoGameCharacter& character) const {
+      return m_deferredMovement;
    }
 
-    void setPlayerInputAllowed(bool var1) {
-      this.m_playerInput = var1;
+   void setPlayerInputAllowed(bool allowed) {
+      m_playerInput = allowed;
    }
 
-    bool isPlayerInputAllowed(IsoGameCharacter var1) {
-      return this.m_playerInput;
+   bool isPlayerInputAllowed(const IsoGameCharacter& character) const {
+      return m_playerInput;
    }
 }
 } // namespace permission

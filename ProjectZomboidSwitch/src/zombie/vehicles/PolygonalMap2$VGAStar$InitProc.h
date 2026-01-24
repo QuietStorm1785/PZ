@@ -8,7 +8,7 @@
 #include "gnu/trove/procedure/TIntObjectProcedure.h"
 #include "zombie/vehicles/PolygonalMap2/Node.h"
 #include "zombie/vehicles/PolygonalMap2/SearchNode.h"
-#include "zombie/vehicles/PolygonalMap2/VGAStar.h"
+#include "AstarCpp/VGAStar.h"
 
 namespace zombie {
 namespace vehicles {

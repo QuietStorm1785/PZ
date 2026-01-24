@@ -14,15 +14,15 @@ namespace permission {
 
 class DefaultStatePermissions {
 public:
-    static const DefaultStatePermissions Instance = std::make_shared<DefaultStatePermissions>();
+    static std::shared_ptr<DefaultStatePermissions> Instance;
 
-    bool isDeferredMovementAllowed(IsoGameCharacter var1) {
-    return true;
-   }
+    bool isDeferredMovementAllowed(const IsoGameCharacter& character) const {
+        return true;
+    }
 
-    bool isPlayerInputAllowed(IsoGameCharacter var1) {
-    return true;
-   }
+    bool isPlayerInputAllowed(const IsoGameCharacter& character) const {
+        return true;
+    }
 }
 } // namespace permission
 } // namespace ai

@@ -10,12 +10,12 @@ namespace zombie {
 namespace ai {
 namespace astar {
 
-enum class AStarPathFinder {
+enum class PathFindProgress {
    notrunning,
    failed,
    found,
-   notyetfound;
-}
+   notyetfound
+};
 } // namespace astar
 } // namespace ai
 } // namespace zombie

@@ -4,15 +4,7 @@ namespace zombie {
 namespace ai {
 namespace astar {
 
-int Mover::getID() {
-    // TODO: Implement getID
-    return 0;
-}
-
-int Mover::getPathFindIndex() {
-    // TODO: Implement getPathFindIndex
-    return 0;
-}
+// Pure interface; implementation should be provided by derived classes
 
 } // namespace astar
 } // namespace ai

@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/ai/astar/Mover.h"
+#include "AstarCpp/Mover.h"
 #include "zombie/core/SpriteRenderer.h"
 #include "zombie/core/utils/BooleanGrid.h"
 #include "zombie/iso/IsoGridSquare.h"

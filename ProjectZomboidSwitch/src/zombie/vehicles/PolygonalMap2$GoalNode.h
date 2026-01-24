@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "astar/IGoalNode.h"
-#include "astar/ISearchNode.h"
+#include "AstarCpp/IGoalNode.h"
+#include "AstarCpp/ISearchNode.h"
 #include "zombie/vehicles/PolygonalMap2/SearchNode.h"
 
 namespace zombie {

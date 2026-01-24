@@ -5,18 +5,7 @@ namespace zombie {
 namespace ai {
 namespace astar {
 
-void IPathfinder::Failed(Mover var1) {
-    // TODO: Implement Failed
-}
-
-void IPathfinder::Succeeded(Path var1, Mover var2) {
-    // TODO: Implement Succeeded
-}
-
-std::string IPathfinder::getName() {
-    // TODO: Implement getName
-    return "";
-}
+// Pure interface; implementation should be provided by derived classes
 
 } // namespace astar
 } // namespace ai

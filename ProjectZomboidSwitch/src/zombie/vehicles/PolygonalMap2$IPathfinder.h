@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/ai/astar/Mover.h"
+#include "AstarCpp/Mover.h"
 #include "zombie/vehicles/PolygonalMap2/Path.h"
 
 namespace zombie {

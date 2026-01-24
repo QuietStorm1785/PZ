@@ -7,7 +7,7 @@
 #include <cstdint>
 #include "gnu/trove/list/array/TFloatArrayList.h"
 #include "zombie/ai/KnownBlockedEdges.h"
-#include "zombie/ai/astar/Mover.h"
+#include "AstarCpp/Mover.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoZombie.h"
 #include "zombie/util/Type.h"

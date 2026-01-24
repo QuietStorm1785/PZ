@@ -16,31 +16,33 @@ namespace sadisticAIDirector {
 
 class SleepingEventData {
 public:
-    int forceWakeUpTime = -1;
-    bool zombiesIntruders = true;
-    int nightmareWakeUp = -1;
-    IsoWindow weakestWindow = nullptr;
-    IsoDoor openDoor = nullptr;
-    bool bRaining = false;
-    bool bWasRainingAtStart = false;
-    double rainTimeStartHours = -1.0;
-    float sleepingTime = 8.0F;
+      /**
+       * Constructs a SleepingEventData object with default values.
+       */
+      SleepingEventData();
+      ~SleepingEventData();
 
-    void reset() {
-      this.forceWakeUpTime = -1;
-      this.zombiesIntruders = false;
-      this.nightmareWakeUp = -1;
-      this.openDoor = nullptr;
-      this.weakestWindow = nullptr;
-      this.bRaining = false;
-      this.bWasRainingAtStart = false;
-      this.rainTimeStartHours = -1.0;
-      this.sleepingTime = 8.0F;
-   }
+      /**
+       * Resets all event data to default values.
+       */
+      void reset();
 
-    double getHoursSinceRainStarted() {
-      return GameTime.getInstance().getWorldAgeHours() - this.rainTimeStartHours;
-   }
+      /**
+       * Returns the number of hours since rain started.
+       */
+      double getHoursSinceRainStarted() const;
+
+      // Data members
+      int forceWakeUpTime;
+      bool zombiesIntruders;
+      int nightmareWakeUp;
+      IsoWindow weakestWindow;
+      IsoDoor openDoor;
+      bool bRaining;
+      bool bWasRainingAtStart;
+      double rainTimeStartHours;
+      float sleepingTime;
+};
 }
 } // namespace sadisticAIDirector
 } // namespace ai

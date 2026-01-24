@@ -12,38 +12,21 @@ namespace astar {
 
 class Path {
 public:
-    int x;
-    int y;
-    int z;
+    int x = 0;
+    int y = 0;
+    int z = 0;
 
-   public Path$Step(int var1, int var2, int var3) {
-      this.x = var1;
-      this.y = var2;
-      this.z = var3;
-   }
+    Path$Step() = default;
+    Path$Step(int x_, int y_, int z_) : x(x_), y(y_), z(z_) {}
 
-   public Path$Step() {
-   }
+    bool equals(const Path$Step& other) const {
+        return x == other.x && y == other.y && z == other.z;
+    }
 
-    bool equals(void* var1) {
-      return !(dynamic_cast<Path*>(var1) != nullptr$Step var2) ? false : var2.x == this.x && var2.y == this.y && var2.z == this.z;
-   }
-
-    int getX() {
-      return this.x;
-   }
-
-    int getY() {
-      return this.y;
-   }
-
-    int getZ() {
-      return this.z;
-   }
-
-    int hashCode() {
-      return this.x * this.y * this.z;
-   }
+    int getX() const { return x; }
+    int getY() const { return y; }
+    int getZ() const { return z; }
+    int hashCode() const { return x * y * z; }
 }
 } // namespace astar
 } // namespace ai
