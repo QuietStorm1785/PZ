@@ -4,23 +4,31 @@
 namespace zombie {
 namespace asset {
 
-public FileTask_ParseXML::FileTask_ParseXML(Class<? extends, const std::string& var2, IFileTaskCallback var3, FileSystem var4) {
-    // TODO: Implement FileTask_ParseXML
-    return nullptr;
+FileTask_ParseXML::FileTask_ParseXML(const std::type_info& type, const std::string& filename, std::shared_ptr<IFileTaskCallback> callback, std::shared_ptr<FileSystem> fs)
+    : FileTask(fs, callback), m_type(type), m_filename(filename)
+{
+    // No additional logic needed
 }
 
 std::string FileTask_ParseXML::getErrorMessage() {
-    // TODO: Implement getErrorMessage
-    return "";
+    return m_filename;
+}
 }
 
 void FileTask_ParseXML::done() {
-    // TODO: Implement done
+    m_filename.clear();
 }
 
+
 void* FileTask_ParseXML::call() {
-    // TODO: Implement call
-    return nullptr;
+    try {
+        auto pt = new boost::property_tree::ptree();
+        boost::property_tree::read_xml(m_filename, *pt);
+        return pt; // The caller is responsible for deleting the returned ptree*
+    } catch (const std::exception& ex) {
+        // Optionally log the error
+        return nullptr;
+    }
 }
 
 } // namespace asset

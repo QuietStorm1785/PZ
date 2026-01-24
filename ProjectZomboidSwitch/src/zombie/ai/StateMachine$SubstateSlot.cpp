@@ -4,17 +4,15 @@ namespace zombie {
 namespace ai {
 
 State StateMachine$SubstateSlot::getState() {
-    // TODO: Implement getState
-    return nullptr;
+    return state;
 }
 
 void StateMachine$SubstateSlot::setState(State var1) {
-    // TODO: Implement setState
+    state = var1;
 }
 
 bool StateMachine$SubstateSlot::isEmpty() {
-    // TODO: Implement isEmpty
-    return false;
+    return state == nullptr;
 }
 
 } // namespace ai

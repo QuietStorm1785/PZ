@@ -85,6 +85,11 @@ public:
       }
    }
 }
-} // namespace states
-} // namespace ai
-} // namespace zombie
+public:
+    static PlayerHitReactionState& instance();
+    void enter(IsoGameCharacter* character) override;
+    void execute(IsoGameCharacter* character) override;
+    void exit(IsoGameCharacter* character) override;
+    void animEvent(IsoGameCharacter* character, AnimEvent* event) override;
+private:
+    PlayerHitReactionState() = default;

@@ -4,25 +4,39 @@ namespace zombie {
 namespace ai {
 namespace states {
 
-PlayerStrafeState PlayerStrafeState::instance() {
-    // TODO: Implement instance
-    return nullptr;
+PlayerStrafeState& PlayerStrafeState::instance() {
+    static PlayerStrafeState _instance;
+    return _instance;
+}
 }
 
-void PlayerStrafeState::enter(IsoGameCharacter var1) {
-    // TODO: Implement enter
+void PlayerStrafeState::enter(IsoGameCharacter* var1) {
+    if (var1->getPreviousActionContextStateName() != "aim") {
+        InventoryItem* item = var1->getPrimaryHandItem();
+        if (item && item->getBringToBearSound()) {
+            var1->getEmitter()->playSoundImpl(item->getBringToBearSound(), nullptr);
+        }
+    }
+    DebugLog::AI.debug("PlayerStrafeState::enter: sound played if needed");
+}
 }
 
-void PlayerStrafeState::execute(IsoGameCharacter var1) {
-    // TODO: Implement execute
+void PlayerStrafeState::execute(IsoGameCharacter* var1) {
+    // No-op, but add debug
+    DebugLog::AI.debug("PlayerStrafeState::execute: called");
+}
 }
 
-void PlayerStrafeState::exit(IsoGameCharacter var1) {
-    // TODO: Implement exit
+void PlayerStrafeState::exit(IsoGameCharacter* var1) {
+    // No-op, but add debug
+    DebugLog::AI.debug("PlayerStrafeState::exit: called");
+}
 }
 
-void PlayerStrafeState::animEvent(IsoGameCharacter var1, AnimEvent var2) {
-    // TODO: Implement animEvent
+void PlayerStrafeState::animEvent(IsoGameCharacter* var1, AnimEvent* var2) {
+    // No-op, but add debug
+    DebugLog::AI.debug("PlayerStrafeState::animEvent: called");
+}
 }
 
 } // namespace states

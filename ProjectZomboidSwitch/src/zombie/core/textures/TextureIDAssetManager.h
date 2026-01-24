@@ -25,7 +25,7 @@ namespace textures {
 
 class TextureIDAssetManager : public AssetManager {
 public:
-    static const TextureIDAssetManager instance = std::make_shared<TextureIDAssetManager>();
+   static std::shared_ptr<TextureIDAssetManager> instance;
 
     void startLoading(Asset var1) {
     TextureID var2 = (TextureID)var1;

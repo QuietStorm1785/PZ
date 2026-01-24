@@ -1,25 +1,28 @@
+
 #pragma once
-#include <string>
 #include <vector>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
 #include "zombie/asset/Asset/State.h"
 
-namespace zombie {
-namespace asset {
+namespace zombie::asset {
 
+class Asset;
+class AssetStateObserver;
 
-class Asset {
+class Asset$ObserverCallback {
 public:
-    void invoke(State var1, State var2, Asset var3) {
-    int var4 = this.size();
+   using ObserverPtr = std::shared_ptr<AssetStateObserver>;
+   std::vector<ObserverPtr> m_observers;
 
-      for (int var5 = 0; var5 < var4; var5++) {
-         this.get(var5).onStateChanged(var1, var2, var3);
-      }
+   void addObserver(const ObserverPtr& observer) {
+      m_observers.push_back(observer);
    }
-}
-} // namespace asset
-} // namespace zombie
+
+   void removeObserver(const ObserverPtr& observer) {
+      m_observers.erase(std::remove(m_observers.begin(), m_observers.end(), observer), m_observers.end());
+   }
+
+   void invoke(State oldState, State newState, Asset& asset);
+};
+
+} // namespace zombie::asset

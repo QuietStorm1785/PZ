@@ -48,13 +48,8 @@ public:
     return false;
    }
 
-    std::string getName() {
-      return this.getClass().getSimpleName();
-   }
-
-    IStatePermissions getStatePermissions() {
-      return DefaultStatePermissions.Instance;
-   }
+      std::string getName();
+      IStatePermissions* getStatePermissions();
 }
 } // namespace ai
 } // namespace zombie

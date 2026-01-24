@@ -25,33 +25,19 @@ public:
     bool bMask;
     int m_flags;
 
-    public FileTask_LoadPackImage(const std::string& var1, const std::string& var2, FileSystem var3, IFileTaskCallback var4) {
-      super(var3, var4);
-      this.m_pack_name = var1;
-      this.m_image_name = var2;
-      this.bMask = var3.getTexturePackAlpha(var1, var2);
-      this.m_flags = var3.getTexturePackFlags(var1);
-   }
+    FileTask_LoadPackImage(const std::string& pack_name,
+                          const std::string& image_name,
+                          std::shared_ptr<FileSystem> fs,
+                          std::shared_ptr<IFileTaskCallback> callback)
+        : FileTask(fs, callback),
+          m_pack_name(pack_name),
+          m_image_name(image_name),
+          bMask(fs->getTexturePackAlpha(pack_name, image_name)),
+          m_flags(fs->getTexturePackFlags(pack_name)) {}
 
-    void done() {
-   }
+    void done() override {}
 
-    void* call() {
-      TextureIDAssetManager.instance.waitFileTask();
-    DeviceList var1 = this.m_file_system.getTexturePackDevice(this.m_pack_name);
-
-    ImageData var4;
-      try (InputStream var2 = this.m_file_system.openStream(var1, this.m_image_name)) {
-    ImageData var3 = std::make_shared<ImageData>(var2, this.bMask);
-         if ((this.m_flags & 64) != 0) {
-            var3.initMipMaps();
-         }
-
-         var4 = var3;
-      }
-
-    return var4;
-   }
-}
+    void* call() override;
+};
 } // namespace asset
 } // namespace zombie

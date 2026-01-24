@@ -16,7 +16,12 @@ namespace states {
 
 class ForecastBeatenPlayerState : public State {
 public:
-    static const ForecastBeatenPlayerState _instance = std::make_shared<ForecastBeatenPlayerState>();
+   static ForecastBeatenPlayerState& instance();
+   void enter(IsoGameCharacter* character) override;
+   void execute(IsoGameCharacter* character) override;
+   void exit(IsoGameCharacter* character) override;
+private:
+   ForecastBeatenPlayerState() = default;
 
     static ForecastBeatenPlayerState instance() {
     return _instance;

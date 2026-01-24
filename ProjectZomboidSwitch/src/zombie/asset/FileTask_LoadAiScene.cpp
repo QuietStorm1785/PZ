@@ -4,23 +4,28 @@
 namespace zombie {
 namespace asset {
 
-public FileTask_LoadAiScene::FileTask_LoadAiScene(const std::string& var1, EnumSet<AiPostProcessSteps> var2, IFileTaskCallback var3, FileSystem var4) {
-    // TODO: Implement FileTask_LoadAiScene
-    return nullptr;
+FileTask_LoadAiScene::FileTask_LoadAiScene(const std::string& var1, EnumSet<AiPostProcessSteps> var2, IFileTaskCallback var3, FileSystem var4)
+    : FileTask(var4, var3), m_filename(var1), m_post_process_step_set(var2)
+{
+    // Constructor logic as per header
+}
 }
 
 std::string FileTask_LoadAiScene::getErrorMessage() {
-    // TODO: Implement getErrorMessage
-    return "";
+    return m_filename;
+}
 }
 
 void FileTask_LoadAiScene::done() {
-    // TODO: Implement done
+    m_filename.clear();
+    // m_post_process_step_set = nullptr; // C++: clear or reset as appropriate
+}
 }
 
 void* FileTask_LoadAiScene::call() {
-    // TODO: Implement call
+    // return Jassimp::importFile(m_filename, m_post_process_step_set); // Placeholder for actual import logic
     return nullptr;
+}
 }
 
 } // namespace asset

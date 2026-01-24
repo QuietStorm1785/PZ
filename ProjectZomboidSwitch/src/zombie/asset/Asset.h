@@ -1,98 +1,48 @@
+
 #pragma once
 #include <string>
-#include <vector>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
 #include "zombie/asset/Asset/ObserverCallback.h"
 #include "zombie/asset/Asset/PRIVATE.h"
 #include "zombie/asset/Asset/State.h"
 #include "zombie/asset/AssetManager/AssetParams.h"
 
-namespace zombie {
-namespace asset {
+namespace zombie::asset {
 
+class AssetType; // Forward declaration if needed
 
 class Asset {
 public:
-    const AssetManager m_asset_manager;
+    using ObserverCallbackPtr = std::shared_ptr<ObserverCallback>;
+    using PrivatePtr = std::shared_ptr<PRIVATE>;
+
+    Asset(AssetPath path, AssetManager asset_manager);
+    virtual ~Asset() = default;
+
+    virtual AssetType getType() const = 0;
+
+    State getState() const;
+    bool isEmpty() const;
+    bool isReady() const;
+    bool isFailure() const;
+    void onCreated(State state);
+    int getRefCount() const;
+    ObserverCallbackPtr getObserverCb();
+    AssetPath getPath() const;
+    AssetManager getAssetManager() const;
+    virtual void onBeforeReady();
+    virtual void onBeforeEmpty();
+    void addDependency(Asset& asset);
+    void removeDependency(Asset& asset);
+    int addRef();
+    int rmRef();
+    virtual void setAssetParams(const AssetParams& params);
+
+protected:
+    AssetManager m_asset_manager;
     AssetPath m_path;
     int m_ref_count;
-    const PRIVATE m_priv = std::make_shared<PRIVATE>(this);
+    PrivatePtr m_priv;
+};
 
-    protected Asset(AssetPath var1, AssetManager var2) {
-      this.m_ref_count = 0;
-      this.m_path = var1;
-      this.m_asset_manager = var2;
-   }
-
-   public abstract AssetType getType();
-
-    State getState() {
-      return this.m_priv.m_current_state;
-   }
-
-    bool isEmpty() {
-      return this.m_priv.m_current_state == State.EMPTY;
-   }
-
-    bool isReady() {
-      return this.m_priv.m_current_state == State.READY;
-   }
-
-    bool isFailure() {
-      return this.m_priv.m_current_state == State.FAILURE;
-   }
-
-    void onCreated(State var1) {
-      this.m_priv.onCreated(var1);
-   }
-
-    int getRefCount() {
-      return this.m_ref_count;
-   }
-
-    ObserverCallback getObserverCb() {
-      if (this.m_priv.m_cb == nullptr) {
-         this.m_priv.m_cb = std::make_unique<ObserverCallback>();
-      }
-
-      return this.m_priv.m_cb;
-   }
-
-    AssetPath getPath() {
-      return this.m_path;
-   }
-
-    AssetManager getAssetManager() {
-      return this.m_asset_manager;
-   }
-
-    void onBeforeReady() {
-   }
-
-    void onBeforeEmpty() {
-   }
-
-    void addDependency(Asset var1) {
-      this.m_priv.addDependency(var1);
-   }
-
-    void removeDependency(Asset var1) {
-      this.m_priv.removeDependency(var1);
-   }
-
-    int addRef() {
-      return ++this.m_ref_count;
-   }
-
-    int rmRef() {
-      return --this.m_ref_count;
-   }
-
-    void setAssetParams(AssetParams var1) {
-   }
-}
-} // namespace asset
-} // namespace zombie
+} // namespace zombie::asset

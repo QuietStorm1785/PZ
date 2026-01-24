@@ -18,26 +18,12 @@ namespace states {
 
 class PlayerGetUpState : public State {
 public:
-    static const PlayerGetUpState _instance = std::make_shared<PlayerGetUpState>();
-
-    static PlayerGetUpState instance() {
-    return _instance;
-   }
-
-    void enter(IsoGameCharacter var1) {
-    std::unordered_map var2 = var1.getStateMachineParams(this);
-      var1.setIgnoreMovement(true);
-    IsoPlayer var3 = (IsoPlayer)var1;
-      var3.setInitiateAttack(false);
-      var3.attackStarted = false;
-      var3.setAttackType(nullptr);
-      var3.setBlockMovement(true);
-      var3.setForceRun(false);
-      var3.setForceSprint(false);
-      var1.setVariable("getUpQuick", var1.getVariableBoolean("pressedRunButton"));
-      if (var1.getMoodles().getMoodleLevel(MoodleType.Panic) > 1) {
-         var1.setVariable("getUpQuick", true);
-      }
+      static PlayerGetUpState& instance();
+      void enter(IsoGameCharacter* character) override;
+      void execute(IsoGameCharacter* character) override;
+      void exit(IsoGameCharacter* character) override;
+private:
+      PlayerGetUpState() = default;
 
       if (var1.getVariableBoolean("pressedMovement")) {
          var1.setVariable("getUpWalk", true);

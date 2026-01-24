@@ -4,18 +4,24 @@
 namespace zombie {
 namespace asset {
 
-public FileTask_Exists::FileTask_Exists(const std::string& var1, IFileTaskCallback var2, FileSystem var3) {
-    // TODO: Implement FileTask_Exists
-    return nullptr;
+FileTask_Exists::FileTask_Exists(const std::string& var1, IFileTaskCallback var2, FileSystem var3)
+    : FileTask(var3, var2), fileName(var1)
+{
+    // Constructor logic as per header
+}
 }
 
 void FileTask_Exists::done() {
-    // TODO: Implement done
+    // No-op by default
+}
 }
 
 void* FileTask_Exists::call() {
-    // TODO: Implement call
-    return nullptr;
+    // Return true if file exists, false otherwise
+    std::ifstream file(fileName);
+    bool exists = file.good();
+    return reinterpret_cast<void*>(exists);
+}
 }
 
 } // namespace asset

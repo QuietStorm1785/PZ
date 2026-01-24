@@ -3,9 +3,11 @@
 namespace zombie {
 namespace asset {
 
-public AssetTask::AssetTask(Asset var1) {
-    // TODO: Implement AssetTask
-    return nullptr;
+AssetTask::AssetTask(Asset var1)
+    : m_asset(var1)
+{
+    // Constructor logic as per header
+}
 }
 
 } // namespace asset

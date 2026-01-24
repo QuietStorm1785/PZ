@@ -16,22 +16,19 @@ namespace asset {
 
 class FileTask_ParseXML : public FileTask {
 public:
-   Class<? : public Object> m_class;
-    std::string m_filename;
+      // Use type_info to represent the class type at runtime (C++ alternative to Java's Class<?>)
+      const std::type_info& m_type;
+      std::string m_filename;
 
-    public FileTask_ParseXML(Class<? extends, const std::string& var2, IFileTaskCallback var3, FileSystem var4) {
-      super(var4, var3);
-      this.m_class = var1;
-      this.m_filename = var2;
+      FileTask_ParseXML(const std::type_info& type, const std::string& filename, std::shared_ptr<IFileTaskCallback> callback, std::shared_ptr<FileSystem> fs)
+            : FileTask(fs, callback), m_type(type), m_filename(filename) {}
+
+   std::string getErrorMessage() const {
+      return m_filename;
    }
 
-    std::string getErrorMessage() {
-      return this.m_filename;
-   }
-
-    void done() {
-      this.m_class = nullptr;
-      this.m_filename = nullptr;
+   void done() override {
+      m_filename.clear();
    }
 
     void* call() {

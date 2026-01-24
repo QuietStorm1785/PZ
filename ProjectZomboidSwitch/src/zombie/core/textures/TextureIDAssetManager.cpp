@@ -4,6 +4,8 @@ namespace zombie {
 namespace core {
 namespace textures {
 
+std::shared_ptr<TextureIDAssetManager> TextureIDAssetManager::instance = std::make_shared<TextureIDAssetManager>();
+
 void TextureIDAssetManager::startLoading(Asset var1) {
     // TODO: Implement startLoading
 }

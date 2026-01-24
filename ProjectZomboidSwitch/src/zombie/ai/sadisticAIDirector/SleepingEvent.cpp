@@ -237,27 +237,93 @@ void SleepingEvent::updateRain(IsoPlayer var1) {
             if (!eventData.bRaining) {
                 eventData.rainTimeStartHours = now;
             }
-            if (eventData.getHoursSinceRainStarted() >= 0.16666666666666666) {
-                // Additional rain logic if needed
-            }
+                if (eventData.getHoursSinceRainStarted() >= 0.16666666666666666) {
+                    // Additional rain logic if needed
+                    // Example: penalize comfort and health due to prolonged rain exposure
+                    var1.getStats().wetness += 0.3f;
+                    var1.getStats().cold += 0.2f;
+                    if (var1.getBedType() == "floor") {
+                        var1.getStats().fatigue += 0.05f;
+                    }
+                    // Small chance for sickness due to rain
+                    if (Rand::Next(25) == 0) {
+                        var1.getStats().sickness += 0.03f;
+                    }
+                }
         }
         eventData.bRaining = true;
     }
 }
 
 void SleepingEvent::updateSnow(IsoPlayer var1) {
-    // Update snow state for sleeping event
-    // Add more game logic as needed
+    SleepingEventData eventData = var1.getOrCreateSleepingEventData();
+    if (!ClimateManager::getInstance().isSnowing()) {
+        eventData.bSnowing = false;
+        eventData.bWasSnowingAtStart = false;
+        eventData.snowTimeStartHours = -1.0;
+    } else if (isExposedToPrecipitation(var1)) {
+        double now = GameTime::getInstance().getWorldAgeHours();
+        if (!eventData.bWasSnowingAtStart) {
+            if (!eventData.bSnowing) {
+                eventData.snowTimeStartHours = now;
+            }
+            if (eventData.getHoursSinceSnowStarted() >= 0.16666666666666666) {
+                // Snow-specific logic: penalize comfort and health
+                var1.getStats().cold += 0.5f;
+                var1.getStats().wetness += 0.2f;
+                if (var1.getBedType() == "floor") {
+                    var1.getStats().fatigue += 0.1f;
+                }
+                if (Rand::Next(10) == 0) {
+                    BodyPart* feet = var1.getBodyDamage()->getBodyPart(BodyPartType::Foot_L);
+                    feet->AddDamage(Rand::Next(2.0F, 6.0F));
+                    feet->setAdditionalPain(feet->getAdditionalPain() + Rand::Next(5.0F, 15.0F));
+                }
+            }
+        }
+        eventData.bSnowing = true;
+    }
 }
 
 void SleepingEvent::updateTemperature(IsoPlayer var1) {
-    // Update temperature state for sleeping event
-    // Add more game logic as needed
+    SleepingEventData eventData = var1.getOrCreateSleepingEventData();
+    float temp = ClimateManager::getInstance().getTemperature();
+    // If exposed and temperature is low, increase cold and fatigue
+    if (isExposedToPrecipitation(var1) && temp < 0.0f) {
+        var1.getStats().cold += 0.3f;
+        var1.getStats().fatigue += 0.05f;
+        if (var1.getBedType() == "floor") {
+            var1.getStats().fatigue += 0.05f;
+        }
+        if (Rand::Next(20) == 0) {
+            BodyPart* hands = var1.getBodyDamage()->getBodyPart(BodyPartType::Hand_L);
+            hands->AddDamage(Rand::Next(1.0F, 4.0F));
+            hands->setAdditionalPain(hands->getAdditionalPain() + Rand::Next(2.0F, 8.0F));
+        }
+    }
+    // If temperature is high, increase discomfort
+    if (temp > 30.0f) {
+        var1.getStats().fatigue += 0.1f;
+        var1.getStats().thirst += 0.1f;
+    }
 }
 
 void SleepingEvent::updateWetness(IsoPlayer var1) {
-    // Update wetness state for sleeping event
-    // Add more game logic as needed
+    SleepingEventData eventData = var1.getOrCreateSleepingEventData();
+    bool exposed = isExposedToPrecipitation(var1);
+    if (exposed && (eventData.bRaining || eventData.bSnowing)) {
+        var1.getStats().wetness += 0.2f;
+        if (var1.getBedType() == "floor") {
+            var1.getStats().fatigue += 0.05f;
+        }
+    }
+    // If wetness is high, penalize fatigue and add chance for sickness
+    if (var1.getStats().wetness > 2.0f) {
+        var1.getStats().fatigue += 0.1f;
+        if (Rand::Next(20) == 0) {
+            var1.getStats().sickness += 0.05f;
+        }
+    }
 }
 
 bool SleepingEvent::isExposedToPrecipitation(IsoGameCharacter var1) {

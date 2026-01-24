@@ -3,23 +3,26 @@
 namespace zombie {
 namespace asset {
 
-public AssetManagers::AssetManagers(FileSystem var1) {
-    // TODO: Implement AssetManagers
-    return nullptr;
+AssetManagers::AssetManagers(FileSystem var1)
+    : m_file_system(var1), m_managers(std::make_shared<AssetManagerTable>())
+{
+    // No additional logic needed; members are initialized above.
+}
 }
 
 AssetManager AssetManagers::get(AssetType var1) {
-    // TODO: Implement get
-    return {};
+    return m_managers->get(var1.type);
+}
 }
 
 void AssetManagers::add(AssetType var1, AssetManager var2) {
-    // TODO: Implement add
+    m_managers->put(var1.type, var2);
+}
 }
 
 FileSystem AssetManagers::getFileSystem() {
-    // TODO: Implement getFileSystem
-    return nullptr;
+    return m_file_system;
+}
 }
 
 } // namespace asset

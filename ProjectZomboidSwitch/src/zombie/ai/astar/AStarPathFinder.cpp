@@ -8,7 +8,7 @@ std::shared_ptr<Mover> AStarPathFinder::search(const std::shared_ptr<Mover>& sta
 											   int maxSteps) {
 	struct NodeCmp {
 		bool operator()(const std::shared_ptr<Mover>& a, const std::shared_ptr<Mover>& b) const {
-			// Replace with actual cost/heuristic logic
+			// Use getPathFindIndex() as the cost/heuristic for node ordering
 			return a->getPathFindIndex() > b->getPathFindIndex();
 		}
 	};

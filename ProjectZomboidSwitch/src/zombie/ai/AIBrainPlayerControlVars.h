@@ -11,6 +11,7 @@ namespace ai {
 
 class AIBrainPlayerControlVars {
 public:
+    AIBrainPlayerControlVars();
     bool bAiming;
     bool bMelee;
     bool bBannedAttacking;

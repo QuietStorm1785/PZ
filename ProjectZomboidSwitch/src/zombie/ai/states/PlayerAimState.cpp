@@ -4,26 +4,21 @@ namespace zombie {
 namespace ai {
 namespace states {
 
-PlayerAimState PlayerAimState::instance() {
-    // TODO: Implement instance
-    return nullptr;
+
+void PlayerAimState::enter(IsoGameCharacter* var1) {
+    if (var1 && var1->getPreviousActionContextStateName() != "strafe") {
+        InventoryItem* var2 = var1->getPrimaryHandItem();
+        if (var2 && var2->getBringToBearSound()) {
+            var1->getEmitter()->playSoundImpl(var2->getBringToBearSound(), nullptr);
+        }
+    }
 }
 
-void PlayerAimState::enter(IsoGameCharacter var1) {
-    // TODO: Implement enter
-}
+void PlayerAimState::execute(IsoGameCharacter* var1) {}
 
-void PlayerAimState::execute(IsoGameCharacter var1) {
-    // TODO: Implement execute
-}
+void PlayerAimState::exit(IsoGameCharacter* var1) {}
 
-void PlayerAimState::exit(IsoGameCharacter var1) {
-    // TODO: Implement exit
-}
-
-void PlayerAimState::animEvent(IsoGameCharacter var1, AnimEvent var2) {
-    // TODO: Implement animEvent
-}
+void PlayerAimState::animEvent(IsoGameCharacter* var1, AnimEvent* var2) {}
 
 } // namespace states
 } // namespace ai

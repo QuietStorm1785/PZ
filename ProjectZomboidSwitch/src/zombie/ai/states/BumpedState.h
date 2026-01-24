@@ -21,23 +21,14 @@ namespace states {
 
 class BumpedState : public State {
 public:
-    static const BumpedState _instance = std::make_shared<BumpedState>();
-
-    static BumpedState instance() {
-    return _instance;
-   }
-
-    void enter(IsoGameCharacter var1) {
-      var1.setBumpDone(false);
-      var1.setVariable("BumpFallAnimFinished", false);
-      var1.getAnimationPlayer().setTargetToAngle();
-      var1.getForwardDirection().setLengthAndDirection(var1.getAnimationPlayer().getAngle(), 1.0F);
-      this.setCharacterBlockMovement(var1, true);
-      if (var1.getVariableBoolean("BumpFall")) {
-    long var2 = var1.playSound("TripOverObstacle");
-    ParameterCharacterMovementSpeed var4 = ((IsoPlayer)var1).getParameterCharacterMovementSpeed();
-         var1.getEmitter().setParameterValue(var2, var4.getParameterDescription(), var4.calculateCurrentValue());
-    std::string var5 = var1.getVariableString("TripObstacleType");
+   static BumpedState& instance();
+   void enter(IsoGameCharacter* character) override;
+   void execute(IsoGameCharacter* character) override;
+   void exit(IsoGameCharacter* character) override;
+   void animEvent(IsoGameCharacter* character, AnimEvent* event) override;
+private:
+   void setCharacterBlockMovement(IsoGameCharacter* character, bool block);
+   BumpedState() = default;
          if (var5 == nullptr) {
             var5 = "zombie";
          }

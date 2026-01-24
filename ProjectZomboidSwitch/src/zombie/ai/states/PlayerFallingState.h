@@ -15,24 +15,12 @@ namespace states {
 
 class PlayerFallingState : public State {
 public:
-    static const PlayerFallingState _instance = std::make_shared<PlayerFallingState>();
-
-    static PlayerFallingState instance() {
-    return _instance;
-   }
-
-    void enter(IsoGameCharacter var1) {
-      var1.setVariable("bHardFall", false);
-      var1.clearVariable("bLandAnimFinished");
-   }
-
-    void execute(IsoGameCharacter var1) {
-   }
-
-    void exit(IsoGameCharacter var1) {
-      var1.clearVariable("bHardFall");
-      var1.clearVariable("bLandAnimFinished");
-   }
+   static PlayerFallingState& instance();
+   void enter(IsoGameCharacter* character) override;
+   void execute(IsoGameCharacter* character) override;
+   void exit(IsoGameCharacter* character) override;
+private:
+   PlayerFallingState() = default;
 }
 } // namespace states
 } // namespace ai

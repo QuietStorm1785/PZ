@@ -18,26 +18,20 @@ namespace states {
 
 class ZombieGetDownState : public State {
 public:
-    static const ZombieGetDownState _instance = std::make_shared<ZombieGetDownState>();
-    static const int PARAM_PREV_STATE = 1;
-    static const int PARAM_WAIT_TIME = 2;
-    static const int PARAM_START_X = 3;
-    static const int PARAM_START_Y = 4;
+   static ZombieGetDownState& instance();
+   static constexpr int PARAM_PREV_STATE = 1;
+   static constexpr int PARAM_WAIT_TIME = 2;
+   static constexpr int PARAM_START_X = 3;
+   static constexpr int PARAM_START_Y = 4;
 
-    static ZombieGetDownState instance() {
-    return _instance;
-   }
-
-    void enter(IsoGameCharacter var1) {
-    std::unordered_map var2 = var1.getStateMachineParams(this);
-      var2.put(PARAM_PREV_STATE, var1.getStateMachine().getPrevious());
-      var2.put(PARAM_START_X, var1.getX());
-      var2.put(PARAM_START_Y, var1.getY());
-      var1.setStateEventDelayTimer((float)var2.get(PARAM_WAIT_TIME));
-   }
-
-    void execute(IsoGameCharacter var1) {
-    std::unordered_map var2 = var1.getStateMachineParams(this);
+   void enter(IsoGameCharacter* character) override;
+   void execute(IsoGameCharacter* character) override;
+   void exit(IsoGameCharacter* character) override;
+   void animEvent(IsoGameCharacter* character, AnimEvent* event) override;
+   bool isNearStartXY(IsoGameCharacter* character);
+   void setParams(IsoGameCharacter* character);
+private:
+   ZombieGetDownState() = default;
    }
 
     void exit(IsoGameCharacter var1) {

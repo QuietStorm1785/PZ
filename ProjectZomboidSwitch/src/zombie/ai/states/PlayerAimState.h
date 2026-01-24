@@ -16,30 +16,28 @@ namespace states {
 
 
 class PlayerAimState : public State {
-public:
-    static const PlayerAimState _instance = std::make_shared<PlayerAimState>();
 
-    static PlayerAimState instance() {
-    return _instance;
+public:
+   static PlayerAimState& instance() {
+      static PlayerAimState _instance;
+      return _instance;
    }
 
-    void enter(IsoGameCharacter var1) {
-      if (!"strafe" == var1.getPreviousActionContextStateName())) {
-    InventoryItem var2 = var1.getPrimaryHandItem();
-         if (var2 != nullptr && var2.getBringToBearSound() != nullptr) {
-            var1.getEmitter().playSoundImpl(var2.getBringToBearSound(), nullptr);
+
+   void enter(IsoGameCharacter* var1) override {
+      if (var1 && var1->getPreviousActionContextStateName() != "strafe") {
+         InventoryItem* var2 = var1->getPrimaryHandItem();
+         if (var2 && var2->getBringToBearSound()) {
+            var1->getEmitter()->playSoundImpl(var2->getBringToBearSound(), nullptr);
          }
       }
    }
 
-    void execute(IsoGameCharacter var1) {
-   }
+   void execute(IsoGameCharacter* var1) override {}
 
-    void exit(IsoGameCharacter var1) {
-   }
+   void exit(IsoGameCharacter* var1) override {}
 
-    void animEvent(IsoGameCharacter var1, AnimEvent var2) {
-   }
+   void animEvent(IsoGameCharacter* var1, AnimEvent* var2) override {}
 }
 } // namespace states
 } // namespace ai

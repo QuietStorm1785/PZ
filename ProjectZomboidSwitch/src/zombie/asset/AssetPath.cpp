@@ -4,29 +4,36 @@
 namespace zombie {
 namespace asset {
 
-public AssetPath::AssetPath(const std::string& var1) {
-    // TODO: Implement AssetPath
-    return nullptr;
+AssetPath::AssetPath(const std::string& var1)
+    : m_path(var1)
+{
+    // No additional logic needed; m_path is initialized above.
+}
 }
 
 bool AssetPath::isValid() {
-    // TODO: Implement isValid
-    return false;
+    return !m_path.empty();
+}
 }
 
 int AssetPath::getHash() {
-    // TODO: Implement getHash
-    return 0;
+    // Match Java's String.hashCode() for cross-language consistency
+    int hash = 0;
+    for (char c : m_path) {
+        hash = 31 * hash + static_cast<unsigned char>(c);
+    }
+    return hash;
+}
 }
 
 std::string AssetPath::getPath() {
-    // TODO: Implement getPath
-    return "";
+    return m_path;
+}
 }
 
 std::string AssetPath::toString() {
-    // TODO: Implement toString
-    return "";
+    return std::string("AssetPath{ \"") + m_path + "\" }";
+}
 }
 
 } // namespace asset

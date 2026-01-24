@@ -4,25 +4,35 @@ namespace zombie {
 namespace ai {
 namespace states {
 
-PlayerFallDownState PlayerFallDownState::instance() {
-    // TODO: Implement instance
-    return nullptr;
+
+PlayerFallDownState& PlayerFallDownState::instance() {
+    static PlayerFallDownState _instance;
+    return _instance;
 }
 
-void PlayerFallDownState::enter(IsoGameCharacter var1) {
-    // TODO: Implement enter
+void PlayerFallDownState::enter(IsoGameCharacter* character) {
+    if (!character) return;
+    character->setIgnoreMovement(true);
+    character->clearVariable("bKnockedDown");
+    if (character->isDead() && !GameServer::bServer && !GameClient::bClient) {
+        character->Kill(nullptr);
+    }
 }
 
-void PlayerFallDownState::execute(IsoGameCharacter var1) {
-    // TODO: Implement execute
+void PlayerFallDownState::execute(IsoGameCharacter* character) {
+    // No-op
 }
 
-void PlayerFallDownState::exit(IsoGameCharacter var1) {
-    // TODO: Implement exit
+void PlayerFallDownState::exit(IsoGameCharacter* character) {
+    if (!character) return;
+    character->setIgnoreMovement(false);
+    character->setOnFloor(true);
 }
 
-void PlayerFallDownState::animEvent(IsoGameCharacter var1, AnimEvent var2) {
-    // TODO: Implement animEvent
+void PlayerFallDownState::animEvent(IsoGameCharacter* character, AnimEvent* event) {
+    if (GameClient::bClient && event && event->m_EventName == "FallOnFront") {
+        character->setFallOnFront(event->m_ParameterValue == "true");
+    }
 }
 
 } // namespace states

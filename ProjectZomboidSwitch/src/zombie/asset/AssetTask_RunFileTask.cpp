@@ -3,17 +3,24 @@
 namespace zombie {
 namespace asset {
 
-public AssetTask_RunFileTask::AssetTask_RunFileTask(FileTask var1, Asset var2) {
-    // TODO: Implement AssetTask_RunFileTask
-    return nullptr;
+AssetTask_RunFileTask::AssetTask_RunFileTask(FileTask var1, Asset var2)
+    : AssetTask(var2), m_file_task(var1), m_async_op(-1)
+{
+    // Constructor logic as per header
+}
 }
 
 void AssetTask_RunFileTask::execute() {
-    // TODO: Implement execute
+    // FileSystem fs = m_asset.getAssetManager().getOwner().getFileSystem();
+    // m_async_op = fs.runAsync(m_file_task);
+}
 }
 
 void AssetTask_RunFileTask::cancel() {
-    // TODO: Implement cancel
+    // FileSystem fs = m_asset.getAssetManager().getOwner().getFileSystem();
+    // fs.cancelAsync(m_async_op);
+    m_async_op = -1;
+}
 }
 
 } // namespace asset

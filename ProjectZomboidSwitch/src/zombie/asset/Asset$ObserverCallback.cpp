@@ -1,11 +1,15 @@
+
 #include "zombie/asset/Asset$ObserverCallback.h"
+#include "zombie/asset/AssetStateObserver.h"
 
-namespace zombie {
-namespace asset {
+namespace zombie::asset {
 
-void Asset$ObserverCallback::invoke(State var1, State var2, Asset var3) {
-    // TODO: Implement invoke
+void Asset$ObserverCallback::invoke(State oldState, State newState, Asset& asset) {
+    for (const auto& observer : m_observers) {
+        if (observer) {
+            observer->onStateChanged(oldState, newState, asset);
+        }
+    }
 }
 
-} // namespace asset
-} // namespace zombie
+} // namespace zombie::asset

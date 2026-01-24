@@ -4,21 +4,28 @@ namespace zombie {
 namespace ai {
 namespace states {
 
-PlayerFallingState PlayerFallingState::instance() {
-    // TODO: Implement instance
-    return nullptr;
+
+PlayerFallingState& PlayerFallingState::instance() {
+    static PlayerFallingState _instance;
+    return _instance;
 }
 
-void PlayerFallingState::enter(IsoGameCharacter var1) {
-    // TODO: Implement enter
+void PlayerFallingState::enter(IsoGameCharacter* character) {
+    if (character) {
+        character->setVariable("bHardFall", false);
+        character->clearVariable("bLandAnimFinished");
+    }
 }
 
-void PlayerFallingState::execute(IsoGameCharacter var1) {
-    // TODO: Implement execute
+void PlayerFallingState::execute(IsoGameCharacter* character) {
+    // No-op
 }
 
-void PlayerFallingState::exit(IsoGameCharacter var1) {
-    // TODO: Implement exit
+void PlayerFallingState::exit(IsoGameCharacter* character) {
+    if (character) {
+        character->clearVariable("bHardFall");
+        character->clearVariable("bLandAnimFinished");
+    }
 }
 
 } // namespace states
