@@ -1,57 +1,57 @@
-#pragma once
-#include <map>
-#include <string>
-#include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-#include "se/krka/kahlua/vm/KahluaTable.h"
-#include "zombie/Lua/LuaManager.h"
-#include "zombie/core/network/ByteBufferWriter.h"
-#include "zombie/debug/DebugLog.h"
-#include "zombie/network/PacketTypes/PacketType.h"
 
+#pragma once
+
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
+// Ported from Java: PacketTypes and all inner classes
 
 class PacketTypes {
 public:
-    static const short ContainerDeadBody = 0;
-    static const short ContainerWorldObject = 1;
-    static const short ContainerObject = 2;
-    static const short ContainerVehicle = 3;
-   public static const Map<int16_t, PacketType> packetTypes = std::make_unique<std::map<>>();
-    static const KahluaTable packetCountTable = LuaManager.platform.newTable();
+    PacketTypes();
+    ~PacketTypes();
+    // TODO: Port fields and methods from Java PacketTypes
 
-    static void doPingPacket(ByteBufferWriter var0) {
-      var0.putInt(28);
-   }
+    // Inner classes from Java (CallbackClientProcess, CallbackServerProcess, PacketAuthorization, PacketAuthorization$Policy, PacketAuthorization$UnauthorizedPacketPolicy, PacketType)
+    class CallbackClientProcess {
+    public:
+        CallbackClientProcess();
+        ~CallbackClientProcess();
+        // TODO: Port fields and methods from Java PacketTypes.CallbackClientProcess
+    };
+    class CallbackServerProcess {
+    public:
+        CallbackServerProcess();
+        ~CallbackServerProcess();
+        // TODO: Port fields and methods from Java PacketTypes.CallbackServerProcess
+    };
+    class PacketAuthorization {
+    public:
+        PacketAuthorization();
+        ~PacketAuthorization();
+        // TODO: Port fields and methods from Java PacketTypes.PacketAuthorization
+        class Policy {
+        public:
+            Policy();
+            ~Policy();
+            // TODO: Port fields and methods from Java PacketTypes.PacketAuthorization.Policy
+        };
+        class UnauthorizedPacketPolicy {
+        public:
+            UnauthorizedPacketPolicy();
+            ~UnauthorizedPacketPolicy();
+            // TODO: Port fields and methods from Java PacketTypes.PacketAuthorization.UnauthorizedPacketPolicy
+        };
+    };
+    class PacketType {
+    public:
+        PacketType();
+        ~PacketType();
+        // TODO: Port fields and methods from Java PacketTypes.PacketType
+    };
+};
 
-    static KahluaTable getPacketCounts(int var0) {
-      packetCountTable.wipe();
-      if (GameClient.bClient) {
-         for (PacketType var2 : packetTypes.values()) {
-            if (var0 == 1) {
-               packetCountTable.rawset(std::string.format("%03d-%s", var2.id, var2.name()), std::string.valueOf(var2.serverPacketCount));
-            } else {
-               packetCountTable.rawset(std::string.format("%03d-%s", var2.id, var2.name()), std::string.valueOf(var2.clientPacketCount));
-            }
-         }
-      }
-
-    return packetCountTable;
-   }
-
-   static {
-      for (PacketType var3 : PacketType.values()) {
-    PacketType var4 = packetTypes.put(var3.getId(), var3);
-         if (var4 != nullptr) {
-            DebugLog.Multiplayer.error(std::string.format("PacketType: duplicate \"%s\" \"%s\" id=%d", var4.name(), var3.name(), var3.getId()));
-         }
-      }
-   }
-}
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

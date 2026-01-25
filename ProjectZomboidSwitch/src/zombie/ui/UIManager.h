@@ -1,12 +1,10 @@
+
 #pragma once
-#include <stack>
-#include <string>
 #include <vector>
+#include <string>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
 #include <cstdint>
-#include "se/krka/kahlua/vm/KahluaThread.h"
+#include <lua.hpp>
 #include "zombie/GameTime.h"
 #include "zombie/GameWindow.h"
 #include "zombie/Lua/LuaEventManager.h"
@@ -40,7 +38,111 @@
 #include "zombie/ui/UIManager/FadeInfo.h"
 #include "zombie/ui/UIManager/Sync.h"
 #include "zombie/util/list/PZArrayUtil.h"
-#include <algorithm>
+
+namespace zombie {
+namespace ui {
+
+class UIManager {
+public:
+   static int lastMouseX;
+   static int lastMouseY;
+   static std::shared_ptr<ClickObject> Picked;
+   static std::shared_ptr<Clock> clock;
+   static std::vector<std::shared_ptr<UIElement>> UI;
+   static std::shared_ptr<ObjectTooltip> toolTip;
+   static std::shared_ptr<Texture> mouseArrow;
+   static std::shared_ptr<Texture> mouseExamine;
+   static std::shared_ptr<Texture> mouseAttack;
+   static std::shared_ptr<Texture> mouseGrab;
+   static std::shared_ptr<SpeedControls> speedControls;
+   static std::shared_ptr<UIDebugConsole> DebugConsole;
+   static std::shared_ptr<UIServerToolbox> ServerToolbox;
+   static std::vector<std::shared_ptr<MoodlesUI>> MoodleUI;
+   static bool bFadeBeforeUI;
+   static std::vector<std::shared_ptr<ActionProgressBar>> ProgressBar;
+   static float FadeAlpha;
+   static int FadeInTimeMax;
+   static int FadeInTime;
+   static bool FadingOut;
+   static std::shared_ptr<Texture> lastMouseTexture;
+   static std::shared_ptr<IsoObject> LastPicked;
+   static std::vector<std::string> DoneTutorials;
+   static float lastOffX;
+   static float lastOffY;
+   static std::shared_ptr<ModalDialog> Modal;
+   static bool KeyDownZoomIn;
+   static bool KeyDownZoomOut;
+   static bool doTick;
+   static bool VisibleAllUI;
+   static std::shared_ptr<TextureFBO> UIFBO;
+   static bool useUIFBO;
+   static std::shared_ptr<Texture> black;
+   static bool bSuspend;
+   static float lastAlpha;
+   static std::shared_ptr<Vector2> PickedTileLocal;
+   static std::shared_ptr<Vector2> PickedTile;
+   static std::shared_ptr<IsoObject> RightDownObject;
+   static long uiUpdateTimeMS;
+   static long uiUpdateIntervalMS;
+   static long uiRenderTimeMS;
+   static long uiRenderIntervalMS;
+   static std::vector<std::shared_ptr<UIElement>> tutorialStack;
+   static std::vector<std::shared_ptr<UIElement>> toTop;
+   static lua_State* defaultthread;
+   static lua_State* previousThread;
+   static std::vector<std::shared_ptr<UIElement>> toRemove;
+   static std::vector<std::shared_ptr<UIElement>> toAdd;
+   static int wheel;
+   static int lastwheel;
+   static std::vector<std::shared_ptr<UIElement>> debugUI;
+   static bool bShowLuaDebuggerOnError;
+   static std::string luaDebuggerAction;
+   static std::shared_ptr<Sync> sync;
+   static bool showPausedMessage;
+   static std::shared_ptr<UIElement> playerInventoryUI;
+   static std::shared_ptr<UIElement> playerLootUI;
+   static std::shared_ptr<UIElement> playerInventoryTooltip;
+   static std::shared_ptr<UIElement> playerLootTooltip;
+   static std::vector<std::shared_ptr<FadeInfo>> playerFadeInfo;
+
+   // Methods (signatures only, implement in .cpp)
+   static void AddUI(std::shared_ptr<UIElement> elem);
+   static void RemoveElement(std::shared_ptr<UIElement> elem);
+   static void clearArrays();
+   static void closeContainers();
+   static void CloseContainers();
+   static void DrawTexture(std::shared_ptr<Texture> tex, double x, double y);
+   static void DrawTexture(std::shared_ptr<Texture> tex, double x, double y, double w, double h, double alpha);
+   static void FadeIn(double duration);
+   static void FadeOut(double duration);
+   static void CreateFBO(int w, int h);
+   static std::shared_ptr<TextureFBO> createTexture(float w, float h, bool discard);
+   static void init();
+   static void render();
+   static void resize();
+   static std::shared_ptr<Vector2> getTileFromMouse(double x, double y, double z);
+   static void update();
+   static void updateBeforeFadeOut();
+   static void setVisibleAllUI(bool visible);
+   static void setFadeBeforeUI(int idx, bool val);
+   static float getFadeAlpha(double idx);
+   static void setFadeTime(double idx, double t);
+   static void FadeIn(double idx, double t);
+   static void FadeOut(double idx, double t);
+   static bool isFBOActive();
+   static double getMillisSinceLastUpdate();
+   static double getSecondsSinceLastUpdate();
+   static double getMillisSinceLastRender();
+   static double getSecondsSinceLastRender();
+   static bool onKeyPress(int key);
+   static bool onKeyRepeat(int key);
+   static bool onKeyRelease(int key);
+   static bool isForceCursorVisible();
+   // ... Add more as needed from Java source
+};
+
+} // namespace ui
+} // namespace zombie
 
 namespace zombie {
 namespace ui {
@@ -92,8 +194,8 @@ public:
     static long uiRenderIntervalMS = 0L;
    private static const std::vector<UIElement> tutorialStack = std::make_unique<std::vector<>>();
    public static const std::vector<UIElement> toTop = std::make_unique<std::vector<>>();
-    static KahluaThread defaultthread = nullptr;
-    static KahluaThread previousThread = nullptr;
+    static lua_State* defaultthread = nullptr; // Use lua_State* for Lua 5.4.7
+    static lua_State* previousThread = nullptr;
    static const std::vector<UIElement> toRemove = std::make_unique<std::vector<>>();
    static const std::vector<UIElement> toAdd = std::make_unique<std::vector<>>();
     static int wheel = 0;

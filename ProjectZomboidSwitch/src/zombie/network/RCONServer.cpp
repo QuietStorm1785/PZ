@@ -1,33 +1,22 @@
-#include <string>
-#include "zombie/network/RCONServer.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-private RCONServer::RCONServer(int var1, const std::string& var2, bool var3) {
-    // TODO: Implement RCONServer
-    return nullptr;
-}
+#include "RCONServer.h"
 
-void RCONServer::updateMain() {
-    // TODO: Implement updateMain
-}
+RCONServer::RCONServer() {}
+RCONServer::~RCONServer() {}
+// TODO: Implement RCONServer methods from Java
 
-void RCONServer::quit() {
-    // TODO: Implement quit
-}
-
-void RCONServer::init(int var0, const std::string& var1, bool var2) {
-    // TODO: Implement init
-}
-
-void RCONServer::update() {
-    // TODO: Implement update
-}
-
-void RCONServer::shutdown() {
-    // TODO: Implement shutdown
-}
+RCONServer::ClientThread::ClientThread() {}
+RCONServer::ClientThread::~ClientThread() {}
+RCONServer::ExecCommand::ExecCommand() {}
+RCONServer::ExecCommand::~ExecCommand() {}
+RCONServer::ServerThread::ServerThread() {}
+RCONServer::ServerThread::~ServerThread() {}
+// TODO: Implement all inner class methods from Java
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

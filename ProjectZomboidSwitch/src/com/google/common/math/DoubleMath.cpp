@@ -20,8 +20,8 @@ long DoubleMath::roundToLong(double x, RoundingMode mode) {
     return 0;
 }
 
-BigInteger DoubleMath::roundToBigInteger(double x, RoundingMode mode) {
-    // TODO: Implement roundToBigInteger
+boost::multiprecision::cpp_int DoubleMath::roundToboost::multiprecision::cpp_int(double x, RoundingMode mode) {
+    // TODO: Implement roundToboost::multiprecision::cpp_int
     return nullptr;
 }
 

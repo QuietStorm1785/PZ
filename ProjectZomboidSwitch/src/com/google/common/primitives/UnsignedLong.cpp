@@ -26,7 +26,7 @@ return UnsignedLong::fromLongBits() {
     return nullptr;
 }
 
-UnsignedLong UnsignedLong::valueOf(BigInteger value) {
+UnsignedLong UnsignedLong::valueOf(boost::multiprecision::cpp_int value) {
     // TODO: Implement valueOf
     return nullptr;
 }
@@ -126,7 +126,7 @@ double UnsignedLong::doubleValue() {
     return 0;
 }
 
-BigInteger UnsignedLong::bigIntegerValue() {
+boost::multiprecision::cpp_int UnsignedLong::bigIntegerValue() {
     // TODO: Implement bigIntegerValue
     return nullptr;
 }

@@ -12,12 +12,12 @@ protected DatatypeConverterImpl::DatatypeConverterImpl() {
     return nullptr;
 }
 
-BigInteger DatatypeConverterImpl::_parseInteger(CharSequence s) {
+boost::multiprecision::cpp_int DatatypeConverterImpl::_parseInteger(CharSequence s) {
     // TODO: Implement _parseInteger
     return nullptr;
 }
 
-std::string DatatypeConverterImpl::_printInteger(BigInteger val) {
+std::string DatatypeConverterImpl::_printInteger(boost::multiprecision::cpp_int val) {
     // TODO: Implement _printInteger
     return "";
 }
@@ -196,7 +196,7 @@ std::string DatatypeConverterImpl::parseString(const std::string& lexicalXSDStri
     return "";
 }
 
-BigInteger DatatypeConverterImpl::parseInteger(const std::string& lexicalXSDInteger) {
+boost::multiprecision::cpp_int DatatypeConverterImpl::parseInteger(const std::string& lexicalXSDInteger) {
     // TODO: Implement parseInteger
     return nullptr;
 }
@@ -206,7 +206,7 @@ return DatatypeConverterImpl::_parseInteger() {
     return nullptr;
 }
 
-std::string DatatypeConverterImpl::printInteger(BigInteger val) {
+std::string DatatypeConverterImpl::printInteger(boost::multiprecision::cpp_int val) {
     // TODO: Implement printInteger
     return "";
 }

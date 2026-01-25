@@ -10,9 +10,9 @@ namespace zombie {
 namespace fileSystem {
 
 enum class FileSeekMode {
-   BEGIN,
-   END,
-   CURRENT;
-}
+   Begin = 0,
+   Current = 1,
+   End = 2
+};
 } // namespace fileSystem
 } // namespace zombie

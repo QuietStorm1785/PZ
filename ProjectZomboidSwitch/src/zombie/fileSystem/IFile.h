@@ -15,27 +15,16 @@ namespace fileSystem {
 class IFile {
 public:
     virtual ~IFile() = default;
-    bool open(const std::string& var1, int var2);
-
-    void close();
-
-    bool read(byte[] var1, long var2);
-
-    bool write(byte[] var1, long var2);
-
-   byte[] getBuffer();
-
-    long size();
-
-    bool seek(FileSeekMode var1, long var2);
-
-    long pos();
-
-    InputStream getInputStream();
-
-    IFileDevice getDevice();
-
-    void release();
-}
+    virtual bool open(const std::string& path, int mode) = 0;
+    virtual void close() = 0;
+    virtual bool read(uint8_t* buffer, int64_t length) = 0;
+    virtual bool write(const uint8_t* buffer, int64_t length) = 0;
+    virtual int64_t size() const = 0;
+    virtual bool seek(FileSeekMode mode, int64_t offset) = 0;
+    virtual int64_t pos() const = 0;
+    virtual InputStream getInputStream() = 0;
+    virtual IFileDevice getDevice() = 0;
+    virtual void release() = 0;
+};
 } // namespace fileSystem
 } // namespace zombie

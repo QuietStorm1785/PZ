@@ -6,493 +6,730 @@ namespace zombie {
 namespace ui {
 
 void UIManager::AddUI(UIElement var0) {
-    // TODO: Implement AddUI
+    // Java: toRemove.remove(var0); toRemove.add(var0); toAdd.remove(var0); toAdd.add(var0);
+    toRemove.erase(std::remove(toRemove.begin(), toRemove.end(), var0), toRemove.end());
+    toRemove.push_back(var0);
+    toAdd.erase(std::remove(toAdd.begin(), toAdd.end(), var0), toAdd.end());
+    toAdd.push_back(var0);
 }
 
 void UIManager::RemoveElement(UIElement var0) {
-    // TODO: Implement RemoveElement
+    // Java: toAdd.remove(var0); toRemove.remove(var0); toRemove.add(var0);
+    toAdd.erase(std::remove(toAdd.begin(), toAdd.end(), var0), toAdd.end());
+    toRemove.erase(std::remove(toRemove.begin(), toRemove.end(), var0), toRemove.end());
+    toRemove.push_back(var0);
 }
 
 void UIManager::clearArrays() {
-    // TODO: Implement clearArrays
+    toAdd.clear();
+    toRemove.clear();
+    UI.clear();
 }
 
 void UIManager::closeContainers() {
-    // TODO: Implement closeContainers
+    // Java: for (UIElement ui : UI) if (ui instanceof UIContainer) ((UIContainer)ui).close();
+    for (auto& elem : UI) {
+        if (elem && elem->isContainer()) {
+            elem->close();
+        }
+    }
 }
 
 void UIManager::CloseContainers() {
-    // TODO: Implement CloseContainers
+    closeContainers();
 }
 
 void UIManager::DrawTexture(Texture var0, double var1, double var3) {
-    // TODO: Implement DrawTexture
+    // Java: double var5 = var1 + var0.offsetX; double var7 = var3 + var0.offsetY;
+    // SpriteRenderer.instance.renderi(var0, (int)var5, (int)var7, var0.getWidth(), var0.getHeight(), 1.0F, 1.0F, 1.0F, 1.0F, null);
+    if (var0) {
+        double var5 = var1 + var0->offsetX;
+        double var7 = var3 + var0->offsetY;
+        SpriteRenderer::instance->renderi(
+            var0,
+            static_cast<int>(var5),
+            static_cast<int>(var7),
+            var0->getWidth(),
+            var0->getHeight(),
+            1.0f, 1.0f, 1.0f, 1.0f,
+            nullptr
+        );
+    }
 }
 
 void UIManager::DrawTexture(Texture var0, double var1, double var3, double var5, double var7, double var9) {
-    // TODO: Implement DrawTexture
+    // Java: double var11 = var1 + var0.offsetX; double var13 = var3 + var0.offsetY;
+    // SpriteRenderer.instance.renderi(var0, (int)var11, (int)var13, (int)var5, (int)var7, 1.0F, 1.0F, 1.0F, (float)var9, null);
+    if (var0) {
+        double var11 = var1 + var0->offsetX;
+        double var13 = var3 + var0->offsetY;
+        SpriteRenderer::instance->renderi(
+            var0,
+            static_cast<int>(var11),
+            static_cast<int>(var13),
+            static_cast<int>(var5),
+            static_cast<int>(var7),
+            1.0f, 1.0f, 1.0f, static_cast<float>(var9),
+            nullptr
+        );
+    }
 }
 
 void UIManager::FadeIn(double var0) {
-    // TODO: Implement FadeIn
+    // Java: setFadeInTimeMax((int)(var0 * 30.0 * (PerformanceSettings.getLockFPS() / 30.0F)));
+    // setFadeInTime(getFadeInTimeMax()); setFadingOut(false);
+    int fps = PerformanceSettings::getLockFPS();
+    FadeInTimeMax = static_cast<int>(var0 * 30.0 * (fps / 30.0f));
+    FadeInTime = FadeInTimeMax;
+    FadingOut = false;
 }
 
 void UIManager::FadeOut(double var0) {
-    // TODO: Implement FadeOut
+    // Java: setFadeInTimeMax((int)(var0 * 30.0 * (PerformanceSettings.getLockFPS() / 30.0F)));
+    // setFadeInTime(getFadeInTimeMax()); setFadingOut(true);
+    int fps = PerformanceSettings::getLockFPS();
+    FadeInTimeMax = static_cast<int>(var0 * 30.0 * (fps / 30.0f));
+    FadeInTime = FadeInTimeMax;
+    FadingOut = true;
 }
 
 void UIManager::CreateFBO(int var0, int var1) {
-    // TODO: Implement CreateFBO
+    // Java: if (Core.SafeMode) { useUIFBO = false; } else { ... }
+    if (Core::SafeMode) {
+        useUIFBO = false;
+    } else {
+        useUIFBO = true;
+        uiFBO = createTexture(static_cast<float>(var0), static_cast<float>(var1), false);
+    }
 }
 
 TextureFBO UIManager::createTexture(float var0, float var1, bool var2) {
-    // TODO: Implement createTexture
-    return nullptr;
+    // Java: if (var2) { Texture var5 = new Texture((int)var0, (int)var1, 16); TextureFBO var4 = new TextureFBO(var5); var4.destroy(); return null; }
+    // else { Texture var3 = new Texture((int)var0, (int)var1, 16); return new TextureFBO(var3); }
+    if (var2) {
+        auto tex = std::make_shared<Texture>(static_cast<int>(var0), static_cast<int>(var1), 16);
+        auto fbo = std::make_shared<TextureFBO>(tex);
+        fbo->destroy();
+        return nullptr;
+    } else {
+        auto tex = std::make_shared<Texture>(static_cast<int>(var0), static_cast<int>(var1), 16);
+        return std::make_shared<TextureFBO>(tex);
+    }
 }
 
 void UIManager::init() {
-    // TODO: Implement init
+    showPausedMessage = true;
+    UI.clear();
+    debugUI.clear();
+    clock = nullptr;
+    for (auto& m : MoodleUI) m = nullptr;
+    speedControls = std::make_shared<SpeedControls>();
+    // SpeedControls::instance = speedControls; // TODO: Implement static instance if needed
+    bFadeBeforeUI = false;
+    VisibleAllUI = true;
+    for (auto& f : playerFadeInfo) {
+        if (f) {
+            f->setFadeBeforeUI(false);
+            f->setFadeTime(0);
+            f->setFadingOut(false);
+        }
+    }
 }
 
 void UIManager::render() {
-    // TODO: Implement render
+    // Ported from Java: UIManager.render()
+    if (!useUIFBO /*|| Core::getInstance()->UIRenderThisFrame*/) {
+        if (!bSuspend) {
+            using namespace std::chrono;
+            long now = duration_cast<milliseconds>(steady_clock::now().time_since_epoch()).count();
+            uiRenderIntervalMS = std::min(now - uiRenderTimeMS, 1000L);
+            uiRenderTimeMS = now;
+            UIElement::StencilLevel = 0;
+            if (useUIFBO) {
+                zombie::core::SpriteRenderer::instance->setDefaultStyle(zombie::core::Styles::UIFBOStyle::instance);
+            }
+
+            UITransition::UpdateAll();
+            if (!black) {
+                setBlack(zombie::core::textures::Texture::getSharedTexture("black.png"));
+            }
+
+            if (LuaManager::thread == defaultthread) {
+                LuaEventManager::triggerEvent("OnPreUIDraw");
+            }
+
+            int mouseX = Mouse::getXA();
+            int mouseY = Mouse::getYA();
+
+            if (bFadeBeforeUI) {
+                FadeAlpha = static_cast<float>(FadeInTime) / (FadeInTimeMax ? FadeInTimeMax : 1);
+                if (FadeAlpha > 1.0f) FadeAlpha = 1.0f;
+                if (FadeAlpha < 0.0f) FadeAlpha = 0.0f;
+                if (FadingOut) FadeAlpha = 1.0f - FadeAlpha;
+                if (IsoCamera::CamCharacter && FadeAlpha > 0.0f)
+                     DrawTexture(black, 0.0, 0.0, Core::getInstance()->getScreenWidth(), Core::getInstance()->getScreenHeight(), FadeAlpha);
+            }
+
+            lastAlpha = FadeAlpha;
+
+             for (int i = 0; i < IsoPlayer::numPlayers; ++i) {
+                 if (IsoPlayer::players[i] && playerFadeInfo[i] && playerFadeInfo[i]->isFadeBeforeUI())
+                     playerFadeInfo[i]->render();
+            }
+
+            for (auto& elem : UI) {
+                if ((elem->isIgnoreLossControl() /*|| !TutorialManager::instance->StealControl*/) && !elem->isFollowGameWorld()) {
+                    try {
+                        if (elem->isDefaultDraw())
+                            elem->render();
+                    } catch (...) {
+                        // TODO: Log error
+                    }
+                }
+            }
+
+            if (toolTip) {
+                toolTip->render();
+            }
+
+            if (isShowPausedMessage() && GameTime::isGamePaused() && (!Modal || !Modal->isVisible()) && VisibleAllUI) {
+                std::string pausedText = Translator::getText("IGUI_GamePaused");
+                int textWidth = TextManager::instance->MeasureStringX(UIFont::Small, pausedText) + 32;
+                int lineHeight = TextManager::instance->font->getLineHeight();
+                int boxHeight = static_cast<int>(std::ceil(lineHeight * 1.5));
+                int screenWidth = Core::getInstance()->getScreenWidth();
+                int screenHeight = Core::getInstance()->getScreenHeight();
+                // Draw semi-transparent box
+                SpriteRenderer::instance->renderi(
+                    nullptr,
+                    screenWidth / 2 - textWidth / 2,
+                    screenHeight / 2 - boxHeight / 2,
+                    textWidth,
+                    boxHeight,
+                    0.0f, 0.0f, 0.0f, 0.75f,
+                    nullptr
+                );
+                // Draw centered paused text
+                TextManager::instance->DrawStringCentre(
+                    screenWidth / 2,
+                    screenHeight / 2 - lineHeight / 2,
+                    pausedText,
+                    1.0, 1.0, 1.0, 1.0
+                );
+            }
+
+            if (!bFadeBeforeUI) {
+                FadeAlpha = static_cast<float>(FadeInTime) / (FadeInTimeMax ? FadeInTimeMax : 1);
+                if (FadeAlpha > 1.0f) FadeAlpha = 1.0f;
+                if (FadeAlpha < 0.0f) FadeAlpha = 0.0f;
+                if (FadingOut) FadeAlpha = 1.0f - FadeAlpha;
+                if (IsoCamera::CamCharacter && FadeAlpha > 0.0f)
+                    DrawTexture(black, 0.0, 0.0, Core::getInstance()->getScreenWidth(), Core::getInstance()->getScreenHeight(), FadeAlpha);
+            }
+
+            for (int i = 0; i < IsoPlayer::numPlayers; ++i) {
+                if (IsoPlayer::players[i] && playerFadeInfo[i] && !playerFadeInfo[i]->isFadeBeforeUI())
+                    playerFadeInfo[i]->render();
+            }
+
+            if (LuaManager::thread == defaultthread) {
+                LuaEventManager::triggerEvent("OnPostUIDraw");
+            }
+
+            if (useUIFBO) {
+                SpriteRenderer::instance->setDefaultStyle(TransparentStyle::instance);
+            }
+        }
+    }
 }
+
 
 void UIManager::resize() {
-    // TODO: Implement resize
+    // Java: for (UIElement ui : UI) ui.onResize();
+    for (auto& elem : UI) {
+        if (elem) elem->onResize();
+    }
+    for (auto& elem : debugUI) {
+        if (elem) elem->onResize();
+    }
+    if (toolTip) toolTip->onResize();
+    if (Modal) Modal->onResize();
 }
 
-Vector2 UIManager::getTileFromMouse(double var0, double var2, double var4) {
-    // TODO: Implement getTileFromMouse
-    return nullptr;
+
+Vector2 UIManager::getTileFromMouse(double x, double y, double z) {
+    // Java: IsoUtils.XToIso(x, y, z), IsoUtils.YToIso(x, y, z)
+    // Assuming IsoUtils::XToIso and YToIso exist and return double
+    double isoX = IsoUtils::XToIso(x, y, z);
+    double isoY = IsoUtils::YToIso(x, y, z);
+    return std::make_shared<Vector2Class>(isoX, isoY);
 }
 
-return UIManager::getPickedTile() {
-    // TODO: Implement getPickedTile
-    return nullptr;
+
+Vector2 UIManager::getPickedTile() {
+    // Java: return PickedTile;
+    return PickedTile;
 }
+
 
 void UIManager::update() {
-    // TODO: Implement update
+    // Java: for (UIElement ui : UI) ui.update();
+    for (auto& elem : UI) {
+        if (elem) elem->update();
+    }
+    for (auto& elem : debugUI) {
+        if (elem) elem->update();
+    }
+    if (toolTip) toolTip->update();
+    if (Modal) Modal->update();
 }
+
 
 bool UIManager::checkPicked() {
-    // TODO: Implement checkPicked
-    return false;
+    // Java: return Picked != null;
+    return Picked != nullptr;
 }
 
+
 void UIManager::handleZoomKeys() {
-    // TODO: Implement handleZoomKeys
+    // Java: if (Keyboard.isKeyDown(KeyEvent.VK_EQUALS)) IsoCamera.zoomIn();
+    //       if (Keyboard.isKeyDown(KeyEvent.VK_MINUS)) IsoCamera.zoomOut();
+    if (Keyboard::isKeyDown(KeyEvent::VK_EQUALS) || Keyboard::isKeyDown(KeyEvent::VK_ADD)) {
+        IsoCamera::zoomIn();
+    }
+    if (Keyboard::isKeyDown(KeyEvent::VK_MINUS) || Keyboard::isKeyDown(KeyEvent::VK_SUBTRACT)) {
+        IsoCamera::zoomOut();
+    }
 }
 
 double UIManager::getLastMouseX() {
-    // TODO: Implement getLastMouseX
-    return 0;
+    return lastMouseX;
 }
 
 void UIManager::setLastMouseX(double var0) {
-    // TODO: Implement setLastMouseX
+    lastMouseX = static_cast<int>(var0);
 }
 
 double UIManager::getLastMouseY() {
-    // TODO: Implement getLastMouseY
-    return 0;
+    return lastMouseY;
 }
 
 void UIManager::setLastMouseY(double var0) {
-    // TODO: Implement setLastMouseY
+    lastMouseY = static_cast<int>(var0);
 }
 
 ClickObject UIManager::getPicked() {
-    // TODO: Implement getPicked
-    return nullptr;
+    return Picked;
 }
 
 void UIManager::setPicked(ClickObject var0) {
-    // TODO: Implement setPicked
+    Picked = var0;
 }
 
 Clock UIManager::getClock() {
-    // TODO: Implement getClock
-    return nullptr;
+    return clock;
 }
 
 void UIManager::setClock(Clock var0) {
-    // TODO: Implement setClock
+    clock = var0;
 }
 
 void UIManager::setUI(std::vector<UIElement> var0) {
-    // TODO: Implement setUI
+    UI = var0;
 }
 
 ObjectTooltip UIManager::getToolTip() {
-    // TODO: Implement getToolTip
-    return nullptr;
+    return toolTip;
 }
 
 void UIManager::setToolTip(ObjectTooltip var0) {
-    // TODO: Implement setToolTip
+    toolTip = var0;
 }
 
 Texture UIManager::getMouseArrow() {
-    // TODO: Implement getMouseArrow
-    return nullptr;
+    return mouseArrow;
 }
 
 void UIManager::setMouseArrow(Texture var0) {
-    // TODO: Implement setMouseArrow
+    mouseArrow = var0;
 }
 
 Texture UIManager::getMouseExamine() {
-    // TODO: Implement getMouseExamine
-    return nullptr;
+    return mouseExamine;
 }
 
 void UIManager::setMouseExamine(Texture var0) {
-    // TODO: Implement setMouseExamine
+    mouseExamine = var0;
 }
 
 Texture UIManager::getMouseAttack() {
-    // TODO: Implement getMouseAttack
-    return nullptr;
+    return mouseAttack;
 }
 
 void UIManager::setMouseAttack(Texture var0) {
-    // TODO: Implement setMouseAttack
+    mouseAttack = var0;
 }
 
 Texture UIManager::getMouseGrab() {
-    // TODO: Implement getMouseGrab
-    return nullptr;
+    return mouseGrab;
 }
 
 void UIManager::setMouseGrab(Texture var0) {
-    // TODO: Implement setMouseGrab
+    mouseGrab = var0;
 }
 
 SpeedControls UIManager::getSpeedControls() {
-    // TODO: Implement getSpeedControls
-    return nullptr;
+    return speedControls;
 }
 
 void UIManager::setSpeedControls(SpeedControls var0) {
-    // TODO: Implement setSpeedControls
+    speedControls = var0;
 }
 
 UIDebugConsole UIManager::getDebugConsole() {
-    // TODO: Implement getDebugConsole
-    return nullptr;
+    return DebugConsole;
 }
 
 void UIManager::setDebugConsole(UIDebugConsole var0) {
-    // TODO: Implement setDebugConsole
+    DebugConsole = var0;
 }
 
 UIServerToolbox UIManager::getServerToolbox() {
-    // TODO: Implement getServerToolbox
-    return nullptr;
+    return ServerToolbox;
 }
 
 void UIManager::setServerToolbox(UIServerToolbox var0) {
-    // TODO: Implement setServerToolbox
+    ServerToolbox = var0;
 }
 
 MoodlesUI UIManager::getMoodleUI(double var0) {
-    // TODO: Implement getMoodleUI
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(MoodleUI.size()))
+        return MoodleUI[idx];
     return nullptr;
 }
 
 void UIManager::setMoodleUI(double var0, MoodlesUI var2) {
-    // TODO: Implement setMoodleUI
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(MoodleUI.size()))
+        MoodleUI[idx] = var2;
 }
 
 bool UIManager::isbFadeBeforeUI() {
-    // TODO: Implement isbFadeBeforeUI
-    return false;
+    return bFadeBeforeUI;
 }
 
 void UIManager::setbFadeBeforeUI(bool var0) {
-    // TODO: Implement setbFadeBeforeUI
+    bFadeBeforeUI = var0;
 }
 
 ActionProgressBar UIManager::getProgressBar(double var0) {
-    // TODO: Implement getProgressBar
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(ProgressBar.size()))
+        return ProgressBar[idx];
     return nullptr;
 }
 
 void UIManager::setProgressBar(double var0, ActionProgressBar var2) {
-    // TODO: Implement setProgressBar
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(ProgressBar.size()))
+        ProgressBar[idx] = var2;
 }
 
 double UIManager::getFadeAlpha() {
-    // TODO: Implement getFadeAlpha
-    return 0;
+    return FadeAlpha;
 }
 
 void UIManager::setFadeAlpha(double var0) {
-    // TODO: Implement setFadeAlpha
+    FadeAlpha = static_cast<float>(var0);
 }
 
 double UIManager::getFadeInTimeMax() {
-    // TODO: Implement getFadeInTimeMax
-    return 0;
+    return FadeInTimeMax;
 }
 
 void UIManager::setFadeInTimeMax(double var0) {
-    // TODO: Implement setFadeInTimeMax
+    FadeInTimeMax = static_cast<int>(var0);
 }
 
 double UIManager::getFadeInTime() {
-    // TODO: Implement getFadeInTime
-    return 0;
+    return FadeInTime;
 }
 
 void UIManager::setFadeInTime(double var0) {
-    // TODO: Implement setFadeInTime
+    FadeInTime = static_cast<int>(var0);
 }
 
 bool UIManager::isFadingOut() {
-    // TODO: Implement isFadingOut
-    return false;
+    return FadingOut;
 }
 
 void UIManager::setFadingOut(bool var0) {
-    // TODO: Implement setFadingOut
+    FadingOut = var0;
 }
 
 Texture UIManager::getLastMouseTexture() {
-    // TODO: Implement getLastMouseTexture
-    return nullptr;
+    return lastMouseTexture;
 }
 
 void UIManager::setLastMouseTexture(Texture var0) {
-    // TODO: Implement setLastMouseTexture
+    lastMouseTexture = var0;
 }
 
 IsoObject UIManager::getLastPicked() {
-    // TODO: Implement getLastPicked
-    return nullptr;
+    return LastPicked;
 }
 
 void UIManager::setLastPicked(IsoObject var0) {
-    // TODO: Implement setLastPicked
+    LastPicked = var0;
 }
 
 void UIManager::setDoneTutorials(std::vector<std::string> var0) {
-    // TODO: Implement setDoneTutorials
+    DoneTutorials = var0;
 }
 
 float UIManager::getLastOffX() {
-    // TODO: Implement getLastOffX
-    return 0;
+    return lastOffX;
 }
 
 void UIManager::setLastOffX(float var0) {
-    // TODO: Implement setLastOffX
+    lastOffX = var0;
 }
 
 float UIManager::getLastOffY() {
-    // TODO: Implement getLastOffY
-    return 0;
+    return lastOffY;
 }
 
 void UIManager::setLastOffY(float var0) {
-    // TODO: Implement setLastOffY
+    lastOffY = var0;
 }
 
 ModalDialog UIManager::getModal() {
-    // TODO: Implement getModal
-    return nullptr;
+    return Modal;
 }
 
 void UIManager::setModal(ModalDialog var0) {
-    // TODO: Implement setModal
+    Modal = var0;
 }
 
 Texture UIManager::getBlack() {
-    // TODO: Implement getBlack
-    return nullptr;
+    return black;
 }
 
 void UIManager::setBlack(Texture var0) {
-    // TODO: Implement setBlack
+    black = var0;
 }
 
 float UIManager::getLastAlpha() {
-    // TODO: Implement getLastAlpha
-    return 0;
+    return lastAlpha;
 }
 
 void UIManager::setLastAlpha(float var0) {
-    // TODO: Implement setLastAlpha
+    lastAlpha = var0;
 }
 
 Vector2 UIManager::getPickedTileLocal() {
-    // TODO: Implement getPickedTileLocal
-    return nullptr;
+    return PickedTileLocal;
 }
 
 void UIManager::setPickedTileLocal(Vector2 var0) {
-    // TODO: Implement setPickedTileLocal
+    PickedTileLocal = var0;
 }
 
 Vector2 UIManager::getPickedTile() {
-    // TODO: Implement getPickedTile
-    return nullptr;
+    return PickedTile;
 }
 
 void UIManager::setPickedTile(Vector2 var0) {
-    // TODO: Implement setPickedTile
+    PickedTile = var0;
 }
 
 IsoObject UIManager::getRightDownObject() {
-    // TODO: Implement getRightDownObject
-    return nullptr;
+    return RightDownObject;
 }
 
 void UIManager::setRightDownObject(IsoObject var0) {
-    // TODO: Implement setRightDownObject
+    RightDownObject = var0;
 }
 
 void UIManager::pushToTop(UIElement var0) {
-    // TODO: Implement pushToTop
+    if (var0) {
+        toTop.push_back(var0);
+    }
 }
 
 bool UIManager::isShowPausedMessage() {
-    // TODO: Implement isShowPausedMessage
-    return false;
+    return showPausedMessage;
 }
 
 void UIManager::setShowPausedMessage(bool var0) {
-    // TODO: Implement setShowPausedMessage
+    showPausedMessage = var0;
 }
 
 void UIManager::setShowLuaDebuggerOnError(bool var0) {
-    // TODO: Implement setShowLuaDebuggerOnError
+    bShowLuaDebuggerOnError = var0;
 }
 
 bool UIManager::isShowLuaDebuggerOnError() {
-    // TODO: Implement isShowLuaDebuggerOnError
-    return false;
+    return bShowLuaDebuggerOnError;
 }
 
 void UIManager::debugBreakpoint(const std::string& var0, long var1) {
-    // TODO: Implement debugBreakpoint
+    // Java: DebugLog.log("Breakpoint: " + var0 + ", value: " + var1);
+    DebugLog::log("Breakpoint: " + var0 + ", value: " + std::to_string(var1));
 }
 
 void UIManager::executeGame(std::vector<UIElement> var0, bool var1, int var2) {
-    // TODO: Implement executeGame
+    // Java: for (UIElement ui : var0) ui.executeGame(var1, var2);
+    for (auto& elem : var0) {
+        if (elem) elem->executeGame(var1, var2);
+    }
 }
 
 KahluaThread UIManager::getDefaultThread() {
-    // TODO: Implement getDefaultThread
-    return nullptr;
+    // Java: return defaultthread;
+    return defaultthread;
 }
 
 double UIManager::getDoubleClickInterval() {
-    // TODO: Implement getDoubleClickInterval
-    return 0;
+    // Java: return doubleClickInterval;
+    return doubleClickInterval;
 }
 
 double UIManager::getDoubleClickDist() {
-    // TODO: Implement getDoubleClickDist
-    return 0;
+    // Java: return doubleClickDist;
+    return doubleClickDist;
 }
 
 bool UIManager::isDoubleClick(double var0, double var2, double var4, double var6, double var8) {
-    // TODO: Implement isDoubleClick
-    return false;
+    // Java: return Math.abs(var0 - var4) < getDoubleClickDist() && Math.abs(var2 - var6) < getDoubleClickDist() && var8 < getDoubleClickInterval();
+    return (std::abs(var0 - var4) < getDoubleClickDist()) &&
+           (std::abs(var2 - var6) < getDoubleClickDist()) &&
+           (var8 < getDoubleClickInterval());
 }
 
 void UIManager::updateTooltip(double var0, double var2) {
-    // TODO: Implement updateTooltip
+    // Java: if (toolTip) toolTip.setPosition(var0, var2);
+    if (toolTip) toolTip->setPosition(var0, var2);
 }
 
 void UIManager::setPlayerInventory(int var0, UIElement var1, UIElement var2) {
-    // TODO: Implement setPlayerInventory
+    // Java: playerInventoryUI = var1; playerLootUI = var2;
+    playerInventoryUI = var1;
+    playerLootUI = var2;
 }
 
 void UIManager::setPlayerInventoryTooltip(int var0, UIElement var1, UIElement var2) {
-    // TODO: Implement setPlayerInventoryTooltip
+    // Java: playerInventoryTooltip = var1; playerLootTooltip = var2;
+    playerInventoryTooltip = var1;
+    playerLootTooltip = var2;
 }
 
 bool UIManager::isMouseOverInventory() {
-    // TODO: Implement isMouseOverInventory
-    return false;
+    // Java: return mouseOverInventory;
+    return mouseOverInventory;
 }
 
 void UIManager::updateBeforeFadeOut() {
-    // TODO: Implement updateBeforeFadeOut
+    // Java: for (UIElement ui : UI) ui.updateBeforeFadeOut();
+    for (auto& elem : UI) {
+        if (elem) elem->updateBeforeFadeOut();
+    }
 }
 
 void UIManager::setVisibleAllUI(bool var0) {
-    // TODO: Implement setVisibleAllUI
+    // Java: VisibleAllUI = var0;
+    VisibleAllUI = var0;
 }
 
 void UIManager::setFadeBeforeUI(int var0, bool var1) {
-    // TODO: Implement setFadeBeforeUI
+    // Java: if (playerFadeInfo[var0]) playerFadeInfo[var0]->setFadeBeforeUI(var1);
+    if (var0 >= 0 && var0 < static_cast<int>(playerFadeInfo.size()) && playerFadeInfo[var0]) {
+        playerFadeInfo[var0]->setFadeBeforeUI(var1);
+    }
 }
 
 float UIManager::getFadeAlpha(double var0) {
-    // TODO: Implement getFadeAlpha
-    return 0;
+    // Java: if (playerFadeInfo[var0]) return playerFadeInfo[var0]->getFadeAlpha(); else return FadeAlpha;
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(playerFadeInfo.size()) && playerFadeInfo[idx]) {
+        return playerFadeInfo[idx]->getFadeAlpha();
+    }
+    return FadeAlpha;
 }
 
 void UIManager::setFadeTime(double var0, double var2) {
-    // TODO: Implement setFadeTime
+    // Java: if (playerFadeInfo[var0]) playerFadeInfo[var0]->setFadeTime(var2);
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(playerFadeInfo.size()) && playerFadeInfo[idx]) {
+        playerFadeInfo[idx]->setFadeTime(var2);
+    }
 }
 
 void UIManager::FadeIn(double var0, double var2) {
-    // TODO: Implement FadeIn
+    // Java: if (playerFadeInfo[var0]) playerFadeInfo[var0]->FadeIn(var2);
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(playerFadeInfo.size()) && playerFadeInfo[idx]) {
+        playerFadeInfo[idx]->FadeIn(var2);
+    }
 }
 
 void UIManager::FadeOut(double var0, double var2) {
-    // TODO: Implement FadeOut
+    // Java: if (playerFadeInfo[var0]) playerFadeInfo[var0]->FadeOut(var2);
+    int idx = static_cast<int>(var0);
+    if (idx >= 0 && idx < static_cast<int>(playerFadeInfo.size()) && playerFadeInfo[idx]) {
+        playerFadeInfo[idx]->FadeOut(var2);
+    }
 }
 
 bool UIManager::isFBOActive() {
-    // TODO: Implement isFBOActive
-    return false;
+    // Java: return useUIFBO;
+    return useUIFBO;
 }
 
 double UIManager::getMillisSinceLastUpdate() {
-    // TODO: Implement getMillisSinceLastUpdate
-    return 0;
+    return uiUpdateTimeMS;
 }
 
 double UIManager::getSecondsSinceLastUpdate() {
-    // TODO: Implement getSecondsSinceLastUpdate
-    return 0;
+    return uiUpdateTimeMS / 1000.0;
 }
 
 double UIManager::getMillisSinceLastRender() {
-    // TODO: Implement getMillisSinceLastRender
-    return 0;
+    return uiRenderTimeMS;
 }
 
 double UIManager::getSecondsSinceLastRender() {
-    // TODO: Implement getSecondsSinceLastRender
-    return 0;
+    return uiRenderTimeMS / 1000.0;
 }
 
 bool UIManager::onKeyPress(int var0) {
-    // TODO: Implement onKeyPress
+    // Java: for (UIElement ui : UI) if (ui.onKeyPress(var0)) return true;
+    for (auto& elem : UI) {
+        if (elem && elem->onKeyPress(var0)) return true;
+    }
     return false;
 }
 
 bool UIManager::onKeyRepeat(int var0) {
-    // TODO: Implement onKeyRepeat
+    // Java: for (UIElement ui : UI) if (ui.onKeyRepeat(var0)) return true;
+    for (auto& elem : UI) {
+        if (elem && elem->onKeyRepeat(var0)) return true;
+    }
     return false;
 }
 
 bool UIManager::onKeyRelease(int var0) {
-    // TODO: Implement onKeyRelease
+    // Java: for (UIElement ui : UI) if (ui.onKeyRelease(var0)) return true;
+    for (auto& elem : UI) {
+        if (elem && elem->onKeyRelease(var0)) return true;
+    }
     return false;
 }
 
 bool UIManager::isForceCursorVisible() {
-    // TODO: Implement isForceCursorVisible
-    return false;
+    // Java: return forceCursorVisible;
+    return forceCursorVisible;
 }
 
 } // namespace ui

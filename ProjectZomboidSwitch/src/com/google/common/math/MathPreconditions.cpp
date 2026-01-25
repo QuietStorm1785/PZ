@@ -16,7 +16,7 @@ long MathPreconditions::checkPositive(@Nullable std::string, long x) {
     return 0;
 }
 
-BigInteger MathPreconditions::checkPositive(@Nullable std::string, BigInteger x) {
+boost::multiprecision::cpp_int MathPreconditions::checkPositive(@Nullable std::string, boost::multiprecision::cpp_int x) {
     // TODO: Implement checkPositive
     return nullptr;
 }
@@ -31,7 +31,7 @@ long MathPreconditions::checkNonNegative(@Nullable std::string, long x) {
     return 0;
 }
 
-BigInteger MathPreconditions::checkNonNegative(@Nullable std::string, BigInteger x) {
+boost::multiprecision::cpp_int MathPreconditions::checkNonNegative(@Nullable std::string, boost::multiprecision::cpp_int x) {
     // TODO: Implement checkNonNegative
     return nullptr;
 }

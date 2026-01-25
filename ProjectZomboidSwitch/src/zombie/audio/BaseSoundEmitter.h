@@ -16,47 +16,29 @@ namespace audio {
 
 class BaseSoundEmitter {
 public:
-   public abstract void randomStart();
+   virtual ~BaseSoundEmitter() = default;
 
-   public abstract void setPos(float var1, float var2, float var3);
-
-   public abstract int stopSound(long var1);
-
-   public abstract void stopSoundLocal(long var1);
-
-   public abstract int stopSoundByName(std::string var1);
-
-   public abstract void stopOrTriggerSound(long var1);
-
-   public abstract void stopOrTriggerSoundByName(std::string var1);
-
-   public abstract void setVolume(long var1, float var3);
-
-   public abstract void setPitch(long var1, float var3);
-
-   public abstract boolean hasSustainPoints(long var1);
-
-   public abstract void setParameterValue(long var1, FMOD_STUDIO_PARAMETER_DESCRIPTION var3, float var4);
-
-   public abstract void setTimelinePosition(long var1, std::string var3);
-
-   public abstract void triggerCue(long var1);
-
-   public abstract void setVolumeAll(float var1);
-
-   public abstract void stopAll();
-
-   public abstract long playSound(std::string var1);
-
-   public abstract long playSound(std::string var1, IsoGameCharacter var2);
-
-   public abstract long playSound(std::string var1, int var2, int var3, int var4);
-
-   public abstract long playSound(std::string var1, IsoGridSquare var2);
-
-   public abstract long playSoundImpl(std::string var1, IsoGridSquare var2);
-
-   public abstract long playSound(std::string var1, boolean var2);
+   virtual void randomStart() = 0;
+   virtual void setPos(float x, float y, float z) = 0;
+   virtual int stopSound(int64_t id) = 0;
+   virtual void stopSoundLocal(int64_t id) = 0;
+   virtual int stopSoundByName(const std::string& name) = 0;
+   virtual void stopOrTriggerSound(int64_t id) = 0;
+   virtual void stopOrTriggerSoundByName(const std::string& name) = 0;
+   virtual void setVolume(int64_t id, float volume) = 0;
+   virtual void setPitch(int64_t id, float pitch) = 0;
+   virtual bool hasSustainPoints(int64_t id) = 0;
+   virtual void setParameterValue(int64_t id, const FMOD_STUDIO_PARAMETER_DESCRIPTION& param, float value) = 0;
+   virtual void setTimelinePosition(int64_t id, const std::string& position) = 0;
+   virtual void triggerCue(int64_t id) = 0;
+   virtual void setVolumeAll(float volume) = 0;
+   virtual void stopAll() = 0;
+   virtual int64_t playSound(const std::string& name) = 0;
+   virtual int64_t playSound(const std::string& name, zombie::characters::IsoGameCharacter* character) = 0;
+   virtual int64_t playSound(const std::string& name, int x, int y, int z) = 0;
+   virtual int64_t playSound(const std::string& name, zombie::iso::IsoGridSquare* square) = 0;
+   virtual int64_t playSoundImpl(const std::string& name, zombie::iso::IsoGridSquare* square) = 0;
+   virtual int64_t playSound(const std::string& name, bool flag) = 0;
 
    public abstract long playSoundImpl(std::string var1, boolean var2, IsoObject var3);
 

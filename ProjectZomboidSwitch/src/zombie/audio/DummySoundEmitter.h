@@ -16,47 +16,21 @@ namespace audio {
 
 class DummySoundEmitter : public BaseSoundEmitter {
 public:
-    void randomStart() {
-   }
+    virtual ~DummySoundEmitter() = default;
 
-    void setPos(float var1, float var2, float var3) {
-   }
-
-    int stopSound(long var1) {
-    return 0;
-   }
-
-    void stopSoundLocal(long var1) {
-   }
-
-    int stopSoundByName(const std::string& var1) {
-    return 0;
-   }
-
-    void stopOrTriggerSound(long var1) {
-   }
-
-    void stopOrTriggerSoundByName(const std::string& var1) {
-   }
-
-    void setVolume(long var1, float var3) {
-   }
-
-    void setPitch(long var1, float var3) {
-   }
-
-    bool hasSustainPoints(long var1) {
-    return false;
-   }
-
-    void setParameterValue(long var1, FMOD_STUDIO_PARAMETER_DESCRIPTION var3, float var4) {
-   }
-
-    void setTimelinePosition(long var1, const std::string& var3) {
-   }
-
-    void triggerCue(long var1) {
-   }
+    void randomStart() override {}
+    void setPos(float x, float y, float z) override {}
+    int stopSound(int64_t id) override { return 0; }
+    void stopSoundLocal(int64_t id) override {}
+    int stopSoundByName(const std::string& name) override { return 0; }
+    void stopOrTriggerSound(int64_t id) override {}
+    void stopOrTriggerSoundByName(const std::string& name) override {}
+    void setVolume(int64_t id, float volume) override {}
+    void setPitch(int64_t id, float pitch) override {}
+    bool hasSustainPoints(int64_t id) override { return false; }
+    void setParameterValue(int64_t id, const FMOD_STUDIO_PARAMETER_DESCRIPTION& param, float value) override {}
+    void setTimelinePosition(int64_t id, const std::string& position) override {}
+    void triggerCue(int64_t id) override {}
 
     void set3D(long var1, bool var3) {
    }
@@ -84,67 +58,21 @@ public:
    }
 
     long playSoundImpl(const std::string& var1, IsoGridSquare var2) {
-    return 0L;
-   }
-
-    long playSound(const std::string& var1, bool var2) {
-    return 0L;
-   }
-
-    long playSoundImpl(const std::string& var1, bool var2, IsoObject var3) {
-    return 0L;
-   }
-
-    long playSound(const std::string& var1, IsoObject var2) {
-    return 0L;
-   }
-
-    long playSoundImpl(const std::string& var1, IsoObject var2) {
-    return 0L;
-   }
-
-    long playClip(GameSoundClip var1, IsoObject var2) {
-    return 0L;
-   }
-
-    long playAmbientSound(const std::string& var1) {
-    return 0L;
-   }
-
-    void tick() {
-   }
-
-    bool hasSoundsToStart() {
-    return false;
-   }
-
-    bool isEmpty() {
-    return true;
-   }
-
-    bool isPlaying(long var1) {
-    return false;
-   }
-
-    bool isPlaying(const std::string& var1) {
-    return false;
-   }
-
-    bool restart(long var1) {
-    return false;
-   }
-
-    long playSoundLooped(const std::string& var1) {
-    return 0L;
-   }
-
-    long playSoundLoopedImpl(const std::string& var1) {
-    return 0L;
-   }
-
-    long playAmbientLoopedImpl(const std::string& var1) {
-    return 0L;
-   }
-}
+    int64_t playSound(const std::string&, bool) override { return 0; }
+    int64_t playSoundImpl(const std::string&, bool, zombie::iso::IsoObject*) override { return 0; }
+    int64_t playSound(const std::string&, zombie::iso::IsoObject*) override { return 0; }
+    int64_t playSoundImpl(const std::string&, zombie::iso::IsoObject*) override { return 0; }
+    int64_t playClip(GameSoundClip&, zombie::iso::IsoObject*) override { return 0; }
+    int64_t playAmbientSound(const std::string&) override { return 0; }
+    void tick() override {}
+    bool hasSoundsToStart() const override { return false; }
+    bool isEmpty() const override { return true; }
+    bool isPlaying(int64_t) const override { return false; }
+    bool isPlaying(const std::string&) const override { return false; }
+    bool restart(int64_t) override { return false; }
+    int64_t playSoundLooped(const std::string&) override { return 0; }
+    int64_t playSoundLoopedImpl(const std::string&) override { return 0; }
+    int64_t playAmbientLoopedImpl(const std::string&) override { return 0; }
+};
 } // namespace audio
 } // namespace zombie

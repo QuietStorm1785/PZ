@@ -5,26 +5,28 @@ namespace zombie {
 namespace fileSystem {
 
 IFile MemoryFileDevice::createFile(IFile var1) {
-    // TODO: Implement createFile
-    return nullptr;
+    // Create a new MemoryFile and return it
+    auto file = std::make_shared<MemoryFile>(shared_from_this());
+    return file;
 }
 
 void MemoryFileDevice::destroyFile(IFile var1) {
-    // TODO: Implement destroyFile
+    // Rely on smart pointer destruction
+    var1.reset();
 }
 
 InputStream MemoryFileDevice::createStream(const std::string& var1, InputStream var2) {
-    // TODO: Implement createStream
+    // Not supported for memory device
     return nullptr;
 }
 
 void MemoryFileDevice::destroyStream(InputStream var1) {
-    // TODO: Implement destroyStream
+    // Rely on smart pointer destruction
+    var1.reset();
 }
 
 std::string MemoryFileDevice::name() {
-    // TODO: Implement name
-    return "";
+    return "MemoryFileDevice";
 }
 
 } // namespace fileSystem

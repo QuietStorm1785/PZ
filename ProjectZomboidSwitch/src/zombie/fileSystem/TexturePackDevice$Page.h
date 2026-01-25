@@ -11,12 +11,14 @@ namespace zombie {
 namespace fileSystem {
 
 
-class TexturePackDevice {
+class Page {
 public:
     std::string m_name;
     bool m_has_alpha = false;
-    long m_png_start = -1L;
-   const std::vector<SubTextureInfo> m_sub = std::make_unique<std::vector<>>();
-}
+    int64_t m_png_start = -1;
+    std::vector<std::shared_ptr<SubTextureInfo>> m_sub;
+
+    Page() = default;
+};
 } // namespace fileSystem
 } // namespace zombie

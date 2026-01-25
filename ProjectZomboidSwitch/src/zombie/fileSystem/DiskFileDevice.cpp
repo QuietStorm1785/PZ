@@ -4,32 +4,38 @@
 namespace zombie {
 namespace fileSystem {
 
-public DiskFileDevice::DiskFileDevice(const std::string& var1) {
-    // TODO: Implement DiskFileDevice
-    return nullptr;
-}
+
+DiskFileDevice::DiskFileDevice(const std::string& var1)
+    : m_root(var1) {}
+
 
 IFile DiskFileDevice::createFile(IFile var1) {
-    // TODO: Implement createFile
-    return nullptr;
+    // Create a new DiskFile and return it
+    auto file = std::make_shared<DiskFileDevice$DiskFile>(shared_from_this());
+    return file;
 }
+
 
 void DiskFileDevice::destroyFile(IFile var1) {
-    // TODO: Implement destroyFile
+    // Rely on smart pointer destruction
+    var1.reset();
 }
+
 
 InputStream DiskFileDevice::createStream(const std::string& var1, InputStream var2) {
-    // TODO: Implement createStream
-    return nullptr;
+    // Create a new FileInputStream for the given path
+    return std::make_shared<FileInputStream>(var1);
 }
+
 
 void DiskFileDevice::destroyStream(InputStream var1) {
-    // TODO: Implement destroyStream
+    // Rely on smart pointer destruction
+    var1.reset();
 }
 
+
 std::string DiskFileDevice::name() {
-    // TODO: Implement name
-    return "";
+    return "DiskFileDevice";
 }
 
 } // namespace fileSystem

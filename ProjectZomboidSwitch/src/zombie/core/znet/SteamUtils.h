@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/math/BigInteger.h"
+#include <boost/multiprecision/cpp_int.hpp>
 #include "zombie/Lua/LuaEventManager.h"
 #include "zombie/core/logger/ExceptionLogger.h"
 #include "zombie/core/opengl/RenderThread.h"
@@ -28,8 +28,8 @@ public:
     static bool m_steamEnabled;
     static bool m_netEnabled;
     static bool m_floatingGamepadTextInputVisible = false;
-    static const BigInteger TWO_64 = BigInteger.ONE.shiftLeft(64);
-    static const BigInteger MAX_ULONG = std::make_shared<BigInteger>("FFFFFFFFFFFFFFFF", 16);
+    static const boost::multiprecision::cpp_int TWO_64 = boost::multiprecision::cpp_int.ONE.shiftLeft(64);
+    static const boost::multiprecision::cpp_int MAX_ULONG = std::make_shared<boost::multiprecision::cpp_int>("FFFFFFFFFFFFFFFF", 16);
    private static List<IJoinRequestCallback> m_joinRequestCallbacks;
     static const int k_EGamepadTextInputModeNormal = 0;
     static const int k_EGamepadTextInputModePassword = 1;
@@ -167,7 +167,7 @@ public:
    }
 
     static std::string convertSteamIDToString(long var0) {
-    BigInteger var2 = BigInteger.valueOf(var0);
+    boost::multiprecision::cpp_int var2 = boost::multiprecision::cpp_int.valueOf(var0);
       if (var2.signum() < 0) {
          var2.push_back(TWO_64);
       }
@@ -177,7 +177,7 @@ public:
 
     static bool isValidSteamID(const std::string& var0) {
       try {
-    BigInteger var1 = std::make_shared<BigInteger>(var0);
+    boost::multiprecision::cpp_int var1 = std::make_shared<boost::multiprecision::cpp_int>(var0);
          return var1.signum() >= 0 && var1.compareTo(MAX_ULONG) <= 0;
       } catch (NumberFormatException var2) {
     return false;
@@ -186,7 +186,7 @@ public:
 
     static long convertStringToSteamID(const std::string& var0) {
       try {
-    BigInteger var1 = std::make_shared<BigInteger>(var0);
+    boost::multiprecision::cpp_int var1 = std::make_shared<boost::multiprecision::cpp_int>(var0);
          return var1.signum() >= 0 && var1.compareTo(MAX_ULONG) <= 0 ? var1.longValue() : -1L;
       } catch (NumberFormatException var2) {
          return -1L;

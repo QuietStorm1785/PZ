@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "absl/container/flat_hash_map.h"
+#include <boost/unordered_map.hpp>
 #include "zombie/GameWindow.h"
 #include "zombie/util/SharedStrings.h"
 #include "zombie/worldMap/WorldMapGeometry/Type.h"
@@ -23,7 +23,7 @@ public:
     static const int VERSION_LATEST = 1;
     const SharedStrings m_sharedStrings = std::make_shared<SharedStrings>();
    private:
-    absl::flat_hash_map<int, std::string> m_stringTable;
+    boost::unordered_map<int, std::string> m_stringTable;
     const WorldMapProperties m_properties = std::make_shared<WorldMapProperties>();
    private const std::vector<WorldMapProperties> m_sharedProperties = std::make_unique<std::vector<>>();
 

@@ -9,36 +9,37 @@
 namespace zombie {
 namespace fileSystem {
 
-class FileSystemImpl {
+class OpenTask : public FileTask {
 public:
-    IFile m_file;
-    std::string m_path;
-    int m_mode;
-    IFileTask2Callback m_cb;
+   std::shared_ptr<IFile> m_file;
+   std::string m_path;
+   int m_mode;
+   std::shared_ptr<IFileTask2Callback> m_cb;
 
-   FileSystemImpl$OpenTask(FileSystem var1) {
-      super(var1);
+   OpenTask(std::shared_ptr<FileSystem> fs)
+      : FileTask(fs), m_file(nullptr), m_path(), m_mode(0), m_cb(nullptr) {}
+
+   void* call() {
+      if (m_file)
+         return reinterpret_cast<void*>(m_file->open(m_path, m_mode));
+      return nullptr;
    }
 
-    void* call() {
-      return this.m_file.open(this.m_path, this.m_mode);
-   }
-
-    void handleResult(void* var1) {
-      if (this.m_cb != nullptr) {
-         this.m_cb.onFileTaskFinished(this.m_file, var1);
+   void handleResult(void* result) {
+      if (m_cb) {
+         m_cb->onFileTaskFinished(m_file, result);
       }
    }
 
-    void done() {
-      if ((this.m_mode & 5) == 5) {
-         this.m_file_system.closeAsync(this.m_file, nullptr);
+   void done() override {
+      if ((m_mode & 5) == 5 && m_fileSystem) {
+         // Assuming FileSystem has closeAsync method
+         m_fileSystem->closeAsync(m_file, nullptr);
       }
-
-      this.m_file = nullptr;
-      this.m_path = nullptr;
-      this.m_cb = nullptr;
+      m_file.reset();
+      m_path.clear();
+      m_cb.reset();
    }
-}
+};
 } // namespace fileSystem
 } // namespace zombie

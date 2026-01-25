@@ -48,7 +48,8 @@ if [[ "$TARGET" == "switch" ]]; then
     cmake .. \
         -DCMAKE_TOOLCHAIN_FILE="$TOOLCHAIN_FILE" \
         -DCMAKE_BUILD_TYPE=$BUILDTYPE \
-        -DNINTENDO_SWITCH=ON
+        -DNINTENDO_SWITCH=ON \
+        -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
 
     echo "Building..."
     make -j$(nproc 2>/dev/null || echo 4)
@@ -94,7 +95,8 @@ elif [[ "$TARGET" == "linux" ]]; then
     mkdir -p "$BUILD_DIR"
     cd "$BUILD_DIR"
     echo "Configuring for Linux..."
-    cmake .. -DCMAKE_BUILD_TYPE=$BUILDTYPE
+    # Set CMAKE_PREFIX_PATH for Qt5 so CMake can find Qt5Config.cmake
+    cmake .. -DCMAKE_BUILD_TYPE=$BUILDTYPE -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
     echo "Building..."
     cmake --build . --config $BUILDTYPE
     echo "=== Build Complete ==="

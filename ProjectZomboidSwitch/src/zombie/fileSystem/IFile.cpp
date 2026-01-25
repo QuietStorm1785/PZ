@@ -5,51 +5,51 @@ namespace zombie {
 namespace fileSystem {
 
 bool IFile::open(const std::string& var1, int var2) {
-    // TODO: Implement open
+    // Interface stub: should be overridden by subclass
     return false;
 }
 
 void IFile::close() {
-    // TODO: Implement close
+    // Interface stub: should be overridden by subclass
 }
 
 bool IFile::read(byte[] var1, long var2) {
-    // TODO: Implement read
+    // Interface stub: should be overridden by subclass
     return false;
 }
 
 bool IFile::write(byte[] var1, long var2) {
-    // TODO: Implement write
+    // Interface stub: should be overridden by subclass
     return false;
 }
 
 long IFile::size() {
-    // TODO: Implement size
+    // Interface stub: should be overridden by subclass
     return 0;
 }
 
 bool IFile::seek(FileSeekMode var1, long var2) {
-    // TODO: Implement seek
+    // Interface stub: should be overridden by subclass
     return false;
 }
 
 long IFile::pos() {
-    // TODO: Implement pos
+    // Interface stub: should be overridden by subclass
     return 0;
 }
 
 InputStream IFile::getInputStream() {
-    // TODO: Implement getInputStream
+    // Interface stub: should be overridden by subclass
     return nullptr;
 }
 
 IFileDevice IFile::getDevice() {
-    // TODO: Implement getDevice
+    // Interface stub: should be overridden by subclass
     return nullptr;
 }
 
 void IFile::release() {
-    // TODO: Implement release
+    // Interface stub: should be overridden by subclass
 }
 
 } // namespace fileSystem

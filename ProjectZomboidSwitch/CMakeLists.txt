@@ -1,3 +1,65 @@
+# Only perform Boost include mapping for Nintendo Switch builds
+if(NINTENDO_SWITCH)
+    file(GLOB_RECURSE NON_ABSEIL_SOURCES
+        "${CMAKE_SOURCE_DIR}/src/*.cpp"
+        "${CMAKE_SOURCE_DIR}/src/*.h"
+        "${CMAKE_SOURCE_DIR}/src/include/**/*.h"
+        "${CMAKE_SOURCE_DIR}/src/include/**/*.hpp"
+    )
+    foreach(SRC ${NON_ABSEIL_SOURCES})
+        if(NOT SRC MATCHES "/abseil/")
+            file(READ "${SRC}" SRC_CONTENTS)
+            # Replace custom BigInteger include with Boost
+            string(REPLACE "#include \"java/math/BigInteger.h\"" "#include <boost/multiprecision/cpp_int.hpp>" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "#include \"../../java/math/BigInteger.h\"" "#include <boost/multiprecision/cpp_int.hpp>" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "java::math::BigInteger" "boost::multiprecision::cpp_int" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "BigInteger" "boost::multiprecision::cpp_int" SRC_CONTENTS "${SRC_CONTENTS}")
+            # absl mappings (already present)
+            string(REPLACE "#include \"absl/container/flat_hash_map.h\"" "#include <boost/unordered_map.hpp>" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::flat_hash_map" "boost::unordered_map" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "#include \"absl/container/flat_hash_set.h\"" "#include <boost/unordered_set.hpp>" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::flat_hash_set" "boost::unordered_set" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::strings" "boost::algorithm" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::str_format" "boost::format" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::base" "boost/thread.hpp" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::synchronization" "boost/thread.hpp" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::time" "boost::chrono" SRC_CONTENTS "${SRC_CONTENTS}")
+            file(WRITE "${SRC}" "${SRC_CONTENTS}")
+        endif()
+    endforeach()
+endif()
+
+# Only perform absl-to-boost mapping for Nintendo Switch builds
+if(NINTENDO_SWITCH)
+    # Global replacement of absl types/includes with Boost or std equivalents in non-Abseil code
+    file(GLOB_RECURSE NON_ABSEIL_SOURCES
+        "${CMAKE_SOURCE_DIR}/src/*.cpp"
+        "${CMAKE_SOURCE_DIR}/src/*.h"
+        "${CMAKE_SOURCE_DIR}/src/include/**/*.h"
+        "${CMAKE_SOURCE_DIR}/src/include/**/*.hpp"
+    )
+    foreach(SRC ${NON_ABSEIL_SOURCES})
+        if(NOT SRC MATCHES "/abseil/")
+            file(READ "${SRC}" SRC_CONTENTS)
+            # absl::flat_hash_map -> boost::unordered_map
+            string(REPLACE "#include \"absl/container/flat_hash_map.h\"" "#include <boost/unordered_map.hpp>" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::flat_hash_map" "boost::unordered_map" SRC_CONTENTS "${SRC_CONTENTS}")
+            # absl::flat_hash_set -> boost::unordered_set
+            string(REPLACE "#include \"absl/container/flat_hash_set.h\"" "#include <boost/unordered_set.hpp>" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::flat_hash_set" "boost::unordered_set" SRC_CONTENTS "${SRC_CONTENTS}")
+            # absl::strings -> boost::algorithm or std::string
+            string(REPLACE "absl::strings" "boost::algorithm" SRC_CONTENTS "${SRC_CONTENTS}")
+            # absl::str_format -> boost::format
+            string(REPLACE "absl::str_format" "boost::format" SRC_CONTENTS "${SRC_CONTENTS}")
+            # absl::base, absl::synchronization -> boost/thread.hpp or boost/sync
+            string(REPLACE "absl::base" "boost/thread.hpp" SRC_CONTENTS "${SRC_CONTENTS}")
+            string(REPLACE "absl::synchronization" "boost/thread.hpp" SRC_CONTENTS "${SRC_CONTENTS}")
+            # absl::time -> boost::chrono
+            string(REPLACE "absl::time" "boost::chrono" SRC_CONTENTS "${SRC_CONTENTS}")
+            file(WRITE "${SRC}" "${SRC_CONTENTS}")
+        endif()
+    endforeach()
+endif()
 cmake_minimum_required(VERSION 3.10)
 project(ProjectZomboidSwitch VERSION 1.0.0 LANGUAGES CXX)
 
@@ -57,6 +119,13 @@ endif()
 # Platform-specific settings
 cmake_minimum_required(VERSION 3.10)
 project(ProjectZomboidSwitch VERSION 1.0.0 LANGUAGES CXX)
+
+# Qt (QImage) support for image handling
+find_package(Qt5 COMPONENTS Core Gui REQUIRED)
+include_directories(${Qt5Core_INCLUDE_DIRS} ${Qt5Gui_INCLUDE_DIRS})
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 if(NINTENDO_SWITCH)
     message(STATUS "Configuring for Nintendo Switch")
     add_definitions(-D__SWITCH__)
@@ -84,6 +153,11 @@ endif()
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/src/boost)
+include_directories(${CMAKE_SOURCE_DIR}/src/OpenCV/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/OpenCV/modules/highgui/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/lua-5.4.7)
+include_directories(${CMAKE_SOURCE_DIR}/src/zlib)
+include_directories(${CMAKE_SOURCE_DIR}/src/sqlite)
 include_directories(${CMAKE_SOURCE_DIR}/src/sqlite)
 include_directories(${CMAKE_SOURCE_DIR}/src/abseil)
 include_directories(${CMAKE_SOURCE_DIR}/src/include/de/btobastian/javacord)
@@ -94,10 +168,25 @@ include_directories(${CMAKE_SOURCE_DIR}/src/fmod/plugins/fmod_haptics/inc)
 include_directories(${CMAKE_SOURCE_DIR}/src/fmod/plugins/resonance_audio/inc)
 
 # Collect all source files
-file(GLOB_RECURSE CONVERT2CPP_SOURCES 
+
+# Exclude Boost example and test files from sources to avoid build errors (e.g., AutoMoc conflicts)
+file(GLOB_RECURSE ALL_CONVERT2CPP_SOURCES 
     "${CMAKE_SOURCE_DIR}/src/**/*.cpp"
     "${CMAKE_SOURCE_DIR}/src/*.cpp"
 )
+
+set(CONVERT2CPP_SOURCES "")
+foreach(SRC ${ALL_CONVERT2CPP_SOURCES})
+    if(NOT SRC MATCHES "/boost/tools/build/example/qt/")
+        if(NOT SRC MATCHES "/boost/tools/build/test/")
+            if(NOT SRC MATCHES "/boost/libs/.*/test/")
+                if(NOT SRC MATCHES "/boost/libs/.*/example/")
+                    list(APPEND CONVERT2CPP_SOURCES ${SRC})
+                endif()
+            endif()
+        endif()
+    endif()
+endforeach()
 
 file(GLOB_RECURSE CONVERT2CPP_HEADERS 
     "${CMAKE_SOURCE_DIR}/include/**/*.h"
@@ -174,16 +263,18 @@ if(CMAKE_SIZEOF_VOID_P EQUAL 8)
         ${CMAKE_SOURCE_DIR}/src/boost/libs/chrono/src/process_cpu_clocks.cpp
         ${CMAKE_SOURCE_DIR}/src/boost/libs/chrono/src/thread_clock.cpp
     )
-    # Abseil
-    list(APPEND LINK_LIBS
-        absl::strings
-        absl::str_format
-        absl::base
-        absl::synchronization
-        absl::time
-        absl::flat_hash_map
-        absl::flat_hash_set
-    )
+    # Abseil (skip for Switch, handled by Boost mapping)
+    if(NOT NINTENDO_SWITCH)
+        list(APPEND LINK_LIBS
+            absl::strings
+            absl::str_format
+            absl::base
+            absl::synchronization
+            absl::time
+            absl::flat_hash_map
+            absl::flat_hash_set
+        )
+    endif()
     # SQLite
     list(APPEND LINK_LIBS
         ${CMAKE_SOURCE_DIR}/src/sqlite/sqlite3.c
@@ -207,17 +298,7 @@ endif()
 
 # For Switch, only link header-only Abseil modules and use Boost for time/debugging
 if(EXISTS ${ABSEIL_ROOT})
-    if(NINTENDO_SWITCH)
-        list(APPEND LINK_LIBS
-            absl::strings
-            absl::str_format
-            absl::base
-            absl::synchronization
-            absl::flat_hash_map
-            absl::flat_hash_set
-        )
-        # Do NOT add Boost::date_time or Boost::chrono for Switch, as these are not CMake targets in header-only mode
-    else()
+    if(NOT NINTENDO_SWITCH)
         list(APPEND LINK_LIBS
             absl::strings
             absl::str_format
@@ -233,20 +314,12 @@ endif()
 # Always link Boost for Switch
 if(NINTENDO_SWITCH AND EXISTS ${BOOST_ROOT})
     # For Switch, use header-only Boost modules and link compatible sources if available
-    list(APPEND LINK_LIBS
-        # Header-only modules (no linking required)
-        # If you have built .a or .so files for Switch, add them here
-        # Example: ${BOOST_ROOT}/libs/filesystem/src/operations.cpp
-        # Example: ${BOOST_ROOT}/libs/system/extra/boost_system.natvis
-        # Example: ${BOOST_ROOT}/libs/thread/src/future.cpp
-        # Example: ${BOOST_ROOT}/libs/chrono/src/chrono.cpp
-        absl::strings
-        absl::str_format
-        absl::base
-        absl::synchronization
-        absl::flat_hash_map
-        absl::flat_hash_set
-    )
+    # Header-only modules (no linking required)
+    # If you have built .a or .so files for Switch, add them here
+    # Example: ${BOOST_ROOT}/libs/filesystem/src/operations.cpp
+    # Example: ${BOOST_ROOT}/libs/system/extra/boost_system.natvis
+    # Example: ${BOOST_ROOT}/libs/thread/src/future.cpp
+    # Example: ${BOOST_ROOT}/libs/chrono/src/chrono.cpp
 endif()
 
 # Platform-specific libraries
@@ -256,6 +329,28 @@ if(NINTENDO_SWITCH)
         ${SDL2_IMAGE_LIBRARIES}
         ${SDL2_MIXER_LIBRARIES}
         ${SDL2_NET_LIBRARIES}
+    )
+    # Ensure /switch/media directory exists at build time
+    set(SWITCH_MEDIA_DIR "$<TARGET_FILE_DIR:ProjectZomboidSwitch>/switch/PZSwitch/media")
+    add_custom_command(
+        TARGET ProjectZomboidSwitch PRE_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory "${SWITCH_MEDIA_DIR}"
+        COMMENT "Creating /switch/PZSwitch/media directory for Nintendo Switch assets"
+    )
+
+    # Place the .nro in /switch/PZSwitch/media
+    set(NRO_OUTPUT_PATH "${SWITCH_MEDIA_DIR}/ProjectZomboidSwitch.nro")
+    add_custom_command(
+        TARGET ProjectZomboidSwitch POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:ProjectZomboidSwitch>" "${NRO_OUTPUT_PATH}"
+        COMMENT "Copying .nro to /switch/PZSwitch/media"
+    )
+
+    # Zip the /switch/PZSwitch/media directory after build
+    add_custom_command(
+        TARGET ProjectZomboidSwitch POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E tar cfv "${SWITCH_MEDIA_DIR}.zip" --format=zip -- "${SWITCH_MEDIA_DIR}"
+        COMMENT "Zipping /switch/PZSwitch/media directory"
     )
     
     # Switch-specific: Create .nro file
@@ -283,6 +378,10 @@ elseif(SDL2_FOUND)
 endif()
 
 # Link all libraries to target
+
+# Link Qt libraries
+target_link_libraries(ProjectZomboidSwitch PRIVATE Qt5::Core Qt5::Gui)
+
 if(LINK_LIBS)
     target_link_libraries(ProjectZomboidSwitch PRIVATE ${LINK_LIBS})
 endif()

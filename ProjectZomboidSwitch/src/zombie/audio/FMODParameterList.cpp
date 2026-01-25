@@ -3,17 +3,29 @@
 namespace zombie {
 namespace audio {
 
-void FMODParameterList::add(FMODParameter var1) {
-    // TODO: Implement add
+void FMODParameterList::add(const std::shared_ptr<FMODParameter>& param) {
+    parameterList.push_back(param);
+    if (param && param->getParameterDescription()) {
+        size_t idx = param->getParameterDescription()->globalIndex;
+        if (idx < parameterArray.size()) {
+            parameterArray[idx] = param;
+        }
+    }
 }
 
-FMODParameter FMODParameterList::get(FMOD_STUDIO_PARAMETER_DESCRIPTION var1) {
-    // TODO: Implement get
+std::shared_ptr<FMODParameter> FMODParameterList::get(const FMOD_STUDIO_PARAMETER_DESCRIPTION* desc) {
+    if (!desc) return nullptr;
+    size_t idx = desc->globalIndex;
+    if (idx < parameterArray.size()) {
+        return parameterArray[idx];
+    }
     return nullptr;
 }
 
 void FMODParameterList::update() {
-    // TODO: Implement update
+    for (auto& param : parameterList) {
+        if (param) param->update();
+    }
 }
 
 } // namespace audio

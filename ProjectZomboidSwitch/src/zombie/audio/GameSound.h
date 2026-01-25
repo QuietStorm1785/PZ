@@ -1,19 +1,18 @@
+// ...existing code...
 #pragma once
 #include <string>
 #include <vector>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
 #include <cstdint>
 #include "fmod/fmod/FMODManager.h"
 #include "fmod/fmod/FMOD_STUDIO_PARAMETER_DESCRIPTION.h"
 #include "zombie/SystemDisabler.h"
+#include "zombie/audio/GameSoundClip.h"
 #include "zombie/audio/GameSound/MasterVolume.h"
 #include "zombie/core/Rand.h"
 
 namespace zombie {
 namespace audio {
-
 
 class GameSound {
 public:
@@ -21,69 +20,23 @@ public:
     std::string category = "General";
     bool loop = false;
     bool is3D = true;
-   public const std::vector<GameSoundClip> clips = std::make_unique<std::vector<>>();
-    float userVolume = 1.0F;
-    MasterVolume master = MasterVolume.Primary;
+    std::vector<GameSoundClip> clips;
+    float userVolume = 1.0f;
+    MasterVolume master = MasterVolume::Primary;
     int maxInstancesPerEmitter = -1;
-    short reloadEpoch;
+    short reloadEpoch = 0;
 
-    std::string getName() {
-      return this.name;
-   }
+    std::string getName() const { return name; }
+    std::string getCategory() const { return category; }
+    bool isLooped() const { return loop; }
+    void setUserVolume(float v) { userVolume = std::max(0.0f, std::min(2.0f, v)); }
+    float getUserVolume() const { return !SystemDisabler::getEnableAdvancedSoundOptions() ? 1.0f : userVolume; }
+    GameSoundClip& getRandomClip();
+    std::string getMasterName() const;
+    int numClipsUsingParameter(const std::string& paramName) const;
+    void reset();
+    MasterVolume getMasterVolumeType() const { return master; }
+};
 
-    std::string getCategory() {
-      return this.category;
-   }
-
-    bool isLooped() {
-      return this.loop;
-   }
-
-    void setUserVolume(float var1) {
-      this.userVolume = Math.max(0.0F, Math.min(2.0F, var1));
-   }
-
-    float getUserVolume() {
-      return !SystemDisabler.getEnableAdvancedSoundOptions() ? 1.0F : this.userVolume;
-   }
-
-    GameSoundClip getRandomClip() {
-      return this.clips.get(Rand.Next(this.clips.size()));
-   }
-
-    std::string getMasterName() {
-      return this.master.name();
-   }
-
-    int numClipsUsingParameter(const std::string& var1) {
-    FMOD_STUDIO_PARAMETER_DESCRIPTION var2 = FMODManager.instance.getParameterDescription(var1);
-      if (var2 == nullptr) {
-    return 0;
-      } else {
-    int var3 = 0;
-
-         for (int var4 = 0; var4 < this.clips.size(); var4++) {
-    GameSoundClip var5 = this.clips.get(var4);
-            if (var5.hasParameter(var2)) {
-               var3++;
-            }
-         }
-
-    return var3;
-      }
-   }
-
-    void reset() {
-      this.name = nullptr;
-      this.category = "General";
-      this.loop = false;
-      this.is3D = true;
-      this.clips.clear();
-      this.userVolume = 1.0F;
-      this.master = MasterVolume.Primary;
-      this.maxInstancesPerEmitter = -1;
-      this.reloadEpoch++;
-   }
-}
 } // namespace audio
 } // namespace zombie

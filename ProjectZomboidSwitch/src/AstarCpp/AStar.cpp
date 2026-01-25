@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "AstarCpp/AStar.h"
 #include <queue>
 #include <unordered_set>

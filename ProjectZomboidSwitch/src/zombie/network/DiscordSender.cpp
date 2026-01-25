@@ -1,12 +1,20 @@
-#include <string>
-#include "zombie/network/DiscordSender.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-void DiscordSender::sendMessageFromDiscord(const std::string& var1, const std::string& var2) {
-    // TODO: Implement sendMessageFromDiscord
+#include "DiscordSender.h"
+
+DiscordSender::DiscordSender() {
+    // TODO: Port constructor logic from Java
 }
+
+DiscordSender::~DiscordSender() {
+    // TODO: Port destructor logic from Java
+}
+
+// TODO: Implement DiscordSender methods from Java
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

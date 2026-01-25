@@ -1,38 +1,14 @@
-#include "zombie/network/NetworkAIParams.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-bool NetworkAIParams::isShowConnectionInfo() {
-    // TODO: Implement isShowConnectionInfo
-    return false;
-}
+#include "NetworkAIParams.h"
 
-void NetworkAIParams::setShowConnectionInfo(bool var0) {
-    // TODO: Implement setShowConnectionInfo
-}
-
-bool NetworkAIParams::isShowServerInfo() {
-    // TODO: Implement isShowServerInfo
-    return false;
-}
-
-void NetworkAIParams::setShowServerInfo(bool var0) {
-    // TODO: Implement setShowServerInfo
-}
-
-bool NetworkAIParams::isShowPingInfo() {
-    // TODO: Implement isShowPingInfo
-    return false;
-}
-
-void NetworkAIParams::setShowPingInfo(bool var0) {
-    // TODO: Implement setShowPingInfo
-}
-
-void NetworkAIParams::Init() {
-    // TODO: Implement Init
-}
+NetworkAIParams::NetworkAIParams() {}
+NetworkAIParams::~NetworkAIParams() {}
+// TODO: Implement NetworkAIParams methods from Java
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

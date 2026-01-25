@@ -1,38 +1,29 @@
+
 #pragma once
-#include <sstream>
 #include <string>
-#include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
+#include <sstream>
 
-namespace zombie {
-namespace fileSystem {
+namespace zombie::fileSystem {
 
-class FileOpenMode {
-public:
-    static const int NONE = 0;
-    static const int READ = 1;
-    static const int WRITE = 2;
-    static const int OPEN = 4;
-    static const int CREATE = 8;
-    static const int STREAM = 16;
-    static const int CREATE_AND_WRITE = 10;
-    static const int OPEN_AND_READ = 5;
+enum FileOpenMode : uint32_t {
+    None  = 0,
+    Read  = 1 << 0,
+    Write = 1 << 1,
+    Open  = 1 << 2,
+    Create = 1 << 3,
+    Stream = 1 << 4,
+    CreateAndWrite = Create | Write, // 8 | 2 = 10
+    OpenAndRead = Open | Read        // 4 | 1 = 5
+};
 
-    static std::string toStringMode(int var0) {
-    std::stringstream var1 = new std::stringstream();
-      if ((var0 & 1) != 0) {
-         var1.append('r');
-      }
-
-      if ((var0 & 2) != 0) {
-         var1.append('w');
-      }
-
-      return var1;
-   }
+inline std::string toStringMode(uint32_t mode) {
+    std::string result;
+    if (mode & FileOpenMode::Read) result += 'r';
+    if (mode & FileOpenMode::Write) result += 'w';
+    if (mode & FileOpenMode::Open) result += 'o';
+    if (mode & FileOpenMode::Create) result += 'c';
+    if (mode & FileOpenMode::Stream) result += 's';
+    return result;
 }
-} // namespace fileSystem
-} // namespace zombie
+
+} // namespace zombie::fileSystem

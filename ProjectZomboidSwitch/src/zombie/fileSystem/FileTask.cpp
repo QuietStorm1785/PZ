@@ -4,27 +4,30 @@
 namespace zombie {
 namespace fileSystem {
 
-public FileTask::FileTask(FileSystem var1) {
-    // TODO: Implement FileTask
-    return nullptr;
-}
 
-public FileTask::FileTask(FileSystem var1, IFileTaskCallback var2) {
-    // TODO: Implement FileTask
-    return nullptr;
-}
+FileTask::FileTask(FileSystem var1)
+    : m_fileSystem(var1), m_callback(nullptr), m_priority(0), m_errorMessage("") {}
+
+
+FileTask::FileTask(FileSystem var1, IFileTaskCallback var2)
+    : m_fileSystem(var1), m_callback(var2), m_priority(0), m_errorMessage("") {}
+
 
 void FileTask::handleResult(void* var1) {
-    // TODO: Implement handleResult
+    // If callback is set, call it with the result
+    if (m_callback) {
+        m_callback->onResult(var1);
+    }
 }
+
 
 void FileTask::setPriority(int var1) {
-    // TODO: Implement setPriority
+    m_priority = var1;
 }
 
+
 std::string FileTask::getErrorMessage() {
-    // TODO: Implement getErrorMessage
-    return "";
+    return m_errorMessage;
 }
 
 } // namespace fileSystem

@@ -241,7 +241,7 @@ template<class K, class V> using absl_node_hash_map =
     absl::node_hash_map<K, V, absl::container_internal::hash_default_hash<K>, absl::container_internal::hash_default_eq<K>, allocator_for<K, V>>;
 
 template<class K, class V> using absl_flat_hash_map =
-    absl::flat_hash_map<K, V, absl::container_internal::hash_default_hash<K>, absl::container_internal::hash_default_eq<K>, allocator_for<K, V>>;
+    boost::unordered_map<K, V, absl::container_internal::hash_default_hash<K>, absl::container_internal::hash_default_eq<K>, allocator_for<K, V>>;
 
 #endif
 
@@ -317,7 +317,7 @@ template<class K, class V> using absl_node_hash_map_fnv1a =
     absl::node_hash_map<K, V, fnv1a_hash, absl::container_internal::hash_default_eq<K>, allocator_for<K, V>>;
 
 template<class K, class V> using absl_flat_hash_map_fnv1a =
-    absl::flat_hash_map<K, V, fnv1a_hash, absl::container_internal::hash_default_eq<K>, allocator_for<K, V>>;
+    boost::unordered_map<K, V, fnv1a_hash, absl::container_internal::hash_default_eq<K>, allocator_for<K, V>>;
 
 #endif
 
@@ -348,7 +348,7 @@ int main()
 #ifdef HAVE_ABSEIL
 
     test<absl_node_hash_map>( "absl::node_hash_map" );
-    test<absl_flat_hash_map>( "absl::flat_hash_map" );
+    test<absl_flat_hash_map>( "boost::unordered_map" );
 
 #endif
 
@@ -366,7 +366,7 @@ int main()
 #ifdef HAVE_ABSEIL
 
     test<absl_node_hash_map_fnv1a>( "absl::node_hash_map, FNV-1a" );
-    test<absl_flat_hash_map_fnv1a>( "absl::flat_hash_map, FNV-1a" );
+    test<absl_flat_hash_map_fnv1a>( "boost::unordered_map, FNV-1a" );
 
 #endif
 

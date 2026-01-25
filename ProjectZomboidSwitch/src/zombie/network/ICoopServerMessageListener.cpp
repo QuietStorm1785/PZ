@@ -1,12 +1,14 @@
-#include <string>
-#include "zombie/network/ICoopServerMessageListener.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-void ICoopServerMessageListener::OnCoopServerMessage(const std::string& var1, const std::string& var2, const std::string& var3) {
-    // TODO: Implement OnCoopServerMessage
-}
+#include "ICoopServerMessageListener.h"
+
+ICoopServerMessageListener::ICoopServerMessageListener() {}
+ICoopServerMessageListener::~ICoopServerMessageListener() {}
+// TODO: Implement ICoopServerMessageListener methods from Java
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

@@ -14,137 +14,117 @@ namespace zombie {
 namespace fileSystem {
 
 
-class MemoryFileDevice {
+
+class MemoryFileDevice$MemoryFile {
 public:
-    const MemoryFileDevice m_device;
-   byte[] m_buffer;
-    long m_size;
-    long m_pos;
-    IFile m_file;
-    bool m_write;
+   std::shared_ptr<MemoryFileDevice> m_device;
+   std::vector<uint8_t> m_buffer;
+   int64_t m_size;
+   int64_t m_pos;
+   IFile m_file;
+   bool m_write;
 
-   MemoryFileDevice$MemoryFile(IFile var1, MemoryFileDevice var2) {
-      this.m_device = var2;
-      this.m_buffer = nullptr;
-      this.m_size = 0L;
-      this.m_pos = 0L;
-      this.m_file = var1;
-      this.m_write = false;
-   }
+   MemoryFileDevice$MemoryFile(IFile file, std::shared_ptr<MemoryFileDevice> device)
+      : m_device(device), m_size(0), m_pos(0), m_file(file), m_write(false) {}
 
-    bool open(const std::string& var1, int var2) {
-      if (!$assertionsDisabled && this.m_buffer != nullptr) {
-         throw std::make_unique<AssertionError>();
-      } else {
-         this.m_write = (var2 & 2) != 0;
-         if (this.m_file != nullptr) {
-            if (this.m_file.open(var1, var2)) {
-               if ((var2 & 1) != 0) {
-                  this.m_size = this.m_file.size();
-                  this.m_buffer = new byte[(int)this.m_size];
-                  this.m_file.read(this.m_buffer, this.m_size);
-                  this.m_pos = 0L;
-               }
-
-    return true;
+   bool open(const std::string& path, int mode) {
+      if (!m_buffer.empty()) {
+         throw std::runtime_error("Buffer already initialized");
+      }
+      m_write = (mode & 2) != 0;
+      if (m_file) {
+         if (m_file->open(path, mode)) {
+            if ((mode & 1) != 0) {
+               m_size = m_file->size();
+               m_buffer.resize(static_cast<size_t>(m_size));
+               m_file->read(m_buffer.data(), m_size);
+               m_pos = 0;
             }
-         } else if ((var2 & 2) != 0) {
-    return true;
+            return true;
          }
-
-    return false;
+      } else if ((mode & 2) != 0) {
+         return true;
       }
+      return false;
    }
 
-    void close() {
-      if (this.m_file != nullptr) {
-         if (this.m_write) {
-            this.m_file.seek(FileSeekMode.BEGIN, 0L);
-            this.m_file.write(this.m_buffer, this.m_size);
+   void close() {
+      if (m_file) {
+         if (m_write) {
+            m_file->seek(FileSeekMode::BEGIN, 0);
+            m_file->write(m_buffer.data(), m_size);
          }
-
-         this.m_file.close();
+         m_file->close();
       }
-
-      this.m_buffer = nullptr;
+      m_buffer.clear();
    }
 
-    bool read(byte[] var1, long var2) {
-    long var4 = this.m_pos + var2 < this.m_size ? var2 : this.m_size - this.m_pos;
-      System.arraycopy(this.m_buffer, (int)this.m_pos, var1, 0, (int)var4);
-      this.m_pos += var4;
-    return false;
-   }
-
-    bool write(byte[] var1, long var2) {
-    long var4 = this.m_pos;
-    long var6 = this.m_buffer.length;
-    long var8 = this.m_size;
-      if (var4 + var2 > var6) {
-    long var10 = Math.max(var6 * 2L, var4 + var2);
-         this.m_buffer = Arrays.copyOf(this.m_buffer, (int)var10);
+   bool read(uint8_t* out, int64_t len) {
+      int64_t to_read = std::min(len, m_size - m_pos);
+      if (to_read > 0) {
+         std::copy(m_buffer.begin() + m_pos, m_buffer.begin() + m_pos + to_read, out);
+         m_pos += to_read;
+         return true;
       }
-
-      System.arraycopy(var1, 0, this.m_buffer, (int)var4, (int)var2);
-      this.m_pos += var2;
-      this.m_size = var4 + var2 > var8 ? var4 + var2 : var8;
-    return true;
+      return false;
    }
 
-   public byte[] getBuffer() {
-      return this.m_buffer;
+   bool write(const uint8_t* in, int64_t len) {
+      int64_t end_pos = m_pos + len;
+      if (end_pos > static_cast<int64_t>(m_buffer.size())) {
+         m_buffer.resize(static_cast<size_t>(std::max<int64_t>(m_buffer.size() * 2, end_pos)));
+      }
+      std::copy(in, in + len, m_buffer.begin() + m_pos);
+      m_pos += len;
+      m_size = std::max(m_size, m_pos);
+      return true;
    }
 
-    long size() {
-      return this.m_size;
+   std::vector<uint8_t>& getBuffer() {
+      return m_buffer;
    }
 
-   // $VF: Unable to simplify switch on enum
-   // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
-    bool seek(FileSeekMode var1, long var2) {
-      switch (1.$SwitchMap$zombie$fileSystem$FileSeekMode[var1.ordinal()]) {
-         case 1:
-            if (!$assertionsDisabled && var2 > this.m_size) {
-               throw std::make_unique<AssertionError>();
-            }
+   int64_t size() const {
+      return m_size;
+   }
 
-            this.m_pos = var2;
+   bool seek(FileSeekMode mode, int64_t offset) {
+      switch (mode) {
+         case FileSeekMode::BEGIN:
+            if (offset > m_size) throw std::runtime_error("Seek out of bounds");
+            m_pos = offset;
             break;
-         case 2:
-            if (!$assertionsDisabled && (0L > this.m_pos + var2 || this.m_pos + var2 > this.m_size)) {
-               throw std::make_unique<AssertionError>();
-            }
-
-            this.m_pos += var2;
+         case FileSeekMode::CURRENT:
+            if (m_pos + offset < 0 || m_pos + offset > m_size) throw std::runtime_error("Seek out of bounds");
+            m_pos += offset;
             break;
-         case 3:
-            if (!$assertionsDisabled && var2 > this.m_size) {
-               throw std::make_unique<AssertionError>();
-            }
-
-            this.m_pos = this.m_size - var2;
+         case FileSeekMode::END:
+            if (offset > m_size) throw std::runtime_error("Seek out of bounds");
+            m_pos = m_size - offset;
+            break;
+         default:
+            return false;
       }
-
-    bool var4 = this.m_pos <= this.m_size;
-      this.m_pos = Math.min(this.m_pos, this.m_size);
-    return var4;
+      bool ok = m_pos <= m_size;
+      m_pos = std::min(m_pos, m_size);
+      return ok;
    }
 
-    long pos() {
-      return this.m_pos;
+   int64_t pos() const {
+      return m_pos;
    }
 
-    InputStream getInputStream() {
-      return this.m_file != nullptr ? this.m_file.getInputStream() : nullptr;
+   InputStream getInputStream() {
+      return m_file ? m_file->getInputStream() : nullptr;
    }
 
-    IFileDevice getDevice() {
-      return this.m_device;
+   IFileDevice getDevice() {
+      return m_device;
    }
 
-    void release() {
-      this.m_buffer = nullptr;
+   void release() {
+      m_buffer.clear();
    }
-}
+};
 } // namespace fileSystem
 } // namespace zombie

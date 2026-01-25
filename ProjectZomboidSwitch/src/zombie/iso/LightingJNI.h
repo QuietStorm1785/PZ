@@ -38,6 +38,10 @@ namespace iso {
 
 class LightingJNI {
 public:
+   // Stubs for static methods ported from Java
+   static inline bool init = false;
+   static void DoLightingUpdateNew(long /*time*/) {}
+   static bool WaitingForMain() { return false; }
     static const int ROOM_SPAWN_DIST = 50;
     static bool init = false;
    public static const int[][] ForcedVis = new int[][]{

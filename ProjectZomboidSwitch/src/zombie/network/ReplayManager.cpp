@@ -1,51 +1,18 @@
-#include <string>
-#include "zombie/network/ReplayManager.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-public ReplayManager::ReplayManager(IsoPlayer var1) {
-    // TODO: Implement ReplayManager
-    return nullptr;
-}
+#include "ReplayManager.h"
 
-State ReplayManager::getState() {
-    // TODO: Implement getState
-    return nullptr;
-}
+ReplayManager::ReplayManager() {}
+ReplayManager::~ReplayManager() {}
+// TODO: Implement ReplayManager methods from Java
 
-bool ReplayManager::isPlay() {
-    // TODO: Implement isPlay
-    return false;
-}
-
-void ReplayManager::recordPlayerPacket(PlayerPacket var1) {
-    // TODO: Implement recordPlayerPacket
-}
-
-bool ReplayManager::startRecordReplay(IsoPlayer var1, const std::string& var2) {
-    // TODO: Implement startRecordReplay
-    return false;
-}
-
-bool ReplayManager::stopRecordReplay() {
-    // TODO: Implement stopRecordReplay
-    return false;
-}
-
-bool ReplayManager::startPlayReplay(IsoPlayer var1, const std::string& var2, UdpConnection var3) {
-    // TODO: Implement startPlayReplay
-    return false;
-}
-
-bool ReplayManager::stopPlayReplay() {
-    // TODO: Implement stopPlayReplay
-    return false;
-}
-
-void ReplayManager::update() {
-    // TODO: Implement update
-}
+ReplayManager::State::State() {}
+ReplayManager::State::~State() {}
+// TODO: Implement State methods from Java
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

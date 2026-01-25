@@ -2,195 +2,82 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
+// Ported from Java: Server
+
 class Server {
 public:
+    Server();
+    ~Server();
+
+    // Getters and setters for all fields
+    std::string getPort() const;
+    void setPort(const std::string& val);
+    std::string getIp() const;
+    void setIp(const std::string& val);
+    std::string getLocalIP() const;
+    void setLocalIP(const std::string& val);
+    std::string getServerPassword() const;
+    void setServerPassword(const std::string& val);
+    std::string getDescription() const;
+    void setDescription(const std::string& val);
+    std::string getUserName() const;
+    void setUserName(const std::string& val);
+    std::string getPwd() const;
+    void setPwd(const std::string& val);
+    bool getUseSteamRelay() const;
+    void setUseSteamRelay(bool val);
+    int getLastUpdate() const;
+    void setLastUpdate(int val);
+    std::string getPlayers() const;
+    void setPlayers(const std::string& val);
+    bool isOpen() const;
+    void setOpen(bool val);
+    bool isPublic() const;
+    void setPublic(bool val);
+    std::string getVersion() const;
+    void setVersion(const std::string& val);
+    std::string getMaxPlayers() const;
+    void setMaxPlayers(const std::string& val);
+    std::string getMods() const;
+    void setMods(const std::string& val);
+    std::string getName() const;
+    void setName(const std::string& val);
+    std::string getPing() const;
+    void setPing(const std::string& val);
+    bool isPasswordProtected() const;
+    void setPasswordProtected(bool val);
+    std::string getSteamId() const;
+    void setSteamId(const std::string& val);
+    bool isHosted() const;
+    void setHosted(bool val);
+
+private:
     std::string name = "My Server";
     std::string ip = "127.0.0.1";
-    std::string localIP = "";
+    std::string localIP;
     std::string port = "16262";
-    std::string serverpwd = "";
-    std::string description = "";
-    std::string userName = "";
-    std::string pwd = "";
+    std::string serverpwd;
+    std::string description;
+    std::string userName;
+    std::string pwd;
     bool useSteamRelay = false;
     int lastUpdate = 0;
-    std::string players = nullptr;
-    std::string maxPlayers = nullptr;
+    std::string players;
+    std::string maxPlayers;
     bool open = false;
     bool bPublic = true;
-    std::string version = nullptr;
-    std::string mods = nullptr;
-    bool passwordProtected;
-    std::string steamId = nullptr;
-    std::string ping = nullptr;
+    std::string version;
+    std::string mods;
+    bool passwordProtected = false;
+    std::string steamId;
+    std::string ping;
     bool hosted = false;
+};
 
-    std::string getPort() {
-      return this.port;
-   }
-
-    void setPort(const std::string& var1) {
-      this.port = var1;
-   }
-
-    std::string getIp() {
-      return this.ip;
-   }
-
-    void setIp(const std::string& var1) {
-      this.ip = var1;
-   }
-
-    std::string getLocalIP() {
-      return this.localIP;
-   }
-
-    void setLocalIP(const std::string& var1) {
-      this.localIP = var1;
-   }
-
-    std::string getServerPassword() {
-      return this.serverpwd;
-   }
-
-    void setServerPassword(const std::string& var1) {
-      this.serverpwd = var1 == nullptr ? "" : var1;
-   }
-
-    std::string getDescription() {
-      return this.description;
-   }
-
-    void setDescription(const std::string& var1) {
-      this.description = var1;
-   }
-
-    std::string getUserName() {
-      return this.userName;
-   }
-
-    void setUserName(const std::string& var1) {
-      this.userName = var1;
-   }
-
-    std::string getPwd() {
-      return this.pwd;
-   }
-
-    void setPwd(const std::string& var1) {
-      this.pwd = var1;
-   }
-
-    bool getUseSteamRelay() {
-      return this.useSteamRelay;
-   }
-
-    void setUseSteamRelay(bool var1) {
-      this.useSteamRelay = var1;
-   }
-
-    int getLastUpdate() {
-      return this.lastUpdate;
-   }
-
-    void setLastUpdate(int var1) {
-      this.lastUpdate = var1;
-   }
-
-    std::string getPlayers() {
-      return this.players;
-   }
-
-    void setPlayers(const std::string& var1) {
-      this.players = var1;
-   }
-
-    bool isOpen() {
-      return this.open;
-   }
-
-    void setOpen(bool var1) {
-      this.open = var1;
-   }
-
-    bool isPublic() {
-      return this.bPublic;
-   }
-
-    void setPublic(bool var1) {
-      this.bPublic = var1;
-   }
-
-    std::string getVersion() {
-      return this.version;
-   }
-
-    void setVersion(const std::string& var1) {
-      this.version = var1;
-   }
-
-    std::string getMaxPlayers() {
-      return this.maxPlayers;
-   }
-
-    void setMaxPlayers(const std::string& var1) {
-      this.maxPlayers = var1;
-   }
-
-    std::string getMods() {
-      return this.mods;
-   }
-
-    void setMods(const std::string& var1) {
-      this.mods = var1;
-   }
-
-    std::string getName() {
-      return this.name;
-   }
-
-    void setName(const std::string& var1) {
-      this.name = var1;
-   }
-
-    std::string getPing() {
-      return this.ping;
-   }
-
-    void setPing(const std::string& var1) {
-      this.ping = var1;
-   }
-
-    bool isPasswordProtected() {
-      return this.passwordProtected;
-   }
-
-    void setPasswordProtected(bool var1) {
-      this.passwordProtected = var1;
-   }
-
-    std::string getSteamId() {
-      return this.steamId;
-   }
-
-    void setSteamId(const std::string& var1) {
-      this.steamId = var1;
-   }
-
-    bool isHosted() {
-      return this.hosted;
-   }
-
-    void setHosted(bool var1) {
-      this.hosted = var1;
-   }
-}
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

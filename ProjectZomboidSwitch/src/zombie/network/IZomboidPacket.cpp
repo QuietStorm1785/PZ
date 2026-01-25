@@ -1,17 +1,14 @@
-#include "zombie/network/IZomboidPacket.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-bool IZomboidPacket::isConnect() {
-    // TODO: Implement isConnect
-    return false;
-}
+#include "IZomboidPacket.h"
 
-bool IZomboidPacket::isDisconnect() {
-    // TODO: Implement isDisconnect
-    return false;
-}
+IZomboidPacket::IZomboidPacket() {}
+IZomboidPacket::~IZomboidPacket() {}
+// TODO: Implement IZomboidPacket methods from Java
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

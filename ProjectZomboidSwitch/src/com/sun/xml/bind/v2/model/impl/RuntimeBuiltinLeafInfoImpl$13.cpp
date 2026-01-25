@@ -25,7 +25,7 @@ std::string RuntimeBuiltinLeafInfoImpl$13::format(const std::string& format, XML
     return "";
 }
 
-void RuntimeBuiltinLeafInfoImpl$13::printNumber(std::stringstream out, BigInteger number, int nDigits) {
+void RuntimeBuiltinLeafInfoImpl$13::printNumber(std::stringstream out, boost::multiprecision::cpp_int number, int nDigits) {
     // TODO: Implement printNumber
 }
 

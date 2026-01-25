@@ -9,12 +9,12 @@ namespace v2 {
 namespace model {
 namespace impl {
 
-BigInteger RuntimeBuiltinLeafInfoImpl$22::parse(CharSequence text) {
+boost::multiprecision::cpp_int RuntimeBuiltinLeafInfoImpl$22::parse(CharSequence text) {
     // TODO: Implement parse
     return nullptr;
 }
 
-std::string RuntimeBuiltinLeafInfoImpl$22::print(BigInteger v) {
+std::string RuntimeBuiltinLeafInfoImpl$22::print(boost::multiprecision::cpp_int v) {
     // TODO: Implement print
     return "";
 }

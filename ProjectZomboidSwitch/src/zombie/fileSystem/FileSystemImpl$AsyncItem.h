@@ -11,14 +11,13 @@ namespace zombie {
 namespace fileSystem {
 
 
-class FileSystemImpl {
+class AsyncItem {
 public:
-    int m_id;
-    FileTask m_task;
-   FutureTask<Object> m_future;
+    int m_id = 0;
+    std::shared_ptr<FileTask> m_task;
+    std::shared_ptr<void> m_future; // Replace with actual future type if available
 
-   private FileSystemImpl$AsyncItem() {
-   }
-}
+    AsyncItem() = default;
+};
 } // namespace fileSystem
 } // namespace zombie

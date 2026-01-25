@@ -1,49 +1,46 @@
+
 #pragma once
 #include <string>
-#include <vector>
+#include <array>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-#include <fstream>
-#include <iostream>
 
-namespace zombie {
-namespace fileSystem {
+namespace zombie::fileSystem {
 
+class IFileDevice;
+class IFile;
+class FileInputStream;
 
 class DeviceList {
 public:
-   private const IFileDevice[] m_devices = new IFileDevice[8];
+   static constexpr size_t MaxDevices = 8;
+   std::array<std::shared_ptr<IFileDevice>, MaxDevices> m_devices{};
 
-    void add(IFileDevice var1) {
-      for (int var2 = 0; var2 < this.m_devices.length; var2++) {
-         if (this.m_devices[var2] == nullptr) {
-            this.m_devices[var2] = var1;
+   void add(const std::shared_ptr<IFileDevice>& device) {
+      for (auto& slot : m_devices) {
+         if (!slot) {
+            slot = device;
             break;
          }
       }
    }
 
-    IFile createFile() {
-    IFile var1 = nullptr;
-
-      for (int var2 = 0; var2 < this.m_devices.length && this.m_devices[var2] != nullptr; var2++) {
-         var1 = this.m_devices[var2].createFile(var1);
+   std::shared_ptr<IFile> createFile() {
+      std::shared_ptr<IFile> file = nullptr;
+      for (const auto& device : m_devices) {
+         if (!device) break;
+         file = device->createFile(file);
       }
-
-    return var1;
+      return file;
    }
 
-    InputStream createStream(const std::string& var1) {
-    InputStream var2 = nullptr;
-
-      for (int var3 = 0; var3 < this.m_devices.length && this.m_devices[var3] != nullptr; var3++) {
-         var2 = this.m_devices[var3].createStream(var1, var2);
+   std::shared_ptr<FileInputStream> createStream(const std::string& name) {
+      std::shared_ptr<FileInputStream> stream = nullptr;
+      for (const auto& device : m_devices) {
+         if (!device) break;
+         stream = device->createStream(name, stream);
       }
-
-    return var2;
+      return stream;
    }
-}
-} // namespace fileSystem
-} // namespace zombie
+};
+
+} // namespace zombie::fileSystem

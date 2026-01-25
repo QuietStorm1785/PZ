@@ -12,7 +12,7 @@ namespace fileSystem {
 class IFileTaskCallback {
 public:
     virtual ~IFileTaskCallback() = default;
-    void onFileTaskFinished(void* var1);
-}
+    virtual void onFileTaskFinished(void* result) = 0;
+};
 } // namespace fileSystem
 } // namespace zombie

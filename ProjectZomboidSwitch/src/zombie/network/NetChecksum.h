@@ -1,30 +1,51 @@
-#pragma once
-#include <string>
-#include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-#include "zombie/core/Core.h"
-#include "zombie/debug/DebugLog.h"
-#include "zombie/network/NetChecksum/Checksummer.h"
-#include "zombie/network/NetChecksum/Comparer.h"
 
+#pragma once
+
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
+// Ported from Java: NetChecksum and all inner classes
 
 class NetChecksum {
 public:
-    static const Checksummer checksummer = std::make_shared<Checksummer>();
-    static const Comparer comparer = std::make_shared<Comparer>();
+    NetChecksum();
+    ~NetChecksum();
+    // TODO: Port fields and methods from Java NetChecksum
 
-    static void noise(const std::string& var0) {
-      if (!Core.bDebug) {
-      }
+    // Inner classes from Java (NetChecksum$1, Checksummer, Comparer, Comparer$State, GroupOfFiles)
+    class Inner1 {
+    public:
+        Inner1();
+        ~Inner1();
+        // TODO: Port fields and methods from Java NetChecksum$1
+    };
+    class Checksummer {
+    public:
+        Checksummer();
+        ~Checksummer();
+        // TODO: Port fields and methods from Java NetChecksum.Checksummer
+    };
+    class Comparer {
+    public:
+        Comparer();
+        ~Comparer();
+        // TODO: Port fields and methods from Java NetChecksum.Comparer
+        class State {
+        public:
+            State();
+            ~State();
+            // TODO: Port fields and methods from Java NetChecksum.Comparer.State
+        };
+    };
+    class GroupOfFiles {
+    public:
+        GroupOfFiles();
+        ~GroupOfFiles();
+        // TODO: Port fields and methods from Java NetChecksum.GroupOfFiles
+    };
+};
 
-      DebugLog.log("NetChecksum: " + var0);
-   }
-}
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

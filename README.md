@@ -36,8 +36,29 @@ ProjectZomboidSwitch/
 ### Requirements
 
 - CMake 3.10 or later
-- C++17 compatible compiler
+- C++20 compatible compiler
+- Qt 5 (Core, Gui) development libraries (for QImage support)
 - For Switch: devkitPro with devkitA64 toolchain
+
+#### Installing Qt (Linux/Ubuntu example)
+
+```
+sudo apt update
+sudo apt install qtbase5-dev qt5-qmake qtbase5-dev-tools
+```
+
+#### CMake Build Example (Desktop)
+
+```
+cd ProjectZomboidSwitch
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+```
+
+#### Notes
+- Ensure Qt5 is installed and CMake can find it (see error messages for missing Qt5::Core or Qt5::Gui).
+- For other platforms, install Qt5 using your system's package manager or from https://www.qt.io/download.
 - **Boost** (located at `../boost`)
 - **Abseil** (located at `../abseil`)
 - Optional: SDL2 (for audio/graphics features)

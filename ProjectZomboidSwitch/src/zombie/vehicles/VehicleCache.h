@@ -8,7 +8,7 @@
 #include <cstdint>
 #if __has_include(<absl/container/flat_hash_map.h>)
 #  include <absl/container/flat_hash_map.h>
-#  define INT_HASH_MAP absl::flat_hash_map
+#  define INT_HASH_MAP boost::unordered_map
 #elif __has_include(<boost/unordered_map.hpp>)
 #  include <boost/unordered_map.hpp>
 #  define INT_HASH_MAP boost::unordered_map

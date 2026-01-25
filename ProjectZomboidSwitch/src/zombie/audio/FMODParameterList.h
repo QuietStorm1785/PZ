@@ -13,25 +13,33 @@ namespace audio {
 
 class FMODParameterList {
 public:
-   public const std::vector<FMODParameter> parameterList = std::make_unique<std::vector<>>();
-   public const FMODParameter[] parameterArray = new FMODParameter[96];
+   std::vector<std::shared_ptr<FMODParameter>> parameterList;
+   std::array<std::shared_ptr<FMODParameter>, 96> parameterArray{};
 
-    void add(FMODParameter var1) {
-      this.parameterList.push_back(var1);
-      if (var1.getParameterDescription() != nullptr) {
-         this.parameterArray[var1.getParameterDescription().globalIndex] = var1;
+   void add(const std::shared_ptr<FMODParameter>& param) {
+      parameterList.push_back(param);
+      if (param && param->getParameterDescription()) {
+         size_t idx = param->getParameterDescription()->globalIndex;
+         if (idx < parameterArray.size()) {
+            parameterArray[idx] = param;
+         }
       }
    }
 
-    FMODParameter get(FMOD_STUDIO_PARAMETER_DESCRIPTION var1) {
-    return var1 = = nullptr ? nullptr : this.parameterArray[var1.globalIndex];
+   std::shared_ptr<FMODParameter> get(const FMOD_STUDIO_PARAMETER_DESCRIPTION* desc) {
+      if (!desc) return nullptr;
+      size_t idx = desc->globalIndex;
+      if (idx < parameterArray.size()) {
+         return parameterArray[idx];
+      }
+      return nullptr;
    }
 
-    void update() {
-      for (int var1 = 0; var1 < this.parameterList.size(); var1++) {
-         this.parameterList.get(var1).update();
+   void update() {
+      for (auto& param : parameterList) {
+         if (param) param->update();
       }
    }
-}
+};
 } // namespace audio
 } // namespace zombie

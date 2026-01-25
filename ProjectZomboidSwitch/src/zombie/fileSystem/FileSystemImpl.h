@@ -22,29 +22,41 @@ namespace fileSystem {
 
 class FileSystemImpl : public FileSystem {
 public:
-   private const std::vector<DeviceList> m_devices = std::make_unique<std::vector<>>();
-   private const std::vector<AsyncItem> m_in_progress = std::make_unique<std::vector<>>();
-   private const std::vector<AsyncItem> m_pending = std::make_unique<std::vector<>>();
-    int m_last_id = 0;
-    DiskFileDevice m_disk_device;
-    MemoryFileDevice m_memory_device;
-   private const std::unordered_map<std::string, TexturePackDevice> m_texturepack_devices = std::make_unique<std::unordered_map<>>();
-   private const std::unordered_map<std::string, DeviceList> m_texturepack_devicelists = std::make_unique<std::unordered_map<>>();
-    DeviceList m_default_device;
-    const ExecutorService executor;
-    const AtomicBoolean lock = std::make_shared<AtomicBoolean>(false);
-   private const std::vector<AsyncItem> m_added = std::make_unique<std::vector<>>();
-   public static const std::unordered_map<std::string, bool> TexturePackCompression = std::make_unique<std::unordered_map<>>();
+   std::vector<std::shared_ptr<DeviceList>> m_devices;
+   std::vector<std::shared_ptr<AsyncItem>> m_in_progress;
+   std::vector<std::shared_ptr<AsyncItem>> m_pending;
+   int m_last_id = 0;
+   std::shared_ptr<DiskFileDevice> m_disk_device;
+   std::shared_ptr<MemoryFileDevice> m_memory_device;
+   std::unordered_map<std::string, std::shared_ptr<TexturePackDevice>> m_texturepack_devices;
+   std::unordered_map<std::string, std::shared_ptr<DeviceList>> m_texturepack_devicelists;
+   std::shared_ptr<DeviceList> m_default_device;
+   std::vector<std::thread> executor; // Thread pool for async tasks
+   std::atomic<bool> lock{false}; // Atomic lock for concurrency
+   std::vector<std::shared_ptr<AsyncItem>> m_added;
+   static std::unordered_map<std::string, bool> TexturePackCompression;
 
-    public FileSystemImpl() {
-      this.m_disk_device = std::make_shared<DiskFileDevice>("disk");
-      this.m_memory_device = std::make_unique<MemoryFileDevice>();
-      this.m_default_device = std::make_unique<DeviceList>();
-      this.m_default_device.push_back(this.m_disk_device);
-      this.m_default_device.push_back(this.m_memory_device);
-    int var1 = Runtime.getRuntime().availableProcessors() <= 4 ? 2 : 4;
-      this.executor = Executors.newFixedThreadPool(var1);
-   }
+      FileSystemImpl();
+
+      bool mount(std::shared_ptr<IFileDevice> device);
+      bool unMount(std::shared_ptr<IFileDevice> device);
+      std::shared_ptr<IFile> open(std::shared_ptr<DeviceList> devices, const std::string& path, int mode);
+      void close(std::shared_ptr<IFile> file);
+      int openAsync(std::shared_ptr<DeviceList> devices, const std::string& path, int mode, std::shared_ptr<IFileTask2Callback> cb);
+      void closeAsync(std::shared_ptr<IFile> file, std::shared_ptr<IFileTask2Callback> cb);
+      void cancelAsync(int id);
+      std::shared_ptr<InputStream> openStream(std::shared_ptr<DeviceList> devices, const std::string& path);
+      void closeStream(std::shared_ptr<InputStream> stream);
+      int runAsync(std::shared_ptr<AsyncItem> item);
+      int runAsync(std::shared_ptr<FileTask> task);
+      void updateAsyncTransactions();
+      bool hasWork() const;
+      std::shared_ptr<DeviceList> getDefaultDevice() const;
+      void mountTexturePack(const std::string& name, std::shared_ptr<TexturePackTextures> textures, int flags);
+      std::shared_ptr<DeviceList> getTexturePackDevice(const std::string& name) const;
+      int getTexturePackFlags(const std::string& name) const;
+      bool getTexturePackAlpha(const std::string& name, const std::string& page) const;
+};
 
     bool mount(IFileDevice var1) {
     return true;

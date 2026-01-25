@@ -4,16 +4,23 @@ namespace zombie {
 namespace fileSystem {
 
 void* FileSystemImpl$CloseTask::call() {
-    // TODO: Implement call
+    m_file->close();
+    m_file->release();
     return nullptr;
+}
 }
 
 void FileSystemImpl$CloseTask::handleResult(void* var1) {
-    // TODO: Implement handleResult
+    if (m_cb) {
+        m_cb->onFileTaskFinished(m_file, var1);
+    }
+}
 }
 
 void FileSystemImpl$CloseTask::done() {
-    // TODO: Implement done
+    m_file = nullptr;
+    m_cb = nullptr;
+}
 }
 
 } // namespace fileSystem

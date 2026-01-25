@@ -15,15 +15,11 @@ namespace fileSystem {
 class IFileDevice {
 public:
     virtual ~IFileDevice() = default;
-    IFile createFile(IFile var1);
-
-    void destroyFile(IFile var1);
-
-    InputStream createStream(const std::string& var1, InputStream var2);
-
-    void destroyStream(InputStream var1);
-
-    std::string name();
-}
+    virtual IFile createFile(IFile file) = 0;
+    virtual void destroyFile(IFile file) = 0;
+    virtual InputStream createStream(const std::string& name, InputStream stream) = 0;
+    virtual void destroyStream(InputStream stream) = 0;
+    virtual std::string name() const = 0;
+};
 } // namespace fileSystem
 } // namespace zombie

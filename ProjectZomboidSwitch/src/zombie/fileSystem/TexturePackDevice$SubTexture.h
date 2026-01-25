@@ -8,19 +8,18 @@
 #include "zombie/core/textures/TexturePackPage/SubTextureInfo.h"
 #include "zombie/fileSystem/TexturePackDevice/Page.h"
 
+
 namespace zombie {
 namespace fileSystem {
 
-
-class TexturePackDevice {
+class SubTexture {
 public:
-    const Page m_page;
-    const SubTextureInfo m_info;
+   std::shared_ptr<Page> m_page;
+   std::shared_ptr<SubTextureInfo> m_info;
 
-   TexturePackDevice$SubTexture(Page var1, SubTextureInfo var2) {
-      this.m_page = var1;
-      this.m_info = var2;
-   }
-}
+   SubTexture(std::shared_ptr<Page> page, std::shared_ptr<SubTextureInfo> info)
+      : m_page(std::move(page)), m_info(std::move(info)) {}
+};
+
 } // namespace fileSystem
 } // namespace zombie

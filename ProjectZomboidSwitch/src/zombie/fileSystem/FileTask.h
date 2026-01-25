@@ -13,35 +13,34 @@ namespace fileSystem {
 
 class FileTask {
 public:
-    const FileSystem m_file_system;
-    const IFileTaskCallback m_cb;
-    int m_priority = 5;
+   std::shared_ptr<FileSystem> m_fileSystem;
+   std::shared_ptr<IFileTaskCallback> m_callback;
+   int m_priority = 5;
+   std::string m_errorMessage;
 
-    public FileTask(FileSystem var1) {
-      this.m_file_system = var1;
-      this.m_cb = nullptr;
-   }
+   FileTask(std::shared_ptr<FileSystem> fs)
+      : m_fileSystem(std::move(fs)), m_callback(nullptr), m_priority(5), m_errorMessage("") {}
 
-    public FileTask(FileSystem var1, IFileTaskCallback var2) {
-      this.m_file_system = var1;
-      this.m_cb = var2;
-   }
+   FileTask(std::shared_ptr<FileSystem> fs, std::shared_ptr<IFileTaskCallback> cb)
+      : m_fileSystem(std::move(fs)), m_callback(std::move(cb)), m_priority(5), m_errorMessage("") {}
 
-    void handleResult(void* var1) {
-      if (this.m_cb != nullptr) {
-         this.m_cb.onFileTaskFinished(var1);
+   virtual ~FileTask() = default;
+
+   virtual void done() = 0;
+
+   void handleResult(void* result) {
+      if (m_callback) {
+         m_callback->onFileTaskFinished(result);
       }
    }
 
-    void setPriority(int var1) {
-      this.m_priority = var1;
+   void setPriority(int priority) {
+      m_priority = priority;
    }
 
-   public abstract void done();
-
-    std::string getErrorMessage() {
-    return nullptr;
+   std::string getErrorMessage() const {
+      return m_errorMessage;
    }
-}
+};
 } // namespace fileSystem
 } // namespace zombie

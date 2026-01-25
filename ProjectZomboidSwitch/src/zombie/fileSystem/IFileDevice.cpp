@@ -5,25 +5,25 @@ namespace zombie {
 namespace fileSystem {
 
 IFile IFileDevice::createFile(IFile var1) {
-    // TODO: Implement createFile
+    // Interface stub: should be overridden by subclass
     return nullptr;
 }
 
 void IFileDevice::destroyFile(IFile var1) {
-    // TODO: Implement destroyFile
+    // Interface stub: should be overridden by subclass
 }
 
 InputStream IFileDevice::createStream(const std::string& var1, InputStream var2) {
-    // TODO: Implement createStream
+    // Interface stub: should be overridden by subclass
     return nullptr;
 }
 
 void IFileDevice::destroyStream(InputStream var1) {
-    // TODO: Implement destroyStream
+    // Interface stub: should be overridden by subclass
 }
 
 std::string IFileDevice::name() {
-    // TODO: Implement name
+    // Interface stub: should be overridden by subclass
     return "";
 }
 

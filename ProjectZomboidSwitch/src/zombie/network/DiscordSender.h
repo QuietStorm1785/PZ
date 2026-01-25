@@ -1,18 +1,19 @@
-#pragma once
-#include <string>
-#include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
 
+#pragma once
+
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
+// Ported from Java: DiscordSender
+
 class DiscordSender {
 public:
-    virtual ~DiscordSender() = default;
-    void sendMessageFromDiscord(const std::string& var1, const std::string& var2);
-}
+    DiscordSender();
+    ~DiscordSender();
+    // TODO: Port fields and methods from Java DiscordSender
+};
+
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

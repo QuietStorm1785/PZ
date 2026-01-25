@@ -13,25 +13,15 @@ namespace zombie {
 namespace fileSystem {
 
 
-class MemoryFileDevice {
+class MemoryFileDevice : public std::enable_shared_from_this<MemoryFileDevice> {
 public:
-    IFile createFile(IFile var1) {
-      return std::make_shared<MemoryFile>(var1, this);
-   }
+      MemoryFileDevice() = default;
 
-    void destroyFile(IFile var1) {
-   }
-
-    InputStream createStream(const std::string& var1, InputStream var2) {
-    return nullptr;
-   }
-
-    void destroyStream(InputStream var1) {
-   }
-
-    std::string name() {
-      return "memory";
-   }
-}
+      IFile createFile(IFile var1);
+      void destroyFile(IFile var1);
+      InputStream createStream(const std::string& var1, InputStream var2);
+      void destroyStream(InputStream var1);
+      std::string name() const;
+};
 } // namespace fileSystem
 } // namespace zombie

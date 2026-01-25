@@ -1,43 +1,28 @@
+
 #pragma once
 #include <string>
-#include <vector>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-#include "zombie/fileSystem/DiskFileDevice/DiskFile.h"
-#include <fstream>
-#include <iostream>
 
-namespace zombie {
-namespace fileSystem {
+namespace zombie::fileSystem {
 
+class IFile;
+class IFileDevice;
+class FileInputStream;
+class DiskFileDevice$DiskFile;
 
-class DiskFileDevice {
+// DiskFileDevice implements IFileDevice
+class DiskFileDevice : public IFileDevice {
 public:
-    const std::string m_name;
+      std::string m_name;
 
-    public DiskFileDevice(const std::string& var1) {
-      this.m_name = var1;
-   }
+      explicit DiskFileDevice(const std::string& name)
+            : m_name(name) {}
 
-    IFile createFile(IFile var1) {
-      return std::make_shared<DiskFile>(var1, this);
-   }
+      std::shared_ptr<IFile> createFile(std::shared_ptr<IFile> fallthrough) override;
+      void destroyFile(std::shared_ptr<IFile> file) override;
+      std::shared_ptr<FileInputStream> createStream(const std::string& name, std::shared_ptr<FileInputStream> stream) override;
+      void destroyStream(std::shared_ptr<FileInputStream> stream) override;
+      std::string name() const override { return m_name; }
+};
 
-    void destroyFile(IFile var1) {
-   }
-
-    InputStream createStream(const std::string& var1, InputStream var2) {
-      return std::make_shared<FileInputStream>(var1);
-   }
-
-    void destroyStream(InputStream var1) {
-   }
-
-    std::string name() {
-      return this.m_name;
-   }
-}
-} // namespace fileSystem
-} // namespace zombie
+} // namespace zombie::fileSystem

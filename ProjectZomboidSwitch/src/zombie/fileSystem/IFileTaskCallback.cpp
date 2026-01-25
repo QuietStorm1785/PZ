@@ -4,7 +4,7 @@ namespace zombie {
 namespace fileSystem {
 
 void IFileTaskCallback::onFileTaskFinished(void* var1) {
-    // TODO: Implement onFileTaskFinished
+    // Interface stub: should be overridden by subclass
 }
 
 } // namespace fileSystem

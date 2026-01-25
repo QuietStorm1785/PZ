@@ -9,31 +9,32 @@
 namespace zombie {
 namespace fileSystem {
 
-class FileSystemImpl {
+class CloseTask : public FileTask {
 public:
-    IFile m_file;
-    IFileTask2Callback m_cb;
+   std::shared_ptr<IFile> m_file;
+   std::shared_ptr<IFileTask2Callback> m_cb;
 
-   FileSystemImpl$CloseTask(FileSystem var1) {
-      super(var1);
+   CloseTask(std::shared_ptr<FileSystem> fs)
+      : FileTask(fs), m_file(nullptr), m_cb(nullptr) {}
+
+   void* call() {
+      if (m_file) {
+         m_file->close();
+         m_file->release();
+      }
+      return nullptr;
    }
 
-    void* call() {
-      this.m_file.close();
-      this.m_file.release();
-    return nullptr;
-   }
-
-    void handleResult(void* var1) {
-      if (this.m_cb != nullptr) {
-         this.m_cb.onFileTaskFinished(this.m_file, var1);
+   void handleResult(void* result) {
+      if (m_cb) {
+         m_cb->onFileTaskFinished(m_file, result);
       }
    }
 
-    void done() {
-      this.m_file = nullptr;
-      this.m_cb = nullptr;
+   void done() override {
+      m_file.reset();
+      m_cb.reset();
    }
-}
+};
 } // namespace fileSystem
 } // namespace zombie

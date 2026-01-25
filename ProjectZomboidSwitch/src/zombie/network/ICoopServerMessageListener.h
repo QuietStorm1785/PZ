@@ -1,18 +1,19 @@
-#pragma once
-#include <string>
-#include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
 
+#pragma once
+
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
+// Ported from Java: ICoopServerMessageListener
+
 class ICoopServerMessageListener {
 public:
-    virtual ~ICoopServerMessageListener() = default;
-    void OnCoopServerMessage(const std::string& var1, const std::string& var2, const std::string& var3);
-}
+    ICoopServerMessageListener();
+    virtual ~ICoopServerMessageListener();
+    // TODO: Port fields and methods from Java ICoopServerMessageListener
+};
+
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

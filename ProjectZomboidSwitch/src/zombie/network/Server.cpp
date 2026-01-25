@@ -1,188 +1,80 @@
-#include <string>
-#include "zombie/network/Server.h"
+#include "Server.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-std::string Server::getPort() {
-    // TODO: Implement getPort
-    return "";
-}
 
-void Server::setPort(const std::string& var1) {
-    // TODO: Implement setPort
-}
+Server::Server() = default;
+Server::~Server() = default;
 
-std::string Server::getIp() {
-    // TODO: Implement getIp
-    return "";
-}
-
-void Server::setIp(const std::string& var1) {
-    // TODO: Implement setIp
-}
-
-std::string Server::getLocalIP() {
-    // TODO: Implement getLocalIP
-    return "";
-}
-
-void Server::setLocalIP(const std::string& var1) {
-    // TODO: Implement setLocalIP
-}
-
-std::string Server::getServerPassword() {
-    // TODO: Implement getServerPassword
-    return "";
-}
-
-void Server::setServerPassword(const std::string& var1) {
-    // TODO: Implement setServerPassword
-}
-
-std::string Server::getDescription() {
-    // TODO: Implement getDescription
-    return "";
-}
-
-void Server::setDescription(const std::string& var1) {
-    // TODO: Implement setDescription
-}
-
-std::string Server::getUserName() {
-    // TODO: Implement getUserName
-    return "";
-}
-
-void Server::setUserName(const std::string& var1) {
-    // TODO: Implement setUserName
-}
-
-std::string Server::getPwd() {
-    // TODO: Implement getPwd
-    return "";
-}
-
-void Server::setPwd(const std::string& var1) {
-    // TODO: Implement setPwd
-}
-
-bool Server::getUseSteamRelay() {
-    // TODO: Implement getUseSteamRelay
-    return false;
-}
-
-void Server::setUseSteamRelay(bool var1) {
-    // TODO: Implement setUseSteamRelay
-}
-
-int Server::getLastUpdate() {
-    // TODO: Implement getLastUpdate
-    return 0;
-}
-
-void Server::setLastUpdate(int var1) {
-    // TODO: Implement setLastUpdate
-}
-
-std::string Server::getPlayers() {
-    // TODO: Implement getPlayers
-    return "";
-}
-
-void Server::setPlayers(const std::string& var1) {
-    // TODO: Implement setPlayers
-}
-
-bool Server::isOpen() {
-    // TODO: Implement isOpen
-    return false;
-}
-
-void Server::setOpen(bool var1) {
-    // TODO: Implement setOpen
-}
-
-bool Server::isPublic() {
-    // TODO: Implement isPublic
-    return false;
-}
-
-void Server::setPublic(bool var1) {
-    // TODO: Implement setPublic
-}
-
-std::string Server::getVersion() {
-    // TODO: Implement getVersion
-    return "";
-}
-
-void Server::setVersion(const std::string& var1) {
-    // TODO: Implement setVersion
-}
-
-std::string Server::getMaxPlayers() {
-    // TODO: Implement getMaxPlayers
-    return "";
-}
-
-void Server::setMaxPlayers(const std::string& var1) {
-    // TODO: Implement setMaxPlayers
-}
-
-std::string Server::getMods() {
-    // TODO: Implement getMods
-    return "";
-}
-
-void Server::setMods(const std::string& var1) {
-    // TODO: Implement setMods
-}
-
-std::string Server::getName() {
-    // TODO: Implement getName
-    return "";
-}
-
-void Server::setName(const std::string& var1) {
-    // TODO: Implement setName
-}
-
-std::string Server::getPing() {
-    // TODO: Implement getPing
-    return "";
-}
-
-void Server::setPing(const std::string& var1) {
-    // TODO: Implement setPing
-}
-
-bool Server::isPasswordProtected() {
-    // TODO: Implement isPasswordProtected
-    return false;
-}
-
-void Server::setPasswordProtected(bool var1) {
-    // TODO: Implement setPasswordProtected
-}
-
-std::string Server::getSteamId() {
-    // TODO: Implement getSteamId
-    return "";
-}
-
-void Server::setSteamId(const std::string& var1) {
-    // TODO: Implement setSteamId
-}
-
-bool Server::isHosted() {
-    // TODO: Implement isHosted
-    return false;
-}
-
-void Server::setHosted(bool var1) {
-    // TODO: Implement setHosted
-}
+std::string Server::getPort() const { return port; }
+void Server::setPort(const std::string& val) { port = val; }
+std::string Server::getIp() const { return ip; }
+void Server::setIp(const std::string& val) { ip = val; }
+std::string Server::getLocalIP() const { return localIP; }
+void Server::setLocalIP(const std::string& val) { localIP = val; }
+std::string Server::getServerPassword() const { return serverpwd; }
+void Server::setServerPassword(const std::string& val) { serverpwd = val.empty() ? "" : val; }
+std::string Server::getDescription() const { return description; }
+void Server::setDescription(const std::string& val) { description = val; }
+std::string Server::getUserName() const { return userName; }
+void Server::setUserName(const std::string& val) { userName = val; }
+std::string Server::getPwd() const { return pwd; }
+void Server::setPwd(const std::string& val) { pwd = val; }
+bool Server::getUseSteamRelay() const { return useSteamRelay; }
+void Server::setUseSteamRelay(bool val) { useSteamRelay = val; }
+int Server::getLastUpdate() const { return lastUpdate; }
+void Server::setLastUpdate(int val) { lastUpdate = val; }
+std::string Server::getPlayers() const { return players; }
+void Server::setPlayers(const std::string& val) { players = val; }
+bool Server::isOpen() const { return open; }
+void Server::setOpen(bool val) { open = val; }
+bool Server::isPublic() const { return bPublic; }
+void Server::setPublic(bool val) { bPublic = val; }
+std::string Server::getVersion() const { return version; }
+void Server::setVersion(const std::string& val) { version = val; }
+std::string Server::getMaxPlayers() const { return maxPlayers; }
+void Server::setMaxPlayers(const std::string& val) { maxPlayers = val; }
+std::string Server::getMods() const { return mods; }
+void Server::setMods(const std::string& val) { mods = val; }
+std::string Server::getName() const { return name; }
+void Server::setName(const std::string& val) { name = val; }
+std::string Server::getPing() const { return ping; }
+void Server::setPing(const std::string& val) { ping = val; }
+bool Server::isPasswordProtected() const { return passwordProtected; }
+void Server::setPasswordProtected(bool val) { passwordProtected = val; }
+std::string Server::getSteamId() const { return steamId; }
+void Server::setSteamId(const std::string& val) { steamId = val; }
+bool Server::isHosted() const { return hosted; }
+void Server::setHosted(bool val) { hosted = val; }
+bool Server::getUseSteamRelay() const { return useSteamRelay; }
+void Server::setUseSteamRelay(bool val) { useSteamRelay = val; }
+int Server::getLastUpdate() const { return lastUpdate; }
+void Server::setLastUpdate(int val) { lastUpdate = val; }
+std::string Server::getPlayers() const { return players; }
+void Server::setPlayers(const std::string& val) { players = val; }
+bool Server::isOpen() const { return open; }
+void Server::setOpen(bool val) { open = val; }
+bool Server::isPublic() const { return bPublic; }
+void Server::setPublic(bool val) { bPublic = val; }
+std::string Server::getVersion() const { return version; }
+void Server::setVersion(const std::string& val) { version = val; }
+std::string Server::getMaxPlayers() const { return maxPlayers; }
+void Server::setMaxPlayers(const std::string& val) { maxPlayers = val; }
+std::string Server::getMods() const { return mods; }
+void Server::setMods(const std::string& val) { mods = val; }
+std::string Server::getName() const { return name; }
+void Server::setName(const std::string& val) { name = val; }
+std::string Server::getPing() const { return ping; }
+void Server::setPing(const std::string& val) { ping = val; }
+bool Server::isPasswordProtected() const { return passwordProtected; }
+void Server::setPasswordProtected(bool val) { passwordProtected = val; }
+std::string Server::getSteamId() const { return steamId; }
+void Server::setSteamId(const std::string& val) { steamId = val; }
+bool Server::isHosted() const { return hosted; }
+void Server::setHosted(bool val) { hosted = val; }
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

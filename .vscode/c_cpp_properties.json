@@ -11,10 +11,10 @@
             "defines": [
                 "__SWITCH__"
             ],
-            "compilerPath": "${env:DEVKITPRO}/devkitA64/bin/aarch64-none-elf-gcc.exe",
+            "compilerPath": "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-arm"
+            "intelliSenseMode": "gcc-arm64"
         },
         {
             "name": "Linux",

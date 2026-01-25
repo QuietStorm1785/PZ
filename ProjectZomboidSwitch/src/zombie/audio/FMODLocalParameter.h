@@ -14,34 +14,33 @@ namespace audio {
 
 class FMODLocalParameter : public FMODParameter {
 public:
-    const TLongArrayList m_instances = std::make_shared<TLongArrayList>();
+  std::vector<int64_t> m_instances;
 
-    public FMODLocalParameter(const std::string& var1) {
-      super(var1);
-      if (this.getParameterDescription() != nullptr && this.getParameterDescription().isGlobal()) {
-    bool var2 = true;
-      }
-   }
+  FMODLocalParameter(const std::string& name)
+    : FMODParameter(name) {
+    if (getParameterDescription() && getParameterDescription()->isGlobal()) {
+      // Optionally log or handle global parameter
+    }
+  }
 
-    float calculateCurrentValue() {
-      return 0.0F;
-   }
+  float calculateCurrentValue() const {
+    return 0.0f;
+  }
 
-    void setCurrentValue(float var1) {
-      for (int var2 = 0; var2 < this.m_instances.size(); var2++) {
-    long var3 = this.m_instances.get(var2);
-         javafmod.FMOD_Studio_EventInstance_SetParameterByID(var3, this.getParameterID(), var1, false);
-      }
-   }
+  void setCurrentValue(float value) {
+    for (auto id : m_instances) {
+      javafmod::FMOD_Studio_EventInstance_SetParameterByID(id, getParameterID(), value, false);
+    }
+  }
 
-    void startEventInstance(long var1) {
-      this.m_instances.push_back(var1);
-      javafmod.FMOD_Studio_EventInstance_SetParameterByID(var1, this.getParameterID(), this.getCurrentValue(), false);
-   }
+  void startEventInstance(int64_t id) {
+    m_instances.push_back(id);
+    javafmod::FMOD_Studio_EventInstance_SetParameterByID(id, getParameterID(), getCurrentValue(), false);
+  }
 
-    void stopEventInstance(long var1) {
-      this.m_instances.remove(var1);
-   }
-}
+  void stopEventInstance(int64_t id) {
+    m_instances.erase(std::remove(m_instances.begin(), m_instances.end(), id), m_instances.end());
+  }
+};
 } // namespace audio
 } // namespace zombie

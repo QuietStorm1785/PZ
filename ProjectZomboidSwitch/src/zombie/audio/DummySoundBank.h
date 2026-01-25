@@ -14,19 +14,12 @@ namespace audio {
 
 class DummySoundBank : public BaseSoundBank {
 public:
-    void addVoice(const std::string& var1, const std::string& var2, float var3) {
-   }
+    virtual ~DummySoundBank() = default;
 
-    void addFootstep(const std::string& var1, const std::string& var2, const std::string& var3, const std::string& var4, const std::string& var5) {
-   }
-
-    FMODVoice getVoice(const std::string& var1) {
-    return nullptr;
-   }
-
-    FMODFootstep getFootstep(const std::string& var1) {
-    return nullptr;
-   }
-}
+    void addVoice(const std::string&, const std::string&, float) override {}
+    void addFootstep(const std::string&, const std::string&, const std::string&, const std::string&, const std::string&) override {}
+    FMODVoice getVoice(const std::string&) override { return FMODVoice(); }
+    FMODFootstep getFootstep(const std::string&) override { return FMODFootstep(); }
+};
 } // namespace audio
 } // namespace zombie

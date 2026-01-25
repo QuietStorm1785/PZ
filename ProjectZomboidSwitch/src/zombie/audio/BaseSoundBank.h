@@ -14,15 +14,14 @@ namespace audio {
 
 class BaseSoundBank {
 public:
-    static BaseSoundBank instance;
+    virtual ~BaseSoundBank() = default;
 
-   public abstract void addVoice(std::string var1, std::string var2, float var3);
+    static BaseSoundBank& instance();
 
-   public abstract void addFootstep(std::string var1, std::string var2, std::string var3, std::string var4, std::string var5);
-
-   public abstract FMODVoice getVoice(std::string var1);
-
-   public abstract FMODFootstep getFootstep(std::string var1);
-}
+    virtual void addVoice(const std::string& name, const std::string& file, float volume) = 0;
+    virtual void addFootstep(const std::string& type, const std::string& material, const std::string& left, const std::string& right, const std::string& surface) = 0;
+    virtual FMODVoice getVoice(const std::string& name) = 0;
+    virtual FMODFootstep getFootstep(const std::string& type) = 0;
+};
 } // namespace audio
 } // namespace zombie

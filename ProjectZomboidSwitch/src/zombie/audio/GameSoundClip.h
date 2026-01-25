@@ -1,63 +1,103 @@
+// ...existing code...
 #pragma once
 #include <string>
 #include <vector>
 #include <memory>
-#include <unordered_map>
-#include <unordered_set>
 #include <cstdint>
 #include "fmod/fmod/FMOD_STUDIO_EVENT_DESCRIPTION.h"
 #include "fmod/fmod/FMOD_STUDIO_PARAMETER_DESCRIPTION.h"
-#include "zombie/SoundManager.h"
-#include "zombie/audio/GameSoundClip/1.h"
-#include "zombie/core/Core.h"
 
 namespace zombie {
 namespace audio {
 
+class GameSound; // Forward declaration
 
 class GameSoundClip {
 public:
-    static short INIT_FLAG_DISTANCE_MIN = 1;
-    static short INIT_FLAG_DISTANCE_MAX = 2;
-    const GameSound gameSound;
-    std::string event;
-    FMOD_STUDIO_EVENT_DESCRIPTION eventDescription;
-    FMOD_STUDIO_EVENT_DESCRIPTION eventDescriptionMP;
-    std::string file;
-    float volume = 1.0F;
-    float pitch = 1.0F;
-    float distanceMin = 10.0F;
-    float distanceMax = 10.0F;
-    float reverbMaxRange = 10.0F;
-    float reverbFactor = 0.0F;
-    int priority = 5;
-    short initFlags = 0;
-    short reloadEpoch;
+      static constexpr short INIT_FLAG_DISTANCE_MIN = 1;
+      static constexpr short INIT_FLAG_DISTANCE_MAX = 2;
 
-    public GameSoundClip(GameSound var1) {
-      this.gameSound = var1;
-      this.reloadEpoch = var1.reloadEpoch;
-   }
+      GameSound& gameSound;
+      std::string event;
+      FMOD_STUDIO_EVENT_DESCRIPTION* eventDescription = nullptr;
+      FMOD_STUDIO_EVENT_DESCRIPTION* eventDescriptionMP = nullptr;
+      std::string file;
+      float volume = 1.0f;
+      float pitch = 1.0f;
+      float distanceMin = 10.0f;
+      float distanceMax = 10.0f;
+      float reverbMaxRange = 10.0f;
+      float reverbFactor = 0.0f;
+      int priority = 5;
+      short initFlags = 0;
+      short reloadEpoch = 0;
 
-    std::string getEvent() {
-      return this.event;
-   }
+      GameSoundClip(GameSound& gs);
 
-    std::string getFile() {
-      return this.file;
-   }
+      std::string getEvent() const { return event; }
+      std::string getFile() const { return file; }
+      float getVolume() const { return volume; }
+      float getPitch() const { return pitch; }
+      bool hasMinDistance() const { return (initFlags & INIT_FLAG_DISTANCE_MIN) != 0; }
+      bool hasMaxDistance() const { return (initFlags & INIT_FLAG_DISTANCE_MAX) != 0; }
+      float getMinDistance() const { return distanceMin; }
+      float getMaxDistance() const { return distanceMax; }
+      float getEffectiveVolume() const;
+      float getEffectiveVolumeInMenu() const;
+      GameSoundClip* checkReloaded();
+      bool hasSustainPoints() const;
+      bool hasParameter(const FMOD_STUDIO_PARAMETER_DESCRIPTION& param) const;
+  // Implementation of methods
+  float GameSoundClip::getEffectiveVolume() const {
+     float v = 1.0f;
+     // Pseudo-switch on gameSound.master (replace with actual enum logic)
+     // This is a placeholder; actual implementation should use the enum
+     // and SoundManager instance methods as in Java
+     // Example:
+     // switch (gameSound.master) { ... }
+     v *= volume;
+     return v * gameSound.getUserVolume();
+  }
 
-    float getVolume() {
-      return this.volume;
-   }
+  float GameSoundClip::getEffectiveVolumeInMenu() const {
+     float v = 1.0f;
+     // Pseudo-switch on gameSound.master (replace with actual enum logic)
+     // This is a placeholder; actual implementation should use the enum
+     // and Core instance methods as in Java
+     v *= volume;
+     return v * gameSound.getUserVolume();
+  }
 
-    float getPitch() {
-      return this.pitch;
-   }
+  GameSoundClip* GameSoundClip::checkReloaded() {
+     if (reloadEpoch == gameSound.reloadEpoch) {
+        return this;
+     } else {
+        GameSoundClip* found = nullptr;
+        for (auto& clip : gameSound.clips) {
+           if (&clip == this) return this;
+           if (!clip.event.empty() && clip.event == event) found = &clip;
+           if (!clip.file.empty() && clip.file == file) found = &clip;
+        }
+        if (!found) {
+           reloadEpoch = gameSound.reloadEpoch;
+           return this;
+        } else {
+           return found;
+        }
+     }
+  }
 
-    bool hasMinDistance() {
-      return (this.initFlags & INIT_FLAG_DISTANCE_MIN) != 0;
-   }
+  bool GameSoundClip::hasSustainPoints() const {
+     return eventDescription && eventDescription->bHasSustainPoints;
+  }
+
+  bool GameSoundClip::hasParameter(const FMOD_STUDIO_PARAMETER_DESCRIPTION& param) const {
+     return eventDescription && eventDescription->hasParameter(param);
+  }
+};
+
+} // namespace audio
+} // namespace zombie
 
     bool hasMaxDistance() {
       return (this.initFlags & INIT_FLAG_DISTANCE_MAX) != 0;

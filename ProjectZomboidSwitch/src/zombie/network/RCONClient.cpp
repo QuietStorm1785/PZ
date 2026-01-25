@@ -1,41 +1,18 @@
-#include <string>
-#include "zombie/network/RCONClient.h"
 
+// NAMESPACE WRAP BEGIN
 namespace zombie {
 namespace network {
 
-bool RCONClient::disconnect() {
-    // TODO: Implement disconnect
-    return false;
-}
+#include "RCONClient.h"
 
-bool RCONClient::connect(const std::string& var1, const std::string& var2) {
-    // TODO: Implement connect
-    return false;
-}
+RCONClient::RCONClient() {}
+RCONClient::~RCONClient() {}
+// TODO: Implement RCONClient methods from Java
 
-bool RCONClient::auth(const std::string& var1) {
-    // TODO: Implement auth
-    return false;
-}
-
-std::string RCONClient::exec(const std::string& var1) {
-    // TODO: Implement exec
-    return "";
-}
-
-bool RCONClient::send(const std::string& var1, const std::string& var2) {
-    // TODO: Implement send
-    return false;
-}
-
-void RCONClient::sleep(long var0) {
-    // TODO: Implement sleep
-}
-
-void RCONClient::main(std::string[] var0) {
-    // TODO: Implement main
-}
+RCONClient::RCONMessage::RCONMessage() {}
+RCONClient::RCONMessage::~RCONMessage() {}
+// TODO: Implement RCONMessage methods from Java
 
 } // namespace network
 } // namespace zombie
+// NAMESPACE WRAP END

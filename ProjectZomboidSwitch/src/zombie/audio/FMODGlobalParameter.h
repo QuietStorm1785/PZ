@@ -13,22 +13,19 @@ namespace audio {
 
 class FMODGlobalParameter : public FMODParameter {
 public:
-    public FMODGlobalParameter(const std::string& var1) {
-      super(var1);
-      if (this.getParameterDescription() != nullptr && !this.getParameterDescription().isGlobal()) {
-    bool var2 = true;
-      }
-   }
+  FMODGlobalParameter(const std::string& name)
+    : FMODParameter(name) {
+    if (getParameterDescription() && !getParameterDescription()->isGlobal()) {
+      // Optionally log or handle non-global parameter
+    }
+  }
 
-    void setCurrentValue(float var1) {
-      javafmod.FMOD_Studio_System_SetParameterByID(this.getParameterID(), var1, false);
-   }
+  void setCurrentValue(float value) {
+    javafmod::FMOD_Studio_System_SetParameterByID(getParameterID(), value, false);
+  }
 
-    void startEventInstance(long var1) {
-   }
-
-    void stopEventInstance(long var1) {
-   }
-}
+  void startEventInstance(int64_t /*id*/) {}
+  void stopEventInstance(int64_t /*id*/) {}
+};
 } // namespace audio
 } // namespace zombie

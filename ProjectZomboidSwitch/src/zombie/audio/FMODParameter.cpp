@@ -4,37 +4,41 @@
 namespace zombie {
 namespace audio {
 
-public FMODParameter::FMODParameter(const std::string& var1) {
-    // TODO: Implement FMODParameter
-    return nullptr;
-}
+FMODParameter::FMODParameter(const std::string& name)
+    : m_name(name),
+      m_parameterDescription(FMODManager::instance().getParameterDescription(name) ? *FMODManager::instance().getParameterDescription(name) : FMOD_STUDIO_PARAMETER_DESCRIPTION{}),
+      m_currentValue(std::numeric_limits<float>::quiet_NaN())
+{}
 
 std::string FMODParameter::getName() {
-    // TODO: Implement getName
-    return "";
+    return m_name;
 }
 
 FMOD_STUDIO_PARAMETER_DESCRIPTION FMODParameter::getParameterDescription() {
-    // TODO: Implement getParameterDescription
-    return nullptr;
+    return m_parameterDescription;
 }
 
 FMOD_STUDIO_PARAMETER_ID FMODParameter::getParameterID() {
-    // TODO: Implement getParameterID
-    return nullptr;
+    // Return the parameter ID from the parameter description
+    return m_parameterDescription.id;
 }
 
 float FMODParameter::getCurrentValue() {
-    // TODO: Implement getCurrentValue
-    return 0;
+    // Return the current value of the parameter
+    return m_currentValue;
 }
 
 void FMODParameter::update() {
-    // TODO: Implement update
+    // Update the current value from FMODManager
+    float value = FMODManager::instance().getParameterValue(m_name);
+    m_currentValue = value;
 }
 
 void FMODParameter::resetToDefault() {
-    // TODO: Implement resetToDefault
+    // Reset the parameter to its default value using FMODManager
+    float defaultValue = m_parameterDescription.defaultvalue;
+    FMODManager::instance().setParameterValue(m_name, defaultValue);
+    m_currentValue = defaultValue;
 }
 
 } // namespace audio

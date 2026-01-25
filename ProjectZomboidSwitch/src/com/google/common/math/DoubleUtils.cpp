@@ -35,7 +35,7 @@ double DoubleUtils::scaleNormalize(double x) {
     return 0;
 }
 
-double DoubleUtils::bigToDouble(BigInteger x) {
+double DoubleUtils::bigToDouble(boost::multiprecision::cpp_int x) {
     // TODO: Implement bigToDouble
     return 0;
 }
