@@ -14,282 +14,147 @@
 namespace zombie {
 namespace iso {
 
+enum class ChunkState {
+    Unloaded,
+    Loading,
+    Loaded,
+    Error
+};
 
 class IsoMetaChunk {
 public:
-    static const float zombiesMinPerChunk = 0.06F;
-    static const float zombiesFullPerChunk = 12.0F;
+    static constexpr float zombiesMinPerChunk = 0.06F;
+    static constexpr float zombiesFullPerChunk = 12.0F;
     int ZombieIntensity = 0;
-   private Zone[] zones;
-    int zonesSize;
-   private RoomDef[] rooms;
-    int roomsSize;
+    std::vector<std::shared_ptr<Zone>> zones;
+    std::vector<std::shared_ptr<RoomDef>> rooms;
+    ChunkState state = ChunkState::Unloaded;
 
-    float getZombieIntensity(bool var1) {
-    float var2 = this.ZombieIntensity;
-    float var3 = var2 / 255.0F;
-      if (SandboxOptions.instance.Distribution.getValue() == 2) {
-         var2 = 128.0F;
-         var3 = 0.5F;
-      }
+    IsoMetaChunk() = default;
 
-      var2 *= 0.5F;
-      if (SandboxOptions.instance.Zombies.getValue() == 1) {
-         var2 *= 4.0F;
-      } else if (SandboxOptions.instance.Zombies.getValue() == 2) {
-         var2 *= 3.0F;
-      } else if (SandboxOptions.instance.Zombies.getValue() == 3) {
-         var2 *= 2.0F;
-      } else if (SandboxOptions.instance.Zombies.getValue() == 5) {
-         var2 *= 0.35F;
-      } else if (SandboxOptions.instance.Zombies.getValue() == 6) {
-         var2 = 0.0F;
-      }
+    float getZombieIntensity(bool adjusted = true) const {
+        float var2 = static_cast<float>(ZombieIntensity);
+        float var3 = var2 / 255.0F;
+        if (SandboxOptions::instance.Distribution.getValue() == 2) {
+            var2 = 128.0F;
+            var3 = 0.5F;
+        }
+        var2 *= 0.5F;
+        switch (SandboxOptions::instance.Zombies.getValue()) {
+            case 1: var2 *= 4.0F; break;
+            case 2: var2 *= 3.0F; break;
+            case 3: var2 *= 2.0F; break;
+            case 5: var2 *= 0.35F; break;
+            case 6: var2 = 0.0F; break;
+        }
+        var3 = var2 / 255.0F;
+        float var4 = 11.94F * var3;
+        var2 = 0.06F + var4;
+        if (!adjusted) return var2;
+        float var5 = var3 * 10.0F;
+        if (Rand::Next(3) == 0) return 0.0F;
+        var5 *= 0.5F;
+        int var6 = 1000;
+        switch (SandboxOptions::instance.Zombies.getValue()) {
+            case 1: var6 = static_cast<int>(var6 / 2.0F); break;
+            case 2: var6 = static_cast<int>(var6 / 1.7F); break;
+            case 3: var6 = static_cast<int>(var6 / 1.5F); break;
+            case 5: var6 = static_cast<int>(var6 * 1.5F); break;
+        }
+        if (Rand::Next(var6) < var5 /* && IsoWorld::getZombiesEnabled() */) {
+            var2 = 12.0F;
+        }
+        return var2;
+    }
 
-      var3 = var2 / 255.0F;
-    float var4 = 11.94F;
-      var4 *= var3;
-      var2 = 0.06F + var4;
-      if (!var1) {
-    return var2;
-      } else {
-    float var5 = var3 * 10.0F;
-         if (Rand.Next(3) == 0) {
-            return 0.0F;
-         } else {
-            var5 *= 0.5F;
-    int var6 = 1000;
-            if (SandboxOptions.instance.Zombies.getValue() == 1) {
-               var6 = (int)(var6 / 2.0F);
-            } else if (SandboxOptions.instance.Zombies.getValue() == 2) {
-               var6 = (int)(var6 / 1.7F);
-            } else if (SandboxOptions.instance.Zombies.getValue() == 3) {
-               var6 = (int)(var6 / 1.5F);
-            } else if (SandboxOptions.instance.Zombies.getValue() == 5) {
-               var6 = (int)(var6 * 1.5F);
+    float getZombieIntensity() const { return getZombieIntensity(true); }
+    void setZombieIntensity(int val) { if (val >= 0) ZombieIntensity = val; }
+
+    float getLootZombieIntensity() const {
+        float var1 = static_cast<float>(ZombieIntensity);
+        float var2 = var1 / 255.0F;
+        float var3 = 11.94F * var2;
+        var1 = 0.06F + var3;
+        float var4 = var2 * 10.0F;
+        var2 = var2 * var2 * var2;
+        if (Rand::Next(300) <= var4) var1 = 120.0F;
+        // if (IsoWorld::getZombiesDisabled()) return 400.0F;
+        return var1;
+    }
+    int getUnadjustedZombieIntensity() const { return ZombieIntensity; }
+
+    void addZone(const std::shared_ptr<Zone>& zone) { zones.push_back(zone); }
+    void removeZone(const std::shared_ptr<Zone>& zone) {
+        zones.erase(std::remove(zones.begin(), zones.end(), zone), zones.end());
+    }
+    std::shared_ptr<Zone> getZone(size_t idx) const {
+        return idx < zones.size() ? zones[idx] : nullptr;
+    }
+    std::shared_ptr<Zone> getZoneAt(int x, int y, int z) const {
+        for (auto it = zones.rbegin(); it != zones.rend(); ++it) {
+            if ((*it)->contains(x, y, z)) {
+                if ((*it)->isPreferredZoneForSquare) return *it;
             }
-
-            if (Rand.Next(var6) < var5 && IsoWorld.getZombiesEnabled()) {
-               var2 = 120.0F;
-               if (var2 > 12.0F) {
-                  var2 = 12.0F;
-               }
+        }
+        for (auto it = zones.rbegin(); it != zones.rend(); ++it) {
+            if ((*it)->contains(x, y, z)) return *it;
+        }
+        return nullptr;
+    }
+    std::vector<std::shared_ptr<Zone>> getZonesAt(int x, int y, int z) const {
+        std::vector<std::shared_ptr<Zone>> result;
+        for (const auto& zone : zones) {
+            if (zone->contains(x, y, z)) result.push_back(zone);
+        }
+        return result;
+    }
+    void getZonesUnique(std::unordered_set<std::shared_ptr<Zone>>& out) const {
+        for (const auto& zone : zones) out.insert(zone);
+    }
+    void getZonesIntersecting(int x, int y, int z, int w, int h, std::vector<std::shared_ptr<Zone>>& out) const {
+        for (const auto& zone : zones) {
+            if (std::find(out.begin(), out.end(), zone) == out.end() && zone->intersects(x, y, z, w, h)) {
+                out.push_back(zone);
             }
-
-    return var2;
-         }
-      }
-   }
-
-    float getZombieIntensity() {
-      return this.getZombieIntensity(true);
-   }
-
-    void setZombieIntensity(int var1) {
-      if (var1 >= 0) {
-         this.ZombieIntensity = var1;
-      }
-   }
-
-    float getLootZombieIntensity() {
-    float var1 = this.ZombieIntensity;
-    float var2 = var1 / 255.0F;
-      var2 = var1 / 255.0F;
-    float var3 = 11.94F;
-      var3 *= var2;
-      var1 = 0.06F + var3;
-    float var4 = var2 * 10.0F;
-      var2 = var2 * var2 * var2;
-      if (Rand.Next(300) <= var4) {
-         var1 = 120.0F;
-      }
-
-      return IsoWorld.getZombiesDisabled() ? 400.0F : var1;
-   }
-
-    int getUnadjustedZombieIntensity() {
-      return this.ZombieIntensity;
-   }
-
-    void addZone(Zone var1) {
-      if (this.zones == nullptr) {
-         this.zones = new Zone[8];
-      }
-
-      if (this.zonesSize == this.zones.length) {
-         Zone[] var2 = new Zone[this.zones.length + 8];
-         System.arraycopy(this.zones, 0, var2, 0, this.zonesSize);
-         this.zones = var2;
-      }
-
-      this.zones[this.zonesSize++] = var1;
-   }
-
-    void removeZone(Zone var1) {
-      if (this.zones != nullptr) {
-         for (int var2 = 0; var2 < this.zonesSize; var2++) {
-            if (this.zones[var2] == var1) {
-               while (var2 < this.zonesSize - 1) {
-                  this.zones[var2] = this.zones[var2 + 1];
-                  var2++;
-               }
-
-               this.zones[this.zonesSize - 1] = nullptr;
-               this.zonesSize--;
-               break;
+        }
+    }
+    void clearZones() { zones.clear(); }
+    void clearRooms() { rooms.clear(); }
+    size_t numZones() const { return zones.size(); }
+    void addRoom(const std::shared_ptr<RoomDef>& room) { rooms.push_back(room); }
+    std::shared_ptr<RoomDef> getRoomAt(int x, int y, int level) const {
+        for (const auto& room : rooms) {
+            if (!room->isEmptyOutside() && room->level == level) {
+                for (const auto& rect : room->rects) {
+                    if (rect->x <= x && rect->y <= y && x < rect->getX2() && y < rect->getY2()) return room;
+                }
             }
-         }
-      }
-   }
-
-    Zone getZone(int var1) {
-      return var1 >= 0 && var1 < this.zonesSize ? this.zones[var1] : nullptr;
-   }
-
-    Zone getZoneAt(int var1, int var2, int var3) {
-      if (this.zones != nullptr && this.zonesSize > 0) {
-    Zone var4 = nullptr;
-
-         for (int var5 = this.zonesSize - 1; var5 >= 0; var5--) {
-    Zone var6 = this.zones[var5];
-            if (var6.contains(var1, var2, var3)) {
-               if (var6.isPreferredZoneForSquare) {
-    return var6;
-               }
-
-               if (var4 == nullptr) {
-                  var4 = var6;
-               }
+        }
+        return nullptr;
+    }
+    std::shared_ptr<RoomDef> getEmptyOutsideAt(int x, int y, int level) const {
+        for (const auto& room : rooms) {
+            if (room->isEmptyOutside() && room->level == level) {
+                for (const auto& rect : room->rects) {
+                    if (rect->x <= x && rect->y <= y && x < rect->getX2() && y < rect->getY2()) return room;
+                }
             }
-         }
-
-    return var4;
-      } else {
-    return nullptr;
-      }
-   }
-
-   public std::vector<Zone> getZonesAt(int var1, int var2, int var3, std::vector<Zone> var4) {
-      for (int var5 = 0; var5 < this.zonesSize; var5++) {
-    Zone var6 = this.zones[var5];
-         if (var6.contains(var1, var2, var3)) {
-            var4.push_back(var6);
-         }
-      }
-
-    return var4;
-   }
-
-    void getZonesUnique(Set<Zone> var1) {
-      for (int var2 = 0; var2 < this.zonesSize; var2++) {
-    Zone var3 = this.zones[var2];
-         var1.push_back(var3);
-      }
-   }
-
-    void getZonesIntersecting(int var1, int var2, int var3, int var4, int var5, std::vector<Zone> var6) {
-      for (int var7 = 0; var7 < this.zonesSize; var7++) {
-    Zone var8 = this.zones[var7];
-         if (!var6.contains(var8) && var8.intersects(var1, var2, var3, var4, var5)) {
-            var6.push_back(var8);
-         }
-      }
-   }
-
-    void clearZones() {
-      if (this.zones != nullptr) {
-         for (int var1 = 0; var1 < this.zones.length; var1++) {
-            this.zones[var1] = nullptr;
-         }
-      }
-
-      this.zones = nullptr;
-      this.zonesSize = 0;
-   }
-
-    void clearRooms() {
-      if (this.rooms != nullptr) {
-         for (int var1 = 0; var1 < this.rooms.length; var1++) {
-            this.rooms[var1] = nullptr;
-         }
-      }
-
-      this.rooms = nullptr;
-      this.roomsSize = 0;
-   }
-
-    int numZones() {
-      return this.zonesSize;
-   }
-
-    void addRoom(RoomDef var1) {
-      if (this.rooms == nullptr) {
-         this.rooms = new RoomDef[8];
-      }
-
-      if (this.roomsSize == this.rooms.length) {
-         RoomDef[] var2 = new RoomDef[this.rooms.length + 8];
-         System.arraycopy(this.rooms, 0, var2, 0, this.roomsSize);
-         this.rooms = var2;
-      }
-
-      this.rooms[this.roomsSize++] = var1;
-   }
-
-    RoomDef getRoomAt(int var1, int var2, int var3) {
-      for (int var4 = 0; var4 < this.roomsSize; var4++) {
-    RoomDef var5 = this.rooms[var4];
-         if (!var5.isEmptyOutside() && var5.level == var3) {
-            for (int var6 = 0; var6 < var5.rects.size(); var6++) {
-    RoomRect var7 = (RoomRect)var5.rects.get(var6);
-               if (var7.x <= var1 && var7.y <= var2 && var1 < var7.getX2() && var2 < var7.getY2()) {
-    return var5;
-               }
+        }
+        return nullptr;
+    }
+    size_t getNumRooms() const { return rooms.size(); }
+    void getRoomsIntersecting(int x, int y, int w, int h, std::vector<std::shared_ptr<RoomDef>>& out) const {
+        for (const auto& room : rooms) {
+            if (!room->isEmptyOutside() && std::find(out.begin(), out.end(), room) == out.end() && room->intersects(x, y, w, h)) {
+                out.push_back(room);
             }
-         }
-      }
-
-    return nullptr;
-   }
-
-    RoomDef getEmptyOutsideAt(int var1, int var2, int var3) {
-      for (int var4 = 0; var4 < this.roomsSize; var4++) {
-    RoomDef var5 = this.rooms[var4];
-         if (var5.isEmptyOutside() && var5.level == var3) {
-            for (int var6 = 0; var6 < var5.rects.size(); var6++) {
-    RoomRect var7 = (RoomRect)var5.rects.get(var6);
-               if (var7.x <= var1 && var7.y <= var2 && var1 < var7.getX2() && var2 < var7.getY2()) {
-    return var5;
-               }
-            }
-         }
-      }
-
-    return nullptr;
-   }
-
-    int getNumRooms() {
-      return this.roomsSize;
-   }
-
-    void getRoomsIntersecting(int var1, int var2, int var3, int var4, std::vector<RoomDef> var5) {
-      for (int var6 = 0; var6 < this.roomsSize; var6++) {
-    RoomDef var7 = this.rooms[var6];
-         if (!var7.isEmptyOutside() && !var5.contains(var7) && var7.intersects(var1, var2, var3, var4)) {
-            var5.push_back(var7);
-         }
-      }
-   }
-
+        }
+    }
     void Dispose() {
-      if (this.rooms != nullptr) {
-         Arrays.fill(this.rooms, nullptr);
-      }
-
-      if (this.zones != nullptr) {
-         Arrays.fill(this.zones, nullptr);
-      }
-   }
-}
+        rooms.clear();
+        zones.clear();
+        state = ChunkState::Unloaded;
+    }
+};
 } // namespace iso
 } // namespace zombie

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "gnu/trove/list/array/TIntArrayList.h"
+#include <vector>
 #include "java/awt/Rectangle.h"
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "zombie/GameTime.h"
@@ -52,11 +52,40 @@ namespace zombie {
 namespace iso {
 
 
+enum class LoaderThreadState {
+    NotStarted,
+    Running,
+    Finished,
+    Error
+};
+
+enum class ZoneType {
+    Invalid,
+    Forest,
+    DeepForest,
+    Farm,
+    FarmLand,
+    TownZone,
+    Nav,
+    TrailerPark,
+    // ... add all types from Java/C++ sources ...
+};
+
+// Forward declarations for merged classes
+class MetaGridLoaderThread;
+class IsoMetaCell;
+class IsoMetaChunk;
+class Zone;
+class VehicleZone;
+class MannequinZone;
+class RoomDef;
+class BuildingDef;
+
 class IsoMetaGrid {
 public:
-    static const int NUM_LOADER_THREADS = 8;
-   private static std::vector<std::string> s_PreferredZoneTypes = std::make_unique<std::vector<>>();
-    static Clipper s_clipper = nullptr;
+    static constexpr int NUM_LOADER_THREADS = 8;
+    static std::vector<std::string> s_PreferredZoneTypes;
+   private static Clipper s_clipper = nullptr;
     static ClipperOffset s_clipperOffset = nullptr;
     static ByteBuffer s_clipperBuffer = nullptr;
    private static const ThreadLocal<Location> TL_Location = ThreadLocal.withInitial(Location::new);
@@ -285,7 +314,7 @@ public:
       return this.registerZone(var1, var2, var3, var4, var5, var6, var7, ZoneGeometryType.INVALID, nullptr, 0);
    }
 
-    Zone registerZone(const std::string& var1, const std::string& var2, int var3, int var4, int var5, int var6, int var7, ZoneGeometryType var8, TIntArrayList var9, int var10) {
+   Zone registerZone(const std::string& var1, const std::string& var2, int var3, int var4, int var5, int var6, int var7, ZoneGeometryType var8, std::vector<int> var9, int var10) {
       var1 = this.sharedStrings.get(var1);
       var2 = this.sharedStrings.get(var2);
     Zone var11 = std::make_shared<Zone>(var1, var2, var3, var4, var5, var6, var7);
@@ -311,25 +340,25 @@ public:
       }
    }
 
-    Zone registerGeometryZone(const std::string& var1, const std::string& var2, int var3, const std::string& var4, KahluaTable var5, KahluaTable var6) {
-    int var7 = int.MAX_VALUE;
-    int var8 = int.MAX_VALUE;
-    int var9 = int.MIN_VALUE;
-    int var10 = int.MIN_VALUE;
-    TIntArrayList var11 = std::make_shared<TIntArrayList>(var5.len());
+   Zone registerGeometryZone(const std::string& var1, const std::string& var2, int var3, const std::string& var4, KahluaTable var5, KahluaTable var6) {
+   int var7 = std::numeric_limits<int>::max();
+   int var8 = std::numeric_limits<int>::max();
+   int var9 = std::numeric_limits<int>::min();
+   int var10 = std::numeric_limits<int>::min();
+   std::vector<int> var11;
 
-      for (byte var12 = 0; var12 < var5.len(); var12 += 2) {
-    void* var13 = var5.rawget(var12 + 1);
-    void* var14 = var5.rawget(var12 + 2);
-    int var15 = ((double)var13).intValue();
-    int var16 = ((double)var14).intValue();
-         var11.push_back(var15);
-         var11.push_back(var16);
-         var7 = Math.min(var7, var15);
-         var8 = Math.min(var8, var16);
-         var9 = Math.max(var9, var15);
-         var10 = Math.max(var10, var16);
-      }
+         for (byte var12 = 0; var12 < var5.len(); var12 += 2) {
+            void* var13 = var5.rawget(var12 + 1);
+            void* var14 = var5.rawget(var12 + 2);
+            int var15 = ((double)var13).intValue();
+            int var16 = ((double)var14).intValue();
+            var11.push_back(var15);
+            var11.push_back(var16);
+            var7 = std::min(var7, var15);
+            var8 = std::min(var8, var16);
+            var9 = std::max(var9, var15);
+            var10 = std::max(var10, var16);
+         }
       ZoneGeometryType var17 = switch (var4) {
          case "point" -> ZoneGeometryType.Point;
          case "polygon" -> ZoneGeometryType.Polygon;
@@ -362,7 +391,7 @@ public:
       }
    }
 
-    void calculatePolylineOutlineBounds(TIntArrayList var1, int var2, int[] var3) {
+   void calculatePolylineOutlineBounds(const std::vector<int>& var1, int var2, int* var3) {
       if (s_clipperOffset == nullptr) {
          s_clipperOffset = std::make_unique<ClipperOffset>();
          s_clipperBuffer = ByteBuffer.allocateDirect(3072);
@@ -372,12 +401,12 @@ public:
       s_clipperBuffer.clear();
     float var4 = var2 % 2 == 0 ? 0.0F : 0.5F;
 
-      for (byte var5 = 0; var5 < var1.size(); var5 += 2) {
-    int var6 = var1.get(var5);
-    int var7 = var1.get(var5 + 1);
-         s_clipperBuffer.putFloat(var6 + var4);
-         s_clipperBuffer.putFloat(var7 + var4);
-      }
+         for (size_t var5 = 0; var5 < var1.size(); var5 += 2) {
+            int var6 = var1[var5];
+            int var7 = var1[var5 + 1];
+            s_clipperBuffer.putFloat(var6 + var4);
+            s_clipperBuffer.putFloat(var7 + var4);
+         }
 
       s_clipperBuffer.flip();
       s_clipperOffset.addPath(var1.size() / 2, s_clipperBuffer, JoinType.jtMiter.ordinal(), EndType.etOpenButt.ordinal());

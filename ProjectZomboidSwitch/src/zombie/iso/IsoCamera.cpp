@@ -4,160 +4,156 @@ namespace zombie {
 namespace iso {
 
 void IsoCamera::init() {
-    // TODO: Implement init
+    PLAYER_OFFSET_Y = -56 / (2 / Core::TileScale);
 }
 
 void IsoCamera::update() {
-    // TODO: Implement update
+    int idx = IsoPlayer::getPlayerIndex();
+    cameras[idx]->update();
 }
 
 void IsoCamera::updateAll() {
-    // TODO: Implement updateAll
+    for (int i = 0; i < 4; ++i) {
+        auto player = IsoPlayer::players[i];
+        if (player) {
+            CamCharacter = player;
+            cameras[i]->update();
+        }
+    }
 }
 
-void IsoCamera::SetCharacterToFollow(IsoGameCharacter var0) {
-    // TODO: Implement SetCharacterToFollow
+void IsoCamera::SetCharacterToFollow(std::shared_ptr<IsoGameCharacter> character) {
+    if (!GameClient::bClient && !GameServer::bServer) {
+        CamCharacter = character;
+        auto player = std::dynamic_pointer_cast<IsoPlayer>(CamCharacter);
+        if (player && player->isLocalPlayer() && UIManager::getMoodleUI(player->getPlayerNum())) {
+            int idx = player->getPlayerNum();
+            UIManager::getUI()->remove(UIManager::getMoodleUI(idx));
+            UIManager::setMoodleUI(idx, std::make_shared<MoodlesUI>());
+            UIManager::getMoodleUI(idx)->setCharacter(CamCharacter);
+            UIManager::getUI()->push_back(UIManager::getMoodleUI(idx));
+        }
+    }
 }
 
 float IsoCamera::getRightClickOffX() {
-    // TODO: Implement getRightClickOffX
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->RightClickX;
 }
 
 float IsoCamera::getRightClickOffY() {
-    // TODO: Implement getRightClickOffY
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->RightClickY;
 }
 
 float IsoCamera::getOffX() {
-    // TODO: Implement getOffX
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->OffX;
 }
 
 float IsoCamera::getTOffX() {
-    // TODO: Implement getTOffX
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->TOffX;
 }
 
-void IsoCamera::setOffX(float var0) {
-    // TODO: Implement setOffX
+void IsoCamera::setOffX(float v) {
+    cameras[IsoPlayer::getPlayerIndex()]->OffX = v;
 }
 
 float IsoCamera::getOffY() {
-    // TODO: Implement getOffY
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->OffY;
 }
 
 float IsoCamera::getTOffY() {
-    // TODO: Implement getTOffY
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->TOffY;
 }
 
-void IsoCamera::setOffY(float var0) {
-    // TODO: Implement setOffY
+void IsoCamera::setOffY(float v) {
+    cameras[IsoPlayer::getPlayerIndex()]->OffY = v;
 }
 
 float IsoCamera::getLastOffX() {
-    // TODO: Implement getLastOffX
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->lastOffX;
 }
 
-void IsoCamera::setLastOffX(float var0) {
-    // TODO: Implement setLastOffX
+void IsoCamera::setLastOffX(float v) {
+    cameras[IsoPlayer::getPlayerIndex()]->lastOffX = v;
 }
 
 float IsoCamera::getLastOffY() {
-    // TODO: Implement getLastOffY
-    return 0;
+    return cameras[IsoPlayer::getPlayerIndex()]->lastOffY;
 }
 
-void IsoCamera::setLastOffY(float var0) {
-    // TODO: Implement setLastOffY
+void IsoCamera::setLastOffY(float v) {
+    cameras[IsoPlayer::getPlayerIndex()]->lastOffY = v;
 }
 
-IsoGameCharacter IsoCamera::getCamCharacter() {
-    // TODO: Implement getCamCharacter
-    return nullptr;
+std::shared_ptr<IsoGameCharacter> IsoCamera::getCamCharacter() {
+    return CamCharacter;
 }
 
-void IsoCamera::setCamCharacter(IsoGameCharacter var0) {
-    // TODO: Implement setCamCharacter
+void IsoCamera::setCamCharacter(std::shared_ptr<IsoGameCharacter> c) {
+    CamCharacter = c;
 }
 
-Vector2 IsoCamera::getFakePos() {
-    // TODO: Implement getFakePos
-    return nullptr;
+std::shared_ptr<Vector2> IsoCamera::getFakePos() {
+    return FakePos;
 }
 
-void IsoCamera::setFakePos(Vector2 var0) {
-    // TODO: Implement setFakePos
+void IsoCamera::setFakePos(std::shared_ptr<Vector2> v) {
+    FakePos = v;
 }
 
-Vector2 IsoCamera::getFakePosVec() {
-    // TODO: Implement getFakePosVec
-    return nullptr;
+std::shared_ptr<Vector2> IsoCamera::getFakePosVec() {
+    return FakePosVec;
 }
 
-void IsoCamera::setFakePosVec(Vector2 var0) {
-    // TODO: Implement setFakePosVec
+void IsoCamera::setFakePosVec(std::shared_ptr<Vector2> v) {
+    FakePosVec = v;
 }
 
 int IsoCamera::getTargetTileX() {
-    // TODO: Implement getTargetTileX
-    return 0;
+    return TargetTileX;
 }
 
-void IsoCamera::setTargetTileX(int var0) {
-    // TODO: Implement setTargetTileX
+void IsoCamera::setTargetTileX(int v) {
+    TargetTileX = v;
 }
 
 int IsoCamera::getTargetTileY() {
-    // TODO: Implement getTargetTileY
-    return 0;
+    return TargetTileY;
 }
 
-void IsoCamera::setTargetTileY(int var0) {
-    // TODO: Implement setTargetTileY
+void IsoCamera::setTargetTileY(int v) {
+    TargetTileY = v;
 }
 
-int IsoCamera::getScreenLeft(int var0) {
-    // TODO: Implement getScreenLeft
-    return 0;
+int IsoCamera::getScreenLeft(int idx) {
+    return (idx != 1 && idx != 3) ? 0 : Core::getInstance()->getScreenWidth() / 2;
 }
 
-int IsoCamera::getScreenWidth(int var0) {
-    // TODO: Implement getScreenWidth
-    return 0;
+int IsoCamera::getScreenWidth(int idx) {
+    return (IsoPlayer::numPlayers > 1) ? Core::getInstance()->getScreenWidth() / 2 : Core::getInstance()->getScreenWidth();
 }
 
-int IsoCamera::getScreenTop(int var0) {
-    // TODO: Implement getScreenTop
-    return 0;
+int IsoCamera::getScreenTop(int idx) {
+    return (idx != 2 && idx != 3) ? 0 : Core::getInstance()->getScreenHeight() / 2;
 }
 
-int IsoCamera::getScreenHeight(int var0) {
-    // TODO: Implement getScreenHeight
-    return 0;
+int IsoCamera::getScreenHeight(int idx) {
+    return (IsoPlayer::numPlayers > 2) ? Core::getInstance()->getScreenHeight() / 2 : Core::getInstance()->getScreenHeight();
 }
 
-int IsoCamera::getOffscreenLeft(int var0) {
-    // TODO: Implement getOffscreenLeft
-    return 0;
+int IsoCamera::getOffscreenLeft(int idx) {
+    return (idx != 1 && idx != 3) ? 0 : Core::getInstance()->getScreenWidth() / 2;
 }
 
-int IsoCamera::getOffscreenWidth(int var0) {
-    // TODO: Implement getOffscreenWidth
-    return 0;
+int IsoCamera::getOffscreenWidth(int idx) {
+    return Core::getInstance()->getOffscreenWidth(idx);
 }
 
-int IsoCamera::getOffscreenTop(int var0) {
-    // TODO: Implement getOffscreenTop
-    return 0;
+int IsoCamera::getOffscreenTop(int idx) {
+    return (idx >= 2) ? Core::getInstance()->getScreenHeight() / 2 : 0;
 }
 
-int IsoCamera::getOffscreenHeight(int var0) {
-    // TODO: Implement getOffscreenHeight
-    return 0;
+int IsoCamera::getOffscreenHeight(int idx) {
+    return Core::getInstance()->getOffscreenHeight(idx);
 }
 
 } // namespace iso

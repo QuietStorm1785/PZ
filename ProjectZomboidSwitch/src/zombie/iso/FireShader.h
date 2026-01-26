@@ -5,9 +5,14 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBShaderObjects.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
+#ifdef NINTENDO_SWITCH
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+#include <SDL2/SDL_opengles2.h>
+#else
+#include "zombie/core/opengl/GLState.h"
+#include "zombie/core/opengl/GLShaderUtil.h"
+#endif
 #include "zombie/core/opengl/Shader.h"
 #include "zombie/core/opengl/ShaderProgram.h"
 #include "zombie/core/textures/TextureDraw.h"
@@ -23,9 +28,7 @@ public:
     int FireParam;
     int FireTexture;
 
-    public FireShader(const std::string& var1) {
-      super(var1);
-   }
+    FireShader(const std::string& name) : Shader(name) {}
 
     void onCompileSuccess(ShaderProgram var1) {
     int var2 = var1.getShaderID();
@@ -53,6 +56,9 @@ public:
          ARBShaderObjects.glUniform1iARB(this.FireTexture, 0);
       }
    }
+    void onCompileSuccess(ShaderProgram& program) override;
+    void updateFireParams(TextureDraw& draw, int param, float time);
+};
 }
 } // namespace iso
 } // namespace zombie

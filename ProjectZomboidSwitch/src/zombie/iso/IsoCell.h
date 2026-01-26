@@ -6,12 +6,13 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/Rectangle.h"
-#include "org/joml/Vector2i.h"
-#include "se/krka/kahlua/integration/annotations/LuaMethod.h"
-#include "se/krka/kahlua/vm/JavaFunction.h"
-#include "se/krka/kahlua/vm/KahluaTable.h"
-#include "se/krka/kahlua/vm/LuaClosure.h"
+#include <QRect>
+#include <glm/glm.hpp>
+#extern "C" {
+#include "lua.h"
+#include "lualib.h"
+#include "lauxlib.h"
+}
 #include "zombie/GameTime.h"
 #include "zombie/GameWindow.h"
 #include "zombie/IndieGL.h"
@@ -52,10 +53,6 @@
 #include "zombie/inventory/InventoryItem.h"
 #include "zombie/inventory/InventoryItemFactory.h"
 #include "zombie/iso/IsoCell/1.h"
-#include "zombie/iso/IsoCell/BuildingSearchCriteria.h"
-#include "zombie/iso/IsoCell/PerPlayerRender.h"
-#include "zombie/iso/IsoCell/SnowGrid.h"
-#include "zombie/iso/IsoCell/SnowGridTiles.h"
 #include "zombie/iso/IsoCell/s_performance.h"
 #include "zombie/iso/IsoCell/s_performance/renderTiles.h"
 #include "zombie/iso/IsoCell/s_performance/renderTiles/PperformRenderTilesLayer.h"
@@ -98,6 +95,77 @@
 #include <fstream>
 #include <iostream>
 #include <iterator>
+// --- Begin merged IsoCell subclasses and enums ---
+namespace zombie {
+namespace iso {
+
+enum class BuildingSearchCriteria {
+   Food,
+   Defense,
+   Wood,
+   Weapons,
+   General
+};
+
+class PerPlayerRender {
+public:
+   std::shared_ptr<IsoGridStack> GridStacks;
+   std::vector<std::vector<std::vector<bool>>> VisiOccludedFlags;
+   std::vector<std::vector<bool>> VisiCulledFlags;
+   std::vector<std::vector<std::vector<short>>> StencilValues;
+   std::vector<std::vector<bool>> FlattenGrassEtc;
+   int minX = 0;
+   int minY = 0;
+   int maxX = 0;
+   int maxY = 0;
+   PerPlayerRender() : GridStacks(std::make_shared<IsoGridStack>(9)) {}
+   void setSize(int w, int h) {
+      if (VisiOccludedFlags.size() < w || (VisiOccludedFlags.size() > 0 && VisiOccludedFlags[0].size() < h)) {
+         VisiOccludedFlags.resize(w, std::vector<std::vector<bool>>(h, std::vector<bool>(2)));
+         VisiCulledFlags.resize(w, std::vector<bool>(h));
+         StencilValues.resize(w, std::vector<std::vector<short>>(h, std::vector<short>(2)));
+         FlattenGrassEtc.resize(w, std::vector<bool>(h));
+      }
+   }
+};
+
+class SnowGridTiles {
+public:
+   int8_t ID = -1;
+   int counter = -1;
+   std::vector<std::shared_ptr<Texture>> textures;
+   SnowGridTiles(IsoCell* cell, int8_t id) : ID(id) {}
+   void add(std::shared_ptr<Texture> tex) { textures.push_back(tex); }
+   std::shared_ptr<Texture> getNext() {
+      counter++;
+      if (counter >= static_cast<int>(textures.size())) counter = 0;
+      return textures[counter];
+   }
+   std::shared_ptr<Texture> get(int idx) { return textures[idx]; }
+   int size() const { return static_cast<int>(textures.size()); }
+};
+
+class SnowGrid {
+public:
+   int w = 256;
+   int h = 256;
+   int frac = 0;
+   static constexpr int N = 0;
+   static constexpr int S = 1;
+   static constexpr int W = 2;
+   static constexpr int E = 3;
+   static constexpr int A = 0;
+   static constexpr int B = 1;
+   std::vector<std::vector<std::vector<std::shared_ptr<Texture>>>> grid;
+   std::vector<std::vector<std::vector<int8_t>>> gridType;
+   SnowGrid(IsoCell* cell, int var2) : grid(w, std::vector<std::vector<std::shared_ptr<Texture>>>(h, std::vector<std::shared_ptr<Texture>>(2))), gridType(w, std::vector<std::vector<int8_t>>(h, std::vector<int8_t>(2))) {}
+   // Additional methods and fields as needed
+};
+
+} // namespace iso
+} // namespace zombie
+// --- End merged IsoCell subclasses and enums ---
+
 
 namespace zombie {
 namespace iso {

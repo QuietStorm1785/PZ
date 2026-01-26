@@ -1,3 +1,4 @@
+
 #pragma once
 #include <string>
 #include <vector>
@@ -5,41 +6,38 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/Lua/LuaEventManager.h"
-#include "zombie/characters/IsoPlayer.h"
-#include "zombie/core/Core.h"
-#include "zombie/core/Rand.h"
-#include "zombie/core/properties/PropertyContainer.h"
-#include "zombie/debug/DebugLog.h"
-#include "zombie/iso/SpriteDetails/IsoFlagType.h"
-#include "zombie/iso/SpriteDetails/IsoObjectType.h"
-#include "zombie/iso/areas/IsoRoom.h"
-#include "zombie/iso/objects/IsoBarbecue.h"
-#include "zombie/iso/objects/IsoClothingDryer.h"
-#include "zombie/iso/objects/IsoClothingWasher.h"
-#include "zombie/iso/objects/IsoCombinationWasherDryer.h"
-#include "zombie/iso/objects/IsoCurtain.h"
-#include "zombie/iso/objects/IsoDoor.h"
-#include "zombie/iso/objects/IsoFireplace.h"
-#include "zombie/iso/objects/IsoJukebox.h"
-#include "zombie/iso/objects/IsoLightSwitch.h"
-#include "zombie/iso/objects/IsoMannequin.h"
-#include "zombie/iso/objects/IsoRadio.h"
-#include "zombie/iso/objects/IsoStove.h"
-#include "zombie/iso/objects/IsoTelevision.h"
-#include "zombie/iso/objects/IsoTree.h"
-#include "zombie/iso/objects/IsoWheelieBin.h"
-#include "zombie/iso/objects/IsoWindow.h"
-#include "zombie/iso/sprite/IsoDirectionFrame.h"
-#include "zombie/iso/sprite/IsoSprite.h"
-#include "zombie/iso/sprite/IsoSpriteInstance.h"
-#include "zombie/iso/sprite/IsoSpriteManager.h"
-#include "zombie/network/GameClient.h"
-#include "zombie/network/GameServer.h"
-#include <algorithm>
-#include <fstream>
-#include <iostream>
-#include <iterator>
+
+// Forward declarations for types used in static fields and methods
+class IsoObject;
+class IsoTree;
+class IsoSprite;
+class IsoObjectType;
+class IsoGridSquare;
+class IsoCell;
+class IsoRoom;
+class IsoPlayer;
+
+namespace zombie {
+namespace iso {
+
+class CellLoader {
+public:
+   // Static fields
+   static std::vector<std::shared_ptr<IsoObject>> isoObjectCache;
+   static std::vector<std::shared_ptr<IsoTree>> isoTreeCache;
+   static int wanderX;
+   static int wanderY;
+   static std::shared_ptr<IsoRoom> wanderRoom;
+   static std::unordered_set<std::string> missingTiles;
+   static std::unordered_map<std::shared_ptr<IsoSprite>, std::shared_ptr<IsoSprite>> smashedWindowSpriteMap;
+
+   // Static methods (signatures only, implement in .cpp)
+   static void DoTileObjectCreation(std::shared_ptr<IsoSprite> sprite, IsoObjectType type, std::shared_ptr<IsoGridSquare> square, std::shared_ptr<IsoCell> cell, int x, int y, int z, const std::string& name);
+   // ... Add all other static methods from the Java source here ...
+};
+
+} // namespace iso
+} // namespace zombie
 
 namespace zombie {
 namespace iso {

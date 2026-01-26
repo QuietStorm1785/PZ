@@ -1,3 +1,126 @@
+// --- IsoMarker (nested class) ---
+class IsoMarker {
+public:
+   int ID;
+   std::vector<std::shared_ptr<Texture>> textures;
+   std::vector<std::shared_ptr<Texture>> overlayTextures;
+   std::vector<std::shared_ptr<IsoObject>> tempObjects;
+   std::shared_ptr<IsoGridSquare> square;
+   float x = 0.0f, y = 0.0f, z = 0.0f;
+   float r = 1.0f, g = 1.0f, b = 1.0f, a = 1.0f;
+   bool doAlpha = false;
+   float fadeSpeed = 0.006f;
+   float alpha = 0.0f;
+   float alphaMax = 1.0f;
+   float alphaMin = 0.3f;
+   bool alphaInc = true;
+   bool active = true;
+   bool removed = false;
+
+   IsoMarker() : ID(IsoMarkers::NextIsoMarkerID++) {}
+
+   int getID() const { return ID; }
+   void remove() { removed = true; }
+   bool isRemoved() const { return removed; }
+
+   void init(LuaTable* t1, LuaTable* t2, int px, int py, int pz, std::shared_ptr<IsoGridSquare> sq) {
+      square = sq;
+      // TODO: Fill textures/overlayTextures from LuaTable if needed
+      setPos(px, py, pz);
+   }
+   void init(LuaTable* t1, LuaTable* t2, int px, int py, int pz, std::shared_ptr<IsoGridSquare> sq, bool temp) {
+      square = sq;
+      // TODO: Fill tempObjects from LuaTable if temp
+      setPos(px, py, pz);
+   }
+   void init(const std::string& name, int px, int py, int pz, std::shared_ptr<IsoGridSquare> sq, bool temp) {
+      square = sq;
+      // TODO: Fill tempObjects if temp
+      setPos(px, py, pz);
+   }
+   bool hasTempSquareObject() const { return !tempObjects.empty(); }
+   void addTempSquareObject(std::shared_ptr<IsoObject> obj) { /* TODO: Add to square->localTemporaryObjects */ }
+   void removeTempSquareObjects() { /* TODO: Remove from square->localTemporaryObjects */ }
+   float getX() const { return x; }
+   float getY() const { return y; }
+   float getZ() const { return z; }
+   float getR() const { return r; }
+   float getG() const { return g; }
+   float getB() const { return b; }
+   float getA() const { return a; }
+   void setR(float v) { r = v; }
+   void setG(float v) { g = v; }
+   void setB(float v) { b = v; }
+   void setA(float v) { a = v; }
+   float getAlpha() const { return alpha; }
+   void setAlpha(float v) { alpha = v; }
+   float getAlphaMax() const { return alphaMax; }
+   void setAlphaMax(float v) { alphaMax = v; }
+   float getAlphaMin() const { return alphaMin; }
+   void setAlphaMin(float v) { alphaMin = v; }
+   bool isDoAlpha() const { return doAlpha; }
+   void setDoAlpha(bool v) { doAlpha = v; }
+   float getFadeSpeed() const { return fadeSpeed; }
+   void setFadeSpeed(float v) { fadeSpeed = v; }
+   std::shared_ptr<IsoGridSquare> getSquare() const { return square; }
+   void setSquare(std::shared_ptr<IsoGridSquare> sq) { square = sq; }
+   void setPos(int px, int py, int pz) { x = px + 0.5f; y = py + 0.5f; z = pz; }
+   bool isActive() const { return active; }
+   void setActive(bool v) { active = v; }
+};
+
+// --- CircleIsoMarker (nested class) ---
+class CircleIsoMarker {
+public:
+   int ID;
+   std::shared_ptr<IsoGridSquare> square;
+   float x = 0.0f, y = 0.0f, z = 0.0f;
+   float r = 1.0f, g = 1.0f, b = 1.0f, a = 1.0f;
+   float size = 1.0f;
+   bool doAlpha = false;
+   float fadeSpeed = 0.006f;
+   float alpha = 0.0f;
+   float alphaMax = 1.0f;
+   float alphaMin = 0.3f;
+   bool alphaInc = true;
+   bool active = true;
+   bool removed = false;
+
+   CircleIsoMarker() : ID(IsoMarkers::NextCircleIsoMarkerID++) {}
+
+   int getID() const { return ID; }
+   void remove() { removed = true; }
+   bool isRemoved() const { return removed; }
+   void init(int px, int py, int pz, std::shared_ptr<IsoGridSquare> sq) { square = sq; setPos(px, py, pz); }
+   float getX() const { return x; }
+   float getY() const { return y; }
+   float getZ() const { return z; }
+   float getR() const { return r; }
+   float getG() const { return g; }
+   float getB() const { return b; }
+   float getA() const { return a; }
+   void setR(float v) { r = v; }
+   void setG(float v) { g = v; }
+   void setB(float v) { b = v; }
+   void setA(float v) { a = v; }
+   float getSize() const { return size; }
+   void setSize(float v) { size = v; }
+   float getAlpha() const { return alpha; }
+   void setAlpha(float v) { alpha = v; }
+   float getAlphaMax() const { return alphaMax; }
+   void setAlphaMax(float v) { alphaMax = v; }
+   float getAlphaMin() const { return alphaMin; }
+   void setAlphaMin(float v) { alphaMin = v; }
+   bool isDoAlpha() const { return doAlpha; }
+   void setDoAlpha(bool v) { doAlpha = v; }
+   float getFadeSpeed() const { return fadeSpeed; }
+   void setFadeSpeed(float v) { fadeSpeed = v; }
+   std::shared_ptr<IsoGridSquare> getSquare() const { return square; }
+   void setSquare(std::shared_ptr<IsoGridSquare> sq) { square = sq; }
+   void setPos(int px, int py, int pz) { x = px; y = py; z = pz; }
+   bool isActive() const { return active; }
+   void setActive(bool v) { active = v; }
+};
 #pragma once
 #include <string>
 #include <vector>
@@ -5,7 +128,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "se/krka/kahlua/vm/KahluaTable.h"
+#include "zombie/lua/LuaTable.h" // Replace with your Lua 5.4.7 table wrapper
 #include "zombie/GameTime.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/SpriteRenderer.h"
@@ -22,42 +145,62 @@ namespace iso {
 
 class IsoMarkers {
 public:
-    static const IsoMarkers instance = std::make_shared<IsoMarkers>();
-    static int NextIsoMarkerID = 0;
-   private const List<IsoMarker> markers = std::make_unique<std::vector<>>();
-   private const List<CircleIsoMarker> circlemarkers = std::make_unique<std::vector<>>();
-    static int NextCircleIsoMarkerID = 0;
+   // Singleton accessor (not enforced, but matches Java static usage)
+   static IsoMarkers& instance();
 
-    private IsoMarkers() {
-   }
+   // Marker ID counters
+   static int NextIsoMarkerID;
+   static int NextCircleIsoMarkerID;
 
-    void init() {
-   }
+   // Initialization/reset
+   void init();
+   void reset();
 
-    void reset() {
-      this.markers.clear();
-      this.circlemarkers.clear();
-   }
+   // Update
+   void update();
+   void updateIsoMarkers();
+   void updateCircleIsoMarkers();
 
-    void update() {
-      if (!GameServer.bServer) {
-         this.updateIsoMarkers();
-         this.updateCircleIsoMarkers();
-      }
-   }
+   // Marker management
+   bool removeIsoMarker(std::shared_ptr<IsoMarker> marker);
+   bool removeIsoMarker(int id);
+   std::shared_ptr<IsoMarker> getIsoMarker(int id);
+   std::shared_ptr<IsoMarker> addIsoMarker(const std::string& name, std::shared_ptr<IsoGridSquare> sq, float r, float g, float b, bool doAlpha, bool temp);
+   // LuaTable overloads (use LuaTable for Lua 5.4.7 integration)
+   std::shared_ptr<IsoMarker> addIsoMarker(LuaTable* t1, LuaTable* t2, std::shared_ptr<IsoGridSquare> sq, float r, float g, float b, bool doAlpha, bool temp);
+   std::shared_ptr<IsoMarker> addIsoMarker(LuaTable* t1, LuaTable* t2, std::shared_ptr<IsoGridSquare> sq, float r, float g, float b, bool doAlpha, bool temp, float fadeSpeed, float alphaMin, float alphaMax);
 
-    void updateIsoMarkers() {
-      if (IsoCamera.frameState.playerIndex == 0) {
-         if (this.markers.size() != 0) {
-            for (int var1 = this.markers.size() - 1; var1 >= 0; var1--) {
-               if (this.markers.get(var1).isRemoved()) {
-                  if (this.markers.get(var1).hasTempSquareObject()) {
-                     this.markers.get(var1).removeTempSquareObjects();
-                  }
+   // Rendering
+   void renderIsoMarkers(std::shared_ptr<PerPlayerRender> render, int z, int playerIdx);
+   void renderIsoMarkersDeferred(std::shared_ptr<PerPlayerRender> render, int z, int playerIdx);
+   void renderIsoMarkersOnSquare(std::shared_ptr<PerPlayerRender> render, int z, int playerIdx);
+   void renderCircleIsoMarkers(std::shared_ptr<PerPlayerRender> render, int z, int playerIdx);
+   void render();
 
-                  this.markers.remove(var1);
-               }
-            }
+   // Circle marker management
+   bool removeCircleIsoMarker(std::shared_ptr<CircleIsoMarker> marker);
+   bool removeCircleIsoMarker(int id);
+   std::shared_ptr<CircleIsoMarker> getCircleIsoMarker(int id);
+   std::shared_ptr<CircleIsoMarker> addCircleIsoMarker(std::shared_ptr<IsoGridSquare> sq, float r, float g, float b, float a);
+
+   // Marker containers (public for legacy compatibility, but prefer accessors)
+   std::vector<std::shared_ptr<IsoMarker>> markers;
+   std::vector<std::shared_ptr<CircleIsoMarker>> circlemarkers;
+
+private:
+   IsoMarkers() = default;
+   IsoMarkers(const IsoMarkers&) = delete;
+   IsoMarkers& operator=(const IsoMarkers&) = delete;
+};
+
+// Static member definitions
+inline int IsoMarkers::NextIsoMarkerID = 0;
+inline int IsoMarkers::NextCircleIsoMarkerID = 0;
+
+inline IsoMarkers& IsoMarkers::instance() {
+   static IsoMarkers inst;
+   return inst;
+}
 
             for (int var3 = 0; var3 < this.markers.size(); var3++) {
     IsoMarker var2 = this.markers.get(var3);
