@@ -10,7 +10,7 @@
 #include <cstdint>
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/spnetwork/ZomboidNetData.h"
-#include "org/joml/Vector2.h"
+#include <glm/vec2.hpp>
 namespace zombie {
 namespace network {
 

@@ -1,3 +1,4 @@
+#include "zombie/audio/OpenALSoundEmitter.h"
 #pragma once
 #include <queue>
 #include <stack>
@@ -7,7 +8,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/javafmod.h"
+
 #include "zombie/AmbientStreamManager.h"
 #include "zombie/DebugFileWatcher.h"
 #include "zombie/FliesSound.h"
@@ -820,7 +821,7 @@ public:
             DebugLog.log("EXITDEBUG: IngameState.exit 9");
             ZomboidFileSystem.instance.Reset();
             if (!Core.SoundDisabled && !GameServer.bServer) {
-               javafmod.FMOD_System_Update();
+
             }
 
             try {

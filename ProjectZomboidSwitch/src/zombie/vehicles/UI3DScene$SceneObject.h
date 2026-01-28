@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Matrix4f.h"
-#include "org/joml/Vector3f.h"
+#include <glm/mat4x4.hpp>
+#include <glm/vec3.hpp>
 #include "zombie/util/Type.h"
 #include "zombie/vehicles/UI3DScene/SceneModel.h"
 #include "zombie/vehicles/UI3DScene/SceneObjectRenderData.h"

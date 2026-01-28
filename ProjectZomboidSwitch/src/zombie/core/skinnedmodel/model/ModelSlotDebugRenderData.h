@@ -6,8 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "gnu/trove/list/array/TFloatArrayList.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
+#include <GL/glew.h>
 #include "org/lwjgl/util/vector/Matrix4f.h"
 #include "zombie/core/Color.h"
 #include "zombie/core/math/PZMath.h"

@@ -8,9 +8,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODManager.h"
-#include "java/awt/Desktop.h"
-#include "java/awt/Desktop/Action.h"
+// #include "OpenAL/OpenALManager.h" // Use OpenAL equivalents if needed
 #include "java/net/URI.h"
 #include "java/net/URL.h"
 #include "java/text/SimpleDateFormat.h"
@@ -2527,17 +2525,17 @@ public:
       return GameKeyboard.isKeyPressed(var0);
    }
 
-    static BaseSoundBank getFMODSoundBank() {
-      return BaseSoundBank.instance;
-   }
+      static BaseSoundBank getOpenALSoundBank() {
+         return BaseSoundBank.instance;
+    }
 
-    static bool isSoundPlaying(void* var0) {
-      return dynamic_cast<double*>(var0) != nullptr ? FMODManager.instance.isPlaying(((double)var0).longValue()) : false;
-   }
+      static bool isSoundPlaying(void* var0) {
+         return dynamic_cast<double*>(var0) != nullptr ? OpenALManager::instance.isPlaying(((double)var0).longValue()) : false;
+    }
 
-    static void stopSound(long var0) {
-      FMODManager.instance.stopSound(var0);
-   }
+      static void stopSound(long var0) {
+         OpenALManager::instance.stopSound(var0);
+    }
 
     static bool isShiftKeyDown() {
       return GameKeyboard.isKeyDown(42) || GameKeyboard.isKeyDown(54);

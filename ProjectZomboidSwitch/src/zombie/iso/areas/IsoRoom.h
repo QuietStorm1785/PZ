@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/Rectangle.h"
 #include "zombie/VirtualZombieManager.h"
 #include "zombie/core/Rand.h"
 #include "zombie/inventory/ItemContainer.h"
@@ -32,7 +31,7 @@ class IsoRoom {
 public:
    private static const std::vector<IsoGridSquare> tempSquares = std::make_unique<std::vector<>>();
    public const Vector<IsoGridSquare> Beds = std::make_unique<Vector<>>();
-    Rectangle bounds;
+   zombie::core::Rect bounds;
     IsoBuilding building = nullptr;
    public const std::vector<ItemContainer> Containers = std::make_unique<std::vector<>>();
    public const std::vector<IsoWindow> Windows = std::make_unique<std::vector<>>();

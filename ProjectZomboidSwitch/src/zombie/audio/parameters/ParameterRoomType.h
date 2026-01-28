@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterRoomType/RoomType.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
@@ -22,7 +22,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterRoomType : public FMODGlobalParameter {
+class ParameterRoomType : public zombie::audio::OpenALParameterStub {
 public:
     static ParameterRoomType instance;
     static RoomType roomType = nullptr;

@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Matrix4f.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "org/lwjglx/opengl/OpenGLException.h"
 #include "org/lwjglx/opengl/Util.h"
 #include "zombie/core/skinnedmodel/model/Model.h"

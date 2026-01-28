@@ -7,7 +7,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Vector3f.h"
-#include "org/lwjgl/opengl/GL.h"
+#include <GL/glew.h>
 #include "zombie/GameTime.h"
 #include "zombie/core/Color.h"
 #include "zombie/core/Core.h"

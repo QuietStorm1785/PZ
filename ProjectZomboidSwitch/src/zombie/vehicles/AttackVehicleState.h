@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODSoundEmitter.h"
-#include "org/joml/Vector3f.h"
+#include "zombie/audio/OpenALSoundEmitter.h"
+#include <glm/vec3.hpp>
 #include "zombie/GameTime.h"
 #include "zombie/ai/State.h"
 #include "zombie/ai/states/ZombieIdleState.h"
@@ -46,7 +46,11 @@ public:
                var3.setLeaveBodyTimedown(var3.getLeaveBodyTimedown() + GameTime.getInstance().getMultiplier() / 1.6F);
                if (!GameServer.bServer && !Core.SoundDisabled && Rand.Next(Rand.AdjustForFramerate(15)) == 0) {
                   if (this.emitter == nullptr) {
-                     this.emitter = std::make_unique<FMODSoundEmitter>();
+#if defined(__SWITCH__) || defined(NINTENDO_SWITCH)
+                     this.emitter = std::make_unique<zombie::audio::SDL2SoundEmitter>();
+#else
+                     this.emitter = std::make_unique<zombie::audio::OpenALSoundEmitter>();
+#endif
                   }
 
     std::string var6 = var2.isFemale() ? "FemaleZombieEating" : "MaleZombieEating";

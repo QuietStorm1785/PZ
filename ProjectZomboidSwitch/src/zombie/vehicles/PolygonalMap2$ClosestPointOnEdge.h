@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Vector2f.h"
+#include <glm/vec2.hpp>
 #include "zombie/vehicles/PolygonalMap2/Edge.h"
 #include "zombie/vehicles/PolygonalMap2/Node.h"
 

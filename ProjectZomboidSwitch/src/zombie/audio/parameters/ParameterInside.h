@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterInside : public FMODGlobalParameter {
+class ParameterInside : public OpenALParameterStub {
 public:
     public ParameterInside() {
       super("Inside");

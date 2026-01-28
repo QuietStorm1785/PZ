@@ -8,10 +8,10 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/EmitterType.h"
-#include "fmod/fmod/FMODAudio.h"
-#include "fmod/fmod/FMODSoundBank.h"
-#include "fmod/fmod/FMODSoundEmitter.h"
+// #include "OpenAL/OpenALEmitterType.h"
+// #include "OpenAL/OpenALAudio.h"
+// #include "OpenAL/OpenALSoundBank.h"
+// #include "OpenAL/OpenALSoundEmitter.h"
 #include "java/text/SimpleDateFormat.h"
 #include "org/joml/Vector2f.h"
 #include "org/joml/Vector3f.h"
@@ -583,10 +583,10 @@ public:
       this.setExposed(std::stack.class);
       this.setExposed(Vector.class);
       this.setExposed(Iterator.class);
-      this.setExposed(EmitterType.class);
-      this.setExposed(FMODAudio.class);
-      this.setExposed(FMODSoundBank.class);
-      this.setExposed(FMODSoundEmitter.class);
+      this.setExposed(OpenALEmitterType.class);
+      this.setExposed(OpenALAudio.class);
+      this.setExposed(OpenALSoundBank.class);
+      this.setExposed(OpenALSoundEmitter.class);
       this.setExposed(Vector2f.class);
       this.setExposed(Vector3f.class);
       this.setExposed(KahluaUtil.class);

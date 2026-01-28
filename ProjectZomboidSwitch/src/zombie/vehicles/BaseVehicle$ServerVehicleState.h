@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Quaternionf.h"
+#include <glm/gtc/quaternion.hpp>
 #include "zombie/vehicles/BaseVehicle/Authorization.h"
 
 namespace zombie {

@@ -6,7 +6,6 @@
 #include <unordered_set>
 #include <cstdint>
 #include <vector>
-#include "java/awt/Rectangle.h"
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "zombie/GameTime.h"
 #include "zombie/GameWindow.h"
@@ -90,8 +89,8 @@ public:
     static ByteBuffer s_clipperBuffer = nullptr;
    private static const ThreadLocal<Location> TL_Location = ThreadLocal.withInitial(Location::new);
    private static const ThreadLocal<std::vector<Zone>> TL_ZoneList = ThreadLocal.withInitial(std::vector::new);
-    static Rectangle a = std::make_shared<Rectangle>();
-    static Rectangle b = std::make_shared<Rectangle>();
+   static zombie::core::Rect a = zombie::core::Rect();
+   static zombie::core::Rect b = zombie::core::Rect();
    static std::vector<RoomDef> roomChoices = new std::vector<>(50);
    private const std::vector<RoomDef> tempRooms = std::make_unique<std::vector<>>();
    private const std::vector<Zone> tempZones1 = std::make_unique<std::vector<>>();

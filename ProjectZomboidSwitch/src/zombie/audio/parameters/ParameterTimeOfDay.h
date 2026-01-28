@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "zombie/GameTime.h"
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/iso/weather/ClimateManager.h"
 #include "zombie/iso/weather/ClimateManager/DayInfo.h"
 
@@ -15,7 +15,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterTimeOfDay : public FMODGlobalParameter {
+class ParameterTimeOfDay : public OpenALParameterStub {
 public:
     public ParameterTimeOfDay() {
       super("TimeOfDay");

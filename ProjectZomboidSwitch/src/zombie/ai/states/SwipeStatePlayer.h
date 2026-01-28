@@ -7,7 +7,6 @@
 #include <unordered_set>
 #include <cstdint>
 #include "fmod/fmod/FMODManager.h"
-#include "java/awt/geom/Line2D.h"
 #include "org/joml/Vector3f.h"
 #include "org/joml/Vector4f.h"
 #include "org/lwjglx/input/Keyboard.h"

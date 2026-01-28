@@ -30,6 +30,9 @@ public:
     int selectIndex = -1;
     int deselectIndex = -1;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public RadialMenu(int var1, int var2, int var3, int var4) {
       this.setX(var1);
       this.setY(var2);

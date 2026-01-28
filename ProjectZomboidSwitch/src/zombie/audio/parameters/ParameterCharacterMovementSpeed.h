@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterCharacterMovementSpeed/MovementType.h"
 #include "zombie/characters/IsoGameCharacter.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterCharacterMovementSpeed : public FMODLocalParameter {
+class ParameterCharacterMovementSpeed : public OpenALParameterStub {
 public:
     const IsoGameCharacter character;
     MovementType movementType = MovementType.Walk;

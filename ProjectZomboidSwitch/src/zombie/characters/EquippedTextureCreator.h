@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "zombie/characterTextures/ItemSmartTexture.h"
 #include "zombie/core/skinnedmodel/ModelManager.h"
 #include "zombie/core/skinnedmodel/model/ModelInstance.h"

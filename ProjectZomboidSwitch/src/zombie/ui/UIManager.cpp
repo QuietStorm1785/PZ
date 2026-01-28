@@ -1,3 +1,4 @@
+#include "imgui.h"
 #include <string>
 #include <vector>
 #include "zombie/ui/UIManager.h"
@@ -137,8 +138,8 @@ void UIManager::init() {
 }
 
 void UIManager::render() {
-    // Ported from Java: UIManager.render()
-    if (!useUIFBO /*|| Core::getInstance()->UIRenderThisFrame*/) {
+    // ImGui-based UI rendering
+    if (!useUIFBO) {
         if (!bSuspend) {
             using namespace std::chrono;
             long now = duration_cast<milliseconds>(steady_clock::now().time_since_epoch()).count();
@@ -157,6 +158,28 @@ void UIManager::render() {
             if (LuaManager::thread == defaultthread) {
                 LuaEventManager::triggerEvent("OnPreUIDraw");
             }
+
+            // Begin ImGui frame
+            ImGui::NewFrame();
+
+            for (auto& elem : UI) {
+                if ((elem->isIgnoreLossControl() && !elem->isFollowGameWorld())) {
+                    try {
+                        if (elem->isDefaultDraw())
+                            elem->ImGuiRender();
+                    } catch (...) {
+                        // TODO: Log error
+                    }
+                }
+            }
+
+            if (toolTip) {
+                toolTip->ImGuiRender();
+            }
+
+            // End ImGui frame
+            ImGui::Render();
+        }
 
             int mouseX = Mouse::getXA();
             int mouseY = Mouse::getYA();

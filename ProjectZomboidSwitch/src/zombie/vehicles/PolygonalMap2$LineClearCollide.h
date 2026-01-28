@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/geom/Line2D.h"
 #include "zombie/iso/Vector2.h"
 #include "zombie/vehicles/PolygonalMap2/Chunk.h"
 #include "zombie/vehicles/PolygonalMap2/ChunkDataZ.h"

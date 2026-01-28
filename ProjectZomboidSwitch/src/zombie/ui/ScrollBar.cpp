@@ -18,7 +18,16 @@ void ScrollBar::setHeight(double var1) {
 }
 
 void ScrollBar::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void ScrollBar::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Scroll Bar", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Scroll Bar: %s", name.c_str());
+    ImGui::SliderFloat("Offset", &ButtonOffset, 0.0f, (float)FullLength);
+    ImGui::End();
 }
 
 bool ScrollBar::onMouseMove(double var1, double var3) {

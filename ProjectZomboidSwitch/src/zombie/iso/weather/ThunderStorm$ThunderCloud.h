@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/GameTime/AnimTimer.h"
+#include "zombie/GameTime.h"
 #include "zombie/core/Rand.h"
 
 namespace zombie {
@@ -31,7 +31,7 @@ public:
     float thunderRatio;
     float percentageOffset;
     bool isRunning = false;
-    AnimTimer suspendTimer = std::make_shared<AnimTimer>();
+    zombie::GameTime::AnimTimer suspendTimer;
 
     int getCurrentX() {
       return this.currentX;

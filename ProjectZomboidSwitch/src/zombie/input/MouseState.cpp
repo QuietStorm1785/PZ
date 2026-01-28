@@ -1,62 +1,64 @@
-#include "zombie/input/MouseState.h"
+#include "MouseState.h"
+#include <SDL2/SDL.h>
 
-namespace zombie {
-namespace input {
-
-void MouseState::poll() {
-    // TODO: Implement poll
+MouseState::MouseState() {
+    buttonDownStates_.resize(5, false);
 }
 
-bool MouseState::wasPolled() {
-    // TODO: Implement wasPolled
-    return false;
+void MouseState::update() {
+    SDL_PumpEvents();
+    int mouseX, mouseY;
+    Uint32 buttons = SDL_GetMouseState(&mouseX, &mouseY);
+    x_ = mouseX;
+    y_ = mouseY;
+    buttonDownStates_[0] = buttons & SDL_BUTTON(SDL_BUTTON_LEFT);
+    buttonDownStates_[1] = buttons & SDL_BUTTON(SDL_BUTTON_RIGHT);
+    buttonDownStates_[2] = buttons & SDL_BUTTON(SDL_BUTTON_MIDDLE);
+    buttonDownStates_[3] = buttons & SDL_BUTTON(4);
+    buttonDownStates_[4] = buttons & SDL_BUTTON(5);
+    created_ = true;
+
+    // Handle wheel events
+    dWheel_ = 0;
+    SDL_Event event;
+    while (SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_MOUSEWHEEL, SDL_MOUSEWHEEL)) {
+        if (event.type == SDL_MOUSEWHEEL) {
+            dWheel_ += event.wheel.y;
+        }
+    }
 }
 
-void MouseState::set(MouseState var1) {
-    // TODO: Implement set
+int MouseState::getX() const {
+    return x_;
 }
 
-void MouseState::reset() {
-    // TODO: Implement reset
+int MouseState::getY() const {
+    return y_;
 }
 
-bool MouseState::isCreated() {
-    // TODO: Implement isCreated
-    return false;
+bool MouseState::isButtonDown(int button) const {
+    if (button < 0 || button >= (int)buttonDownStates_.size()) return false;
+    return buttonDownStates_[button];
 }
 
-int MouseState::getX() {
-    // TODO: Implement getX
-    return 0;
-}
-
-int MouseState::getY() {
-    // TODO: Implement getY
-    return 0;
-}
-
-int MouseState::getDWheel() {
-    // TODO: Implement getDWheel
-    return 0;
+int MouseState::getDWheel() const {
+    return dWheel_;
 }
 
 void MouseState::resetDWheel() {
-    // TODO: Implement resetDWheel
+    dWheel_ = 0;
 }
 
-bool MouseState::isButtonDown(int var1) {
-    // TODO: Implement isButtonDown
-    return false;
+int MouseState::getButtonCount() const {
+    return (int)buttonDownStates_.size();
 }
 
-int MouseState::getButtonCount() {
-    // TODO: Implement getButtonCount
-    return 0;
+bool MouseState::isCreated() const {
+    return created_;
 }
 
-void MouseState::setCursorPosition(int var1, int var2) {
-    // TODO: Implement setCursorPosition
+void MouseState::setCursorPosition(int x, int y) {
+    SDL_WarpMouseInWindow(nullptr, x, y);
+    x_ = x;
+    y_ = y;
 }
-
-} // namespace input
-} // namespace zombie

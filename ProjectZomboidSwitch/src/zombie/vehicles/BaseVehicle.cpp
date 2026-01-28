@@ -2186,10 +2186,7 @@ VehicleEngineRPM BaseVehicle::getVehicleEngineRPM() {
     return nullptr;
 }
 
-FMODParameterList BaseVehicle::getFMODParameters() {
-    // TODO: Implement getFMODParameters
-    return nullptr;
-}
+
 
 void BaseVehicle::startEvent(long var1, GameSoundClip var3, BitSet var4) {
     // TODO: Implement startEvent

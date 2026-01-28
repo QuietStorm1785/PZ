@@ -9,9 +9,7 @@
 #include <unordered_set>
 #include "org/joml/Matrix4f.h"
 #include "org/joml/Vector2f.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjgl/opengl/GL14.h"
+#include <GL/glew.h>
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/SpriteRenderer.h"

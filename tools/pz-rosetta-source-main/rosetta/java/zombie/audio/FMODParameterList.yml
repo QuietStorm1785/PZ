@@ -3,7 +3,7 @@ languages:
   java:
     packages:
       zombie.audio:
-        FMODParameterList:
+        # FMODParameterList removed for OpenAL migration
           extends: java.lang.Object
           modifiers:
           - public
@@ -58,3 +58,4 @@ languages:
               type:
                 basic: void
                 full: void
+          # FMODParameterList removed for OpenAL migration

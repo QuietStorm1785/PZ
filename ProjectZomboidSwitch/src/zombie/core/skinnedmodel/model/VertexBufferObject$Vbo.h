@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include <filesystem>
 
 namespace zombie {
@@ -16,7 +16,7 @@ namespace model {
 
 class VertexBufferObject {
 public:
-    const IntBuffer b = BufferUtils.createIntBuffer(4);
+    const IntBuffer b = BufferUtils::createIntBuffer(4);
     int VboID;
     int EboID;
     int NumElements;

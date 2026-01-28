@@ -14,7 +14,15 @@ void UI_BodyPart::onMouseMoveOutside(double var1, double var3) {
 }
 
 void UI_BodyPart::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void UI_BodyPart::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Body Part", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Body Part: %s", BodyPartType.getName().c_str());
+    ImGui::End();
 }
 
 } // namespace ui

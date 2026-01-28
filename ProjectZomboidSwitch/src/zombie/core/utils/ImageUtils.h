@@ -5,11 +5,9 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/image/BufferedImage.h"
-#include "java/awt/image/WritableRaster.h"
 #include "javax/imageio/ImageIO.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjglx/BufferUtils.h"
+#include <GL/glew.h>
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/textures/Texture.h"
 #include <filesystem>
@@ -84,7 +82,7 @@ public:
 
     static Texture getScreenShot() {
     Texture var0 = std::make_shared<Texture>(Core.getInstance().getScreenWidth(), Core.getInstance().getScreenHeight(), 0);
-    IntBuffer var1 = BufferUtils.createIntBuffer(4);
+   IntBuffer var1 = BufferUtils::createIntBuffer(4);
       var0.bind();
       var1.rewind();
       GL11.glTexParameteri(3553, 10241, 9729);

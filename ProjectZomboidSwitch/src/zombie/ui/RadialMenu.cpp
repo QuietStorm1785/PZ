@@ -14,7 +14,17 @@ void RadialMenu::update() {
 }
 
 void RadialMenu::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void RadialMenu::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Radial Menu", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Radial Menu");
+    // Example: Show slices (replace with real data)
+    ImGui::Text("Slices: %zu", slices.size());
+    ImGui::End();
 }
 
 void RadialMenu::formatTextInsideCircle(const std::string& var1) {

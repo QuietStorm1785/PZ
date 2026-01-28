@@ -13,7 +13,16 @@ void RadarPanel::update() {
 }
 
 void RadarPanel::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void RadarPanel::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Radar Panel", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Radar Panel");
+    ImGui::Text("Player Index: %d", playerIndex);
+    ImGui::End();
 }
 
 void RadarPanel::stencilOn() {

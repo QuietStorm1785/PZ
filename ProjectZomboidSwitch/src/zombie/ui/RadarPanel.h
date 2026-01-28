@@ -48,6 +48,9 @@ public:
     int zombiePosFrameCount;
    private boolean[] zombiePosOccupied = new boolean[360];
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public RadarPanel(int var1) {
       this.setX(IsoCamera.getScreenLeft(var1) + 20);
       this.setY(IsoCamera.getScreenTop(var1) + IsoCamera.getScreenHeight(var1) - 120 - 20);

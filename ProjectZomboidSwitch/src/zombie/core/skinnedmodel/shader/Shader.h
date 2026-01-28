@@ -8,10 +8,10 @@
 #include "org/joml/Math.h"
 #include "org/joml/Vector4f.h"
 #include "org/lwjgl/opengl/ARBShaderObjects.h"
-#include "org/lwjgl/opengl/GL20.h"
+#include <GL/glew.h>
 #include "org/lwjgl/util/vector/Matrix4f.h"
 #include "org/lwjgl/util/vector/Vector3f.h"
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/math/PZMath.h"

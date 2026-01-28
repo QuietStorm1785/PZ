@@ -23,6 +23,9 @@ public:
     Texture DownTexture = nullptr;
     UIEventHandler MessageTarget2 = nullptr;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public GenericButton(UIElement var1, float var2, float var3, float var4, float var5, const std::string& var6, const std::string& var7, Texture var8, Texture var9) {
       this.x = var2;
       this.y = var3;

@@ -6,15 +6,12 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODManager.h"
-#include "fmod/fmod/FMODSoundEmitter.h"
-#include "fmod/fmod/FMOD_STUDIO_PARAMETER_DESCRIPTION.h"
-#include "fmod/fmod/IFMODParameterUpdater.h"
-#include "org/joml/Matrix4f.h"
-#include "org/joml/Quaternionf.h"
-#include "org/joml/Vector2f.h"
-#include "org/joml/Vector3f.h"
-#include "org/joml/Vector4f.h"
+#include "zombie/audio/OpenALSoundEmitter.h"
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include "se/krka/kahlua/j2se/KahluaTableImpl.h"
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "zombie/GameTime.h"
@@ -30,8 +27,6 @@
 #include "zombie/ai/states/ZombieFallDownState.h"
 #include "zombie/audio/BaseSoundEmitter.h"
 #include "zombie/audio/DummySoundEmitter.h"
-#include "zombie/audio/FMODParameter.h"
-#include "zombie/audio/FMODParameterList.h"
 #include "zombie/audio/GameSoundClip.h"
 #include "zombie/audio/parameters/ParameterVehicleBrake.h"
 #include "zombie/audio/parameters/ParameterVehicleEngineCondition.h"
@@ -354,7 +349,10 @@ public:
     const ParameterVehicleSpeed parameterVehicleSpeed = std::make_shared<ParameterVehicleSpeed>(this);
     const ParameterVehicleSteer parameterVehicleSteer = std::make_shared<ParameterVehicleSteer>(this);
     const ParameterVehicleTireMissing parameterVehicleTireMissing = std::make_shared<ParameterVehicleTireMissing>(this);
-    const FMODParameterList fmodParameters = std::make_shared<FMODParameterList>();
+
+   // OpenAL migration: vehicle audio parameters
+   std::vector<std::shared_ptr<BaseVehicleParameter>> vehicleParameters;
+
     bool isActive = false;
     bool isStatic = false;
     const UpdateLimit physicReliableLimit = std::make_shared<UpdateLimit>(500L);
@@ -445,16 +443,16 @@ public:
          lowRiderParam[var3] = 0.0F;
       }
 
-      this.fmodParameters.push_back(this.parameterVehicleBrake);
-      this.fmodParameters.push_back(this.parameterVehicleEngineCondition);
-      this.fmodParameters.push_back(this.parameterVehicleGear);
-      this.fmodParameters.push_back(this.parameterVehicleLoad);
-      this.fmodParameters.push_back(this.parameterVehicleRPM);
-      this.fmodParameters.push_back(this.parameterVehicleRoadMaterial);
-      this.fmodParameters.push_back(this.parameterVehicleSkid);
-      this.fmodParameters.push_back(this.parameterVehicleSpeed);
-      this.fmodParameters.push_back(this.parameterVehicleSteer);
-      this.fmodParameters.push_back(this.parameterVehicleTireMissing);
+      this.vehicleParameters.push_back(this.parameterVehicleBrake);
+      this.vehicleParameters.push_back(this.parameterVehicleEngineCondition);
+      this.vehicleParameters.push_back(this.parameterVehicleGear);
+      this.vehicleParameters.push_back(this.parameterVehicleLoad);
+      this.vehicleParameters.push_back(this.parameterVehicleRPM);
+      this.vehicleParameters.push_back(this.parameterVehicleRoadMaterial);
+      this.vehicleParameters.push_back(this.parameterVehicleSkid);
+      this.vehicleParameters.push_back(this.parameterVehicleSpeed);
+      this.vehicleParameters.push_back(this.parameterVehicleSteer);
+      this.vehicleParameters.push_back(this.parameterVehicleTireMissing);
    }
 
     static void LoadAllVehicleTextures() {
@@ -4515,9 +4513,9 @@ public:
                   var3.setVehicleHitLocation(this);
                }
 
-    BaseSoundEmitter var11 = IsoWorld.instance.getFreeEmitter(var1.x, var1.y, var1.z);
-    long var12 = var11.playSound("VehicleHitCharacter");
-               var11.setParameterValue(var12, FMODManager.instance.getParameterDescription("VehicleSpeed"), this.getCurrentSpeedKmHour());
+   BaseSoundEmitter var11 = IsoWorld.instance.getFreeEmitter(var1.x, var1.y, var1.z);
+   long var12 = var11.playSound("VehicleHitCharacter");
+            var11.setParameterValue(var12, "VehicleSpeed", this.getCurrentSpeedKmHour());
                var1.Hit(this, var10, var8 > 0.0F, var9.set(-var7.x, -var7.z));
                TL_vector2_pool.get().release(var9);
                TL_vector3f_pool.get().release(var7);
@@ -6350,14 +6348,17 @@ public:
     BaseSoundEmitter getEmitter() {
       if (this.emitter == nullptr) {
          if (!Core.SoundDisabled && !GameServer.bServer) {
-    FMODSoundEmitter var1 = std::make_shared<FMODSoundEmitter>();
-            var1.parameterUpdater = this;
+#if defined(__SWITCH__) || defined(NINTENDO_SWITCH)
+            auto var1 = std::make_shared<audio::SDL2SoundEmitter>();
+#else
+            auto var1 = std::make_shared<OpenALSoundEmitter>();
+#endif
+            var1->parameterUpdater = this;
             this.emitter = var1;
          } else {
             this.emitter = std::make_unique<DummySoundEmitter>();
          }
       }
-
       return this.emitter;
    }
 
@@ -6507,7 +6508,7 @@ public:
                }
 
                if (this.emitter != nullptr && (this.engineState != engineStateTypes.Idle || !this.emitter.empty())) {
-                  this.getFMODParameters().update();
+                  this.getVehicleParameters().update();
                   this.emitter.setPos(this.x, this.y, this.z);
                   this.emitter.tick();
                }
@@ -8724,42 +8725,23 @@ public:
       return this.vehicleEngineRPM;
    }
 
-    FMODParameterList getFMODParameters() {
-      return this.fmodParameters;
-   }
 
-    void startEvent(long var1, GameSoundClip var3, BitSet var4) {
-    FMODParameterList var5 = this.getFMODParameters();
-    std::vector var6 = var3.eventDescription.parameters;
 
-      for (int var7 = 0; var7 < var6.size(); var7++) {
-    FMOD_STUDIO_PARAMETER_DESCRIPTION var8 = (FMOD_STUDIO_PARAMETER_DESCRIPTION)var6.get(var7);
-         if (!var4.get(var8.globalIndex)) {
-    FMODParameter var9 = var5.get(var8);
-            if (var9 != nullptr) {
-               var9.startEventInstance(var1);
-            }
-         }
+    std::vector<std::shared_ptr<BaseVehicleParameter>>& getVehicleParameters() {
+      return this.vehicleParameters;
+    }
+
+      void startEvent(long var1, GameSoundClip var3, BitSet var4) {
+         // OpenAL: Implement event start logic as needed
       }
-   }
 
     void updateEvent(long var1, GameSoundClip var3) {
-   }
+      // OpenAL: setParameterValue("VehicleSpeed", this.getCurrentSpeedKmHour());
+    }
 
-    void stopEvent(long var1, GameSoundClip var3, BitSet var4) {
-    FMODParameterList var5 = this.getFMODParameters();
-    std::vector var6 = var3.eventDescription.parameters;
-
-      for (int var7 = 0; var7 < var6.size(); var7++) {
-    FMOD_STUDIO_PARAMETER_DESCRIPTION var8 = (FMOD_STUDIO_PARAMETER_DESCRIPTION)var6.get(var7);
-         if (!var4.get(var8.globalIndex)) {
-    FMODParameter var9 = var5.get(var8);
-            if (var9 != nullptr) {
-               var9.stopEventInstance(var1);
-            }
-         }
+      void stopEvent(long var1, GameSoundClip var3, BitSet var4) {
+         // OpenAL: Implement event stop logic as needed
       }
-   }
 
     void stopEngineSounds() {
       if (this.emitter != nullptr) {

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/iso/NearestWalls.h"
@@ -15,7 +15,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterClosestWallDistance : public FMODGlobalParameter {
+class ParameterClosestWallDistance : public OpenALParameterStub {
 public:
     public ParameterClosestWallDistance() {
       super("ClosestWallDistance");

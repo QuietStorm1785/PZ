@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Quaternionf.h"
-#include "org/joml/Vector3f.h"
+#include <glm/gtc/quaternion.hpp>
+#include <glm/vec3.hpp>
 #include "zombie/core/physics/Transform.h"
 #include "zombie/iso/Vector2.h"
 #include "zombie/scripting/objects/VehicleScript.h"

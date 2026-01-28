@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBFramebufferObject.h"
+#include <GL/glew.h>
 
 namespace zombie {
 namespace core {

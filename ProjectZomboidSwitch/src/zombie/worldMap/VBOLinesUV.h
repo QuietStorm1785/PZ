@@ -6,9 +6,8 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/lwjgl/BufferUtils.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL12.h"
-#include "org/lwjgl/opengl/GL13.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include "zombie/core/SpriteRenderer.h"
 #include "zombie/core/VBO/GLVertexBufferObject.h"
 #include "zombie/core/VBO/IGLBufferObject.h"

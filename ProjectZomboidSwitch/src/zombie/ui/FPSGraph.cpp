@@ -29,7 +29,18 @@ void FPSGraph::update() {
 }
 
 void FPSGraph::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void FPSGraph::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("FPS Graph", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("FPS Graph");
+    // Example: Draw FPS bars (replace with real data)
+    static float values[30] = {};
+    ImGui::PlotHistogram("FPS", values, 30, 0, nullptr, 0.0f, 120.0f, ImVec2(220, 80));
+    ImGui::End();
 }
 
 } // namespace ui

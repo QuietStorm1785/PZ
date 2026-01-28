@@ -5,9 +5,9 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL20.h"
+#include <GL/glew.h>
 #include "org/lwjgl/system/MemoryUtil.h"
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/core/VBO/IGLBufferObject.h"
 #include "zombie/core/opengl/RenderThread.h"
 #include "zombie/core/skinnedmodel/model/VertexBufferObject/1.h"
@@ -124,8 +124,8 @@ public:
     int var4 = 0;
     uint8_t var5 = 76;
       var3.FaceDataOnly = false;
-    ByteBuffer var6 = BufferUtils.createByteBuffer(var1.length * var5);
-    ByteBuffer var7 = BufferUtils.createByteBuffer(var2.length * 4);
+   ByteBuffer var6 = BufferUtils::createByteBuffer(var1.length * var5);
+   ByteBuffer var7 = BufferUtils::createByteBuffer(var2.length * 4);
 
       for (int var8 = 0; var8 < var1.length; var8++) {
          var1[var8].put(var6);
@@ -169,7 +169,7 @@ public:
          var5 = true;
          var4 = std::make_unique<Vbo>();
          var4.VboID = funcs.glGenBuffers();
-    ByteBuffer var7 = BufferUtils.createByteBuffer(var3.length * 4);
+   ByteBuffer var7 = BufferUtils::createByteBuffer(var3.length * 4);
 
          for (int var8 = 0; var8 < var3.length; var8++) {
             var7.putInt(var3[var8]);
@@ -201,8 +201,8 @@ public:
     int var4 = 0;
     uint8_t var5 = 44;
       var3.FaceDataOnly = false;
-    ByteBuffer var6 = BufferUtils.createByteBuffer(var1.length * var5);
-    ByteBuffer var7 = BufferUtils.createByteBuffer(var2.length * 4);
+   ByteBuffer var6 = BufferUtils::createByteBuffer(var1.length * var5);
+   ByteBuffer var7 = BufferUtils::createByteBuffer(var2.length * 4);
 
       for (int var8 = 0; var8 < var1.length; var8++) {
          var1[var8].put(var6);

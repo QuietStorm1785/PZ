@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/iso/IsoGridSquare.h"
@@ -16,7 +16,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterRoomSize : public FMODGlobalParameter {
+class ParameterRoomSize : public zombie::audio::OpenALParameterStub {
 public:
     public ParameterRoomSize() {
       super("RoomSize");

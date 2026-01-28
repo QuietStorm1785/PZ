@@ -170,25 +170,24 @@ void Helicopter::update() {
 void Helicopter::updateSound() {
     if (GameServer::bServer) return;
     if (Core::SoundDisabled) return;
-    if (FMODManager::instance->getNumListeners() == 0) return;
     auto sound = GameSounds::getSound("Helicopter");
     if (!sound || sound->clips.empty()) return;
     if (inst == 0L) {
         auto clip = sound->getRandomClip();
         event = clip.eventDescription;
         if (event.address != 0) {
-            javafmod::FMOD_Studio_LoadEventSampleData(event.address);
-            inst = javafmod::FMOD_Studio_System_CreateEventInstance(event.address);
+            // OpenAL: Load event sample data and create event instance
+            inst = OpenALSoundEmitter::createEventInstance(event.address);
         }
     }
     if (inst != 0L) {
         float vol = SoundManager::instance->getSoundVolume();
         vol *= sound->getUserVolume();
         if (vol != volume) {
-            javafmod::FMOD_Studio_EventInstance_SetVolume(inst, vol);
+            OpenALSoundEmitter::setEventInstanceVolume(inst, vol);
             volume = vol;
         }
-        javafmod::FMOD_Studio_EventInstance3D(inst, x, y, 200.0f);
+        OpenALSoundEmitter::setEventInstance3D(inst, x, y, 200.0f);
         float occ = 0.0f;
         if (IsoPlayer::numPlayers == 1) {
             auto sq = IsoPlayer::getInstance()->getCurrentSquare();
@@ -198,10 +197,10 @@ void Helicopter::updateSound() {
         }
         if (occlusion != occ) {
             occlusion = occ;
-            javafmod::FMOD_Studio_EventInstance_SetParameterByName(inst, "Occlusion", occlusion);
+            OpenALSoundEmitter::setEventInstanceParameterByName(inst, "Occlusion", occlusion);
         }
         if (!bSoundStarted) {
-            javafmod::FMOD_Studio_StartEvent(inst);
+            OpenALSoundEmitter::startEvent(inst);
             bSoundStarted = true;
         }
     }
@@ -224,7 +223,7 @@ void Helicopter::deactivate() {
     if (bActive) {
         bActive = false;
         if (bSoundStarted) {
-            javafmod::FMOD_Studio_EventInstance_Stop(inst, false);
+            OpenALSoundEmitter::stopEvent(inst, false);
             bSoundStarted = false;
         }
         if (GameServer::bServer) {

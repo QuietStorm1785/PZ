@@ -36,7 +36,16 @@ void SpeedControls::onMouseMoveOutside(double var1, double var3) {
 }
 
 void SpeedControls::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void SpeedControls::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Speed Controls", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Speed Controls");
+    ImGui::SliderInt("Current Speed", &CurrentSpeed, 0, 4);
+    ImGui::End();
 }
 
 void SpeedControls::update() {

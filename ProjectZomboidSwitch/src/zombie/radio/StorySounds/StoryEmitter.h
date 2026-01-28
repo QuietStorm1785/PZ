@@ -6,8 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODManager.h"
-#include "fmod/javafmod.h"
+// #include "OpenAL/OpenALManager.h" // Use OpenAL equivalents if needed
 #include "zombie/GameSounds.h"
 #include "zombie/SoundManager.h"
 #include "zombie/audio/GameSound.h"
@@ -36,7 +35,7 @@ public:
     Vector2 playerVect = std::make_shared<Vector2>();
 
     int stopSound(long var1) {
-      return javafmod.FMOD_Channel_Stop(var1);
+      return OpenALSystem::Channel_Stop(var1);
    }
 
     long playSound(const std::string& var1, float var2, float var3, float var4, float var5, float var6, float var7) {
@@ -48,7 +47,7 @@ public:
     return 0L;
          } else {
     GameSoundClip var9 = var8.getRandomClip();
-    long var10 = FMODManager.instance.loadSound(var1);
+   long var10 = OpenALManager::instance.loadSound(var1);
             if (var10 == 0L) {
     return 0L;
             } else {
@@ -66,9 +65,9 @@ public:
                var12.z = var5;
                var12.volume = SoundManager.instance.getSoundVolume() * var2 * this.volumeMod;
                var12.sound = var10;
-               var12.channel = javafmod.FMOD_System_PlaySound(var10, true);
+               var12.channel = OpenALSystem::PlaySound(var10, true);
                this.ToStart.push_back(var12);
-               javafmod.FMOD_Channel_Set3DAttributes(
+               OpenALSystem::Channel_Set3DAttributes(
                   var12.channel,
                   var12.x - IsoPlayer.getInstance().x,
                   var12.y - IsoPlayer.getInstance().y,
@@ -77,11 +76,11 @@ public:
                   0.0F,
                   0.0F
                );
-               javafmod.FMOD_Channel_Set3DOcclusion(var12.channel, 1.0F, 1.0F);
+               OpenALSystem::Channel_Set3DOcclusion(var12.channel, 1.0F, 1.0F);
                if (IsoPlayer.getInstance() != nullptr && IsoPlayer.getInstance().Traits.Deaf.isSet()) {
-                  javafmod.FMOD_Channel_SetVolume(var12.channel, 0.0F);
+                  OpenALSystem::Channel_SetVolume(var12.channel, 0.0F);
                } else {
-                  javafmod.FMOD_Channel_SetVolume(var12.channel, var12.volume);
+                  OpenALSystem::Channel_SetVolume(var12.channel, var12.volume);
                }
 
                return var12.channel;
@@ -93,7 +92,7 @@ public:
     void tick() {
       for (int var1 = 0; var1 < this.ToStart.size(); var1++) {
     Sound var2 = this.ToStart.get(var1);
-         javafmod.FMOD_Channel_SetPaused(var2.channel, false);
+         OpenALSystem::Channel_SetPaused(var2.channel, false);
          this.Instances.push_back(var2);
       }
 
@@ -101,7 +100,7 @@ public:
 
       for (int var12 = 0; var12 < this.Instances.size(); var12++) {
     Sound var13 = this.Instances.get(var12);
-         if (!javafmod.FMOD_Channel_IsPlaying(var13.channel)) {
+         if (!OpenALSystem::Channel_IsPlaying(var13.channel)) {
             this.SoundStack.push(var13);
             this.Instances.remove(var13);
             var12--;
@@ -113,7 +112,7 @@ public:
             }
 
             if (!this.coordinate3D) {
-               javafmod.FMOD_Channel_Set3DAttributes(
+               OpenALSystem::Channel_Set3DAttributes(
                   var13.channel,
                   Math.abs(var13.x - IsoPlayer.getInstance().x),
                   Math.abs(var13.y - IsoPlayer.getInstance().y),
@@ -123,7 +122,7 @@ public:
                   0.0F
                );
             } else {
-               javafmod.FMOD_Channel_Set3DAttributes(
+               OpenALSystem::Channel_Set3DAttributes(
                   var13.channel,
                   Math.abs(var13.x - IsoPlayer.getInstance().x),
                   Math.abs(var13.z - IsoPlayer.getInstance().z),
@@ -134,9 +133,9 @@ public:
                );
             }
 
-            javafmod.FMOD_System_SetReverbDefault(0, FMODManager.FMOD_PRESET_MOUNTAINS);
-            javafmod.FMOD_Channel_SetReverbProperties(var13.channel, 0, 1.0F);
-            javafmod.FMOD_Channel_Set3DMinMaxDistance(var13.channel, var13.minRange, var13.maxRange);
+            OpenALSystem::SetReverbDefault(0, OpenALManager::PRESET_MOUNTAINS);
+            OpenALSystem::Channel_SetReverbProperties(var13.channel, 0, 1.0F);
+            OpenALSystem::Channel_Set3DMinMaxDistance(var13.channel, var13.minRange, var13.maxRange);
     float var4 = 0.0F;
     float var5 = 0.0F;
     IsoGridSquare var6 = IsoPlayer.getInstance().getCurrentSquare();
@@ -169,7 +168,7 @@ public:
                var5 = 0.75F + 0.1F * var3 + 0.1F * var11;
             }
 
-            javafmod.FMOD_Channel_Set3DOcclusion(var13.channel, var4, var5);
+            OpenALSystem::Channel_Set3DOcclusion(var13.channel, var4, var5);
          }
       }
    }

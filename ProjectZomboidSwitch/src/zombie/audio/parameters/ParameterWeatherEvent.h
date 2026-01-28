@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "zombie/SandboxOptions.h"
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterWeatherEvent/Event.h"
 #include "zombie/iso/weather/ClimateManager.h"
 
@@ -15,7 +15,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterWeatherEvent : public FMODGlobalParameter {
+class ParameterWeatherEvent : public OpenALParameterStub {
 public:
     Event event = Event.None;
 

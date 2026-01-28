@@ -21,12 +21,10 @@
 #include "zombie/iso/IsoUtils.h"
 #include "zombie/iso/IsoWorld.h"
 #include "zombie/inventory/ItemContainer.h"
-#include "fmod/fmod/FMODManager.h"
-#include "fmod/fmod/FMOD_STUDIO_PARAMETER_DESCRIPTION.h"
+#include "zombie/audio/OpenALSoundEmitter.h"
 #include "zombie/iso/Vector2.h"
 #include "zombie/network/GameServer.h"
 #include "zombie/popman/ObjectPool.h"
-#include "fmod/fmod/FMODSoundEmitter.h"
 #include "zombie/core/Core.h"
 #include "zombie/audio/parameters/ParameterCurrentZone.h"
 #include "zombie/iso/SpriteDetails/IsoFlagType.h"
@@ -82,15 +80,15 @@ public:
     void setParameterValue1(BaseSoundEmitter* emitter, int64_t time, const std::string& name, float value) {
         if (value != parameterValue1) {
             parameterValue1 = value;
-            FMOD_STUDIO_PARAMETER_DESCRIPTION desc = FMODManager::instance->getParameterDescription(name);
+                // TODO: Replace FMOD parameter logic with OpenAL equivalent or stub
             emitter->setParameterValue(time, desc, value);
         }
     }
 
-    void setParameterValue1(BaseSoundEmitter* emitter, int64_t time, const FMOD_STUDIO_PARAMETER_DESCRIPTION& desc, float value) {
+    void setParameterValue1(BaseSoundEmitter* emitter, int64_t time, const std::string& param, float value) {
         if (value != parameterValue1) {
             parameterValue1 = value;
-            emitter->setParameterValue(time, desc, value);
+            emitter->setParameterValue(time, param, value);
         }
     }
 
@@ -319,9 +317,9 @@ public:
 
     void startPlaying(BaseSoundEmitter* emitter, int64_t /*time*/) override {
         if (!emitter) return;
-        if (auto* fmodEmitter = dynamic_cast<FMODSoundEmitter*>(emitter)) {
-            fmodEmitter->addParameter(std::make_shared<ParameterCurrentZone>(object));
-        }
+          if (auto* openalEmitter = dynamic_cast<OpenALSoundEmitter*>(emitter)) {
+              // OpenAL emitter logic can be added here if needed
+          }
         emitter->playAmbientLoopedImpl("BirdInTree");
     }
 
@@ -403,7 +401,15 @@ public:
                 class DummySoundEmitter; // forward declare to avoid header dependency
                 emitter = std::unique_ptr<BaseSoundEmitter>(static_cast<BaseSoundEmitter*>(new DummySoundEmitter()));
             } else {
-                emitter = std::make_unique<FMODSoundEmitter>();
+#if defined(__SWITCH__) || defined(NINTENDO_SWITCH)
+                emitter = std::unique_ptr<BaseSoundEmitter>(static_cast<BaseSoundEmitter*>(new audio::SDL2SoundEmitter()));
+#else
+                #if defined(__SWITCH__) || defined(NINTENDO_SWITCH)
+                emitter = std::unique_ptr<BaseSoundEmitter>(static_cast<BaseSoundEmitter*>(new audio::SDL2SoundEmitter()));
+                #else
+                emitter = std::make_unique<OpenALSoundEmitter>();
+                #endif
+#endif
             }
         }
 
@@ -415,9 +421,9 @@ public:
         const std::string soundName = logic->getSoundName();
         if (!emitter->isPlaying(soundName)) {
             emitter->stopAll();
-            if (auto* fmodEmitter = dynamic_cast<FMODSoundEmitter*>(emitter.get())) {
-                fmodEmitter->clearParameters();
-            }
+              if (auto* openalEmitter = dynamic_cast<OpenALSoundEmitter*>(emitter.get())) {
+                  // OpenAL emitter parameter clearing logic can be added here if needed
+              }
 
             instance = emitter->playSoundImpl(soundName, nullptr);
             logic->startPlaying(emitter.get(), instance);

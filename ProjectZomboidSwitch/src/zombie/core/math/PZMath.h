@@ -5,9 +5,9 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/util/vector/Matrix4f.h"
-#include "org/lwjgl/util/vector/Quaternion.h"
-#include "org/lwjgl/util/vector/Vector3f.h"
+#include "zombie/core/math/Matrix4.h"
+#include "zombie/core/math/Vector3.h"
+// TODO: Add Quaternion implementation or use GLM if needed
 #include "zombie/core/math/PZMath/SideOfLine.h"
 #include "zombie/core/math/PZMath/UnitTests.h"
 #include "zombie/iso/Vector2.h"

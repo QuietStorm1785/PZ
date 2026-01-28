@@ -1,12 +1,11 @@
 #pragma once
-#include <stack>
+#include <vector>
 #include <string>
 #include <vector>
 #include <memory>
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/Rectangle.h"
 #include "zombie/core/Color.h"
 #include "zombie/core/textures/Texture.h"
 #include <algorithm>
@@ -32,8 +31,8 @@ public:
     int BottomWidth = 10;
     int clientH = 0;
     int clientW = 0;
-   public std::stack<Rectangle> nestedItems = std::make_unique<std::stack<>>();
-    Color Colour = std::make_shared<Color>(50, 50, 50, 212);
+      std::vector<std::tuple<float, float, float, float>> nestedItems; // x, y, w, h
+      float ColourR = 50, ColourG = 50, ColourB = 50, ColourA = 212;
 
    public UINineGrid(
       int var1,
@@ -77,48 +76,20 @@ public:
 
     void Nest(UIElement var1, int var2, int var3, int var4, int var5) {
       this.AddChild(var1);
-      this.nestedItems.push_back(std::make_shared<Rectangle>(var5, var2, var3, var4));
+      this.nestedItems.push_back(std::make_shared<zombie::core::Rect>(var5, var2, var3, var4));
       var1.setX(var5);
       var1.setY(var2);
       var1.update();
    }
 
-    void render() {
-      this.DrawTextureScaledCol(this.GridTopLeft, 0.0, 0.0, this.LeftWidth, this.TopWidth, this.Colour);
-      this.DrawTextureScaledCol(this.GridTop, this.LeftWidth, 0.0, this.getWidth() - (this.LeftWidth + this.RightWidth), this.TopWidth, this.Colour);
-      this.DrawTextureScaledCol(this.GridTopRight, this.getWidth() - this.RightWidth, 0.0, this.RightWidth, this.TopWidth, this.Colour);
-      this.DrawTextureScaledCol(this.GridLeft, 0.0, this.TopWidth, this.LeftWidth, this.getHeight() - (this.TopWidth + this.BottomWidth), this.Colour);
-      this.DrawTextureScaledCol(
-         this.GridCenter,
-         this.LeftWidth,
-         this.TopWidth,
-         this.getWidth() - (this.LeftWidth + this.RightWidth),
-         this.getHeight() - (this.TopWidth + this.BottomWidth),
-         this.Colour
-      );
-      this.DrawTextureScaledCol(
-         this.GridRight, this.getWidth() - this.RightWidth, this.TopWidth, this.RightWidth, this.getHeight() - (this.TopWidth + this.BottomWidth), this.Colour
-      );
-      this.DrawTextureScaledCol(this.GridBottomLeft, 0.0, this.getHeight() - this.BottomWidth, this.LeftWidth, this.BottomWidth, this.Colour);
-      this.DrawTextureScaledCol(
-         this.GridBottom,
-         this.LeftWidth,
-         this.getHeight() - this.BottomWidth,
-         this.getWidth() - (this.LeftWidth + this.RightWidth),
-         this.BottomWidth,
-         this.Colour
-      );
-      this.DrawTextureScaledCol(
-         this.GridBottomRight, this.getWidth() - this.RightWidth, this.getHeight() - this.BottomWidth, this.RightWidth, this.BottomWidth, this.Colour
-      );
-      super.render();
-   }
+    void ImGuiRender() override;
+    void render() override { ImGuiRender(); }
 
     void update() {
       super.update();
     int var1 = 0;
 
-      for (Rectangle var3 : this.nestedItems) {
+      for (zombie::core::Rect var3 : this.nestedItems) {
     UIElement var4 = (UIElement)this.getControls().get(var1);
          var4.setX((float)var3.getX());
          var4.setY((float)var3.getY());
@@ -129,13 +100,8 @@ public:
       }
    }
 
-    void setAlpha(float var1) {
-      this.Colour.a = var1;
-   }
-
-    float getAlpha() {
-      return this.Colour.a;
-   }
+      void setAlpha(float var1) { ColourA = var1; }
+      float getAlpha() { return ColourA; }
 }
 } // namespace ui
 } // namespace zombie

@@ -6,9 +6,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/Image.h"
-#include "java/awt/Toolkit.h"
-#include "java/awt/image/MemoryImageSource.h"
 #include "java/net/URL.h"
 #include "zombie/GameWindow.h"
 #include "zombie/core/textures/Pcx/pcx_t.h"

@@ -31,7 +31,7 @@ public:
     float targetAlpha = 0.0F;
     bool bNoRender = false;
     const LogoElement logoTIS = std::make_shared<LogoElement>("media/ui/TheIndieStoneLogo_Lineart_White.png");
-    const LogoElement logoFMOD = std::make_shared<LogoElement>("media/ui/FMODLogo.png");
+
     const LogoElement logoGA = std::make_shared<LogoElement>("media/ui/GA-1280-white.png");
     const LogoElement logoNW = std::make_shared<LogoElement>("media/ui/NW_Logo_Combined.png");
     static const int SCREEN_TIS = 1;
@@ -109,7 +109,7 @@ public:
       }
 
       var6 += var5 + var3;
-      var7 = this.logoFMOD.m_texture;
+
       if (var7 != nullptr && var7.isReady()) {
     float var21 = 0.35F;
     int var23 = TextManager.instance.getFontHeight(UIFont.Small);
@@ -118,10 +118,10 @@ public:
     int var26 = (var1 - var25) / 2;
     int var13 = (var5 - var24) / 2;
     int var14 = var6 + var13 + var24 + 16;
-         this.logoFMOD.setPos(var26, var6 + var13);
-         this.logoFMOD.setSize(var25, var24);
-         this.logoFMOD.render(this.alpha);
-    std::string var15 = "Made with FMOD Studio by Firelight Technologies Pty Ltd.";
+
+
+
+
          TextManager.instance.DrawStringCentre(var1 / 2.0, var14, var15, 1.0, 1.0, 1.0, this.alpha);
       }
    }

@@ -18,7 +18,16 @@ void LoadingQueueUI::onresize() {
 }
 
 void LoadingQueueUI::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void LoadingQueueUI::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Loading Queue", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("%s", strLoadingQueue.c_str());
+    ImGui::Text("%s", strQueuePlace.c_str());
+    ImGui::End();
 }
 
 void LoadingQueueUI::setPlaceInQueue(int var1) {

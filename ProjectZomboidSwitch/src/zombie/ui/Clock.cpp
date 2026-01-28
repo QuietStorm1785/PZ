@@ -9,7 +9,17 @@ public Clock::Clock(int var1, int var2) {
 }
 
 void Clock::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void Clock::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Clock", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Clock");
+    // Example: Show time (replace with real data)
+    ImGui::Text("12:34 PM");
+    ImGui::End();
 }
 
 void Clock::renderDisplay(bool var1, Color var2) {

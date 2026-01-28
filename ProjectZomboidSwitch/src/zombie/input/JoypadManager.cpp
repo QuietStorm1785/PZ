@@ -1,43 +1,69 @@
-#include <string>
-#include "zombie/input/JoypadManager.h"
+// SDL2-based JoypadManager implementation
+#include "JoypadManager.h"
+#include <SDL2/SDL.h>
+#include <cstring>
 
-namespace zombie {
-namespace input {
-
-Joypad JoypadManager::addJoypad(int var1, const std::string& var2, const std::string& var3) {
-    // TODO: Implement addJoypad
-    return nullptr;
+JoypadManager::JoypadManager() {
+    openControllers();
 }
 
-Joypad JoypadManager::checkJoypad(int var1) {
-    // TODO: Implement checkJoypad
-    return nullptr;
+JoypadManager::~JoypadManager() {
+    closeControllers();
 }
 
-void JoypadManager::doControllerFile(Joypad var1) {
-    // TODO: Implement doControllerFile
+void JoypadManager::openControllers() {
+    numJoypads_ = 0;
+    for (int i = 0; i < SDL_NumJoysticks() && numJoypads_ < MAX_JOYPADS; ++i) {
+        if (SDL_IsGameController(i)) {
+            joypads_[numJoypads_] = SDL_GameControllerOpen(i);
+            if (joypads_[numJoypads_]) {
+                ++numJoypads_;
+            }
+        }
+    }
 }
 
-void JoypadManager::saveFile(Joypad var1) {
-    // TODO: Implement saveFile
+void JoypadManager::closeControllers() {
+    for (int i = 0; i < numJoypads_; ++i) {
+        if (joypads_[i]) {
+            SDL_GameControllerClose(joypads_[i]);
+            joypads_[i] = nullptr;
+        }
+    }
+    numJoypads_ = 0;
 }
 
-void JoypadManager::reloadControllerFiles() {
-    // TODO: Implement reloadControllerFiles
+void JoypadManager::update() {
+    SDL_GameControllerUpdate();
 }
 
-void JoypadManager::assignJoypad(int var1, int var2) {
-    // TODO: Implement assignJoypad
+int JoypadManager::getNumJoypads() const {
+    return numJoypads_;
 }
 
-Joypad JoypadManager::getFromPlayer(int var1) {
-    // TODO: Implement getFromPlayer
-    return nullptr;
+SDL_GameController* JoypadManager::getJoypad(int idx) const {
+    if (idx < 0 || idx >= numJoypads_) return nullptr;
+    return joypads_[idx];
 }
 
-Joypad JoypadManager::getFromControllerID(int var1) {
-    // TODO: Implement getFromControllerID
-    return nullptr;
+std::string JoypadManager::getJoypadName(int idx) const {
+    if (auto c = getJoypad(idx)) {
+        const char* name = SDL_GameControllerName(c);
+        return name ? std::string(name) : std::string();
+    }
+    return std::string();
+}
+
+void JoypadManager::handleEvent(const SDL_Event& event) {
+    if (event.type == SDL_CONTROLLERDEVICEADDED) {
+        // Re-open controllers on hotplug
+        closeControllers();
+        openControllers();
+    } else if (event.type == SDL_CONTROLLERDEVICEREMOVED) {
+        closeControllers();
+        openControllers();
+    }
+}
 }
 
 void JoypadManager::onPressed(int var1, int var2) {

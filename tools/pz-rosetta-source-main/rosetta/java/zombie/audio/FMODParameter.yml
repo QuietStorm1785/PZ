@@ -23,13 +23,7 @@ languages:
               type:
                 basic: String
                 full: java.lang.String
-            m_parameterDescription:
-              name: m_parameterDescription
-              modifiers:
-              - private
-              type:
-                basic: FMOD_STUDIO_PARAMETER_DESCRIPTION
-                full: fmod.fmod.FMOD_STUDIO_PARAMETER_DESCRIPTION
+              # FMODParameter removed for OpenAL migration
           constructors:
           - modifiers:
             - public

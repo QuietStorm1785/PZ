@@ -123,38 +123,8 @@ public:
       return bool.TRUE;
    }
 
-    void render() {
-      if (this.isVisible()) {
-    bool var1 = false;
-         if (this.clicked) {
-            this.DrawTexture(this.downLeft, 0.0, 0.0, 1.0);
-            this.DrawTextureScaledCol(
-               this.downMid,
-               this.downLeft.getWidth(),
-               0.0,
-               (int)(this.getWidth() - this.downLeft.getWidth() * 2),
-               this.downLeft.getHeight(),
-    std::make_shared<Color>();
-            );
-            this.DrawTexture(this.downRight, (int)(this.getWidth() - this.downRight.getWidth()), 0.0, 1.0);
-            this.DrawTextCentre(this.text, this.getWidth() / 2.0, 1.0, 1.0, 1.0, 1.0, 1.0);
-         } else {
-            this.DrawTexture(this.upLeft, 0.0, 0.0, 1.0);
-            this.DrawTextureScaledCol(
-               this.upMid,
-               this.downLeft.getWidth(),
-               0.0,
-               (int)(this.getWidth() - this.downLeft.getWidth() * 2),
-               this.downLeft.getHeight(),
-    std::make_shared<Color>();
-            );
-            this.DrawTexture(this.upRight, (int)(this.getWidth() - this.downRight.getWidth()), 0.0, 1.0);
-            this.DrawTextCentre(this.text, this.getWidth() / 2.0, 0.0, 1.0, 1.0, 1.0, 1.0);
-         }
-
-         super.render();
-      }
-   }
+    void ImGuiRender() override;
+    void render() override { ImGuiRender(); }
 }
 } // namespace ui
 } // namespace zombie

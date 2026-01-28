@@ -7,7 +7,7 @@
 #include <cstdint>
 #include "org/joml/Matrix4f.h"
 #include "org/joml/Vector3f.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "zombie/core/Core.h"
 #include "zombie/core/math/PZMath.h"
 #include "zombie/core/skinnedmodel/DeadBodyAtlas/AtlasEntry.h"

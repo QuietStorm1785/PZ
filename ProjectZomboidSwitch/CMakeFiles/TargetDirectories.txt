@@ -1,7 +1,0 @@
-/workspaces/PZ/ProjectZomboidSwitch/CMakeFiles/ProjectZomboidSwitch.dir
-/workspaces/PZ/ProjectZomboidSwitch/CMakeFiles/edit_cache.dir
-/workspaces/PZ/ProjectZomboidSwitch/CMakeFiles/rebuild_cache.dir
-/workspaces/PZ/ProjectZomboidSwitch/CMakeFiles/list_install_components.dir
-/workspaces/PZ/ProjectZomboidSwitch/CMakeFiles/install.dir
-/workspaces/PZ/ProjectZomboidSwitch/CMakeFiles/install/local.dir
-/workspaces/PZ/ProjectZomboidSwitch/CMakeFiles/install/strip.dir

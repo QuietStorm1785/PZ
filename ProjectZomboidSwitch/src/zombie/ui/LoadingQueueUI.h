@@ -24,6 +24,9 @@ public:
     double timerMultiplierAnim = 0.0;
     int animOffset = -1;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public LoadingQueueUI() {
       this.strLoadingQueue = Translator.getText("UI_GameLoad_LoadingQueue");
       this.strQueuePlace = Translator.getText("UI_GameLoad_PlaceInQueue");

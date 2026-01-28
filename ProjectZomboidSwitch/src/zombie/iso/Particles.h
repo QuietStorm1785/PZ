@@ -5,13 +5,10 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL.h"
-#include "org/lwjgl/opengl/GL20.h"
-#include "org/lwjgl/opengl/GL31.h"
-#include "org/lwjgl/opengl/GL33.h"
+#include <GL/glew.h>
 #include "org/lwjgl/system/MemoryUtil.h"
 #include "org/lwjgl/util/vector/Matrix4f.h"
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/GameTime.h"
 #include "zombie/core/SpriteRenderer.h"
 #include "zombie/core/VBO/GLBufferObject15.h"

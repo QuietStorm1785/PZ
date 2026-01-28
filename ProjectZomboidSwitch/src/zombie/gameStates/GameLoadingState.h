@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/input/Keyboard.h"
+// TODO: Replace with SDL2 input or custom input handling
 #include "zombie/AmbientStreamManager.h"
 #include "zombie/ChunkMapFilenames.h"
 #include "zombie/GameTime.h"

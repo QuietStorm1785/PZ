@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Matrix4f.h"
+#include <glm/mat4x4.hpp>
 #include "org/joml/Quaternionf.h"
 #include "org/joml/Vector3f.h"
 #include "zombie/core/skinnedmodel/ModelManager.h"

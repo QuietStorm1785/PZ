@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/Dimension.h"
-#include "java/awt/Point.h"
+#include "zombie/core/Rect.h"
 #include "zombie/core/math/PZMath.h"
 
 namespace zombie {
@@ -33,8 +32,8 @@ public:
       this.y = var2;
    }
 
-    static Vector2 fromAwtPoint(Point var0) {
-      return std::make_shared<Vector2>(var0.x, var0.y);
+    static Vector2 fromPoint(const Vector2& var0) {
+      return Vector2(var0.x, var0.y);
    }
 
     static Vector2 fromLengthDirection(float var0, float var1) {
@@ -171,9 +170,12 @@ public:
     Dimension toAwtDimension() {
       return std::make_shared<Dimension>((int)this.x, (int)this.y);
    }
+      Vector2 toSize() const {
+        return Vector2(x, y);
+      }
 
-    Point toAwtPoint() {
-      return std::make_shared<Point>((int)this.x, (int)this.y);
+    Vector2 toPoint() const {
+      return Vector2(x, y);
    }
 
     std::string toString() {

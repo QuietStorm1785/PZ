@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/core/math/PZMath.h"
 #include "zombie/vehicles/BaseVehicle.h"
 #include "zombie/vehicles/VehiclePart.h"
@@ -15,7 +15,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterVehicleEngineCondition : public FMODLocalParameter {
+class ParameterVehicleEngineCondition : public zombie::audio::OpenALParameterStub {
 public:
     const BaseVehicle vehicle;
 

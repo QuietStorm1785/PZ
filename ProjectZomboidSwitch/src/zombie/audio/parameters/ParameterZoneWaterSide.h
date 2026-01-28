@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/math/PZMath.h"
@@ -18,7 +18,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterZoneWaterSide : public FMODGlobalParameter {
+class ParameterZoneWaterSide : public OpenALParameterStub {
 public:
     int m_playerX = -1;
     int m_playerY = -1;

@@ -5,17 +5,13 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjgl/opengl/GL14.h"
-#include "org/lwjgl/opengl/GL30.h"
-#include "org/lwjglx/opengl/OpenGLException.h"
+#include <GL/glew.h>
+// TODO: Replace with std::runtime_error or custom OpenGL exception
 #include "zombie/core/Core.h"
 #include "zombie/core/Rand.h"
 #include "zombie/core/SpriteRenderer.h"
 #include "zombie/core/opengl/PZGLUtil.h"
-#include "zombie/core/textures/TextureCombiner/CombinerFBO.h"
+#include <GL/glew.h>
 #include "zombie/core/utils/ImageUtils.h"
 #include <algorithm>
 #include <filesystem>

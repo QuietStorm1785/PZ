@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Vector2f.h"
+#include <glm/vec2.hpp>
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "se/krka/kahlua/vm/KahluaTableIterator.h"
 #include "zombie/AmbientStreamManager.h"
@@ -31,8 +31,7 @@
 #include "zombie/erosion/ErosionData/Square.h"
 #include "zombie/gameStates/DebugChunkState/BooleanDebugOption.h"
 #include "zombie/gameStates/GameStateMachine/StateAction.h"
-#include "zombie/input/GameKeyboard.h"
-#include "zombie/input/Mouse.h"
+#include "zombie/input/InputGlobals.h"
 #include "zombie/iso/BuildingDef.h"
 #include "zombie/iso/IsoCamera.h"
 #include "zombie/iso/IsoCell.h"
@@ -183,7 +182,7 @@ public:
    }
 
     StateAction update() {
-      return !this.bExit && !GameKeyboard.isKeyPressed(60) ? this.updateScene() : StateAction.Continue;
+      return !this.bExit && !g_keyboard.isKeyPressed(SDL_SCANCODE_F2) ? this.updateScene() : StateAction.Continue;
    }
 
     static DebugChunkState checkInstance() {
@@ -297,10 +296,10 @@ public:
     StateAction updateScene() {
       IsoPlayer.setInstance(IsoPlayer.players[this.m_playerIndex]);
       IsoCamera.CamCharacter = IsoPlayer.players[this.m_playerIndex];
-      UIManager.setPicked(IsoObjectPicker.Instance.ContextPick(Mouse.getXA(), Mouse.getYA()));
+      UIManager.setPicked(IsoObjectPicker.Instance.ContextPick(g_mouse.getX(), g_mouse.getY()));
     IsoObject var1 = UIManager.getPicked() == nullptr ? nullptr : UIManager.getPicked().tile;
       UIManager.setLastPicked(var1);
-      if (GameKeyboard.isKeyDown(16)) {
+      if (g_keyboard.isKeyDown(SDL_SCANCODE_LSHIFT)) {
          if (!keyQpressed) {
     IsoGridSquare var2 = IsoWorld.instance.getCell().getGridSquare(this.gridX, this.gridY, 0);
             if (var2 != nullptr) {
@@ -314,7 +313,7 @@ public:
          keyQpressed = false;
       }
 
-      if (GameKeyboard.isKeyDown(19)) {
+      if (g_keyboard.isKeyDown(SDL_SCANCODE_PAUSE)) {
          if (!keyQpressed) {
             DebugOptions.instance.Terrain.RenderTiles.NewRender.setValue(true);
             keyQpressed = true;
@@ -324,7 +323,7 @@ public:
          keyQpressed = false;
       }
 
-      if (GameKeyboard.isKeyDown(20)) {
+      if (g_keyboard.isKeyDown(SDL_SCANCODE_CAPSLOCK)) {
          if (!keyQpressed) {
             DebugOptions.instance.Terrain.RenderTiles.NewRender.setValue(false);
             keyQpressed = true;
@@ -334,7 +333,7 @@ public:
          keyQpressed = false;
       }
 
-      if (GameKeyboard.isKeyDown(31)) {
+      if (g_keyboard.isKeyDown(SDL_SCANCODE_S)) {
          if (!keyQpressed) {
             ParticlesFire.getInstance().reloadShader();
             keyQpressed = true;
@@ -433,8 +432,8 @@ public:
     void updateCursor() {
     int var1 = this.m_playerIndex;
     int var2 = Core.TileScale;
-    float var3 = Mouse.getXA();
-    float var4 = Mouse.getYA();
+   float var3 = g_mouse.getX();
+   float var4 = g_mouse.getY();
       var3 -= IsoCamera.getScreenLeft(var1);
       var4 -= IsoCamera.getScreenTop(var1);
       var3 *= Core.getInstance().getZoom(var1);

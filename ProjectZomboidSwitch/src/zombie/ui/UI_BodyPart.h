@@ -43,6 +43,9 @@ public:
     Texture burnTex;
     Texture bulletTex;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public UI_BodyPart(BodyPartType var1, int var2, int var3, const std::string& var4, IsoGameCharacter var5, bool var6) {
     std::string var7 = "male";
       if (var5.isFemale()) {

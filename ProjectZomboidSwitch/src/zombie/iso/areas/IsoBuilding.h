@@ -6,7 +6,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/Rectangle.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/characters/SurvivorDesc.h"
@@ -36,7 +35,7 @@ namespace areas {
 
 class IsoBuilding : public IsoArea {
 public:
-    Rectangle bounds;
+   zombie::core::Rect bounds;
    public const Vector<IsoRoomExit> Exits = std::make_unique<Vector<>>();
     bool IsResidence = true;
    public const std::vector<ItemContainer> container = std::make_unique<std::vector<>>();

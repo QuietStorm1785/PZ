@@ -6,8 +6,8 @@
 #include <unordered_set>
 #include <cstdint>
 #include "gnu/trove/list/array/TFloatArrayList.h"
-#include "org/joml/Vector2f.h"
-#include "org/joml/Vector3f.h"
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "zombie/SandboxOptions.h"
 #include "zombie/ai/State.h"

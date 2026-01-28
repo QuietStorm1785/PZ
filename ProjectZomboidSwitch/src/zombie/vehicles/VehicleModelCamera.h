@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Math.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <glm/glm.hpp>
+#include <GL/glew.h>
 #include "zombie/core/Core.h"
 #include "zombie/core/skinnedmodel/ModelCamera.h"
 

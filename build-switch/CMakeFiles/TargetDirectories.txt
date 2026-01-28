@@ -1,0 +1,9 @@
+/workspaces/PZ/build-switch/CMakeFiles/ProjectZomboidSwitch.dir
+/workspaces/PZ/build-switch/CMakeFiles/edit_cache.dir
+/workspaces/PZ/build-switch/CMakeFiles/rebuild_cache.dir
+/workspaces/PZ/build-switch/CMakeFiles/list_install_components.dir
+/workspaces/PZ/build-switch/CMakeFiles/install.dir
+/workspaces/PZ/build-switch/CMakeFiles/install/local.dir
+/workspaces/PZ/build-switch/CMakeFiles/install/strip.dir
+/workspaces/PZ/build-switch/CMakeFiles/ProjectZomboidSwitch_autogen_timestamp_deps.dir
+/workspaces/PZ/build-switch/CMakeFiles/ProjectZomboidSwitch_autogen.dir

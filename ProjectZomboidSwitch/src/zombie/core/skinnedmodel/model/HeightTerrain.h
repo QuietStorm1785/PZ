@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjglx/BufferUtils.h"
+#include <GL/glew.h>
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/PerformanceSettings.h"
@@ -147,7 +147,7 @@ public:
       }
 
       this.vb = std::make_unique<VertexBufferObject>();
-    ByteBuffer var34 = BufferUtils.createByteBuffer(var5.size() * 36);
+   ByteBuffer var34 = BufferUtils::createByteBuffer(var5.size() * 36);
 
       for (int var38 = 0; var38 < var5.size(); var38++) {
     VertexPositionNormalTangentTextureSkin var47 = (VertexPositionNormalTangentTextureSkin)var5.get(var38);

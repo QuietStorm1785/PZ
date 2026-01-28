@@ -8,6 +8,7 @@ namespace areas {
 
 IsoBuilding IsoRoom::getBuilding() {
     // TODO: Implement getBuilding
+    // Use Rect for bounds, update logic if needed.
     return nullptr;
 }
 

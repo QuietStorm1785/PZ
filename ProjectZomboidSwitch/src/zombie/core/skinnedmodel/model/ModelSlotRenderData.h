@@ -5,10 +5,10 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Math.h"
-#include "org/joml/Matrix4f.h"
-#include "org/joml/Vector3f.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <glm/glm.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/vec3.hpp>
+#include <GL/glew.h>
 #include "zombie/GameProfiler.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"

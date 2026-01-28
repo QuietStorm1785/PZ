@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "org/lwjgl/util/glu/GLU.h"
 #include "zombie/characters/AttachedItems/AttachedModelName.h"
 #include "zombie/characters/IsoPlayer.h"

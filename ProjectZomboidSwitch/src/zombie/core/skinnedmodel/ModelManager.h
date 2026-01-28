@@ -9,11 +9,9 @@
 #include <unordered_set>
 #include <cstdint>
 #include "java/net/URI.h"
-#include "org/lwjgl/opengl/ARBFramebufferObject.h"
-#include "org/lwjgl/opengl/ARBShaderObjects.h"
-#include "org/lwjgl/opengl/EXTFramebufferObject.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL30.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include "org/lwjglx/opengl/Display.h"
 #include "org/lwjglx/opengl/Util.h"
 #include "zombie/DebugFileWatcher.h"

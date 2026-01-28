@@ -4,8 +4,7 @@
 #include <vector>
 #include <memory>
 #include <cstdint>
-#include "fmod/fmod/FMOD_STUDIO_EVENT_DESCRIPTION.h"
-#include "fmod/fmod/FMOD_STUDIO_PARAMETER_DESCRIPTION.h"
+
 
 namespace zombie {
 namespace audio {
@@ -19,8 +18,7 @@ public:
 
       GameSound& gameSound;
       std::string event;
-      FMOD_STUDIO_EVENT_DESCRIPTION* eventDescription = nullptr;
-      FMOD_STUDIO_EVENT_DESCRIPTION* eventDescriptionMP = nullptr;
+      // OpenAL: eventDescription fields removed
       std::string file;
       float volume = 1.0f;
       float pitch = 1.0f;
@@ -46,7 +44,7 @@ public:
       float getEffectiveVolumeInMenu() const;
       GameSoundClip* checkReloaded();
       bool hasSustainPoints() const;
-      bool hasParameter(const FMOD_STUDIO_PARAMETER_DESCRIPTION& param) const;
+      bool hasParameter(const std::string& param) const;
   // Implementation of methods
   float GameSoundClip::getEffectiveVolume() const {
      float v = 1.0f;
@@ -91,7 +89,7 @@ public:
      return eventDescription && eventDescription->bHasSustainPoints;
   }
 
-  bool GameSoundClip::hasParameter(const FMOD_STUDIO_PARAMETER_DESCRIPTION& param) const {
+   bool GameSoundClip::hasParameter(const OpenALParameterDescription& param) const {
      return eventDescription && eventDescription->hasParameter(param);
   }
 };
@@ -189,7 +187,7 @@ public:
       return this.eventDescription != nullptr && this.eventDescription.bHasSustainPoints;
    }
 
-    bool hasParameter(FMOD_STUDIO_PARAMETER_DESCRIPTION var1) {
+   bool hasParameter(OpenALParameterDescription var1) {
       return this.eventDescription != nullptr && this.eventDescription.hasParameter(var1);
    }
 }

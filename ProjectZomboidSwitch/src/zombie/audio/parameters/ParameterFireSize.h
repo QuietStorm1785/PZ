@@ -5,14 +5,14 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 
 namespace zombie {
 namespace audio {
 namespace parameters {
 
 
-class ParameterFireSize : public FMODLocalParameter {
+class ParameterFireSize : public OpenALParameterStub {
 public:
     int size = 0;
 

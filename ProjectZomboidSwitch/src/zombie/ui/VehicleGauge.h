@@ -22,6 +22,9 @@ public:
     Texture texture;
     int needleWidth = 45;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public VehicleGauge(Texture var1, int var2, int var3, float var4, float var5) {
       this.texture = var1;
       this.needleX = var2;

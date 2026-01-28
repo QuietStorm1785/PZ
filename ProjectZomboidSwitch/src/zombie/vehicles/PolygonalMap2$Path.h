@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/geom/Line2D.h"
 #include "zombie/iso/IsoUtils.h"
 #include "zombie/vehicles/PolygonalMap2/PathNode.h"
 #include "zombie/vehicles/PolygonalMap2/SearchNode.h"

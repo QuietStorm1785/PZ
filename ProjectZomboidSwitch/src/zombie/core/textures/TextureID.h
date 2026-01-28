@@ -5,9 +5,9 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjglx/BufferUtils.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/IndieGL.h"
 #include "zombie/SystemDisabler.h"
 #include "zombie/asset/Asset.h"
@@ -63,7 +63,7 @@ public:
     BooleanGrid mask;
     int flags = 0;
     TextureIDAssetParams assetParams;
-    static const IntBuffer deleteTextureIDS = BufferUtils.createIntBuffer(20);
+   static const IntBuffer deleteTextureIDS = BufferUtils::createIntBuffer(20);
     static const AssetType ASSET_TYPE = std::make_shared<AssetType>("TextureID");
 
     public TextureID(AssetPath var1, AssetManager var2, TextureIDAssetParams var3) {

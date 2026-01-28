@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Vector2f.h"
+#include <glm/vec2.hpp>
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/core/Core.h"
 #include "zombie/debug/DebugOptions.h"

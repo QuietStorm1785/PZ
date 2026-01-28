@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterCurrentZone/Zone.h"
 #include "zombie/iso/IsoGridSquare.h"
 #include "zombie/iso/IsoObject.h"
@@ -15,7 +15,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterCurrentZone : public FMODLocalParameter {
+class ParameterCurrentZone : public zombie::audio::OpenALParameterStub {
 public:
     const IsoObject object;
    private zombie.iso.IsoMetaGrid.Zone metaZone;

@@ -1,43 +1,37 @@
-#include <queue>
-#include "zombie/input/GameKeyboard.h"
+// SDL2-based GameKeyboard implementation
+#include "GameKeyboard.h"
+#include <SDL2/SDL.h>
+#include <cstring>
 
-namespace zombie {
-namespace input {
+GameKeyboard::GameKeyboard() {
+    currentKeys_ = SDL_GetKeyboardState(&numKeys_);
+    lastKeys_.resize(numKeys_, 0);
+}
 
 void GameKeyboard::update() {
-    // TODO: Implement update
+    // Save previous state
+    if (numKeys_ > 0) {
+        std::memcpy(lastKeys_.data(), currentKeys_, numKeys_);
+    }
+    SDL_PumpEvents();
+    currentKeys_ = SDL_GetKeyboardState(nullptr);
 }
 
-void GameKeyboard::poll() {
-    // TODO: Implement poll
+bool GameKeyboard::isKeyDown(SDL_Scancode scancode) const {
+    return currentKeys_ && currentKeys_[scancode];
 }
 
-bool GameKeyboard::isKeyPressed(int var0) {
-    // TODO: Implement isKeyPressed
-    return false;
+bool GameKeyboard::isKeyPressed(SDL_Scancode scancode) const {
+    return currentKeys_ && lastKeys_.size() > (size_t)scancode && currentKeys_[scancode] && !lastKeys_[scancode];
 }
 
-return GameKeyboard::isKeyDown() {
-    // TODO: Implement isKeyDown
-    return nullptr;
+bool GameKeyboard::isKeyReleased(SDL_Scancode scancode) const {
+    return currentKeys_ && lastKeys_.size() > (size_t)scancode && !currentKeys_[scancode] && lastKeys_[scancode];
 }
 
-bool GameKeyboard::isKeyDown(int var0) {
-    // TODO: Implement isKeyDown
-    return false;
+void GameKeyboard::handleEvent(const SDL_Event& event) {
+    // For future event-based logic if needed
 }
-
-bool GameKeyboard::wasKeyDown(int var0) {
-    // TODO: Implement wasKeyDown
-    return false;
-}
-
-void GameKeyboard::eatKeyPress(int var0) {
-    // TODO: Implement eatKeyPress
-}
-
-void GameKeyboard::setDoLuaKeyPressed(bool var0) {
-    // TODO: Implement setDoLuaKeyPressed
 }
 
 KeyEventQueue GameKeyboard::getEventQueue() {

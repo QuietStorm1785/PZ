@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBShaderObjects.h"
+#include <GL/glew.h>
 #include "zombie/core/IndieFileLoader.h"
 #include "zombie/core/opengl/ShaderUnit/Type.h"
 #include "zombie/debug/DebugLog.h"

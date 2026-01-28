@@ -5,10 +5,9 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBShaderObjects.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjgl/opengl/GL20.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include "org/lwjgl/system/MemoryUtil.h"
 #include "org/lwjgl/util/vector/Matrix4f.h"
 #include "org/lwjglx/BufferUtils.h"

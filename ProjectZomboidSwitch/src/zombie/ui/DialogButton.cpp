@@ -1,3 +1,12 @@
+#include "imgui.h"
+void zombie::ui::DialogButton::ImGuiRender() {
+    if (!visible || !enabled) return;
+    ImGui::SetCursorPos(ImVec2((float)x, (float)y));
+    if (ImGui::Button(text.c_str(), ImVec2(width, height))) {
+        clicked = true;
+        // TODO: Call MessageTarget/ButtonClicked logic as needed
+    }
+}
 #include <string>
 #include "zombie/ui/DialogButton.h"
 

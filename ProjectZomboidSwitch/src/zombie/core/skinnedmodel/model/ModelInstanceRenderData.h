@@ -7,7 +7,7 @@
 #include <cstdint>
 #include "org/joml/Matrix4f.h"
 #include "org/lwjgl/util/vector/Vector3f.h"
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/math/PZMath.h"
 #include "zombie/core/skinnedmodel/ModelManager.h"
@@ -67,7 +67,7 @@ public:
 
          org.lwjgl.util.vector.Matrix4f[] var3 = var1.AnimPlayer.getSkinTransforms(var2);
          if (this.matrixPalette == nullptr || this.matrixPalette.capacity() < var3.length * 16) {
-            this.matrixPalette = BufferUtils.createFloatBuffer(var3.length * 16);
+            this.matrixPalette = BufferUtils::createFloatBuffer(var3.length * 16);
          }
 
          this.matrixPalette.clear();

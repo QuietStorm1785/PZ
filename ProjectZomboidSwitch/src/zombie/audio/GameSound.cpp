@@ -25,11 +25,9 @@ std::string GameSound::getMasterName() const {
 }
 
 int GameSound::numClipsUsingParameter(const std::string& paramName) const {
-    auto paramDesc = FMODManager::instance().getParameterDescription(paramName);
-    if (!paramDesc) return 0;
     int count = 0;
     for (const auto& clip : clips) {
-        if (clip.hasParameter(*paramDesc)) ++count;
+        if (clip.hasParameter(paramName)) ++count;
     }
     return count;
 }

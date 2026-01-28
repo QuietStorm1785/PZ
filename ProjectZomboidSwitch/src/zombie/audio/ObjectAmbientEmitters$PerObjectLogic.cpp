@@ -8,9 +8,7 @@ void ObjectAmbientEmitters$PerObjectLogic::setParameterValue1(BaseSoundEmitter v
     // TODO: Implement setParameterValue1
 }
 
-void ObjectAmbientEmitters$PerObjectLogic::setParameterValue1(BaseSoundEmitter var1, long var2, FMOD_STUDIO_PARAMETER_DESCRIPTION var4, float var5) {
-    // TODO: Implement setParameterValue1
-}
+// FMOD parameter logic removed for OpenAL migration
 
 } // namespace audio
 } // namespace zombie

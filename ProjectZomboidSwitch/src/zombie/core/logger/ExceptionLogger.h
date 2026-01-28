@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/opengl/OpenGLException.h"
+// TODO: Replace with std::runtime_error or custom OpenGL exception
 #include "zombie/core/Core.h"
 #include "zombie/core/SpriteRenderer.h"
 #include "zombie/core/opengl/RenderThread.h"

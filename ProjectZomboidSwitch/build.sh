@@ -5,11 +5,20 @@ set -e
 
 echo "=== Project Zomboid C++ Build Script ==="
 
+
 # Check for SDL2
 if ! pkg-config --exists sdl2; then
     echo "Error: SDL2 not found. Please install SDL2 development libraries."
     echo "  Ubuntu/Debian: sudo apt-get install libsdl2-dev"
     echo "  macOS: brew install sdl2"
+    exit 1
+fi
+
+# Check for OpenAL
+if ! pkg-config --exists openal; then
+    echo "Error: OpenAL not found. Please install OpenAL development libraries."
+    echo "  Ubuntu/Debian: sudo apt-get install libopenal-dev"
+    echo "  macOS: brew install openal-soft"
     exit 1
 fi
 

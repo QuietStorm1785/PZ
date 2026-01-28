@@ -27,7 +27,15 @@ void UITextBox2::onresize() {
 }
 
 void UITextBox2::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void UITextBox2::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Text Box", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::InputTextMultiline("##text", &Text, ImVec2(300, 100));
+    ImGui::End();
 }
 
 float UITextBox2::getFrameAlpha() {

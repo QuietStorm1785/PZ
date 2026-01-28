@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/core/skinnedmodel/model/VertexBufferObject/VertexFormat.h"
 #include <filesystem>
 
@@ -24,7 +24,7 @@ public:
    public VertexBufferObject$VertexArray(VertexFormat var1, int var2) {
       this.m_format = var1;
       this.m_numVertices = var2;
-      this.m_buffer = BufferUtils.createByteBuffer(this.m_numVertices * this.m_format.m_stride);
+      this.m_buffer = BufferUtils::createByteBuffer(this.m_numVertices * this.m_format.m_stride);
    }
 
     void setElement(int var1, int var2, float var3, float var4) {

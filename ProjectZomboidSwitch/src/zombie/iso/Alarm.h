@@ -1,9 +1,6 @@
 #pragma once
 #include <cstdint>
-#include "fmod/fmod/FMODManager.h"
-#include "fmod/fmod/FMOD_STUDIO_EVENT_DESCRIPTION.h"
-#include "fmod/fmod/FMOD_STUDIO_PLAYBACK_STATE.h"
-#include "fmod/javafmod.h"
+#include "zombie/audio/OpenALSoundEmitter.h"
 #include "zombie/GameSounds.h"
 #include "zombie/GameTime.h"
 #include "zombie/SoundManager.h"
@@ -21,7 +18,7 @@ namespace iso {
 class Alarm {
 public:
     static int64_t inst;
-    static FMOD_STUDIO_EVENT_DESCRIPTION* event;
+    static OpenALSoundEventDescription event;
     bool finished = false;
     int x;
     int y;

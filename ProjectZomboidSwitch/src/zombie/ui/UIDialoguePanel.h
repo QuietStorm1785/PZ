@@ -1,12 +1,11 @@
 #pragma once
-#include <stack>
+#include <vector>
 #include <string>
 #include <vector>
 #include <memory>
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/Rectangle.h"
 #include "zombie/core/Color.h"
 #include "zombie/core/textures/Texture.h"
 #include <algorithm>
@@ -29,7 +28,7 @@ public:
     Texture titleRight = nullptr;
     float clientH = 0.0F;
     float clientW = 0.0F;
-   public std::stack<Rectangle> nestedItems = std::make_unique<std::stack<>>();
+    std::vector<std::tuple<float, float, float, float>> nestedItems; // x, y, w, h
 
     public UIDialoguePanel(float var1, float var2, float var3, float var4) {
       this.x = var1;
@@ -51,30 +50,20 @@ public:
 
     void Nest(UIElement var1, int var2, int var3, int var4, int var5) {
       this.AddChild(var1);
-      this.nestedItems.push_back(std::make_shared<Rectangle>(var5, var2, var3, var4));
+      this.nestedItems.push_back(std::make_shared<zombie::core::Rect>(var5, var2, var3, var4));
       var1.setX(var5);
       var1.setY(var2);
       var1.update();
    }
 
-    void render() {
-      this.DrawTextureScaledCol(this.titleLeft, 0.0, 0.0, 28.0, 28.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.titleMiddle, 28.0, 0.0, this.getWidth() - 56.0, 28.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.titleRight, 0.0 + this.getWidth() - 28.0, 0.0, 28.0, 28.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.dialogLeft, 0.0, 28.0, 78.0, this.getHeight() - 100.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.dialogMiddle, 78.0, 28.0, this.getWidth() - 156.0, this.getHeight() - 100.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.dialogRight, 0.0 + this.getWidth() - 78.0, 28.0, 78.0, this.getHeight() - 100.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.dialogBottomLeft, 0.0, 0.0 + this.getHeight() - 72.0, 78.0, 72.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.dialogBottomMiddle, 78.0, 0.0 + this.getHeight() - 72.0, this.getWidth() - 156.0, 72.0, std::make_shared<Color>(255, 255, 255, 100));
-      this.DrawTextureScaledCol(this.dialogBottomRight, 0.0 + this.getWidth() - 78.0, 0.0 + this.getHeight() - 72.0, 78.0, 72.0, std::make_shared<Color>(255, 255, 255, 100));
-      super.render();
-   }
+    void ImGuiRender() override;
+    void render() override { ImGuiRender(); }
 
     void update() {
       super.update();
     int var1 = 0;
 
-      for (Rectangle var3 : this.nestedItems) {
+      for (zombie::core::Rect var3 : this.nestedItems) {
     UIElement var4 = (UIElement)this.getControls().get(var1);
          var4.setX((float)var3.getX());
          var4.setY((float)var3.getY());

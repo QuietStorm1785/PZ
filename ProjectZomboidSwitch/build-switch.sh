@@ -81,7 +81,7 @@ elif [[ "$TARGET" == "windows" ]]; then
     mkdir -p "$BUILD_DIR"
     cd "$BUILD_DIR"
     echo "Configuring for Windows..."
-    cmake .. -DCMAKE_BUILD_TYPE=$BUILDTYPE
+        cmake ../ProjectZomboidSwitch -DCMAKE_BUILD_TYPE=$BUILDTYPE
     echo "Building..."
     cmake --build . --config $BUILDTYPE
     echo "=== Build Complete ==="
@@ -96,7 +96,7 @@ elif [[ "$TARGET" == "linux" ]]; then
     cd "$BUILD_DIR"
     echo "Configuring for Linux..."
     # Set CMAKE_PREFIX_PATH for Qt5 so CMake can find Qt5Config.cmake
-    cmake .. -DCMAKE_BUILD_TYPE=$BUILDTYPE -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
+        cmake ../ProjectZomboidSwitch -DCMAKE_BUILD_TYPE=$BUILDTYPE -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
     echo "Building..."
     cmake --build . --config $BUILDTYPE
     echo "=== Build Complete ==="

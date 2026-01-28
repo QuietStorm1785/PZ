@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+a276fd46015e3edd33158b0348f46de6 CMakeFiles/ProjectZomboidSwitch_autogen
+a276fd46015e3edd33158b0348f46de6 CMakeFiles/ProjectZomboidSwitch_autogen_timestamp_deps
+02e37848b68d6c75313e5a1da23b6971 ProjectZomboidSwitch_autogen/timestamp

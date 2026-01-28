@@ -185,6 +185,23 @@ void ImageData::setMipmapDebugColors(int var0, int[] var1) {
     // TODO: Implement setMipmapDebugColors
 }
 
+ImageData::ImageData(const std::string& filename, bool, int fileformat) {
+    if (fileformat == 1 /* DDS */) {
+        id = dds.loadDDSFile(filename);
+        if (!dds.isValid()) {
+            // Handle error, e.g., log or set error state
+            width = height = widthHW = heightHW = -1;
+            return;
+        }
+        width = dds.getWidth();
+        height = dds.getHeight();
+        widthHW = width; // Optionally use next power of two
+        heightHW = height;
+        // Optionally, use dds.getImageData() for further processing
+    }
+    // ...existing code for other formats...
+}
+
 } // namespace textures
 } // namespace core
 } // namespace zombie

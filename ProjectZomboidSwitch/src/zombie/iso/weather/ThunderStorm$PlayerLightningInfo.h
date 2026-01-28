@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/GameTime/AnimTimer.h"
+#include "zombie/GameTime.h"
 #include "zombie/iso/weather/ThunderStorm/LightningState.h"
 
 namespace zombie {
@@ -16,7 +16,7 @@ namespace weather {
 class ThunderStorm {
 public:
     LightningState lightningState;
-    AnimTimer timer;
+   zombie::GameTime::AnimTimer timer;
     float lightningStrength;
     float lightningMod;
     ClimateColorInfo lightningColor;

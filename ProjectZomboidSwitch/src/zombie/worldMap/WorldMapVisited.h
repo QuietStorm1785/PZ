@@ -6,8 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/lwjgl/BufferUtils.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
+#include <GL/glew.h>
 #include "zombie/SandboxOptions.h"
 #include "zombie/ZomboidFileSystem.h"
 #include "zombie/characters/IsoPlayer.h"

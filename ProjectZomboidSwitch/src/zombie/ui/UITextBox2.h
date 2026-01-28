@@ -58,6 +58,9 @@ public:
     int TopLineIndex = 0;
     int BlinkFramesOn = 12;
     int BlinkFramesOff = 8;
+
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
     float BlinkFrame = this.BlinkFramesOn;
     bool BlinkState = true;
     ColorInfo textColor = std::make_shared<ColorInfo>();

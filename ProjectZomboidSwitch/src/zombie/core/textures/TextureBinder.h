@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
+#include <GL/glew.h>
 
 namespace zombie {
 namespace core {

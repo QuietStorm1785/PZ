@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODFootstep.h"
-#include "fmod/fmod/FMODVoice.h"
+
 
 namespace zombie {
 namespace audio {
@@ -18,8 +17,8 @@ public:
 
     void addVoice(const std::string&, const std::string&, float) override {}
     void addFootstep(const std::string&, const std::string&, const std::string&, const std::string&, const std::string&) override {}
-    FMODVoice getVoice(const std::string&) override { return FMODVoice(); }
-    FMODFootstep getFootstep(const std::string&) override { return FMODFootstep(); }
+    void* getVoice(const std::string&) override { return nullptr; }
+    void* getFootstep(const std::string&) override { return nullptr; }
 };
 } // namespace audio
 } // namespace zombie

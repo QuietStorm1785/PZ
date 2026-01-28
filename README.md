@@ -1,6 +1,42 @@
 
 # Project Zomboid For the Nintendo Switch
 
+## Third-Party Libraries (Upstream Sources)
+
+This project uses official upstream sources for several core libraries. These are not included in the repository. You must download them manually into the `bin_res/` directory before building:
+
+| Library         | Version   | Download URL                                                      | Extracted Folder                |
+|-----------------|-----------|-------------------------------------------------------------------|---------------------------------|
+| zlib            | develop   | https://github.com/madler/zlib/archive/refs/heads/develop.zip     | bin_res/zlib-develop/           |
+| nlohmann/json   | develop   | https://github.com/nlohmann/json/archive/refs/heads/develop.zip   | bin_res/json-develop/           |
+| sqlite          | master    | https://github.com/sqlite/sqlite/archive/refs/heads/master.zip    | bin_res/sqlite-master/          |
+| lua             | 5.4.7     | https://www.lua.org/ftp/lua-5.4.7.tar.gz                          | bin_res/lua-5.4.7/              |
+
+### Download and Extract Example (Linux/macOS)
+
+```
+cd bin_res
+# zlib
+wget https://github.com/madler/zlib/archive/refs/heads/develop.zip -O zlib.zip && unzip zlib.zip && rm zlib.zip
+# nlohmann/json
+wget https://github.com/nlohmann/json/archive/refs/heads/develop.zip -O nlohmann_json.zip && unzip nlohmann_json.zip && rm nlohmann_json.zip
+# sqlite
+wget https://github.com/sqlite/sqlite/archive/refs/heads/master.zip -O sqlite.zip && unzip sqlite.zip && rm sqlite.zip
+# lua
+wget https://www.lua.org/ftp/lua-5.4.7.tar.gz -O lua-5.4.7.tar.gz && tar -xzf lua-5.4.7.tar.gz && rm lua-5.4.7.tar.gz
+```
+
+After extraction, the build system will automatically use these folders. You do not need to modify CMakeLists.txt unless you change the folder names or locations.
+
+
+**Remove any old copies of these libraries from ProjectZomboidSwitch/src/ to avoid conflicts.**
+
+## Audio Backend Migration
+
+**FMOD has been fully removed. Project Zomboid now uses OpenAL for all audio.**
+
+All code, build scripts, and dependencies have been updated to require OpenAL. You must have OpenAL development libraries installed to build and run the project.
+
 Converted Java-to-C++ codebase for Project Zomboid.
 
 ## Recent Changes
@@ -33,18 +69,34 @@ ProjectZomboidSwitch/
 
 ## Building
 
+
 ### Requirements
 
 - CMake 3.10 or later
 - C++20 compatible compiler
 - Qt 5 (Core, Gui) development libraries (for QImage support)
+- OpenAL development libraries (for audio)
 - For Switch: devkitPro with devkitA64 toolchain
 
-#### Installing Qt (Linux/Ubuntu example)
+
+
+#### Installing Qt and OpenAL (Linux/Ubuntu example)
 
 ```
 sudo apt update
-sudo apt install qtbase5-dev qt5-qmake qtbase5-dev-tools
+sudo apt install qtbase5-dev qt5-qmake qtbase5-dev-tools libopenal-dev
+```
+
+#### Installing OpenAL (MSYS2/Windows example)
+
+```
+pacman -S mingw-w64-x86_64-openal
+```
+
+#### Installing OpenAL (macOS example)
+
+```
+brew install openal-soft
 ```
 
 #### CMake Build Example (Desktop)
@@ -161,9 +213,10 @@ Run the executable:
 ```
 
 
+
 ## Notes
 - This is a converted Java codebase - some patterns may not be idiomatic C++
-- Audio systems require SDL2_mixer or FMOD depending on platform
+- **Audio system now uses OpenAL (cross-platform, FMOD fully removed)**
 - Switch builds use SDL2 audio subsystem
 - OpenGL support is provided via GLUS and custom wrappers
 - Lua scripting is now fully integrated in C++ via the LuaCpp module

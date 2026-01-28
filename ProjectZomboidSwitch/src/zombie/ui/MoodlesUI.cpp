@@ -27,7 +27,18 @@ void MoodlesUI::onMouseMoveOutside(double var1, double var3) {
 }
 
 void MoodlesUI::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void MoodlesUI::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Moodles", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Moodles UI");
+    // Example: Show moodles (replace with real data)
+    ImGui::Text("Hunger: Normal");
+    ImGui::Text("Thirst: Low");
+    ImGui::End();
 }
 
 void MoodlesUI::wiggle(MoodleType var1) {

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterMeleeHitSurface/Material.h"
 #include "zombie/characters/IsoGameCharacter.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterMeleeHitSurface : public FMODLocalParameter {
+class ParameterMeleeHitSurface : public OpenALParameterStub {
 public:
     const IsoGameCharacter character;
     Material material = Material.Default;

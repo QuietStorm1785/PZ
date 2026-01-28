@@ -7,9 +7,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/lwjgl/opengl/ARBShaderObjects.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjgl/opengl/GL14.h"
+#include <GL/glew.h>
 #include "zombie/IndieGL.h"
 #include "zombie/core/Color.h"
 #include "zombie/core/Core.h"

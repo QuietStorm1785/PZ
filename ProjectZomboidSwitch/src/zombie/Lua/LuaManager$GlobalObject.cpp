@@ -1175,18 +1175,18 @@ bool LuaManager$GlobalObject::isKeyPressed(int var0) {
     return false;
 }
 
-BaseSoundBank LuaManager$GlobalObject::getFMODSoundBank() {
-    // TODO: Implement getFMODSoundBank
+BaseSoundBank LuaManager$GlobalObject::getOpenALSoundBank() {
+    // TODO: Implement getOpenALSoundBank
     return nullptr;
 }
 
 bool LuaManager$GlobalObject::isSoundPlaying(void* var0) {
-    // TODO: Implement isSoundPlaying
+    // TODO: Implement isSoundPlaying (OpenAL)
     return false;
 }
 
 void LuaManager$GlobalObject::stopSound(long var0) {
-    // TODO: Implement stopSound
+    // TODO: Implement stopSound (OpenAL)
 }
 
 bool LuaManager$GlobalObject::isShiftKeyDown() {

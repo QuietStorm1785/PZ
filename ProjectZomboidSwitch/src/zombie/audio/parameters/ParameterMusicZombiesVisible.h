@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/math/PZMath.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterMusicZombiesVisible : public FMODGlobalParameter {
+class ParameterMusicZombiesVisible : public zombie::audio::OpenALParameterStub {
 public:
     int m_playerIndex = -1;
 

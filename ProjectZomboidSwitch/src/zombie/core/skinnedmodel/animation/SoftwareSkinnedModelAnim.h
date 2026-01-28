@@ -6,11 +6,10 @@
 #include <unordered_set>
 #include <cstdint>
 #include "javax/vecmath/Point3f.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjgl/opengl/GL20.h"
+#include <GL/glew.h>
 #include "org/lwjgl/util/vector/Matrix4f.h"
 #include "org/lwjgl/util/vector/Vector3f.h"
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/core/skinnedmodel/HelperFunctions.h"
 #include "zombie/core/skinnedmodel/Vector3.h"
 #include "zombie/core/skinnedmodel/animation/SoftwareSkinnedModelAnim/1.h"

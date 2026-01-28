@@ -45,6 +45,9 @@ public:
     Texture HealthIcon;
     IsoGameCharacter ParentChar;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     void SetCharacter(IsoGameCharacter var1) {
       this.ParentChar = var1;
    }

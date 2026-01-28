@@ -58,6 +58,9 @@ public:
     int alarmBellVerticalSpacing;
     int displayVerticalSpacing;
     int decimalVerticalSpacing;
+
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
     bool digital = false;
     bool isAlarmSet = false;
     bool isAlarmRinging = false;

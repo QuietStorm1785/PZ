@@ -1,3 +1,4 @@
+#include "zombie/audio/OpenALSoundEmitter.h"
 #pragma once
 #include <stack>
 #include <string>
@@ -6,15 +7,12 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/Audio.h"
-#include "java/awt/Graphics2D.h"
-#include "java/awt/image/BufferedImage.h"
+
 #include "java/text/SimpleDateFormat.h"
 #include "javax/imageio/ImageIO.h"
 #include "org/lwjgl/glfw/GLFWImage.h"
 #include "org/lwjgl/glfw/GLFWImage/Buffer.h"
-#include "org/lwjglx/opengl/Display.h"
-#include "org/lwjglx/opengl/OpenGLException.h"
+// TODO: Replace with SDL2/OpenGL display and std::runtime_error
 #include "zombie/DebugFileWatcher.h"
 #include "zombie/GameTime.h"
 #include "zombie/GameWindow.h"

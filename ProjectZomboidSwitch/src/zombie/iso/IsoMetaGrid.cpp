@@ -114,10 +114,8 @@ int IsoMetaGrid::countNearbyBuildingsRooms(IsoPlayer var1) {
 }
 
 bool IsoMetaGrid::isInside(Zone var1, BuildingDef var2) {
-    // Use local Rect structs for a and b
-    struct Rect {
-        int x, y, width, height;
-        bool contains(const Rect& other) const {
+    // Use Rect for a and b
+    // Rect a, b; // Already declared in header, use as needed
             return x <= other.x && y <= other.y &&
                    x + width >= other.x + other.width &&
                    y + height >= other.y + other.height;

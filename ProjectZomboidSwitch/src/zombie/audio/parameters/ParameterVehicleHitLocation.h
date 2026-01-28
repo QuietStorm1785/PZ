@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Vector3f.h"
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterVehicleHitLocation/HitLocation.h"
 #include "zombie/scripting/objects/VehicleScript.h"
 #include "zombie/vehicles/BaseVehicle.h"
@@ -17,7 +17,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterVehicleHitLocation : public FMODLocalParameter {
+class ParameterVehicleHitLocation : public zombie::audio::OpenALParameterStub {
 public:
     HitLocation location = HitLocation.Front;
 

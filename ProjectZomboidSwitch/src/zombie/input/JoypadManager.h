@@ -1,103 +1,30 @@
+
+// SDL2-based JoypadManager for handling multiple controllers
 #pragma once
-#include <string>
 #include <vector>
-#include <memory>
-#include <unordered_map>
+#include <string>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/input/Controller.h"
-#include "zombie/GameWindow.h"
-#include "zombie/Lua/LuaEventManager.h"
-#include "zombie/ZomboidFileSystem.h"
-#include "zombie/characters/IsoPlayer.h"
-#include "zombie/core/BoxedStaticValues.h"
-#include "zombie/core/Core.h"
-#include "zombie/core/logger/ExceptionLogger.h"
-#include "zombie/debug/DebugLog.h"
-#include "zombie/debug/DebugOptions.h"
-#include "zombie/input/JoypadManager/Joypad.h"
-#include <fstream>
-#include <iostream>
-
-namespace zombie {
-namespace input {
-
+#include <SDL2/SDL.h>
 
 class JoypadManager {
 public:
-    static const JoypadManager instance = std::make_shared<JoypadManager>();
-   public const Joypad[] Joypads = new Joypad[4];
-   public const Joypad[] JoypadsController = new Joypad[16];
-   public const std::vector<Joypad> JoypadList = std::make_unique<std::vector<>>();
-   public const std::unordered_set<std::string> ActiveControllerGUIDs = std::make_unique<std::unordered_set<>>();
-    static const int VERSION_1 = 1;
-    static const int VERSION_2 = 2;
-    static const int VERSION_LATEST = 2;
+   JoypadManager();
+   ~JoypadManager();
+   void update();
+   int getNumJoypads() const;
+   SDL_GameController* getJoypad(int idx) const;
+   std::string getJoypadName(int idx) const;
+   void handleEvent(const SDL_Event& event);
 
-    Joypad addJoypad(int var1, const std::string& var2, const std::string& var3) {
-    Joypad var4 = std::make_shared<Joypad>();
-      var4.ID = var1;
-      var4.guid = var2;
-      var4.name = var3;
-      this.JoypadsController[var1] = var4;
-      this.doControllerFile(var4);
-      if (!var4.isDisabled() && this.ActiveControllerGUIDs.contains(var2)) {
-         this.JoypadList.push_back(var4);
-      }
-
-    return var4;
-   }
-
-    Joypad checkJoypad(int var1) {
-      if (this.JoypadsController[var1] == nullptr) {
-    Controller var2 = GameWindow.GameInput.getController(var1);
-         this.addJoypad(var1, var2.getGUID(), var2.getGamepadName());
-      }
-
-      return this.JoypadsController[var1];
-   }
-
-    void doControllerFile(Joypad var1) {
-    File var2 = std::make_shared<File>(ZomboidFileSystem.instance.getCacheDirSub("joypads"));
-      if (!var2.exists()) {
-         var2.mkdir();
-      }
-
-      var2 = std::make_shared<File>(ZomboidFileSystem.instance.getCacheDirSub("joypads" + File.separator + var1.guid + ".config"));
-
-      try (
-    FileReader var3 = std::make_shared<FileReader>(var2.getAbsolutePath());
-    BufferedReader var4 = std::make_shared<BufferedReader>(var3);
-      ) {
-         System.out.println("reloading " + var2.getAbsolutePath());
-    int var5 = -1;
-
-         try {
-    std::string var6 = "";
-
-            while (var6 != nullptr) {
-               var6 = var4.readLine();
-               if (var6 != nullptr && var6.trim().length() != 0 && !var6.trim().startsWith("//")) {
-                  std::string[] var7 = var6.split("=");
-                  if (var7.length == 2) {
-                     var7[0] = var7[0].trim();
-                     var7[1] = var7[1].trim();
-                     if (var7[0] == "Version")) {
-                        var5 = int.parseInt(var7[1]);
-                        if (var5 < 1 || var5 > 2) {
-                           DebugLog.General.warn("Unknown version %d in %s", new Object[]{var5, var2.getAbsolutePath()});
-                           break;
-                        }
-
-                        if (var5 == 1) {
-                           DebugLog.General.warn("Obsolete version %d in %s.  Using default values.", new Object[]{var5, var2.getAbsolutePath()});
-                           break;
-                        }
-                     }
-
-                     if (var5 == -1) {
-                        DebugLog.General.warn("Ignoring %s=%s because Version is missing", new Object[]{var7[0], var7[1]});
-                     } else if (var7[0] == "MovementAxisX")) {
+private:
+   static constexpr int MAX_JOYPADS = 16;
+   SDL_GameController* joypads_[MAX_JOYPADS] = {nullptr};
+   int numJoypads_ = 0;
+   void openControllers();
+   void closeControllers();
+};
+};
                         var1.MovementAxisX = int.parseInt(var7[1]);
                      } else if (var7[0] == "MovementAxisXFlipped")) {
                         var1.MovementAxisXFlipped = var7[1] == "true");

@@ -31,6 +31,9 @@ public:
       this.radialTexture = var2;
    }
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     void update() {
       super.update();
    }

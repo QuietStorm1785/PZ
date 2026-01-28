@@ -1,104 +1,22 @@
+// SDL2-based GameKeyboard for keyboard state and events
 #pragma once
-#include <queue>
-#include <string>
+#include <SDL2/SDL.h>
 #include <vector>
-#include <memory>
-#include <unordered_map>
-#include <unordered_set>
-#include <cstdint>
-#include "org/lwjglx/input/KeyEventQueue.h"
-#include "zombie/GameWindow.h"
-#include "zombie/Lua/LuaEventManager.h"
-#include "zombie/Lua/LuaManager.h"
-#include "zombie/core/Core.h"
-#include "zombie/core/opengl/RenderThread.h"
-#include "zombie/ui/UIManager.h"
-
-namespace zombie {
-namespace input {
-
 
 class GameKeyboard {
 public:
-   private static boolean[] bDown;
-   private static boolean[] bLastDown;
-   private static boolean[] bEatKey;
-    static bool bNoEventsWhileLoading = false;
-    static bool doLuaKeyPressed = true;
-    static const KeyboardStateCache s_keyboardStateCache = std::make_shared<KeyboardStateCache>();
+  GameKeyboard();
+  void update(); // Polls keyboard state
+  bool isKeyDown(SDL_Scancode scancode) const;
+  bool isKeyPressed(SDL_Scancode scancode) const;
+  bool isKeyReleased(SDL_Scancode scancode) const;
+  void handleEvent(const SDL_Event& event);
 
-    static void update() {
-      if (!s_keyboardStateCache.getState().isCreated()) {
-         s_keyboardStateCache.swap();
-      } else {
-    int var0 = s_keyboardStateCache.getState().getKeyCount();
-         if (bDown == nullptr) {
-            bDown = new boolean[var0];
-            bLastDown = new boolean[var0];
-            bEatKey = new boolean[var0];
-         }
-
-    bool var1 = Core.CurrentTextEntryBox != nullptr && Core.CurrentTextEntryBox.DoingTextEntry;
-
-         for (int var2 = 1; var2 < var0; var2++) {
-            bLastDown[var2] = bDown[var2];
-            bDown[var2] = s_keyboardStateCache.getState().isKeyDown(var2);
-            if (!bDown[var2] && bLastDown[var2]) {
-               if (bEatKey[var2]) {
-                  bEatKey[var2] = false;
-                  continue;
-               }
-
-               if (bNoEventsWhileLoading || var1 || LuaManager.thread == UIManager.defaultthread && UIManager.onKeyRelease(var2)) {
-                  continue;
-               }
-
-               if (Core.bDebug && !doLuaKeyPressed) {
-                  System.out.println("KEY RELEASED " + var2 + " doLuaKeyPressed=false");
-               }
-
-               if (LuaManager.thread == UIManager.defaultthread && doLuaKeyPressed) {
-                  LuaEventManager.triggerEvent("OnKeyPressed", var2);
-               }
-
-               if (LuaManager.thread == UIManager.defaultthread) {
-                  LuaEventManager.triggerEvent("OnCustomUIKey", var2);
-                  LuaEventManager.triggerEvent("OnCustomUIKeyReleased", var2);
-               }
-            }
-
-            if (bDown[var2] && bLastDown[var2]) {
-               if (bNoEventsWhileLoading || var1 || LuaManager.thread == UIManager.defaultthread && UIManager.onKeyRepeat(var2)) {
-                  continue;
-               }
-
-               if (LuaManager.thread == UIManager.defaultthread && doLuaKeyPressed) {
-                  LuaEventManager.triggerEvent("OnKeyKeepPressed", var2);
-               }
-            }
-
-            if (bDown[var2]
-               && !bLastDown[var2]
-               && !bNoEventsWhileLoading
-               && !var1
-               && !bEatKey[var2]
-               && (LuaManager.thread != UIManager.defaultthread || !UIManager.onKeyPress(var2))
-               && !bEatKey[var2]) {
-               if (LuaManager.thread == UIManager.defaultthread && doLuaKeyPressed) {
-                  LuaEventManager.triggerEvent("OnKeyStartPressed", var2);
-               }
-
-               if (LuaManager.thread == UIManager.defaultthread) {
-                  LuaEventManager.triggerEvent("OnCustomUIKeyPressed", var2);
-               }
-            }
-         }
-
-         s_keyboardStateCache.swap();
-      }
-   }
-
-    static void poll() {
+private:
+  const Uint8* currentKeys_ = nullptr;
+  std::vector<Uint8> lastKeys_;
+  int numKeys_ = 0;
+};
       s_keyboardStateCache.poll();
    }
 

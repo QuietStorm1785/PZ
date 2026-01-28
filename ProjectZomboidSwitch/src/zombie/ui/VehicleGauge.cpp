@@ -13,7 +13,17 @@ void VehicleGauge::setNeedleWidth(int var1) {
 }
 
 void VehicleGauge::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void VehicleGauge::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Vehicle Gauge", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Vehicle Gauge");
+    // Example: Show gauge value (replace with real data)
+    ImGui::SliderFloat("Value", &value, 0.0f, 1.0f);
+    ImGui::End();
 }
 
 void VehicleGauge::setValue(float var1) {

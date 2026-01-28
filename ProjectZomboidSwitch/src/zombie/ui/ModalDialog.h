@@ -25,6 +25,9 @@ public:
     UIEventHandler handler = nullptr;
     bool Clicked = false;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public ModalDialog(const std::string& var1, const std::string& var2, bool var3) {
       super(Core.getInstance().getOffscreenWidth(0) / 2, Core.getInstance().getOffscreenHeight(0) / 2, 470, 10, false);
       this.Name = var1;

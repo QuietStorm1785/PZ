@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBShaderObjects.h"
+#include <GL/glew.h>
 #include "zombie/core/textures/Texture.h"
 #include "zombie/core/textures/TextureDraw.h"
 

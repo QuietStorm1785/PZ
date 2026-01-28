@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterMusicWakeState/State.h"
 #include "zombie/characters/IsoPlayer.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterMusicWakeState : public FMODGlobalParameter {
+class ParameterMusicWakeState : public OpenALParameterStub {
 public:
     int m_playerIndex = -1;
     State m_state = State.Awake;

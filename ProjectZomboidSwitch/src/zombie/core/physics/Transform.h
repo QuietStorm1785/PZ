@@ -5,10 +5,10 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Matrix3f.h"
-#include "org/joml/Matrix4f.h"
-#include "org/joml/Quaternionf.h"
-#include "org/joml/Vector3f.h"
+#include <glm/mat3x3.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/vec3.hpp>
 
 namespace zombie {
 namespace core {

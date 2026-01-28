@@ -8,11 +8,13 @@ namespace areas {
 
 int IsoBuilding::getRoomsNumber() {
     // TODO: Implement getRoomsNumber
+    // Use Rect for bounds, update logic if needed.
     return 0;
 }
 
 public IsoBuilding::IsoBuilding() {
     // TODO: Implement IsoBuilding
+    // Use QRect for bounds, update logic if needed.
     return nullptr;
 }
 

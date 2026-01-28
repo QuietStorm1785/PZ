@@ -38,6 +38,9 @@ public:
     static UIFont font = UIFont.Small;
    private static std::stack<Layout> freeLayouts = std::make_unique<std::stack<>>();
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public ObjectTooltip() {
       this.texture = Texture.getSharedTexture("black");
       this.width = 130.0F;

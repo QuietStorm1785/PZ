@@ -28,6 +28,9 @@ public:
       this.setWidth(232.0);
    }
 
+    // ImGui rendering override
+    virtual void ImGuiRender() override;
+
     void addRender(long var1) {
       /* synchronized - TODO: add std::mutex */ (this.fpsGraph) {
          this.fpsGraph.push_back(var1);

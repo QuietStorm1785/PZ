@@ -28,7 +28,7 @@ void BumpedState::enter(IsoGameCharacter* character) {
         if (type.empty()) type = "zombie";
         character->clearVariable("TripObstacleType");
         int value = (type == "tree") ? 5 : 6;
-        character->getEmitter()->setParameterValue(soundId, FMODManager::instance()->getParameterDescription("TripObstacleType"), value);
+        character->getEmitter()->setParameterValue(soundId, OpenALSoundEmitter::getParameterDescription("TripObstacleType"), value);
     }
 }
 

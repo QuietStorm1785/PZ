@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Vector4f.h"
+#include <glm/vec4.hpp>
 #include "zombie/iso/Vector2.h"
 
 namespace zombie {

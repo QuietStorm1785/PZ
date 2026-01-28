@@ -58,6 +58,9 @@ public:
     Texture Drunk = nullptr;
     Texture Wet = nullptr;
     Texture HasACold = nullptr;
+
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
     Texture Dead = nullptr;
     Texture Zombie = nullptr;
     Texture Windchill = nullptr;

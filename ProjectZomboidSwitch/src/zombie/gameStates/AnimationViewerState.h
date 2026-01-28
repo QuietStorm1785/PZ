@@ -17,7 +17,7 @@
 #include "zombie/debug/DebugOptions.h"
 #include "zombie/gameStates/AnimationViewerState/BooleanDebugOption.h"
 #include "zombie/gameStates/GameStateMachine/StateAction.h"
-#include "zombie/input/GameKeyboard.h"
+#include "zombie/input/InputGlobals.h"
 #include "zombie/ui/UIElement.h"
 #include "zombie/ui/UIManager.h"
 #include "zombie/vehicles/EditVehicleState/LuaEnvironment.h"
@@ -94,7 +94,7 @@ public:
    }
 
     StateAction update() {
-      if (!this.bExit && !GameKeyboard.isKeyPressed(65)) {
+      if (!this.bExit && !g_keyboard.isKeyPressed(SDL_SCANCODE_F7)) {
          this.updateScene();
          return StateAction.Remain;
       } else {
@@ -138,7 +138,7 @@ public:
 
     void updateScene() {
       ModelManager.instance.update();
-      if (GameKeyboard.isKeyPressed(17)) {
+      if (g_keyboard.isKeyPressed(SDL_SCANCODE_W)) {
          DebugOptions.instance.ModelRenderWireframe.setValue(!DebugOptions.instance.ModelRenderWireframe.getValue());
       }
    }

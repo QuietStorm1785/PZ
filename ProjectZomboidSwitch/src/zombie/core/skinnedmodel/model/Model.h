@@ -6,9 +6,8 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Matrix4f.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjglx/BufferUtils.h"
+#include <GL/glew.h>
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/GameProfiler.h"
 #include "zombie/asset/Asset.h"
 #include "zombie/asset/AssetManager.h"

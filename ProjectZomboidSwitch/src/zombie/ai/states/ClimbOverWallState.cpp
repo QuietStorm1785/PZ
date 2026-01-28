@@ -78,7 +78,7 @@ void ClimbOverWallState::animEvent(IsoGameCharacter* var1, AnimEvent* var2) {
         if (!var3) return;
         int var4 = this->getFenceType(var3);
         long var5 = var1->getEmitter()->playSoundImpl(var2->m_ParameterValue, nullptr);
-        var1->getEmitter()->setParameterValue(var5, FMODManager::instance()->getParameterDescription("FenceTypeHigh"), var4);
+        var1->getEmitter()->setParameterValue(var5, OpenALSoundEmitter::getParameterDescription("FenceTypeHigh"), var4);
     }
 }
 

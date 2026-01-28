@@ -5,19 +5,19 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/math/PZMath.h"
 #include "zombie/iso/IsoMetaGrid/Zone.h"
-#include "zombie/iso/IsoWorld.h"
-
+#include "zombie/audio/OpenALParameterStub.h"
+class ParameterZone : public OpenALParameterStub {
 namespace zombie {
 namespace audio {
 namespace parameters {
 
 
-class ParameterZone : public FMODGlobalParameter {
+// Removed FMODGlobalParameter inheritance, only OpenALParameterStub is used.
 public:
     const std::string m_zoneName;
    private const std::vector<Zone> m_zones = std::make_unique<std::vector<>>();

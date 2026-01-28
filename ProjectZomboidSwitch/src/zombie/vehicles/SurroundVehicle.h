@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Vector2f.h"
-#include "org/joml/Vector3f.h"
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
 #include "zombie/VirtualZombieManager.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoZombie.h"

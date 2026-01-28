@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/geom/Line2D.h"
 #include "zombie/debug/LineDrawer.h"
 #include "zombie/iso/IsoChunk.h"
 #include "zombie/iso/IsoGridSquare.h"

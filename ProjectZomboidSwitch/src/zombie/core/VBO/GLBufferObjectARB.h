@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBVertexBufferObject.h"
+#include <GL/glew.h>
 #include <filesystem>
 
 namespace zombie {

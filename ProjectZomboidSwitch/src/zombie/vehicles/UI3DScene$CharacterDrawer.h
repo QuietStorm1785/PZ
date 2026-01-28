@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "zombie/core/textures/TextureDraw/GenericDrawer.h"
 #include "zombie/debug/DebugOptions.h"
 #include "zombie/vehicles/UI3DScene/CharacterRenderData.h"

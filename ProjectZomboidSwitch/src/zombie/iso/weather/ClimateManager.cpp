@@ -6,33 +6,15 @@ namespace zombie {
 namespace iso {
 namespace weather {
 
-float ClimateManager::getMaxWindspeedKph() {
-    // TODO: Implement getMaxWindspeedKph
-    return 0;
+// Singleton instance
+static ClimateManager s_instance;
+
+ClimateManager& ClimateManager::getInstance() {
+    return s_instance;
 }
 
-float ClimateManager::getMaxWindspeedMph() {
-    // TODO: Implement getMaxWindspeedMph
-    return 0;
-}
-
-float ClimateManager::ToKph(float var0) {
-    // TODO: Implement ToKph
-    return 0;
-}
-
-float ClimateManager::ToMph(float var0) {
-    // TODO: Implement ToMph
-    return 0;
-}
-
-ClimateManager ClimateManager::getInstance() {
-    // TODO: Implement getInstance
-    return nullptr;
-}
-
-void ClimateManager::setInstance(ClimateManager var0) {
-    // TODO: Implement setInstance
+void ClimateManager::setInstance(const ClimateManager& var0) {
+    s_instance = var0;
 }
 
 public ClimateManager::ClimateManager() {
@@ -210,8 +192,7 @@ float ClimateManager::getDayLightStrength() {
 }
 
 float ClimateManager::getNightStrength() {
-    // TODO: Implement getNightStrength
-    return 0;
+    return nightStrength.finalValue;
 }
 
 float ClimateManager::getDayMeanTemperature() {

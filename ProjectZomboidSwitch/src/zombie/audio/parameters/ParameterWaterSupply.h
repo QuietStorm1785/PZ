@@ -7,14 +7,14 @@
 #include <cstdint>
 #include "zombie/GameTime.h"
 #include "zombie/SandboxOptions.h"
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 
 namespace zombie {
 namespace audio {
 namespace parameters {
 
 
-class ParameterWaterSupply : public FMODGlobalParameter {
+class ParameterWaterSupply : public OpenALParameterStub {
 public:
     public ParameterWaterSupply() {
       super("Water");

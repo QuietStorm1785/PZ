@@ -5,17 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/FMODSoundBuffer.h"
-#include "fmod/SoundBuffer.h"
-#include "java/awt/BasicStroke.h"
-#include "java/awt/Color.h"
-#include "java/awt/Dimension.h"
-#include "java/awt/Graphics.h"
-#include "java/awt/Graphics2D.h"
-#include "java/awt/GridLayout.h"
-#include "java/awt/Point.h"
-#include "java/awt/RenderingHints.h"
-#include "java/awt/Stroke.h"
+// #include "OpenAL/OpenALSoundBuffer.h" // Use OpenAL equivalents if needed
+// Removed Qt include
 #include "javax/swing/JFrame.h"
 #include "javax/swing/JPanel.h"
 
@@ -116,8 +107,8 @@ public:
       var2.drawString("Last/Read: " + this.last, 30, 45);
    }
 
-    Dimension getPreferredSize() {
-      return std::make_shared<Dimension>(400, 200);
+    zombie::iso::Vector2 getPreferredSize() const {
+      return zombie::iso::Vector2(400, 200);
    }
 
     static void createAndShowGui() {
@@ -129,9 +120,9 @@ public:
       mainPanel.scores_max = 32000;
       mainPanel2 = std::make_shared<VoiceDebug>(var1, "SoundBuffer - first 100 sample");
       mainPanel2.scores_max = 32000;
-      mainPanel3 = std::make_shared<VoiceDebug>(var2, "FMODSoundBuffer");
+      mainPanel3 = std::make_shared<VoiceDebug>(var2, "OpenALSoundBuffer");
       mainPanel3.scores_max = 32000;
-      mainPanel4 = std::make_shared<VoiceDebug>(var3, "FMODSoundBuffer - first 100 sample");
+      mainPanel4 = std::make_shared<VoiceDebug>(var3, "OpenALSoundBuffer - first 100 sample");
       mainPanel4.scores_max = 32000;
       frame = std::make_shared<JFrame>("DrawGraph");
       frame.setDefaultCloseOperation(3);
@@ -145,7 +136,7 @@ public:
       frame.setVisible(true);
    }
 
-    static void updateGui(SoundBuffer var0, FMODSoundBuffer var1) {
+    static void updateGui(OpenALSoundBuffer var0, OpenALSoundBuffer var1) {
       mainPanel.scores.clear();
       if (var0 != nullptr) {
          for (int var2 = 0; var2 < var0.buf().length; var2++) {
@@ -166,7 +157,7 @@ public:
       mainPanel4.scores.clear();
 
       for (byte var4 = 0; var4 < var1.buf().length / 2; var4 += 2) {
-         mainPanel4.scores.push_back(var1.buf()[var4 + 1] * 256 + var1.buf()[var4]);
+        mainPanel4.scores.push_back(var1.buf()[var4 + 1] * 256 + var1.buf()[var4]); // OpenAL buffer logic placeholder
       }
 
       frame.repaint();

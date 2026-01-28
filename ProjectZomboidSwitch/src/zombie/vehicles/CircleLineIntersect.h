@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Vector3f.h"
+#include <glm/vec3.hpp>
 #include "org/lwjgl/util/vector/Vector2f.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/physics/CarController.h"

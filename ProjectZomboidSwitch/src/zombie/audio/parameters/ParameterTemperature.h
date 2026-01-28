@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/iso/weather/ClimateManager.h"
 
 namespace zombie {
@@ -13,7 +13,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterTemperature : public FMODGlobalParameter {
+class ParameterTemperature : public OpenALParameterStub {
 public:
     public ParameterTemperature() {
       super("Temperature");

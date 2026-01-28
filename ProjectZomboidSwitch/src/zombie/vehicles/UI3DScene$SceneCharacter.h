@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/joml/Matrix4f.h"
-#include "org/joml/Quaternionf.h"
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/quaternion.hpp>
 #include "org/lwjgl/util/vector/Vector3f.h"
 #include "zombie/core/SpriteRenderer.h"
 #include "zombie/core/math/PZMath.h"

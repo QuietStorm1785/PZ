@@ -22,6 +22,8 @@ namespace ui {
 
 
 class UIElement {
+   // ImGui-based rendering entry point
+   virtual void ImGuiRender();
 public:
     static const Color tempcol = std::make_shared<Color>(0, 0, 0, 0);
    static const std::vector<UIElement> toAdd = new std::vector<>(0);
@@ -1286,56 +1288,9 @@ public:
       var1.setParent(nullptr);
    }
 
-    void render() {
-      if (this.enabled) {
-         if (this.isVisible()) {
-            if (this.Parent == nullptr || this.Parent.maxDrawHeight == -1 || !(this.Parent.maxDrawHeight <= this.y)) {
-               if (this.Parent != nullptr && !this.Parent.bRenderClippedChildren) {
-    double var1 = this.Parent.getAbsoluteY();
-    double var2 = this.getAbsoluteY();
-                  if (var2 + this.getHeight() <= var1 || var2 >= var1 + this.getParent().getHeight()) {
-                     return;
-                  }
-               }
-
-               if (this.getTable() != nullptr && this.getTable().rawget("prerender") != nullptr) {
-                  try {
-                     LuaManager.caller.pcallvoid(UIManager.getDefaultThread(), this.getTable().rawget("prerender"), this.table);
-                  } catch (Exception var7) {
-    bool var10 = false;
-                  }
-               }
-
-               for (int var8 = 0; var8 < this.getControls().size(); var8++) {
-                  this.getControls().get(var8).render();
-               }
-
-               if (this.getTable() != nullptr && this.getTable().rawget("render") != nullptr) {
-                  LuaManager.caller.pcallvoid(UIManager.getDefaultThread(), this.getTable().rawget("render"), this.table);
-               }
-
-               if (Core.bDebug && DebugOptions.instance.UIRenderOutline.getValue()) {
-                  if (this.table != nullptr && "ISScrollingListBox" == this.table.rawget("Type"))) {
-                     this.repaintStencilRect(0.0, 0.0, (int)this.width, (int)this.height);
-                  }
-
-    double var9 = -this.getXScroll();
-    double var11 = -this.getYScroll();
-    double var3 = 1.0;
-                  if (this.isMouseOver()) {
-                     var3 = 0.0;
-                  }
-
-    double var5 = this.maxDrawHeight == -1 ? this.height : this.maxDrawHeight;
-                  this.DrawTextureScaledColor(nullptr, var9, var11, 1.0, var5, var3, 1.0, 1.0, 0.5);
-                  this.DrawTextureScaledColor(nullptr, var9 + 1.0, var11, this.width - 2.0, 1.0, var3, 1.0, 1.0, 0.5);
-                  this.DrawTextureScaledColor(nullptr, var9 + this.width - 1.0, var11, 1.0, var5, var3, 1.0, 1.0, 0.5);
-                  this.DrawTextureScaledColor(nullptr, var9 + 1.0, var11 + var5 - 1.0, this.width - 2.0, 1.0, var3, 1.0, 1.0, 0.5);
-               }
-            }
-         }
-      }
-   }
+    virtual void render() {
+        ImGuiRender();
+    }
 
     void update() {
       if (this.enabled) {

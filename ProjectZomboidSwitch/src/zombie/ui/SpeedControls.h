@@ -30,6 +30,9 @@ public:
     static HUDButton FasterForward;
     static HUDButton Wait;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public SpeedControls() {
       this.x = 0.0;
       this.y = 0.0;

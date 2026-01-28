@@ -6,11 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/FMODSoundBuffer.h"
-#include "fmod/FMOD_RESULT.h"
-#include "fmod/fmod/FMODManager.h"
-#include "fmod/javafmod.h"
-#include "fmod/javafmodJNI.h"
+// #include "OpenAL/OpenALSoundBuffer.h" // Use OpenAL equivalents if needed
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "se/krka/kahlua/vm/Platform.h"
 #include "zombie/characters/IsoPlayer.h"
@@ -51,7 +47,7 @@ namespace raknet {
 
 class VoiceManager {
 public:
-    static const int FMOD_SOUND_MODE = FMODManager.FMOD_OPENUSER | FMODManager.FMOD_LOOP_NORMAL | FMODManager.FMOD_CREATESTREAM;
+   static const int OPENAL_SOUND_MODE = OpenALManager::OPENUSER | OpenALManager::LOOP_NORMAL | OpenALManager::CREATESTREAM;
     static const int modePPT = 1;
     static const int modeVAD = 2;
     static const int modeMute = 3;
@@ -80,10 +76,10 @@ public:
     int volumePlayers;
     static bool VoipDisabled = false;
     bool isServer;
-    static FMODSoundBuffer FMODReceiveBuffer;
-    int FMODVoiceRecordDriverId;
-    long FMODChannelGroup = 0L;
-    long FMODRecordSound = 0L;
+   static OpenALSoundBuffer OpenALReceiveBuffer;
+   int OpenALVoiceRecordDriverId;
+   long OpenALChannelGroup = 0L;
+   long OpenALRecordSound = 0L;
     Semaphore recDevSemaphore;
     bool initialiseRecDev = false;
     bool initialisedRecDev = false;
@@ -109,44 +105,44 @@ public:
 
     void DeinitRecSound() {
       this.initialisedRecDev = false;
-      if (this.FMODRecordSound != 0L) {
-         javafmod.FMOD_RecordSound_Release(this.FMODRecordSound);
-         this.FMODRecordSound = 0L;
+      if (this.OpenALRecordSound != 0L) {
+         OpenALSystem::RecordSound_Release(this.OpenALRecordSound);
+         this.OpenALRecordSound = 0L;
       }
 
-      FMODReceiveBuffer = nullptr;
+      OpenALReceiveBuffer = nullptr;
    }
 
     void ResetRecSound() {
-      if (this.initialisedRecDev && this.FMODRecordSound != 0L) {
-    int var1 = javafmod.FMOD_System_RecordStop(this.FMODVoiceRecordDriverId);
-         if (var1 != FMOD_RESULT.FMOD_OK.ordinal()) {
-            DebugLog.Voice.warn("FMOD_System_RecordStop result=%d", new Object[]{var1});
+      if (this.initialisedRecDev && this.OpenALRecordSound != 0L) {
+         int var1 = OpenALSystem::RecordStop(this.OpenALVoiceRecordDriverId);
+         if (var1 != OpenAL_RESULT::OK) {
+            DebugLog.Voice.warn("OpenALSystem_RecordStop result=%d", new Object[]{var1});
          }
       }
 
       this.DeinitRecSound();
-      this.FMODRecordSound = javafmod.FMOD_System_CreateRecordSound(
-         this.FMODVoiceRecordDriverId,
-         FMODManager.FMOD_2D | FMODManager.FMOD_OPENUSER | FMODManager.FMOD_SOFTWARE,
-         FMODManager.FMOD_SOUND_FORMAT_PCM16,
+      this.OpenALRecordSound = OpenALSystem::CreateRecordSound(
+         this.OpenALVoiceRecordDriverId,
+         OpenALManager::MODE_2D | OpenALManager::OPENUSER | OpenALManager::SOFTWARE,
+         OpenALManager::SOUND_FORMAT_PCM16,
          sampleRate,
          this.agcMode
       );
-      if (this.FMODRecordSound == 0L) {
-         DebugLog.Voice.warn("FMOD_System_CreateSound result=%d", new Object[]{this.FMODRecordSound});
+      if (this.OpenALRecordSound == 0L) {
+         DebugLog.Voice.warn("OpenALSystem_CreateSound result=%d", new Object[]{this.OpenALRecordSound});
       }
 
-      javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this.volumeMic)));
+      OpenALSystem::SetRecordVolume(1L - std::round(std::pow(1.4, 11 - this.volumeMic)));
       if (this.initialiseRecDev) {
-    int var2 = javafmod.FMOD_System_RecordStart(this.FMODVoiceRecordDriverId, this.FMODRecordSound, true);
-         if (var2 != FMOD_RESULT.FMOD_OK.ordinal()) {
-            DebugLog.Voice.warn("FMOD_System_RecordStart result=%d", new Object[]{var2});
+         int var2 = OpenALSystem::RecordStart(this.OpenALVoiceRecordDriverId, this.OpenALRecordSound, true);
+         if (var2 != OpenAL_RESULT::OK) {
+            DebugLog.Voice.warn("OpenALSystem_RecordStart result=%d", new Object[]{var2});
          }
       }
 
-      javafmod.FMOD_System_SetVADMode(this.vadMode - 1);
-      FMODReceiveBuffer = std::make_shared<FMODSoundBuffer>(this.FMODRecordSound);
+      OpenALSystem::SetVADMode(this.vadMode - 1);
+      OpenALReceiveBuffer = std::make_shared<OpenALSoundBuffer>(this.OpenALRecordSound);
       this.initialisedRecDev = true;
    }
 
@@ -173,7 +169,7 @@ public:
     void VoiceInitClient() {
       this.isServer = false;
       this.recDevSemaphore = std::make_shared<Semaphore>(1);
-      FMODReceiveBuffer = nullptr;
+      OpenALReceiveBuffer = nullptr;
       RakVoice.RVInit(192);
       RakVoice.SetComplexity(1);
    }
@@ -244,17 +240,17 @@ public:
             var7.printStackTrace();
          }
 
-    int var4 = is3D ? FMODManager.FMOD_3D | FMOD_SOUND_MODE : FMOD_SOUND_MODE;
+   int var4 = is3D ? OpenALManager::MODE_3D | OPENAL_SOUND_MODE : OPENAL_SOUND_MODE;
 
          for (VoiceManagerData var6 : VoiceManagerData.data) {
             if (var6.userplaysound != 0L) {
-               javafmod.FMOD_Sound_SetMode(var6.userplaysound, var4);
+               OpenALSystem::Sound_SetMode(var6.userplaysound, var4);
             }
          }
 
-    long var9 = javafmod.FMOD_System_SetRawPlayBufferingPeriod(buffering);
-         if (var9 != FMOD_RESULT.FMOD_OK.ordinal()) {
-            DebugLog.Voice.warn("FMOD_System_SetRawPlayBufferingPeriod result=%d", new Object[]{var9});
+    long var9 = OpenALSystem::SetRawPlayBufferingPeriod(buffering);
+         if (var9 != OpenAL_RESULT::OK) {
+            DebugLog.Voice.warn("OpenALSystem_SetRawPlayBufferingPeriod result=%d", new Object[]{var9});
          }
 
          this.ResetRecSound();
@@ -297,7 +293,7 @@ public:
       if (!(var1 < 1 | var1 > 4)) {
          this.vadMode = var1;
          if (this.initialisedRecDev) {
-            this.threadSafeCode(() -> javafmod.FMOD_System_SetVADMode(this.vadMode - 1));
+            this.threadSafeCode(() -> OpenALSystem::SetVADMode(this.vadMode - 1));
          }
       }
    }
@@ -325,7 +321,7 @@ public:
             for (int var3 = 0; var3 < var2.size(); var3++) {
     VoiceManagerData var4 = (VoiceManagerData)var2.get(var3);
                if (var4 != nullptr && var4.userplaychannel != 0L) {
-                  javafmod.FMOD_Channel_SetVolume(var4.userplaychannel, (float)(this.volumePlayers * 0.2));
+                  OpenALSystem::Channel_SetVolume(var4.userplaychannel, (float)(this.volumePlayers * 0.2));
                }
             }
          }
@@ -341,7 +337,7 @@ public:
          }
 
          if (this.initialisedRecDev) {
-            this.threadSafeCode(() -> javafmod.FMOD_System_SetRecordVolume(1L - Math.round(Math.pow(1.4, 11 - this.volumeMic))));
+            this.threadSafeCode(() -> OpenALSystem::SetRecordVolume(1L - std::round(std::pow(1.4, 11 - this.volumeMic))));
          }
       }
    }
@@ -383,30 +379,30 @@ public:
 
     void setUserPlaySound(long var1, float var3) {
       var3 = IsoUtils.clamp(var3 * IsoUtils.lerp(this.volumePlayers, 0.0F, 12.0F), 0.0F, 1.0F);
-      javafmod.FMOD_Channel_SetVolume(var1, var3);
+      OpenALSystem::Channel_SetVolume(var1, var3);
    }
 
     long getUserPlaySound(short var1) {
     VoiceManagerData var2 = VoiceManagerData.get(var1);
       if (var2.userplaychannel == 0L) {
          var2.userplaysound = 0L;
-    int var3 = is3D ? FMODManager.FMOD_3D | FMOD_SOUND_MODE : FMOD_SOUND_MODE;
-         var2.userplaysound = javafmod.FMOD_System_CreateRAWPlaySound(var3, FMODManager.FMOD_SOUND_FORMAT_PCM16, sampleRate);
+    int var3 = is3D ? OpenALManager::MODE_3D | OPENAL_SOUND_MODE : OPENAL_SOUND_MODE;
+         var2.userplaysound = OpenALSystem::CreateRAWPlaySound(var3, OpenALManager::SOUND_FORMAT_PCM16, sampleRate);
          if (var2.userplaysound == 0L) {
-            DebugLog.Voice.warn("FMOD_System_CreateSound result=%d", new Object[]{var2.userplaysound});
+            DebugLog.Voice.warn("OpenALSystem_CreateSound result=%d", new Object[]{var2.userplaysound});
          }
 
-         var2.userplaychannel = javafmod.FMOD_System_PlaySound(var2.userplaysound, false);
+         var2.userplaychannel = OpenALSystem::PlaySound(var2.userplaysound, false);
          if (var2.userplaychannel == 0L) {
-            DebugLog.Voice.warn("FMOD_System_PlaySound result=%d", new Object[]{var2.userplaychannel});
+            DebugLog.Voice.warn("OpenALSystem_PlaySound result=%d", new Object[]{var2.userplaychannel});
          }
 
-         javafmod.FMOD_Channel_SetVolume(var2.userplaychannel, (float)(this.volumePlayers * 0.2));
+         OpenALSystem::Channel_SetVolume(var2.userplaychannel, (float)(this.volumePlayers * 0.2));
          if (is3D) {
-            javafmod.FMOD_Channel_Set3DMinMaxDistance(var2.userplaychannel, minDistance / 2.0F, maxDistance);
+            OpenALSystem::Channel_Set3DMinMaxDistance(var2.userplaychannel, minDistance / 2.0F, maxDistance);
          }
 
-         javafmod.FMOD_Channel_SetChannelGroup(var2.userplaychannel, this.FMODChannelGroup);
+         OpenALSystem::Channel_SetChannelGroup(var2.userplaychannel, this.OpenALChannelGroup);
       }
 
       return var2.userplaysound;
@@ -414,17 +410,17 @@ public:
 
     void InitVMClient() {
       if (!Core.SoundDisabled && !VoipDisabled) {
-    int var1 = javafmod.FMOD_System_GetRecordNumDrivers();
-         this.FMODVoiceRecordDriverId = Core.getInstance().getOptionVoiceRecordDevice() - 1;
-         if (this.FMODVoiceRecordDriverId < 0 && var1 > 0) {
+    int var1 = OpenALSystem::GetRecordNumDrivers();
+         this.OpenALVoiceRecordDriverId = Core.getInstance().getOptionVoiceRecordDevice() - 1;
+         if (this.OpenALVoiceRecordDriverId < 0 && var1 > 0) {
             Core.getInstance().setOptionVoiceRecordDevice(1);
-            this.FMODVoiceRecordDriverId = Core.getInstance().getOptionVoiceRecordDevice() - 1;
+            this.OpenALVoiceRecordDriverId = Core.getInstance().getOptionVoiceRecordDevice() - 1;
          }
 
          if (var1 < 1) {
             DebugLog.Voice.debugln("Microphone not found");
             this.initialiseRecDev = false;
-         } else if (this.FMODVoiceRecordDriverId < 0 | this.FMODVoiceRecordDriverId >= var1) {
+         } else if (this.OpenALVoiceRecordDriverId < 0 | this.OpenALVoiceRecordDriverId >= var1) {
             DebugLog.Voice.warn("Invalid record device");
             this.initialiseRecDev = false;
          } else {
@@ -436,9 +432,9 @@ public:
          this.vadMode = Core.getInstance().getOptionVoiceVADMode();
          this.volumeMic = Core.getInstance().getOptionVoiceVolumeMic();
          this.volumePlayers = Core.getInstance().getOptionVoiceVolumePlayers();
-         this.FMODChannelGroup = javafmod.FMOD_System_CreateChannelGroup("VOIP");
+         this.OpenALChannelGroup = OpenALSystem::CreateChannelGroup("VOIP");
          this.VoiceInitClient();
-         this.FMODRecordSound = 0L;
+         this.OpenALRecordSound = 0L;
          if (this.isEnable) {
             this.InitRecDeviceForTest();
          }
@@ -475,18 +471,18 @@ public:
    }
 
     void UpdateRecordDeviceInternal() {
-    int var1 = javafmod.FMOD_System_RecordStop(this.FMODVoiceRecordDriverId);
-      if (var1 != FMOD_RESULT.FMOD_OK.ordinal()) {
-         DebugLog.Voice.warn("FMOD_System_RecordStop result=%d", new Object[]{var1});
+    int var1 = OpenALSystem::RecordStop(this.OpenALVoiceRecordDriverId);
+      if (var1 != OpenAL_RESULT::OK) {
+         DebugLog.Voice.warn("OpenALSystem_RecordStop result=%d", new Object[]{var1});
       }
 
-      this.FMODVoiceRecordDriverId = Core.getInstance().getOptionVoiceRecordDevice() - 1;
-      if (this.FMODVoiceRecordDriverId < 0) {
+      this.OpenALVoiceRecordDriverId = Core.getInstance().getOptionVoiceRecordDevice() - 1;
+      if (this.OpenALVoiceRecordDriverId < 0) {
          DebugLog.Voice.error("No record device found");
       } else {
-         var1 = javafmod.FMOD_System_RecordStart(this.FMODVoiceRecordDriverId, this.FMODRecordSound, true);
-         if (var1 != FMOD_RESULT.FMOD_OK.ordinal()) {
-            DebugLog.Voice.warn("FMOD_System_RecordStart result=%d", new Object[]{var1});
+         var1 = OpenALSystem::RecordStart(this.OpenALVoiceRecordDriverId, this.OpenALRecordSound, true);
+         if (var1 != OpenAL_RESULT::OK) {
+            DebugLog.Voice.warn("OpenALSystem_RecordStart result=%d", new Object[]{var1});
          }
       }
    }
@@ -514,11 +510,11 @@ public:
       for (int var2 = 0; var2 < var6.size(); var2++) {
     VoiceManagerData var3 = (VoiceManagerData)var6.get(var2);
          if (var3.userplaychannel != 0L) {
-            javafmod.FMOD_Channel_Stop(var3.userplaychannel);
+            OpenALSystem::Channel_Stop(var3.userplaychannel);
          }
 
          if (var3.userplaysound != 0L) {
-            javafmod.FMOD_RAWPlaySound_Release(var3.userplaysound);
+            OpenALSystem::RAWPlaySound_Release(var3.userplaysound);
             var3.userplaysound = 0L;
          }
       }
@@ -603,9 +599,9 @@ public:
 
          if (this.initialiseRecDev) {
             this.recDevSemaphore.acquire();
-            javafmod.FMOD_System_GetRecordPosition(this.FMODVoiceRecordDriverId, this.recBuf_Current_read);
-            if (FMODReceiveBuffer != nullptr) {
-               while (FMODReceiveBuffer.pull(this.recBuf_Current_read)) {
+            OpenALSystem::GetRecordPosition(this.OpenALVoiceRecordDriverId, this.recBuf_Current_read);
+            if (OpenALReceiveBuffer != nullptr) {
+               while (OpenALReceiveBuffer.pull(this.recBuf_Current_read)) {
                   if (IsoPlayer.getInstance() != nullptr && GameClient.connection != nullptr || FakeClientManager.isVOIPEnabled()) {
                      if (is3D && IsoPlayer.getInstance().isDead()) {
                         continue;
@@ -614,20 +610,20 @@ public:
                      if (this.isModePPT) {
                         if (GameKeyboard.isKeyDown(Core.getInstance().getKey("Enable voice transmit"))) {
                            RakVoice.SendFrame(
-                              GameClient.connection.connectedGUID, IsoPlayer.getInstance().OnlineID, FMODReceiveBuffer.buf(), FMODReceiveBuffer.get_size()
+                              GameClient.connection.connectedGUID, IsoPlayer.getInstance().OnlineID, OpenALReceiveBuffer.buf(), OpenALReceiveBuffer.get_size()
                            );
                            this.indicatorIsVoice = System.currentTimeMillis();
                         } else if (FakeClientManager.isVOIPEnabled()) {
                            RakVoice.SendFrame(
-                              FakeClientManager.getConnectedGUID(), FakeClientManager.getOnlineID(), FMODReceiveBuffer.buf(), FMODReceiveBuffer.get_size()
+                              FakeClientManager.getConnectedGUID(), FakeClientManager.getOnlineID(), OpenALReceiveBuffer.buf(), OpenALReceiveBuffer.get_size()
                            );
                            this.indicatorIsVoice = System.currentTimeMillis();
                         }
                      }
 
-                     if (this.isModeVAD && FMODReceiveBuffer.get_vad() != 0L) {
+                     if (this.isModeVAD && OpenALReceiveBuffer.get_vad() != 0L) {
                         RakVoice.SendFrame(
-                           GameClient.connection.connectedGUID, IsoPlayer.getInstance().OnlineID, FMODReceiveBuffer.buf(), FMODReceiveBuffer.get_size()
+                           GameClient.connection.connectedGUID, IsoPlayer.getInstance().OnlineID, OpenALReceiveBuffer.buf(), OpenALReceiveBuffer.get_size()
                         );
                         this.indicatorIsVoice = System.currentTimeMillis();
                      }
@@ -635,16 +631,16 @@ public:
 
                   if (this.isDebug) {
                      if (GameClient.IDToPlayerMap.values().size() > 0) {
-                        VoiceDebug.updateGui(nullptr, FMODReceiveBuffer);
+                        VoiceDebug.updateGui(nullptr, OpenALReceiveBuffer);
                      } else if (this.isDebugLoopback) {
-                        VoiceDebug.updateGui(nullptr, FMODReceiveBuffer);
+                        VoiceDebug.updateGui(nullptr, OpenALReceiveBuffer);
                      } else {
-                        VoiceDebug.updateGui(nullptr, FMODReceiveBuffer);
+                        VoiceDebug.updateGui(nullptr, OpenALReceiveBuffer);
                      }
                   }
 
                   if (this.isDebugLoopback) {
-                     javafmod.FMOD_System_RAWPlayData(this.getUserPlaySound((short)0), FMODReceiveBuffer.buf(), FMODReceiveBuffer.get_size());
+                     OpenALSystem::RAWPlayData(this.getUserPlaySound((short)0), OpenALReceiveBuffer.buf(), OpenALReceiveBuffer.get_size());
                   }
                }
             }
@@ -672,7 +668,7 @@ public:
             }
 
             if (var4.userplaychannel != 0L & !var5) {
-               javafmod.FMOD_Channel_Stop(var4.userplaychannel);
+               OpenALSystem::Channel_Stop(var4.userplaychannel);
                var4.userplaychannel = 0L;
             }
          }
@@ -696,33 +692,33 @@ public:
                      if (!var10.userplaymute) {
     float var11 = IsoUtils.DistanceTo(var9.getX(), var9.getY(), var8.getX(), var8.getY());
                         if (var9.isCanHearAll()) {
-                           javafmodJNI.FMOD_Channel_Set3DLevel(var10.userplaychannel, 0.0F);
-                           javafmod.FMOD_Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
+                           OpenALSystem::Channel_Set3DLevel(var10.userplaychannel, 0.0F);
+                           OpenALSystem::Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
                            this.setUserPlaySound(var10.userplaychannel, this.getCanHearAllVolume(var11));
                            var17 = VoiceDataSource.Cheat;
                            var18 = 0;
                         } else {
     RadioData var12 = this.checkForNearbyRadios(var10);
                            if (var12 != nullptr && var12.deviceData != nullptr) {
-                              javafmodJNI.FMOD_Channel_Set3DLevel(var10.userplaychannel, 0.0F);
-                              javafmod.FMOD_Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
+                              OpenALSystem::Channel_Set3DLevel(var10.userplaychannel, 0.0F);
+                              OpenALSystem::Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
                               this.setUserPlaySound(var10.userplaychannel, var12.deviceData.getDeviceVolume());
                               var12.deviceData.doReceiveMPSignal(var12.lastReceiveDistance);
                               var17 = VoiceDataSource.Radio;
                               var18 = var12.freq;
                            } else {
                               if (var12 == nullptr) {
-                                 javafmodJNI.FMOD_Channel_Set3DLevel(var10.userplaychannel, 0.0F);
-                                 javafmod.FMOD_Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
-                                 javafmod.FMOD_Channel_SetVolume(var10.userplaychannel, 0.0F);
+                                 OpenALSystem::Channel_Set3DLevel(var10.userplaychannel, 0.0F);
+                                 OpenALSystem::Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
+                                 OpenALSystem::Channel_SetVolume(var10.userplaychannel, 0.0F);
                                  var17 = VoiceDataSource.Unknown;
                               } else {
                                  if (is3D) {
-                                    javafmodJNI.FMOD_Channel_Set3DLevel(var10.userplaychannel, IsoUtils.lerp(var11, 0.0F, minDistance));
-                                    javafmod.FMOD_Channel_Set3DAttributes(var10.userplaychannel, var8.x, var8.y, var8.z, 0.0F, 0.0F, 0.0F);
+                                    OpenALSystem::Channel_Set3DLevel(var10.userplaychannel, IsoUtils.lerp(var11, 0.0F, minDistance));
+                                    OpenALSystem::Channel_Set3DAttributes(var10.userplaychannel, var8.x, var8.y, var8.z, 0.0F, 0.0F, 0.0F);
                                  } else {
-                                    javafmodJNI.FMOD_Channel_Set3DLevel(var10.userplaychannel, 0.0F);
-                                    javafmod.FMOD_Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
+                                    OpenALSystem::Channel_Set3DLevel(var10.userplaychannel, 0.0F);
+                                    OpenALSystem::Channel_Set3DAttributes(var10.userplaychannel, var9.x, var9.y, var9.z, 0.0F, 0.0F, 0.0F);
                                  }
 
                                  this.setUserPlaySound(var10.userplaychannel, IsoUtils.smoothstep(maxDistance, minDistance, var12.lastReceiveDistance));
@@ -736,7 +732,7 @@ public:
                            }
                         }
 
-                        javafmod.FMOD_System_RAWPlayData(this.getUserPlaySound(var8.getOnlineID()), this.buf, this.buf.length);
+                        OpenALSystem::RAWPlayData(this.getUserPlaySound(var8.getOnlineID()), this.buf, this.buf.length);
                         if (this.isDebugLoopbackLong) {
                            RakVoice.SendFrame(GameClient.connection.connectedGUID, var9.getOnlineID(), this.buf, this.buf.length);
                         }
@@ -916,11 +912,11 @@ public:
    }
 
     int getMicVolumeIndicator() {
-    return FMODReceiveBuffer = = nullptr ? 0 : (int)FMODReceiveBuffer.get_loudness();
+   return OpenALReceiveBuffer == nullptr ? 0 : (int)OpenALReceiveBuffer.get_loudness();
    }
 
     bool getMicVolumeError() {
-    return FMODReceiveBuffer = = nullptr ? true : FMODReceiveBuffer.get_interror();
+   return OpenALReceiveBuffer == nullptr ? true : OpenALReceiveBuffer.get_interror();
    }
 
     bool getServerVOIPEnable() {

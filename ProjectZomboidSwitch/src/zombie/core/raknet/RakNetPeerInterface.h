@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/Lua/LuaEventManager.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/znet/ZNetStatistics.h"

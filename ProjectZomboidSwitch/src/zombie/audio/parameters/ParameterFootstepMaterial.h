@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODManager.h"
-#include "zombie/audio/FMODLocalParameter.h"
+
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterFootstepMaterial/FootstepMaterial.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
@@ -22,22 +22,12 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterFootstepMaterial : public FMODLocalParameter {
+// OpenAL stub for ParameterFootstepMaterial
+class ParameterFootstepMaterial : public zombie::audio::OpenALParameterStub {
 public:
-    const IsoGameCharacter character;
-
-    public ParameterFootstepMaterial(IsoGameCharacter var1) {
-      super("FootstepMaterial");
-      this.character = var1;
-   }
-
-    float calculateCurrentValue() {
-      return this.getMaterial().label;
-   }
-
-    FootstepMaterial getMaterial() {
-      if (FMODManager.instance.getNumListeners() == 1) {
-         for (int var1 = 0; var1 < IsoPlayer.numPlayers; var1++) {
+      ParameterFootstepMaterial(void* /*character*/) : OpenALParameterStub("FootstepMaterial") {}
+      float calculateCurrentValue() override { return 0.0f; }
+};
     IsoPlayer var2 = IsoPlayer.players[var1];
             if (var2 != nullptr && var2 != this.character && !var2.Traits.Deaf.isSet()) {
                if ((int)var2.getZ() < (int)this.character.getZ()) {

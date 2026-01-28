@@ -40,7 +40,7 @@ void CollideWithWallState::animEvent(IsoGameCharacter* var1, AnimEvent* var2) {
         if (auto* player = dynamic_cast<IsoPlayer*>(var1)) {
             auto* paramSpeed = player->getParameterCharacterMovementSpeed();
             var1->getEmitter()->setParameterValue(soundId, paramSpeed->getParameterDescription(), MovementType::Sprint.label);
-            var1->getEmitter()->setParameterValue(soundId, FMODManager::instance().getParameterDescription("TripObstacleType"), 7.0f);
+            var1->getEmitter()->setParameterValue(soundId, OpenALSoundEmitter::getParameterDescription("TripObstacleType"), 7.0f);
         }
         DebugLog::AI.debug("CollideWithWallState::animEvent: PlayCollideSound triggered");
     }

@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "zombie/characterTextures/BloodBodyPartType.h"
 #include "zombie/characterTextures/CharacterSmartTexture.h"
 #include "zombie/core/Core.h"

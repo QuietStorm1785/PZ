@@ -9,7 +9,16 @@ public ActionProgressBar::ActionProgressBar(int var1, int var2) {
 }
 
 void ActionProgressBar::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void ActionProgressBar::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Action Progress", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Action Progress");
+    ImGui::ProgressBar(deltaValue, ImVec2(200, 24));
+    ImGui::End();
 }
 
 void ActionProgressBar::setValue(float var1) {

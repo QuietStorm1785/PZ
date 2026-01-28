@@ -6,8 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjglx/input/KeyEventQueue.h"
-#include "org/lwjglx/input/Keyboard.h"
+#include <SDL2/SDL.h>
 
 namespace zombie {
 namespace input {
@@ -15,65 +14,32 @@ namespace input {
 
 class KeyboardState {
 public:
-    bool m_isCreated = false;
-   private boolean[] m_keyDownStates = nullptr;
-    const KeyEventQueue m_keyEventQueue = std::make_shared<KeyEventQueue>();
-    bool m_wasPolled = false;
+    KeyboardState() : m_isCreated(false), m_wasPolled(false) {
+        m_keyDownStates.resize(SDL_NUM_SCANCODES, false);
+    }
 
     void poll() {
-    bool var1 = !this.m_isCreated;
-      this.m_isCreated = this.m_isCreated || Keyboard.isCreated();
-      if (this.m_isCreated) {
-         if (var1) {
-            this.m_keyDownStates = new boolean[256];
-         }
+        m_wasPolled = true;
+        const Uint8* state = SDL_GetKeyboardState(nullptr);
+        for (int i = 0; i < SDL_NUM_SCANCODES; ++i) {
+            m_keyDownStates[i] = state[i];
+        }
+        m_isCreated = true;
+    }
 
-         this.m_wasPolled = true;
+    bool wasPolled() const { return m_wasPolled; }
+    void reset() { m_wasPolled = false; }
+    bool isCreated() const { return m_isCreated; }
+    bool isKeyDown(int scancode) const {
+        if (scancode < 0 || scancode >= (int)m_keyDownStates.size()) return false;
+        return m_keyDownStates[scancode];
+    }
+    int getKeyCount() const { return (int)m_keyDownStates.size(); }
 
-         for (int var2 = 0; var2 < this.m_keyDownStates.length; var2++) {
-            this.m_keyDownStates[var2] = Keyboard.isKeyDown(var2);
-         }
-      }
-   }
-
-    bool wasPolled() {
-      return this.m_wasPolled;
-   }
-
-    void set(KeyboardState var1) {
-      this.m_isCreated = var1.m_isCreated;
-      if (var1.m_keyDownStates != nullptr) {
-         if (this.m_keyDownStates == nullptr || this.m_keyDownStates.length != var1.m_keyDownStates.length) {
-            this.m_keyDownStates = new boolean[var1.m_keyDownStates.length];
-         }
-
-         System.arraycopy(var1.m_keyDownStates, 0, this.m_keyDownStates, 0, this.m_keyDownStates.length);
-      } else {
-         this.m_keyDownStates = nullptr;
-      }
-
-      this.m_wasPolled = var1.m_wasPolled;
-   }
-
-    void reset() {
-      this.m_wasPolled = false;
-   }
-
-    bool isCreated() {
-      return this.m_isCreated;
-   }
-
-    bool isKeyDown(int var1) {
-      return this.m_keyDownStates[var1];
-   }
-
-    int getKeyCount() {
-      return this.m_keyDownStates.length;
-   }
-
-    KeyEventQueue getEventQueue() {
-      return this.m_keyEventQueue;
-   }
-}
+private:
+    bool m_isCreated;
+    std::vector<bool> m_keyDownStates;
+    bool m_wasPolled;
+};
 } // namespace input
 } // namespace zombie

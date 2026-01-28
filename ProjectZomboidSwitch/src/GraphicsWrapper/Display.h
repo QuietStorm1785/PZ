@@ -57,10 +57,6 @@ public:
         initialized = false;
     }
 
-    // Static member definitions
-    inline static bool initialized = false;
-    inline static SDL_Window* window = nullptr;
-    inline static SDL_GLContext glContext = nullptr;
 #else
     static bool initialized;
 
@@ -86,8 +82,6 @@ public:
         initialized = false;
     }
 
-    // Static member definition
-    inline static bool initialized = false;
 #endif
 };
 

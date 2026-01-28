@@ -6,8 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Vector3f.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL14.h"
+#include <GL/glew.h>
 #include "org/lwjgl/util/vector/Matrix4f.h"
 #include "zombie/GameProfiler.h"
 #include "zombie/GameTime.h"

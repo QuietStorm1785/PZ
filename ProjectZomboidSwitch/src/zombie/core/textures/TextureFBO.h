@@ -7,8 +7,8 @@
 #include <unordered_set>
 #include <cstdint>
 #include "gnu/trove/stack/array/TIntArrayStack.h"
-#include "org/lwjgl/opengl/GL.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include "zombie/core/opengl/PZGLUtil.h"
 #include "zombie/core/opengl/RenderThread.h"
 #include "zombie/debug/DebugLog.h"

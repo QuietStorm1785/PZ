@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Matrix4f.h"
-#include "org/lwjglx/BufferUtils.h"
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/skinnedmodel/model/ModelInstance.h"
 #include "zombie/core/skinnedmodel/model/ModelInstanceRenderData.h"

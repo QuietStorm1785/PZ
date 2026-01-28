@@ -6,19 +6,14 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL12.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjgl/opengl/GL20.h"
-#include "zombie/core/SpriteRenderer/RingBuffer.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include "zombie/core/Styles/AdditiveStyle.h"
 #include "zombie/core/Styles/LightingStyle.h"
 #include "zombie/core/Styles/Style.h"
 #include "zombie/core/Styles/TransparentStyle.h"
 #include "zombie/core/textures/Texture.h"
 #include "zombie/core/textures/TextureDraw.h"
-#include "zombie/debug/DebugOptions.h"
-#include "zombie/iso/IsoGridSquare/CircleStencilShader.h"
-#include "zombie/iso/IsoGridSquare/NoCircleStencilShader.h"
 #include "zombie/util/list/PZArrayUtil.h"
 #include <filesystem>
 

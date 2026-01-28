@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterMusicActionStyle/State.h"
 #include "zombie/core/Core.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterMusicActionStyle : public FMODGlobalParameter {
+class ParameterMusicActionStyle : public OpenALParameterStub {
 public:
     public ParameterMusicActionStyle() {
       super("MusicActionStyle");

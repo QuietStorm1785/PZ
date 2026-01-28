@@ -5,9 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODManager.h"
-#include "fmod/fmod/FMOD_STUDIO_EVENT_DESCRIPTION.h"
-#include "fmod/javafmod.h"
+#include "zombie/audio/OpenALSoundEmitter.h"
 #include "zombie/GameSounds.h"
 #include "zombie/GameTime.h"
 #include "zombie/SoundManager.h"
@@ -55,7 +53,7 @@ public:
     glm::vec2 move{0.0f, 0.0f};
     bool bActive = false;
     static long inst;
-    static FMOD_STUDIO_EVENT_DESCRIPTION event;
+    static OpenALSoundEventDescription event;
     bool bSoundStarted = false;
     float volume = 0.0f;
     float occlusion = 0.0f;

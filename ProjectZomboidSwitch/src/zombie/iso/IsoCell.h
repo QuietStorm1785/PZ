@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include <QRect>
+#include "zombie/core/Rect.h"
 #include <glm/glm.hpp>
 #extern "C" {
 #include "lua.h"

@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "gnu/trove/list/array/TFloatArrayList.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/opengl/VBOLines.h"

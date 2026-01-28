@@ -6,9 +6,9 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/lwjgl/BufferUtils.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL12.h"
-#include "org/lwjgl/opengl/GL13.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
+
 #include "zombie/worldMap/WorldMapVBOs/WorldMapVBO.h"
 #include <filesystem>
 

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterZombieState/State.h"
 #include "zombie/characters/IsoZombie.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterZombieState : public FMODLocalParameter {
+class ParameterZombieState : public OpenALParameterStub {
 public:
     const IsoZombie zombie;
     State state = State.Idle;

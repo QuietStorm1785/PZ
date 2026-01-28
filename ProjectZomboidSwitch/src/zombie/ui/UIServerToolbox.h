@@ -71,20 +71,8 @@ public:
       }
    }
 
-    void render() {
-      if (this.isVisible()) {
-         super.render();
-         this.DrawTextCentre(Translator.getText("IGUI_ServerToolBox_Title"), this.getWidth() / 2.0, 2.0, 1.0, 1.0, 1.0, 1.0);
-    std::string var1 = "nullptr" == this.externalAddress) ? Translator.getText("IGUI_ServerToolBox_IPUnknown") : this.externalAddress;
-         this.DrawText(Translator.getText("IGUI_ServerToolBox_ExternalIP", var1), 7.0, 19.0, 0.7F, 0.7F, 1.0, 1.0);
-         if (!this.incomingConnections.empty()) {
-    std::string var2 = this.incomingConnections.get(0);
-            if (var2 != nullptr) {
-               this.DrawText(Translator.getText("IGUI_ServerToolBox_UserConnecting", var2), 10.0, 205.0, 0.7F, 0.7F, 1.0, 1.0);
-            }
-         }
-      }
-   }
+    void ImGuiRender() override;
+    void render() override { ImGuiRender(); }
 
     void update() {
       if (this.isVisible()) {

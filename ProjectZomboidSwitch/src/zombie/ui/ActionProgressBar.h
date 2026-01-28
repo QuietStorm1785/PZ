@@ -27,6 +27,9 @@ public:
     const int offsetX;
     const int offsetY;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public ActionProgressBar(int var1, int var2) {
       this.background = Texture.getSharedTexture("BuildBar_Bkg");
       this.foreground = Texture.getSharedTexture("BuildBar_Bar");

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/GameTime/AnimTimer.h"
+#include "zombie/GameTime.h"
 
 namespace zombie {
 namespace iso {
@@ -19,7 +19,7 @@ public:
     bool doLightning = false;
     bool doRumble = false;
     bool doStrike = false;
-    AnimTimer soundDelay = std::make_shared<AnimTimer>();
+    zombie::GameTime::AnimTimer soundDelay;
     bool isRunning = false;
 
    private ThunderStorm$ThunderEvent() {

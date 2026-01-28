@@ -6,12 +6,10 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Vector2f.h"
-#include "org/joml/Vector4f.h"
-#include "org/lwjgl/opengl/GL.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL12.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjglx/BufferUtils.h"
+#include <glm/vec4.hpp>
+#include <GL/glew.h>
+#include <GL/glew.h>
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/GameTime.h"
 #include "zombie/core/Core.h"
 #include "zombie/core/PerformanceSettings.h"

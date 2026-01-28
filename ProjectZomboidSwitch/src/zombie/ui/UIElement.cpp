@@ -1,3 +1,13 @@
+#include "imgui.h"
+void zombie::ui::UIElement::ImGuiRender() {
+    if (!visible || !enabled) return;
+    ImGui::SetNextWindowPos(ImVec2((float)x, (float)y), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(width, height), ImGuiCond_Always);
+    ImGui::Begin(uiname.empty() ? "UIElement" : uiname.c_str(), nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings);
+    ImGui::Text("UIElement: %s", uiname.c_str());
+    // TODO: Render children and controls with ImGui
+    ImGui::End();
+}
 #include <string>
 #include "zombie/ui/UIElement.h"
 

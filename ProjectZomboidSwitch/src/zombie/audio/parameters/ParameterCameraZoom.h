@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/Core.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterCameraZoom : public FMODGlobalParameter {
+class ParameterCameraZoom : public OpenALParameterStub {
 public:
     public ParameterCameraZoom() {
       super("CameraZoom");

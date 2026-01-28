@@ -6,8 +6,6 @@
 #include <unordered_set>
 #include <cstdint>
 #include "com/evildevil/engines/bubble/texture/DDSLoader.h"
-#include "java/awt/image/BufferedImage.h"
-#include "java/awt/image/Raster.h"
 #include "zombie/ZomboidFileSystem.h"
 #include "zombie/core/math/PZMath.h"
 #include "zombie/core/opengl/RenderThread.h"
@@ -46,7 +44,7 @@ public:
     bool bPreserveTransparentColor = false;
     BooleanGrid mask;
     static const int BufferSize = 67108864;
-    static const DDSLoader dds = std::make_shared<DDSLoader>();
+    static DDSLoader dds;
     int id = -1;
     static const int MIP_LEVEL_IDX_OFFSET = 0;
    private static const ThreadLocal<L_generateMipMaps> TL_generateMipMaps = ThreadLocal.withInitial(L_generateMipMaps::new);

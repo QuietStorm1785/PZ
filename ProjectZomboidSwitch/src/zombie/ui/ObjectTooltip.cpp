@@ -70,7 +70,17 @@ void ObjectTooltip::onMouseMoveOutside(double var1, double var3) {
 }
 
 void ObjectTooltip::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void ObjectTooltip::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Object Tooltip", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Object Tooltip");
+    // Example: Show item info (replace with real data)
+    ImGui::Text("Item: %s", Item ? Item->getName().c_str() : "None");
+    ImGui::End();
 }
 
 void ObjectTooltip::show(IsoObject var1, double var2, double var4) {

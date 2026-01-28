@@ -13,7 +13,18 @@ void RadialProgressBar::update() {
 }
 
 void RadialProgressBar::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void RadialProgressBar::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Radial Progress", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Radial Progress");
+    // Example: Draw a radial progress bar (replace with real data)
+    float value = deltaValue;
+    ImGui::ProgressBar(value, ImVec2(120, 24), "Progress");
+    ImGui::End();
 }
 
 void RadialProgressBar::setValue(float var1) {

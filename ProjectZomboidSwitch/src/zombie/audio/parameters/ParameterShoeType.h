@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterShoeType/ShoeType.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/core/skinnedmodel/visual/ItemVisual.h"
@@ -17,7 +17,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterShoeType : public FMODLocalParameter {
+class ParameterShoeType : public OpenALParameterStub {
 public:
     static const ItemVisuals tempItemVisuals = std::make_shared<ItemVisuals>();
     const IsoGameCharacter character;

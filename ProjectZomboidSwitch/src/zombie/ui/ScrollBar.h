@@ -47,6 +47,9 @@ public:
     UIEventHandler messageParent;
     std::string name;
 
+   // ImGui rendering override
+   virtual void ImGuiRender() override;
+
     public ScrollBar(const std::string& var1, UIEventHandler var2, int var3, int var4, int var5, bool var6) {
       this.messageParent = var2;
       this.name = var1;

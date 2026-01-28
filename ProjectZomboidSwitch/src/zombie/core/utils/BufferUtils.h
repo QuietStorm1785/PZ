@@ -7,8 +7,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/core/utils/BufferUtils/BufferInfo.h"
-#include "zombie/core/utils/BufferUtils/ClearReferences.h"
+#include "zombie/core/utils/BufferUtils$BufferInfo.h"
+#include "zombie/core/utils/BufferUtils$ClearReferences.h"
 #include <algorithm>
 #include <filesystem>
 

@@ -63,12 +63,15 @@ GameSoundClip* GameSoundClip::checkReloaded() {
     return found;
 }
 
+
 bool GameSoundClip::hasSustainPoints() const {
-    return eventDescription && eventDescription->bHasSustainPoints;
+    // OpenAL: No sustain points concept, always false
+    return false;
 }
 
-bool GameSoundClip::hasParameter(const FMOD_STUDIO_PARAMETER_DESCRIPTION& param) const {
-    return eventDescription && eventDescription->hasParameter(param);
+bool GameSoundClip::hasParameter(const std::string& param) const {
+    // OpenAL: No parameter system, always false
+    return false;
 }
 
 } // namespace audio

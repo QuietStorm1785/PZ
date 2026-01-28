@@ -1,5 +1,5 @@
 #pragma once
-// Stub for org/lwjgl/opengl/GL.h
+#include <GL/glew.h>
 // TODO: Implement OpenGL context abstraction if needed
 
 #ifdef NINTENDO_SWITCH

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/audio/parameters/ParameterFootstepMaterial2/FootstepMaterial2.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/iso/objects/IsoBrokenGlass.h"
@@ -15,7 +15,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterFootstepMaterial2 : public FMODLocalParameter {
+class ParameterFootstepMaterial2 : public zombie::audio::OpenALParameterStub {
 public:
     const IsoGameCharacter character;
 

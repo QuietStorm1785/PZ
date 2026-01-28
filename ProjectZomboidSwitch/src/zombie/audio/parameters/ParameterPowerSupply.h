@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/iso/IsoWorld.h"
 
 namespace zombie {
@@ -13,7 +13,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterPowerSupply : public FMODGlobalParameter {
+class ParameterPowerSupply : public zombie::audio::OpenALParameterStub {
 public:
     public ParameterPowerSupply() {
       super("Electricity");

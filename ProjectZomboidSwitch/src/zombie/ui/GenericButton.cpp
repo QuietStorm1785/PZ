@@ -34,7 +34,17 @@ bool GenericButton::onMouseUp(double var1, double var3) {
 }
 
 void GenericButton::render() {
-    // TODO: Implement render
+    // Legacy render is now handled by ImGuiRender
+    ImGuiRender();
+}
+
+void GenericButton::ImGuiRender() {
+    if (!isVisible()) return;
+    ImGui::Begin("Generic Button", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    if (ImGui::Button(text.c_str())) {
+        clicked = true;
+    }
+    ImGui::End();
 }
 
 } // namespace ui

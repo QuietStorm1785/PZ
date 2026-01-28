@@ -5,11 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "java/awt/image/BufferedImage.h"
 #include "javax/imageio/ImageIO.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
-#include "org/lwjgl/opengl/GL21.h"
+#include <GL/glew.h>
 #include "org/lwjgl/system/MemoryUtil.h"
 #include "zombie/GameWindow.h"
 #include "zombie/IndieGL.h"

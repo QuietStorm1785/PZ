@@ -6,8 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "gnu/trove/list/array/TIntArrayList.h"
-#include "java/awt/geom/Line2D.h"
-#include "org/joml/Vector2f.h"
+#include <glm/vec2.hpp>
 #include "zombie/debug/DebugOptions.h"
 #include "zombie/debug/LineDrawer.h"
 #include "zombie/iso/IsoGridSquare.h"

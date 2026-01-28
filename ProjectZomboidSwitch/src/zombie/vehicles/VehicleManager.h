@@ -17,8 +17,8 @@
 #  define SHORT_HASH_MAP std::unordered_map
 #endif
 #include <vector>
-#include "org/joml/Quaternionf.h"
-#include "org/joml/Vector3f.h"
+#include <glm/gtc/quaternion.hpp>
+#include <glm/vec3.hpp>
 #include "zombie/GameTime.h"
 #include "zombie/GameWindow.h"
 #include "zombie/Lua/LuaEventManager.h"

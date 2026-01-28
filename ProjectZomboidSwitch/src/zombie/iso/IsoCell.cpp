@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "zombie/iso/IsoCell.h"
-#include <QRect>
+#include "zombie/core/Rect.h"
 
 namespace zombie {
 namespace iso {

@@ -5,9 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL20.h"
-#include "org/lwjgl/opengl/GL33.h"
-#include "org/lwjglx/BufferUtils.h"
+#include <GL/glew.h>
+#include "zombie/core/utils/BufferUtils.h"
 #include "zombie/core/Rand.h"
 #include "zombie/core/opengl/RenderThread.h"
 #include "zombie/core/opengl/Shader.h"

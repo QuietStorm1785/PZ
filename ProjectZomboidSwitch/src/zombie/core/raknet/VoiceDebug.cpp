@@ -23,7 +23,7 @@ void VoiceDebug::createAndShowGui() {
     // TODO: Implement createAndShowGui
 }
 
-void VoiceDebug::updateGui(SoundBuffer var0, FMODSoundBuffer var1) {
+void VoiceDebug::updateGui(OpenALSoundBuffer var0) { // OpenAL migration complete
     // TODO: Implement updateGui
 }
 

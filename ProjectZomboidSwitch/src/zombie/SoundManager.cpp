@@ -3,9 +3,9 @@
 
 namespace zombie {
 
-FMODParameterList SoundManager::getFMODParameters() {
-    // TODO: Implement getFMODParameters
-    return nullptr;
+std::vector<std::shared_ptr<BaseVehicleParameter>> SoundManager::getParameters() {
+    // TODO: Implement getParameters for OpenAL
+    return {};
 }
 
 void SoundManager::startEvent(long var1, GameSoundClip var3, BitSet var4) {

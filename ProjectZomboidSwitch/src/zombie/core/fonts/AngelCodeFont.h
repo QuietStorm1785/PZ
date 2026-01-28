@@ -8,7 +8,7 @@
 #include <cstdint>
 #include "gnu/trove/list/array/TShortArrayList.h"
 #include "gnu/trove/map/hash/TShortObjectHashMap.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "zombie/ZomboidFileSystem.h"
 #include "zombie/asset/Asset.h"
 #include "zombie/asset/Asset/State.h"

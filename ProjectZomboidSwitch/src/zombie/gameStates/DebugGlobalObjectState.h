@@ -18,8 +18,7 @@
 #include "zombie/globalObjects/CGlobalObjectSystem.h"
 #include "zombie/globalObjects/CGlobalObjects.h"
 #include "zombie/globalObjects/GlobalObject.h"
-#include "zombie/input/GameKeyboard.h"
-#include "zombie/input/Mouse.h"
+#include "zombie/input/InputGlobals.h"
 #include "zombie/iso/IsoCamera.h"
 #include "zombie/iso/IsoChunkMap.h"
 #include "zombie/iso/IsoObject.h"
@@ -122,7 +121,7 @@ public:
    }
 
     StateAction update() {
-      if (!this.bExit && !GameKeyboard.isKeyPressed(60)) {
+      if (!this.bExit && !g_keyboard.isKeyPressed(SDL_SCANCODE_F2)) {
     IsoChunkMap var1 = IsoWorld.instance.CurrentCell.ChunkMap[this.m_playerIndex];
          var1.ProcessChunkPos(IsoPlayer.players[this.m_playerIndex]);
          var1.update();
@@ -187,7 +186,7 @@ public:
     StateAction updateScene() {
       IsoPlayer.setInstance(IsoPlayer.players[this.m_playerIndex]);
       IsoCamera.CamCharacter = IsoPlayer.players[this.m_playerIndex];
-      UIManager.setPicked(IsoObjectPicker.Instance.ContextPick(Mouse.getXA(), Mouse.getYA()));
+      UIManager.setPicked(IsoObjectPicker.Instance.ContextPick(g_mouse.getX(), g_mouse.getY()));
     IsoObject var1 = UIManager.getPicked() == nullptr ? nullptr : UIManager.getPicked().tile;
       UIManager.setLastPicked(var1);
       IsoCamera.update();
@@ -197,8 +196,8 @@ public:
 
     void updateCursor() {
     int var1 = this.m_playerIndex;
-    float var2 = Mouse.getXA();
-    float var3 = Mouse.getYA();
+   float var2 = g_mouse.getX();
+   float var3 = g_mouse.getY();
       var2 -= IsoCamera.getScreenLeft(var1);
       var3 -= IsoCamera.getScreenTop(var1);
       var2 *= Core.getInstance().getZoom(var1);

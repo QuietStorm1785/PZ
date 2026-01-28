@@ -7,20 +7,17 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/FMOD_DriverInfo.h"
-#include "fmod/javafmod.h"
-#include "java/awt/image/BufferedImage.h"
+// #include "OpenAL/OpenAL_DriverInfo.h" // Use OpenAL equivalents if needed
 #include "java/text/SimpleDateFormat.h"
 #include "javax/imageio/ImageIO.h"
 #include "org/joml/Matrix4f.h"
 #include "org/lwjgl/glfw/GLFW.h"
 #include "org/lwjgl/glfw/GLFWVidMode.h"
 #include "org/lwjgl/opengl/GL.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "org/lwjgl/opengl/GL32.h"
 #include "org/lwjgl/system/MemoryUtil.h"
-#include "org/lwjgl/util/glu/GLU.h"
-#include "GraphicsWrapper/GraphicsExceptions.h"
+#include <GL/glew.h>
 #include "org/lwjglx/input/Controller.h"
 #include "org/lwjglx/input/Keyboard.h"
 #include "org/lwjglx/opengl/Display.h"
@@ -2659,12 +2656,12 @@ public:
 
     int getOptionVoiceRecordDevice() {
       if (!SoundDisabled && !VoiceManager.VoipDisabled) {
-    int var1 = javafmod.FMOD_System_GetRecordNumDrivers();
+    int var1 = OpenALSystem::GetRecordNumDrivers();
 
          for (int var2 = 0; var2 < var1; var2++) {
-    FMOD_DriverInfo var3 = std::make_shared<FMOD_DriverInfo>();
-            javafmod.FMOD_System_GetRecordDriverInfo(var2, var3);
-            if (var3.name == OptionVoiceRecordDeviceName)) {
+    OpenAL_DriverInfo var3 = std::make_shared<OpenAL_DriverInfo>();
+            OpenALSystem::GetRecordDriverInfo(var2, var3);
+            if (var3.name == OptionVoiceRecordDeviceName) {
                return var2 + 1;
             }
          }
@@ -2678,10 +2675,10 @@ public:
     void setOptionVoiceRecordDevice(int var1) {
       if (!SoundDisabled && !VoiceManager.VoipDisabled) {
          if (var1 >= 1) {
-    FMOD_DriverInfo var2 = std::make_shared<FMOD_DriverInfo>();
-            javafmod.FMOD_System_GetRecordDriverInfo(var1 - 1, var2);
-            OptionVoiceRecordDeviceName = var2.name;
-            VoiceManager.instance.UpdateRecordDevice();
+       OpenAL_DriverInfo var2 = std::make_shared<OpenAL_DriverInfo>();
+          OpenALSystem::GetRecordDriverInfo(var1 - 1, var2);
+          OptionVoiceRecordDeviceName = var2.name;
+          VoiceManager.instance.UpdateRecordDevice();
          }
       }
    }

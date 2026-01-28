@@ -4,7 +4,7 @@ namespace zombie {
 namespace audio {
 namespace parameters {
 
-public ParameterOcclusion::ParameterOcclusion(FMODSoundEmitter var1) {
+public ParameterOcclusion::ParameterOcclusion(OpenALSoundEmitter var1) {
     // TODO: Implement ParameterOcclusion
     return nullptr;
 }

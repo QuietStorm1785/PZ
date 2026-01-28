@@ -5,10 +5,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBMapBufferRange.h"
-#include "org/lwjgl/opengl/GL.h"
-#include "org/lwjgl/opengl/GL20.h"
-#include "org/lwjgl/opengl/GL30.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include "org/lwjglx/opengl/OpenGLException.h"
 #include "zombie/core/skinnedmodel/model/VertexBufferObject.h"
 #include <filesystem>

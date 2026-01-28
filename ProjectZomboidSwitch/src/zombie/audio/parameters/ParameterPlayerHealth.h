@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODLocalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/math/PZMath.h"
 
@@ -14,7 +14,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterPlayerHealth : public FMODLocalParameter {
+class ParameterPlayerHealth : public zombie::audio::OpenALParameterStub {
 public:
     const IsoPlayer player;
 

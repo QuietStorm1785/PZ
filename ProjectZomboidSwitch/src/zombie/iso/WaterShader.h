@@ -6,9 +6,8 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Vector4f.h"
-#include "org/lwjgl/opengl/ARBShaderObjects.h"
-#include "org/lwjgl/opengl/GL11.h"
-#include "org/lwjgl/opengl/GL13.h"
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include "zombie/core/SpriteRenderer.h"
 #include "zombie/core/opengl/Shader.h"
 #include "zombie/core/opengl/ShaderProgram.h"

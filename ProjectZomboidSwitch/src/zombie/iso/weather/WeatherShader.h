@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/ARBShaderObjects.h"
+#include <GL/glew.h>
 #include "zombie/GameTime.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/core/Core.h"

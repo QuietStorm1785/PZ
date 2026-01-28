@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/FMOD_DriverInfo.h"
-#include "fmod/javafmod.h"
+// #include "OpenAL/OpenAL_DriverInfo.h" // Use OpenAL equivalents if needed
 #include "se/krka/kahlua/vm/JavaFunction.h"
 #include "se/krka/kahlua/vm/KahluaTable.h"
 #include "se/krka/kahlua/vm/LuaCallFrame.h"
@@ -25,12 +24,12 @@ public:
 
     int call(LuaCallFrame var1, int var2) {
       if (!Core.SoundDisabled && !VoiceManager.VoipDisabled) {
-    int var7 = javafmod.FMOD_System_GetRecordNumDrivers();
+   int var7 = OpenALSystem::GetRecordNumDrivers();
     KahluaTable var4 = var1.getPlatform().newTable();
 
          for (int var5 = 0; var5 < var7; var5++) {
-    FMOD_DriverInfo var6 = std::make_shared<FMOD_DriverInfo>();
-            javafmod.FMOD_System_GetRecordDriverInfo(var5, var6);
+   OpenAL_DriverInfo var6 = std::make_shared<OpenAL_DriverInfo>();
+            OpenALSystem::GetRecordDriverInfo(var5, var6);
             var4.rawset(var5 + 1, var6.name);
          }
 

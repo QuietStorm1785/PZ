@@ -47,7 +47,7 @@ bool DummySoundEmitter::hasSustainPoints(long var1) {
     return false;
 }
 
-void DummySoundEmitter::setParameterValue(long var1, FMOD_STUDIO_PARAMETER_DESCRIPTION var3, float var4) {
+void DummySoundEmitter::setParameterValue(long var1, OpenALParameterDescription var3, float var4) {
     // Dummy implementation: does nothing
 }
 

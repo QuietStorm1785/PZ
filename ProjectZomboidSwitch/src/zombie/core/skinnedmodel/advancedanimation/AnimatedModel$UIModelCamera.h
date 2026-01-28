@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <cstdint>
 #include "org/joml/Math.h"
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "zombie/core/skinnedmodel/ModelCamera.h"
 
 namespace zombie {

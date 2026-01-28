@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMODManager.h"
+
 #include "zombie/GameTime.h"
 #include "zombie/GameWindow.h"
 #include "zombie/Lua/LuaEventManager.h"
@@ -410,7 +410,8 @@ public:
     int var3 = var2 ? 1 : 0;
       if (var3 != this.m_cookingParameter) {
          this.m_cookingParameter = var3;
-         var1.setParameterValue(this.m_cookingSound, FMODManager.instance.getParameterDescription("CookingState"), this.m_cookingParameter);
+
+         // OpenAL equivalent: Use alSourcef or alSourcei to set source parameters (e.g., AL_GAIN, AL_PITCH) as needed.
       }
    }
 

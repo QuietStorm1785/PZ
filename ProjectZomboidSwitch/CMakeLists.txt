@@ -1,3 +1,11 @@
+# ImGui integration (all platforms)
+set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/../bin_res/imgui)
+file(GLOB IMGUI_SOURCES
+    ${IMGUI_DIR}/*.cpp
+    ${IMGUI_DIR}/backends/imgui_impl_sdl2.cpp
+    ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
+)
+include_directories(${IMGUI_DIR} ${IMGUI_DIR}/backends)
 # Only perform Boost include mapping for Nintendo Switch builds
 if(NINTENDO_SWITCH)
     file(GLOB_RECURSE NON_ABSEIL_SOURCES
@@ -91,7 +99,9 @@ else()
     endif()
 endif()
 
-set(BOOST_ROOT "${CMAKE_SOURCE_DIR}/src/boost")
+
+# Set third-party library roots in bin_res
+set(BOOST_ROOT "${CMAKE_SOURCE_DIR}/../bin_res/boost")
 if(EXISTS ${BOOST_ROOT})
     message(STATUS "Found Boost at: ${BOOST_ROOT}")
     set(Boost_USE_STATIC_LIBS ON)
@@ -103,7 +113,7 @@ else()
 endif()
 
 # Add Abseil (always, for all platforms)
-set(ABSEIL_ROOT "${CMAKE_SOURCE_DIR}/src/abseil")
+set(ABSEIL_ROOT "${CMAKE_SOURCE_DIR}/../bin_res/abseil")
 if(EXISTS ${ABSEIL_ROOT})
     message(STATUS "Found Abseil at: ${ABSEIL_ROOT}")
     if(NINTENDO_SWITCH)
@@ -120,24 +130,26 @@ endif()
 cmake_minimum_required(VERSION 3.10)
 project(ProjectZomboidSwitch VERSION 1.0.0 LANGUAGES CXX)
 
-# Qt (QImage) support for image handling
-find_package(Qt5 COMPONENTS Core Gui REQUIRED)
-include_directories(${Qt5Core_INCLUDE_DIRS} ${Qt5Gui_INCLUDE_DIRS})
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+
+# ImGui integration (all platforms)
+set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/thirdparty/imgui)
+file(GLOB IMGUI_SOURCES
+    ${IMGUI_DIR}/*.cpp
+    ${IMGUI_DIR}/backends/imgui_impl_sdl2.cpp
+    ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
+)
+include_directories(${IMGUI_DIR} ${IMGUI_DIR}/backends)
+
 if(NINTENDO_SWITCH)
     message(STATUS "Configuring for Nintendo Switch")
     add_definitions(-D__SWITCH__)
     add_definitions(-DNINTENDO_SWITCH)
-    
     # Find SDL2 on Switch
     find_package(SDL2 REQUIRED)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(SDL2_IMAGE REQUIRED SDL2_image)
     pkg_check_modules(SDL2_MIXER REQUIRED SDL2_mixer)
     pkg_check_modules(SDL2_NET REQUIRED SDL2_net)
-    
     include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} 
                         ${SDL2_MIXER_INCLUDE_DIRS} ${SDL2_NET_INCLUDE_DIRS})
 else()
@@ -148,32 +160,55 @@ else()
     else()
         message(WARNING "SDL2 not found - some features may not compile")
     endif()
+    # Qt removed: no longer required for any build
 endif()
+
 
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/src/boost)
-include_directories(${CMAKE_SOURCE_DIR}/src/OpenCV/include)
-include_directories(${CMAKE_SOURCE_DIR}/src/OpenCV/modules/highgui/include)
-include_directories(${CMAKE_SOURCE_DIR}/src/lua-5.4.7)
-include_directories(${CMAKE_SOURCE_DIR}/src/zlib)
-include_directories(${CMAKE_SOURCE_DIR}/src/sqlite)
-include_directories(${CMAKE_SOURCE_DIR}/src/sqlite)
-include_directories(${CMAKE_SOURCE_DIR}/src/abseil)
-include_directories(${CMAKE_SOURCE_DIR}/src/include/de/btobastian/javacord)
-include_directories(${CMAKE_SOURCE_DIR}/src/fmod/core/inc)
-include_directories(${CMAKE_SOURCE_DIR}/src/fmod/studio/inc)
-include_directories(${CMAKE_SOURCE_DIR}/src/fmod/fsbank/inc)
-include_directories(${CMAKE_SOURCE_DIR}/src/fmod/plugins/fmod_haptics/inc)
-include_directories(${CMAKE_SOURCE_DIR}/src/fmod/plugins/resonance_audio/inc)
+include_directories(${CMAKE_SOURCE_DIR}/src/glus)
+
+# Third-party includes from bin_res
+include_directories(${BOOST_ROOT})
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/opencv-4.x/include)
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/opencv-4.x/modules/highgui/include)
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/opencv-4.x/modules/core/include)
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/lua-5.4.7/src)
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/zlib-develop)
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/sqlite-master/src)
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/json-develop/include)
+include_directories(${ABSEIL_ROOT})
+
+
+# GLM (header-only)
+include_directories(${CMAKE_SOURCE_DIR}/../bin_res/glm)
+
+# GLEW (local build)
+include_directories(${CMAKE_SOURCE_DIR}/src/glew-2.2.0/include)
+
+# GLU (local build)
+set(GLU_DIR ${CMAKE_SOURCE_DIR}/src/glu/GLU-master)
+include_directories(${GLU_DIR}/include)
+include_directories(${GLU_DIR}/src/include)
+
+# Gather GLU sources
+file(GLOB_RECURSE GLU_SOURCES
+    "${GLU_DIR}/src/*.c"
+    "${GLU_DIR}/src/*.cc"
+    "${GLU_DIR}/src/*.cpp"
+)
+
 
 # Collect all source files
-
 # Exclude Boost example and test files from sources to avoid build errors (e.g., AutoMoc conflicts)
 file(GLOB_RECURSE ALL_CONVERT2CPP_SOURCES 
     "${CMAKE_SOURCE_DIR}/src/**/*.cpp"
     "${CMAKE_SOURCE_DIR}/src/*.cpp"
+    "${CMAKE_SOURCE_DIR}/src/zombie/audio/stb_vorbis.c"
 )
+
+# Add GLU sources to the build
+list(APPEND ALL_CONVERT2CPP_SOURCES ${GLU_SOURCES})
 
 set(CONVERT2CPP_SOURCES "")
 foreach(SRC ${ALL_CONVERT2CPP_SOURCES})
@@ -221,8 +256,11 @@ endif()
 # Add main.cpp to sources if not already included
 list(APPEND CONVERT2CPP_SOURCES ${MAIN_CPP})
 
+# Add GLU sources to the final source list
+list(APPEND CONVERT2CPP_SOURCES ${GLU_SOURCES})
+
 # Create executable
-add_executable(ProjectZomboidSwitch ${CONVERT2CPP_SOURCES})
+add_executable(ProjectZomboidSwitch ${CONVERT2CPP_SOURCES} ${IMGUI_SOURCES})
 message(STATUS "Building executable")
 
 # Set output name
@@ -242,53 +280,16 @@ target_include_directories(ProjectZomboidSwitch PRIVATE
 # Link libraries
 set(LINK_LIBS "")
 
-# FMOD Core, Studio, FSBANK, Haptics, Resonance Audio (x64)
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-    list(APPEND LINK_LIBS
-        ${CMAKE_SOURCE_DIR}/src/fmod/core/lib/x64/fmod_vc.lib
-        ${CMAKE_SOURCE_DIR}/src/fmod/studio/lib/x64/fmodstudio_vc.lib
-        ${CMAKE_SOURCE_DIR}/src/fmod/fsbank/lib/x64/fsbank_vc.lib
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/operations.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/path.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/codecvt_error_category.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/exception.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/unique_path.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/utf8_codecvt_facet.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/windows_file_codecvt.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/filesystem/src/windows_tools.hpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/system/extra/boost_system.natvis
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/thread/src/future.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/thread/src/tss_null.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/chrono/src/chrono.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/chrono/src/process_cpu_clocks.cpp
-        ${CMAKE_SOURCE_DIR}/src/boost/libs/chrono/src/thread_clock.cpp
-    )
-    # Abseil (skip for Switch, handled by Boost mapping)
-    if(NOT NINTENDO_SWITCH)
-        list(APPEND LINK_LIBS
-            absl::strings
-            absl::str_format
-            absl::base
-            absl::synchronization
-            absl::time
-            absl::flat_hash_map
-            absl::flat_hash_set
-        )
-    endif()
-    # SQLite
-    list(APPEND LINK_LIBS
-        ${CMAKE_SOURCE_DIR}/src/sqlite/sqlite3.c
-    )
-    # Optional plugins
-    if(EXISTS "${CMAKE_SOURCE_DIR}/src/fmod/plugins/fmod_haptics/lib/x64/fmod_haptics.dll")
-        list(APPEND LINK_LIBS
-            ${CMAKE_SOURCE_DIR}/src/fmod/plugins/fmod_haptics/lib/x64/fmod_haptics.dll
-        )
-    endif()
-    if(EXISTS "${CMAKE_SOURCE_DIR}/src/fmod/plugins/resonance_audio/lib/x64/resonanceaudio.dll")
-        list(APPEND LINK_LIBS
-            ${CMAKE_SOURCE_DIR}/src/fmod/plugins/resonance_audio/lib/x64/resonanceaudio.dll
-        )
+
+
+# OpenAL (cross-platform audio, not for Switch)
+if(NOT NINTENDO_SWITCH)
+    find_package(OpenAL REQUIRED)
+    if(OPENAL_FOUND)
+        include_directories(${OPENAL_INCLUDE_DIR})
+        list(APPEND LINK_LIBS ${OPENAL_LIBRARY})
+    else()
+        message(FATAL_ERROR "OpenAL not found. Please install OpenAL development libraries.")
     endif()
 endif()
 
@@ -379,11 +380,17 @@ endif()
 
 # Link all libraries to target
 
-# Link Qt libraries
-target_link_libraries(ProjectZomboidSwitch PRIVATE Qt5::Core Qt5::Gui)
-
-if(LINK_LIBS)
-    target_link_libraries(ProjectZomboidSwitch PRIVATE ${LINK_LIBS})
+# Link ImGui and platform libraries
+if(NINTENDO_SWITCH)
+    # No Qt on Switch
+    if(LINK_LIBS)
+        target_link_libraries(ProjectZomboidSwitch PRIVATE ${LINK_LIBS})
+    endif()
+else()
+    # Qt removed: no longer required for any build
+    if(LINK_LIBS)
+        target_link_libraries(ProjectZomboidSwitch PRIVATE ${LINK_LIBS})
+    endif()
 endif()
 
 # Installation rules

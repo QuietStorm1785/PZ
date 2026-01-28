@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "org/lwjgl/opengl/GL11.h"
+#include <GL/glew.h>
 #include "GraphicsWrapper/GraphicsExceptions.h"
 #include "org/lwjglx/input/Controllers.h"
 #include "org/lwjglx/opengl/Display.h"

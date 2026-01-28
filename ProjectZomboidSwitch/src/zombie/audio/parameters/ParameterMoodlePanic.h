@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "zombie/audio/FMODGlobalParameter.h"
+#include "zombie/audio/parameters/OpenALParameterStub.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/characters/IsoPlayer.h"
 #include "zombie/characters/Moodles/MoodleType.h"
@@ -15,7 +15,7 @@ namespace audio {
 namespace parameters {
 
 
-class ParameterMoodlePanic : public FMODGlobalParameter {
+class ParameterMoodlePanic : public zombie::audio::OpenALParameterStub {
 public:
     public ParameterMoodlePanic() {
       super("MoodlePanic");

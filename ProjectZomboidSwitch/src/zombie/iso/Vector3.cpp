@@ -19,9 +19,10 @@ public Vector3::Vector3(float var1, float var2, float var3) {
     return nullptr;
 }
 
-Vector2 Vector3::fromAwtPoint(Point var0) {
-    // TODO: Implement fromAwtPoint
-    return nullptr;
+Vector2 Vector3::fromQPoint(const QPoint& var0) {
+    // Example implementation
+    return Vector2(var0.x(), var0.y());
+}
 }
 
 Vector2 Vector3::fromLengthDirection(float var0, float var1) {

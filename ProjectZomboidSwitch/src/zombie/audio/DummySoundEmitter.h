@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
-#include "fmod/fmod/FMOD_STUDIO_PARAMETER_DESCRIPTION.h"
 #include "zombie/characters/IsoGameCharacter.h"
 #include "zombie/iso/IsoGridSquare.h"
 #include "zombie/iso/IsoObject.h"
@@ -28,7 +27,7 @@ public:
     void setVolume(int64_t id, float volume) override {}
     void setPitch(int64_t id, float pitch) override {}
     bool hasSustainPoints(int64_t id) override { return false; }
-    void setParameterValue(int64_t id, const FMOD_STUDIO_PARAMETER_DESCRIPTION& param, float value) override {}
+    void setParameterValue(int64_t id, const std::string& param, float value) override {}
     void setTimelinePosition(int64_t id, const std::string& position) override {}
     void triggerCue(int64_t id) override {}
 
@@ -64,15 +63,16 @@ public:
     int64_t playSoundImpl(const std::string&, zombie::iso::IsoObject*) override { return 0; }
     int64_t playClip(GameSoundClip&, zombie::iso::IsoObject*) override { return 0; }
     int64_t playAmbientSound(const std::string&) override { return 0; }
+    int64_t playSoundLooped(const std::string&) override { return 0; }
+    int64_t playSoundLoopedImpl(const std::string&) override { return 0; }
+    int64_t playAmbientLoopedImpl(const std::string&) override { return 0; }
+    void set3D(int64_t, bool) override {}
     void tick() override {}
     bool hasSoundsToStart() const override { return false; }
     bool isEmpty() const override { return true; }
     bool isPlaying(int64_t) const override { return false; }
     bool isPlaying(const std::string&) const override { return false; }
     bool restart(int64_t) override { return false; }
-    int64_t playSoundLooped(const std::string&) override { return 0; }
-    int64_t playSoundLoopedImpl(const std::string&) override { return 0; }
-    int64_t playAmbientLoopedImpl(const std::string&) override { return 0; }
 };
 } // namespace audio
 } // namespace zombie
