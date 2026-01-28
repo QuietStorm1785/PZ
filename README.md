@@ -31,11 +31,24 @@ After extraction, the build system will automatically use these folders. You do 
 
 **Remove any old copies of these libraries from ProjectZomboidSwitch/src/ to avoid conflicts.**
 
-## Audio Backend Migration
+
+## UI and Audio Backend Migration
+
+### ImGui User Interface
+
+All user interface code now uses ImGui, which is lightweight, portable, and compatible with the Nintendo Switch and other platforms.
+
+All build scripts, dependencies, and UI logic have been updated to use ImGui.
+
+### Audio: FMOD to OpenAL
 
 **FMOD has been fully removed. Project Zomboid now uses OpenAL for all audio.**
 
+FMOD was replaced because it is proprietary and not suitable for open or platform-restricted environments. OpenAL is open source and supported on the Nintendo Switch.
+
 All code, build scripts, and dependencies have been updated to require OpenAL. You must have OpenAL development libraries installed to build and run the project.
+
+---
 
 Converted Java-to-C++ codebase for Project Zomboid.
 
@@ -74,17 +87,17 @@ ProjectZomboidSwitch/
 
 - CMake 3.10 or later
 - C++20 compatible compiler
-- Qt 5 (Core, Gui) development libraries (for QImage support)
 - OpenAL development libraries (for audio)
 - For Switch: devkitPro with devkitA64 toolchain
 
 
 
-#### Installing Qt and OpenAL (Linux/Ubuntu example)
+
+#### Installing OpenAL (Linux/Ubuntu example)
 
 ```
 sudo apt update
-sudo apt install qtbase5-dev qt5-qmake qtbase5-dev-tools libopenal-dev
+sudo apt install libopenal-dev
 ```
 
 #### Installing OpenAL (MSYS2/Windows example)
@@ -109,8 +122,7 @@ make -j$(nproc)
 ```
 
 #### Notes
-- Ensure Qt5 is installed and CMake can find it (see error messages for missing Qt5::Core or Qt5::Gui).
-- For other platforms, install Qt5 using your system's package manager or from https://www.qt.io/download.
+-
 - **Boost** (located at `../boost`)
 - **Abseil** (located at `../abseil`)
 - Optional: SDL2 (for audio/graphics features)
